@@ -1,0 +1,10 @@
+title: MUDE
+author: MUDE Teachers and the Student Army
+logo: figures/MUDE Logo.png
+
+execute:
+  execute_notebooks: auto
+
+sphinx:
+  extra_extensions:
+  - sphinx_inline_tabs
