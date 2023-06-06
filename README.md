@@ -27,11 +27,11 @@ Someday we will probably add chapter numbers, determine conventions for figures,
 **Keeep this in mind:** until we share the book with the students it will be in development mode, which means we can add all sorts of notes, tags, flags, etc.. Wherever, however, whoever. Just have fun. By July, however, the Table of Contents should close to final and by mid-August the old, draft and temporary material should be removed.
 
 Your typical workflow is:
-- create your own branch via GitLab
-- pull and checkout on your laptop
-- add your content
-- push to GL
-- when ready to share with the MUDE team, merge into main
+- create your own branch via GitLab (create from an Issue directly, or just create one manually and use or name)
+- pull and checkout on your laptop (`git pull` or use the sync button then `git checkout BRANCHNAME`)
+- add your content, commit changes
+- push to GitLab
+- when ready to share with the MUDE team, merge into main (Merge Request)
 - if you have a problem or question, or need someone to check something, you can:
   - create an Issue and tag someone. Use labels to designate the type of Issue (e.g., `@user: can you show me the right way to make this link? i could not find it in the manual`)
   - tag someone in a merge request (e.g., "hey i am adding content to main, it's ready for you to add your coding example to illustrate exercise 3")
