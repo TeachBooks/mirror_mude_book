@@ -40,6 +40,27 @@ In the future, additional branches will be set up to publish the website, but we
 
 For now, the only strict rule is: **Never push directly to `main`.** Now that there are many of us working together, the potential for messy merge conflicts is higher, so please try to update the "working draft" on `main` via a merge request.
 
-## 
+## Build notes
 
 **The book build is currently set up to run notebooks automatically!!!** This may be different than past books that you have worked on. It means all the code in a notebook whenever the file has been updated. This smay add build time, but is going to be an extremely useful tool for checking and enforcing our coding standards, packages, etc. It also means that if you add a new package to your notebook you need to list it in `requirements.txt`. Learn to love it.
+
+## Project Structure IN FLUX
+
+There are several directories that were moved over from the 2.7-2.8 book from last year. It is not clear if these will be adopted long-term, let's see how it goes for now...
+
+Because the structure of the book may change dramatically in coming years, let's keep things organized in subdirectories. For examples, `book/pd/...` contains the chapters moved from the Risk & Reliability book (`pd` = probabilistic design, the name of our old course). This sub-directory structure is duplicated in the directories listed below.
+
+There are several directories:
+- `book/`: primary source files for the book
+- `code/`: auxiliary scripts for generating figures, etc. These are executed via eval-rst blocks, but the functionality is disabled for now (this could be moved to the source files in the future). files to generate the figures outside of the book build begin with `test_...`
+- `unused/`: files that were removed from the book (and didn't want to see warnings for unused files in toc). Might be better to hide these in a branch
+unused/pd/
+### Conversion of old book from GH to new repo
+
+Mostly I copied files, but also:
+- added sub-directory `pd` to the 3 dir's listed above
+- put figure build nb into `code` (got rid of `code_check`
+- find/replace to add sub-dir references
+- added `_dont_execute` wildcard to config (change toc and filename for 3 nb's)
+- need to move up one extra dir for figure and code includes
+- 
