@@ -68,8 +68,18 @@ Pseudo code is presented to illustrate the procedure to build a QQ-plot.
 
 ### Log-scale
 
-As previously introduced, the tails of the distributions are key to allow the inference of values which have not been observed yet. Therefore, it is important to check whether the distribution used to model the observations is performing properly in that region. A simple trick to do so is to use a logarithmic scale (log-scale). That way, a "zoom in" on those points in the tail is performed instead of focusing on the bulk of the data. In the figure below, the representation of the cdf in normal and log-scale is shown.
+As previously introduced, the tails of the distributions are key to allow the inference of values which have not been observed yet. Therefore, it is important to check whether the distribution used to model the observations is performing properly in that region. A simple trick to do so is to use a logarithmic scale (log-scale) to represent the exceedance probability plot. That way, we "zoom in" on those points in the tail instead of focusing on the bulk of the data. In the figure below, the representation of the cdf in regular and log-scale is shown.
 
+```{figure} /sandbox/1-7-continuous/figures/log-scale.png
+---
+scale: 100%
+name: rating_curve
+
+---
+Exceedance probability plot represented both in regular and logarithmic scale.
+```
+
+Analyzing the figure on the left side, it can be seen that the observations follow better the Normal distribution. However, it is not clear which one of the two distributions is performing better in the tail. By analyzing the plot on the right side, it is possible to answer that question. Again, it is observed that the data points follow better the Gaussian distribution. However, observations in the tail are not that well represented by the Gaussian distribution, being even closer to the Exponential distribution. Thus, since none of the considered distributions performs properly in the tail, it may be needed to consider another distribution to model the asymmetry of the data, such as the Gumbel or Lognormal distributions. 
 
 
 ### Probability plot
