@@ -98,34 +98,13 @@ $
 ln[1-F(x)] = -\lambda[x-\mu]
 $
 
-In this manner, there is a linear relationship between $ln[1-F(x)]$ and $x$. Note that in the case of the Exponential distribution, the probability plot is the same as the log-scale. Therefore, the Exponential distribution was shown as a straight line in the previous plot.
+In this manner, there is a linear relationship between $ln[1-F(x)]$ and $x$. Note that in the case of the Exponential distribution, the probability plot is the same as the log-scale! Therefore, the Exponential distribution was shown as a straight line in the previous plot, while the Gaussian distribution was not.
 
 ## Formal hypothesis test: Kolmogorov-Smirnov test
 
 
 
 
-
-
-
-## Let's code it!
-
-Pseudo code is presented. Note that here the first element in a vector corresponds to index 1.
-
-    read observations
-
-    #define parameters
-    dl = 48 #in hours
-    th = linspace(min_threshold, max_threshold, step) #range_thresholds
-
-    for i in length(th):
-        excesses = find_peaks(observations, threshold = th[i], distance = dl) - th[i]
-        for j in length(years):
-            n_excesses[j] = count(excesses[j])
-        e_mean[i] = mean(n_excesses)
-        var_mean[i] = var(n_excesses)
-    
-    plot(x = th, y = e_mean/var_mean)
 
 
 [^cunnane]: Cunnane (1979). A note on the Poisson assumption in partial duration series models. *Water Resources Research*, 15 (2), 489-494.
