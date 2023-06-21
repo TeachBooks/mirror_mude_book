@@ -63,7 +63,7 @@ Pseudo code is presented to illustrate the procedure to build a QQ-plot.
 
     #define the parameters of the Exponential distribution
     loc_expon = -5.25
-    scale_expon = 0.10
+    scale_expon = 10.42
     
     #compute the values of the random variable predicted by the fitted distribution
     q_exponential = cdf.expon(p_emp, param = [loc_expon, scale_expon])
