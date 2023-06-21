@@ -19,13 +19,7 @@ Data overview.
 
 ## Graphical methods
 
-GOF graphical methods are useful tools to have a first intuition of how different models are performing and confirm the results of other quantitative analysis. Here, you are introduce to three techniques: (1) Log-scale, (2) QQ-plot, and (3) Probability plot.
-
-
-
-### Log-scale
-
-aaa
+GOF graphical methods are useful tools to have a first intuition of how different models are performing and confirm the results of other quantitative analysis. Here, you are introduce to three techniques: (1) QQ-plot, (2) Log-scale, and (3) Probability plot.
 
 ### QQ-plot
 
@@ -71,6 +65,10 @@ Pseudo code is presented to illustrate the procedure to build a QQ-plot.
     scatter(q_emp, q_gaussian)
     scatter(q_emp, q_expon)
 
+
+### Log-scale
+
+As previously introduced, the tails of the distributions are key to allow the inference of values which have not been observed yet. Therefore, it is important to check whether the distribution used to model the observations is performing properly in that region. A simple trick to do so is to use a logarithmic scale (log-scale). That way, a "zoom in" on those points in the tail is performed instead of focusing on the bulk of the data. In the figure below, the representation of the cdf in normal and log-scale is shown.
 
 
 
