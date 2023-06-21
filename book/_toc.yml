@@ -7,6 +7,7 @@ parts:
     - file: new/blank
   - caption: Sandbox
     chapters:
+    - file: sandbox/1-7-continuous/GOF
     - file: sandbox/blank
     - file: sandbox/robert
   - caption: MUDE Cookbook
