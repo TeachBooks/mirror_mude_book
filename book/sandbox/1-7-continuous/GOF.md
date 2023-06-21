@@ -82,9 +82,23 @@ Exceedance probability plot represented both in regular and logarithmic scale.
 Analyzing the figure on the left side, it can be seen that the observations follow better the Normal distribution. However, it is not clear which one of the two distributions is performing better in the tail. By analyzing the plot on the right side, it is possible to answer that question. Again, it is observed that the data points follow better the Gaussian distribution. However, observations in the tail are not that well represented by the Gaussian distribution, being even closer to the Exponential distribution. Thus, since none of the considered distributions performs properly in the tail, it may be needed to consider another distribution to model the asymmetry of the data, such as the Gumbel or Lognormal distributions. 
 
 
-### Probability plot
+### Probability plot or probability paper
 
-aaa
+This graphical technique consists on adapting the axis of the plot of the cdf accounting for the parametric distribution fitted so it is presented as a line. This is, the cdf of any Gaussian distribution will be plotted as a line in the Normal probability plot. Thus, in the x-axis a function of the values of the random variable is presented, while in the y-axis a function of the non-exceedance probabilities is shown. 
+
+Let's see it with the example of the Exponential distribution. Its cdf is given by
+
+$
+F(x) = 1 - exp(-\lambda[x-\mu])
+$
+
+where $\lambda$ is the scale parameter and $\mu$ is the location parameter. A transformation is performed on the cdf so a linear relationship is established between the value of the random variable X and the non-exceedance probabilities. In the case of the Exponential distribution, it is just a matter of calculating logarithms to both sides of the equation as
+
+$
+ln[1-F(x)] = -\lambda[x-\mu]
+$
+
+In this manner, there is a linear relationship between $ln[1-F(x)]$ and $x$. Note that in the case of the Exponential distribution, the probability plot is the same as the log-scale. Therefore, the Exponential distribution was shown as a straight line in the previous plot.
 
 ## Formal hypothesis test: Kolmogorov-Smirnov test
 
