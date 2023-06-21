@@ -72,9 +72,7 @@ As previously introduced, the tails of the distributions are key to allow the in
 
 ```{figure} /sandbox/1-7-continuous/figures/log-scale.png
 ---
-scale: 100%
-name: rating_curve
-
+name: log-scale
 ---
 Exceedance probability plot represented both in regular and logarithmic scale.
 ```
