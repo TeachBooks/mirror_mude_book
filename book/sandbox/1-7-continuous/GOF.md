@@ -1,19 +1,88 @@
 
 # Goodness of fit
 
-In the previous sections you have fitted a continuous distribution to your data... you can choose several. Which one is the best model? Answer: GOF.
+In the previous sections you have studied the different mathematical models (continuous distribution functions) that we can use to model the univariate uncertainty of a random variable and how to fit them based on observations. Also, you have been introduced to some methods to fit those models. **But how do I choose between different models?**
 
-## Visual inspection
+The choice of the appropriate distribution function needs to be based first on the **physics of the random variable** we are studying. For instance, if I am studying the concentration of a gas in the atmosphere, negative values do not have a physical meaning, so the selected distribution function should not provide with those estimations.
 
+Once we have accounted for the physical characteristics of the random variable, we can make use of **goodness of fit (GOF) techniques** to support our decision. This is, GOF techniques are not a ground truth, but an objective way of comparing models. Different techniques may lead to different judgments and it is you as expert who has to balance those outputs and select the best model to your judgment. Thus, it is recommended to use more than one GOF technique in the decision-making process. In the subsequent sections, some commonly used GOF techniques in the statistics field are presented.
 
+In order to illustrate these techniques, the following toy example will be used. The set of observations is represented in the plots below by its pdf and cdf. A Gaussian ($N(5.17, 5.76)$) and an Exponential distributions ($Expon(-5.25, 10.42)$) are fitted to the data. GOF techniques will be applied to determine which one of the two models fits the data best.
 
-```{figure} ../figures/EVA/Threshold_DI.png
+```{figure} /sandbox/1-7-continuous/figures/GOF_data.png
 
 ---
 
 ---
-DI por wave data.
+Data overview.
 ```
+
+## Graphical methods
+
+GOF graphical methods are useful tools to have a first intuition of how different models are performing and confirm the results of other quantitative analysis. Here, you are introduce to three techniques: (1) Log-scale, (2) QQ-plot, and (3) Probability plot.
+
+
+
+### Log-scale
+
+aaa
+
+### QQ-plot
+
+This technique is as simple as comparing the observations used to fit the model with the predictions of the model. Typically, the observations are represented in the x-axis and the predictions in the y-axis. Therefore, the perfect fit would be represented by the $45 ^\circ$-line.
+
+Let's see it applied to the example data. Note that the term *"quantile"* is used in statistics to denote the values of the random variable.
+
+```{figure} /sandbox/1-7-continuous/figures/QQplot.png
+---
+scale: 75%
+name: rating_curve
+
+---
+QQ-plot.
+```
+
+In the QQ-plot, it is shown how the predictions given by the Gaussian distribution (in blue) closely follow the $45 ^\circ$-line. Those provided by the Exponential distribution are way further, detaching significantly from the $45 ^\circ$-line in the upper tail. Based on this graphical technique, it is possible to conclude that Normal distribution seems to be a better model for the data.
+
+
+**Let's code it!**
+
+Pseudo code is presented to illustrate the procedure to build a QQ-plot.
+
+    read observations
+
+    #calculate the empirical cdf
+    p_emp, q_emp = ecdf(observations)
+
+    #define the parameters of the Gaussian distribution
+    mean_gaussian = 5.17
+    sd_gaussian = 5.76
+    
+    #compute the values of the random variable predicted by the Normal distribution
+    q_gaussian = cdf.norm(p_emp, param = [mean_gaussian, sd_gaussian])
+
+    #define the parameters of the Exponential distribution
+    loc_expon = -5.25
+    scale_expon = 0.10
+    
+    #compute the values of the random variable predicted by the fitted distribution
+    q_exponential = cdf.expon(p_emp, param = [loc_expon, scale_expon])
+    
+    scatter(q_emp, q_gaussian)
+    scatter(q_emp, q_expon)
+
+
+
+
+### Probability plot
+
+aaa
+
+## Formal hypothesis test: Kolmogorov-Smirnov test
+
+
+
+
 
 
 
