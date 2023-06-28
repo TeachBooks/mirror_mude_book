@@ -100,9 +100,9 @@ In this manner, there is a linear relationship between $ln[1-F(x)]$ and $x$. Not
 
 ## Formal hypothesis test: Kolmogorov-Smirnov test
 
-Kolmogorov-Smirnov (KS) test is one of the most popular nonparametric formal hypothesis tests in statistics. It can be used with two purposes: (1) to compare a sample with a reference parametric distribution, and (2) to compare two samples. Here, the first option is considered, since it is the one used for GOF purposes. Thus, this test aims to determine how likely is that a sample was drawn from the reference parametric distribution.
+Kolmogorov-Smirnov (KS) test is one of the most popular nonparametric formal hypothesis tests in statistics. It can be used with two purposes: (1) to compare a sample with a reference parametric distribution, and (2) to compare two samples. Here, the first option is considered since it is the one used for GOF purposes. Thus, this test aims to determine how likely is that a sample was drawn from the reference parametric distribution.
 
-This test is based on the KS statistic, which is (roughly) the maximum distance between the empirical cumulative distribution and the parametric distribution fitted to those observations. This statistic is mathematical defined as
+This test is based on the KS statistic, which is (roughly) the maximum distance between the empirical cumulative distribution and the parametric distribution fitted to those observations. This statistic is mathematically defined as
 
 $
 D_n = sup_x|\hat{F}(x)-F(x)|
@@ -116,18 +116,15 @@ $H_0: \hat{F} \sim F$
 
 The distribution of $D_n$ has been already calculated and included in different statistic packages, since it depends on the considered parametric distribution. These distributions can be used to calculate the probability of the null hypothesis being true (called $p-value$). A significance level needs to be selected (typically, $\alpha=0.05$) as a threshold to determine whether the null hypothesis is rejected or accepted. This is, if the probability of $H_0$ being true ($p-value$) is below $\alpha$, $H_0$ is rejected, so the empirical cumulative distribution is not coming from the fitted parametric cumulative distribution.
 
-Let's see it in an example.
+Let's see it in an example. In the figure below, both the empirical distribution (step function) and the fitted normal distribution are shown. The maximum distance between both distributions is also presented in red.
 
+```{figure} /sandbox/1-7-continuous/figures/sketch_KS.png
+---
+name: KS
+---
+Maximum distance between the empirical and fitted normal distribution ($D_n$).
+```
 
+If we compute the KS statistic using the distribution already implemented in software (Scipy package, in this case), $D_n = 0.12$ is obtained which (roughly) corresponds to what is shown in the previous plot.
 
-
-
-
-
-
-
-
-
-[^cunnane]: Cunnane (1979). A note on the Poisson assumption in partial duration series models. *Water Resources Research*, 15 (2), 489-494.
-
-[^poisson]: Don't you remember it? Go back to our section in Poisson processes!
+After that, the $p-value$ is also computed, obtaining $p-value = 0.93$. This means that the probability of the null hypothesis ($H_0: \hat{F} \sim F$, the sample comes from the parametric distribution) being true is 0.93. Thus, considering a significance level $\alpha = 0.05$, $pvalue=0.93>\alpha=0.05$, so I cannot reject the null hypothesis.
