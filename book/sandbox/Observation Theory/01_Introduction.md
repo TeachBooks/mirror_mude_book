@@ -8,7 +8,7 @@ Parameter estimation requires specification of the underlying functional and sto
 
 *Functional model*: describes the functional relationship between the observed variables (*observables*) and the unknown parameters. In case this relationship is linear, it will have a form:
 $$E(Y) = \mathrm{A}X$$
-where $X$ is a vector with the unknown parameters, and $\mathbrm{A}$ is referred to as the *design matrix*. $E(.)$ is the expectation operator.
+where $X$ is a vector with the unknown parameters, and $\mathrm{A}$ is referred to as the *design matrix*. $E(.)$ is the expectation operator.
 
 *Stochastic model*: describes the uncertainty of the observables in the form of the variance-covariance matrix.
 
