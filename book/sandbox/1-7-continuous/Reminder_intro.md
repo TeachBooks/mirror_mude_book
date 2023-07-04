@@ -3,8 +3,8 @@
 
 In this section, a reminder on the basic concepts of probabily theory is given focusing on the following concepts:
 - Random variable,
-- Probability density function (pdf),
-- Cumulative distribution function (cdf).
+- Probability density function (PDF),
+- Cumulative distribution function (CDF).
 - Empirical distributions.
 
 ## Some basic concepts

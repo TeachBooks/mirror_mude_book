@@ -8,6 +8,7 @@ parts:
   - caption: Sandbox
     chapters:
     - file: sandbox/1-7-continuous/Reminder_intro.md
+    - file: sandbox/1-7-continuous/Param_distr.md
     - file: sandbox/1-7-continuous/GOF
     - file: sandbox/blank
     - file: sandbox/robert
