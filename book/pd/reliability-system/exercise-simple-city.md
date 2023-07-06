@@ -17,8 +17,6 @@ name: exercise-simple-city
 :label: grasple_exercise_1
 :dropdown:
 :description: Example of exercise which goes along
-%:iframe_width: 560
-%:iframe_height: 100
 
 ::::
 
