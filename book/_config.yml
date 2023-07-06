@@ -13,6 +13,7 @@ sphinx:
     bibtex_reference_style: author_year
   extra_extensions:
   - sphinx_inline_tabs
+  - sphinx_grasple
 
 bibtex_bibfiles:
   - _bibliography/references_pd.bib

@@ -9,9 +9,19 @@ name: exercise-simple-city
 ---
 ```
 
-<iframe height="560" src="https://embed.grasple.com/exercises/767782d5-023a-4b49-a1f3-874fca626c8e?id=79907" title="Grasple Exercise 79907" width="100%" allow="clipboard-read; clipboard-write" Content-Security-Policy: frame-ancestors 'self'></iframe>
 
-doesn't work yet....
+
+
+::::{grasple}
+:url: https://embed.grasple.com/exercises/767782d5-023a-4b49-a1f3-874fca626c8e?id=79907
+:label: grasple_exercise_1
+:dropdown:
+:description: Example of exercise which goes along
+%:iframe_width: 560
+%:iframe_height: 100
+
+::::
+
 
 
 **Question 2:** If the probability of failure for an individual bridge is 0.1 per year, compute the probability that you cannot drive from City 2 to City 3.
