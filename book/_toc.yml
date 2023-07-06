@@ -100,3 +100,43 @@ parts:
         title: Assignment 2
       - file: EVA/MUDE/01_06_4-1-EVA2_teacher_dont_execute.ipynb
         title: Solution 2
+
+ # Coding
+  - caption: Coding (Last Year)
+    chapters:
+    - file: old/coding/overview.md
+    - file: old/coding/1-1/1-overview.md
+      sections:
+      - file: old/coding/1-1/1-1-student_dont_execute.ipynb
+      - file: old/coding/1-1/1-1-solution_dont_execute.ipynb
+      - file: old/coding/1-1/1-2-student_dont_execute.ipynb
+      - file: old/coding/1-1/1-2-solution_dont_execute.ipynb
+    - file: old/coding/1-2-Golden_Rules_dont_execute.ipynb
+    - file: old/coding/1-3-git
+    - file: old/coding/1-4/1-overview.md
+      sections:
+      - file: old/coding/1-4/1-1-testing-student_dont_execute
+      - file: old/coding/1-4/1-1-testing-solution_dont_execute
+      - file: old/coding/1-4/1-2-oop-student_dont_execute
+      - file: old/coding/1-4/1-2-oop-solution_dont_execute
+      - file: old/coding/1-4/1-3-modules-student_dont_execute
+      - file: old/coding/1-4/1-3-modules-solution_dont_execute
+    - file: old/coding/1-6/1-overview.md
+      sections:
+      - file: old/coding/1-6/1_1_Introduction_student_dont_execute.ipynb
+      - file: old/coding/1-6/1_2_Points_student_dont_execute.ipynb
+      - file: old/coding/1-6/1_3_Lines_student_dont_execute.ipynb
+      - file: old/coding/1-6/1_6_Lines_teacher_dont_execute.ipynb
+      - file: old/coding/1-6/1_4_Polygons_student_dont_execute.ipynb
+      - file: old/coding/1-6/1_7_Polygons_teacher_dont_execute.ipynb
+      - file: old/coding/1-6/1_5_Rasters_student_dont_execute.ipynb
+      - file: old/coding/1-6/1_8_Rasters_teacher_dont_execute.ipynb
+    - file: old/coding/2-2/1-overview.md
+      sections:
+      - file: old/coding/2-2/1-software.md
+      - file: old/coding/2-2/1-part-1.md
+        sections:
+        - file: old/coding/2-2/1_1_dont_execute.ipynb
+        - file: old/coding/2-2/1_2_dont_execute.ipynb
+      - file: old/coding/2-2/1-part-2.md
+      - file: old/coding/2-2/1-part-3.md
