@@ -18,3 +18,10 @@ sphinx:
 
 bibtex_bibfiles:
   - _bibliography/references_pd.bib
+  
+launch_buttons:
+  thebe: true
+  
+repository:
+  url: https://gitlab.tudelft.nl/mude/book  # Online location of your book
+  branch: main  # Which branch of the repository should be used when creating links (optional)
