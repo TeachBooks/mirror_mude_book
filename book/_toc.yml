@@ -9,6 +9,10 @@ parts:
     chapters:
     - file: sandbox/blank
     - file: sandbox/robert
+      sections:
+      - file: 01_Introduction.md
+      - file: 02_Notebook_LeastSquares.ipynb
+    - file: sandbox/Obervation Theory
   - caption: MUDE Cookbook
     chapters:
     - file: cookbook/blank
