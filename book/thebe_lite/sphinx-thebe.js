@@ -55,7 +55,7 @@ var configureThebe = () => {
     // Find any cells with an initialization tag and ask thebe to run them when ready
     if (data.status === "ready") {
       $(".thebe-launch-button").each((ii, button) => {
-        button.innerHTML = `Ready!`;
+        button.innerHTML = `Python interaction ready!`;
       });
 
       var thebeInitCells = document.querySelectorAll(
@@ -117,19 +117,34 @@ const loadScriptAsync = async (scriptSource) => {
   });
 };
 
+const loadStyleAsync = async (styleSource) => {
+  const css = document.createElement("link");
+  css.href = styleSource;
+  css.rel = "stylesheet";
+  document.head.appendChild(css);
+
+  return new Promise((resolve, reject) => {
+    css.addEventListener("load", () => {
+      resolve();
+    });
+  });
+};
+
+
 var initThebe = async () => {
   // Load thebe dynamically if it's not already loaded
   if (typeof thebelab === "undefined") {
     console.log("[sphinx-thebe]: Loading thebe...");
-    $(".thebe-launch-button ").text("Loading thebe...");
-
+    $(".thebe-launch-button ").css("display", "none");
+    
     // Provides nice things like a running animation and some padding
     {
-      const thebeCss = document.createElement("link");
-      thebeCss.href = "/thebe.css";
-      thebeCss.rel = "stylesheet";
-      document.head.appendChild(thebeCss);
+      await loadStyleAsync("/thebe.css");
+      await loadStyleAsync("/_static/code.css");
     }
+    
+    $(".thebe-launch-button ").css("display", "block");
+    $(".thebe-launch-button ").text("Loading thebe...");
 
     await loadScriptAsync("/thebe-lite.min.js");
     await loadScriptAsync("/index.js");

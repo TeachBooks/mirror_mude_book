@@ -1,0 +1,26 @@
+.CodeMirror {
+	border: var(--mystnb-source-border-width) var(--mystnb-source-border-color) solid;
+	border-right-width: 0;
+	border-left-width: 0;
+}
+
+.thebe-button, .thebe-launch-button {
+    margin: 3px 3px 3px 3px;
+    border: var(--mystnb-source-border-width) var(--mystnb-source-border-color) solid;
+    border-radius: calc(var(--mystnb-source-border-radius) + 1px);
+    background-color: #fefefe
+}
+
+.thebe-controls { 
+    margin-left: 3px;
+}
+
+.thebe-button:active {
+    background-color: #f2f2f2
+}
+
+.thebelab-busy-spinner,
+.thebe-busy-spinner {
+  width: 20px;
+  height: 20px;
+}
