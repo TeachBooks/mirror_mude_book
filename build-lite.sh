@@ -17,4 +17,4 @@ else
 	fi
 fi
 
-$python_command -m http.server 8000 --directory book/_build/html
+$python_command -m http.server 8000 --directory book/_build/html &
