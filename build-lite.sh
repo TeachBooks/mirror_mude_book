@@ -17,4 +17,8 @@ else
 	fi
 fi
 
+# Copy all non notebook, markdown or build files into the build for local access in pyodide etc.
+find book/ | grep -v "^book/_.*\|.*\.\(md\|ipynb\)\|thebe_lite" | grep "\." | cut -c 6- | xargs -i sh -c 'echo "book/_build/html/{}" | grep -o "^.*/" | xargs -d "\n" mkdir -p; cp book/"{}" book/_build/html/"{}"'
+
 $python_command -m http.server 8000 --directory book/_build/html &
+
