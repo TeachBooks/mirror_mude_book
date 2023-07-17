@@ -1,5 +1,11 @@
 # MUDE Jupyter Book 2023/2024
 
+**UPDATE FOR THOSE BUILDING THE BOOK: Tom has added some examples of the quiz features we can use in the Cookbook; the Grasple platform requires a package that is not on PyPI, so you should install it on your local computer using the following command:**
+
+`pip install git+https://github.com/dbalague/sphinx-grasple`
+
+*Soon a Docker setup will be provided so you don't have to worry about this stuff in the future.*
+
 This book is for the technical contents of MUDE and will most likely also be used to display (and in part deliver) assignments to MUDE students, post solutions, etc.
 
 There will be a separate repo for the module website, which will give the (annual) course overview, planning, etc.

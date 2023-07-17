@@ -15,6 +15,7 @@ parts:
   - caption: MUDE Cookbook
     chapters:
     - file: cookbook/blank
+    - file: cookbook/interactive_element
   - caption: Old Material
     chapters:
     - file: old/blank
