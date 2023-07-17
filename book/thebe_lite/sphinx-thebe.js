@@ -132,6 +132,46 @@ const loadStyleAsync = async (styleSource) => {
 
 function override_pyodide_open(fs, home, server_path) {
   const old_open = fs.open;
+
+  function createDirectoryStructure(directories) {
+    let currentDirectory = "/";
+    for (const directory of directories) {
+      if (directory === "") continue;
+      currentDirectory += directory + "/";
+      try {
+        fs.mkdir(currentDirectory);
+        console.log(`Made up to: ${currentDirectory}`);
+      } catch {}
+    }
+  }
+
+  function clearFilesystem(root) {
+    for (nodeRelPath of fs.readdir(root)) {
+      if (nodeRelPath === "." || nodeRelPath === "..") continue;
+      const path = root + "/" + nodeRelPath;
+      const stats = fs.lstat(path);
+      if (fs.isFile(stats.mode)) {
+        fs.unlink(path);
+      } else {
+        // Recursively clear paths and then remove empty directory
+        clearFilesystem(path);
+        fs.rmdir(path);
+      }
+    }
+  }
+
+  console.log("Clearing path...");
+  // There seems to be some persistence between loads, but we don't want that to prevent files going stale
+  // Won't disable it however, in case of future jupyterlite lab support
+  clearFilesystem(home);
+
+  console.log(`Cleared ${home} directory`);
+
+  // Mirroring the underlying directory structure allows relative pathing to work properly
+  const mirroredDirectory = home + server_path;
+  createDirectoryStructure(mirroredDirectory.split("/"));
+  fs.chdir(mirroredDirectory);
+
   function new_open(path, flags, mode) {
     console.log(`Params: ${path}, ${flags}, ${mode}`);
     // Being called from writeFile, or in write mode, we don't want to load in that case
@@ -145,31 +185,23 @@ function override_pyodide_open(fs, home, server_path) {
     try {
       return old_open(path, flags, mode);
     } catch {
+      // To prevent messing up the filesystem, the mirrored directory is rooted at the home (/drive for Thebe)
+      // If we're trying to fetch files from outside this root, we throw an error since the file wasn't found previously.
+      if (!path.startsWith(home)) {
+        throw new fs.ErrnoError(44);
+      }
+
       const fullPath = path;
-      // Remove '/home/pyodide' or '/home/drive' etc.
-      if (path.startsWith(home)) {
-        path = path.slice(home.length);
-      }
+      path = path.slice(home.length);
 
-      // Last entry is the file itself
-      let directories = fullPath.split("/").slice(0, -1);
-      let currentDirectory = "/";
-
-      for (const directory of directories) {
-        if (directory === "") continue;
-        currentDirectory += directory + "/";
-        try {
-          fs.mkdir(currentDirectory);
-          console.log(`Made up to: ${currentDirectory}`);
-        } catch {}
-      }
+      // Last entry is the file itself, so it's not included
+      createDirectoryStructure(fullPath.split("/").slice(0, -1));
 
       let request = new XMLHttpRequest();
       // Fetch relative to where we are in the server, to simulate how it works in notebooks
       // We will still put it in the directory requested by pyodide however, so the next call to open succeeds without tampering
-      const requestFrom = path[0] === "/" ? path : server_path + path;
-      console.log(`Requesting from: ${requestFrom}`);
-      request.open("GET", requestFrom, false);
+      console.log(`Requesting from: ${path}`);
+      request.open("GET", path, false);
       request.send();
 
       if (request.status !== 200) {
@@ -207,7 +239,7 @@ var initThebe = async () => {
     modifyDOMForThebe();
     await thebelab.bootstrap(thebeLiteConfig);
     await thebelab.session.kernel.requestExecute({
-      code: `import js; from os import getcwd; import pyodide_js; js.fs = pyodide_js.FS; js.eval("""${override_pyodide_open.toString()}"""); js.eval(f"override_pyodide_open(fs, '{getcwd()}/', ${
+      code: `import js; from os import getcwd; import pyodide_js; js.fs = pyodide_js.FS; js.eval("""${override_pyodide_open.toString()}"""); js.eval(f"override_pyodide_open(fs, '{getcwd()}', ${
         location.pathname.split("/").slice(0, -1).join("/") + "/"
       })")`,
     });
