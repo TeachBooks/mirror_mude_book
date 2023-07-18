@@ -29,6 +29,25 @@ parts:
       - file: sandbox/continuous/Parameterization.md
       - file: sandbox/continuous/fitting.md
       - file: sandbox/continuous/GOF
+    - file: sandbox/SanPart/ObservationTheory/01_Introduction.md
+      title: Sensing and Observation Theory
+      sections:
+      - file: sandbox/SanPart/ObservationTheory/02_LeastSquares.md    
+      - file: sandbox/SanPart/ObservationTheory/03_WeightedLSQ.md
+      - file: sandbox/SanPart/ObservationTheory/04_BLUE.md
+      - file: sandbox/SanPart/ObservationTheory/05_Precision.md
+      - file: sandbox/SanPart/ObservationTheory/06_MLE.md
+      - file: sandbox/SanPart/ObservationTheory/07_NLSQ.md
+      - file: sandbox/SanPart/ObservationTheory/08_Testing.md
+      - file: sandbox/SanPart/ObservationTheory/99_NotationFormulas.md
+    - file: sandbox/SanPart/premath/00_00_PreMath.md
+      title: Pre-Math
+      sections:
+      - file: sandbox/SanPart/premath/00_01a_PreMath.md
+      - file: sandbox/SanPart/premath/00_01b_PreMath.md
+      - file: sandbox/SanPart/premath/00_01c_PreMath.md
+      - file: sandbox/SanPart/premath/00_02_PreMath.md
+      - file: sandbox/SanPart/premath/00_03_PreMath.md
   - caption: MUDE Cookbook
     chapters:
     - file: cookbook/blank
