@@ -1,4 +1,4 @@
-# Sensing and observation theory
+# observation theory
 
 As in other physical sciences, empirical data are used in Civil and Environmental Engineering and Applied Earth Sciences to make inferences so as to describe physical reality. Many such problems involve the determination of unknown parameters that bear a functional relationship to the set of observed data or measurements. This determination or parameter estimation can be based on different estimation principles. 
 From experience we know that various uncertain phenomena can be modeled as a random variable (or a random vector), say $Y$. Examples are: the uncertainty in instrument readings due to measurement errors; the variable strength of material of a certain type,  the variable lifetime of pieces of equipment of a particular type after they have been put into service; the number of "hits" in a certain time interval on a particular Web page; the variable size, weight, or contents of products of a particular type delivered by a production line, etc. 
