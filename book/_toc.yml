@@ -7,17 +7,28 @@ parts:
     - file: new/blank
   - caption: Sandbox
     chapters:
-    - file: sandbox/1-7-continuous/Reminder_intro.md
-    - file: sandbox/1-7-continuous/Param_distr.md
-    - file: sandbox/1-7-continuous/other_distr.md
-    - file: sandbox/1-7-continuous/Parameterization.md
-    - file: sandbox/1-7-continuous/fitting.md
-    - file: sandbox/1-7-continuous/GOF
     - file: sandbox/blank
     - file: sandbox/robert
     - file: sandbox/ObservationTheory/01_Introduction.md
       sections:
       - file: sandbox/ObservationTheory/02_Notebook_LeastSquares_dont_execute.ipynb
+    - file: sandbox/prob/prob-intro
+      title: Probability
+      sections:
+      - file: sandbox/prob/prob-background
+      - file: sandbox/prob/prob-rv
+      - file: sandbox/prob/prob-discrete
+      - file: sandbox/prob/prob-notation
+        title: Notation
+    - file: sandbox/continuous/Reminder_intro.md
+      sections:
+      - file: sandbox/continuous/PDF_CDF
+      - file: sandbox/continuous/empirical
+      - file: sandbox/continuous/Param_distr.md
+      - file: sandbox/continuous/other_distr.md
+      - file: sandbox/continuous/Parameterization.md
+      - file: sandbox/continuous/fitting.md
+      - file: sandbox/continuous/GOF
   - caption: MUDE Cookbook
     chapters:
     - file: cookbook/blank

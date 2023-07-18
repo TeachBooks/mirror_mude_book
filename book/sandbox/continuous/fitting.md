@@ -1,5 +1,5 @@
 
-# Fitting continuous distribution functions
+# Fitting a Distribtuion
 
 In the previous section, distr.
 

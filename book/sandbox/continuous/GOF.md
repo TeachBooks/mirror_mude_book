@@ -1,5 +1,5 @@
 
-# Goodness of fit
+# Goodness of Fit
 
 In the previous sections you have studied the different mathematical models (continuous distribution functions) that we can use to model the univariate uncertainty of a random variable and how to fit them based on observations. Also, you have been introduced to some methods to fit those models. **But how do I choose between different models?**
 
@@ -9,7 +9,7 @@ Once we have accounted for the physical characteristics of the random variable, 
 
 In order to illustrate these techniques, the following toy example will be used. The set of observations is represented in the plots below by its pdf and cdf. A Gaussian ($N(5.17, 5.76)$) and an Exponential distributions ($Expon(-5.25, 10.42)$) are fitted to the data. GOF techniques will be applied to determine which one of the two models fits the data best.
 
-```{figure} /sandbox/1-7-continuous/figures/GOF_data.png
+```{figure} /sandbox/continuous/figures/GOF_data.png
 
 ---
 
@@ -27,7 +27,7 @@ This technique is as simple as comparing the observations used to fit the model 
 
 Let's see it applied to the example data. Note that the term *"quantile"* is used in statistics to denote the values of the random variable.
 
-```{figure} /sandbox/1-7-continuous/figures/QQplot.png
+```{figure} /sandbox/continuous/figures/QQplot.png
 ---
 scale: 75%
 name: rating_curve
@@ -70,7 +70,7 @@ Pseudo code is presented to illustrate the procedure to build a QQ-plot.
 
 As previously introduced, the tails of the distributions are key to allow the inference of values which have not been observed yet. Therefore, it is important to check whether the distribution used to model the observations is performing properly in that region. A simple trick to do so is to use a logarithmic scale (log-scale) to represent the exceedance probability plot. That way, we "zoom in" on those points in the tail instead of focusing on the bulk of the data. In the figure below, the representation of the cdf in regular and log-scale is shown.
 
-```{figure} /sandbox/1-7-continuous/figures/log-scale.png
+```{figure} /sandbox/continuous/figures/log-scale.png
 ---
 name: log-scale
 ---
@@ -118,7 +118,7 @@ The distribution of $D_n$ has been already calculated and included in different 
 
 Let's see it in an example. In the figure below, both the empirical distribution (step function) and the fitted normal distribution are shown. The maximum distance between both distributions is also presented in red.
 
-```{figure} /sandbox/1-7-continuous/figures/sketch_KS.png
+```{figure} /sandbox/continuous/figures/sketch_KS.png
 ---
 name: KS
 ---

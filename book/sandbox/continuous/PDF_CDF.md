@@ -1,17 +1,27 @@
+# PDF and CDF
 
-# Using parametric distributions as models
+## Probability Density Function (PDF)
 
-In the previous section, you were introduced to the concepts of random variable, probability density function (PDF) and cumulative distribution function (CDF) and how to compute them using empirical data. Here, the concept of parametric distribution as a model of the observed empirical distribution is introduced.
+To mathematically describe the distribution of probability for a continuous random variable, we define the probability density function (PDF) of $X$ as $f_X(x)$, such that
 
-## Parametric distribution functions
+$
+f_X(x)dx = P(x < X \leq x + dx)
+$
 
-Parametric distributions functions are mathematical models for the empirical distributions that we observe in our data. This is, a parametric CDF is just an equation which relates the non-exceedance probability with the value of the studied random variable. This equation has some parameters or coefficients that need to be fitted using our observations. 
+To qualify as a probability distribution, the function must satisfy the conditions $f_X(x) \geq 0$ and $\int_{-\infty}^{+\infty}f_X(x)dx =1$, which can be related to the axioms. Note that in this case we use lower case $x$ as the argument of the PDF, and upper case $X$ denotes the random variable. Similarly, the function $f_Y(u)$ describes the PDF of the random variable $Y$.
 
-**But why do we need them?** 
+## Cumulative Distribution Function (CDF)
 
-We typically fit a parametric distribution to our data for several reasons. The most important one is that the empirical distribution is limited to the observations we have. Using the empirical CDF, we can interpolate between the observed values, but we cannot extend it further and infer probabilities higher or lower than those we have observed. 
+It’s important to realize that while the PDF describes the distribution of probability across all values of the random variable, probability density is not equivalent to probability. The density allows us to quantify the probability of a certain interval of the continuous random variable, through integration. In the equation below, the mathamtical relationship between the CDF (denoted here as $F(x)$) and the PDF (denoted as $f(x)$) is shown.
 
-Another good reason to fit a parametric distribution is more on the practical side: an equation allows us to use all the power of analytic solutions and it is very easy to transfer and handle. Also, we can make use of the properties of the fitted distribution to have a further insight on the random variable we are studying.
+$
+F(x) = \int_{-\infty}^{x}f(x)dx
+$
+
+The definition of the CDF includes an integral that begins at negative infinity and continues to a specific value, $x$, which defines the interval over which the probability is computing. In other words, **the CDF gives the probability that the random variable 
+$X$ has a value less than $x$**.
+
+It should be easy to see from the definition of the CDF that the probability of observing an exact value of a continuous random variable is exactly zero. This is an important observation, and also an important characteristic that separates continuous and discrete random variables.
 
 ## PDF and CDF of Gaussian distribution
 
@@ -29,7 +39,7 @@ As you have already seen, the previous expression provides us with probability d
 Let's see how the distribution looks. In the figure below, the PDF and CDF of the Gaussian distribution are shown for different values of its parameters. In the PDF plot, you can see the bell shape that was already mentioned.
 
 
-```{figure} /sandbox/1-7-continuous/figures/gaussian.png
+```{figure} /sandbox/continuous/figures/gaussian.png
 ---
 scale: 75%
 name: gaussian distr
@@ -52,7 +62,7 @@ $
 
 The figure below shows both the CDF and the complementary CDF.
 
-```{figure} /sandbox/1-7-continuous/figures/survival.png
+```{figure} /sandbox/continuous/figures/survival.png
 ---
 scale: 75%
 name: survival gaussian
