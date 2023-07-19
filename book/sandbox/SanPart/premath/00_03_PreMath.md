@@ -1,3 +1,4 @@
+(PM_taylor)=
 # Taylor series
 
 ## Taylor's theorem for approximating functions of 1 variable

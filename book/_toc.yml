@@ -9,9 +9,6 @@ parts:
     chapters:
     - file: sandbox/blank
     - file: sandbox/robert
-    - file: sandbox/ObservationTheory/01_Introduction.md
-      sections:
-      - file: sandbox/ObservationTheory/02_Notebook_LeastSquares_dont_execute.ipynb
     - file: sandbox/prob/prob-intro
       title: Probability
       sections:
