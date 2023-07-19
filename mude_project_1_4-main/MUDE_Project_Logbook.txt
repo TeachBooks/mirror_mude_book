@@ -1,0 +1,38 @@
+MUDE Project Logbook week 1.4+1.5
+
+TEAM	: B5
+___________________________________
+
+Keep a log of the activities/contributions of each team member, in which you indicate how much time you spend on each activity/contribution. Use brief descriptions (e.g., implementing and testing functions in part 1 of notebook), no high level of detail needed. You will not be assessed on WHAT you did, it is to check that everyone contributes and the team is able to share tasks.
+
+__________________________________
+
+Name 1: Stamou, Anastasios
+[2.5h]: Reused distribution functions created for week 1,3, create histograms of variables and fit corresponding distributions, evaluated results.
+[2.15h]: Helped fix the functions to calculate pressure change and subsidence
+[0.45m]: Formatting changes and commenting of results
+
+Name 2: Exterkate, Daan
+[2.5h]: Create cross-corelation plots of variables and analyze results
+[2.15h]: Helped fix the functions to calculate pressure change and subsidence
+[1.0h]: Merged 1.4 and 1.5 projects and run the code for last week's results. 
+
+Name 3: Lange, Max
+[1.5h]: Fill in / Compelete the Project_Q1_week_4 notebook
+[0.5h]: Import the well data and format into dataframe
+[0.5h]: Gas Compresibility
+[2.0h]: Merge notebooks, code-style improvements and Markdown additions
+[2.15h]: Helped fix the functions to calculate pressure change and subsidence
+
+Name 4: Magherini, Antonio
+[0.5h]: Import data
+[2.5h]: Create histograms of variables, statistical analysis and fit corresponding distributions
+[2.15h]: Helped fix the functions to calculate pressure change and subsidence
+[0.45m]: Formatting changes and commenting of results
+
+Name 5: Piscorschi, Renat
+[2.5h]: Create cross-corelation plots of variables and analyze result
+[1h]: Created a DataFrame matrix with the correlations
+[2.15h]: Helped fix the functions to calculate pressure change and subsidence
+[0.45m]: Formatting changes and commenting of results
+

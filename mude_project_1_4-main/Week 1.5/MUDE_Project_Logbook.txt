@@ -1,0 +1,26 @@
+MUDE Project Logbook week 1.4+1.5
+
+TEAM	: B5
+___________________________________
+
+Keep a log of the activities/contributions of each team member, in which you indicate how much time you spend on each activity/contribution. Use brief descriptions (e.g., implementing and testing functions in part 1 of notebook), no high level of detail needed. You will not be assessed on WHAT you did, it is to check that everyone contributes and the team is able to share tasks.
+
+__________________________________
+
+Name 1: Stamou, Anastasios
+[3h] Complete functions of Exercise 2 & 3
+[1h] Add comments and explanations
+
+Name 2: Exterkate, Daan
+[4h] Complete functions of Exercise 2 & 3, incorperate own data into functions
+
+Name 3: Lange, Max
+[3h] Complete functions of Exercise 2 & 3
+[1h] Cleaned up notebook code and comments
+
+Name 4: Magherini, Antonio
+[4h] Complete functions of Exercise 2 & 3, incorperate own data into functions
+
+Name 5: Piscorschi, Renat
+[4h] Complete functions of Exercise 2 & 3, incorperate own data into functions
+
