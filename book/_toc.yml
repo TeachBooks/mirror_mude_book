@@ -48,6 +48,10 @@ parts:
       - file: sandbox/SanPart/premath/00_01c_PreMath.md
       - file: sandbox/SanPart/premath/00_02_PreMath.md
       - file: sandbox/SanPart/premath/00_03_PreMath.md
+    - file: mude_project_1_4-main/Week 1.5/B5_Project_1_4&1_5_dont_execute
+    - file: mude_project_1_4-main/Week 1.5/Project_Q1_week_1_5_dont_execute
+    - file: mude_project_1_4-main/B5_Project_1_4_dont_execute
+    - file: mude_project_1_4-main/Project_Q1_week_4_dont_execute
   - caption: MUDE Cookbook
     chapters:
     - file: cookbook/blank
