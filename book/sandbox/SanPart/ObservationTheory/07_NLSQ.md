@@ -1,13 +1,9 @@
 # Non-linear least-squares estimation 
 
-MMMMM
-
-THIS CHAPTER IS NOT YET IN GOOD SHAPE , ESP. REGARDING NOTATION
-
 Let the non-linear system of observation equations be given by:
 
 $$
-E \{ \begin{bmatrix} \underline{y}_1\\ \underline{y}_2\\ \vdots\\ \underline{y}_m \end{bmatrix}  \} = A(x) = \begin{bmatrix} a_{1}(x)\\ a_{2}(x)\\ \vdots\\  a_{m}(x) \end{bmatrix}
+\mathbb{E} ( \begin{bmatrix} Y_1\\ Y_2\\ \vdots\\ Y_m \end{bmatrix}  ) = q(\mathrm{x}) = \begin{bmatrix} q_{1}(\mathrm{x})\\ q_{2}(\mathrm{x})\\ \vdots\\  q_{m}(\mathrm{x}) \end{bmatrix}
 $$
 
 This system cannot be directly solved using the weighted least-squares or the best linear unbiased estimators. Here, we will introduce the non-linear least-squares principle, based on a linearization of the system of equations. 
@@ -20,67 +16,93 @@ This system cannot be directly solved using the weighted least-squares or the be
 ```
 
 ## Linearization
-For the linearization we need the first-order Taylor polynomial, which gives the linear approximation of for instance the first observation $y_1 = a_1(x)$ at $x_{[0]}$ as:
+For the linearization we need the [first-order Taylor polynomial](PM_taylor), which gives the linear approximation of for instance the first observable $Y_1 = q_1(\mathrm{x})$ at $\mathrm{x}_{[0]}$ as:
 
 $$
-y_1\approx a_1( x_{[0]})+ \partial_{x_1} a_1(x_{[0]})\Delta x_{[0]}+ \partial_{x_2} a_1(x_{[0]})\Delta x_{[0]}+ \ldots + \partial_{x_n} a_1(x_{[0]})\Delta x_{[0]}
+Y_1\approx q_1( \mathrm{x}_{[0]})+ \partial_{x_1} q_1(\mathrm{x}_{[0]})\Delta \mathrm{x}_{[0]}+ \partial_{x_2} q_1(\mathrm{x}_{[0]})\Delta \mathrm{x}_{[0]}+ \ldots + \partial_{x_n} q_1(\mathrm{x}_{[0]})\Delta \mathrm{x}_{[0]}
 $$
 
-where $\Delta x_{[0]} = x- x_{[0]}$ and $x_{[0]}$ is the initial guess of $x$.
+where $\Delta \mathrm{x}_{[0]} = \mathrm{x}- \mathrm{x}_{[0]}$ and $\mathrm{x}_{[0]}$ is the initial guess of $\mathrm{x}$. Note that for now we ignore the random errors in the equations.
 
-The difference between the actual observation $y_1$ and the solution of the forward model at $x_{[0]}$ is thus given by:
+Let us now consider the difference between the observable $Y_1$ and the solution of the forward model at $\mathrm{x}_{[0]}$:
 
 $$
-\begin{align} \Delta y_{1[0]} &= y_1- a_1(x_{[0]}) \\ &\approx \left[ \partial_{x_1} a_1(x_{[0]}) \quad \partial_{x_2} a_1(x_{[0]}) \quad \ldots \quad \partial_{x_n} a_1(x_{[0]})\right]\Delta x_{[0]} \end{align}
+\begin{align*} \Delta Y_{1[0]} &= Y_1- q_1(\mathrm{x}_{[0]}) \\ &\approx \left[ \partial_{x_1} q_1(\mathrm{x}_{[0]}) \quad \partial_{x_2} q_1(\mathrm{x}_{[0]}) \quad \ldots \quad \partial_{x_n} q_1(\mathrm{x}_{[0]})\right]\Delta \mathrm{x}_{[0]} \end{align*}
 $$
+
+which we refer to as the *observed-minus-computed* observable.
 
 We can now obtain the linearized functional model:
 
 $$
-\begin{align} E\{\begin{bmatrix} \Delta \underline{y}_1 \\ \Delta\underline{y}_2 \\ \vdots \\ \Delta\underline{y}_m \end{bmatrix}_{[0]}\} &=\begin{bmatrix} \partial_{x_1} a_1(x_{[0]}) &\partial_{x_2} a_1(x_{[0]}) & \ldots & \partial_{x_n} a_1(x_{[0]}) \\ \partial_{x_1} a_2(x_{[0]}) &\partial_{x_2} a_2(x_{[0]}) & \ldots & \partial_{x_n} a_2(x_{[0]}) \\ \vdots & \vdots  & \ddots  & \vdots\\ \partial_{x_1} a_m(x_{[0]}) &\partial_{x_2} a_m(x_{[0]}) & \ldots& \partial_{x_n} a_m(x_{[0]}) \end{bmatrix}\Delta x_{[0]} \\ &= J_{[0]}\Delta x_{[0]}\end{align}
+\begin{align*} E\{\begin{bmatrix} \Delta Y_1 \\ \Delta Y_2 \\ \vdots \\ \Delta Y_m \end{bmatrix}_{[0]}\} &=\begin{bmatrix} \partial_{x_1} q_1(\mathrm{x}_{[0]}) &\partial_{x_2} q_1(\mathrm{x}_{[0]}) & \ldots & \partial_{x_n} q_1(\mathrm{x}_{[0]}) \\ \partial_{x_1} q_2(\mathrm{x}_{[0]}) &\partial_{x_2} q_2(\mathrm{x}_{[0]}) & \ldots & \partial_{x_n} q_2(\mathrm{x}_{[0]}) \\ \vdots & \vdots  & \ddots  & \vdots\\ \partial_{x_1} q_m(\mathrm{x}_{[0]}) &\partial_{x_2} q_m(\mathrm{x}_{[0]}) & \ldots& \partial_{x_n} q_m(\mathrm{x}_{[0]}) \end{bmatrix}\Delta \mathrm{x}_{[0]} \\ &= \mathrm{J}_{[0]}\Delta \mathrm{x}_{[0]}\end{align*}
 $$
 
-with [Jacobian matrix](PM_jacobian) $J_{[0]}$.
+with [Jacobian matrix](PM_jacobian) $\mathrm{J}_{[0]}$.
 
-And this allows to apply best linear unbiased estimation (BLUE) to get an estimate for $\Delta x_{[0]}$:
-
-$$
-\Delta \hat{x}_{[0]}=\left(J_{[0]}^T Q_{yy}^{-1} J_{[0]} \right)^{-1}J_{[0]}^T Q_{yy}^{-1}\Delta y_{[0]}
-$$
-
-since the Jacobian $ J_{[0]}$ takes the role of the design matrix $A$ and the observation vector is replaced by its delta-version as compared to the BLUE of the linear model $E\{\underline{y}\} = Ax$.
-
-Since we have $\Delta x_{[0]} = x- x_{[0]}$, an “estimate” of $x$ can thus be obtained as:
+And this allows to apply best linear unbiased estimation (BLUE) to get an estimator for $\Delta \mathrm{x}_{[0]}$:
 
 $$
-x_{[1]}=x_{[0]}+\Delta \hat{x}_{[0]}
+\Delta \hat{X}_{[0]}=\left(\mathrm{J}_{[0]}^T \Sigma_{Y}^{-1} \mathrm{J}_{[0]} \right)^{-1}\mathrm{J}_{[0]}^T \Sigma_{Y}^{-1}\Delta Y_{[0]}
 $$
 
-However, the quality of the linear approximation depends very much on the closeness of $x_{[0]}$ to $x$. Therefore, instead of using $x_{[1]}$ as the estimate, we repeat the process with $x_{[1]}$ as our new guess. This procedure is continued until the $\Delta \hat{x}_{[i]}$ becomes small enough. This is called the Gauss-Newton iteration procedure, and is shown in the scheme below.
+since the Jacobian $ \mathrm{J}_{[0]}$ takes the role of the design matrix $\mathrm{A}$ and the observation vector is replaced by its $\Delta$-version as compared to the BLUE of the linear model $\mathbb{E}(Y) = \mathrm{Ax}$.
+
+Since we have $\Delta \mathrm{x}_{[0]} = \mathrm{x}- \mathrm{x}_{[0]}$, an “estimator” of $\mathrm{x}$ can thus be obtained as:
+
+$$
+\hat{X}=\mathrm{x}_{[0]}+\Delta \hat{X}_{[0]}
+$$
+
+However, the quality of the linear approximation depends very much on the closeness of $\mathrm{x}_{[0]}$ to $\mathrm{x}$. Therefore, instead we apply an iterative procedure.
+
+repeat the process with $\mathrm{x}_{[1]}=\mathrm{x}_{[0]}+\Delta \hat{X}_{[0]}$ as our new guess. This procedure is continued until the $\Delta \hat{\mathrm{x}}_{[i]}$ becomes small enough. This is called the Gauss-Newton iteration procedure, and is shown in the scheme below.
 
 ## Gauss-Newton iteration
 
-In this scheme you can see that as stop criterion
+See {numref}`gn` for an illustration of the iterative procedure, referred to as the Gauss-Newton iteration.
+
+```{figure} ../figures/ObservationTheory/07_gn.png
+---
+height: 250px
+name: gn
+---
+Visualization of two iteration steps of Gauss-Newton iteration. The non-linear function $q$ is shown, together with the linear approximations (blue line) at $q(x_{[i]})$ in each step.
+```
+
+Assume we have the observation vector $\mathrm{y}$ (realization of $Y$).
+
+Start with initial guess $\mathrm{x}_{[0]}$, and start iteration with $i=0$
+1. Calculate observed-minus-computed $\Delta \mathrm{y}_{[i]} = \mathrm{y} - q(\mathrm{x}_{[i]}) $
+2. Determine the Jacobian $\mathrm{J}_{[i]}$
+3. Estimate $\Delta \hat{\mathrm{x}}_{[i]}=\left(\mathrm{J}_{[i]}^T \Sigma_{Y}^{-1} \mathrm{J}_{[i]} \right)^{-1}\mathrm{J}_{[i]}^T \Sigma_{Y}^{-1}\Delta \mathrm{y}_{[i]}$
+4. New guess $\mathrm{x}_{[i+1]}=\Delta\hat{\mathrm{x}}_{[i]}+ \mathrm{x}_{[i]}$
+5. If stop criterion is met: set $\hat{\mathrm{x}}=\mathrm{x}_{[i+1]}$  and break, otherwise set $i:=i+1$ and go to step 1
+
+In this scheme we need to choose a stop criterion, for which we use:
 
 $$
-\Delta \hat{x}_{[i]}^T W \Delta \hat{x}_{[i]} < \delta
+\Delta \hat{\mathrm{x}}_{[i]}^T \mathrm{N}_{[i]} \Delta \hat{\mathrm{x}}_{[i]} < \delta \;\; \text{with} \;\;\mathrm{N}_{[i]}=\mathrm{J}_{[i]}^T \Sigma_{Y}^{-1} \mathrm{J}_{[i]}
 $$
 
-is used. The weight matrix $W$ can be set equal to for instance the identity matrix, but a more logical choice may be the normal matrix $N_{[i]}=J_{[i]}^T Q_{yy}^{-1} J_{[i]}$. The threshold $\delta$ must be set to a very small value. 
+The normal matrix $\mathrm{N}_{[i]}$ is used as a weight matrix, since it is equal to the inverse of the covariance matrix of the estimated $\Delta \hat{\mathrm{x}}_{[i]}$, and estimated parameters with small variance should have a relatively small deviation compared to parameters with large variance.
 
-Once the stop criterion is met, we say that the solution converged, and the last solution $ x_{[i+1]}$ is then finally used as our estimate of $x$. 
+The threshold $\delta$ must be set to a very small value, e.g., $10^{-8}$. 
+
+Once the stop criterion is met, we say that the solution *converged*, and the last solution $ \mathrm{x}_{[i+1]}$ is then finally used as our estimate of $\mathrm{x}$. 
 
 ## Remarks and properties
-There is no default recipe for making the initial guess $x_{[0]}$; it must be made based on insight into the problem at hand. A good initial guess is important for two reasons:
+There is no default recipe for making the initial guess $\mathrm{x}_{[0]}$; it must be made based on insight into the problem at hand. A good initial guess is important for two reasons:
 
-a bad initial guess may result in the solution NOT to converge;
-a good initial guess will speed up the convergence, i.e. requiring fewer iterations.
-In the iteration scheme the covariance matrix of $\hat{x}$ was given by:
+* a bad initial guess may result in the solution NOT to converge;
+* a good initial guess will speed up the convergence, i.e. requiring fewer iterations.
+
+The covariance matrix of $\hat{X}$ is given by:
 
 $$
-Q_{\hat{x}\hat{x}}=\left(J_{[i]}^T Q_{yy}^{-1} J_{[i]} \right)^{-1}
+\Sigma_{\hat{X}}=\left(\mathrm{J}_{[i]}^T \Sigma_{Y}^{-1} \mathrm{J}_{[i]} \right)^{-1}
 $$
 
-In fact, this is not strictly true. The estimator $\underline{\hat x}$ is namely NOT a best linear unbiased estimator of $x$ since we used a linear approximation. And since the estimator is not a linear estimator, it is not normally distributed. 
+although this is not strictly true. The estimator $\hat X$ is namely NOT a best linear unbiased estimator of $x$ since we used a linear approximation. And since the estimator is not a linear estimator, it is not normally distributed. 
 
 However, in practice the linear (first-order Taylor) approximation often works so well that the performance is very close to that of BLUE and we may assume the normal distribution.
