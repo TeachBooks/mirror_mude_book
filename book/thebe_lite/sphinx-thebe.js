@@ -9,7 +9,91 @@ const thebeLiteConfig = {
     theme: "default",
     mode: "python",
   },
+  mountRestartButton: false,
+  mountRestartallButton: false,
 };
+
+const newCellHtml = `<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre id="codecell0"></pre>
+</div></div></div></div>`;
+
+// https://stackoverflow.com/questions/494143/creating-a-new-dom-element-from-an-html-string-using-built-in-dom-methods-or-pro
+function createElementFromHTML(htmlString) {
+  var div = document.createElement("div");
+  div.innerHTML = htmlString.trim();
+
+  // Change this to div.childNodes to support multiple top-level nodes.
+  return div.firstChild;
+}
+
+function addToThebeControls(cell, element) {
+  const controls = cell.querySelector(".thebe-controls");
+  controls.insertBefore(element, controls.lastChild);
+}
+
+function finalizeCodeCells(cells) {
+  const createButton = (classList, title, text) => {
+    const button = document.createElement("button");
+    button.classList = classList;
+    button.title = title;
+    button.innerText = text;
+    return button;
+  };
+
+  cells.forEach((codeCell, index) => {
+    const addCell = createButton(
+      ["thebe-button"],
+      "adds a new cell underneath",
+      "add cell"
+    );
+    addToThebeControls(codeCell, addCell);
+
+    addCell.onclick = () => {
+      const newCell = createElementFromHTML(newCellHtml);
+      codeCell.parentElement.insertBefore(newCell, codeCell.nextSibling);
+
+      const newCellInfo = {
+        id: thebe.randomId(),
+        placeholders: {
+          output: undefined,
+          source: newCell.querySelector("pre"),
+        },
+      };
+
+      const exampleCell = thebe.notebook.lastCell();
+      const newNotebookCell = Object.assign({}, exampleCell);
+      newNotebookCell.__proto__ = exampleCell.__proto__;
+      newNotebookCell.id = newCellInfo.id;
+      newNotebookCell.events._id = newCellInfo.id;
+      newNotebookCell.events._object = newNotebookCell;
+      newNotebookCell.source = "";
+
+      thebe.notebook.cells.push(newNotebookCell);
+
+      thebe.renderAllCells(
+        {
+          mountRunButton: true,
+          mountRunAllButton: true,
+        },
+        thebe.notebook,
+        [newCellInfo]
+      );
+
+      finalizeCodeCells([newCell]);
+
+      const deleteCell = createButton(
+        ["thebe-button"],
+        "deletes this cell",
+        "delete cell"
+      );
+      addToThebeControls(newCell, deleteCell);
+      deleteCell.onclick = () => {
+        newCell.remove();
+      };
+    };
+  });
+}
 
 /**
  * Add attributes to Thebe blocks to initialize thebe properly
@@ -65,6 +149,9 @@ var configureThebe = () => {
         console.log("Initializing Thebe with cell: " + cell.id);
         cell.querySelector(".thebelab-run-button").click();
       });
+
+      const codeCells = document.querySelectorAll(thebe_selector);
+      finalizeCodeCells(codeCells);
 
       thebelab.on("status", () => {});
     }
