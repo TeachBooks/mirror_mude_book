@@ -1,0 +1,7 @@
+@@@ Well-test report, powered by DARTS (https://darts.citg.tudelft.nl/) @@@
+@@@              Special edition for MUDE 2022-2023                     @@@
+Well name: W26
+Perforation interval: 2172 to 2270
+Fluid in place: brine
+Initial pressure:      228.484
+Temperature:      348.787
