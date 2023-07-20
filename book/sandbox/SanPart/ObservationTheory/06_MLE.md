@@ -12,21 +12,29 @@ The principle of Maximum Likelihood estimation (MLE) is to find the *most likely
 
 This boils down to estimating the unknown parameters $\alpha$ of the underlying distribution, which means that the probability density function (PDF) is known apart from the $n$ parameters in $\alpha$. We will now distinguish between a PDF and likelihood function.
 
-A *probability density function* $f_Y(\mathrm{y}|\alpha)$ with $\alpha$ known can be evaluated for any value of $\mathrm{y}$.
+A *probability density function* $f_Y(\mathrm{y}|\alpha)$ with $\alpha$ known as function of $\mathrm{y}$.
 
-A *likelihood function* $f_Y(\mathrm{y}|\alpha)$ for a given realization $\mathrm{y}$ can be evaluated for all possible values of $\alpha$.
+A *likelihood function* $f_Y(\mathrm{y}|\alpha)$ for a given realization $\mathrm{y}$ as function of all possible values of $\alpha$.
 
 The goal is to find the $\alpha$ which maximizes the likelihood function for the given realization $\mathrm{y}$.
 
 ### Example exponential distribution:
 
-If $Y\sim \text{Exp}(\lambda)$, the goal would be to estimate $\lambda$ based a realization $\mathrm{y_{obs}}$ of $Y$. The FIG shows the PDF of $Y$
+If $Y\sim \text{Exp}(\lambda)$, the goal would be to estimate $\lambda$ based a realization $\mathrm{y_{obs}}$ of $Y$. The {numref}`MLEexp` shows the PDF of $Y$
 
 $$
 f_Y(\mathrm{y}|\lambda)=\lambda \exp(-\lambda \mathrm{y})
 $$
 
 for different possible values of $\lambda$. The likelihood function for the given $\mathrm{y_{obs}}$ is shown on the right-hand side. It is shown that for instance the likelihood value for $\lambda_1$ is equal to the corresponding density value in the left panel. The maximum likelihood estimate $\hat{\lambda}$ is the value for which the likelihood function is maximized as shown in the figure.
+
+```{figure} ../figures/ObservationTheory/06_MLEexp.png
+---
+height: 350px
+name: MLEexp
+---
+PDF and likelihood function for exponential distribution.
+```
 
 ## Maximum Likelihood estimator of $\mathrm{x}$
 We have that our observables are assumed to be normally distributed: $Y\sim N(\mathrm{Ax},\Sigma_Y)$, where $\mathrm{x}$ is unknown. The covariance matrix $\Sigma_Y$ is assumed to be known, for instance from a calibration campaign.
