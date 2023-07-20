@@ -1,8 +1,7 @@
 #!/bin/sh
 
 jupyter-book build book
-cp book/thebe_lite/libs/* book/_build/html -r
-cp book/thebe_lite/* book/_build/html/_static
+cp book/thebe_lite/* book/_build/html/ -r
 
 if command -v python > /dev/null 2>&1
 then
@@ -18,7 +17,7 @@ else
 fi
 
 # Copy all non notebook, markdown or build files into the build for local access in pyodide etc.
-find book/ | grep -v "^book/_.*\|.*\.\(md\|ipynb\)\|thebe_lite" | grep "\." | cut -c 6- | xargs -i sh -c 'echo "book/_build/html/{}" | grep -o "^.*/" | xargs -d "\n" mkdir -p; cp book/"{}" book/_build/html/"{}"'
+find book/ -exec test -f {} \; -print | grep -v "^book/_.*\|.*\.\(md\|ipynb\)\|thebe_lite" | cut -c 6- | xargs -i sh -c 'echo "book/_build/html/{}" | grep -o "^.*/" | xargs -d "\n" mkdir -p; cp book/"{}" book/_build/html/"{}"'
 
-$python_command -m http.server 8000 --directory book/_build/html &
+$python_command -m http.server 8000 --directory book/_build/html
 

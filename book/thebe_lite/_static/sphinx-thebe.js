@@ -62,14 +62,22 @@ function finalizeCodeCells(cells) {
       };
 
       const exampleCell = thebe.notebook.lastCell();
-      const newNotebookCell = Object.assign({}, exampleCell);
-      newNotebookCell.__proto__ = exampleCell.__proto__;
-      newNotebookCell.id = newCellInfo.id;
-      newNotebookCell.events._id = newCellInfo.id;
-      newNotebookCell.events._object = newNotebookCell;
-      newNotebookCell.source = "";
+      const newNotebookCell = new exampleCell.constructor(
+        newCellInfo.id,
+        thebe.notebook.id,
+        "",
+        exampleCell.events._config,
+        exampleCell.metadata,
+        exampleCell.rendermine
+      );
+
+      // Manually attach kernel session
+      // The attachSession function only sends out a couple of events we don't care about
+      newNotebookCell.session = exampleCell.session;
 
       thebe.notebook.cells.push(newNotebookCell);
+
+      console.log(newNotebookCell.area);
 
       thebe.renderAllCells(
         {
@@ -90,6 +98,12 @@ function finalizeCodeCells(cells) {
       addToThebeControls(newCell, deleteCell);
       deleteCell.onclick = () => {
         newCell.remove();
+        let cells = thebe.notebook.cells;
+        // Remove cell from notebook too, otherwise their side-effects will still be present when running all
+        cells.splice(
+          cells.findIndex((cell) => cell.id === newCellInfo.id),
+          1
+        );
       };
     };
   });
