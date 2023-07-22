@@ -9,10 +9,12 @@ const thebeLiteConfig = {
     theme: "default",
     mode: "python",
   },
-  mountRestartButton: false,
+  mountRestartButton: false, // Restarting the kernel messes things up for the custom features, and it effectively does the same as a page reload
   mountRestartallButton: false,
 };
 
+// Taken from a cell in the book which hasn't been converted by Thebe yet
+// This gets converted into an empty Thebe cell when calling the render function on it
 const newCellHtml = `<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre id="codecell0"></pre>
@@ -58,8 +60,8 @@ function finalizeCodeCells(cells) {
 
     clear.onclick = () => {
       const cellId = codeCell
-        .querySelector("[data-thebe-id]")
-        .getAttribute("data-thebe-id");
+        .querySelector("[data-thebe-id]") // Once rendered a cell has a data-thebe-id attached to it
+        .getAttribute("data-thebe-id"); // This corresponds to the id in the notebook
       const notebookCell = thebe.notebook.cells.find(
         (cell) => cell.id === cellId
       );
@@ -74,16 +76,16 @@ function finalizeCodeCells(cells) {
         id: thebe.randomId(),
         placeholders: {
           output: undefined,
-          source: newCell.querySelector("pre"),
+          source: newCell.querySelector("pre"), // Source is the actual code part of it, we don't want the container bits to be replaced
         },
       };
 
       const exampleCell = thebe.notebook.lastCell();
       const newNotebookCell = new exampleCell.constructor(
-        newCellInfo.id,
-        thebe.notebook.id,
-        "",
-        exampleCell.events._config,
+        newCellInfo.id, // Cell Id
+        thebe.notebook.id, // Notebook ID
+        "", // Source code
+        exampleCell.events._config, // Config, metadata and rendermine are the same for all cells, safe to take from the example
         exampleCell.metadata,
         exampleCell.rendermine
       );
@@ -93,16 +95,18 @@ function finalizeCodeCells(cells) {
       newNotebookCell.session = exampleCell.session;
 
       thebe.notebook.cells.push(newNotebookCell);
+
+      // Turns the code section of the cell into an interactive Thebe cell
       thebe.renderAllCells(
         {
           mountRunButton: true,
           mountRunAllButton: true,
         },
-        thebe.notebook,
-        [newCellInfo]
+        thebe.notebook, // Notebook
+        [newCellInfo] // Cell IDs
       );
 
-      finalizeCodeCells([newCell]);
+      finalizeCodeCells([newCell]); // Add in all extra buttons
 
       const deleteCell = createButton(
         ["thebe-button"],
@@ -245,12 +249,27 @@ const loadStyleAsync = async (styleSource) => {
   });
 };
 
-function override_pyodide_open(fs, server_path) {
+// This function overrides the lookup behaviour inside the Emscripten filesystem:
+// https://emscripten.org/docs/api_reference/Filesystem-API.html
+// This allows us to lazily fetch files as needed so that Thebe feels like a local notebook
+// The lazy strategy reduces the number of requests made to the server, but does have some limitations:
+// 1. Imports don't work unless done aggressively (which is implemented, but there are likely breaking edge cases)
+// 2. Listing files in the directory will not give an accurate overview of what you can access
+// 3. Libraries may do unexpected things that do not work well with the lazy strategy e.g. listing the files before opening them
+function override_pyodide_lookup(fs, server_path) {
+  // This home was chosen outside the default because:
+  // 1. The default /drive home is a mount which does not play well with certain file operations
+  // 2. I thought it would help fetching py files from root, but that returns index.html instead of the directory listing
+  // This means py files inside the root folder of the server cannot be loaded implcitly, but you can still use open etc. to fetch them
+  // NOTE: The slash at the end is important, keep it if you change anything.
   const home = "/home/pyodide/book/";
 
+  // Create a file from the string without using the writeFile method
+  // writeFile calls lookupPath, which may cause infinite recursion?? (haven't tested)
   function createFileFromString(parentPath, name, string) {
     const parentNode = fs.lookupPath(parentPath).node;
 
+    // 33206 and 0 come from scraping the values used by writeFile
     const node = parentNode.node_ops.mknod(parentNode, name, 33206, 0);
 
     // Create file here and populate it
@@ -270,6 +289,8 @@ function override_pyodide_open(fs, server_path) {
     fs.close(stream);
   }
 
+  // Takes a list of directory names which form a path and ensures they all exist
+  // This will also aggressively load .py files to ensure importing works as expected
   function createDirectoryStructure(directories) {
     let currentDirectory = "/";
     for (const directory of directories) {
@@ -278,9 +299,9 @@ function override_pyodide_open(fs, server_path) {
       try {
         fs.mkdir(currentDirectory);
 
+        // Fetching the directory needs to return a directory listing
+        // This feature may not be enabled on some servers and will fail
         let request = new XMLHttpRequest();
-        // Fetch relative to where we are in the server, to simulate how it works in notebooks
-        // We will still put it in the directory requested by pyodide however, so the next call to open succeeds without tampering
         const fullPath = currentDirectory;
         const path = currentDirectory.slice(home.length);
         request.open("GET", path, false);
@@ -290,10 +311,13 @@ function override_pyodide_open(fs, server_path) {
           continue;
         }
 
+        // Find alls all the rows in the html with class="display-name" and a file with a .py extension in the text
+        // We cannot use DOMParser here since it's running inside a web worker: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API
         const regex = /class=\"display-name\".*?\>\<.*?\>(.*?\.py)\<.*?\>/g;
         regex.lastIndex = 0;
 
         for (const match of request.response.matchAll(regex)) {
+          // match[1] contains the name of the python file
           request.open("GET", path + match[1], false);
           request.send();
 
@@ -319,8 +343,7 @@ function override_pyodide_open(fs, server_path) {
     try {
       return old_lookup(path, opts);
     } catch (exception) {
-      // To prevent messing up the filesystem, the mirrored directory is rooted at the home (/drive for Thebe)
-      // If we're trying to fetch files from outside this root, we throw an error since the file wasn't found previously.
+      // If we're trying to fetch files from outside home, we throw an error since the file wasn't found previously.
       if (!path.startsWith(home)) {
         throw exception;
       }
@@ -329,14 +352,12 @@ function override_pyodide_open(fs, server_path) {
       path = path.slice(home.length);
 
       const pathList = fullPath.split("/");
-      const name = pathList[pathList.length - 1];
-      const parentPathList = pathList.slice(0, -1);
+      const name = pathList[pathList.length - 1]; // Name of file
+      const parentPathList = pathList.slice(0, -1); // List of all parent directories
 
       createDirectoryStructure(parentPathList);
 
       let request = new XMLHttpRequest();
-      // Fetch relative to where we are in the server, to simulate how it works in notebooks
-      // We will still put it in the directory requested by pyodide however, so the next call to open succeeds without tampering
       request.open("GET", path, false);
       request.send();
 
@@ -344,9 +365,7 @@ function override_pyodide_open(fs, server_path) {
         throw exception;
       }
       createFileFromString(parentPathList.join("/"), name, request.response);
-      const result = old_lookup(fullPath, opts);
-
-      return result;
+      return old_lookup(fullPath, opts);
     }
   }
   fs.lookupPath = new_lookup;
@@ -376,8 +395,16 @@ var initThebe = async () => {
     modifyDOMForThebe();
     await thebelab.bootstrap(thebeLiteConfig);
 
+    // Runs override_pyodide_lookup on the web worker
+    // We can't access the web worker directly, but we can execute code on the current kernel
+    // Since Pyodide has access to its javascript enviroment through the js package, we do the following steps:
+    // 1. Load the js and pyodide_js package
+    // 2. Set the fs variable in JS to our pyodide_js, this gives access to pyodide in JS
+    // 3. Eval the string og the override_pyodide_lookup function in JS, this brings it into scope
+    // 4. Execute the override_pyodide_lookup function in JS, and bake in the relative path from root in the book (the home)
+    // NOTE: All functions used in override_pyodide_lookup should be nested inside it, since the web worker cannot access functions in this script
     await thebelab.session.kernel.requestExecute({
-      code: `import js; import pyodide_js; js.fs = pyodide_js.FS; js.eval("""${override_pyodide_open.toString()}"""); js.eval(f"override_pyodide_open(fs, '${
+      code: `import js; import pyodide_js; js.fs = pyodide_js.FS; js.eval("""${override_pyodide_lookup.toString()}"""); js.eval(f"override_pyodide_lookup(fs, '${
         location.pathname.split("/").slice(0, -1).join("/") + "/"
       }')")`,
     });
