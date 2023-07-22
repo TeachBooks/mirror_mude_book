@@ -49,6 +49,23 @@ function finalizeCodeCells(cells) {
     );
     addToThebeControls(codeCell, addCell);
 
+    const clear = createButton(
+      ["thebe-button"],
+      "clear the output of the cell",
+      "clear"
+    );
+    addToThebeControls(codeCell, clear);
+
+    clear.onclick = () => {
+      const cellId = codeCell
+        .querySelector("[data-thebe-id]")
+        .getAttribute("data-thebe-id");
+      const notebookCell = thebe.notebook.cells.find(
+        (cell) => cell.id === cellId
+      );
+      notebookCell.clear();
+    };
+
     addCell.onclick = () => {
       const newCell = createElementFromHTML(newCellHtml);
       codeCell.parentElement.insertBefore(newCell, codeCell.nextSibling);
@@ -76,9 +93,6 @@ function finalizeCodeCells(cells) {
       newNotebookCell.session = exampleCell.session;
 
       thebe.notebook.cells.push(newNotebookCell);
-
-      console.log(newNotebookCell.area);
-
       thebe.renderAllCells(
         {
           mountRunButton: true,
@@ -231,8 +245,30 @@ const loadStyleAsync = async (styleSource) => {
   });
 };
 
-function override_pyodide_open(fs, home, server_path) {
-  const old_open = fs.open;
+function override_pyodide_open(fs, server_path) {
+  const home = "/home/pyodide/book/";
+
+  function createFileFromString(parentPath, name, string) {
+    const parentNode = fs.lookupPath(parentPath).node;
+
+    const node = parentNode.node_ops.mknod(parentNode, name, 33206, 0);
+
+    // Create file here and populate it
+    const stream = fs.createStream({
+      node: node,
+      path: parentPath + "/" + name,
+      flags: 1,
+      seekable: true,
+      position: 0,
+      stream_ops: node.stream_ops,
+      ungotten: [],
+      error: false,
+    });
+    const buffer = new TextEncoder().encode(string);
+    stream.stream_ops.write(stream, buffer, 0, buffer.byteLength, 0, true);
+
+    fs.close(stream);
+  }
 
   function createDirectoryStructure(directories) {
     let currentDirectory = "/";
@@ -241,79 +277,79 @@ function override_pyodide_open(fs, home, server_path) {
       currentDirectory += directory + "/";
       try {
         fs.mkdir(currentDirectory);
-        console.log(`Made up to: ${currentDirectory}`);
+
+        let request = new XMLHttpRequest();
+        // Fetch relative to where we are in the server, to simulate how it works in notebooks
+        // We will still put it in the directory requested by pyodide however, so the next call to open succeeds without tampering
+        const fullPath = currentDirectory;
+        const path = currentDirectory.slice(home.length);
+        request.open("GET", path, false);
+        request.send();
+
+        if (request.status !== 200) {
+          continue;
+        }
+
+        const regex = /class=\"display-name\".*?\>\<.*?\>(.*?\.py)\<.*?\>/g;
+        regex.lastIndex = 0;
+
+        for (const match of request.response.matchAll(regex)) {
+          request.open("GET", path + match[1], false);
+          request.send();
+
+          if (request.status !== 200) {
+            continue;
+          }
+
+          createFileFromString(fullPath, match[1], request.response);
+        }
       } catch {}
     }
   }
-
-  function clearFilesystem(root) {
-    for (nodeRelPath of fs.readdir(root)) {
-      if (nodeRelPath === "." || nodeRelPath === "..") continue;
-      const path = root + "/" + nodeRelPath;
-      const stats = fs.lstat(path);
-      if (fs.isFile(stats.mode)) {
-        fs.unlink(path);
-      } else {
-        // Recursively clear paths and then remove empty directory
-        clearFilesystem(path);
-        fs.rmdir(path);
-      }
-    }
-  }
-
-  console.log("Clearing path...");
-  // There seems to be some persistence between loads, but we don't want that to prevent files going stale
-  // Won't disable it however, in case of future jupyterlite lab support
-  clearFilesystem(home);
-
-  console.log(`Cleared ${home} directory`);
 
   // Mirroring the underlying directory structure allows relative pathing to work properly
   const mirroredDirectory = home + server_path;
   createDirectoryStructure(mirroredDirectory.split("/"));
   fs.chdir(mirroredDirectory);
 
-  function new_open(path, flags, mode) {
-    console.log(`Params: ${path}, ${flags}, ${mode}`);
+  const old_lookup = fs.lookupPath;
+  function new_lookup(path, opts = {}) {
     // Being called from writeFile, or in write mode, we don't want to load in that case
     // This catches any errors caused by things like missing directories
-    if (flags === 577) {
-      console.log("Running old open");
-      return old_open(path, flags, mode);
-    }
-
-    console.log(`Params: ${path}, ${flags}, ${mode}`);
     try {
-      return old_open(path, flags, mode);
-    } catch {
+      return old_lookup(path, opts);
+    } catch (exception) {
       // To prevent messing up the filesystem, the mirrored directory is rooted at the home (/drive for Thebe)
       // If we're trying to fetch files from outside this root, we throw an error since the file wasn't found previously.
       if (!path.startsWith(home)) {
-        throw new fs.ErrnoError(44);
+        throw exception;
       }
 
       const fullPath = path;
       path = path.slice(home.length);
 
-      // Last entry is the file itself, so it's not included
-      createDirectoryStructure(fullPath.split("/").slice(0, -1));
+      const pathList = fullPath.split("/");
+      const name = pathList[pathList.length - 1];
+      const parentPathList = pathList.slice(0, -1);
+
+      createDirectoryStructure(parentPathList);
 
       let request = new XMLHttpRequest();
       // Fetch relative to where we are in the server, to simulate how it works in notebooks
       // We will still put it in the directory requested by pyodide however, so the next call to open succeeds without tampering
-      console.log(`Requesting from: ${path}`);
       request.open("GET", path, false);
       request.send();
 
       if (request.status !== 200) {
-        throw new fs.ErrnoError(44);
+        throw exception;
       }
-      fs.writeFile(fullPath, request.response);
+      createFileFromString(parentPathList.join("/"), name, request.response);
+      const result = old_lookup(fullPath, opts);
 
-      return old_open(fullPath, flags, mode);
+      return result;
     }
   }
-  fs.open = new_open;
+  fs.lookupPath = new_lookup;
 }
 
 var initThebe = async () => {
@@ -339,10 +375,11 @@ var initThebe = async () => {
     configureThebe();
     modifyDOMForThebe();
     await thebelab.bootstrap(thebeLiteConfig);
+
     await thebelab.session.kernel.requestExecute({
-      code: `import js; from os import getcwd; import pyodide_js; js.fs = pyodide_js.FS; js.eval("""${override_pyodide_open.toString()}"""); js.eval(f"override_pyodide_open(fs, '{getcwd()}', ${
+      code: `import js; import pyodide_js; js.fs = pyodide_js.FS; js.eval("""${override_pyodide_open.toString()}"""); js.eval(f"override_pyodide_open(fs, '${
         location.pathname.split("/").slice(0, -1).join("/") + "/"
-      })")`,
+      }')")`,
     });
   } else {
     console.log("[sphinx-thebe]: thebe already loaded...");
