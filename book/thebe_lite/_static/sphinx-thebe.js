@@ -311,9 +311,9 @@ function override_pyodide_lookup(fs, server_path) {
           continue;
         }
 
-        // Find alls all the rows in the html with class="display-name" and a file with a .py extension in the text
+        // Find alls all the links with .py files in the directory listing
         // We cannot use DOMParser here since it's running inside a web worker: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API
-        const regex = /class=\"display-name\".*?\>\<.*?\>(.*?\.py)\<.*?\>/g;
+        const regex = /\<a href=\"(.*?\.py)\"\>(.*?\.py)\<.*?\>/g;
         regex.lastIndex = 0;
 
         for (const match of request.response.matchAll(regex)) {

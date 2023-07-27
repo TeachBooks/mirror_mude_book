@@ -1,0 +1,12 @@
+services:
+  web:
+    container_name: mude-book
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - type: bind
+        source: ./
+        target: /book
+    stdin_open: true 
+    tty: true
