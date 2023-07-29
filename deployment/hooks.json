@@ -1,0 +1,122 @@
+[
+    {
+        "id": "book-deploy-draft",
+        "execute-command": "/srv/webhook/deploy_artifact.sh",
+        "pass-arguments-to-command": [
+            {
+                "source": "string",
+                "name": "main"
+            },
+            {
+                "source": "string",
+                "name": "/var/web_server/htdocs/draft"
+            }
+        ],
+        "response-message": "Executing redeploy script",
+        "trigger-rule": {
+            "and": [
+                {
+                    "match": {
+                        "type": "value",
+                        "value": "pipeline",
+                        "parameter": {
+                            "source": "payload",
+                            "name": "object_kind"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "type": "value",
+                        "value": "success",
+                        "parameter": {
+                            "source": "payload",
+                            "name": "object_attributes.status"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "type": "value",
+                        "value": "main",
+                        "parameter": {
+                            "source": "payload",
+                            "name": "object_attributes.ref"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "type": "value",
+                        "value": "izrl7qIm84yDjrdpMuzs2ApRETEfx38IU6mMyDdWh2s",
+                        "parameter": {
+                            "source": "header",
+                            "name": "X-Gitlab-Token"
+                        }
+                    }
+                }
+            ]
+        },
+        "trigger-rule-mismatch-http-response-code": 200
+    },
+    {
+        "id": "book-deploy",
+        "execute-command": "/srv/webhook/deploy_artifact.sh",
+        "pass-arguments-to-command": [
+            {
+                "source": "string",
+                "name": "publish"
+            },
+            {
+                "source": "string",
+                "name": "/var/web_server/htdocs"
+            }
+        ],
+        "response-message": "Executing redeploy script",
+        "trigger-rule": {
+            "and": [
+                {
+                    "match": {
+                        "type": "value",
+                        "value": "pipeline",
+                        "parameter": {
+                            "source": "payload",
+                            "name": "object_kind"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "type": "value",
+                        "value": "success",
+                        "parameter": {
+                            "source": "payload",
+                            "name": "object_attributes.status"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "type": "value",
+                        "value": "publish",
+                        "parameter": {
+                            "source": "payload",
+                            "name": "object_attributes.ref"
+                        }
+                    }
+                },
+                {
+                    "match": {
+                        "type": "value",
+                        "value": "izrl7qIm84yDjrdpMuzs2ApRETEfx38IU6mMyDdWh2s",
+                        "parameter": {
+                            "source": "header",
+                            "name": "X-Gitlab-Token"
+                        }
+                    }
+                }
+            ]
+        },
+        "trigger-rule-mismatch-http-response-code": 200
+    }
+]
