@@ -9,7 +9,7 @@
             },
             {
                 "source": "string",
-                "name": "/var/web_server/htdocs/draft"
+                "name": "/var/web_server/htdocs/book-draft"
             }
         ],
         "response-message": "Executing redeploy script",
@@ -69,7 +69,7 @@
             },
             {
                 "source": "string",
-                "name": "/var/web_server/htdocs"
+                "name": "/var/web_server/htdocs/book"
             }
         ],
         "response-message": "Executing redeploy script",
