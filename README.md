@@ -36,7 +36,27 @@ Someday we will probably add chapter numbers, determine conventions for figures,
 **Keeep this in mind:** until we share the book with the students it will be in development mode, which means we can add all sorts of notes, tags, flags, etc.. Wherever, however, whoever. Just have fun. By August, however, the Table of Contents should be close to final and during the 2 week review period at the end of August the old, draft and temporary material should be removed.
 
 **git:** do you struggle with the terminal commands? Can you handle git in VS Code, but don't like going to the GitLab website? You can use the [GitHub Desktop Application](https://desktop.github.com/) to take care of all your git needs. This makes it much easer to pull, push, resolve merge conflicts, and can even take care of Merge Requests so you don't need to visit the GitLab website. Tom van Woudenburg has been using it with GitLab for a while, so contact him if you are interested in this setup.
+
 ### Generic working method
+
+As the book and editing team grow, the chance that something does not work increases. It's critical that everyone builds the book in the same way, and that changes are made in parallel without losing work. The tools for this are Docker and git/GitLab.  For example, the book does not build on your computer, or the HTML looks different on your computer than another. Docker standardizes the building and deployment process to reduce dependency issues.
+
+Everyone **must** use git and GitLab, although there are several ways to do it (e.g, terminal, GitHub GUI, VS Code). Docker can be complicated to set up (especially on Windows); it is really only needed if a) you want to be able to build the book in exactly the same way as it will be built on the website, or b) the (Python) packages to build the book are not on your local computer (e.g., the book build breaks on your computer, or you don't want to manage package dependencies).
+
+#### Install Docker
+
+You should follow the instructions on the Docker website to install [Docker Desktop](https://docs.docker.com/desktop/) (for Windows the downloaded exe was over 400MB; you will need to log out of windows to complete installation). A couple "tricks" are needed to get it running smoothly:
+
+1. Administrative privelages: make sure your user is added to the Docker users group, as described [here](https://stackoverflow.com/questions/61530874/docker-how-do-i-add-myself-to-the-docker-users-group-on-windows). In short, open a windows command prompt as administrator and execute: `net localgroup docker-users "your-user-id" /ADD`.
+2. You may need to The first two answers [here](https://stackoverflow.com/questions/43041331/docker-forever-in-docker-is-starting-at-windows-task) were done by Robert. Note that the "Switch to Windows containers..." solution should be done every time you restart and/or open Docker Desktop.
+
+#### Building the book on your computer (Docker)
+
+To use, run the `deploy-book.sh` script, and to stop it run the `stop-deployment.sh` script.
+
+Initial build times may take a second, but then the Docker image with be cached and will not be rebuilt unless needed. This setup will also produce the `_build` folder on your machine. Trying to build locally after building in docker will cause a rebuild for some reason (maybe incompatible settings?), and visa-versa.
+
+#### Using git and GitLab
 
 The typical workflow is:
 - create your own branch via GitLab (create from an Issue directly, or just create one manually and use or name)
