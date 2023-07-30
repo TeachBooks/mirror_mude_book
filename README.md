@@ -50,11 +50,21 @@ You should follow the instructions on the Docker website to install [Docker Desk
 1. Administrative privelages: make sure your user is added to the Docker users group, as described [here](https://stackoverflow.com/questions/61530874/docker-how-do-i-add-myself-to-the-docker-users-group-on-windows). In short, open a windows command prompt as administrator and execute: `net localgroup docker-users "your-user-id" /ADD`.
 2. You may need to The first two answers [here](https://stackoverflow.com/questions/43041331/docker-forever-in-docker-is-starting-at-windows-task) were done by Robert. Note that the "Switch to Windows containers..." solution should be done every time you restart and/or open Docker Desktop.
 
+Once Docker is set up correctly, you should see a default page on the Containers tab in Docker Desktop that reads "Your running containers show up here." The book contains some Docker configuration and shell scripts to semi-automate the process of using a container. The main idea (**MAX: check this.**) that we define the tools needed to build the book with a Docker *image* (`Dockerfile`), then we create the Docker *container* to run the scripts to build to book (`deploy-book.sh`). When the container runs, `docker-compose.yml` provides the instructions for hosting the book on a local webserver so that you can view the book.
+
 #### Building the book on your computer (Docker)
 
-To use, run the `deploy-book.sh` script, and to stop it run the `stop-deployment.sh` script.
+**MAX: check this.**
 
-Initial build times may take a second, but then the Docker image with be cached and will not be rebuilt unless needed. This setup will also produce the `_build` folder on your machine. Trying to build locally after building in docker will cause a rebuild for some reason (maybe incompatible settings?), and visa-versa.
+This is the custom setup for our MUDE book. Initial build times may take a second, but then the Docker image with be cached and will not be rebuilt unless needed. This setup will also produce the `_build` folder on your machine. Trying to build locally after building in docker will cause a rebuild for some reason (maybe incompatible settings?), and visa-versa.
+
+The typical workflow is:
+- Run the `deploy-book.sh` script
+- Use Docker Desktop to check the status of your container
+- Do whatever book tasks you have: read, edit, use, etc (access the book at `URL FOR VIEWING BOOK` or via Docker Desktop)
+- If you need to rebuild the book to check your changes... `INSTRUCTIONS HERE...build book using terminal?`
+- Once you are finished, stop the container using the `stop-deployment.sh` script
+- Push any commits to GL
 
 #### Using git and GitLab
 
