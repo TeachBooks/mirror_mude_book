@@ -45,13 +45,13 @@ parts:
       - file: sandbox/SanPart/premath/00_01c_PreMath.md
       - file: sandbox/SanPart/premath/00_02_PreMath.md
       - file: sandbox/SanPart/premath/00_03_PreMath.md
-    - file: sandbox/it
-      sections:
-      - file: sandbox/it-benchmark_dont_execute.ipynb
   - caption: MUDE Cookbook
     chapters:
     - file: cookbook/blank
     - file: cookbook/interactive_element
+    - file: cookbook/live_code
+      sections:
+      - file: cookbook/benchmark_aux_dont_execute.ipynb
   - caption: Old Material
     chapters:
     - file: old/blank
