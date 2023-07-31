@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -euo pipefail
+
 # Build the jupyter book, everything else is post-processing
 jupyter-book build book
 
