@@ -49,6 +49,9 @@ parts:
     chapters:
     - file: cookbook/blank
     - file: cookbook/interactive_element
+    - file: cookbook/live_code
+      sections:
+      - file: cookbook/benchmark_aux_dont_execute.ipynb
   - caption: Old Material
     chapters:
     - file: old/blank

@@ -18,3 +18,7 @@ sphinx:
 
 bibtex_bibfiles:
   - _bibliography/references_pd.bib
+  
+launch_buttons:
+  thebe: true
+  
