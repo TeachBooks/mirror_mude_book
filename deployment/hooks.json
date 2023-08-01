@@ -9,6 +9,10 @@
             },
             {
                 "source": "string",
+                "name": "book/_build/html"
+            },
+            {
+                "source": "string",
                 "name": "/var/web_server/htdocs/book-draft"
             }
         ],
@@ -66,6 +70,10 @@
             {
                 "source": "string",
                 "name": "publish"
+            },
+            {
+                "source": "string",
+                "name": "book/_build/html"
             },
             {
                 "source": "string",

@@ -2,20 +2,21 @@
 
 set -euo pipefail
 
-if [[ $# -lt 2 ]]; then
+if [[ $# -lt 3 ]]; then
     echo "[!] Illegal number of parameters" >&2
-    echo "Usage: $0 <branch> <deployment_dir> [job-name] [project-id] [gitlab-token]" >&2
+    echo "Usage: $0 <branch> <from_dir> <deployment_dir> [job-name] [project-id] [gitlab-token]" >&2
     exit 2
 fi
 
 BRANCH_NAME=$1
-DEPLOYMENT_DIR=$2
+FROM_DIR=$2
+DEPLOYMENT_DIR=$3
 
 
-JOB_NAME=${3-"build-book"}
-PROJECT_ID=${4-"mude/book"}
+JOB_NAME=${4-"build-book"}
+PROJECT_ID=${5-"mude/book"}
 # PLEASE, don't leak this. It's a project access token with read access to the book repository.
-GITLAB_TOKEN=${5-"glpat-NEFk4DUgxy2cBr4FHyzS"}
+GITLAB_TOKEN=${6-"glpat-NEFk4DUgxy2cBr4FHyzS"}
 
 CURRENT_DIR=$(pwd)
 WORKDIR=$(mktemp -d)
@@ -72,4 +73,4 @@ rm artifact.zip
 
 echo "[*] Deploying artifact"
 mkdir -p $DEPLOYMENT_DIR || echo "Could not create deployment directory"
-cp -r $WORKDIR/book/_build/html/* $DEPLOYMENT_DIR
+cp -r $WORKDIR/$FROM_DIR/* $DEPLOYMENT_DIR
