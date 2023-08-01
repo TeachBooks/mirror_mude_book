@@ -39,7 +39,7 @@ build-book:
     - main
   script:
     - pip install -r requirements.txt
-    - ./build-lite.sh false
+    - bash ./build-lite.sh false
   artifacts:
     paths:
       - book/_build/html/
