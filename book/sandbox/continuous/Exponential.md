@@ -66,3 +66,5 @@ P[X>x_1+x_2|X>x_1]=\frac{P[X>x_1+x_2]}{P[X>x_1]}=\frac{e^{\lambda (x_1+x_2)}}{e^
 $
 
 If the waiting time $X$ is exponential-distributed, you can see that the probability of the waiting time of one occurence ($x_2$) does not depend on the previous one ($x_1$).
+
+Finally, note that this distribution is not bell-shaped and, thus, not symmetric. It presents a positive tail and its skewness is 2.
