@@ -24,13 +24,13 @@ START_SERVER=${1:-true}
 
 if [ "$START_SERVER" = true ] ; then
 	# Check whether python has the alias 'python' or 'python3'
-	if command -v python > /dev/null 2>&1
+	if command -v python3 > /dev/null 2>&1
 	then
-		python_command="python"
+		python_command="python3"
 	else
-		if command -v python3 > /dev/null 2>&1
+		if command -v python > /dev/null 2>&1
 		then
-			python_command="python3"
+			python_command="python"
 		else
 			echo "Could not find python, cannot start webserver."
 			exit 1
