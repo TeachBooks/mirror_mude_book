@@ -87,7 +87,7 @@ function finalizeCodeCells(cells) {
         "", // Source code
         exampleCell.events._config, // Config, metadata and rendermine are the same for all cells, safe to take from the example
         exampleCell.metadata,
-        exampleCell.rendermine
+        exampleCell.rendermime
       );
 
       // Manually attach kernel session
