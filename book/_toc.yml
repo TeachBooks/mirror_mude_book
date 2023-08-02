@@ -45,6 +45,11 @@ parts:
       - file: sandbox/SanPart/premath/00_01c_PreMath.md
       - file: sandbox/SanPart/premath/00_02_PreMath.md
       - file: sandbox/SanPart/premath/00_03_PreMath.md
+    - file: sandbox/assignment1/Assignment1_dont_execute.ipynb
+      title: Antonio Assignment 1
+      sections:
+        - file: sandbox/assignment1/exp1_importdata_dont_execute.ipynb
+        - file: sandbox/assignment1/exp2_distributionfitting_dont_execute.ipynb
     - file: sandbox/multivariate/1.3-1_Multivariate_distribution_dont_execute.ipynb
       title: Multivariate
       sections:
@@ -53,6 +58,9 @@ parts:
     chapters:
     - file: cookbook/blank
     - file: cookbook/interactive_element
+    - file: cookbook/live_code
+      sections:
+      - file: cookbook/benchmark_aux_dont_execute.ipynb
   - caption: Old Material
     chapters:
     - file: old/blank

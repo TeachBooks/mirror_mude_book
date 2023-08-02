@@ -1,0 +1,41 @@
+#!/bin/sh
+
+set -euo pipefail
+
+# Build the jupyter book, everything else is post-processing
+jupyter-book build book
+
+# Note: the structure of thebe_lite mimicks where thing are needed in the html folder
+cp book/thebe_lite/* book/_build/html/ -r
+
+# Copy all non notebook, markdown or build files into the build for local access in pyodide etc.
+# The commands do as follows:
+# 1. find: finds all paths in book/, filtering to see if they are files
+# 2. grep: remove all files which begin in book/_, or have a .md/.ipynb extension or are have thebe_lite in their path
+# 3. cut: remove the first 5 letters of each path, this  corresponds to book/
+# 4. xargs: will execute the script inside the quotes
+# 5. grep: finds a file's parent's path by matching against the section of the string ending in a '/'
+# 6. mkdir: makes all the parent directories, -p will do so recrusively
+# 7. cp: finally copies all files from the /book folder to /book/_build/html  
+find book/ -type f | grep -v "^book/_.*\|.*\.\(md\|ipynb\)\|thebe_lite" | cut -c 6- | xargs -i sh -c 'echo "book/_build/html/{}" | grep -o "^.*/" | xargs -d "\n" mkdir -p; cp book/"{}" book/_build/html/"{}"'
+
+# Serves the files on port 8000, localhost (127.0.0.1:8000)
+START_SERVER=${1:-true}
+
+if [ "$START_SERVER" = true ] ; then
+	# Check whether python has the alias 'python' or 'python3'
+	if command -v python3 > /dev/null 2>&1
+	then
+		python_command="python3"
+	else
+		if command -v python > /dev/null 2>&1
+		then
+			python_command="python"
+		else
+			echo "Could not find python, cannot start webserver."
+			exit 1
+		fi
+	fi
+	echo "Starting server on port 8000"
+	$python_command -m http.server 8000 --directory book/_build/html &
+fi
