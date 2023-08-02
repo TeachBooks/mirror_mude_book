@@ -169,16 +169,40 @@ Mostly I copied files, but also:
 
 ## Install and use Docker
 
-You should follow the instructions on the Docker website to install [Docker Desktop](https://docs.docker.com/desktop/) (for Windows the downloaded exe was over 400MB; you will need to log out of windows to complete installation). A couple "tricks" are needed to get it running smoothly:
+You should follow the instructions on the Docker website to install [Docker Desktop](https://docs.docker.com/desktop/) (for Windows the downloaded exe was over 400MB; you will need to log out of windows to complete installation). These instructions were written for Windows users; if you are using a Mac or Linux you will probably have a much easier time.
 
-1. Administrative privelages: make sure your user is added to the Docker users group, as described [here](https://stackoverflow.com/questions/61530874/docker-how-do-i-add-myself-to-the-docker-users-group-on-windows). In short, open a windows command prompt as administrator and execute: `net localgroup docker-users "your-user-id" /ADD`.
-2. You may need to use the first two answers [here](https://stackoverflow.com/questions/43041331/docker-forever-in-docker-is-starting-at-windows-task) (done by Robert). Note that the "Switch to Windows containers..." solution is not needed after you restart a few times (but if the container tab does not load, check it).
+- there is no need to create a Docker account
+- Windows users should use the Git Bash terminal. If you have never used it: it comes installed with git and provides Unix-like commands. You will need to make it aware of your Anaconda distribution by executing `conda init bash`. Test it by calling a Python package like `jupyter-book`.
+- you will also need to install Windows Subsystem for Linux (WSL); it provides a Linux environment on your Wndows machine. Docker Desktop install instructions will guide you through this. VS Code will also do it if you try to use Docker without WSL, but it won't work: try [this](https://learn.microsoft.com/nl-nl/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package) instead.
+-  
+
+A couple "tricks" are needed to get it running smoothly:
+
+1. Administrative privelages: make sure your user is added to the Docker users group, as described [here](https://stackoverflow.com/questions/61530874/docker-how-do-i-add-myself-to-the-docker-users-group-on-windows). In short, open a windows command prompt as administrator and execute: `net localgroup docker-users "your-user-id" /ADD`. You won't get confirmation, but it seems to work.
+2. You might also need to use the first two answers [here](https://stackoverflow.com/questions/43041331/docker-forever-in-docker-is-starting-at-windows-task) (done by Robert). Note that the "Switch to Windows containers..." solution is not needed after you restart a few times (but if the container tab does not load, check it).
+3. You may need to use git bash with admin rights, but once set up, your default approach should be OK.
 
 Once Docker is set up correctly, you should see a default page on the Containers tab in Docker Desktop that reads "Your running containers show up here." The book contains some Docker configuration and shell scripts to semi-automate the process of using a container. The main idea is that we define the tools needed to build the book with a Docker *image* (`Dockerfile`), then we create the Docker *container* to run the scripts to build to book (`deploy-book.sh`). When the container runs, `docker-compose.yml` provides the instructions for hosting the book on a local webserver so that you can view the book.
 
 One way to test whether your Docker Desktop installation is working is to run through a couple of the basic tutorials in Docker Desktop. THe first two that are advertised in the software should be sufficient as long as they take you through the process of creating a container and viewing the website in your browser.
 
-### Docker setup on Windows
+### Building the book on your computer (Docker)
+
+This is the custom setup for our MUDE book. It assumes you are a Windows user and are using Git Bash as a terminal, with Docker Desktop installed and working. For Mac or Linux, we assume you installed Docker Desktop and that you are using a terminal and everything works perfectly without problems because...well...it's not Windows.
+
+Initial build times may take a few mintutes, but then the Docker image will be cached and not be rebuilt unless needed. This setup will also produce the `_build` folder on your machine. Trying to build locally after building in docker will cause a rebuild for some reason (maybe incompatible settings?), and visa-versa.
+
+The typical workflow is:
+- Open Docker Desktop and make sure the empty container page loads. This means the Docker Engine is ready to build your book.
+- Run the `deploy-book.sh` script. You should see the book build output in the terminal window.
+- View the book at [http://localhost:8000/](http://localhost:8000/) (*not* the local build at `./book/_build/html/index.html`---the interactive features won't work!). You can also open this by clicking the link in the Container tab
+- note that your original terminal will be busy deploying the Python local server, so you will have to start a new one (especially to run `stop-deployment.sh`, below)
+- Do whatever book tasks you have: read, edit, use, etc
+- If you need to rebuild the book to check your changes, you may need to refresh the page (contact Robert if there is a problem)
+- Once you are finished, stop the container using the `stop-deployment.sh` script
+- Push any commits to GL
+
+### Docker notes for Windows
 
 Besides the installation tricks mentioned above, which are required to get a container running, there is one other issue we (Max/Robert) had in the setup. The build would proceed as desired from `deploy-book.sh` until the `CMD` line in the `Dockerfile` was reached, where the container terminal could not find the shell script `build-lite.sh`, terminating the process in an error. Docker Desktop would show that the container was exited. All of the commands in `build-lite.sh` worked fine when entered in the terminal, which helped (eventually) indicate the problem was with line endings in Windows. This was fixed using `* text=auto eol=lf` in `.gitignore`.
 
@@ -192,16 +216,3 @@ See also the discussion in [MR23](https://gitlab.tudelft.nl/mude/book/-/merge_re
 
 For future troubleshooting, try the docker commands `docker [network, image, container] ls` to see what is running (choose one of the three options in `[ ]`). You can also delete the image and cnotainer from Docker Desktop. If a line in the `Dockerfile` is causing problems, it can be commented and the container terminal can be used to test things, once the container is activated.
 
-### Building the book on your computer (Docker)
-
-This is the custom setup for our MUDE book. It assumes you are a Windows user and are using Git Bash as a terminal, with Docker Desktop installed and working. For Mac or Linux, we assume you installed Docker Desktop and that you are using a terminal and everything works perfectly without problems because...well...it's not Windows.
-
-Initial build times may take a few mintutes, but then the Docker image will be cached and not be rebuilt unless needed. This setup will also produce the `_build` folder on your machine. Trying to build locally after building in docker will cause a rebuild for some reason (maybe incompatible settings?), and visa-versa.
-
-The typical workflow is:
-- Run the `deploy-book.sh` script. You should see the book build output in the terminal window.
-- View the book at [http://localhost:8000/](http://localhost:8000/) (*not* the local build at `./book/_build/html/index.html`---the interactive features won't work!). You can also open this by clicking the link in the Container tab
-- Do whatever book tasks you have: read, edit, use, etc
-- If you need to rebuild the book to check your changes, you may need to refresh the page (contact Robert if there is a problem)
-- Once you are finished, stop the container using the `stop-deployment.sh` script
-- Push any commits to GL
