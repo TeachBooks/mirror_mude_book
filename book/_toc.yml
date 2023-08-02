@@ -45,6 +45,17 @@ parts:
       - file: sandbox/SanPart/premath/00_01c_PreMath.md
       - file: sandbox/SanPart/premath/00_02_PreMath.md
       - file: sandbox/SanPart/premath/00_03_PreMath.md
+    - file: sandbox/dist_fit_example/overview
+      title: Distribution Fitting Examples
+      sections:
+        - file: sandbox/dist_fit_example/00_case_study_dont_execute.ipynb
+        - file: sandbox/dist_fit_example/01_importdata_dont_execute.ipynb
+        - file: sandbox/dist_fit_example/02_distributionfitting_dont_execute.ipynb
+    - file: sandbox/multivariate/overview
+      title: Multivariate
+      sections:
+      - file: sandbox/multivariate/Multivariate_dont_execute.ipynb
+      - file: sandbox/multivariate/Vessels_dont_execute.ipynb
   - caption: MUDE Cookbook
     chapters:
     - file: cookbook/blank
