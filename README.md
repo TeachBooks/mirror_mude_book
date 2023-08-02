@@ -1,18 +1,19 @@
 # MUDE Jupyter Book 2023/2024
 
-**UPDATE FOR THOSE BUILDING THE BOOK: Tom has added some examples of the quiz features we can use in the Cookbook; the Grasple platform requires a package that is not on PyPI, so you should install it on your local computer using the following command:**
+**UPDATE FOR THOSE BUILDING THE BOOK:** *we've been adding packages to the build, for example, Tom has added some examples of the quiz features we can use in the Cookbook, which requires a special package from our CS colleagues. If your book build is breaking due to package issues, simply run the following:*
 
-`pip install git+https://github.com/dbalague/sphinx-grasple`
+```
+pip install -r requirements.txt
+```
 
-*Soon a Docker setup will be provided so you don't have to worry about this stuff in the future.*
+*If you don't mind a bit of advanced software installation, try the Docker installation described in this README: it will build your local book exactly the same way as it is done in the online version.*
 
-This book is for the technical contents of MUDE and will most likely also be used to display (and in part deliver) assignments to MUDE students, post solutions, etc.
 
-There will be a separate repo for the module website, which will give the (annual) course overview, planning, etc.
+This book is for the technical contents of MUDE and will include simple exercises, but not assignments or projects. There will be a separate repo for the assignment files, as wellas the module website, which will give the (annual) course overview, planning, etc.
 
 For reference in editing content, see the [Jupyter Book website](https://jupyterbook.org/en/stable/) and our own CEG guidelines, which are online [here](https://interactivetextbooks.citg.tudelft.nl/intro.html) and stored in the repository [here](https://gitlab.tudelft.nl/interactivetextbooks-citg/jupyter-book-manual). This repository is within the Group [`interactivetextbooks-citg`](https://gitlab.tudelft.nl/interactivetextbooks-citg). If you do not have access to these projects yet, please go [here](https://gitlab.tudelft.nl/interactivetextbooks-citg) and request it (you will probably get Developer access to the Group, and Maintainer access to the Project).
 
-Conventions and protocols specific to MUDE will be written in this README.
+Conventions and protocols specific to MUDE will be written in this README and/or the book itself.
 
 ## Where to put stuff
 
@@ -43,28 +44,7 @@ As the book and editing team grow, the chance that something does not work incre
 
 Everyone **must** use git and GitLab, although there are several ways to do it (e.g, terminal, GitHub GUI, VS Code). Docker can be complicated to set up (especially on Windows); it is really only needed if a) you want to be able to build the book in exactly the same way as it will be built on the website, or b) the (Python) packages to build the book are not on your local computer (e.g., the book build breaks on your computer, or you don't want to manage package dependencies).
 
-#### Install Docker
-
-You should follow the instructions on the Docker website to install [Docker Desktop](https://docs.docker.com/desktop/) (for Windows the downloaded exe was over 400MB; you will need to log out of windows to complete installation). A couple "tricks" are needed to get it running smoothly:
-
-1. Administrative privelages: make sure your user is added to the Docker users group, as described [here](https://stackoverflow.com/questions/61530874/docker-how-do-i-add-myself-to-the-docker-users-group-on-windows). In short, open a windows command prompt as administrator and execute: `net localgroup docker-users "your-user-id" /ADD`.
-2. You may need to The first two answers [here](https://stackoverflow.com/questions/43041331/docker-forever-in-docker-is-starting-at-windows-task) were done by Robert. Note that the "Switch to Windows containers..." solution should be done every time you restart and/or open Docker Desktop.
-
-Once Docker is set up correctly, you should see a default page on the Containers tab in Docker Desktop that reads "Your running containers show up here." The book contains some Docker configuration and shell scripts to semi-automate the process of using a container. The main idea (**MAX: check this.**) that we define the tools needed to build the book with a Docker *image* (`Dockerfile`), then we create the Docker *container* to run the scripts to build to book (`deploy-book.sh`). When the container runs, `docker-compose.yml` provides the instructions for hosting the book on a local webserver so that you can view the book.
-
-#### Building the book on your computer (Docker)
-
-**MAX: check this.**
-
-This is the custom setup for our MUDE book. Initial build times may take a second, but then the Docker image with be cached and will not be rebuilt unless needed. This setup will also produce the `_build` folder on your machine. Trying to build locally after building in docker will cause a rebuild for some reason (maybe incompatible settings?), and visa-versa.
-
-The typical workflow is:
-- Run the `deploy-book.sh` script
-- Use Docker Desktop to check the status of your container
-- Do whatever book tasks you have: read, edit, use, etc (access the book at `URL FOR VIEWING BOOK` or via Docker Desktop)
-- If you need to rebuild the book to check your changes... `INSTRUCTIONS HERE...build book using terminal?`
-- Once you are finished, stop the container using the `stop-deployment.sh` script
-- Push any commits to GL
+Instructions to [Install and use Docker](#install-and-use-docker) at the end of this README.
 
 #### Using git and GitLab
 
@@ -186,3 +166,42 @@ Mostly I copied files, but also:
 - find/replace to add sub-dir references
 - added `_dont_execute` wildcard to config (change toc and filename for 3 nb's)
 - need to move up one extra dir for figure and code includes
+
+## Install and use Docker
+
+You should follow the instructions on the Docker website to install [Docker Desktop](https://docs.docker.com/desktop/) (for Windows the downloaded exe was over 400MB; you will need to log out of windows to complete installation). A couple "tricks" are needed to get it running smoothly:
+
+1. Administrative privelages: make sure your user is added to the Docker users group, as described [here](https://stackoverflow.com/questions/61530874/docker-how-do-i-add-myself-to-the-docker-users-group-on-windows). In short, open a windows command prompt as administrator and execute: `net localgroup docker-users "your-user-id" /ADD`.
+2. You may need to use the first two answers [here](https://stackoverflow.com/questions/43041331/docker-forever-in-docker-is-starting-at-windows-task) (done by Robert). Note that the "Switch to Windows containers..." solution is not needed after you restart a few times (but if the container tab does not load, check it).
+
+Once Docker is set up correctly, you should see a default page on the Containers tab in Docker Desktop that reads "Your running containers show up here." The book contains some Docker configuration and shell scripts to semi-automate the process of using a container. The main idea is that we define the tools needed to build the book with a Docker *image* (`Dockerfile`), then we create the Docker *container* to run the scripts to build to book (`deploy-book.sh`). When the container runs, `docker-compose.yml` provides the instructions for hosting the book on a local webserver so that you can view the book.
+
+One way to test whether your Docker Desktop installation is working is to run through a couple of the basic tutorials in Docker Desktop. THe first two that are advertised in the software should be sufficient as long as they take you through the process of creating a container and viewing the website in your browser.
+
+### Docker setup on Windows
+
+Besides the installation tricks mentioned above, which are required to get a container running, there is one other issue we (Max/Robert) had in the setup. The build would proceed as desired from `deploy-book.sh` until the `CMD` line in the `Dockerfile` was reached, where the container terminal could not find the shell script `build-lite.sh`, terminating the process in an error. Docker Desktop would show that the container was exited. All of the commands in `build-lite.sh` worked fine when entered in the terminal, which helped (eventually) indicate the problem was with line endings in Windows. This was fixed using `* text=auto eol=lf` in `.gitignore`.
+
+If applying the `.gitignore` setup to a git repo that is already initialized, you should run these two commands:
+```
+git rm --cached -r .
+git reset --hard
+```
+
+See also the discussion in [MR23](https://gitlab.tudelft.nl/mude/book/-/merge_requests/23).
+
+For future troubleshooting, try the docker commands `docker [network, image, container] ls` to see what is running (choose one of the three options in `[ ]`). You can also delete the image and cnotainer from Docker Desktop. If a line in the `Dockerfile` is causing problems, it can be commented and the container terminal can be used to test things, once the container is activated.
+
+### Building the book on your computer (Docker)
+
+This is the custom setup for our MUDE book. It assumes you are a Windows user and are using Git Bash as a terminal, with Docker Desktop installed and working. For Mac or Linux, we assume you installed Docker Desktop and that you are using a terminal and everything works perfectly without problems because...well...it's not Windows.
+
+Initial build times may take a few mintutes, but then the Docker image will be cached and not be rebuilt unless needed. This setup will also produce the `_build` folder on your machine. Trying to build locally after building in docker will cause a rebuild for some reason (maybe incompatible settings?), and visa-versa.
+
+The typical workflow is:
+- Run the `deploy-book.sh` script. You should see the book build output in the terminal window.
+- View the book at [http://localhost:8000/](http://localhost:8000/) (*not* the local build at `./book/_build/html/index.html`---the interactive features won't work!). You can also open this by clicking the link in the Container tab
+- Do whatever book tasks you have: read, edit, use, etc
+- If you need to rebuild the book to check your changes, you may need to refresh the page (contact Robert if there is a problem)
+- Once you are finished, stop the container using the `stop-deployment.sh` script
+- Push any commits to GL
