@@ -6,7 +6,7 @@ services:
       - "8000:8000"
     volumes:
       - type: bind
-        source: ./
+        source: ${PWD}
         target: /book
     stdin_open: true 
     tty: true
