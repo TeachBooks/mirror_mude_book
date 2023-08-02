@@ -173,12 +173,12 @@ You should follow the instructions on the Docker website to install [Docker Desk
 
 - there is no need to create a Docker account
 - Windows users should use the Git Bash terminal. If you have never used it: it comes installed with git and provides Unix-like commands. You will need to make it aware of your Anaconda distribution by executing `conda init bash`. Test it by calling a Python package like `jupyter-book`.
-- you will also need to install Windows Subsystem for Linux (WSL); it provides a Linux environment on your Wndows machine. Docker Desktop install instructions will guide you through this. VS Code will also do it if you try to use Docker without WSL, but it won't work: try [this](https://learn.microsoft.com/nl-nl/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package) instead.
+- you will also need to install Windows Subsystem for Linux (WSL); it provides a Linux environment on your Wndows machine. Docker Desktop will warn you about WSL not being installed when you start it up for the first time. Try [this](https://learn.microsoft.com/nl-nl/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package) to install. There is a WSL extension in VS Code but it does not work for Docker. 
 -  
 
 A couple "tricks" are needed to get it running smoothly:
 
-1. Administrative privelages: make sure your user is added to the Docker users group, as described [here](https://stackoverflow.com/questions/61530874/docker-how-do-i-add-myself-to-the-docker-users-group-on-windows). In short, open a windows command prompt as administrator and execute: `net localgroup docker-users "your-user-id" /ADD`. You won't get confirmation, but it seems to work.
+1. Administrative privelages: a) running Docker Desktop in admin mode works, and b) you can also try to add your Windows user to the Docker users group, as described [here](https://stackoverflow.com/questions/61530874/docker-how-do-i-add-myself-to-the-docker-users-group-on-windows). In short, open a windows command prompt as administrator and execute: `net localgroup docker-users "your-user-id" /ADD`. You won't get confirmation, but it seems to work.
 2. You might also need to use the first two answers [here](https://stackoverflow.com/questions/43041331/docker-forever-in-docker-is-starting-at-windows-task) (done by Robert). Note that the "Switch to Windows containers..." solution is not needed after you restart a few times (but if the container tab does not load, check it).
 3. You may need to use git bash with admin rights, but once set up, your default approach should be OK.
 
@@ -195,11 +195,12 @@ Initial build times may take a few mintutes, but then the Docker image will be c
 The typical workflow is:
 - Open Docker Desktop and make sure the empty container page loads. This means the Docker Engine is ready to build your book.
 - Run the `deploy-book.sh` script. You should see the book build output in the terminal window.
+- *Note: after you run* `deploy-book.sh` *successfully for the first time, you can start the container directly in Docker Desktop.*
 - View the book at [http://localhost:8000/](http://localhost:8000/) (*not* the local build at `./book/_build/html/index.html`---the interactive features won't work!). You can also open this by clicking the link in the Container tab
 - note that your original terminal will be busy deploying the Python local server, so you will have to start a new one (especially to run `stop-deployment.sh`, below)
 - Do whatever book tasks you have: read, edit, use, etc
 - If you need to rebuild the book to check your changes, you may need to refresh the page (contact Robert if there is a problem)
-- Once you are finished, stop the container using the `stop-deployment.sh` script
+- Once you are finished, stop the container using the `stop-deployment.sh` script or by pushing the stop button in Docker Desktop
 - Push any commits to GL
 
 ### Docker notes for Windows
