@@ -1,7 +1,7 @@
 .CodeMirror {
-	border: var(--mystnb-source-border-width) var(--mystnb-source-border-color) solid;
-	border-right-width: 0;
-	border-left-width: 0;
+    border: var(--mystnb-source-border-width) var(--mystnb-source-border-color) solid;
+    border-right-width: 0;
+    border-left-width: 0;
     background: var(--pst-color-surface) !important; 
     color: var(--pst-color-text-base) !important;
 }
@@ -78,6 +78,7 @@ html[data-theme=dark] span.cm-error { color: #FF0000; }
 html[data-theme=dark] span.cm-header { color: aquamarine; font-weight: bold; }
 html[data-theme=dark] span.cm-link { color: blueviolet; }
 html[data-theme=dark] .CodeMirror-activeline-background { background: #314151; }
+html[data-theme=dark] .widget-label, .widget-readout { color: var(--pst-color-text-base) !important; }
 
 html[data-theme=dark] .jp-RenderedText pre .ansi-yellow-bg {
     background-color: #9e8220;

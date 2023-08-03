@@ -29,6 +29,37 @@ function createElementFromHTML(htmlString) {
   return div.firstChild;
 }
 
+function setupNewCell(source, output, code) {
+  // https://github.com/executablebooks/thebe/blob/main/packages/thebe/src/types.ts
+  const newCellInfo = {
+    id: thebe.randomId(),
+    placeholders: {
+      output: output,
+      source: source,
+    },
+  };
+
+  // This will crash if we don't have any real cells in our notebook.
+  // In the future we can to add a dummy cell during initialization and then remove it
+  const exampleCell = thebe.notebook.lastCell();
+  const newNotebookCell = new exampleCell.constructor(
+    newCellInfo.id, // Cell Id
+    thebe.notebook.id, // Notebook ID
+    code, // Source code
+    thebe.notebook.events._config, // Config, metadata and rendermine are the same for all cells, safe to take from the example
+    thebe.notebook.metadata,
+    thebe.notebook.rendermime
+  );
+
+  // Manually attach kernel session
+  // The attachSession function only sends out a couple of events we don't care about
+  newNotebookCell.session = thebe.notebook.session;
+
+  thebe.notebook.cells.push(newNotebookCell);
+
+  return { newCellInfo, newNotebookCell };
+}
+
 function addToThebeControls(cell, element) {
   const controls = cell.querySelector(".thebe-controls");
   controls.insertBefore(element, controls.lastChild);
@@ -72,29 +103,12 @@ function finalizeCodeCells(cells) {
       const newCell = createElementFromHTML(newCellHtml);
       codeCell.parentElement.insertBefore(newCell, codeCell.nextSibling);
 
-      const newCellInfo = {
-        id: thebe.randomId(),
-        placeholders: {
-          output: undefined,
-          source: newCell.querySelector("pre"), // Source is the actual code part of it, we don't want the container bits to be replaced
-        },
-      };
-
-      const exampleCell = thebe.notebook.lastCell();
-      const newNotebookCell = new exampleCell.constructor(
-        newCellInfo.id, // Cell Id
-        thebe.notebook.id, // Notebook ID
-        "", // Source code
-        exampleCell.events._config, // Config, metadata and rendermine are the same for all cells, safe to take from the example
-        exampleCell.metadata,
-        exampleCell.rendermime
+      // Source is the actual code part of it, we don't want the container bits to be replaced
+      const { newCellInfo, newNotebookCell } = setupNewCell(
+        newCell.querySelector("pre"),
+        undefined,
+        ""
       );
-
-      // Manually attach kernel session
-      // The attachSession function only sends out a couple of events we don't care about
-      newNotebookCell.session = exampleCell.session;
-
-      thebe.notebook.cells.push(newNotebookCell);
 
       // Turns the code section of the cell into an interactive Thebe cell
       thebe.renderAllCells(
@@ -196,6 +210,12 @@ var runInitCells = () => {
  * Update the page DOM to use Thebe elements
  */
 var modifyDOMForThebe = () => {
+  // We remove all pre-existing cell output because they play poorly with Thebe
+  // This also means we need special tracking for cells with removed input because no HTML is generated for their input
+  // Hopefully we can achieve this with minimal changes and a special new tag
+  const outputDivs = document.querySelectorAll(".cell_output");
+  outputDivs.forEach((div, _) => div.remove());
+
   // Find all code cells, replace with Thebe interactive code cells
   const codeCells = document.querySelectorAll(thebe_selector);
   codeCells.forEach((codeCell, index) => {
@@ -373,6 +393,29 @@ function override_pyodide_lookup(fs, server_path) {
   fs.lookupPath = new_lookup;
 }
 
+function setupSpecialTaggedElements() {
+  for (const taggedElement of window.specialTaggedElements) {
+    switch (taggedElement.tag) {
+      case "thebe-remove-input": {
+        const { newCellInfo, newNotebookCell } = setupNewCell(
+          undefined,
+          undefined,
+          taggedElement.code
+        );
+        newNotebookCell.execute();
+        taggedElement.placeholder.parentElement.insertBefore(
+          newNotebookCell.area.node,
+          taggedElement.placeholder
+        );
+        break;
+      }
+      default: {
+        console.error(`Unrecognized special tag: ${taggedElement.tag}`);
+      }
+    }
+  }
+}
+
 var initThebe = async () => {
   // Load thebe dynamically if it's not already loaded
   if (typeof thebelab === "undefined") {
@@ -396,7 +439,6 @@ var initThebe = async () => {
     configureThebe();
     modifyDOMForThebe();
     await thebelab.bootstrap(thebeLiteConfig);
-    runInitCells();
 
     // Runs override_pyodide_lookup on the web worker
     // We can't access the web worker directly, but we can execute code on the current kernel
@@ -416,6 +458,9 @@ var initThebe = async () => {
     await thebelab.session.kernel.requestExecute({
       code: `import ipykernel; ipykernel.version_info = (0,0)`,
     });
+
+    runInitCells();
+    setupSpecialTaggedElements();
   } else {
     console.log("[sphinx-thebe]: thebe already loaded...");
   }
@@ -430,3 +475,43 @@ var detectLanguage = (language) => {
   }
   return language;
 };
+
+function handleThebeRemoveInputTag(element) {
+  const placeholder = document.createElement("pre");
+  placeholder.style.display = "none";
+
+  window.specialTaggedElements.push({
+    tag: "thebe-remove-input",
+    placeholder: placeholder,
+    code: element.querySelector("pre").textContent?.trim() ?? "",
+  });
+
+  element.parentElement.insertBefore(placeholder, element);
+  element.remove();
+}
+
+// Deal with custom-defined tags to properly prepare Thebe and DOM
+// Current special tags: thebe-remove-input
+function consumeSpecialTags() {
+  const specialTagsInfo = [
+    { tag: "thebe-remove-input", handler: handleThebeRemoveInputTag },
+  ];
+
+  window.specialTaggedElements = [];
+
+  for (const tagInfo of specialTagsInfo) {
+    const cells = document.querySelectorAll(".tag_" + tagInfo.tag);
+    for (const cell of cells) {
+      tagInfo.handler(cell);
+    }
+  }
+}
+
+// Check whether DOM is already loaded, or add an event listener for the event
+if (document.readyState !== "loading") {
+  consumeSpecialTags();
+} else {
+  document.addEventListener("DOMContentLoaded", function () {
+    consumeSpecialTags();
+  });
+}
