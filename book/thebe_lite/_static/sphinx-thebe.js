@@ -416,6 +416,16 @@ function setupSpecialTaggedElements() {
   }
 }
 
+// Moves output of hide-input cells to after the drop down menu, this makes more sense
+// since we don't want to hide the output as well
+function moveHideInputOutput() {
+  const taggedCells = document.querySelectorAll(".tag_hide-input");
+  for (const cell of taggedCells) {
+    const outputArea = cell.querySelector(".jp-OutputArea");
+    cell.after(outputArea);
+  }
+}
+
 var initThebe = async () => {
   // Load thebe dynamically if it's not already loaded
   if (typeof thebelab === "undefined") {
@@ -458,7 +468,7 @@ var initThebe = async () => {
     await thebelab.session.kernel.requestExecute({
       code: `import ipykernel; ipykernel.version_info = (0,0)`,
     });
-
+    moveHideInputOutput();
     runInitCells();
     setupSpecialTaggedElements();
   } else {
