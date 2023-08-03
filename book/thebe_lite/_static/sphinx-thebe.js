@@ -174,19 +174,21 @@ var configureThebe = () => {
         button.innerHTML = `Python interaction ready!`;
       });
 
-      var thebeInitCells = document.querySelectorAll(
-        ".thebe-init, .tag_thebe-init"
-      );
-      thebeInitCells.forEach((cell) => {
-        console.log("Initializing Thebe with cell: " + cell.id);
-        cell.querySelector(".thebelab-run-button").click();
-      });
-
       const codeCells = document.querySelectorAll(thebe_selector);
       finalizeCodeCells(codeCells);
 
       thebelab.on("status", () => {});
     }
+  });
+};
+
+var runInitCells = () => {
+  var thebeInitCells = document.querySelectorAll(
+    ".thebe-init, .tag_thebe-init"
+  );
+  thebeInitCells.forEach((cell) => {
+    console.log("Initializing Thebe with cell: " + cell.id);
+    cell.querySelector(".thebe-run-button").click();
   });
 };
 
@@ -394,6 +396,7 @@ var initThebe = async () => {
     configureThebe();
     modifyDOMForThebe();
     await thebelab.bootstrap(thebeLiteConfig);
+    runInitCells();
 
     // Runs override_pyodide_lookup on the web worker
     // We can't access the web worker directly, but we can execute code on the current kernel
