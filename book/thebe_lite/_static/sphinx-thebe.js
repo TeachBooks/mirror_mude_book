@@ -403,10 +403,7 @@ function setupSpecialTaggedElements() {
           taggedElement.code
         );
         newNotebookCell.execute();
-        taggedElement.placeholder.parentElement.insertBefore(
-          newNotebookCell.area.node,
-          taggedElement.placeholder
-        );
+        taggedElement.placeholder.before(newNotebookCell.area.node);
         break;
       }
       default: {
@@ -496,7 +493,11 @@ function handleThebeRemoveInputTag(element) {
     code: element.querySelector("pre").textContent?.trim() ?? "",
   });
 
-  element.parentElement.insertBefore(placeholder, element);
+  element.before(placeholder);
+  const placeholderOutput = element.querySelector(".cell_output");
+  if (placeholderOutput !== null) {
+    element.after(placeholderOutput);
+  }
   element.remove();
 }
 
