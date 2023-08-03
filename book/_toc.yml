@@ -31,6 +31,7 @@ parts:
       - file: sandbox/continuous/Parameterization.md
       - file: sandbox/continuous/fitting.md
       - file: sandbox/continuous/moments.md
+      - file: sandbox/continuous/moments_quiz.md
       - file: sandbox/continuous/GOF
     - file: sandbox/SanPart/ObservationTheory/01_Introduction.md
       title: Sensing and Observation Theory
