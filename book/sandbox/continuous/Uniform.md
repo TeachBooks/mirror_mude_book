@@ -35,3 +35,19 @@ F(x) = 0  \hspace{1cm} for \ x>b
 $
 
 If we make $a=0$ and $b=1$, we obtain the standard or unity uniform distribution, which is used to generate random values from other distribution functions for simulation purposes.
+
+## Some properties
+
+The mean of the uniform distribution can be computed based on its simple geometry as
+
+$
+E[X]=\frac{1}{2}(a+b)
+$
+
+The variance is given by
+
+$
+Var[X] = \frac{1}{12}(b-a)^2
+$
+
+Finally, note that uniform distribution is symmetric and presents 0 skewness. This is, it does not present any tail.
