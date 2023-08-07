@@ -183,21 +183,6 @@ var configureThebe = () => {
   });
 };
 
-async function runInitCells() {
-  var thebeInitCells = document.querySelectorAll(
-    ".thebe-init, .tag_thebe-init"
-  );
-  for (const cell of thebeInitCells) {
-    console.log("Initializing Thebe with cell: " + cell.id);
-    const notebookCell = getNotebookCellOfCodeCell(cell);
-
-    // Emulate clicking the run button, with more information about execution
-    thebe.setButtonsBusy(notebookCell.id);
-    await notebookCell.execute();
-    thebe.clearButtonsBusy(notebookCell.id);
-  }
-}
-
 /**
  * Update the page DOM to use Thebe elements
  */
@@ -385,17 +370,46 @@ function override_pyodide_lookup(fs, server_path) {
   fs.lookupPath = new_lookup;
 }
 
+async function runInitCells() {
+  var thebeInitCells = document.querySelectorAll(
+    ".thebe-init, .tag_thebe-init"
+  );
+  for (const cell of thebeInitCells) {
+    console.log("Initializing Thebe with cell: " + cell.id);
+    const notebookCell = getNotebookCellOfCodeCell(cell);
+
+    // Emulate clicking the run button, with more information about execution
+    thebe.setButtonsBusy(notebookCell.id);
+    await notebookCell.execute();
+    thebe.clearButtonsBusy(notebookCell.id);
+  }
+}
+
+function wrapNakedOutput(element) {
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("cell_output", "container");
+  wrapper.appendChild(element);
+  return wrapper;
+}
+
 function setupSpecialTaggedElements() {
   for (const taggedElement of window.specialTaggedElements) {
     switch (taggedElement.tag) {
-      case "thebe-remove-input": {
+      case "thebe-remove-input-init": {
         const { newCellInfo, newNotebookCell } = setupNewCell(
           undefined,
           undefined,
           taggedElement.code
         );
-        newNotebookCell.execute();
-        taggedElement.placeholder.before(newNotebookCell.area.node);
+
+        const wrappedOutput = wrapNakedOutput(newNotebookCell.area.node);
+        // The 4 following lines are an ugly hack to make sure we preserve init order
+        // Maybe improving runInitCells could circumvent this
+        wrappedOutput.classList.add("tag_thebe-init");
+        const idDiv = document.createElement("div");
+        idDiv.setAttribute("data-thebe-id", newNotebookCell.id);
+        wrappedOutput.appendChild(idDiv);
+        taggedElement.placeholder.before(wrappedOutput);
         break;
       }
       default: {
@@ -411,7 +425,7 @@ function moveHideInputOutput() {
   const taggedCells = document.querySelectorAll(".tag_hide-input");
   for (const cell of taggedCells) {
     const outputArea = cell.querySelector(".jp-OutputArea");
-    cell.after(outputArea);
+    cell.appendChild(wrapNakedOutput(outputArea));
   }
 }
 
@@ -420,15 +434,6 @@ var initThebe = async () => {
   document.querySelector(".dropdown-launch-buttons").remove();
 
   console.log("[sphinx-thebe]: Loading thebe...");
-  $(".thebe-launch-button ").css("display", "none");
-
-  // Provides nice things like a running animation and some padding
-  {
-    await loadStyleAsync("/thebe.css");
-    await loadStyleAsync("/_static/code.css");
-  }
-
-  $(".thebe-launch-button ").css("display", "block");
   $(".thebe-launch-button ").text("Loading thebe...");
 
   await loadScriptAsync("/thebe-lite.min.js");
@@ -461,14 +466,13 @@ var initThebe = async () => {
     code: `import ipykernel; ipykernel.version_info = (0,0)`,
   }).done;
   updateThebeButtonStatus("Running pre-intialized cells...");
+  setupSpecialTaggedElements();
 
   await runInitCells();
 
   updateThebeButtonStatus("Python interaction ready!", false);
 
   moveHideInputOutput();
-
-  setupSpecialTaggedElements();
 };
 
 // Helper function to munge the language name
@@ -486,7 +490,7 @@ function handleThebeRemoveInputTag(element) {
   placeholder.style.display = "none";
 
   window.specialTaggedElements.push({
-    tag: "thebe-remove-input",
+    tag: "thebe-remove-input-init",
     placeholder: placeholder,
     code: element.querySelector("pre").textContent?.trim() ?? "",
   });
@@ -500,10 +504,10 @@ function handleThebeRemoveInputTag(element) {
 }
 
 // Deal with custom-defined tags to properly prepare Thebe and DOM
-// Current special tags: thebe-remove-input
+// Current special tags: thebe-remove-input-init
 function consumeSpecialTags() {
   const specialTagsInfo = [
-    { tag: "thebe-remove-input", handler: handleThebeRemoveInputTag },
+    { tag: "thebe-remove-input-init", handler: handleThebeRemoveInputTag },
   ];
 
   window.specialTaggedElements = [];
@@ -524,3 +528,6 @@ if (document.readyState !== "loading") {
     consumeSpecialTags();
   });
 }
+
+loadStyleAsync("/thebe.css");
+loadStyleAsync("/_static/code.css");
