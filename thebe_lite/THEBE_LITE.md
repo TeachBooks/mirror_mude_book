@@ -16,6 +16,7 @@ The extra features provided by this implementation of Thebe Lite:
 2. Ability to load "local" files transparently
 3. Ability to add/delete scratch cells
 4. Clear button for cell outputs
+5. Custom cell tags for removing input, and proper handling of existing cell tags.
 
 ## Updating Thebe Lite
 
@@ -41,11 +42,19 @@ await thebelab.session.kernel.requestExecute({
       }')")`,
 ```
 
-Adds support for local file access. This line in specific also shouldn't need to be touched. Look at the `override_pyodide_lookup` function instead to change this behaviour.
+Adds support for local file access. This line in specific also shouldn't need to be touched. Look at the `override_pyodide_lookup` function instead to change this behaviour. Currently files are lazily loaded from the server, expect python files (to support imports). Loading in python files also requires that directory listings are available (and compatible with the expected format used by NGINX).
 
-The `configureThebe` function has been modified to support more useful status messages, but further work could be done. It would be nice to only display a ready message when Pyodide is done initializing, but I couldn't figure out a nice way to find this information. One could potentially try to execute something in the kernel to guage the status.
+```js
+await thebelab.session.kernel.requestExecute({
+  code: `import ipykernel; ipykernel.version_info = (0,0)`,
+});
+```
+
+Fixes some issues with Pyodide and ipywidgets. Hopefully it can be removed in the future.
 
 `finalizeCodeCells` adds the "add cell", "delete cell" and "clear" buttons to the Thebe controls. Adding a cell is the most interesting part. Thebe does not actually keep track of cells in the book, but instead keeps a "notebook" which has [ThebeCell](https://github.com/executablebooks/thebe/blob/main/packages/core/src/cell.ts)s in it. These cells have an `area` associated with them that keeps track of events in the cell and updates the appropriate HTML. Due to this organization, if you mess with cells in Thebe, it's important to synchronize the notebook properly too.
+
+Some special tags have also been defined, the logic for which is spread between `consumeSpecialTags` (on load) and `setupSpecialTaggedElements` (once Thebe is initialized).
 
 ## code.css
 
@@ -53,6 +62,6 @@ Contains CSS for dark mode and personal styling preferences, feel free to play w
 
 ## Contact
 
-In case of questions, feel free to contact me!
+In case of questions, please contact me!
 
 - Email: M.Guichard@student.tudelft.nl
