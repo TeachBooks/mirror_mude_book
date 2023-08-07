@@ -2,4 +2,4 @@
 # If applying this setup to a git repo that is already initialized, you should run these two commands:
 #   git rm --cached -r .
 #   git reset --hard
-* text=auto eol=lf
+*.sh eol=lf
