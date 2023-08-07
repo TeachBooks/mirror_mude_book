@@ -172,3 +172,7 @@ Mostly I copied files, but also:
 - find/replace to add sub-dir references
 - added `_dont_execute` wildcard to config (change toc and filename for 3 nb's)
 - need to move up one extra dir for figure and code includes
+
+### Running `.sh` files on Windows
+
+To run a `.sh` in Windows, make sure you have Git installed. If Windows still doesn't recognize the file as executable, right click it and select `Open With`, then click `Git for Windows`, and set it as the default too.

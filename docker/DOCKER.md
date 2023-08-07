@@ -38,7 +38,7 @@ The typical workflow is:
 - Open Docker Desktop and make sure the empty container page loads. This means the Docker Engine is ready to build your book.
 - Run the `deploy-docker.sh` script. You should see the book build output in the terminal window.
 - _Note: after you run_ `deploy-docker.sh` _successfully for the first time, you can start the container directly in Docker Desktop._
-- View the book at [http://localhost:8000/](http://localhost:8000/) (_not_ the local build at `./book/_build/html/index.html`---the interactive features won't work!). You can also open this by clicking the link in the Container tab
+- By default you can view the book at [http://localhost:8000/](http://localhost:8000/) (_not_ the local build at `./book/_build/html/index.html`---the interactive features won't work!). You can also open this by clicking the link in the Container tab. To turn off this feature, run the `deploy-docker.sh` from the command line and pass in `false` as the first argument - you will have to run a HTTP server manually.
 - once the book is successfully deployed, press Ctrl-C to exit back to terminal so you can run further commands (e.g. `stop-deployment.sh` discussed below). The container will keep running in the background.
 - Do whatever book tasks you have: read, edit, use, etc
 - If you need to rebuild the book to check your changes, run `deploy-docker.sh` again. You may also need to refresh the page you're viewing, and potentially clear the browser cache to see the changes (contact Robert if there is a problem).
