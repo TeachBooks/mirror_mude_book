@@ -36,28 +36,28 @@ build-book:
   stage: build
   only:
     - publish
+    - main
   script:
     - pip install -r requirements.txt
-    - jupyter-book clean book/
-    - jupyter-book build book/
+    - bash ./build-lite.sh false
   artifacts:
     paths:
       - book/_build/html/
 
 # This job commits the built HTML to the publish-html branch
-push-html:
-  stage: deploy
-  only:
-    - publish
-  before_script:
-    - apt-get update -y
-    - apt-get install rsync -y
-    - git config --global user.name "$GITLAB_USER_NAME"
-    - git config --global user.email "$GITLAB_USER_EMAIL"
-    - git fetch origin publish-html
-    - git checkout publish-html
-  script:
-    - rsync -av --delete-after --exclude=".git/" --exclude=".cache/" --exclude="venv/" ./book/_build/html/ .
-    - git add --all -- ':!.cache/*'
-    - git commit --allow-empty -m "$CI_COMMIT_MESSAGE"
-    - git push https://gitlab-ci-token:$ACCESS_TOKEN@gitlab.tudelft.nl/$CI_PROJECT_PATH.git publish-html
+# push-html:
+#   stage: deploy
+#   only:
+#     - publish
+#   before_script:
+#     - apt-get update -y
+#     - apt-get install rsync -y
+#     - git config --global user.name "$GITLAB_USER_NAME"
+#     - git config --global user.email "$GITLAB_USER_EMAIL"
+#     - git fetch origin publish-html
+#     - git checkout publish-html
+#   script:
+#     - rsync -av --delete-after --exclude=".git/" --exclude=".cache/" --exclude="venv/" ./book/_build/html/ .
+#     - git add --all -- ':!.cache/*'
+#     - git commit --allow-empty -m "$CI_COMMIT_MESSAGE"
+#     - git push https://gitlab-ci-token:$ACCESS_TOKEN@gitlab.tudelft.nl/$CI_PROJECT_PATH.git publish-html
