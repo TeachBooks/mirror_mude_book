@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+
+set -euo pipefail
 
 set -euo pipefail
 
@@ -19,23 +21,29 @@ cp book/thebe_lite/* book/_build/html/ -r
 # 7. cp: finally copies all files from the /book folder to /book/_build/html  
 find book/ -type f | grep -v "^book/_.*\|.*\.\(md\|ipynb\)\|thebe_lite" | cut -c 6- | xargs -i sh -c 'echo "book/_build/html/{}" | grep -o "^.*/" | xargs -d "\n" mkdir -p; cp book/"{}" book/_build/html/"{}"'
 
+# Check whether python has the alias 'python' or 'python3'
+if command -v python3 > /dev/null 2>&1
+then
+	python_command="python3"
+else
+	if command -v python > /dev/null 2>&1
+	then
+		python_command="python"
+	fi
+fi
+
+
+if [ "$python_command" = "" ] ; then
+	echo "Book successfully built. If you want to use interactive elements, start a local HTTP server for the _build/html folder."
+	exit 0
+fi
+
 # Serves the files on port 8000, localhost (127.0.0.1:8000)
-START_SERVER=${1:-true}
+START_SERVER=${1:-false}
 
 if [ "$START_SERVER" = true ] ; then
-	# Check whether python has the alias 'python' or 'python3'
-	if command -v python3 > /dev/null 2>&1
-	then
-		python_command="python3"
-	else
-		if command -v python > /dev/null 2>&1
-		then
-			python_command="python"
-		else
-			echo "Could not find python, cannot start webserver."
-			exit 1
-		fi
-	fi
 	echo "Starting server on port 8000"
-	$python_command -m http.server 8000 --directory book/_build/html &
+	$python_command -m http.server 8000 --directory book/_build/html
+else
+	echo "Book successfully built. If you want to use interactive elements, start a server locally using the command: $python_command -m http.server 8000 --directory book/_build/html. Or run this script again: ${0} true"  
 fi
