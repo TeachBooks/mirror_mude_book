@@ -31,19 +31,6 @@ test-build:
     - jupyter-book clean book/
     - jupyter-book build book/
 
-# This job builds the HTML when it gets pushed to the publish branch
-build-book:
-  stage: build
-  only:
-    - publish
-    - main
-  script:
-    - pip install -r requirements.txt
-    - bash ./build-lite.sh false
-  artifacts:
-    paths:
-      - book/_build/html/
-
 # This job commits the built HTML to the publish-html branch
 # push-html:
 #   stage: deploy
