@@ -176,3 +176,7 @@ Mostly I copied files, but also:
 ### Running `.sh` files on Windows
 
 To run a `.sh` in Windows, make sure you have Git installed. If Windows still doesn't recognize the file as executable, right click it and select `Open With`, then click `Git for Windows`, and set it as the default too.
+
+### Thebe Lite
+
+Thebe Lite is used to allow interactive code within the notebook. For more information on its use, read the `Live Code` page in the `Cookbook` section. For technical information, read the [Thebe Lite readme](thebe_lite/THEBE_LITE.md).

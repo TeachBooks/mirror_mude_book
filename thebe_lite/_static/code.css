@@ -18,8 +18,8 @@
     color: var(--pst-color-text-base);
 }
 
-.jp-OutputArea {
-    padding: 5px 0px 5px 0px;
+.cell_output .jp-OutputArea-output pre {
+    border: var(--mystnb-source-border-width) var(--mystnb-source-border-color) solid;
 }
 
 .thebe-controls { 
@@ -51,6 +51,24 @@
 .thebe-busy-spinner {
   width: 20px;
   height: 20px;
+}
+
+html[data-theme=dark] .tag_hide-input summary {
+    background: var(--pst-color-surface) !important;
+}
+
+.cell_output {
+    margin-top: 0.2em !important;
+}
+
+.cell_output .output.stream {
+    margin-top: 0.2em !important;
+    border: var(--mystnb-source-border-width) var(--mystnb-source-border-color) solid !important;
+}
+
+div.container.cell_output {
+    padding-left: 0;
+    margin-bottom: 1em;
 }
 
 /* These rules are used for the dark mode code styling */

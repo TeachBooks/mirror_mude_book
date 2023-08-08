@@ -8,7 +8,8 @@ set -euo pipefail
 jupyter-book build book
 
 # Note: the structure of thebe_lite mimicks where thing are needed in the html folder
-cp book/thebe_lite/* book/_build/html/ -r
+cp thebe_lite/* book/_build/html/ -r
+rm book/_build/html/THEBE_LITE.md
 
 # Copy all non notebook, markdown or build files into the build for local access in pyodide etc.
 # The commands do as follows:
@@ -19,7 +20,7 @@ cp book/thebe_lite/* book/_build/html/ -r
 # 5. grep: finds a file's parent's path by matching against the section of the string ending in a '/'
 # 6. mkdir: makes all the parent directories, -p will do so recrusively
 # 7. cp: finally copies all files from the /book folder to /book/_build/html  
-find book/ -type f | grep -v "^book/_.*\|.*\.\(md\|ipynb\)\|thebe_lite" | cut -c 6- | xargs -i sh -c 'echo "book/_build/html/{}" | grep -o "^.*/" | xargs -d "\n" mkdir -p; cp book/"{}" book/_build/html/"{}"'
+find book/ -type f | grep -v "^book/_.*\|.*\.\(md\|ipynb\)" | cut -c 6- | xargs -i sh -c 'echo "book/_build/html/{}" | grep -o "^.*/" | xargs -d "\n" mkdir -p; cp book/"{}" book/_build/html/"{}"'
 
 # Check whether python has the alias 'python' or 'python3'
 if command -v python3 > /dev/null 2>&1

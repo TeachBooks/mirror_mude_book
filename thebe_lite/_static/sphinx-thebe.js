@@ -65,6 +65,13 @@ function addToThebeControls(cell, element) {
   controls.insertBefore(element, controls.lastChild);
 }
 
+function getNotebookCellOfCodeCell(codeCell) {
+  const cellId = codeCell
+    .querySelector("[data-thebe-id]") // Once rendered a cell has a data-thebe-id attached to it
+    .getAttribute("data-thebe-id"); // This corresponds to the id in the notebook
+  return thebe.notebook.cells.find((cell) => cell.id === cellId);
+}
+
 function finalizeCodeCells(cells) {
   const createButton = (classList, title, text) => {
     const button = document.createElement("button");
@@ -90,12 +97,7 @@ function finalizeCodeCells(cells) {
     addToThebeControls(codeCell, clear);
 
     clear.onclick = () => {
-      const cellId = codeCell
-        .querySelector("[data-thebe-id]") // Once rendered a cell has a data-thebe-id attached to it
-        .getAttribute("data-thebe-id"); // This corresponds to the id in the notebook
-      const notebookCell = thebe.notebook.cells.find(
-        (cell) => cell.id === cellId
-      );
+      const notebookCell = getNotebookCellOfCodeCell(codeCell);
       notebookCell.clear();
     };
 
@@ -141,6 +143,14 @@ function finalizeCodeCells(cells) {
   });
 }
 
+function updateThebeButtonStatus(msg, loading = true) {
+  const spinner =
+    '<div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div></div>';
+  $(".thebe-launch-button ").html(
+    (loading ? spinner : "") + `<span class='status'>${msg}</span>`
+  );
+}
+
 /**
  * Add attributes to Thebe blocks to initialize thebe properly
  */
@@ -153,56 +163,23 @@ var configureThebe = () => {
   thebe_config = thebeLiteConfig;
 
   // Update thebe buttons with loading message
-  $(".thebe-launch-button").each((ii, button) => {
-    button.innerHTML = `
-        <div class="spinner">
-            <div class="rect1"></div>
-            <div class="rect2"></div>
-            <div class="rect3"></div>
-            <div class="rect4"></div>
-        </div>
-        <span class="loading-text"></span>`;
-  });
+  updateThebeButtonStatus("Initializing Thebe");
 
   // Set thebe event hooks
-  var thebeStatus;
   thebelab.on("status", function (evt, data) {
     console.log("Status changed:", data.status, data.message);
 
-    $(".thebe-launch-button ")
-      .removeClass("thebe-status-" + thebeStatus)
-      .addClass("thebe-status-" + data.status)
-      .find(".loading-text")
-      .html(
-        "<span class='launch_msg'>Launching Pyodide kernel: </span><span class='status'>" +
-          data.status +
-          "</span>"
-      );
+    updateThebeButtonStatus(
+      `<span class='launch_msg'>Launching Pyodide kernel: </span><span class='status'>` +
+        data.status +
+        "</span>"
+    );
 
-    // Now update our thebe status
-    thebeStatus = data.status;
+    if (data.status === "attached") {
+      updateThebeButtonStatus(`Waiting for packages to load...`);
 
-    // Find any cells with an initialization tag and ask thebe to run them when ready
-    if (data.status === "ready") {
-      $(".thebe-launch-button").each((ii, button) => {
-        button.innerHTML = `Python interaction ready!`;
-      });
-
-      const codeCells = document.querySelectorAll(thebe_selector);
-      finalizeCodeCells(codeCells);
-
-      thebelab.on("status", () => {});
+      thebelab.events.listeners.status.clear(); // Remove further status message handling
     }
-  });
-};
-
-var runInitCells = () => {
-  var thebeInitCells = document.querySelectorAll(
-    ".thebe-init, .tag_thebe-init"
-  );
-  thebeInitCells.forEach((cell) => {
-    console.log("Initializing Thebe with cell: " + cell.id);
-    cell.querySelector(".thebe-run-button").click();
   });
 };
 
@@ -393,17 +370,46 @@ function override_pyodide_lookup(fs, server_path) {
   fs.lookupPath = new_lookup;
 }
 
+async function runInitCells() {
+  var thebeInitCells = document.querySelectorAll(
+    ".thebe-init, .tag_thebe-init"
+  );
+  for (const cell of thebeInitCells) {
+    console.log("Initializing Thebe with cell: " + cell.id);
+    const notebookCell = getNotebookCellOfCodeCell(cell);
+
+    // Emulate clicking the run button, with more information about execution
+    thebe.setButtonsBusy(notebookCell.id);
+    await notebookCell.execute();
+    thebe.clearButtonsBusy(notebookCell.id);
+  }
+}
+
+function wrapNakedOutput(element) {
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("cell_output", "container");
+  wrapper.appendChild(element);
+  return wrapper;
+}
+
 function setupSpecialTaggedElements() {
   for (const taggedElement of window.specialTaggedElements) {
     switch (taggedElement.tag) {
-      case "thebe-remove-input": {
+      case "thebe-remove-input-init": {
         const { newCellInfo, newNotebookCell } = setupNewCell(
           undefined,
           undefined,
           taggedElement.code
         );
-        newNotebookCell.execute();
-        taggedElement.placeholder.before(newNotebookCell.area.node);
+
+        const wrappedOutput = wrapNakedOutput(newNotebookCell.area.node);
+        // The 4 following lines are an ugly hack to make sure we preserve init order
+        // Maybe improving runInitCells could circumvent this
+        wrappedOutput.classList.add("tag_thebe-init");
+        const idDiv = document.createElement("div");
+        idDiv.setAttribute("data-thebe-id", newNotebookCell.id);
+        wrappedOutput.appendChild(idDiv);
+        taggedElement.placeholder.before(wrappedOutput);
         break;
       }
       default: {
@@ -419,58 +425,54 @@ function moveHideInputOutput() {
   const taggedCells = document.querySelectorAll(".tag_hide-input");
   for (const cell of taggedCells) {
     const outputArea = cell.querySelector(".jp-OutputArea");
-    cell.after(outputArea);
+    cell.appendChild(wrapNakedOutput(outputArea));
   }
 }
 
 var initThebe = async () => {
-  // Load thebe dynamically if it's not already loaded
-  if (typeof thebelab === "undefined") {
-    console.log("[sphinx-thebe]: Loading thebe...");
-    $(".thebe-launch-button ").css("display", "none");
+  // Remove Rocket now that we're initializing
+  document.querySelector(".dropdown-launch-buttons").remove();
 
-    // Provides nice things like a running animation and some padding
-    {
-      await loadStyleAsync("/thebe.css");
-      await loadStyleAsync("/_static/code.css");
-    }
+  console.log("[sphinx-thebe]: Loading thebe...");
+  $(".thebe-launch-button ").text("Loading thebe...");
 
-    $(".thebe-launch-button ").css("display", "block");
-    $(".thebe-launch-button ").text("Loading thebe...");
+  await loadScriptAsync("/thebe-lite.min.js");
+  await loadScriptAsync("/index.js");
 
-    await loadScriptAsync("/thebe-lite.min.js");
-    await loadScriptAsync("/index.js");
+  // Runs once the script has finished loading
+  console.log("[sphinx-thebe]: Finished loading thebe...");
+  configureThebe();
+  modifyDOMForThebe();
+  await thebelab.bootstrap(thebeLiteConfig);
 
-    // Runs once the script has finished loading
-    console.log("[sphinx-thebe]: Finished loading thebe...");
-    configureThebe();
-    modifyDOMForThebe();
-    await thebelab.bootstrap(thebeLiteConfig);
+  finalizeCodeCells(document.querySelectorAll(thebe_selector));
 
-    // Runs override_pyodide_lookup on the web worker
-    // We can't access the web worker directly, but we can execute code on the current kernel
-    // Since Pyodide has access to its javascript enviroment through the js package, we do the following steps:
-    // 1. Load the js and pyodide_js package
-    // 2. Set the fs variable in JS to our pyodide_js, this gives access to pyodide in JS
-    // 3. Eval the string og the override_pyodide_lookup function in JS, this brings it into scope
-    // 4. Execute the override_pyodide_lookup function in JS, and bake in the relative path from root in the book (the home)
-    // NOTE: All functions used in override_pyodide_lookup should be nested inside it, since the web worker cannot access functions in this script
-    await thebelab.session.kernel.requestExecute({
-      code: `import js; import pyodide_js; js.fs = pyodide_js.FS; js.eval("""${override_pyodide_lookup.toString()}"""); js.eval(f"override_pyodide_lookup(fs, '${
-        location.pathname.split("/").slice(0, -1).join("/") + "/"
-      }')")`,
-    });
+  // Runs override_pyodide_lookup on the web worker
+  // We can't access the web worker directly, but we can execute code on the current kernel
+  // Since Pyodide has access to its javascript enviroment through the js package, we do the following steps:
+  // 1. Load the js and pyodide_js package
+  // 2. Set the fs variable in JS to our pyodide_js, this gives access to pyodide in JS
+  // 3. Eval the string og the override_pyodide_lookup function in JS, this brings it into scope
+  // 4. Execute the override_pyodide_lookup function in JS, and bake in the relative path from root in the book (the home)
+  // NOTE: All functions used in override_pyodide_lookup should be nested inside it, since the web worker cannot access functions in this script
+  await thebelab.session.kernel.requestExecute({
+    code: `import js; import pyodide_js; js.fs = pyodide_js.FS; js.eval("""${override_pyodide_lookup.toString()}"""); js.eval(f"override_pyodide_lookup(fs, '${
+      location.pathname.split("/").slice(0, -1).join("/") + "/"
+    }')")`,
+  }).done;
 
-    // Fix for issues with ipywidgets in Thebe
-    await thebelab.session.kernel.requestExecute({
-      code: `import ipykernel; ipykernel.version_info = (0,0)`,
-    });
-    moveHideInputOutput();
-    runInitCells();
-    setupSpecialTaggedElements();
-  } else {
-    console.log("[sphinx-thebe]: thebe already loaded...");
-  }
+  // Fix for issues with ipywidgets in Thebe
+  await thebelab.session.kernel.requestExecute({
+    code: `import ipykernel; ipykernel.version_info = (0,0)`,
+  }).done;
+  updateThebeButtonStatus("Running pre-intialized cells...");
+  setupSpecialTaggedElements();
+
+  await runInitCells();
+
+  updateThebeButtonStatus("Python interaction ready!", false);
+
+  moveHideInputOutput();
 };
 
 // Helper function to munge the language name
@@ -488,7 +490,7 @@ function handleThebeRemoveInputTag(element) {
   placeholder.style.display = "none";
 
   window.specialTaggedElements.push({
-    tag: "thebe-remove-input",
+    tag: "thebe-remove-input-init",
     placeholder: placeholder,
     code: element.querySelector("pre").textContent?.trim() ?? "",
   });
@@ -502,10 +504,10 @@ function handleThebeRemoveInputTag(element) {
 }
 
 // Deal with custom-defined tags to properly prepare Thebe and DOM
-// Current special tags: thebe-remove-input
+// Current special tags: thebe-remove-input-init
 function consumeSpecialTags() {
   const specialTagsInfo = [
-    { tag: "thebe-remove-input", handler: handleThebeRemoveInputTag },
+    { tag: "thebe-remove-input-init", handler: handleThebeRemoveInputTag },
   ];
 
   window.specialTaggedElements = [];
@@ -526,3 +528,6 @@ if (document.readyState !== "loading") {
     consumeSpecialTags();
   });
 }
+
+loadStyleAsync("/thebe.css");
+loadStyleAsync("/_static/code.css");
