@@ -6,7 +6,8 @@ START_SERVER=${1:-false}
 PAGE_ROOT=${2:-"/"}
 
 # Build the jupyter book, everything else is post-processing
-jupyter-book build book
+jupyter-book clean book/
+jupyter-book build book/
 
 # Note: the structure of thebe_lite mimicks where thing are needed in the html folder
 cp thebe_lite/* book/_build/html/ -r
