@@ -1,3 +1,7 @@
+// Do not touch the following line
+const PAGE_ROOT = "/";
+// You can touch from here onwards
+
 const thebeLiteConfig = {
   requestKernel: true,
   useJupyterLite: true,
@@ -436,8 +440,8 @@ var initThebe = async () => {
   console.log("[sphinx-thebe]: Loading thebe...");
   $(".thebe-launch-button ").text("Loading thebe...");
 
-  await loadScriptAsync("/thebe-lite.min.js");
-  await loadScriptAsync("/index.js");
+  await loadScriptAsync(`${PAGE_ROOT}thebe-lite.min.js `);
+  await loadScriptAsync(`${PAGE_ROOT}index.js`);
 
   // Runs once the script has finished loading
   console.log("[sphinx-thebe]: Finished loading thebe...");
@@ -529,5 +533,5 @@ if (document.readyState !== "loading") {
   });
 }
 
-loadStyleAsync("/thebe.css");
-loadStyleAsync("/_static/code.css");
+loadStyleAsync(`${PAGE_ROOT}thebe.css`);
+loadStyleAsync(`${PAGE_ROOT}_static/code.css`);
