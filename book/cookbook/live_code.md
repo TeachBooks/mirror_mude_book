@@ -1,6 +1,10 @@
 # Live Code
 
-Our book has been enable to run Python code live in the browser (thanks Max!). Detailed instructions will be added elsewhere later, but for now, try this:
+Our book has been enable to run Python code live in the browser (thanks Max!). This page contains some installation instructions, and the other sections in this chapter provide some Benchmarks which illustrate the functionality that has been added (note that examples for how this functionality can be used in an educational context is still missing). See also the next chapter in the Cookbook, where Tom has implemented an example with widgets working in the browser!
+
+Detailed instructions will be added elsewhere later, but for now, try the following steps to use the interactive features on your local computer. If you would like to see them live on the MUDE website, create a Merge Request and tag Robert for review. Note that by the beginning of Q1 these examples will be moved to the generic Manual [here](https://interactivetextbooks.citg.tudelft.nl/intro.html).
+
+## Instructions: local build
 
 1. build the book by running the shell script `build-book.sh` (type `./build-book.sh true` in the terminal)
 2. Open the book by going to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser, or use the "live" version of the book at [https://mude.citg.tudelft.nl/book-draft/](https://mude.citg.tudelft.nl/book-draft/)
