@@ -1,6 +1,6 @@
 # MUDE Jupyter Book 2023/2024
 
-**UPDATE FOR THOSE BUILDING THE BOOK:** _we've been adding packages to the build, for example, Tom has added some examples of the quiz features we can use in the Cookbook, which requires a special package from our CS colleagues. If your book build is breaking due to package issues, simply run the following:_
+**UPDATE FOR THOSE BUILDING THE BOOK:** _we've been adding a lot of functionality related to interactive features, for example, Python code that runs in your browser, and Tom has added some examples of the quiz features we can use in the Cookbook. You can still use the "normal" approach of building the book with_ `jupyter book build book` _but if you want to use the interactive features, see the instructions in the Live Code chapter of the Cookbook. If your book build with the "normal" is breaking due to package issues, simply run the following:_
 
 ```
 pip install -r requirements.txt
