@@ -1,7 +1,7 @@
 (decision)=
 # Decision Analysis
 
-Decision analysis, or decision-making under uncertain conditions is part of everyday life: when choosing to buy a lottery ticket or choosing to take an umbrella during cloudy weather. In contrast to the rather intuitive decision making in everyday matters, a structured analysis of different alternatives with associated risks, costs and benefits is very useful for decisions in (civil) engineering. This chapter offers a very basic introduction into the decision theory with applications to decision problems in the civil engineering domain. Further reference is made to the work by other scholars for more rigorous and detailed treatment of this topic. See, for example Raiffa and Schlaifer, (1961); Benjamin and Cornell, (1970).
+Decision analysis, or decision-making under uncertain conditions is part of everyday life: when choosing to buy a lottery ticket or choosing to take an umbrella during cloudy weather. In contrast to the rather intuitive decision making in everyday matters, a structured analysis of different alternatives with associated risks, costs and benefits is very useful for decisions in (civil) engineering. This chapter offers a very basic introduction into the decision theory with applications to decision problems in the civil engineering domain. Further reference is made to the work by other scholars for more rigorous and detailed treatment of this topic. See, for example {cite:t}`raiffa1961`; {cite:t}`benjamin1970`.
 
 ## Introduction
 
@@ -43,9 +43,11 @@ Although these decision rules are helpful in some cases, the probability of occu
 
 Therefore it is necessary to include information on the probabilities of circumstances and outcomes, in order to determine a rational action with the highest expected value of the benefit. This theory is known as the Bayesian decision theory. In a probabilistic or Bayesian decision framework the optimal action $a*$ is defined as the one maximizing the expected utility. The following formula is found for the case with discrete outcomes.
 
-$$
+```{math}
+:label: optimal_action 
+
 a^*: \max_a E(u(a, \theta))=\max _a \sum_\theta u(a, \theta_i) P(\theta_i)
-$$                                                                                                                                                  
+```                                                                                                                                                  
 In which $u(a, \theta)$ is the utility of action a under circumstance $\theta$ and $P(\theta)$ is the probability that circumstance $\theta_{i}$ occurs.
 
 A rational decision is choosing the action with the highest expected (utility) value or highest benefit if outcomes are expressed in monetary values. This is illustrated in the example below. Note that other examples in these lecture notes will also be based on monetary values.
@@ -109,7 +111,7 @@ In this case the expected outcome is larger for buying shares than for buying bo
 
 ````
 
-In the previous example, the number of circumstances is limited and the probability distribution of the circumstances is discrete. For many decision problems this is not the case. The state of nature, for instance, can assume many values that cannot be made discrete. This, for example, would have been the case if the dividend in example 0 had been a percentage of the profit. In such cases a probability density function can be used to characterize the spectrum of outcomes. Using a continuous form of formula (3.5), the expected value of various actions, and the optimal action / decision can be identified.
+In the previous example, the number of circumstances is limited and the probability distribution of the circumstances is discrete. For many decision problems this is not the case. The state of nature, for instance, can assume many values that cannot be made discrete. This, for example, would have been the case if the dividend in example 0 had been a percentage of the profit. In such cases a probability density function can be used to characterize the spectrum of outcomes. Using a continuous form of formula {eq}`optimal_action`, the expected value of various actions, and the optimal action / decision can be identified.
 
 In taking decisions with uncertainties, it appears that probabilistic calculation techniques are a valuable aid to reach a rational choice. This is particularly the case if risks are dependent on the possible decisions. In such cases, Bayesian decision theory minimizes the total costs (i.e. investment costs plus risk in terms of potential losses). This can best be illustrated by means of an example from the civil engineering domain.
 
@@ -154,7 +156,7 @@ $$
 height: 300px
 name: example-river-excavation-2
 ---
-Cross-section of excavation near a river. Hashed area indicates the clay layer, which is underlain by sand. The water pressure is given by $h$ and is directly related to the river level (Figure {numref}`example-river-excavation`). 
+Cross-section of excavation near a river. Hashed area indicates the clay layer, which is underlain by sand. The water pressure is given by $h$ and is directly related to the river level ({numref}`example-river-excavation`). 
 ```
 
 The effect of a drainage system in the construction site (see {numref}`example-river-excavation`) on the groundwater levels has been reviewed using groundwater flow calculations. It appears that it reduces the mean value of the maximum water levels to $\mu _{h}$ = 3.52m and the standard deviation remains the same. In this case the failure probability is reduced to 0.04. Such a drainage system costs €150,000.

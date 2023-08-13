@@ -10,14 +10,23 @@ An often-used definition considers risk as an expected value:
 
 The unit of risk now depends on the units of probability and consequences, where probability of an event is generally expressed as the probability per unit time, for example per year. The consequences of an undesired event often measure a diverse array of damages, such as material, ecological, injuries and fatalities. In many applications engineering consequences are expressed by means of a monetary value, in which case the unit of the risk (or expected value, $E(d)$) then becomes € per year. For a case with one event scenario $i$ with probability $p_{i}$ it yields:
 
- $$
- E(d_i) = p_{i} \cdot d_{i} 
- $$ 
+```{math}
+:label: single_risk
+
+E(d_i) = p_{i} \cdot d_{i} 
+``` 
  
-A more general definition of risk has been given by Kaplan and Garrick (1981):  
+A more general definition of risk has been given by {cite:t}`kaplan1981`:  
 
->Risk is a set of scenarios, $s_{i}$, each of which has a probability, $p_{i}$, and a consequence, $d_{i}$.
+>Risk $R$ is the set of triplets $R=\{<s_{i}, p_{i}, x_{i}>\}, \hspace{10mm} {i=1,2 ,..., N}$, 
+\
+where $s_{i}$ is a scenario identification or description;
+\
+$\hspace{12mm} p_{i}$ is the probability of that scenario; and
+\
+$\hspace{12mm} x_{i}$ is the consequence or evaluation evaluation measure of that scenario, i.e., the measure of damage.
 
+In our case, $x_{i}=d_{i}$.
 
 This definition allows the use of various so-called risk metrics (or risk measures) to quantify or depict risk. The expected value of the damage for a set of multiple discrete scenarios $i=1,....,n$ , can be expressed as:
 
@@ -40,7 +49,7 @@ name: FN-curve-simple
 FN curve, showing the probability of exceedance of a certain number of fatalities N on Log-Log scale.
 ```
 
-The FN curve was originally introduced in the 1960's for the assessment of risks in the nuclear industry (Farmer, 1967; Kendall et al., 1977) and is now used to display and limit risks in a wide variety of industries around the world. It is an extremely useful way to quantitatively compare risk associated with a broad range of scenarios, and to make decisions. A famous example of this is shown in {numref}`risk-curve-baecher`, which compares the risk estimated for a wide variety of engineering infrastructure. This figure is described further in the {ref}`risk_curve` Section, and also illustrates the concept of acceptable risk, which is discussed in the Section on {ref}`safety_standards`. In short, it allows one to begin answering the question 'how safe is safe enough?'
+The FN curve was originally introduced in the 1960's for the assessment of risks in the nuclear industry ({cite:t}`farmer1967`; {cite:t}`kendall1977`) and is now used to display and limit risks in a wide variety of industries around the world. It is an extremely useful way to quantitatively compare risk associated with a broad range of scenarios, and to make decisions. A famous example of this is shown in {numref}`risk-curve-baecher`, which compares the risk estimated for a wide variety of engineering infrastructure. This figure is described further in the {ref}`risk_curve` Section, and also illustrates the concept of acceptable risk, which is discussed in the Section on {ref}`safety_standards`. In short, it allows one to begin answering the question 'how safe is safe enough?'
 
 ```{figure} ../../figures/pd/risk-curve-baecher.PNG
 ---
@@ -83,11 +92,13 @@ where $N_i$, $E_j$ and $H_k$ are the vulnerability (fatalities), exposure and ha
 
 This book uses Equation {eq}`eq_risk_definition` as the primary definition of risk. However, it is useful to highlight some risk concepts used in other domains.
 
-Within economics, risk is generally associated with a deviation from the expected return or the probability of loss. In social sciences risk is often considered as a contextual notion or social construct. Vlek (1996) has summarized 11 formal definitions used in social sciences, see Table {numref}`risk_definitions`. In some of these definitions (e.g. numbers 2 and 4) the perceived seriousness of the undesired consequences plays an important role. Examples of other, more informal risk definitions used in psychology are “the lack of perceived controllability”, “set of possible negative consequences” and “fear of loss” (Vlek, 1996). 
+Within economics, risk is generally associated with a deviation from the expected return or the probability of loss. In social sciences risk is often considered as a contextual notion or social construct. {cite:t}`vlek1996` has summarized 11 formal definitions used in social sciences, see Table {numref}`risk_definitions`. In some of these definitions (e.g. numbers 2 and 4) the perceived seriousness of the undesired consequences plays an important role. Examples of other, more informal risk definitions used in psychology are, according to {cite:t}`vlek1996`,
 
-Substantial research has also focused on factors that determine the perception of risk (e.g. Slovic, 1987, Vlek, 1996) including: degree of damage, controllability of and familiarity with hazards, extent of benefits from an activity, and voluntariness of exposure. 
+>“set of possible negative consequences”, “the lack of perceived controllability”, and “fear of loss”.  
 
-```{list-table} Formal definitions of risk used in social sciences (Vlek, 1996)
+Substantial research has also focused on factors that determine the perception of risk (e.g. {cite:t}`slovic1987`, {cite:t}`vlek1996`) including: degree of damage, controllability of and familiarity with hazards, extent of benefits from an activity, and voluntariness of exposure. 
+
+:::{list-table} Formal definitions of risk used in social sciences {cite:p}`vlek1996`
 :header-rows: 1
 :name: risk_definitions
 
@@ -115,5 +126,5 @@ Substantial research has also focused on factors that determine the perception o
   - Weighted combination of various parameters of the probability distribution of all possible consequences
 * - 11
   - Weight of possible undesired consequences (‘loss’) relative to comparable possible desired consequences
-```
+:::
 

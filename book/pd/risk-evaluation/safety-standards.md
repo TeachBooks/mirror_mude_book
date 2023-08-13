@@ -5,7 +5,7 @@ When answering the question “how safe is safe enough” a merely economic trea
 
 Two aspects are typically considered when evaluating and regulating risks to the public: the total or population-wide effects, and the distribution of effects within the affected population. {numref}`risk_evaluation` summarizes these perspectives. The societal perspective is concerned with ‘total effect’ and the effects of large-scale accidents on the society, in terms of economic damages and life loss. The individual perspective is concerned with distributive justice (‘equity’), i.e. the distribution of harm over the population.
 
-As risk is often the by-product of an otherwise legitimate and advantageous activity, such as production or transportation, regulating risks is essentially a balancing act between economic and social activities on the hand and a sufficiently safe society on the other hand ⚠️(e.g. Jongejan, 2008): just as too lenient regulations are suboptimal, too stringent ones are too.
+As risk is often the by-product of an otherwise legitimate and advantageous activity, such as production or transportation, regulating risks is essentially a balancing act between economic and social activities on the hand and a sufficiently safe society on the other hand ⚠️(e.g. {cite:t}`jongejan2008`): just as too lenient regulations are suboptimal, too stringent ones are too.
 
 ```{list-table} Overview of perspectives on risk evaluation
 :header-rows: 1
@@ -24,7 +24,7 @@ As risk is often the by-product of an otherwise legitimate and advantageous acti
 
 ## Three Types of Risk
 
-Based on the general concepts described above, it has been proposed to evaluate risks based on three criteria ⚠️(TAW, 1985; Vrijling et al, 1995; 1998):
+Based on the general concepts described above, it has been proposed to evaluate risks based on three criteria ⚠️({cite:t}`TAW1985`, {cite:t}`vrijling1995`, {cite:t}`vrijling1998`):
 - limit the **invidual risk** to prevent that certain people are exposed to disproportionally large risks;
 - limit the **societal risk** to limit the risks of large scale accidents with many fatalities;
 - **Economic optimization** to balance investments in risk reduction from an economic point of view.
@@ -55,9 +55,12 @@ Two of these criteria have already been discussed elsewhere in this book. **Soci
 
 The individual risk due to an accident can be calculated with:
 
-$$
-  IR = P_f P_{d|f}
-$$
+```{math}
+:label: ind_risk
+
+IR = P_f P_{d|f}
+```
+
 
 where:
 - $IR$ the individual risk [1/year]
@@ -116,9 +119,11 @@ Schematic FN curve illustrating limit line formulation.
 
 The general formulation for such a limit line without horizontal of vertical cut-off equals:
 
-$$
-  1 - F_N(n) \leq \frac{C}{n^\alpha}
-$$ (limit_line)
+```{math}
+:label: limit_line
+
+1 - F_N(n) \leq \frac{C}{n^\alpha}
+```
 
 where:
 - $C$ a constant that determines the vertical position of the limit line
@@ -126,7 +131,7 @@ where:
   
 The limit line is called risk neutral[^neutral] if $\alpha=1$, since it places equal weight on exceedance probabilities and numbers of fatalities. If $\alpha = 2$, the limit is risk averse. This means that that the exceedance probability of 10 times as many fatalities should be 100 times lower. This has been motivated by public aversion to large numbers of fatalities. For example, the loss of 1000 people in one accident (e.g. a major explosion) could be valued differently than  1000 losses of 1 person in separate accidents (e.g. in traffic).
 
-For different applications limit lines have been developed with varying constants and steepness. Examples of application areas include industrial risks in the Netherlands (next section), dams in the United States and Canada, and chemical risks in Hongkong and the UK ⚠️(Jonkman et al., 2003).
+For different applications limit lines have been developed with varying constants and steepness. Examples of application areas include industrial risks in the Netherlands (next section), dams in the United States and Canada, and chemical risks in Hongkong and the UK ⚠️{cite:p}`jonkman2003`.
 
 
 ````{admonition} Exaple: Risk Matrix
@@ -143,7 +148,7 @@ Example of a risk matrix used by various engineering and military branches of th
 ## Case Study: Industrial Hazards
 
 The Dutch major hazards policy deals with the risks to those living in the vicinity of major industrial hazards such as chemical plants and LPG-fuelling stations. The development of the Dutch major hazards policy was strongly incident driven, as were European efforts aimed at the prevention of major industrial accidents. After a number of severe industrial accidents, including the Bhopal accident in 1984 which killed an estimated 3000 people and severely injured over 200.000, a European directive was drafted concerning the prevention of major accidents: the 1982 Seveso Directive. This was later replaced by the Seveso II Directive.
-The cornerstones of the Dutch major hazards policy are a) the use of quantitative risk analysis (QRA); b) comparison of QRA outcomes with limits to individual and societal risks ⚠️(Bottelberghs, 2000). 
+The cornerstones of the Dutch major hazards policy are a) the use of quantitative risk analysis (QRA); b) comparison of QRA outcomes with limits to individual and societal risks ⚠️{cite:p}`bottelberghs2000`. 
 
 Within the Dutch major hazards policy, individual risk is defined as the probability of death of an average, unprotected person that is constantly present at a certain location. It is thereby a property of location and iso-risk contours can be plotted on a map (see {numref}`risk_contour`). Individual risk is therefore also named local risk (“plaatsgebonden risico”) in the Netherlands. The shape of the risk contours for other applications will look different. For airports the contours will follow the shape of the runway and flight paths, for polders and flooding the risk contours will be highest in the deepest part of the polder. 
 
@@ -190,14 +195,14 @@ FN limit line used for installations in the Netherlands
 
 ## Case Study: Flood Protection
 
-For systems for which no regulations are available the question 'how safe is safe enough?' can be difficult to resolve. A general model has been developed by the Technical Advice Committee for Water defences (TAW)[^taw] in the process of deriving safety standards for flood protection in the Netherlands, which, in a formal sense, has been an ongoing process since the 1950's. This approach is derived on the basis of accident statistics ⚠️(TAW, 1985; Vrijling et al 1995; 1998), where underlying assumption of the model is that accident statistics are the result of a process of societal optimisation and that they thereby reflect what is apparently considered acceptable by society at large. Such an approach is commonly referred to as a 'revealed preference' approach, and was already introduced in a a general sense in the Chapter on Risk Analysis, Section {ref}`risk_curve_famous` ({numref}`risk-curve-baecher`).
+For systems for which no regulations are available the question 'how safe is safe enough?' can be difficult to resolve. A general model has been developed by the Technical Advice Committee for Water defences (TAW)[^taw] in the process of deriving safety standards for flood protection in the Netherlands, which, in a formal sense, has been an ongoing process since the 1950's. This approach is derived on the basis of accident statistics ⚠️({cite:t}`TAW1985`; {cite:t}`vrijling1995`, {cite:t}`vrijling1998`), where underlying assumption of the model is that accident statistics are the result of a process of societal optimisation and that they thereby reflect what is apparently considered acceptable by society at large. Such an approach is commonly referred to as a 'revealed preference' approach, and was already introduced in a a general sense in the Chapter on Risk Analysis, Section {ref}`risk_curve_famous` ({numref}`risk-curve-baecher`).
 
 ### Individual risk
 
 Accident statistics reveal that the extent to which participation in the activity is voluntary strongly influences the level of risk that is accepted by individuals. Relatively high individual risks are accepted for activities that are voluntary and have a (personal) benefit, such as mountain climbing. Much smaller individual risk values are accepted for involuntary activities for which the risks are imposed by others, e.g. for chemical and nuclear industry. A policy factor ($\beta$) is therefore introduced to account for voluntariness of exposure. This factor is set at $\beta=1$ for an individual risk value of $10^{-4}$ per year. This represents the “baseline” individual risk for the group young men[^men] who are most at risk of dying in a traffic accident.
 
 
-```{list-table} Accident statistics and proposed policy factor and characteristics of the activity ⚠️(Sources: CUR, 2015; Vrijling, 2001; Vrijling et al., 1998).
+:::{list-table} Accident statistics and proposed policy factor and characteristics of the activity ⚠️(Sources: {cite:t}`CUR2015`; {cite:t}`vrijling2001`; {cite:t}`vrijling1998`).
 :header-rows: 1
 :name: accident_statistics
 
@@ -231,7 +236,7 @@ Accident statistics reveal that the extent to which participation in the activit
   - 0.01
   - Involuntary
   - No benefit
-```
+:::
 
 The proposed individual risk limit becomes:
 
@@ -249,7 +254,7 @@ Note that the Dutch individual risk criterion for hazardous installations would 
 
 ### Societal risk
 
-The societal risk criterion proposed by the TAW is based on the thought that societal risk should be evaluated primarily at a national level as local developments may lead to a situation that is considered unacceptable by society as a whole ⚠️(Vrijling et al., 1995). The societal risk criterion at a national scale proposed by the TAW is:
+The societal risk criterion proposed by the TAW is based on the thought that societal risk should be evaluated primarily at a national level as local developments may lead to a situation that is considered unacceptable by society as a whole ⚠️{cite:t}`vrijling1995`. The societal risk criterion at a national scale proposed by the TAW is:
 
 $$
   E(N) + k \sigma(N) \leq \beta \cdot 100
@@ -300,7 +305,7 @@ The resulting expected value and standard deviation are shown in {numref}`exp_va
   - 0.995
 ```
 
-The next step would be to distribute this maximum allowable level of societal risk over individual installations. After all, locally imposed societal risk criteria are necessary for achieving the desired national level of societal risk. The translation of the nationally acceptable level of risk to a criterion for a single local installation depends on the type of probability distribution of the number of fatalities. In ⚠️Vrijling et al (1998) a formulation of the risk acceptance at a local level is presented conform {eq}`limit_line`:️
+The next step would be to distribute this maximum allowable level of societal risk over individual installations. After all, locally imposed societal risk criteria are necessary for achieving the desired national level of societal risk. The translation of the nationally acceptable level of risk to a criterion for a single local installation depends on the type of probability distribution of the number of fatalities. In ⚠️{cite:t}`vrijling1998` a formulation of the risk acceptance at a local level is presented conform {eq}`limit_line`:️
 
 $$
   1 - F_n(n) \leq \frac{C}{n^\alpha}
@@ -317,7 +322,7 @@ in which $N_a$ is the number of independent locations where the activity takes p
 
 ### Combination of Risk Types
 
-According to the approach by TAW the three approaches (individual, societal and economic risk) lead to three acceptable failure probabilities. The most stringent of the three criteria can be chosen to determine the acceptable probability of failure of the system and to make sure that all three conditions are fulfilled. This can best be illustrated with an example (see below). The principles of this approach have been applied to derive the proposed new safety standards for flood defences in the Netherland by the ⚠️Delta Program (2014).
+According to the approach by TAW the three approaches (individual, societal and economic risk) lead to three acceptable failure probabilities. The most stringent of the three criteria can be chosen to determine the acceptable probability of failure of the system and to make sure that all three conditions are fulfilled. This can best be illustrated with an example (see below). The principles of this approach have been applied to derive the proposed new safety standards for flood defences in the Netherland by the ⚠️{cite:t}`delta2014`.
 
 ````{admonition} Example: Combination of individual, societal and economic risk for a dike ring area
 

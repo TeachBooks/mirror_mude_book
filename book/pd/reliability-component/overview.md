@@ -7,9 +7,11 @@ This Section gives a brief introduction to some of the mathematical foundations 
 
 In short, a component reliability analysis evaluates the reliability of a particular engineered object, where reliability is the complement of failure probability, $p_f$. The analysis is performed by defining a function of random variables, $g_X(x)$, and mathematically specifying a region of interest, $\Omega$, often called the failure region. The function of random variables implies a multivariate probability density function, $f_X(x)$, where integrating over the failure region $\Omega$ gives $p_f$. 
 
-$$
+```{math}
+:label: failure_probability
+
 p_f=\int_\Omega f_X(x)\:\mathrm{d}x
-$$
+```
 
 ## A Simple Case
 

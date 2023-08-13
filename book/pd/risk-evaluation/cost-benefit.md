@@ -5,7 +5,7 @@ This section deals with simplified cost benefit analysis for risk reduction inte
 
 {numref}`costs_and_benefits` below shows an overview of effects of the Delta works that were built after the 1953 flood disaster in the Netherlands. The main aim of the delta works was to provide flood protection to the Southwest of the Netherlands. However, other effects included the agricultural benefits to the region (benefits) and the effects on environmental quality in the estuaries in which dams were built (costs or negative effects).
 
-```{list-table} Costs and benefits of the delta works
+:::{list-table} Costs and benefits of the delta works {cite:p}`don2003`
 :header-rows: 1
 :name: costs_and_benefits
 
@@ -25,7 +25,7 @@ This section deals with simplified cost benefit analysis for risk reduction inte
   - Economic stimulus for the water engineering sector
 * - 
   - National Pride
-```
+:::
 
 A choice has to be made for which effects in the CBA are evaluated in monetary terms. For some items, such as construction costs or economic risk reduction (see below) this is straightforward. For other items such as environmental effects or reduction of risk to life, approaches for monetary evaluation exist, but they are not standardized or undisputed.
 
@@ -33,9 +33,11 @@ A choice has to be made for which effects in the CBA are evaluated in monetary t
 
 When considering investments that primarily focus on risk reduction (e.g. dike reinforcement or reinforcing of buildings for earthquakes), the main benefits will consist of the reduction of expected economic damages. For a measure to be cost effective, the investments should be smaller than the risk reduction.
 
-$$
+```{math}
+:label: investment
+
 I < \Delta E(D)
-$$ (investment)
+```
 
 where:
 
@@ -46,9 +48,11 @@ This formula can also be used to calculated the benefit/cost ratio, i.e. $\Delta
 
 For investments that focus on prevention (i.e. reducing the failure probability of the system) {eq}`investment` can be formulated as follows. 
 
-$$
+```{math}
+:label: investment_prevention
+
   I < (P_{f,0} - P_{f, new}) D
-$$ 
+``` 
 
 where:
 
@@ -71,9 +75,11 @@ One can easily show that the investment would just be acceptable if the benefits
 
 Other types of interventions do not affect the probability of an accident, but focus on reducing the damages. They are often indicated as mitigation. An example in the field of flood management concerns raising buildings instead of reinforcing the dikes. In this case the criterion becomes:
 
-$$
+```{math}
+:label: investment_reduction
+
 I < P_{f,0}(D_0 - D_{new})
-$$
+``` 
 
 where: 
 
@@ -86,9 +92,11 @@ The foregoing assumes that both the costs and benefits are expressed in the same
 
 For such situations the failure probability is generally expressed per unit of time, mostly per year. That means that the risk (reduction) is expressed in terms of € per year, whereas the initial investments have the unit of €. The net present value of cost or benefit values over a future range of years can be calculated with {eq}`npv`. To calculate the net present value NPV [€] a discount rate  should be used. The discount rate represents a required return on an investment.
 
-$$
-  NPV = \sum_{t=1}^{T} \frac{C_t}{(1+r)^t}
-$$ (npv)
+```{math}
+:label: npv
+
+NPV = \sum_{t=1}^{T} \frac{C_t}{(1+r)^t}
+```
 
 where:
 
@@ -123,22 +131,28 @@ Normalized present value of a cost or benefit in year $t$ for different discount
 
 The previous paragraphs have focussed on the evaluation of economic costs and benefits of risk reduction interventions. Many of these interventions also directly focus on reducing injuries and fatalities. Examples are regulations and investments in traffic safety which have introduced measures such as airbags and seat belts. 
 
-In literature on risk management the economic valuation of human life is often depicted as a difficult problem as it raises numerous moral questions. Some claim it is unethical to put a price on human life because life is priceless. The actual expenditures on risk reducing prospects show however that the investment in the reduction of risks to humans is always finite. Different approaches are available for evaluating the costs of interventions in relation to the reduction of risk to human life, see ⚠️(Vrijling and van Gelder, (2000); Jongejan et al., (2005 ) for a further discussion of the various approaches. One of the options is to add the economic value  of  human fatalities to the economic damages, i.e. $D+N \cdot d$. The value of the number of lives lost can be determined with different approaches. 
+In literature on risk management the economic valuation of human life is often depicted as a difficult problem as it raises numerous moral questions. Some claim it is unethical to put a price on human life because life is priceless. The actual expenditures on risk reducing prospects show however that the investment in the reduction of risks to humans is always finite. Different approaches are available for evaluating the costs of interventions in relation to the reduction of risk to human life, see ⚠️{cite:t}`vrijling2000`; {cite:t}`jongejan2005` for a further discussion of the various approaches. One of the options is to add the economic value  of  human fatalities to the economic damages, i.e. $D+N \cdot d$. The value of the number of lives lost can be determined with different approaches. 
 
-Several approaches are based on so-called stated preferences.  A survey can reveal how much people are willing to pay, e.g. for safety measures. In these cases the value of statistical life (VoSL) is obtained from the willingness to pay expressed by respondents in surveys. For example, in the cost benefit analysis for the flood defences in the Netherlands a value of a statistical life of €6.7 million per fatality is used ⚠️(Deltares, 2013). The Value of a Statistical life lost in traffic accidents is estimated at €2.6 million ⚠️(SWOV, 2012).
+Several approaches are based on so-called stated preferences.  A survey can reveal how much people are willing to pay, e.g. for safety measures. In these cases the value of statistical life (VoSL) is obtained from the willingness to pay expressed by respondents in surveys. For example, in the cost benefit analysis for the flood defences in the Netherlands a value of a statistical life of €6.7 million per fatality is used ⚠️{cite:p}`jeuken2013`. The Value of a Statistical life lost in traffic accidents is estimated at €2.6 million ⚠️ {cite:p}`SWOV2012`. 
+
+<!--% MMMMM Previously cited as Deltares 2013, but paper wasn't found. 
+In the 2016 version of Lecture Notes there is a Deltares 2014 document but also this was not found.
+-->
 
 One alternative approach is based on so-called revealed preferences. The costs of saving and extra (statistical) life ($CSX$) for actual life-saving interventions that have been taken in the past can be determined. 
 
-$$
-    CSX = \frac{I}{\Delta E(N)}
-$$ 
+```{math}
+:label: csx
+
+CSX = \frac{I}{\Delta E(N)}
+```
 
 where:
 
 - $CSX$ the costs of saving an extra life [€/life year]
 - $\Delta E(N)$ the reduction of the expected number of fatalities per year
 
-An extensive study on  values in various sectors, see ⚠️Tengs et al. (1995) showed that these vary widely across sectors and even within sectors. The highest $CSX$ values are found for risks for small probability – large consequence events, for example in the nuclear domain. For such cases the expected number of fatalities is already small and investments in incremental safety are large.
+An extensive study on  values in various sectors, see ⚠️{cite:t}`tengs1995`, showed that these vary widely across sectors and even within sectors. The highest $CSX$ values are found for risks for small probability – large consequence events, for example in the nuclear domain. For such cases the expected number of fatalities is already small and investments in incremental safety are large.
 
 One other approach is to base the value of a human life on macro-economic indicators. Several metrics have been proposed that relate this value to a person’s economic production.
-Given the difficulties associated with economic valuation of human life and the associated risk reduction, it is decided in some domains to develop separate criteria for considering the risk to life. This topic is further elaborated in ⚠️section 3.5.
+Given the difficulties associated with economic valuation of human life and the associated risk reduction, it is decided in some domains to develop separate criteria for considering the risk to life. This topic is further elaborated in ⚠️ {ref}`safety_standards` Section.

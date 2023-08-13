@@ -49,15 +49,19 @@ Equations for computing parallel and series system reliability are described her
 
 A parallel system is often described as redundant since *all* components must fail to cause system failure. This is also simple to calculate as it can be described mathematically as the joint failure probability, or intersection, of all components:
 
-$$
+```{math}
+:label: parallel_system
+
 p_{f,sys} = P(F_1 \cap F_2 \cap ... \cap F_n)
-$$
+```
 
 If the components are independent, this becomes
 
-$$
+```{math}
+:label: parallel_system_sum
+
 p_{f,sys} = \prod_i^n P(F_i)
-$$
+```
 
 Although we will not quantify the effect of dependence in depth here, it is easy to see semi-quantitatively that positive dependence increases the intersection probability, and therefore also increases $p_{f,sys}$. Negative dependence has the opposite effect. In fact, if parallel components are mutually exclusive the system is guaranteed to survive. The case of negative dependence is trivial in engineering reliability computation, but something that is used to motivate the incorporation of resilience or robustness in our risk reduction decisions.
 
@@ -65,27 +69,35 @@ Although we will not quantify the effect of dependence in depth here, it is easy
 
 A series system fails if *any* component fails, which is 
 
-$$
+```{math}
+:label: series_system
+
 p_{f,sys} = P(F_1 \cup F_2 \cup ... \cup F_n)
-$$
+```
 
 For two components this can easily be re-written as 
 
-$$
+```{math}
+:label: sys_p_series
+
 p_{f,sys} = P(F_1) + P(F_2) - P(F_1 \cap F_2)
-$$ (sys_p_series)
+```
 
 Although it is straightforward to write out terms for 3 or more components, it is easier to re-write the union formulation as the complement of joint *survival* of the system:
 
-$$
+```{math}
+:label: sys_p_series_3 
+
 p_{f,sys} = 1 - P(\bar{F}_1 \cap \bar{F}_2 \cap ... \cap \bar{F}_n)
-$$
+```
 
 As $\bar{F}_i=1-F_i$, we arrive at the following simple relationship:
 
-$$
+```{math}
+:label: series_system_sum 
+
 p_{f,sys} = 1 - \prod_i^n \left(1-P(F_i)\right)
-$$
+```
 
 The influence of dependence on a series system is most easily understood through consideration of {eq}`sys_p_series`, which allows a direct analogy to the parallel case through the intersection term. With positive dependence, the system failure probability decreases 
 
