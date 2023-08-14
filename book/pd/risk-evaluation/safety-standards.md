@@ -202,7 +202,7 @@ For systems for which no regulations are available the question 'how safe is saf
 Accident statistics reveal that the extent to which participation in the activity is voluntary strongly influences the level of risk that is accepted by individuals. Relatively high individual risks are accepted for activities that are voluntary and have a (personal) benefit, such as mountain climbing. Much smaller individual risk values are accepted for involuntary activities for which the risks are imposed by others, e.g. for chemical and nuclear industry. A policy factor ($\beta$) is therefore introduced to account for voluntariness of exposure. This factor is set at $\beta=1$ for an individual risk value of $10^{-4}$ per year. This represents the “baseline” individual risk for the group young men[^men] who are most at risk of dying in a traffic accident.
 
 
-:::{list-table} Accident statistics and proposed policy factor and characteristics of the activity ⚠️(Sources: {cite:t}`CUR2015`; {cite:t}`vrijling2001`; {cite:t}`vrijling1998`).
+:::{list-table} Accident statistics and proposed policy factor and characteristics of the activity ⚠️(Sources: {cite:t}`vrijling2001`; {cite:t}`vrijling1998`).
 :header-rows: 1
 :name: accident_statistics
 
@@ -237,6 +237,8 @@ Accident statistics reveal that the extent to which participation in the activit
   - Involuntary
   - No benefit
 :::
+<!--% MMMMM The table cites also CUR 2015 but it wasn't found, maybe it's just an update of CUR 1997 (report 190)?
+-->
 
 The proposed individual risk limit becomes:
 
