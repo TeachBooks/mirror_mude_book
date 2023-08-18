@@ -260,8 +260,8 @@ function override_pyodide_lookup(fs, server_path) {
   // 1. The default /drive home is a mount which does not play well with certain file operations
   // 2. I thought it would help fetching py files from root, but that returns index.html instead of the directory listing
   // This means py files inside the root folder of the server cannot be loaded implcitly, but you can still use open etc. to fetch them
-  // NOTE: The slash at the end is important, keep it if you change anything.
-  const home = "/home/pyodide/book/";
+  // NOTE: The LACK of slash at the end is important, keep it that way if you change anything.
+  const home = "/home/pyodide/book";
 
   // Create a file from the string without using the writeFile method
   // writeFile calls lookupPath, which may cause infinite recursion?? (haven't tested)
@@ -297,35 +297,6 @@ function override_pyodide_lookup(fs, server_path) {
       currentDirectory += directory + "/";
       try {
         fs.mkdir(currentDirectory);
-
-        // Fetching the directory needs to return a directory listing
-        // This feature may not be enabled on some servers and will fail
-        let request = new XMLHttpRequest();
-        const fullPath = currentDirectory;
-        const path = currentDirectory.slice(home.length);
-        request.open("GET", path, false);
-        request.send();
-
-        if (request.status !== 200) {
-          continue;
-        }
-
-        // Find alls all the links with .py files in the directory listing
-        // We cannot use DOMParser here since it's running inside a web worker: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API
-        const regex = /\<a href=\"(.*?\.py)\"\>(.*?\.py)\<.*?\>/g;
-        regex.lastIndex = 0;
-
-        for (const match of request.response.matchAll(regex)) {
-          // match[1] contains the name of the python file
-          request.open("GET", path + match[1], false);
-          request.send();
-
-          if (request.status !== 200) {
-            continue;
-          }
-
-          createFileFromString(fullPath, match[1], request.response);
-        }
       } catch {}
     }
   }
@@ -459,6 +430,17 @@ var initThebe = async () => {
     code: `import js; import pyodide_js; js.fs = pyodide_js.FS; js.eval("""${override_pyodide_lookup.toString()}"""); js.eval(f"override_pyodide_lookup(fs, '${
       location.pathname.split("/").slice(0, -1).join("/") + "/"
     }')")`,
+  }).done;
+
+  const request = new XMLHttpRequest();
+  request.open("GET", "/_static/_hook_fetch_module_finder.py", false);
+  request.send();
+
+  const fetchImportHookCode = request.response;
+
+  // Enable importing of modules on server
+  await thebelab.session.kernel.requestExecute({
+    code: fetchImportHookCode,
   }).done;
 
   // Fix for issues with ipywidgets in Thebe
