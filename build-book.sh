@@ -47,5 +47,12 @@ if [ "$START_SERVER" = true ] ; then
 	echo "Starting server on port 8000"
 	$python_command -m http.server 8000 --directory book/_build/html
 else
-	echo "Book successfully built. If you want to use interactive elements, start a server locally using the command: $python_command -m http.server 8000 --directory book/_build/html. Or run this script again: ${0} true"  
+	echo "Book successfully built. If you want to use interactive elements,
+	start a server locally using the command:
+	    $python_command -m http.server 8000 --directory book/_build/html.
+	Or run this script again (book will build again!):
+		${0} true"  
 fi
+
+echo "To close a python server run the commeand:
+	kill-server.sh"
