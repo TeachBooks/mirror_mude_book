@@ -436,7 +436,11 @@ var initThebe = async () => {
   });
 
   const request = new XMLHttpRequest();
-  request.open("GET", "/_static/_hook_fetch_module_finder.py", false);
+  request.open(
+    "GET",
+    `${PAGE_ROOT}_static/_hook_fetch_module_finder.py`,
+    false
+  );
   request.send();
 
   const fetchImportHookCode = request.response;
