@@ -325,8 +325,6 @@ function override_pyodide_lookup(fs, server_path) {
       const name = pathList[pathList.length - 1]; // Name of file
       const parentPathList = pathList.slice(0, -1); // List of all parent directories
 
-      createDirectoryStructure(parentPathList);
-
       let request = new XMLHttpRequest();
       request.open("GET", path, false);
       request.send();
@@ -334,6 +332,7 @@ function override_pyodide_lookup(fs, server_path) {
       if (request.status !== 200) {
         throw exception;
       }
+      createDirectoryStructure(parentPathList);
       createFileFromString(parentPathList.join("/"), name, request.response);
       return old_lookup(fullPath, opts);
     }
@@ -426,11 +425,11 @@ var initThebe = async () => {
   // 3. Eval the string og the override_pyodide_lookup function in JS, this brings it into scope
   // 4. Execute the override_pyodide_lookup function in JS, and bake in the relative path from root in the book (the home)
   // NOTE: All functions used in override_pyodide_lookup should be nested inside it, since the web worker cannot access functions in this script
-  await thebelab.session.kernel.requestExecute({
+  thebelab.session.kernel.requestExecute({
     code: `import js; import pyodide_js; js.fs = pyodide_js.FS; js.eval("""${override_pyodide_lookup.toString()}"""); js.eval(f"override_pyodide_lookup(fs, '${
       location.pathname.split("/").slice(0, -1).join("/") + "/"
     }')")`,
-  }).done;
+  });
 
   const request = new XMLHttpRequest();
   request.open("GET", "/_static/_hook_fetch_module_finder.py", false);
@@ -439,9 +438,9 @@ var initThebe = async () => {
   const fetchImportHookCode = request.response;
 
   // Enable importing of modules on server
-  await thebelab.session.kernel.requestExecute({
+  thebelab.session.kernel.requestExecute({
     code: fetchImportHookCode,
-  }).done;
+  });
 
   // Fix for issues with ipywidgets in Thebe
   await thebelab.session.kernel.requestExecute({
