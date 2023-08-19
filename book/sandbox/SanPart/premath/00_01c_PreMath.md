@@ -79,6 +79,7 @@ A consistent system has a unique solution if and only if the column vectors of m
 
 This can be seen as follows: assume that $\mathrm{x}$ and $\mathrm{x}' \neq \mathrm{x}$ are two different solutions. Then $\mathrm{A}\mathrm{x}=\mathrm{A}\mathrm{x}’$ or $\mathrm{A}(\mathrm{x}-\mathrm{x}')=0$. But this can only be the case if some of the column vectors of $\mathrm{A}$ are linear dependent, which contradicts the assumption of full column rank.
 
+(determined)=
 ## Determined, overdetermined and underdetermined systems
 
 A system of equations $\mathrm{y}=\mathrm{A}\mathrm{x}$ with $\text{rank}(\mathrm{A}) =m=n$ is consistent and has a unique solution: $\hat{\mathrm{x}} = \mathrm{A}^{-1}\mathrm{y}$. Such a system is called *determined*.
@@ -93,9 +94,9 @@ The redundancy of a system of equations is equal to $m - \text{rank}(\mathrm{A})
 
 If we restrict ourselves to systems of observation equations that are of full column rank: $\text{rank}(\mathrm{A}) = n $, the system can either be
 
-*determined*: $\text{rank}(\mathrm{A}) =n =m$, the redundancy is equal to 0
+*Determined systems*: $\text{rank}(\mathrm{A}) =n =m$, the redundancy is equal to 0
 
-*overdetermined*: $\text{rank}(\mathrm{A}) =n < m$, the redundancy is equal to $m-n>0$
+*Overdetermined systems*: $\text{rank}(\mathrm{A}) =n < m$, the redundancy is equal to $m-n>0$
 
 
 

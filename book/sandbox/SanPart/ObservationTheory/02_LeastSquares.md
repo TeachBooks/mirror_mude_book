@@ -3,17 +3,19 @@
 ## Functional model: dealing with inconsistency
 Given a set of observations which contain noise, and a model that is assumed to explain these data, the goal is to estimate the unknown parameters of that model. The least-squares principle can be used to solve this task. 
 
-Mathematically, we use the ‘system of observation equations’, with the vector of observations $\mathrm{y}$, the vector of unknowns $\mathrm{x}$, and the design matrix $\mathrm{A}$. In a simple form, we can write this system of observation equations as
+Mathematically, we use the ‘system of observation equations’, with the $m$-vector of observations $\mathrm{y}$, the $n$-vector of unknowns $\mathrm{x}$, and the $m \times n$ design matrix $\mathrm{A}$. In a simple form, we can write this system of observation equations as
 
 $$
 \mathrm{y = Ax}
 $$
 
-If all the observations would fit perfectly to this model, this system is called [consistent](PM_consistent). This is only possible if the number of observations is equal to (or smaller than) the number of unknowns.
+If all the observations would fit perfectly to this model, this system is called [consistent](PM_consistent). This is only possible if the number of observations $m$ is equal to (or smaller than) the number of unknowns $n$, i.e. if the system is [determined](determined).
 
 If the number of observations is greater than the number of unknowns (and the design matrix $\mathrm{A}$ is of full column rank), it is very unlikely that the system is consistent. Physical reality would need to be perfectly described by the conceptual mathematical model. It is evident that in real life this is never the case, since (i) our observations are always contaminated by some form of noise, and (ii) physical reality is often more complex than can be described with a simplified mathematical model. 
 
-Thus, in the case in which there are more observations than unknowns (and design matrix $\mathrm{A}$ is of full column rank) the $\mathrm{y=Ax}$ system of equations has no solution. In other words; every 'solution' would be wrong, since the model would not 'fit' the data.
+Thus, in the case in which there are more observations than unknowns (and design matrix $\mathrm{A}$ is of full column rank) the $\mathrm{y=Ax}$ system of equations has no solution, this is referred to as an [overdetermined system](determined). In other words; every 'solution' would be wrong, since the model would not perfectly 'fit' the data.
+
+The *redundancy* of the system is equal to $m-n$, i.e., the 'additional' number of observations compared to the minimum required to solve the system of equations.
 
 ### Example: linear trend model
 Assume we have $m$ observations and we try to fit the linear trend model:
@@ -71,7 +73,7 @@ $$
 \mathrm{\hat{x}} =\arg \underset{\mathrm{x}}{\min} {\mathrm{(y-Ax)^T (y-Ax)}}.
 $$
 
- In other words, we find $\mathrm{\hat{x}}$ by finding the minimum of $\mathrm{(y-Ax)^T (y-Ax)}$.
+In other words, we find $\mathrm{\hat{x}}$ by finding the minimum of $\mathrm{(y-Ax)^T (y-Ax)}$.
 
 ## Least-squares solution
 We can find the minimum of a function by taking the first derivative with respect to the 'free variable'. Since the observation vector is not free, and also the design matrix $A$ is fixed, the only variable which we can vary is $x$. The first derivative of our objective function should be equal to zero to reach a minimum (see [Gradient](PM_gradient)):

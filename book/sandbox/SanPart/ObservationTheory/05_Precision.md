@@ -1,3 +1,4 @@
+(05_precision)=
 # Precision and confidence intervals
 When evaluating and reporting estimation results, it is important to give a quality assessment. Thereby we should distinguish between:
 * the precision of the estimated parameters (topic of this part)
@@ -127,3 +128,13 @@ Confidence interval of fitted model, including error bars for the individual adj
 ```
 
 Note that covariance matrices can be computed without the need for actual observations. Hence, we can also set up a functional model including future epochs. Let's call the corresponding design matrix $\mathrm{A_p}$, then $\Sigma_{\hat{Y}_p}= \mathrm{A_p}\Sigma_{\hat{X}} \mathrm{A_p^T}$. Note that the $\Sigma_{\hat{X}}$ is based on the original model, since the fitted model is only based on the actual observations. In this way, we can visualize the uncertainty of extrapolated values based on the fitted model.
+
+## Factors influencing the precision
+As can be seen from the expression $\Sigma_{\hat{X}}=(\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1}$, the precision of the estimates depends on the:
+* design matrix $\mathrm{A}$: proper design of the measurement set-up can improve the precision
+* covariance matrix $\Sigma_Y$: more precise observations will result in more precise estimates
+
+Not immediately clear from the expression is that also the redundancy is an important factor: more observations will improve the precision, due to the averaging of the random errors (if $m$ large enough, the mean error will go to zero).
+
+MMM
+NOTEBOOK to show this.

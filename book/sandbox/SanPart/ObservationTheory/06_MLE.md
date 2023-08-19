@@ -8,25 +8,25 @@ $$
 in order to estimate the unknown parameters $\mathrm{x}$. However, the solution $\hat{X}$ does not depend on the underlying distribution of $Y$.
 
 ## Maximum likelihood principle
-The principle of Maximum Likelihood estimation (MLE) is to find the *most likely* $\mathrm{x}$ given a realization $\mathrm{x}$ of the $Y$.
+The principle of Maximum Likelihood estimation (MLE) is to find the *most likely* $\mathrm{x}$ given a realization $\mathrm{y}$ of the $Y$.
 
 This boils down to estimating the unknown parameters $\alpha$ of the underlying distribution, which means that the probability density function (PDF) is known apart from the $n$ parameters in $\alpha$. We will now distinguish between a PDF and likelihood function.
 
-A *probability density function* $f_Y(\mathrm{y}|\alpha)$ with $\alpha$ known as function of $\mathrm{y}$.
+A *probability density function* $f_Y(\mathrm{y}|\alpha)$ is given as function of $\mathrm{y}$ and with $\alpha$ known.
 
-A *likelihood function* $f_Y(\mathrm{y}|\alpha)$ for a given realization $\mathrm{y}$ as function of all possible values of $\alpha$.
+A *likelihood function* $f_Y(\mathrm{y}|\alpha)$ is given for a certain realization $\mathrm{y}$ as function of all possible values of $\alpha$.
 
-The goal is to find the $\alpha$ which maximizes the likelihood function for the given realization $\mathrm{y}$.
+Wiht MLE, the goal is to find the $\alpha$ which maximizes the likelihood function for the given realization $\mathrm{y}$.
 
 ### Example exponential distribution:
 
-If $Y\sim \text{Exp}(\lambda)$, the goal would be to estimate $\lambda$ based a realization $\mathrm{y_{obs}}$ of $Y$. The {numref}`MLEexp` shows the PDF of $Y$
+If $Y\sim \text{Exp}(\lambda)$, the goal would be to estimate $\lambda$ based on a realization $\mathrm{y_{obs}}$ of $Y$. The {numref}`MLEexp` shows the PDF of $Y$
 
 $$
 f_Y(\mathrm{y}|\lambda)=\lambda \exp(-\lambda \mathrm{y})
 $$
 
-for different possible values of $\lambda$. The likelihood function for the given $\mathrm{y_{obs}}$ is shown on the right-hand side. It is shown that for instance the likelihood value for $\lambda_1$ is equal to the corresponding density value in the left panel. The maximum likelihood estimate $\hat{\lambda}$ is the value for which the likelihood function is maximized as shown in the figure.
+for different possible values of $\lambda$. The likelihood function for the given $\mathrm{y_{obs}}$ is shown on the right-hand side. It is shown that for instance the likelihood value for $\lambda_1$ is equal to the corresponding density value in the left panel. The maximum likelihood estimate $\hat{\lambda}$ is the value for which the likelihood function is maximized, in this case $\hat{\lambda}=\lambda_2$, as shown in the figure.
 
 ```{figure} ../figures/ObservationTheory/06_MLEexp.png
 ---
@@ -84,7 +84,7 @@ You will not be asked to derive the MLE solution as above.
 If we now replace the realization $\mathrm{y}$ by the random observable vector $Y$ we obtain the *Maximum Likelihood estimator* of $\mathrm{x}$:
 
 $$
-\hat{X}= (\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1} \mathrm{A^T} \Sigma_Y^{-1} \mathrm{Y}
+\hat{X}= (\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1} \mathrm{A^T} \Sigma_Y^{-1} Y
 $$
 
 It follows that the Maximum Likelihood estimator of $\mathrm{x}$ is identical to the BLUE **if** $Y$ is normally distributed.
