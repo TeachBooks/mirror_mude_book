@@ -2,9 +2,20 @@ format: jb-book
 root: intro
 
 parts:
-  - caption: New Material
+  - caption: Programming
     chapters:
-    - file: new/blank
+    - file: programming/overview
+      title: Overview
+    - file: programming/golden_rules_dont_execute.ipynb
+      title: The Golden Rules
+    - file: programming/computers/overview
+      title: Computers
+    - file: programming/code/overview
+      title: Code
+    - file: programming/programs/overview
+      title: Programs
+    - file: programming/communication/overview
+      title: Communication
   - caption: Sandbox
     chapters:
     - file: sandbox/blank
