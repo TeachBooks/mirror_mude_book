@@ -85,6 +85,8 @@ parts:
       - file: cookbook/benchmarks/benchmark_tags_dont_execute.ipynb
       - file: cookbook/benchmarks/benchmark_load_dont_execute.ipynb
     - file: cookbook/widgets_dont_execute.ipynb
+    - file: cookbook/exercise_checking_dont_execute.ipynb
+    - file: cookbook/example_gumbel_dont_execute.ipynb
   - caption: Old Material
     chapters:
     - file: old/blank
