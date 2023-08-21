@@ -10,15 +10,15 @@ check_float = lambda a, b: isclose(a, b, rel_tol=0, abs_tol=tolerance)
 @check
 def check_example(glob):
 	mu, beta = glob["mu"], glob["beta"]
-	if (check_float(mu, 5.0) and check_float(beta, 3.0)):
-		print(f"You got the parameters right, well done! (checked with tolerance {tolerance})")
+	if (check_float(mu, -3.21953) and check_float(beta, -8.65617)):
+		print(f"You got the parameters right (Part 1), well done! (checked with tolerance {tolerance})")
 	else:
-		print(f"Your parameters are incorrect, your inverse won't be graded until these are right. (checked with tolerance {tolerance})")
+		print(f"Your parameters (Part 1) are incorrect, your inverse (Part 2) won't be graded until these are right. (checked with tolerance {tolerance})")
 		return 
 
 	function = glob["find_x_with_probability_p"]
 	
-	test_inputs = [(0.1, 2.49790266426), (0.2, 3.57234501402), (0.9, 11.7511019819)]
+	test_inputs = [(0.001, 13.50977500432694), (0.2, 0.8998147005530068), (0.9, -22.699089535951632)]
 	failed = []
 
 	for x, out in test_inputs:
@@ -29,7 +29,21 @@ def check_example(glob):
 	if len(failed) == 0:
 		print(f"Well done, your inverse function is correct! (checked with tolerance {tolerance})")	
 	else:
-		print(f"Your function failed some tests. Keep in mind the tolerance is {tolerance}")
+		print(f"Your function (Part 2) failed some tests. Keep in mind the tolerance is {tolerance}")
 		print("Failed inputs:")
 		for case in failed:
 			print(f"{case[0]} gave {case[2]}, expected {case[1]}")
+"""
+Task 0:
+x_1 = 4
+p_e_1 = 1-.9
+x_2 = 10
+p_e_2 = 1-.99
+
+Task 1:
+beta = -(x_2 - x_1) / log(log(p_e_2) / log(p_e_1))
+mu = x_1 + beta * log(-log(p_e_1))
+
+Task 2:
+x = mu - beta * log(-log(p))
+"""
