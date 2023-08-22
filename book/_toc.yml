@@ -2,9 +2,20 @@ format: jb-book
 root: intro
 
 parts:
-  - caption: New Material
+  - caption: Programming
     chapters:
-    - file: new/blank
+    - file: programming/overview
+      title: Overview
+    - file: programming/golden_rules_dont_execute.ipynb
+      title: The Golden Rules
+    - file: programming/computers/overview
+      title: Computers
+    - file: programming/code/overview
+      title: Code
+    - file: programming/programs/overview
+      title: Programs
+    - file: programming/communication/overview
+      title: Communication
   - caption: Sandbox
     chapters:
     - file: sandbox/blank
@@ -23,8 +34,15 @@ parts:
       - file: sandbox/continuous/empirical
       - file: sandbox/continuous/Param_distr.md
       - file: sandbox/continuous/other_distr.md
+      - file: sandbox/continuous/Uniform.md
+      - file: sandbox/continuous/Exponential.md
+      - file: sandbox/continuous/Exponential_quiz.md
+      - file: sandbox/continuous/Gumbel.md
+      - file: sandbox/continuous/Gumbel_quiz.md
       - file: sandbox/continuous/Parameterization.md
       - file: sandbox/continuous/fitting.md
+      - file: sandbox/continuous/moments.md
+      - file: sandbox/continuous/moments_quiz.md
       - file: sandbox/continuous/GOF
     - file: sandbox/SanPart/ObservationTheory/01_Introduction.md
       title: Sensing and Observation Theory
@@ -36,6 +54,7 @@ parts:
       - file: sandbox/SanPart/ObservationTheory/06_MLE.md
       - file: sandbox/SanPart/ObservationTheory/07_NLSQ.md
       - file: sandbox/SanPart/ObservationTheory/08_Testing.md
+      - file: sandbox/SanPart/ObservationTheory/09_TestingSandM.md
       - file: sandbox/SanPart/ObservationTheory/99_NotationFormulas.md
     - file: sandbox/SanPart/premath/00_00_PreMath.md
       title: Pre-Math

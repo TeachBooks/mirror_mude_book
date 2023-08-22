@@ -2,13 +2,16 @@
 
 set -euo pipefail
 
-set -euo pipefail
+START_SERVER=${1:-false}
+PAGE_ROOT=${2:-"/"}
 
 # Build the jupyter book, everything else is post-processing
-jupyter-book build book
+jupyter-book clean book/
+jupyter-book build book/
 
 # Note: the structure of thebe_lite mimicks where thing are needed in the html folder
 cp thebe_lite/* book/_build/html/ -r
+sed "s,const PAGE_ROOT = \"/\";,const PAGE_ROOT = \"$PAGE_ROOT\";,g" thebe_lite/_static/sphinx-thebe.js > book/_build/html/_static/sphinx-thebe.js
 rm book/_build/html/THEBE_LITE.md
 
 # Copy all non notebook, markdown or build files into the build for local access in pyodide etc.
@@ -40,11 +43,16 @@ if [ "$python_command" = "" ] ; then
 fi
 
 # Serves the files on port 8000, localhost (127.0.0.1:8000)
-START_SERVER=${1:-false}
-
 if [ "$START_SERVER" = true ] ; then
 	echo "Starting server on port 8000"
 	$python_command -m http.server 8000 --directory book/_build/html
 else
-	echo "Book successfully built. If you want to use interactive elements, start a server locally using the command: $python_command -m http.server 8000 --directory book/_build/html. Or run this script again: ${0} true"  
+	echo "Book successfully built. If you want to use interactive elements,
+	start a server locally using the command:
+	    $python_command -m http.server 8000 --directory book/_build/html.
+	Or run this script again (book will build again!):
+		${0} true"  
 fi
+
+echo "To close a python server run the commeand:
+	kill-server.sh"

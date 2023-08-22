@@ -1,25 +1,35 @@
+(03_wls)=
 # Weighted least-squares estimation
 In ordinary least-squares estimation, we assume that all observations are equally important. In many cases this is not realistic, as observations may be obtained by different measurement systems, or under different circumstances. We want our methodology for least-squares estimation to be able to take this into account.
 
-We achieve this goal by introducing a weight matrix in the normal equation. In the unweighted least-squares approach, we arrive at the normal equation by pre-multiplying both sides of $\mathrm{y=Ax}$ with the transpose of the design matrix $\mathrm{A^T}$:
+We achieve this goal by introducing a weight matrix in the minimization problem:
+
+$$
+\underset{\mathrm{x}}{\min} {\mathrm{(y-Ax)^T W(y-Ax)}}
+$$
+
+In the unweighted least-squares approach, we arrive at the normal equation by pre-multiplying both sides of $\mathrm{y=Ax}$ with the transpose of the design matrix $\mathrm{A^T}$:
 
 $$ 
 \mathrm{y=Ax} \; \rightarrow \; \mathrm{A^T\;  y = A^T\; A x }
 $$
 
-In the weighted least-squares approach, we add weight matrix $W$ to this pre-multiplication factor, i.e., $ \mathrm{A^T W}$, to obtain the normal equation:
+In the weighted least-squares approach, we now need to add weight matrix $W$ to this pre-multiplication factor, i.e., $ \mathrm{A^T W}$, to obtain the normal equation:
 
 $$ 
 \mathrm{y=Ax} \; \rightarrow \; \mathrm{A^T W \; y = A^TW \; A x}
 $$
 
-The normal matrix is now defined as $\mathrm{N=A^T W A}$. From this, assuming that the normal matrix $N$ is invertible (non-singular) we find the weighted least-squares estimate $ \hat{x} $, 
+The normal matrix is now defined as $\mathrm{N=A^T W A}$. From this, assuming that the normal matrix $N$ is invertible (non-singular) we find the weighted least-squares estimate $ \mathrm{\hat{x}} $, 
 
 $$ 
-\mathrm{\hat{x} = (A^T W A)^{-1} A^T W y}
+\begin{align*}
+\mathrm{\hat{x}} &= \mathrm{(A^T W A)^{-1} A^T W y} \\
+                &= \arg \underset{\mathrm{x}}{\min} {\mathrm{(y-Ax)^T W(y-Ax)}}
+\end{align*}
 $$
 
-We also find the derived estimate $ \mathrm{\hat{y}} $ and $ \mathrm{\hat{e}} $:
+We also find the derived estimate $ \mathrm{\hat{y}} $ and $ \mathrm{\hat{\epsilon}} $:
 
 $$
 \mathrm{\hat{y} = A \hat{x}  = A (A^T W A )^{-1} A^T W y}
