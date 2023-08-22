@@ -45,9 +45,9 @@ def check_example(glob):
 """
 Task 0:
 x_1 = 4
-p_e_1 = .1
+p_1 = 1 - .1
 x_2 = 10
-p_e_2 = .01
+p_2 = 1 - .01
 
 Task 1:
 	beta = -(x_2 - x_1) / log(log(p_2) / log(p_1))
