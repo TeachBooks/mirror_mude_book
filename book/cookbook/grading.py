@@ -4,7 +4,7 @@ from IPython.display import display
 def check(f):
 	def wrapper(*args, **kwargs):
 		output = widgets.Output()
-		button = widgets.Button(description="Check answer")
+		button = widgets.Button(description="Check Answer(s)")
 		@output.capture(clear_output=True,wait=True)
 		def _inner_check(button):
 			try:	
