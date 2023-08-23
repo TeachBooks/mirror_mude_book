@@ -3,9 +3,7 @@ author: MUDE Teachers and the Student Army
 logo: _static/MUDE_Logo-small.png
 
 execute:
-  execute_notebooks: auto
-  exclude_patterns:
-    - '*_dont_execute.ipynb'
+  execute_notebooks: 'off'
 
 sphinx:
   config:
