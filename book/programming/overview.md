@@ -3,10 +3,10 @@
 Riccardo ideas. For now, when in doubt add content to the JB. Can move text to website later as needed.
 1. theory + best practices with examples for efficient numerical practices
 2. theory + best practices with examples of for loops (and not for loops)
-3. Visualization:
+3. ~~Visualization:~~
    1. how to reduce the size of images (matplotlib plots) when large datasets are used (can use SHIP project as a case study)
-   2. advanced figure creation: define axes as objects and modifying attribues (i have some recent examples from another TA if needed)
-   3. saving a figure (vector/raster; file types; optimize file size; automatically regenerate it; add a test?)
+   2. ~~advanced figure creation: define axes as objects and modifying attribues (i have some recent examples from another TA if needed)~~
+   3. ~~saving a figure (vector/raster; file types; optimize file size; automatically regenerate it; add a test?)~~
 4. Memory considerations: how can you tell whether or not your code is working efficiently? (e.g., loading data, copies of objects, recopying or reloading on every nb run)
 5. Run time:
    1. may need a bit of theory about computations, processor speeds, cores, comparison of disk, RAM, CPU/GPU etc, but doesn't need to be long, and perhaps we can find existing content with CC license to include directly (embedded video, copy content, direct link all ok...this applies to all generic programming and coding topics)
@@ -34,3 +34,27 @@ Data types (e.g., csv, JSON, netcdf, etc); FLOPS, run time; Complexity
 
 
 Software is also considered a programming category, but that will be covered exclusively on the website.
+
+**We will use this as the baseline "theory" this year with extra insight provided for use, and other topics as-needed. Links here for easy copy/paste.**
+
+Part of the programming material for MUDE goes well beyond the scope of a typical BSc-level programming course (a MUDE pre-requisite), and part relies on the online course "Python for Engineers." Regardless of your background in Python, or programming in general, you can always benefit from learning and reviewing a few fundamentals of computer science.
+
+The online course [Python for Engineers](https://tudelft-citg.github.io/learn-python/intro.html) provides a series of exercises as well, which you should use to practice your understanding of the topics. Since you should have Anaconda installed for MUDE, we recommend you download the notebook pages directly, where possible, and use your own Python kernel (e.g., a Jupyter notebook as a workbook) for the chapters that only require simple calculations.
+
+Chapters from online course "Python for Engineers":
+1. [Variables, operators and functions](https://tudelft-citg.github.io/learn-python/01/Theory/01.html#)
+2. [Modules, conditions, data structures and loops](https://tudelft-citg.github.io/learn-python/02/Theory/01.html#)
+3. [Advanced strings and functions, files and debugging](https://tudelft-citg.github.io/learn-python/03/Theory/01.html#)
+4. [Objects and References](https://tudelft-citg.github.io/learn-python/04/Theory/01.html#)
+5. [Numpy](https://tudelft-citg.github.io/learn-python/05/Theory/01.html#)
+6. [Pandas](https://tudelft-citg.github.io/learn-python/06/Theory/01.html#)
+7. [Matplotlib](https://tudelft-citg.github.io/learn-python/07/Theory/01.html#)
+
+Chapter summaries, "In a Nutshell", from online course "Python for Engineers":
+1. [Variables, operators and functions](https://tudelft-citg.github.io/learn-python/01/In_a_Nutshell/01.html#)
+2. [Modules, conditions, data structures and loops](https://tudelft-citg.github.io/learn-python/02/In_a_Nutshell/01.html#)
+3. [Advanced strings and functions, files and debugging](https://tudelft-citg.github.io/learn-python/03/In_a_Nutshell/01.html#)
+4. [Objects and References](https://tudelft-citg.github.io/learn-python/04/In_a_Nutshell/01.html#)
+5. [Numpy](https://tudelft-citg.github.io/learn-python/05/In_a_Nutshell/01.html#)
+6. [Pandas](https://tudelft-citg.github.io/learn-python/06/In_a_Nutshell/01.html#)
+7. [Matplotlib](https://tudelft-citg.github.io/learn-python/07/In_a_Nutshell/01.html#)

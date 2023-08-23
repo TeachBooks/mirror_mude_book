@@ -16,6 +16,8 @@ parts:
       title: Programs
     - file: programming/communication/overview
       title: Communication
+      sections:
+      - file: programming/communication/visualization
   - caption: Sandbox
     chapters:
     - file: sandbox/blank
