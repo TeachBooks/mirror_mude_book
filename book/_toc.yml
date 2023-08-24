@@ -2,6 +2,41 @@ format: jb-book
 root: intro
 
 parts:
+  - caption: Q1 Topics
+    chapters: 
+    - file: modeling/overview
+      title: Modeling
+      sections:
+      - file: modeling/classification
+        title: Classification
+      - file: modeling/decisions
+        title: Decisions
+      - file: modeling/validate_verify
+        title: Calibration, Validation & Verification
+      - file: modeling/gof
+        title: Goodness of Fit
+      - file: modeling/sensitivity
+        title: Sensitivity Analysis
+    - file: probability/overview
+      title: Probability
+    - file: observation_theory/overview
+      title: Observation Theory
+  - caption: Q2 Topics
+    chapters:
+    - file: fvm/overview
+      title: Finite Volume Method
+    - file: fem/overview
+      title: Finite Element Method
+    - file: signal/overview
+      title: Signal Processing
+    - file: time_series/overview
+      title: Time Series Analysis
+    - file: optimization/overview
+      title: Optimization
+    - file: ml/overview
+      title: Machine Learning
+    - file: pd/intro
+      title: Risk & Reliability
   - caption: Programming
     chapters:
     - file: programming/overview
@@ -18,6 +53,9 @@ parts:
       title: Communication
       sections:
       - file: programming/communication/visualization
+  - caption: Fundamental Concepts
+    chapters: 
+    - file: fundamentals/overview
   - caption: Sandbox
     chapters:
     - file: sandbox/blank
@@ -94,7 +132,7 @@ parts:
     - file: old/blank
   - caption: Designing with Uncertainty
     chapters:
-    - file: pd/intro
+    # - file: pd/intro
     - file: pd/prob-design/overview.md
       sections:
       - file: pd/prob-design/01-one-random-variable.md
