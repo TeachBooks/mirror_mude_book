@@ -57,6 +57,7 @@ parts:
       - file: sandbox/SanPart/premath/00_01c_PreMath.md
       - file: sandbox/SanPart/premath/00_02_PreMath.md
       - file: sandbox/SanPart/premath/00_03_PreMath.md
+      - file: sandbox/functions_rand_vars/functions_dont_execute.ipynb
     - file: sandbox/dist_fit_example/overview
       title: Distribution Fitting Examples
       sections:
