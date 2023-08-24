@@ -1,0 +1,56 @@
+[
+    {
+        "question": "Which of the following are correct ways to import things from a module?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "code": "from module import *",
+                "correct": true,
+		"feedback": "Correct."
+            },
+            {
+                "code": "import module",
+                "correct": true,
+		"feedback": "Correct."
+            },
+            {
+                "code": "import module as m",
+                "correct": true,
+		"feedback": "Correct."
+            },
+            {
+                "code": "import * from module",
+                "correct": false,
+		"feedback": "Incorrect. Try again!"
+            }
+        ]
+    },
+    {
+        "question": "Can a module contain both classes and functions?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "No, a module can contain either only classes or only functions.",
+                "correct": false
+            },
+            {
+                "answer": "Yes, classes and functions can both reside within the same module.",
+                "correct": true
+            }
+        ]
+    },
+    {
+        "question": "Is there a difference between importing classes and functions?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Yes, importing classes is much more different from importing functions.",
+                "correct": false
+            },
+            {
+                "answer": "No, importing classes and functions is the same.",
+                "correct": true
+            }
+        ]
+    }
+]

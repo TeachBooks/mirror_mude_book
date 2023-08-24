@@ -3,22 +3,279 @@ root: intro
 
 
 parts:
-- caption: Introduction to Numerical Modelling
-  maxdepth: 1
-  chapters:
-  - file: 1-intro.ipynb
-  - file: 2-numerical-solvers.ipynb
-  - file: 3-taylor-series.ipynb
+  - caption: Q1 Topics
+    chapters: 
+    - file: modeling/overview
+      title: Modeling
+      sections:
+      - file: modeling/classification
+        title: Classification
+      - file: modeling/decisions
+        title: Decisions
+      - file: modeling/validate_verify
+        title: Calibration, Validation & Verification
+      - file: modeling/gof
+        title: Goodness of Fit
+      - file: modeling/sensitivity
+        title: Sensitivity Analysis
+    - file: probability/overview
+      title: Probability
+    - file: observation_theory/overview
+      title: Observation Theory
+  - caption: Q2 Topics
+    chapters:
+    - file: fvm/overview
+      title: Finite Volume Method
+    - file: fem/overview
+      title: Finite Element Method
+    - file: signal/overview
+      title: Signal Processing
+    - file: time_series/overview
+      title: Time Series Analysis
+    - file: optimization/overview
+      title: Optimization
+    - file: ml/overview
+      title: Machine Learning
+    - file: pd/intro
+      title: Risk & Reliability
+  - caption: Programming
+    chapters:
+    - file: programming/overview
+      title: Overview
+    - file: programming/golden_rules.ipynb
+      title: The Golden Rules
+    - file: programming/computers/overview
+      title: Computers
+    - file: programming/code/overview
+      title: Code
+    - file: programming/programs/overview
+      title: Programs
+    - file: programming/communication/overview
+      title: Communication
+      sections:
+      - file: programming/communication/visualization
+  - caption: Fundamental Concepts
+    chapters: 
+    - file: fundamentals/overview
+  - caption: Sandbox
+    chapters:
+    - file: sandbox/blank
+    - file: sandbox/robert
+    - file: sandbox/prob/prob-intro
+      title: Probability
+      sections:
+      - file: sandbox/prob/prob-background
+      - file: sandbox/prob/prob-rv
+      - file: sandbox/prob/prob-discrete
+      - file: sandbox/prob/prob-notation
+        title: Notation
+    - file: sandbox/continuous/Reminder_intro.md
+      sections:
+      - file: sandbox/continuous/PDF_CDF
+      - file: sandbox/continuous/empirical
+      - file: sandbox/continuous/Param_distr.md
+      - file: sandbox/continuous/other_distr.md
+      - file: sandbox/continuous/Uniform.md
+      - file: sandbox/continuous/Exponential.md
+      - file: sandbox/continuous/Exponential_quiz.md
+      - file: sandbox/continuous/Gumbel.md
+      - file: sandbox/continuous/Gumbel_quiz.md
+      - file: sandbox/continuous/Parameterization.md
+      - file: sandbox/continuous/fitting.md
+      - file: sandbox/continuous/moments.md
+      - file: sandbox/continuous/moments_quiz.md
+      - file: sandbox/continuous/GOF
+    - file: sandbox/SanPart/ObservationTheory/01_Introduction.md
+      title: Sensing and Observation Theory
+      sections:
+      - file: sandbox/SanPart/ObservationTheory/02_LeastSquares.md    
+      - file: sandbox/SanPart/ObservationTheory/03_WeightedLSQ.md
+      - file: sandbox/SanPart/ObservationTheory/04_BLUE.md
+      - file: sandbox/SanPart/ObservationTheory/05_Precision.md
+      - file: sandbox/SanPart/ObservationTheory/06_MLE.md
+      - file: sandbox/SanPart/ObservationTheory/07_NLSQ.md
+      - file: sandbox/SanPart/ObservationTheory/08_Testing.md
+      - file: sandbox/SanPart/ObservationTheory/09_TestingSandM.md
+      - file: sandbox/SanPart/ObservationTheory/99_NotationFormulas.md
+    - file: sandbox/SanPart/premath/00_00_PreMath.md
+      title: Pre-Math
+      sections:
+      - file: sandbox/SanPart/premath/00_01a_PreMath.md
+      - file: sandbox/SanPart/premath/00_01b_PreMath.md
+      - file: sandbox/SanPart/premath/00_01c_PreMath.md
+      - file: sandbox/SanPart/premath/00_02_PreMath.md
+      - file: sandbox/SanPart/premath/00_03_PreMath.md
+    - file: sandbox/dist_fit_example/overview
+      title: Distribution Fitting Examples
+      sections:
+        - file: sandbox/dist_fit_example/00_case_study.ipynb
+        - file: sandbox/dist_fit_example/01_importdata.ipynb
+        - file: sandbox/dist_fit_example/02_distributionfitting.ipynb
+    - file: sandbox/multivariate/overview
+      title: Multivariate
+      sections:
+      - file: sandbox/multivariate/Multivariate.ipynb
+      - file: sandbox/multivariate/Vessels.ipynb
 
-- caption: Introduction to Finite Difference
-  maxdepth: 1
-  chapters:
-  - file: 1-numerical-derivatives.ipynb
-  - file: 2-simple-ODE-solver.ipynb
-  - file: 3-second-order-ODE-solver.ipynb
+  - caption: Introduction to Numerical Modelling
+    maxdepth: 1
+    chapters:
+    - file: 1-intro.ipynb
+    - file: 2-numerical-solvers.ipynb
+    - file: 3-taylor-series.ipynb
 
-- caption: General Solvers
-  maxdepth: 1
-  chapters:
-  - file: 1-general-solvers.ipynb
-  - file: 2-implicit-ode-solver.ipynb
+  - caption: Introduction to Finite Difference
+    maxdepth: 1
+    chapters:
+    - file: 1-numerical-derivatives.ipynb
+    - file: 2-simple-ODE-solver.ipynb
+    - file: 3-second-order-ODE-solver.ipynb
+
+  - caption: General Solvers
+    maxdepth: 1
+    chapters:
+    - file: 1-general-solvers.ipynb
+    - file: 2-implicit-ode-solver.ipynb
+
+
+- caption: MUDE Cookbook
+    chapters:
+    - file: cookbook/blank
+    - file: cookbook/interactive_element
+    - file: cookbook/live_code
+      sections:
+      - file: cookbook/benchmarks/benchmark_aux.ipynb
+      - file: cookbook/benchmarks/benchmark_tags.ipynb
+      - file: cookbook/benchmarks/benchmark_load.ipynb
+    - file: cookbook/widgets.ipynb
+    - file: cookbook/exercise_checking.ipynb
+    - file: cookbook/example_gumbel.ipynb
+  - caption: Old Material
+    chapters:
+    - file: old/blank
+  - caption: Designing with Uncertainty
+    chapters:
+    # - file: pd/intro
+    - file: pd/prob-design/overview.md
+      sections:
+      - file: pd/prob-design/01-one-random-variable.md
+      - file: pd/prob-design/02-two-random-variables.md
+      - file: pd/prob-design/example-river-system.md
+    - file: pd/risk-analysis/overview.md
+      sections:
+      - file: pd/risk-analysis/definition.md
+      - file: pd/risk-analysis/steps.md
+      - file: pd/risk-analysis/risk-curves.md
+    - file: pd/reliability-component/overview.md
+      # sections:
+      # - file: pd/reliability-component/case-two-loads.md
+      # - file: pd/reliability-component/case-r-s.md
+    - file: pd/reliability-system/overview.md
+      sections:
+      # - file: pd/reliability-system/system-series.md
+      # - file: pd/reliability-system/system-parallel.md
+      - file: pd/reliability-system/exercise-simple-city.md
+    - file: pd/risk-evaluation/overview.md
+      sections:
+      - file: pd/risk-evaluation/decision.md
+      - file: pd/risk-evaluation/cost-benefit.md
+      - file: pd/risk-evaluation/econ-optimization.md
+      - file: pd/risk-evaluation/example-dike-height.md
+      - file: pd/risk-evaluation/safety-standards.md
+    - file: pd/exercises/overview.md
+      sections:
+      - file: pd/exercises/exercise-fn-curve.md
+      - file: pd/exercises/exercise-paint.md
+      - file: pd/exercises/exercise-dam.md
+      - file: pd/exercises/exercise-sample-exam.md
+    - file: pd/notebooks/overview.md
+      sections:
+      - file: pd/notebooks/flood-risk/Exercise_Flood_Risk_Render.ipynb
+      - file: pd/notebooks/contamination/Exercise_Contamination_Render.ipynb
+      - file: pd/notebooks/traffic/Exercise_Traffic_Render.ipynb
+    - file: references.md
+  - caption: Extreme Value Analysis
+    numbered: 2
+    chapters:
+    - file: EVA/00_00_EVA
+    - file: EVA/01_00_Extreme
+      title: Extremes
+      sections:
+      - file: EVA/01_01_Bernoulli
+      - file: EVA/01_02_RT
+      - file: EVA/01_03_Sampling
+    - file: EVA/02_00_BM_GEV
+      sections:
+      - file: EVA/02_01_BM
+      - file: EVA/02_02_Asymptotic
+      - file: EVA/02_03_GEV
+      - file: EVA/02_04_RP_Binomial
+    - file: EVA/03_00_POT_GPD
+      sections:
+      - file: EVA/03_01_POT
+      - file: EVA/03_02_GPD
+      - file: EVA/03_03_GPD2
+      - file: EVA/03_04_Poisson
+      - file: EVA/03_05_GPD3
+      - file: EVA/03_06_RP_Poisson
+        title: Return Period
+    - file: EVA/04_00_Threshold
+      sections:
+      - file: EVA/04_01_Threshold_Poisson
+      - file: EVA/04_02_Threshold_MRL
+      - file: EVA/04_03_Threshold_stability
+      - file: EVA/04_04_Threshold_DI
+    - file: EVA/MUDE/01_00_MUDE
+      title: MUDE Materials
+      sections:
+      - file: EVA/MUDE/01_01_EVA_1
+      - file: EVA/MUDE/01_02_3-1-Extreme_Value_notebook.ipynb
+        title: Assignment 1
+      - file: EVA/MUDE/01_03_3-1-Extreme_Value_notebook_solved.ipynb
+        title: Solution 1
+      - file: EVA/MUDE/01_04_EVA_2
+      - file: EVA/MUDE/01_05_4-1-EVA2_student.ipynb
+        title: Assignment 2
+      - file: EVA/MUDE/01_06_4-1-EVA2_teacher.ipynb
+        title: Solution 2
+
+ # Coding
+  - caption: Coding (Last Year)
+    chapters:
+    - file: old/coding/overview.md
+    - file: old/coding/1-1/1-overview.md
+      sections:
+      - file: old/coding/1-1/1-1-student.ipynb
+      - file: old/coding/1-1/1-1-solution.ipynb
+      - file: old/coding/1-1/1-2-student.ipynb
+      - file: old/coding/1-1/1-2-solution.ipynb
+    - file: old/coding/1-2-Golden_Rules.ipynb
+    - file: old/coding/1-3-git
+    - file: old/coding/1-4/1-overview.md
+      sections:
+      - file: old/coding/1-4/1-1-testing-student
+      - file: old/coding/1-4/1-1-testing-solution
+      - file: old/coding/1-4/1-2-oop-student
+      - file: old/coding/1-4/1-2-oop-solution
+      - file: old/coding/1-4/1-3-modules-student
+      - file: old/coding/1-4/1-3-modules-solution
+    - file: old/coding/1-6/1-overview.md
+      sections:
+      - file: old/coding/1-6/1_1_Introduction_student.ipynb
+      - file: old/coding/1-6/1_2_Points_student.ipynb
+      - file: old/coding/1-6/1_3_Lines_student.ipynb
+      - file: old/coding/1-6/1_6_Lines_teacher.ipynb
+      - file: old/coding/1-6/1_4_Polygons_student.ipynb
+      - file: old/coding/1-6/1_7_Polygons_teacher.ipynb
+      - file: old/coding/1-6/1_5_Rasters_student.ipynb
+      - file: old/coding/1-6/1_8_Rasters_teacher.ipynb
+    - file: old/coding/2-2/1-overview.md
+      sections:
+      - file: old/coding/2-2/1-software.md
+      - file: old/coding/2-2/1-part-1.md
+        sections:
+        - file: old/coding/2-2/1_1.ipynb
+        - file: old/coding/2-2/1_2.ipynb
+      - file: old/coding/2-2/1-part-2.md
+      - file: old/coding/2-2/1-part-3.md
+
