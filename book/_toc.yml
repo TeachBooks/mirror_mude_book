@@ -1,20 +1,6 @@
 format: jb-book
 root: intro
 
-parts:
-  - caption: New Material
-    chapters:
-    - file: new/blank
-  - caption: Sandbox
-    chapters:
-    - file: sandbox/blank
-    - file: sandbox/robert
-  - caption: MUDE Cookbook
-    chapters:
-    - file: cookbook/blank
-  - caption: Old Material
-    chapters:
-    - file: old/blank
 
 parts:
 - caption: Introduction to Numerical Modelling
