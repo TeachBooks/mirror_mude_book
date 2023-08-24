@@ -6,6 +6,17 @@ parts:
     chapters: 
     - file: modeling/overview
       title: Modeling
+      sections:
+      - file: modeling/classification
+        title: Classification
+      - file: modeling/decisions
+        title: Decisions
+      - file: modeling/validate_verify
+        title: Calibration, Validation & Verification
+      - file: modeling/gof
+        title: Goodness of Fit
+      - file: modeling/sensitivity
+        title: Sensitivity Analysis
     - file: probability/overview
       title: Probability
     - file: observation_theory/overview
