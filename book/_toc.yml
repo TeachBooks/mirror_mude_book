@@ -3,6 +3,7 @@ root: intro
 
 parts:
   - caption: Q1 Topics
+    numbered: 2
     chapters: 
     - file: modeling/overview
       title: Modeling
@@ -21,7 +22,10 @@ parts:
       title: Probability
     - file: observation_theory/overview
       title: Observation Theory
+    - file: numerical_analysis/overview
+      title: Numerical Analysis
   - caption: Q2 Topics
+    numbered: 2
     chapters:
     - file: fvm/overview
       title: Finite Volume Method
@@ -38,6 +42,7 @@ parts:
     - file: pd/intro
       title: Risk & Reliability
   - caption: Programming
+    numbered: 2
     chapters:
     - file: programming/overview
       title: Overview
@@ -54,6 +59,7 @@ parts:
       sections:
       - file: programming/communication/visualization
   - caption: Fundamental Concepts
+    numbered: 2
     chapters: 
     - file: fundamentals/overview
   - caption: Sandbox
