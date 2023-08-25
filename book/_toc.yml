@@ -2,9 +2,60 @@ format: jb-book
 root: intro
 
 parts:
-  - caption: New Material
+  - caption: Q1 Topics
+    chapters: 
+    - file: modeling/overview
+      title: Modeling
+      sections:
+      - file: modeling/classification
+        title: Classification
+      - file: modeling/decisions
+        title: Decisions
+      - file: modeling/validate_verify
+        title: Calibration, Validation & Verification
+      - file: modeling/gof
+        title: Goodness of Fit
+      - file: modeling/sensitivity
+        title: Sensitivity Analysis
+    - file: probability/overview
+      title: Probability
+    - file: observation_theory/overview
+      title: Observation Theory
+  - caption: Q2 Topics
     chapters:
-    - file: new/blank
+    - file: fvm/overview
+      title: Finite Volume Method
+    - file: fem/overview
+      title: Finite Element Method
+    - file: signal/overview
+      title: Signal Processing
+    - file: time_series/overview
+      title: Time Series Analysis
+    - file: optimization/overview
+      title: Optimization
+    - file: ml/overview
+      title: Machine Learning
+    - file: pd/intro
+      title: Risk & Reliability
+  - caption: Programming
+    chapters:
+    - file: programming/overview
+      title: Overview
+    - file: programming/golden_rules.ipynb
+      title: The Golden Rules
+    - file: programming/computers/overview
+      title: Computers
+    - file: programming/code/overview
+      title: Code
+    - file: programming/programs/overview
+      title: Programs
+    - file: programming/communication/overview
+      title: Communication
+      sections:
+      - file: programming/communication/visualization
+  - caption: Fundamental Concepts
+    chapters: 
+    - file: fundamentals/overview
   - caption: Sandbox
     chapters:
     - file: sandbox/blank
@@ -44,6 +95,7 @@ parts:
       - file: sandbox/SanPart/ObservationTheory/06_MLE.md
       - file: sandbox/SanPart/ObservationTheory/07_NLSQ.md
       - file: sandbox/SanPart/ObservationTheory/08_Testing.md
+      - file: sandbox/SanPart/ObservationTheory/09_TestingSandM.md
       - file: sandbox/SanPart/ObservationTheory/99_NotationFormulas.md
     - file: sandbox/SanPart/premath/00_00_PreMath.md
       title: Pre-Math
@@ -53,16 +105,36 @@ parts:
       - file: sandbox/SanPart/premath/00_01c_PreMath.md
       - file: sandbox/SanPart/premath/00_02_PreMath.md
       - file: sandbox/SanPart/premath/00_03_PreMath.md
+      - file: sandbox/functions_rand_vars/functions_dont_execute.ipynb
+    - file: sandbox/dist_fit_example/overview
+      title: Distribution Fitting Examples
+      sections:
+        - file: sandbox/dist_fit_example/00_case_study.ipynb
+        - file: sandbox/dist_fit_example/01_importdata.ipynb
+        - file: sandbox/dist_fit_example/02_distributionfitting.ipynb
+    - file: sandbox/multivariate/overview
+      title: Multivariate
+      sections:
+      - file: sandbox/multivariate/Multivariate.ipynb
+      - file: sandbox/multivariate/Vessels.ipynb
   - caption: MUDE Cookbook
     chapters:
     - file: cookbook/blank
     - file: cookbook/interactive_element
+    - file: cookbook/live_code
+      sections:
+      - file: cookbook/benchmarks/benchmark_aux.ipynb
+      - file: cookbook/benchmarks/benchmark_tags.ipynb
+      - file: cookbook/benchmarks/benchmark_load.ipynb
+    - file: cookbook/widgets.ipynb
+    - file: cookbook/exercise_checking.ipynb
+    - file: cookbook/example_gumbel.ipynb
   - caption: Old Material
     chapters:
     - file: old/blank
   - caption: Designing with Uncertainty
     chapters:
-    - file: pd/intro
+    # - file: pd/intro
     - file: pd/prob-design/overview.md
       sections:
       - file: pd/prob-design/01-one-random-variable.md
@@ -97,9 +169,9 @@ parts:
       - file: pd/exercises/exercise-sample-exam.md
     - file: pd/notebooks/overview.md
       sections:
-      - file: pd/notebooks/flood-risk/Exercise_Flood_Risk_Render_dont_execute.ipynb
-      - file: pd/notebooks/contamination/Exercise_Contamination_Render_dont_execute.ipynb
-      - file: pd/notebooks/traffic/Exercise_Traffic_Render_dont_execute.ipynb
+      - file: pd/notebooks/flood-risk/Exercise_Flood_Risk_Render.ipynb
+      - file: pd/notebooks/contamination/Exercise_Contamination_Render.ipynb
+      - file: pd/notebooks/traffic/Exercise_Traffic_Render.ipynb
     - file: references.md
   - caption: Extreme Value Analysis
     numbered: 2
@@ -136,14 +208,14 @@ parts:
       title: MUDE Materials
       sections:
       - file: EVA/MUDE/01_01_EVA_1
-      - file: EVA/MUDE/01_02_3-1-Extreme_Value_notebook_dont_execute.ipynb
+      - file: EVA/MUDE/01_02_3-1-Extreme_Value_notebook.ipynb
         title: Assignment 1
-      - file: EVA/MUDE/01_03_3-1-Extreme_Value_notebook_solved_dont_execute.ipynb
+      - file: EVA/MUDE/01_03_3-1-Extreme_Value_notebook_solved.ipynb
         title: Solution 1
       - file: EVA/MUDE/01_04_EVA_2
-      - file: EVA/MUDE/01_05_4-1-EVA2_student_dont_execute.ipynb
+      - file: EVA/MUDE/01_05_4-1-EVA2_student.ipynb
         title: Assignment 2
-      - file: EVA/MUDE/01_06_4-1-EVA2_teacher_dont_execute.ipynb
+      - file: EVA/MUDE/01_06_4-1-EVA2_teacher.ipynb
         title: Solution 2
 
  # Coding
@@ -152,36 +224,36 @@ parts:
     - file: old/coding/overview.md
     - file: old/coding/1-1/1-overview.md
       sections:
-      - file: old/coding/1-1/1-1-student_dont_execute.ipynb
-      - file: old/coding/1-1/1-1-solution_dont_execute.ipynb
-      - file: old/coding/1-1/1-2-student_dont_execute.ipynb
-      - file: old/coding/1-1/1-2-solution_dont_execute.ipynb
-    - file: old/coding/1-2-Golden_Rules_dont_execute.ipynb
+      - file: old/coding/1-1/1-1-student.ipynb
+      - file: old/coding/1-1/1-1-solution.ipynb
+      - file: old/coding/1-1/1-2-student.ipynb
+      - file: old/coding/1-1/1-2-solution.ipynb
+    - file: old/coding/1-2-Golden_Rules.ipynb
     - file: old/coding/1-3-git
     - file: old/coding/1-4/1-overview.md
       sections:
-      - file: old/coding/1-4/1-1-testing-student_dont_execute
-      - file: old/coding/1-4/1-1-testing-solution_dont_execute
-      - file: old/coding/1-4/1-2-oop-student_dont_execute
-      - file: old/coding/1-4/1-2-oop-solution_dont_execute
-      - file: old/coding/1-4/1-3-modules-student_dont_execute
-      - file: old/coding/1-4/1-3-modules-solution_dont_execute
+      - file: old/coding/1-4/1-1-testing-student
+      - file: old/coding/1-4/1-1-testing-solution
+      - file: old/coding/1-4/1-2-oop-student
+      - file: old/coding/1-4/1-2-oop-solution
+      - file: old/coding/1-4/1-3-modules-student
+      - file: old/coding/1-4/1-3-modules-solution
     - file: old/coding/1-6/1-overview.md
       sections:
-      - file: old/coding/1-6/1_1_Introduction_student_dont_execute.ipynb
-      - file: old/coding/1-6/1_2_Points_student_dont_execute.ipynb
-      - file: old/coding/1-6/1_3_Lines_student_dont_execute.ipynb
-      - file: old/coding/1-6/1_6_Lines_teacher_dont_execute.ipynb
-      - file: old/coding/1-6/1_4_Polygons_student_dont_execute.ipynb
-      - file: old/coding/1-6/1_7_Polygons_teacher_dont_execute.ipynb
-      - file: old/coding/1-6/1_5_Rasters_student_dont_execute.ipynb
-      - file: old/coding/1-6/1_8_Rasters_teacher_dont_execute.ipynb
+      - file: old/coding/1-6/1_1_Introduction_student.ipynb
+      - file: old/coding/1-6/1_2_Points_student.ipynb
+      - file: old/coding/1-6/1_3_Lines_student.ipynb
+      - file: old/coding/1-6/1_6_Lines_teacher.ipynb
+      - file: old/coding/1-6/1_4_Polygons_student.ipynb
+      - file: old/coding/1-6/1_7_Polygons_teacher.ipynb
+      - file: old/coding/1-6/1_5_Rasters_student.ipynb
+      - file: old/coding/1-6/1_8_Rasters_teacher.ipynb
     - file: old/coding/2-2/1-overview.md
       sections:
       - file: old/coding/2-2/1-software.md
       - file: old/coding/2-2/1-part-1.md
         sections:
-        - file: old/coding/2-2/1_1_dont_execute.ipynb
-        - file: old/coding/2-2/1_2_dont_execute.ipynb
+        - file: old/coding/2-2/1_1.ipynb
+        - file: old/coding/2-2/1_2.ipynb
       - file: old/coding/2-2/1-part-2.md
       - file: old/coding/2-2/1-part-3.md
