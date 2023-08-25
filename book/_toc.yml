@@ -120,22 +120,22 @@ parts:
   - caption: Introduction to Numerical Modelling
     maxdepth: 1
     chapters:
-    - file: 1-intro.ipynb
-    - file: 2-numerical-solvers.ipynb
-    - file: 3-taylor-series.ipynb
+    - file: sandbox/1-5-NumericalMethods/1-intro.ipynb
+    - file: sandbox/1-5-NumericalMethods/2-numerical-solvers.ipynb
+    - file: sandbox/1-5-NumericalMethods/3-taylor-series.ipynb
 
   - caption: Introduction to Finite Difference
     maxdepth: 1
     chapters:
-    - file: 1-numerical-derivatives.ipynb
-    - file: 2-simple-ODE-solver.ipynb
-    - file: 3-second-order-ODE-solver.ipynb
+    - file: sandbox/1-5-NumericalMethods/1-numerical-derivatives.ipynb
+    - file: sandbox/1-5-NumericalMethods/2-simple-ODE-solver.ipynb
+    - file: sandbox/1-5-NumericalMethods/3-second-order-ODE-solver.ipynb
 
   - caption: General Solvers
     maxdepth: 1
     chapters:
-    - file: 1-general-solvers.ipynb
-    - file: 2-implicit-ode-solver.ipynb
+    - file: sandbox/1-5-NumericalMethods/1-general-solvers.ipynb
+    - file: sandbox/1-5-NumericalMethods/2-implicit-ode-solver.ipynb
   
   - caption: MUDE Cookbook
     chapters:
