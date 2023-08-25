@@ -136,9 +136,8 @@ parts:
     chapters:
     - file: 1-general-solvers.ipynb
     - file: 2-implicit-ode-solver.ipynb
-
-
-- caption: MUDE Cookbook
+  
+  - caption: MUDE Cookbook
     chapters:
     - file: cookbook/blank
     - file: cookbook/interactive_element
