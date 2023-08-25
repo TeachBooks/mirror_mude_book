@@ -27,6 +27,7 @@ parts:
       - file: sandbox/continuous/Exponential.md
       - file: sandbox/continuous/Exponential_quiz.md
       - file: sandbox/continuous/Gumbel.md
+      - file: sandbox/continuous/Lognormal.md
       - file: sandbox/continuous/Gumbel_quiz.md
       - file: sandbox/continuous/Parameterization.md
       - file: sandbox/continuous/fitting.md
