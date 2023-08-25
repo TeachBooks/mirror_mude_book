@@ -84,11 +84,13 @@ parts:
       - file: sandbox/continuous/Exponential.md
       - file: sandbox/continuous/Exponential_quiz.md
       - file: sandbox/continuous/Gumbel.md
+      - file: sandbox/continuous/Lognormal.md
       - file: sandbox/continuous/Gumbel_quiz.md
       - file: sandbox/continuous/Parameterization.md
       - file: sandbox/continuous/fitting.md
       - file: sandbox/continuous/moments.md
       - file: sandbox/continuous/moments_quiz.md
+      - file: sandbox/continuous/MLE_1.ipynb
       - file: sandbox/continuous/GOF
     - file: sandbox/SanPart/ObservationTheory/01_Introduction.md
       title: Sensing and Observation Theory
@@ -110,6 +112,7 @@ parts:
       - file: sandbox/SanPart/premath/00_01c_PreMath.md
       - file: sandbox/SanPart/premath/00_02_PreMath.md
       - file: sandbox/SanPart/premath/00_03_PreMath.md
+      - file: sandbox/functions_rand_vars/functions_dont_execute.ipynb
     - file: sandbox/dist_fit_example/overview
       title: Distribution Fitting Examples
       sections:
