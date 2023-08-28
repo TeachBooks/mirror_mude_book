@@ -53,7 +53,7 @@ Note that the mean value is not the same as the median value. How much would be 
 The median of the distribution is the observation whose non-exceedance probability is 0.5. Therefore, it can be directly computed from the inverse of the CDF. 
 
 $$
-P[X > x] = F^{-1}(x)=0.5 \approx 250 l/m
+P[X > x] = F^{-1}(x)=0.5 \rightarrow x =  250 l/m
 $$
 
 You can see that the mean = 474l/m >> median = 250l/m, indicating that the distribution is not symmetric and presents a positive tail. The process is illustrated in the following figure.
