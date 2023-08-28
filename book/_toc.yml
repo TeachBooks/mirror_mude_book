@@ -152,6 +152,7 @@ parts:
     - file: cookbook/widgets.ipynb
     - file: cookbook/exercise_checking.ipynb
     - file: cookbook/example_gumbel.ipynb
+    - file: cookbook/example_quiz_interactive.ipynb
   - caption: Old Material
     chapters:
     - file: old/blank
