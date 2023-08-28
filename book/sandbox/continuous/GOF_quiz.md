@@ -1,7 +1,7 @@
 
 # Goodness of fit: let's practice
 
-An engineer is characterizing the axel loads transmited by the traffic on a bridge. Based on the observations, a Normal and a Gumbel distributions are fitted, as shown in the figure below. 
+An engineer is characterizing the axle loads transmited by the traffic on a bridge. Based on the observations, a Normal and a Gumbel distributions are fitted, as shown in the figure below. 
 
 ```{figure} /sandbox/continuous/figures/GOF_ex.png
 
