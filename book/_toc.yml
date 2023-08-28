@@ -1,6 +1,7 @@
 format: jb-book
 root: intro
 
+
 parts:
   - caption: Q1 Topics
     numbered: 2
@@ -124,6 +125,21 @@ parts:
       sections:
       - file: sandbox/multivariate/Multivariate.ipynb
       - file: sandbox/multivariate/Vessels.ipynb
+
+  - caption: Numerical Modelling
+    chapters:
+    - file: sandbox/1-5-NumericalMethods/1-numerical-solns.ipynb
+    - file: sandbox/1-5-NumericalMethods/2-numerical-interp.ipynb
+    - file: sandbox/1-5-NumericalMethods/3-taylor-series.ipynb
+
+  - caption: Introduction to Finite Difference
+    chapters:
+    - file: sandbox/1-5-NumericalMethods/1-numerical-derivatives.ipynb
+    - file: sandbox/1-5-NumericalMethods/2-simple-ODE-solver.ipynb
+    - file: sandbox/1-5-NumericalMethods/3-second-order-ODE-solver.ipynb
+    - file: sandbox/1-5-NumericalMethods/1-general-solvers.ipynb
+    - file: sandbox/1-5-NumericalMethods/2-implicit-ode-solver.ipynb
+  
   - caption: MUDE Cookbook
     chapters:
     - file: cookbook/blank
@@ -264,3 +280,4 @@ parts:
         - file: old/coding/2-2/1_2.ipynb
       - file: old/coding/2-2/1-part-2.md
       - file: old/coding/2-2/1-part-3.md
+
