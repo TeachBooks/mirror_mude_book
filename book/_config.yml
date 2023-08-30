@@ -13,7 +13,6 @@ sphinx:
     bibtex_reference_style: author_year
   extra_extensions:
   - sphinx_inline_tabs
-  - sphinx_grasple
   - sphinx.ext.imgconverter
 
 bibtex_bibfiles:
