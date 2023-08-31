@@ -4,12 +4,22 @@ set -euo pipefail
 
 START_SERVER=${1:-false}
 PAGE_ROOT=${2:-"/"}
-USE_TOC_BLACKLIST=${3:-false}
+IS_PUBLISH_DEPLOYMENT=${3:-false}
 
-# Pre-process the book using the blacklist comment
-if [ "$USE_TOC_BLACKLIST" = true ]; then
-	echo "Using TOC blacklist"
+# Pre-process the book 
+if [ "$IS_PUBLISH_DEPLOYMENT" = true ]; then
+	echo "Using publish deployment strategy"
+	# Remove chapters from the book which are not to be published
 	sed --in-place=".bak" '/# START REMOVE-FROM-PUBLISH/,/# END REMOVE-FROM-PUBLISH/{//!d}' book/_toc.yml
+else
+	echo "Using draft deployment strategy"
+	# Add a banner which identifies the book as a draft
+	if ! command -v yq &> /dev/null; then
+		echo "yq could not be found, the banner will not be added"
+	else
+		cp book/_config.yml book/_config.yml.bak
+		yq -i '.html.announcement = .draft_banner' book/_config.yml
+	fi
 fi
 
 # Build the jupyter book, everything else is post-processing
