@@ -249,7 +249,7 @@ parts:
         title: Assignment 2
       - file: EVA/MUDE/01_06_4-1-EVA2_teacher.ipynb
         title: Solution 2
-
+# START REMOVE-FROM-PUBLISH
  # Coding
   - caption: Coding (Last Year)
     chapters:
@@ -289,4 +289,4 @@ parts:
         - file: old/coding/2-2/1_2.ipynb
       - file: old/coding/2-2/1-part-2.md
       - file: old/coding/2-2/1-part-3.md
-
+# END REMOVE-FROM-PUBLISH
