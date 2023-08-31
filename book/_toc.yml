@@ -153,8 +153,11 @@ parts:
       - file: cookbook/benchmarks/benchmark_load.ipynb
     - file: cookbook/widgets.ipynb
     - file: cookbook/exercise_checking.ipynb
-    - file: cookbook/example_gumbel.ipynb
-    - file: cookbook/example_quiz_interactive.ipynb
+    - file: cookbook/interactive_templates
+      sections:
+      - file: cookbook/example_gumbel.ipynb
+      - file: cookbook/example_quiz_interactive.ipynb
+      - file: cookbook/coding_theory_widgets.ipynb
   - caption: Old Material
     chapters:
     - file: old/blank
