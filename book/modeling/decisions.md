@@ -10,6 +10,10 @@ We will start seeing models as part of the creative and decision making process!
 
 ## Modelling decisions
 
+| ![diagram](figs/modelling/diagram.png "diagram") |
+| :--: |
+| *Modelling decisions general scheme [[1]](https://schoolbag.info/mathematics/numbers/103.html)* |
+
 In mechanics, usually we have to choose between static and dynamic models to solve certain problems. In classical mechanics, as you know, motion is governed by Newton's laws - the second law in particular - that allow us to write the famous main equation of motion that we know for years:
 
 $$\underbrace{\sum_i^n F_i}_{\text{sum of all external forces}} = \overbrace{m\textbf{a}}^{\text{inertial terms}}$$
