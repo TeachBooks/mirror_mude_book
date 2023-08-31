@@ -3,20 +3,21 @@ author: MUDE Teachers and the Student Army
 logo: _static/MUDE_Logo-small.png
 
 execute:
-  execute_notebooks: 'off'
+  execute_notebooks: "off"
 
 sphinx:
   config:
     # Bibliography style
     bibtex_reference_style: author_year
   extra_extensions:
-  - sphinx_inline_tabs
-  - sphinx_grasple
-  - sphinx.ext.imgconverter
+    - sphinx_inline_tabs
+    - sphinx_grasple
+    - sphinx.ext.imgconverter
 
 bibtex_bibfiles:
   - _bibliography/references_pd.bib
-  
+
 launch_buttons:
   thebe: true
-  
+
+draft_banner: '⚠️This is a draft website. The most recent published version can be found <a href="https://mude.citg.tudelft.nl/book/intro.html">here</a>.⚠️'
