@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Gegenereerd door Microsoft Visio, SVG Export rectangle.svg Pagina-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="1.15215in" height="0.856873in"
+		viewBox="0 0 82.9547 61.6949" xml:space="preserve" color-interpolation-filters="sRGB" class="st6">
+	<v:documentProperties v:langID="1043" v:metric="true" v:viewMarkup="false"/>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
+		.st2 {stroke:#000000;stroke-dasharray:1,2;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
+		.st3 {fill:#ffffff;stroke:#000000;stroke-dasharray:0.75,1.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st4 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st5 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st6 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<title>Pagina-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<g id="shape1301-1" v:mID="1301" v:groupContext="shape" transform="translate(2.501,-2.50099)">
+			<title>Vakwerk, 1 pt.1301</title>
+			<path d="M0 61.69 L56.69 61.69" class="st1"/>
+		</g>
+		<g id="shape1302-4" v:mID="1302" v:groupContext="shape" transform="translate(64.1959,2.50099) rotate(90)">
+			<title>Vakwerk, 1 pt.1302</title>
+			<path d="M0 61.69 L56.69 61.69" class="st2"/>
+		</g>
+		<g id="shape1308-7" v:mID="1308" v:groupContext="shape" transform="translate(120.889,2.50099) rotate(90)">
+			<title>Vakwerk, 1 pt.1308</title>
+			<path d="M0 61.69 L56.69 61.69" class="st2"/>
+		</g>
+		<g id="shape1309-10" v:mID="1309" v:groupContext="shape" transform="translate(2.501,-59.1939)">
+			<title>Vakwerk, 1 pt.1309</title>
+			<path d="M0 61.69 L56.69 61.69" class="st2"/>
+		</g>
+		<g id="shape1305-13" v:mID="1305" v:groupContext="shape" transform="translate(62.0699,0.37503) rotate(90)">
+			<title>Scharnier.1305</title>
+			<ellipse cx="2.12598" cy="59.5689" rx="2.12598" ry="2.12598" class="st3"/>
+		</g>
+		<g id="shape1304-15" v:mID="1304" v:groupContext="shape" transform="translate(118.763,0.37503) rotate(90)">
+			<title>Scharnier.1304</title>
+			<ellipse cx="2.12598" cy="59.5689" rx="2.12598" ry="2.12598" class="st3"/>
+		</g>
+		<g id="shape1307-17" v:mID="1307" v:groupContext="shape" transform="translate(62.0699,57.0679) rotate(90)">
+			<title>Scharnier.1307</title>
+			<ellipse cx="2.12598" cy="59.5689" rx="2.12598" ry="2.12598" class="st4"/>
+		</g>
+		<g id="shape1306-19" v:mID="1306" v:groupContext="shape" transform="translate(118.763,57.0679) rotate(90)">
+			<title>Scharnier.1306</title>
+			<ellipse cx="2.12598" cy="59.5689" rx="2.12598" ry="2.12598" class="st4"/>
+		</g>
+		<g id="shape1310-21" v:mID="1310" v:groupContext="shape" transform="translate(-55.2657,37.5314) rotate(-69.444)">
+			<title>Blad.1310</title>
+			<path d="M0 61.69 L60.55 61.69" class="st5"/>
+		</g>
+		<g id="shape1311-24" v:mID="1311" v:groupContext="shape" transform="translate(1.42719,37.5314) rotate(-69.444)">
+			<title>Blad.1311</title>
+			<path d="M0 61.69 L60.55 61.69" class="st5"/>
+		</g>
+		<g id="shape1312-27" v:mID="1312" v:groupContext="shape" transform="translate(23.7608,-59.1939)">
+			<title>Vakwerk, 1 pt.1312</title>
+			<path d="M0 61.69 L56.69 61.69" class="st1"/>
+		</g>
+		<g id="shape1313-30" v:mID="1313" v:groupContext="shape" transform="translate(83.3297,0.375) rotate(90)">
+			<title>Scharnier.1313</title>
+			<ellipse cx="2.12598" cy="59.5689" rx="2.12598" ry="2.12598" class="st4"/>
+		</g>
+		<g id="shape1314-32" v:mID="1314" v:groupContext="shape" transform="translate(140.023,0.375) rotate(90)">
+			<title>Scharnier.1314</title>
+			<ellipse cx="2.12598" cy="59.5689" rx="2.12598" ry="2.12598" class="st4"/>
+		</g>
+	</g>
+</svg>

@@ -158,6 +158,7 @@ parts:
       - file: cookbook/example_gumbel.ipynb
       - file: cookbook/example_quiz_interactive.ipynb
       - file: cookbook/coding_theory_widgets.ipynb
+      - file: cookbook/theory_questions
   - caption: Old Material
     chapters:
     - file: old/blank
