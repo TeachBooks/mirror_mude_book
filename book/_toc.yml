@@ -5,18 +5,18 @@ parts:
   - caption: Q1 Topics
     numbered: 2
     chapters: 
-    - file: modeling/overview
-      title: Modeling
+    - file: modelling/overview
+      title: Modelling Concepts
       sections:
-      - file: modeling/classification
+      - file: modelling/classification
         title: Classification
-      - file: modeling/decisions
+      - file: modelling/decisions
         title: Decisions
-      - file: modeling/validate_verify
+      - file: modelling/validate_verify
         title: Calibration, Validation & Verification
-      - file: modeling/gof
+      - file: modelling/gof
         title: Goodness of Fit
-      - file: modeling/sensitivity
+      - file: modelling/sensitivity
         title: Sensitivity Analysis
     - file: propagation_uncertainty/overview
     - file: observation_theory/overview
