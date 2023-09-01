@@ -19,6 +19,9 @@ parts:
       - file: modelling/sensitivity
         title: Sensitivity Analysis
     - file: propagation_uncertainty/overview
+      sections:
+      - file: propagation_uncertainty/01_ErrorPropagation.md
+      - file: propagation_uncertainty/02_LinearPropagation.md
     - file: observation_theory/overview
       title: Observation Theory
     - file: numerical_analysis/overview
