@@ -233,6 +233,7 @@ parts:
       - file: sandbox/SanPart/ObservationTheory/08_Testing.md
       - file: sandbox/SanPart/ObservationTheory/09_TestingSandM.md
       - file: sandbox/SanPart/ObservationTheory/99_NotationFormulas.md
+    - file: sandbox/SanPart/Multivariate/01_Multivariate.md
     - file: sandbox/SanPart/premath/00_00_PreMath.md
       title: Pre-Math
       sections:
@@ -241,6 +242,7 @@ parts:
       - file: sandbox/SanPart/premath/00_01c_PreMath.md
       - file: sandbox/SanPart/premath/00_02_PreMath.md
       - file: sandbox/SanPart/premath/00_03_PreMath.md
+      - file: sandbox/SanPart/premath/00_04_MeanVar.md
       - file: sandbox/functions_rand_vars/functions_dont_execute.ipynb
     - file: sandbox/dist_fit_example/overview
       title: Distribution Fitting Examples
