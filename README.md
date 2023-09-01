@@ -185,3 +185,26 @@ To run a `.sh` in Windows, make sure you have Git installed. If Windows still do
 ### Thebe Lite
 
 Thebe Lite is used to allow interactive code within the notebook. For more information on its use, read the `Live Code` page in the `Cookbook` section. For technical information, read the [Thebe Lite readme](thebe_lite/THEBE_LITE.md).
+
+
+## Publishing the MUDE Websites
+
+We have 2 websites, the "website" and the "book"
+
+Each website has a "published" and "draft" version: the first is the official version and builds when a merge into the publish branch happens. The second is our draft book and will automatically build when you merge into main. This is where we will stage, review contents prior to sharing with students (also testing interactive functionality). I advise you to just bookmark them in a way that clarifies the difference between “draft” and “published” versions
+
+Thus, there are 4 websites:
+* Published website: [https://mude.citg.tudelft.nl/](https://mude.citg.tudelft.nl/)
+* Draft website: [https://mude.citg.tudelft.nl/draft/](https://mude.citg.tudelft.nl/draft/)
+* Published book: [https://mude.citg.tudelft.nl/book](https://mude.citg.tudelft.nl/book)
+* Draft book: [https://mude.citg.tudelft.nl/book-draft](https://mude.citg.tudelft.nl/book-draft)
+
+Draft book and draft website is protected with:
+```
+Username: teacher
+Password: access
+```
+
+A new feature is added: anything in `_toc.yml` between `# START REMOVE-FROM-PUBLISH` and `# END REMOVE-FROM-PUBLISH` will be automatically removed from the published version of the book (the banner warning about a draft book is also automatically removed).
+
+If you need to remove the published version, a push to branch `purge-book` will deploy the book in that branch. It is set up with all unnecessary files removed and a 1-page Jupyter Book. The branch is protected with permission granted only to those with maintainer role.

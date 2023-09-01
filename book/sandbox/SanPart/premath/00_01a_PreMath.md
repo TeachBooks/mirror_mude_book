@@ -58,7 +58,7 @@ Check yourself that for a symmetric matrix $W$ we have $W=W^T$.
 Consequently, also $\left(\mathrm{A}^T W\mathrm{A} \right) $ and $\left(\mathrm{A}^T W\mathrm{A} \right)^{-1} $ are symmetric.
 
 ## Trace of a matrix
-The trace is a function that is only defined on square matrices. The  trace of an square matrix $A$ of size $m \times m$ , denoted as ${\rm trace}(A)$, is defined to be the sum of all its diagonal entries, $${\rm trace}(A)= \sum_{i=1}^{m} a_{ii}.$$   For example: 
+The trace is a function that is only defined on square matrices. The  trace of an square matrix $A$ of size $m \times m$ , denoted as ${\rm trace}(A)$, is defined to be the sum of all its diagonal entries, ${\rm trace}(A)= \sum_{i=1}^{m} a_{ii}.$   For example: 
 
 $$ 
 \text{trace}\Big( \left[ \begin{array}{ccc} 4 & 2 & 1 \\ 2 & 3 & 1 \\ 1 & 1 & 2 \\ \end{array} \right] \Big)= 4+3+2=9. 

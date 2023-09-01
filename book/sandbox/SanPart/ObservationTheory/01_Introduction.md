@@ -22,7 +22,7 @@ $$
 where $\mathrm{x}$ is a vector with the unknown model parameters, and $\mathrm{A}$ is referred to as the *design matrix*. $\mathbb{E}(.)$ is the expectation operator. The random errors are given by $\epsilon$ and are assumed to have zero mean: $\mathbb{E}(\epsilon)=0$.
 ```
 
-MMM
+MMMMM
 
 EXERCISE : show that the two expressions in the Definition above are indeed the same.
 
@@ -42,7 +42,7 @@ Parameter estimation requires specification of the underlying functional and sto
 
 (01_funcmodel)=
 ## Functional and stochastic model: examples
-MMM
+MMMMM
 Relate to 'modelling' in MUDE.
 
 introduce redundancy
