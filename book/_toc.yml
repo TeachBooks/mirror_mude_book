@@ -4,7 +4,7 @@ root: intro
 
 parts:
   - caption: Q1 Topics
-    numbered: 2
+    numbered: true
     chapters: 
     - file: modeling/overview
       title: Modeling
