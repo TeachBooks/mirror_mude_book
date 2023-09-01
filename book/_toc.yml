@@ -49,10 +49,11 @@ parts:
       title: Overview
     - file: programming/golden_rules.ipynb
       title: The Golden Rules
-    - file: programming/computers/overview
-      title: Computers
     - file: programming/code/overview
-      title: Code
+      title: Computers & Code
+      sections:
+      - file: programming/code/packages
+      - file: programming/code/environments
     - file: programming/programs/overview
       title: Programs
     - file: programming/communication/overview
