@@ -60,7 +60,7 @@ But is this good enough to answer our question and predict the emissions of the 
 * Wind speed and angle
 * Car profile & drag
 
-### conclusions
+### Conclusions
 
 In summary, our model will be based on a series of assumptions depending on the problem we are solving. We need the model to be good enough to give reasonable answers to our questions, but we do not want it to be that complex that it is computationally expensive or hinders the interpretation of the results. Therefore, the assumptions made in modelling will take our model to a certain position in this trade-off triangle.
 

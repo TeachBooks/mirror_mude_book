@@ -10,7 +10,7 @@ parts:
       title: Modeling
       sections:
       - file: modeling/classification
-        title: Classification
+        title: Models and classification
       - file: modeling/decisions
         title: Decisions
       - file: modeling/validate_verify
