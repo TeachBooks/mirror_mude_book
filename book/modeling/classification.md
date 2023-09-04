@@ -1,14 +1,12 @@
-# Model Classification
+# Introduction to modelling
 
 ## What is a Model?
 
 ```{note}
-**In short:** a model is a purpose built abstraction of physical reality. Let us see it in more detail.
+**In short:** a model is a purpose built abstraction of physical reality. Let's see it in more detail.
 ```
 
 In any engineering discipline, **we interact with a system** (Earth, ecosystem, water network…). Usually, we have questions about how the system behaves to know how our intervention will affect it (e.g.: how a water body reacts when the cooling water from a nuclear power plant is discharged), or how the system will impact on our intervention (e.g.: a river which may flood close to our road). 
-
-![cooling](figs/modelling/cooling.webp "cooling")
 
 To answer that, we build an abstraction of the system which can mimic those aspects we are interested in. For instance, if we focus on the example from the cooling water and the water body, we can model the heat distribution in the water body to know the final temperature. This implies that we are only modelling some aspects of the system we are studying. What about the response from the species living there? Well, **if we do not need those, our model is good enough to answer our question!**
 
@@ -20,33 +18,37 @@ Once we are sure that the model can reproduce the behaviors we are interested in
 
 ***
 
-Using a short practical example to illustrate this: imeagine you are throwing a projectile, let us say a basketball and you want to **model** its trajectory. To do so, you would write the following equations of motion:
+Using a short practical example to illustrate this: imagine you are throwing a projectile, let us say it is a basket ball, and you want to **model** its trajectory. To do so, you would write the following equations of motion:
 
-$$\begin{cases}x=v_0t\cos\theta \\ t=v_0t\sin\theta-\frac{1}{2}gt^2\end{cases}$$
+$$\begin{cases}x=v_0t\cos\theta \\ y=v_0t\sin\theta-\frac{1}{2}gt^2\end{cases}$$
 
-which would result in the following plots for different initial velocities, $v_0$, and angles, $\theta$
+where $x$ and $y$ are the horizontal and vertical components of the position of the ball at time $t$, $v_0$ is the initial velocity, $\theta$ is the initial angle and $g$ is the gravity acceleration. Therefore, the trajectory of the projectile depends on the velocity and angle we shoot the ball. In the figure below, you have different trajectories depending on $\theta$ and $v_0$.
 
 ![projectile](figs/modelling/projectile.png "projectile")
+
+And that would be our model!
 
 ## Fit-for-purpose: Modelling Assumptions
 
 It is important to keep in mind that **different purpose $\implies$ different model**. We will now look to different examples that illustrate this.
 
-### Example 1: Mode Choice Modelling
+### Example 1: Car or train?
 
 Imagine you want to predict what would be the choice made by a rational individual to travel from Delft to Paris (i.e. given origin and destination). Would he choose to go by car or by train?
 
 ![distances](figs/modelling/distances.png "distances")
 
-If we consider the simplest possible car dynamic model, where $v(t) = \bar{v}$, then it is very simple and easy to compute! But it will also depend on how rational individuals will make choices (travel time, travel cost, comfort, sustainability, etc.)
+We can consider the simplest model: the traveller will choose the shortest travelling time. To compute the time that takes by car, we can also assume a simple car dynamic model, where the velocity during the travel time remains constant ($v(t) = \bar{v}$). However, is this model good enough? Modelling people choices is way more complicated, since they also depend on other factors such as travel cost, comfort, sustainability, etc.
 
-### Example 2: Emissions Modelling
+### Example 2: modelling car emissions
 
-Let us now consider a different scenario: we want to predict how much $\text{CO}_2$ a conventional internal combustion vehicle will produce on a trip. If we consider, again, the simplest possible car dynamic model, $v(t) = \bar{v}$, and the simplest model to predict the car emissions, based on "the faster you drive, the more $\text{CO}_2$ you emit":
+Let us now consider a different scenario: we want to predict how much $\text{CO}_2$ a conventional internal combustion vehicle will produce on a trip. We can consider, again, the simplest possible car dynamic model where the velocity over time is constant, $v(t) = \bar{v}$, and the simplest model to predict the car emissions, based on "the faster you drive, the more $\text{CO}_2$ you emit" as
 
 $$e(t) = av(t)+b$$
 
-then we get (combining the two models):
+where $e(t)$ is the emitted amount of $\text{CO}_2$.
+
+Then, we can combine the two models obtaining:
 
 $$e(t) = a\bar{v}+b$$
 
@@ -58,40 +60,29 @@ But is this good enough to answer our question and predict the emissions of the 
 * Wind speed and angle
 * Car profile & drag
 
-As an example of how things change with this factors, check the image below:
+### conclusions
 
-![emissions](figs/modelling/emissions.png "emissions")
+In summary, our model will be based on a series of assumptions depending on the problem we are solving. We need the model to be good enough to give reasonable answers to our questions, but we do not want it to be that complex that it is computationally expensive or hinders the interpretation of the results. Therefore, the assumptions made in modelling will take our model to a certain position in this trade-off triangle.
 
-### Example 3: Comfort Modelling
-
-And, for a final example, consider you wanted to predict how comfortable the ride on the vehicle would be. In this case, the speed would not matter as much as in the previous scenarios, and we would have factors as the vehicle's suspension playing a far greater role!
-
-![suspensions](figs/modelling/suspensions.png "suspensions")
-
-### Summary
+* **Affordability and accuracy:** cheap and functional models, but with a limited scope.
+* **Accuracy and complexity:** very realistic models, but prohibitively expensive.
+* **Complexity and affordability:** the unicorn icon might speak for itself - difficult to achieve!
 
 ![tradeoff](figs/modelling/tradeoff.png "tradeoff")
 
-In summary, the assumptions made in modelling will take our model to a certain position in this trade-off triangle!
-
-* **Affordability and accuracy:** cheap and functional models, but with a limited scope
-* **Accuracy and complexity:** very realistic models, but prohibitively expensive
-* **Complexity and affordability:** the unicorn icon might speak for itself - difficult to achieve!
-
 ## Classifying Models
 
-Models can be classified according to their nature, such as:
+Models can be classified in different ways. Here, we are going to introduce the classification according to their nature. There are four categories:
 
-* Conceptual models
-* Mechanistic models
-* Phenomenological models
-* Data-driven models
+* **Conceptual models**: representations of how reality looks at the highest level of abstraction. These are the least interesting ones in our course, so we will not go much more in-depth in them. 
+* **Mechanistic models**: these models make use of first principle laws from physics, chemistry or biology to describe the behavior of the constitutive elements of the system. They are then systems of systems and can be very complex.
+* **Phenomenological models**: these models rely on the mathematical consistency between quantities based on observations. This is, you take measurements during experiments, you have a look at them under the view of the existing first principles of physics and infer how they are related to each other. Therefore, they do not only rely on data but also they have to be mathematically sound.
+* **Data-driven models**: these models, as the name indicated, make only use of data. Thus, you perform experiments, measure several variables and perform some sort of data analysis, such as regression, to figure out the relationship between input and outputs. 
 
+Let's see the last three with some examples.
 ### Mechanistic Models
 
-**Concept:**
-* Physical, chemical, or biological laws to describe the behavior of constituting parts of the modeled system
-* Embodies the idea that a complex system is the summation of many basic phenomena
+As said, these models make use of first principle laws from physics, chemistry or biology to describe the behavior of the constitutive elements of the system. They embodies the idea that a complex system is the summation of many basic phenomena, so a complex system can be modelled as a system of systems.
 
 **Examples:**
 * Newton's laws for describing rigid body motion
@@ -99,10 +90,7 @@ Models can be classified according to their nature, such as:
 
 ### Phenomenological Models
 
-**Concept:**
-* Mathematical consistency between quantities, relationship between quantities is hypothesized via dimensional analysis, for example
-* Model is constructed by setting up appropriate experiments, measuring observations, fitting hypothetical structure with data (e.g. linear regressions)
-* Development of new theories based on observations of a complex system
+They rely on the mathematical consistency between quantities build using, for example, dimensional analysis, and combine it with observations. Thus, the model is constructed by setting up appropriate experiments, measuring observations and fitting hypothetical structure with data (e.g. linear regressions). This allows to develop new theories based on observations of a complex system.
 
 **Example - Drag Forces:**
 
@@ -115,65 +103,15 @@ where
 * $\rho$ is the density of the fluid
 * $v$ is the velocity of the object with respect to the fluid
 * $A$ is the cross-sectional area
-* $C_D$ is the drag coefficient (a dimensionless number that depends on the shape of the object and conditions of the surrounding flow). Typically calculated through relationships with the Reynolds' number - using a combination of physical relationship and data.
-
-**Other examples:**
-* Friction force
-* Behavioral modelling (e.g. route choice in transport)
+* $C_D$ is the drag coefficient, a dimensionless number that depends on the shape of the object and conditions of the surrounding flow. It is typically calculated through relationships with the Reynolds' number - using then a combination of well-known physics (fluid mechanics here) and data.
 
 ### Data-driven models
 
-**Concept:**
-* Usage of data to create empirical and probabilistic relations between the desired output and input
+They purely use data to create empirical and probabilistic relations between the desired output and input.
 
-**Simple example:**
+**Example - Forces on a wall:**
 
-Imagine we want to predict the force of waves acting on a wall. To do so, we start by **going to the lab** and performing some experiments and measurements there. We perform them under different conditions, generating waves of different heights in a wave flume and measuring the forces on a model wall that is put inside.
-
-With the collected data, we fit a linear regression between the wave height and the measured forces. 
-
-| ![waves](figs/modelling/waves.png "waves") |
-| :--: |
-| *Example of a similar experiment performed in three different scenarios* |
+Imagine we want to predict the force of waves acting on a wall. To do so, we start by **going to the lab** and performing some experiments and measurements there. We perform them under different conditions, generating waves of different heights in a wave flume and measuring the forces on a model wall that is put inside. With the collected data, we fit a linear regression between the wave height and the measured forces. 
 
 This is purely empirical and, thus, a data-driven model! We have simply used data to fit a relationship **input -> output**. These models can be very useful when trying to model very complex systems when there is lots of data available.
 
-**Examples:**
-* Human behavior in driving (e.g. mode-choice example from earlier!)
-* Structural health monitoring in manufacturing (e.g. via machine learning)
-* Predictive maintenance in transport infrastructure
-* Other highly complex, well-measurable phenomena
-
-## Example: surface contact/friction modelling
-
-Let us consider a complex, multi-physics, multi-scale problem - the modelling of surface contact/friction
-
-![friction-1](figs/modelling/friction-1.png "friction-1")
-
-### Mechanistic approach
-
-![friction-2](figs/modelling/friction-2.png "friction-2")
-
-What are the main characteristics of using this approach?
-
-* Accurate geometrical representation of the surface roughness
-* Usage of all physical and chemical laws to describe interactions
-* Surfaces in contact could also be modelled from an atomistic point of view (molecular-particle models)
-
-![friction-3](figs/modelling/friction-3.png "friction-3")
-
-On our trade-off triangle, we would put this approach on the right edge of it, due to its **very high** computational cost and to the fact that it is only viable for scientific research (nanomaterials, for example).
-
-### Phenomenological approach
-
-![friction-4](figs/modelling/friction-4.png "friction-4")
-
-What are the main characteristics of using this approach?
-
-* Simpler rule, inferred from experimental measurements
-* Not as accurate as the mechanistic approach, but good enough for certain applications
-* Coulomb's friction is also a phenomenological model itself!
-
-![friction-5](figs/modelling/friction-5.png "friction-5")
-
-On our trade-off triangle, we would put this approach on the bottom edge of it, due to its low computational cost and for being accurate enough to predict phenomena at scale.
