@@ -1,30 +1,35 @@
 # Model Decisions
 
-In this section, we are going to focus on **modelling decisions** - the decisions made by us. *And what is the main advantage of this?*  We will start seeing models as part of the creative and decision making process!
+In this section, we are going to focus on the decisions we make when setting up a model. *And what is the main advantage of this?*  We will start seeing models as part of the creative and decision making process!
 
-### Dynamic vs Static
+When building a model, we need to identify which simplifications we can make to keep our model as simple as possible, while modelling the system we are interested in with the appropriate accuracy. In short, the simpler, the better, while it answers my questions. We are going to talk about the following decisions:
+- Dynamic vs. static models
+- Linear vs. non-linear models
+- Time-invariant vs. Time-variant models
+- Deterministic vs. Stochastic models
+
+### Dynamic vs. Static
+
+The decision between dynamic and static models is based on whether my models needs to account for previous or future states. This is, the response of a dynamic model will have a dependence on the past and future states of the system. On the contrary, in a static model, we consider the response of the system only depending on present values and, thus, the model does not account for previous time steps.
+
+**Let's see it with an example.**
 
  In classical mechanics, as you know, motion is governed by Newton's laws - the second law in particular - that allow us to write the famous main equation of motion that we know for years:
 
 $$\underbrace{\sum_i^n F_i}_{\text{sum of all external forces}} = \overbrace{m\textbf{a}}^{\text{inertial terms}}$$
 
-This equation can be tricky to solve: it is dynamic and nonlinear... However, it is also possible to simplify it! This is, depending on the problem we are solving I can make some assumptions and simplify my model, so it does still give answers to our question but it is simple enough to be computationally inexpensive and interpretable. And there is where the decisions start...
- 
- In mechanics, usually we have to choose between static and dynamic models to solve certain problems. What's the difference?
+This equation can be tricky to solve: it is dynamic and nonlinear... However, it is also possible to simplify it!
 
-#### Dynamic model
-
-The response of a dynamic system will have a dependence on the past and future states.
-
-Let us consider the mass-spring system as a first example. For this system, Newton's equations of motion sketch as:
-
-$$F-c\frac{dx}{dt}-kx = m\frac{d^2x}{dt^2} \Leftrightarrow m\frac{d^2x}{dt^2} + c\frac{dx}{dt}+kx = F$$ 
+Let us consider the mass-spring system as a first example.
 
 ![mass-spring](figs/modelling/mass-spring-system.png "mass-spring")
 
-#### Static model
 
-In a static model, we consider the response of the system only depending on present values. This is, the model does not account for previous time steps.
+For this system, Newton's equations of motion sketch as:
+
+$$F-c\frac{dx}{dt}-kx = m\frac{d^2x}{dt^2} \Leftrightarrow m\frac{d^2x}{dt^2} + c\frac{dx}{dt}+kx = F$$ 
+
+In this equation, a dependence exists between the present and past states of the system. Thus, it is a dynamic model.
 
 If the terms with the derivatives are small and negligible when compared to $x$, then we find the following equation of motion:
 
@@ -40,40 +45,35 @@ Therefore, in those circumstances, we can make the assumption that the model is 
 
 ### Linear vs Nonlinear
 
+Linear models model the relationships between variables using linear predictor functions. The advantage of these models is that superposition principle applies and the long term behavior does not depend on initial conditions. On the contrary, in non-linear models, superposition principle does not apply anymore and long and short term behavior highly dependent on the initial conditions.
+
+**Let's see an example.**
+
 Let us consider one of the most typical Physics examples: the simple pendulum. 
 
 ![pendulum](figs/modelling/pendulum.png "pendulum")
 
-The moment equation around the pivot point corresponds to a **nonlinear dynamic model**:
+The moment equation around the pivot point corresponds to a nonlinear dynamic model:
 
 $$\frac{d^2\theta}{dt^2} + \frac{g}{l}\sin\theta=0$$
 
-**However...** it can be linearized around a stable position, where we use $\sin\theta \approx \theta$. This assumption is reasonable when the motion of the pendulum is small compared to the length of the pendulum. Thus, the equation of motion will become:
+However... it can be linearized around a stable position, where we use $\sin\theta \approx \theta$. This assumption is reasonable when the motion of the pendulum is small compared to the length of the pendulum. Thus, the equation of motion will become:
 
 $$\frac{d^2\theta}{dt^2} + \frac{g}{l}\theta = 0$$
 
-**And what are the consequences?**
-
-In linear models, superposition principle applies and the long term behavior does not depend on initial conditions. On the contrary, in non-linear models, superposition principle does not apply anymore and long and short term behavior highly dependent on the initial conditions.
-
 ### Time-invariant vs Time-variant
 
-It is clear that all systems that we know are time-variant, i.e., their state changes with time, whether that change is over a **short or a long-time scale** (or both). Let us see some examples of changes in both short and long-time scales:
+In time-invariant models, the model coefficients or model parameters are constant. This is, the response or properties of the system do not change over time. In time-variant models, the model parameter do change over time, so the behavior of the system evolves. 
 
-**Changes in short-time scale in Civil Eng. systems:**
+**And how do I choose between a time-variant and time-invariant model?** 
 
-* Human behavior in traffic system
-* Wind turbines in operational conditions
-
-**Changes in long-time scale in Civil Eng. systems:**
-
-* Civil infrastructures (bridges, buildings, etc.) due to damage (even though they also change in a short-time scale during extreme events)
-
-**And what are the consequences?**
-
-In time-invariant models, the model coefficients or model parameters are constant, while in time-variant models, the model parameter do change over time.
+Mainly, based on the knowledge I have about the system. As an engineer, I will have to assess whether or not such changes are relevent for my problem. For instance, nowadays, we consider climate change when designing a breakwater. It has been proved that waves storm are becoming more extreme over time and I will have to account for that to assess the performance of the breakwater over time. However, if I am designing a temporary platform to assist in some construction works in the sea, I will not take it into account. Climate change is a long-time scale process which will impact on the life cycle of a breakwater which is meant to be there for years. On the contrary, the influence of climate change on a platform which will only be there for a few weeks is negligible.
 
 ### Deterministic vs Stochastic
+
+Deterministic models are those which for some given inputs, always provide the same output. For instance, a equation which gives the average concentration of $\text{CO}_2$ in a city as function of the traffic. For a certain value of traffic, the model will always provide the same concentration of $\text{CO}_2$. Therefore, these models that there is no uncertainty. On the contrary, stochastic models are those which embrace the uncertainty. This is stochastic models will produce different outputs for a given input. In fact, the inputs and outputs of stochastic models are probabilistic distributions (you will learn more about this later!), which relate the values of the variable with the probability of observing it.
+
+**And how do I choose between a deterministic and stochastic model?** 
 
 All systems, in reality, are stochastic to our eyes, since we never truly know the actual properties and inputs. However, under certain circumstances, this *stochasticity* can be neglected. Let us take a look to some examples of deterministic and stochastic systems:
 
@@ -84,10 +84,10 @@ Structures with known or unknown properties subject to unknown or known loads, r
 * Soil systems: we can extract samples of soil but we cannot see or measure the properties of every point in the system.
 * Traffic systems: inputs are too complicated, from weather to human decisions.
 
+Note that there are also uncertainties regarding the measurement of the observations (you will also learn about this later!).
+
 **Cases of deterministic systems:**
 
-Known structures subject to known static or dynamic loads. This only happens if the modeler decides that the variability of the system or the loads is low and has very little influence on the model outcome. For instance, when we decide to model the response of a building (deformations) under a certain wind load.
+Known structures subject to known static or dynamic loads. For instance, when we decide to model the response of a building (deformations) under a certain wind load.
 
-**And what are the consequences?**
 
-Deterministic models will always produce the same output for a given input, while stochastic models will produce different outputs for a given input: **uncertainty** has a big role! 
