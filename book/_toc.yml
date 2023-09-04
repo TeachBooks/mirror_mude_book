@@ -12,7 +12,7 @@ parts:
         title: Classification
       - file: modelling/decisions
         title: Decisions
-      - file: modelling/validate_verify
+      - file: modeling/validate_verify
         title: Calibration, Validation & Verification
       - file: modelling/gof
         title: Goodness of Fit

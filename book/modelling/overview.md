@@ -1,5 +1,7 @@
-# Modeling
+# Modelling
 
-Here.
-
-Does modeling have one or two "L"'s? Honestly---we don't care. UK English uses 2 L's and most of our colleagues feel really strongly about this, so we will too. But we'll probably screw it up here and there. Sorry!
+In this section, you will be introduced to the basic concepts related to modelling to solve, between others, the following questions:
+- What is a model and which types of models can be built?
+- How do I choose the appropriate model?
+- How do I know that a model is accurate?
+- How can I assess model performance?
