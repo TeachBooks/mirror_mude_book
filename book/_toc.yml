@@ -18,6 +18,8 @@ parts:
         title: Goodness of Fit
       - file: modelling/sensitivity
         title: Sensitivity Analysis
+    
+    # START REMOVE-FROM-PUBLISH
     - file: propagation_uncertainty/overview
       sections:
       - file: propagation_uncertainty/01_ErrorPropagation.md
@@ -28,6 +30,7 @@ parts:
       title: Numerical Analysis
     - file: probability/overview
       title: Probability
+    # END REMOVE-FROM-PUBLISH
       
   # START REMOVE-FROM-PUBLISH
   - caption: Q2 Topics
@@ -179,7 +182,7 @@ parts:
       title: Communication
       sections:
       - file: programming/communication/visualization
-
+# START REMOVE-FROM-PUBLISH
   - caption: Fundamental Concepts
     numbered: 2
     chapters: 
@@ -187,6 +190,7 @@ parts:
     - file: fundamentals/taylor
     - file: fundamentals/linear_algebra
     - file: fundamentals/probability
+# END REMOVE-FROM-PUBLISH
 
   # START REMOVE-FROM-PUBLISH
   - caption: Sandbox
