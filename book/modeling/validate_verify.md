@@ -1,7 +1,7 @@
 # Model Verification, Calibration and Validation
 
 ```{note}
-*All models are wrong, but some are useful*
+*All models are wrong, but some are useful.*
 
 George Box (1913-2013)
 ```
@@ -94,12 +94,6 @@ Once calibrated, we use the data to compare with the calibrated model (using the
 Not the same data as in the previous step!
 
 #### Final notes on model validation
-
-The consequences of making invalid models are mainly of three types:
-
-* **Scientific:** wrong conclusions
-* **Financial:** increased costs
-* **Technical:** safety problems, discomfort
 
 Be very systematic in verifying and validating models:
 
