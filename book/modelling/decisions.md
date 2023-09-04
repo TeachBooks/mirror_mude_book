@@ -22,7 +22,7 @@ This equation can be tricky to solve: it is dynamic and nonlinear... However, it
 
 Let us consider the mass-spring system as a first example.
 
-![mass-spring](figs/modelling/mass-spring-system.png "mass-spring")
+![mass-spring](../modeling/figs/modelling/mass-spring-system.png "mass-spring")
 
 
 For this system, Newton's equations of motion sketch as:
@@ -51,7 +51,7 @@ Linear models model the relationships between variables using linear predictor f
 
 Let us consider one of the most typical Physics examples: the simple pendulum. 
 
-![pendulum](figs/modelling/pendulum.png "pendulum")
+![pendulum](../modeling/figs/modelling/pendulum.png "pendulum")
 
 The moment equation around the pivot point corresponds to a nonlinear dynamic model:
 
