@@ -12,9 +12,9 @@ The principle of Maximum Likelihood estimation (MLE) is to find the *most likely
 
 This boils down to estimating the unknown parameters $\alpha$ of the underlying distribution, which means that the probability density function (PDF) is known apart from the $n$ parameters in $\alpha$. We will now distinguish between a PDF and likelihood function.
 
-A *probability density function* $f_Y(\mathrm{y}|\alpha)$ is given as function of $\mathrm{y}$ and with $\alpha$ known.
+A *probability density function* $f_Y(\mathrm{y}|\theta)$ is given as function of $\mathrm{y}$ and with $\theta$ known.
 
-A *likelihood function* $f_Y(\mathrm{y}|\alpha)$ is given for a certain realization $\mathrm{y}$ as function of all possible values of $\alpha$.
+A *likelihood function* $L(\theta|\mathrm{y})$ is given for a certain realization $\mathrm{y}$ as function of all possible values of $\alpha$.
 
 Wiht MLE, the goal is to find the $\alpha$ which maximizes the likelihood function for the given realization $\mathrm{y}$.
 
@@ -45,24 +45,24 @@ It is also possible to consider the case that $\Sigma_Y$ is not (completely) kno
 The likelihood function of the multivariate normal distribution is given by:
 
 $$
-f_{Y}(y|\mathrm{Ax},\Sigma_Y)=\underset{c}{\underbrace{(\det{2\pi \Sigma_Y})^{-0.5}}}\exp(-\frac{1}{2}\mathrm{(y-Ax)^T} \Sigma_Y^{-1}(\mathrm{y-Ax})) 
+L(\mathrm{Ax},\Sigma_Y|\mathrm{y})=\underset{c}{\underbrace{(\det{2\pi \Sigma_Y})^{-0.5}}}\exp(-\frac{1}{2}\mathrm{(y-Ax)^T} \Sigma_Y^{-1}(\mathrm{y-Ax})) 
 $$
 
 Maximizing this likelihood function for $\mathrm{x}$ means that we have to find the $\mathrm{x}$ such that:
-* the first-order partial derivatives ([gradient](PM_gradient)) are zero: $\partial_{\mathrm{x} }f_{Y}(y|\mathrm{Ax},\Sigma_Y)=0$
+* the first-order partial derivatives ([gradient](PM_gradient)) are zero: $\partial_{\mathrm{x} }L(\mathrm{Ax},\Sigma_Y|\mathrm{y})=0$
 * the second-order partial derivatives are negative.
 
 Instead of working with the likelihood function, we prefer to work with the *loglikelihood* function:
 
 $$
-\ln f_{Y}(y|\mathrm{Ax},\Sigma_Y)=\ln c -\frac{1}{2}\mathrm{(y-Ax)^T} \Sigma_Y^{-1}(\mathrm{y-Ax}) 
+\ln L(\mathrm{Ax},\Sigma_Y|\mathrm{y})=\ln c -\frac{1}{2}\mathrm{(y-Ax)^T} \Sigma_Y^{-1}(\mathrm{y-Ax}) 
 $$
 
 since that is easier and results in the same maximum. Setting the gradient to zero gives:
 
 $$
 \begin{align*}
-\frac{\partial \ln f_{Y}(y|\mathrm{Ax},\Sigma_Y)}{\partial \mathrm{x}}&= \frac{\partial (-\frac{1}{2}\mathrm{(y-Ax)^T} \Sigma_Y^{-1}(\mathrm{y-Ax}))}{\partial \mathrm{x}}\\
+\frac{\partial \ln L(\mathrm{Ax},\Sigma_Y|\mathrm{y})}{\partial \mathrm{x}}&= \frac{\partial (-\frac{1}{2}\mathrm{(y-Ax)^T} \Sigma_Y^{-1}(\mathrm{y-Ax}))}{\partial \mathrm{x}}\\
 &= -\frac{1}{2}(-2\mathrm{A^T} \Sigma_Y^{-1} Y+2\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A}\mathrm{x})=0\\
 \mathrm{A^T} \Sigma_Y^{-1} \mathrm{A}\mathrm{x} &= \mathrm{A^T} \Sigma_Y^{-1} \mathrm{y}
 \end{align*}

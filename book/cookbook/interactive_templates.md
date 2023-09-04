@@ -1,0 +1,16 @@
+# Templates for interactive coding / non-coding elements
+
+These pages show examples of how to use interactive coding / non-coding elements in a Jupyter Book.
+
+You can make use of:
+- Admonitions
+- JupyterQuiz, for now this shouldn't be combined with thebe on a single page
+- H5p
+- Grasple-exercises
+- Interactive widgets
+- Live coding exercise checking with widgets
+- Any combination of the above
+
+The following templates are given:
+```{tableofcontents}
+```
