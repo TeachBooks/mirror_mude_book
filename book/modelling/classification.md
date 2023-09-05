@@ -68,7 +68,7 @@ In summary, our model will be based on a series of assumptions depending on the 
 * **Accuracy and complexity:** very realistic models, but prohibitively expensive.
 * **Complexity and affordability:** the unicorn icon might speak for itself - difficult to achieve!
 
-![tradeoff](figs/modelling/tradeoff.png "tradeoff")
+![tradeoff](../modeling/figs/modelling/tradeoff.png "tradeoff")
 
 ## Classifying Models
 
