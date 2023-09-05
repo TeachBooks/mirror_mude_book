@@ -1,47 +1,171 @@
 format: jb-book
 root: intro
 
-
 parts:
   - caption: Q1 Topics
     numbered: 2
     chapters: 
-    - file: modeling/overview
-      title: Modeling
+    - file: modelling/overview
+      title: Modelling Concepts
       sections:
-      - file: modeling/classification
+      - file: modelling/classification
         title: Classification
-      - file: modeling/decisions
+      - file: modelling/decisions
         title: Decisions
       - file: modeling/validate_verify
         title: Calibration, Validation & Verification
-      - file: modeling/gof
+      - file: modelling/gof
         title: Goodness of Fit
-      - file: modeling/sensitivity
+    # START REMOVE-FROM-PUBLISH
+      - file: modelling/sensitivity
         title: Sensitivity Analysis
-    - file: probability/overview
-      title: Probability
+    # END REMOVE-FROM-PUBLISH
+
+    # START REMOVE-FROM-PUBLISH
+    - file: propagation_uncertainty/overview
+      sections:
+      - file: propagation_uncertainty/01_ErrorPropagation.md
+      - file: propagation_uncertainty/02_LinearPropagation.md
     - file: observation_theory/overview
       title: Observation Theory
     - file: numerical_analysis/overview
       title: Numerical Analysis
+    - file: probability/overview
+      title: Probability
+    # END REMOVE-FROM-PUBLISH
+      
+  # START REMOVE-FROM-PUBLISH
   - caption: Q2 Topics
+    numbered: false
+    chapters:
+    - file: Q2_overview
+      title: Overview of Q2
+
+  - caption: Finite Volume Method
     numbered: 2
     chapters:
     - file: fvm/overview
-      title: Finite Volume Method
+      title: Overview
+
+  - caption: Finite Element Method
+    numbered: 2
+    chapters:
     - file: fem/overview
-      title: Finite Element Method
+      title: Overview
+
+  - caption: Signal Processing
+    numbered: 2
+    chapters:
     - file: signal/overview
-      title: Signal Processing
+      title: Overview
+
+  - caption: Time Series Analysis
+    numbered: 2
+    chapters:
     - file: time_series/overview
-      title: Time Series Analysis
+      title: Overview
+      
+  - caption: Optimization
+    numbered: 2
+    chapters:
     - file: optimization/overview
-      title: Optimization
+      title: Overview
+
+  - caption: Machine Learning
+    numbered: 2
+    chapters:
     - file: ml/overview
-      title: Machine Learning
-    - file: pd/intro
-      title: Risk & Reliability
+      title: Overview
+
+  - caption: Extreme Value Analysis
+    numbered: 2
+    chapters:
+    - file: EVA/00_00_EVA
+    - file: EVA/01_00_Extreme
+      title: Extremes
+      sections:
+      - file: EVA/01_01_Bernoulli
+      - file: EVA/01_02_RT
+      - file: EVA/01_03_Sampling
+    - file: EVA/02_00_BM_GEV
+      sections:
+      - file: EVA/02_01_BM
+      - file: EVA/02_02_Asymptotic
+      - file: EVA/02_03_GEV
+      - file: EVA/02_04_RP_Binomial
+    - file: EVA/03_00_POT_GPD
+      sections:
+      - file: EVA/03_01_POT
+      - file: EVA/03_02_GPD
+      - file: EVA/03_03_GPD2
+      - file: EVA/03_04_Poisson
+      - file: EVA/03_05_GPD3
+      - file: EVA/03_06_RP_Poisson
+        title: Return Period
+    - file: EVA/04_00_Threshold
+      sections:
+      - file: EVA/04_01_Threshold_Poisson
+      - file: EVA/04_02_Threshold_MRL
+      - file: EVA/04_03_Threshold_stability
+      - file: EVA/04_04_Threshold_DI
+    - file: EVA/MUDE/01_00_MUDE
+      title: MUDE Materials
+      sections:
+      - file: EVA/MUDE/01_01_EVA_1
+      - file: EVA/MUDE/01_02_3-1-Extreme_Value_notebook.ipynb
+        title: Assignment 1
+      - file: EVA/MUDE/01_03_3-1-Extreme_Value_notebook_solved.ipynb
+        title: Solution 1
+      - file: EVA/MUDE/01_04_EVA_2
+      - file: EVA/MUDE/01_05_4-1-EVA2_student.ipynb
+        title: Assignment 2
+      - file: EVA/MUDE/01_06_4-1-EVA2_teacher.ipynb
+        title: Solution 2
+
+  - caption: Risk and Reliability
+    numbered: 2
+    chapters:
+    # - file: pd/intro
+    - file: pd/prob-design/overview.md
+      sections:
+      - file: pd/prob-design/01-one-random-variable.md
+      - file: pd/prob-design/02-two-random-variables.md
+      - file: pd/prob-design/example-river-system.md
+    - file: pd/risk-analysis/overview.md
+      sections:
+      - file: pd/risk-analysis/definition.md
+      - file: pd/risk-analysis/steps.md
+      - file: pd/risk-analysis/risk-curves.md
+    - file: pd/reliability-component/overview.md
+      # sections:
+      # - file: pd/reliability-component/case-two-loads.md
+      # - file: pd/reliability-component/case-r-s.md
+    - file: pd/reliability-system/overview.md
+      sections:
+      # - file: pd/reliability-system/system-series.md
+      # - file: pd/reliability-system/system-parallel.md
+      - file: pd/reliability-system/exercise-simple-city.md
+    - file: pd/risk-evaluation/overview.md
+      sections:
+      - file: pd/risk-evaluation/decision.md
+      - file: pd/risk-evaluation/cost-benefit.md
+      - file: pd/risk-evaluation/econ-optimization.md
+      - file: pd/risk-evaluation/example-dike-height.md
+      - file: pd/risk-evaluation/safety-standards.md
+    - file: pd/exercises/overview.md
+      sections:
+      - file: pd/exercises/exercise-fn-curve.md
+      - file: pd/exercises/exercise-paint.md
+      - file: pd/exercises/exercise-dam.md
+      - file: pd/exercises/exercise-sample-exam.md
+    - file: pd/notebooks/overview.md
+      sections:
+      - file: pd/notebooks/flood-risk/Exercise_Flood_Risk_Render.ipynb
+      - file: pd/notebooks/contamination/Exercise_Contamination_Render.ipynb
+      - file: pd/notebooks/traffic/Exercise_Traffic_Render.ipynb
+    - file: references.md
+  # END REMOVE-FROM-PUBLISH
+
   - caption: Programming
     numbered: 2
     chapters:
@@ -49,20 +173,30 @@ parts:
       title: Overview
     - file: programming/golden_rules.ipynb
       title: The Golden Rules
-    - file: programming/computers/overview
-      title: Computers
+# START REMOVE-FROM-PUBLISH
     - file: programming/code/overview
-      title: Code
+      title: Computers & Code
+      sections:
+      - file: programming/code/packages
+      - file: programming/code/environments
     - file: programming/programs/overview
       title: Programs
     - file: programming/communication/overview
       title: Communication
       sections:
       - file: programming/communication/visualization
+# END REMOVE-FROM-PUBLISH
+# START REMOVE-FROM-PUBLISH
   - caption: Fundamental Concepts
     numbered: 2
     chapters: 
     - file: fundamentals/overview
+    - file: fundamentals/taylor
+    - file: fundamentals/linear_algebra
+    - file: fundamentals/probability
+# END REMOVE-FROM-PUBLISH
+
+  # START REMOVE-FROM-PUBLISH
   - caption: Sandbox
     chapters:
     - file: sandbox/blank
@@ -142,7 +276,7 @@ parts:
     - file: sandbox/1-5-NumericalMethods/1-general-solvers.ipynb
     - file: sandbox/1-5-NumericalMethods/2-implicit-ode-solver.ipynb
   
-  # START REMOVE-FROM-PUBLISH
+
   - caption: MUDE Cookbook
     chapters:
     - file: cookbook/blank
@@ -160,96 +294,7 @@ parts:
       - file: cookbook/example_quiz_interactive.ipynb
       - file: cookbook/coding_theory_widgets.ipynb
       - file: cookbook/theory_questions
-  # END REMOVE-FROM-PUBLISH
-  - caption: Old Material
-    chapters:
-    - file: old/blank
-  - caption: Designing with Uncertainty
-    chapters:
-    # - file: pd/intro
-    - file: pd/prob-design/overview.md
-      sections:
-      - file: pd/prob-design/01-one-random-variable.md
-      - file: pd/prob-design/02-two-random-variables.md
-      - file: pd/prob-design/example-river-system.md
-    - file: pd/risk-analysis/overview.md
-      sections:
-      - file: pd/risk-analysis/definition.md
-      - file: pd/risk-analysis/steps.md
-      - file: pd/risk-analysis/risk-curves.md
-    - file: pd/reliability-component/overview.md
-      # sections:
-      # - file: pd/reliability-component/case-two-loads.md
-      # - file: pd/reliability-component/case-r-s.md
-    - file: pd/reliability-system/overview.md
-      sections:
-      # - file: pd/reliability-system/system-series.md
-      # - file: pd/reliability-system/system-parallel.md
-      - file: pd/reliability-system/exercise-simple-city.md
-    - file: pd/risk-evaluation/overview.md
-      sections:
-      - file: pd/risk-evaluation/decision.md
-      - file: pd/risk-evaluation/cost-benefit.md
-      - file: pd/risk-evaluation/econ-optimization.md
-      - file: pd/risk-evaluation/example-dike-height.md
-      - file: pd/risk-evaluation/safety-standards.md
-    - file: pd/exercises/overview.md
-      sections:
-      - file: pd/exercises/exercise-fn-curve.md
-      - file: pd/exercises/exercise-paint.md
-      - file: pd/exercises/exercise-dam.md
-      - file: pd/exercises/exercise-sample-exam.md
-    - file: pd/notebooks/overview.md
-      sections:
-      - file: pd/notebooks/flood-risk/Exercise_Flood_Risk_Render.ipynb
-      - file: pd/notebooks/contamination/Exercise_Contamination_Render.ipynb
-      - file: pd/notebooks/traffic/Exercise_Traffic_Render.ipynb
-    - file: references.md
-  - caption: Extreme Value Analysis
-    numbered: 2
-    chapters:
-    - file: EVA/00_00_EVA
-    - file: EVA/01_00_Extreme
-      title: Extremes
-      sections:
-      - file: EVA/01_01_Bernoulli
-      - file: EVA/01_02_RT
-      - file: EVA/01_03_Sampling
-    - file: EVA/02_00_BM_GEV
-      sections:
-      - file: EVA/02_01_BM
-      - file: EVA/02_02_Asymptotic
-      - file: EVA/02_03_GEV
-      - file: EVA/02_04_RP_Binomial
-    - file: EVA/03_00_POT_GPD
-      sections:
-      - file: EVA/03_01_POT
-      - file: EVA/03_02_GPD
-      - file: EVA/03_03_GPD2
-      - file: EVA/03_04_Poisson
-      - file: EVA/03_05_GPD3
-      - file: EVA/03_06_RP_Poisson
-        title: Return Period
-    - file: EVA/04_00_Threshold
-      sections:
-      - file: EVA/04_01_Threshold_Poisson
-      - file: EVA/04_02_Threshold_MRL
-      - file: EVA/04_03_Threshold_stability
-      - file: EVA/04_04_Threshold_DI
-    - file: EVA/MUDE/01_00_MUDE
-      title: MUDE Materials
-      sections:
-      - file: EVA/MUDE/01_01_EVA_1
-      - file: EVA/MUDE/01_02_3-1-Extreme_Value_notebook.ipynb
-        title: Assignment 1
-      - file: EVA/MUDE/01_03_3-1-Extreme_Value_notebook_solved.ipynb
-        title: Solution 1
-      - file: EVA/MUDE/01_04_EVA_2
-      - file: EVA/MUDE/01_05_4-1-EVA2_student.ipynb
-        title: Assignment 2
-      - file: EVA/MUDE/01_06_4-1-EVA2_teacher.ipynb
-        title: Solution 2
-# START REMOVE-FROM-PUBLISH
+
  # Coding
   - caption: Coding (Last Year)
     chapters:
