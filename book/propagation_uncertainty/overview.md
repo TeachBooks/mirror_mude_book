@@ -8,7 +8,7 @@ In engineering and sciences we often work with functions of random variables, si
 height: 150px
 name: functions
 ---
-Output of a model $X$ is function of random input $Y$.
+Output $X$ of a model is function of random input $Y$.
 ```
 
 Some simple examples are:

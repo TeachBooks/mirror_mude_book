@@ -1,3 +1,8 @@
+
+# Multivariate distributions
+
+When dealing with multiple random variables we need to consider that these may not be independent. Instead of considering the individual random variables, we will then need to work with a random vector $X= [\begin{array}{llll} X_1 & X_2 & \ldots &X_m \end{array}]^T$, which has a *multivariate* (or: joint) distribution. We will first introduce the covariance and correlation coefficient of two random variables, and then introduce the multivariate normal distribution.
+
 ## Covariance and correlation
 
 The covariance $Cov(X_1,X_2)$ is a measure of the joint variability of the two random variables $X_1$ and $X_2$. It gives us information about whether and how the two variables are correlated and it can be either positive or negative (hence, $Cov(X_1,X_2)	\lessgtr 0$). 

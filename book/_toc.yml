@@ -234,6 +234,9 @@ parts:
       - file: sandbox/SanPart/ObservationTheory/09_TestingSandM.md
       - file: sandbox/SanPart/ObservationTheory/99_NotationFormulas.md
     - file: sandbox/SanPart/Multivariate/01_Multivariate.md
+      title: Multivariate distribution
+      sections:
+      - file: sandbox/SanPart/Multivariate/01_BivariateNormal.ipynb
     - file: sandbox/SanPart/premath/00_00_PreMath.md
       title: Pre-Math
       sections:

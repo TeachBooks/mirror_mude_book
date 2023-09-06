@@ -13,7 +13,7 @@ for discrete distributions, where $p_Y(x_i)$ are the probability masses for all 
 For continuous distributions the equivalent is:
 
 $$
-\mathbb{E}(X) = \mu_X = \int_{-\infty}^{\infty} x f_Y (x)dx
+\mathbb{E}(X) = \mu_X = \int_{-\infty}^{\infty} x f_X (x)dx
 $$
 
 where $f_X (x)$ is the probability density function.
@@ -37,7 +37,7 @@ The outcomes or realizations of a random variable will by definition inhibit a c
 $$
 \begin{align*}
 \mathbb{D}(X) = \sigma^2_X &= \mathbb{E}((X-\mu_X)^2)\\
-&= \int_{-\infty}^{\infty} (x-\mu_Y)^2 f_X (x)dx
+&= \int_{-\infty}^{\infty} (x-\mu_X)^2 f_X (x)dx
 \end{align*}
 $$
 
@@ -49,7 +49,7 @@ $$
 \hat{\sigma}_{X}^2 = \frac{1}{m-1}\sum_{i=1}^m (x_i-\hat{\mu}_X)^2
 $$
 
-Note that here we divide by $m-1$ instead of $m$. The reason is that otherwise you would get a sample variance which on average would deviate from the true value. In other words, by dividing by $m-1$ we guarantee that if you would repeatedly determine the sample variance based on a new set of $m$ observations, the average of these sample variances converges to the true variance.
+Note that here we divide by $m-1$ instead of $m$. The reason is that otherwise you would get a sample variance which on average would deviate from the true value. In other words, by dividing by $m-1$ we guarantee that if you would repeatedly determine the sample variance based on a new set of $m$ observations, the average of these sample variances converges to the true variance. For large $m$ this of course does not matter much.
 
 The standard deviation $\sigma_X$ of random variable $X$ is given by the square root of its variance.
 
