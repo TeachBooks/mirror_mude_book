@@ -8,7 +8,7 @@ When building a model, we need to identify which simplifications we can make to 
 - Time-invariant vs. Time-variant models
 - Deterministic vs. Stochastic models
 
-### Dynamic vs. Static
+## Dynamic vs. Static
 
 The decision between dynamic and static models is based on whether my models needs to account for previous or future states. This is, the response of a dynamic model will have a dependence on the past and future states of the system. On the contrary, in a static model, we consider the response of the system only depending on present values and, thus, the model does not account for previous time steps.
 
@@ -22,7 +22,7 @@ This equation can be tricky to solve: it is dynamic and nonlinear... However, it
 
 Let us consider the mass-spring system as a first example.
 
-![mass-spring](../modeling/figs/modelling/mass-spring-system.png "mass-spring")
+![mass-spring](./figs/modelling/mass-spring-system.png "mass-spring")
 
 
 For this system, Newton's equations of motion sketch as:
@@ -43,7 +43,7 @@ $$\frac{d^2x}{dt^2},\frac{dx}{dt} << x \implies kx = F$$
 
 Therefore, in those circumstances, we can make the assumption that the model is static (simplification) and still get accurate answers to our questions.
 
-### Linear vs Nonlinear
+## Linear vs Nonlinear
 
 Linear models model the relationships between variables using linear predictor functions. The advantage of these models is that superposition principle applies and the long term behavior does not depend on initial conditions. On the contrary, in non-linear models, superposition principle does not apply anymore and long and short term behavior highly dependent on the initial conditions.
 
@@ -51,7 +51,7 @@ Linear models model the relationships between variables using linear predictor f
 
 Let us consider one of the most typical Physics examples: the simple pendulum. 
 
-![pendulum](../modeling/figs/modelling/pendulum.png "pendulum")
+![pendulum](./figs/modelling/pendulum.png "pendulum")
 
 The moment equation around the pivot point corresponds to a nonlinear dynamic model:
 
@@ -61,7 +61,7 @@ However... it can be linearized around a stable position, where we use $\sin\the
 
 $$\frac{d^2\theta}{dt^2} + \frac{g}{l}\theta = 0$$
 
-### Time-invariant vs Time-variant
+## Time-invariant vs Time-variant
 
 In time-invariant models, the model coefficients or model parameters are constant. This is, the response or properties of the system do not change over time. In time-variant models, the model parameter do change over time, so the behavior of the system evolves. 
 
@@ -69,7 +69,7 @@ In time-invariant models, the model coefficients or model parameters are constan
 
 Mainly, based on the knowledge I have about the system. As an engineer, I will have to assess whether or not such changes are relevent for my problem. For instance, nowadays, we consider climate change when designing a breakwater. It has been proved that waves storm are becoming more extreme over time and I will have to account for that to assess the performance of the breakwater over time. However, if I am designing a temporary platform to assist in some construction works in the sea, I will not take it into account. Climate change is a long-time scale process which will impact on the life cycle of a breakwater which is meant to be there for years. On the contrary, the influence of climate change on a platform which will only be there for a few weeks is negligible.
 
-### Deterministic vs Stochastic
+## Deterministic vs Stochastic
 
 Deterministic models are those which for some given inputs, always provide the same output. For instance, a equation which gives the average concentration of $\text{CO}_2$ in a city as function of the traffic. For a certain value of traffic, the model will always provide the same concentration of $\text{CO}_2$. Therefore, these models that there is no uncertainty. On the contrary, stochastic models are those which embrace the uncertainty. This is stochastic models will produce different outputs for a given input. In fact, the inputs and outputs of stochastic models are probabilistic distributions (you will learn more about this later!), which relate the values of the variable with the probability of observing it.
 
