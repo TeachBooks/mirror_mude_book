@@ -71,4 +71,4 @@ $$
 \mathbb{E}(\hat{X})  = \mathrm{(A^T W A )^{-1} A^T W} \mathbb{E}(Y) = \mathrm{(A^T W A )^{-1} A^T W Ax = x}
 $$
 
-This a very desirable property. It applies that if we would repeat the measurements many times to obtain a new estimate, the *average of the estimated* values would be equal to the truy values.
+This a very desirable property. It applies that if we would repeat the measurements many times to obtain a new estimate, the *average of the estimated* values would be equal to the true values.

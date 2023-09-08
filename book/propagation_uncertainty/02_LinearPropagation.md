@@ -57,7 +57,7 @@ $$
 \Sigma_{X} =\mathrm{A}\Sigma_Y \mathrm{A}^T
 $$
 
-These is an exact results, since for linear functions the higher-order terms of the Taylor approximation become zero and thus the approximation error is zero.
+These are exact results, since for linear functions the higher-order terms of the Taylor approximation become zero and thus the approximation error is zero.
 
 :::{card} Exercise 
 Consider the linear system of equations

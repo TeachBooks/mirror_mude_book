@@ -10,7 +10,7 @@ In any engineering discipline, **we interact with a system** (Earth, ecosystem, 
 
 To answer that, we build an abstraction of the system which can mimic those aspects we are interested in. For instance, if we focus on the example from the cooling water and the water body, we can model the heat distribution in the water body to know the final temperature. This implies that we are only modelling some aspects of the system we are studying. What about the response from the species living there? Well, **if we do not need those, our model is good enough to answer our question!**
 
-| ![diagram](../modeling/figs/modelling/diagram.png "diagram") |
+| ![diagram](./figs/modelling/diagram.png "diagram") |
 | :--: |
 | *Modelling procedure diagram [[1]](https://schoolbag.info/mathematics/numbers/103.html)* |
 
@@ -24,7 +24,7 @@ $$\begin{cases}x=v_0t\cos\theta \\ y=v_0t\sin\theta-\frac{1}{2}gt^2\end{cases}$$
 
 where $x$ and $y$ are the horizontal and vertical components of the position of the ball at time $t$, $v_0$ is the initial velocity, $\theta$ is the initial angle and $g$ is the gravity acceleration. Therefore, the trajectory of the projectile depends on the velocity and angle we shoot the ball. In the figure below, you have different trajectories depending on $\theta$ and $v_0$.
 
-![projectile](../modeling/figs/modelling/projectile.png "projectile")
+![projectile](./figs/modelling/projectile.png "projectile")
 
 And that would be our model!
 
@@ -36,7 +36,7 @@ It is important to keep in mind that **different purpose $\implies$ different mo
 
 Imagine you want to predict what would be the choice made by a rational individual to travel from Delft to Paris (i.e. given origin and destination). Would he choose to go by car or by train?
 
-![distances](../modeling/figs/modelling/distances.png "distances")
+![distances](./figs/modelling/distances.png "distances")
 
 We can consider the simplest model: the traveller will choose the shortest travelling time. To compute the time that takes by car, we can also assume a simple car dynamic model, where the velocity during the travel time remains constant ($v(t) = \bar{v}$). However, is this model good enough? Modelling people choices is way more complicated, since they also depend on other factors such as travel cost, comfort, sustainability, etc.
 
@@ -68,7 +68,7 @@ In summary, our model will be based on a series of assumptions depending on the 
 * **Accuracy and complexity:** very realistic models, but prohibitively expensive.
 * **Complexity and affordability:** the unicorn icon might speak for itself - difficult to achieve!
 
-![tradeoff](../modeling/figs/modelling/tradeoff.png "tradeoff")
+![tradeoff](./figs/modelling/tradeoff.png "tradeoff")
 
 ## Classifying Models
 

@@ -8,7 +8,7 @@ In engineering and sciences we often work with functions of random variables, si
 height: 150px
 name: functions
 ---
-Output of a model $X$ is function of random input $Y$.
+Output $X$ of a model is function of random input $Y$.
 ```
 
 Some simple examples are:
@@ -28,3 +28,6 @@ name: temp
 Distribution of temperature in degrees Celsius and degrees Fahrenheit.
 ```
 The question we are interested in is: **how does the statistical uncertainty in input data propagate in the output variables?**
+
+In this part, we will first introduce random vectors, covariance, correlation and covariance matrices, as well as the multivariate normal distribution, uncertainty classifications, and then look at the propagation laws that we need.
+

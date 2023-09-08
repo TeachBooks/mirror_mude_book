@@ -1,4 +1,4 @@
-# Probability Theory
+# Probability axioms
 
 The discussion about what probability is, as well as the interpretation of what it means, has been going on for centuries, and we won’t cover it here. Lukcily, most modern perspectives on probability are compatible and can be traced back to a few key fundamental concepts, known as the axioms of probability. These three axioms are summarized here:
 1. The probability of any event is $[0,1]$.

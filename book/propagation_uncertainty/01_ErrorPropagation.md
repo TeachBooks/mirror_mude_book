@@ -1,4 +1,4 @@
-
+(01_errorprop)=
 ## Mean and variance propagation laws
 
 Here, will only consider the propagation of the mean (= expectation) and (co-)variances, and not the transformation of the full PDF or CDF.
@@ -15,7 +15,18 @@ $$
 \mathbb{E}(Y)=\mu_Y, \quad \mathbb{D}(Y)=\Sigma_Y
 $$
 
-**What is then the mean and variance of $X$?**
+
+### Video
+
+In this video the first part of this chapter is explained.
+
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/EiuX9a7SIzc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
+### What are the mean and variance of $X$?
 
 Let's start with the mean for the case that the function is linear: 
 
@@ -130,4 +141,12 @@ $$
 \sigma_X^2 \approx \sum_{i=1}^{n}\left(\frac{\partial q}{\partial Y_i}\right)_0^2\sigma_i^2  + \sum_{i=1}^{n}\sum_{j=1,j\neq i}^{n}\left(\frac{\partial q}{\partial Y_i}\right)_0\left(\frac{\partial q}{\partial Y_j}\right)_0Cov(Y_i,Y_j)
 $$
 
+### Video
 
+In this video the functions of $n$ random variables is discussed, as well as the [linear propagation laws]((01_LinearProp)) is explained.
+
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/sRkjvpHTrBw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
