@@ -29,3 +29,5 @@ Distribution of temperature in degrees Celsius and degrees Fahrenheit.
 ```
 The question we are interested in is: **how does the statistical uncertainty in input data propagate in the output variables?**
 
+In this part, we will first introduce random vectors, covariance, correlation and covariance matrices, as well as the multivariate normal distribution, uncertainty classifications, and then look at the propagation laws that we need.
+
