@@ -186,15 +186,18 @@ parts:
       sections:
       - file: programming/communication/visualization
 # END REMOVE-FROM-PUBLISH
-# START REMOVE-FROM-PUBLISH
   - caption: Fundamental Concepts
     numbered: 2
     chapters: 
-    - file: fundamentals/overview
-    - file: fundamentals/taylor
-    - file: fundamentals/linear_algebra
-    - file: fundamentals/probability
-# END REMOVE-FROM-PUBLISH
+    - file: fundamentals/00_01a_PreMath
+    - file: fundamentals/00_01b_PreMath
+    - file: fundamentals/00_01c_PreMath
+    - file: fundamentals/00_02_PreMath
+    - file: fundamentals/00_03_PreMath
+    - file: fundamentals/prob-background.md   
+    - file: fundamentals/prob-rv.md
+    - file: fundamentals/00_04_MeanVar
+    - file: fundamentals/eemc-stuff
 
   # START REMOVE-FROM-PUBLISH
   - caption: Sandbox
@@ -204,8 +207,6 @@ parts:
     - file: sandbox/prob/prob-intro
       title: Probability
       sections:
-      - file: sandbox/prob/prob-background
-      - file: sandbox/prob/prob-rv
       - file: sandbox/prob/prob-discrete
       - file: sandbox/prob/prob-notation
         title: Notation
@@ -245,16 +246,6 @@ parts:
       title: Multivariate distribution
       sections:
       - file: sandbox/SanPart/Multivariate/01_BivariateNormal.ipynb
-    - file: sandbox/SanPart/premath/00_00_PreMath.md
-      title: Pre-Math
-      sections:
-      - file: sandbox/SanPart/premath/00_01a_PreMath.md
-      - file: sandbox/SanPart/premath/00_01b_PreMath.md
-      - file: sandbox/SanPart/premath/00_01c_PreMath.md
-      - file: sandbox/SanPart/premath/00_02_PreMath.md
-      - file: sandbox/SanPart/premath/00_03_PreMath.md
-      - file: sandbox/SanPart/premath/00_04_MeanVar.md
-      - file: sandbox/functions_rand_vars/functions_dont_execute.ipynb
     - file: sandbox/dist_fit_example/overview
       title: Distribution Fitting Examples
       sections:
