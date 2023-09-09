@@ -195,10 +195,14 @@ var modifyDOMForThebe = () => {
   // We remove all pre-existing cell output because they play poorly with Thebe
   // This also means we need special tracking for cells with removed input because no HTML is generated for their input
   // Hopefully we can achieve this with minimal changes and a special new tag
-  const outputDivs = document.querySelectorAll(".cell_output");
-  outputDivs.forEach((div, _) => div.remove());
-
   // Find all code cells, replace with Thebe interactive code cells
+  const cellOutputs = document.querySelectorAll(".cell_output");
+  cellOutputs.forEach((output, index) => {
+    if (output && !output.classList.contains("keep")) {
+      output.remove();
+    }
+  });
+
   const codeCells = document.querySelectorAll(thebe_selector);
   codeCells.forEach((codeCell, index) => {
     const codeCellId = (index) => `codecell${index}`;
@@ -213,12 +217,6 @@ var modifyDOMForThebe = () => {
     if (codeCellText) {
       codeCellText.setAttribute("data-language", dataLanguage);
       codeCellText.setAttribute("data-executable", "true");
-
-      // If we had an output, insert it just after the `pre` cell
-      if (codeCellOutput) {
-        $(codeCellOutput).attr("data-output", "");
-        $(codeCellOutput).insertAfter(codeCellText);
-      }
     }
 
     // Remove sphinx-copybutton blocks, which are common in Sphinx
@@ -506,6 +504,14 @@ function handleDisableDownloadTag(element) {
   $(".dropdown-download-buttons").remove();
 }
 
+function handleAutoExecuteTag(element) {
+  $(".dropdown-launch-buttons button").click();
+}
+
+function handleKeepOutputTag(element) {
+  element.querySelector(".cell_output").classList.add("keep");
+}
+
 // Deal with custom-defined tags to properly prepare Thebe and DOM
 // Current special tags: thebe-remove-input-init
 function consumeSpecialTags() {
@@ -513,6 +519,8 @@ function consumeSpecialTags() {
     { tag: "thebe-remove-input-init", handler: handleThebeRemoveInputTag },
     { tag: "disable-execution", handler: handleDisableExecutionTag },
     { tag: "disable-download", handler: handleDisableDownloadTag },
+    { tag: "auto-execute", handler: handleAutoExecuteTag },
+    { tag: "keep-output", handler: handleKeepOutputTag },
   ];
 
   window.specialTaggedElements = [];
