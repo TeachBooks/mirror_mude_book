@@ -407,6 +407,9 @@ var initThebe = async () => {
   // Remove Rocket now that we're initializing
   document.querySelector(".dropdown-launch-buttons").remove();
 
+  // Add the launch info to the top bar
+  $(".dropdown-download-buttons").before($(".thebe-launch-button"));
+
   console.log("[sphinx-thebe]: Loading thebe...");
   $(".thebe-launch-button ").text("Loading thebe...");
 
