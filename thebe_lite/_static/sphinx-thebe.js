@@ -66,6 +66,7 @@ function setupNewCell(source, output, code) {
 
 function addToThebeControls(cell, element) {
   const controls = cell.querySelector(".thebe-controls");
+  if (controls == null) return; // Cell input likely removed
   controls.insertBefore(element, controls.lastChild);
 }
 
