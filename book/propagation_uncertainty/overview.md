@@ -1,12 +1,12 @@
 (01_errorprop)=
 # Propagation of Uncertainty
 
-In engineering and sciences we often work with functions of random variables, since when estimating or modelling something, the output is a function of the random input variables, see {numref}`functions`
+In engineering and sciences we often work with functions of random variables, since when estimating or modelling something, the output is a function of the random input variables, see {numref}`functions_RV`
 
 ```{figure} figures/01_Functions.png
 ---
 height: 150px
-name: functions
+name: functions_RV
 ---
 Output $X$ of a model is function of random input $Y$.
 ```
@@ -18,12 +18,12 @@ Some simple examples are:
 * wind loading $F$ on a building as function of area of building face $A$, wind pressure $P$, drag coefficient $C$: $F = A\cdot P\cdot C$
 * Evaporation $Q$ using Bowen Ratio Energy Balance as function of the net radiation $R$, ground heat flux $G$, bowen ratio $B$: $Q =q(R,G,B) =\frac{R-G}{1-B}$
 
-{numref}`temp` shows an example of the distribution of the average July temperature in a city, both in degrees Celsius and degrees Fahrenheit. Due to the change of units, the PDF is transformed, the mean is shifted and the variance changed.
+{numref}`frv_C_F` shows an example of the distribution of the average July temperature in a city, both in degrees Celsius and degrees Fahrenheit. Due to the change of units, the PDF is transformed, the mean is shifted and the variance changed.
 
 ```{figure} figures/01_Temp.png
 ---
 height: 300px
-name: temp
+name: frv_C_F
 ---
 Distribution of temperature in degrees Celsius and degrees Fahrenheit.
 ```
