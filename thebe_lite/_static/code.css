@@ -16,8 +16,11 @@
     border-radius: calc(var(--mystnb-source-border-radius) + 1px);
     background-color: var(--pst-color-surface);
     color: var(--pst-color-text-base);
-    height: 100% !important;
 }
+
+.thebe-launch-button {
+    height: 80% !important;
+} 
 
 .cell_output .jp-OutputArea-output pre {
     border: var(--mystnb-source-border-width) var(--mystnb-source-border-color) solid;

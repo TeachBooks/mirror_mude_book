@@ -406,10 +406,12 @@ function moveHideInputOutput() {
 
 var initThebe = async () => {
   // Remove Rocket now that we're initializing
-  document.querySelector(".dropdown-launch-buttons").remove();
+  $(".dropdown-launch-buttons").remove();
 
   // Add the launch info to the top bar
-  $(".dropdown-download-buttons").before($(".thebe-launch-button"));
+  $(".header-article-items__end .header-article-item").prepend(
+    $(".thebe-launch-button")
+  );
 
   console.log("[sphinx-thebe]: Loading thebe...");
   $(".thebe-launch-button ").text("Loading thebe...");
@@ -496,11 +498,21 @@ function handleThebeRemoveInputTag(element) {
   element.remove();
 }
 
+function handleDisableExecutionTag(element) {
+  $(".dropdown-launch-buttons").remove();
+}
+
+function handleDisableDownloadTag(element) {
+  $(".dropdown-download-buttons").remove();
+}
+
 // Deal with custom-defined tags to properly prepare Thebe and DOM
 // Current special tags: thebe-remove-input-init
 function consumeSpecialTags() {
   const specialTagsInfo = [
     { tag: "thebe-remove-input-init", handler: handleThebeRemoveInputTag },
+    { tag: "disable-execution", handler: handleDisableExecutionTag },
+    { tag: "disable-download", handler: handleDisableDownloadTag },
   ];
 
   window.specialTaggedElements = [];
