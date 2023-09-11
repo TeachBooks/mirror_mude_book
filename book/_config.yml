@@ -5,6 +5,8 @@ logo: _static/MUDE_Logo-small.png
 execute:
   execute_notebooks: "off"
 
+only_build_toc_files: true
+
 sphinx:
   config:
     # Bibliography style
