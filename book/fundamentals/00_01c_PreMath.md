@@ -88,6 +88,7 @@ A system is *underdetermined* if $\text{rank}(\mathrm{A})  < n$, i.e. if it does
 
 A system is *overdetermined* if $\text{rank}(\mathrm{A})  < m$, i.e. the system may or may not be consistent.
 
+(redundancy)=
 ## Redundancy
 
 The redundancy of a system of equations is equal to $m - \text{rank}(\mathrm{A})$.
