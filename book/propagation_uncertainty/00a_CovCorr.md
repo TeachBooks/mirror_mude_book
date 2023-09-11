@@ -42,7 +42,7 @@ $$
 
 which in fact is a measure of the strength of the *linear relationship* among the variables.
 
-The correlation coefficient by definition takes a value between -1 and 1. If \(\rho_{ij} =0\) the random variable are uncorrelated, this is the case if the random variables are *independent*. If \(\rho_{ij}= \pm 1\) the variables are fully correlated: knowing the value of one variable, means that the value of the other variable is also known, and the two variables have a linear relation. A positive correlation coefficient means that if one variable increases, the other one tends to increase as well; conversely a negative correlation means that an increase of one variable is accompanied by a tendency of the other variable to decrease.
+The correlation coefficient by definition takes a value between -1 and 1. If $\rho_{ij} =0$ the random variable are uncorrelated, this is the case if the random variables are *independent*. If $\rho_{ij}= \pm 1$ the variables are fully correlated: knowing the value of one variable, means that the value of the other variable is also known, and the two variables have a linear relation. A positive correlation coefficient means that if one variable increases, the other one tends to increase as well; conversely a negative correlation means that an increase of one variable is accompanied by a tendency of the other variable to decrease.
 
 Examples are shown in {numref}`correlation`, for an example with a large number of repeated measurements; for this example $ \sigma_{X_1}=1$ and $\sigma_{X_2}=2$ (the mean values are indicated as $\mu_1$ and $\mu_2$). The larger standard deviation of the second measurement results in a larger spread in the vertical direction. Obviously, the measurements fluctuate around the means.
 
@@ -58,7 +58,7 @@ Scatterplots of outcomes of ($X_1,X_2$) with different correlation coefficients.
 
 ### Covariance matrix
 
-When considering a random vector $X= [\begin{array}{llll} X_1 & X_2 & \ldots &X_m \end{array}]^T$, we can 'collect' all covariances in the so-called *covariance matrix$:
+When considering a random vector $X= [\begin{array}{llll} X_1 & X_2 & \ldots &X_m \end{array}]^T$, we can 'collect' all covariances in the so-called *covariance matrix*:
 
 $$
 \Sigma_X=  \left[\begin{array}{cccc} \sigma^2_1 & Cov(X_1,X_2) & \ldots & Cov(X_1,X_m) \\ Cov(X_1,X_2)& \sigma_{2}^2 & \ldots & Cov(X_2,X_m) \\\vdots & \vdots & \ddots & \vdots \\ Cov(X_1,X_m) & Cov(X_2,X_m) & \ldots & \sigma_{m}^2 \end{array}\right]

@@ -109,7 +109,7 @@ If $Y_1$ and $Y_2$ are independent, we have that $Cov(Y_1,Y_2)=0$, such that the
 
 We will measure the period on one oscillation $T$ of a pendulum, and also the length $L$ of the pendulum. Both measurements are affected by random errors, and therefore the 'calculated' gravitational acceleration $G$ is a function of two random variables:
 
-$G=q(L,T)= 4\pi \frac{L}{T^2}$ 
+$G=q(L,T)= 4\pi^2 \frac{L}{T^2}$ 
 
 Apply the mean and variance propagation laws to approximate the mean and variance of $G$ given that the expectations 
 $\mathbb{E}(L)= \mu_L$ and $\mathbb{E}(T)= \mu_T$, as well as the variances $\sigma^2_L$ and $\sigma^2_T$ are known, and the covariance $Cov(L,T)=0$.
