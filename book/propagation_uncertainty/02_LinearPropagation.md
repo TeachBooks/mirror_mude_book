@@ -42,7 +42,7 @@ Note that it does not depend on the deterministic constant $c$.
 Note that the linear function of two random variables can also be written as $q(Y) = \begin{bmatrix} a_1 & a_2\end{bmatrix}\begin{bmatrix}Y_1 \\ Y_2\end{bmatrix}+c$. We will now generalize to the case where we have $m$ linear functions of $n$ variables, which can be written as a linear system of equations:
 
 $$ 
-X= \begin{bmatrix} X_1\\ X_2 \\ \vdots \\ X_m \end{bmatrix}= \begin{bmatrix} a_{11}&a_{12}&\dots&a_{1n}\\a_{21}&a_{22}&\dots&a_{2n} \\ \vdots&\vdots&\vdots&\vdots \\ a_{m1}&a_{m2}&\dots&a_{mn} \end{bmatrix} \begin{bmatrix} Y_1\\ Y_2 \\ \vdots \\ Y_n \end{bmatrix} +\begin{bmatrix} c_1\\ c_2 \\ \vdots \\ c_n \end{bmatrix}=\mathrm{A}Y+\mathrm{c}
+X= \begin{bmatrix} X_1\\ X_2 \\ \vdots \\ X_m \end{bmatrix}= \begin{bmatrix} a_{11}&a_{12}&\dots&a_{1n}\\a_{21}&a_{22}&\dots&a_{2n} \\ \vdots&\vdots&\vdots&\vdots \\ a_{m1}&a_{m2}&\dots&a_{mn} \end{bmatrix} \begin{bmatrix} Y_1\\ Y_2 \\ \vdots \\ Y_n \end{bmatrix} +\begin{bmatrix} c_1\\ c_2 \\ \vdots \\ c_m \end{bmatrix}=\mathrm{A}Y+\mathrm{c}
 $$
 
 with known $\mathbb{E}(Y)$ and covariance matrix $\Sigma_Y$, and $\mathrm{c}$ a vector with deterministic variables.

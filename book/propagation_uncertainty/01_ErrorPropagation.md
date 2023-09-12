@@ -119,7 +119,7 @@ $\mathbb{E}(L)= \mu_L$ and $\mathbb{E}(T)= \mu_T$, as well as the variances $\si
 First determine the first- and second-order partial derivatives of the function $q(L,T)$ to obtain:
 
 $$
-\mathbb{E}(X)\approx 4\pi \frac{\mu_L}{\mu_T^2} + 12\pi^2 \frac{\mu_L}{\mu_T^4}\sigma_T^2
+\mathbb{E}(X)\approx 4\pi^2 \frac{\mu_L}{\mu_T^2} + 12\pi^2 \frac{\mu_L}{\mu_T^4}\sigma_T^2
 $$
 
 
