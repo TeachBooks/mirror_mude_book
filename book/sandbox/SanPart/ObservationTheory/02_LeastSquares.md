@@ -73,7 +73,7 @@ $$
 \mathrm{\hat{x}} =\arg \underset{\mathrm{x}}{\min} {\mathrm{(y-Ax)^T (y-Ax)}}.
 $$
 
-In other words, we find $\mathrm{\hat{x}}$ by finding the minimum of $\mathrm{(y-Ax)^T (y-Ax)}$.
+In other words, we find $\mathrm{\hat{x}}$ by finding the minimum of $\mathrm{(y-Ax)^T (y-Ax)}=\sum_{i=1}^m \epsilon_i^2$, hence the smallest sum of squared residuals.
 
 ## Least-squares solution
 We can find the minimum of a function by taking the first derivative with respect to the 'free variable'. Since the observation vector is not free, and also the design matrix $A$ is fixed, the only variable which we can vary is $x$. The first derivative of our objective function should be equal to zero to reach a minimum (see [Gradient](PM_gradient)):
