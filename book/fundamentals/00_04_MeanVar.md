@@ -28,8 +28,6 @@ $$
 
 where we use the ^-symbol to indicate it is an *estimate* of the mean based on a number of realizations.
 
-In analogy, the theoretical mean or expected value of a continuous random variable follows as:
-
 ## Variance 
 
 The outcomes or realizations of a random variable will by definition inhibit a certain spread; they will fluctuate around the mean. The variance  or dispersion  of a random variable  is a measure of these fluctuations around the mean, and is defined by:
