@@ -171,18 +171,25 @@ parts:
   # END REMOVE-FROM-PUBLISH
 
   - caption: Programming
-    numbered: 2
+    numbered: 4
     chapters:
     - file: programming/overview
       title: Overview
     - file: programming/golden_rules.ipynb
       title: The Golden Rules
-# START REMOVE-FROM-PUBLISH
     - file: programming/code/overview
       title: Computers & Code
       sections:
-      - file: programming/code/packages
-      - file: programming/code/environments
+      - file: programming/code/numpy_0
+        title: Numpy
+        sections:
+        - file: programming/code/numpy_1
+          title: Using `ndarray`
+        - file: programming/code/numpy_2
+          title: Doing math
+# START REMOVE-FROM-PUBLISH
+      # - file: programming/code/packages
+      # - file: programming/code/environments
     - file: programming/programs/overview
       title: Programs
     - file: programming/communication/overview
