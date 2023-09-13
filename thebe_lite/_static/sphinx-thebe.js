@@ -196,9 +196,15 @@ var modifyDOMForThebe = () => {
   // This also means we need special tracking for cells with removed input because no HTML is generated for their input
   // Hopefully we can achieve this with minimal changes and a special new tag
   // Find all code cells, replace with Thebe interactive code cells
+
+  document.querySelectorAll(".keep").forEach((kept, _) => {
+    kept.previousClasses = { ...kept.classList };
+    kept.classList.remove(...removedSelectorClasses);
+  });
+
   const cellOutputs = document.querySelectorAll(".cell_output");
   cellOutputs.forEach((output, index) => {
-    if (output && !output.classList.contains("keep")) {
+    if (output) {
       output.remove();
     }
   });
@@ -423,6 +429,13 @@ var initThebe = async () => {
   modifyDOMForThebe();
   await thebelab.bootstrap(thebeLiteConfig);
 
+  document.querySelectorAll(".keep").forEach((kept, _) => {
+    //console.log(Object.valueskept.previousClasses);
+    Object.values(kept.previousClasses).forEach((clas, _) =>
+      kept.classList.add(clas)
+    );
+  });
+
   finalizeCodeCells(document.querySelectorAll(thebe_selector));
 
   // Runs override_pyodide_lookup on the web worker
@@ -456,7 +469,7 @@ var initThebe = async () => {
 
   // Fix for issues with ipywidgets in Thebe
   await thebelab.session.kernel.requestExecute({
-    code: `import ipykernel; ipykernel.version_info = (0,0)\n%pip install ipywidgets`,
+    code: `import ipykernel; ipykernel.version_info = (0,0); import micropip; await micropip.install("ipywidgets")`,
   }).done;
   updateThebeButtonStatus("Running pre-intialized cells...");
   setupSpecialTaggedElements();
@@ -508,8 +521,30 @@ function handleAutoExecuteTag(element) {
   $(".dropdown-launch-buttons button").click();
 }
 
-function handleKeepOutputTag(element) {
-  element.querySelector(".cell_output").classList.add("keep");
+// Adapted from: https://stackoverflow.com/questions/66381462/javascript-getcomputedstyle-copy-object-without-reference
+function copyNodeStyle(sourceNode, targetNode) {
+  // 👇️ Get computed styles of original element
+  const styles = window.getComputedStyle(sourceNode);
+
+  let cssText = styles.cssText;
+
+  if (!cssText) {
+    cssText = Array.from(styles).reduce((str, property) => {
+      return `${str}${property}:${styles.getPropertyValue(property)};`;
+    }, "");
+  }
+
+  // 👇️ Assign CSS styles to the element
+  targetNode.style.cssText = cssText;
+}
+
+const removedSelectorClasses = ["cell", "cell_output", "cell_input"];
+function handleDisableExecutionCellTag(element) {
+  element.classList.add("keep");
+  removedSelectorClasses.forEach((removedClass, _) => {
+    const affected = Array.from(element.getElementsByClassName(removedClass));
+    affected.forEach((child, _) => handleDisableExecutionCellTag(child));
+  });
 }
 
 // Deal with custom-defined tags to properly prepare Thebe and DOM
@@ -517,10 +552,10 @@ function handleKeepOutputTag(element) {
 function consumeSpecialTags() {
   const specialTagsInfo = [
     { tag: "thebe-remove-input-init", handler: handleThebeRemoveInputTag },
-    { tag: "disable-execution", handler: handleDisableExecutionTag },
-    { tag: "disable-download", handler: handleDisableDownloadTag },
-    { tag: "auto-execute", handler: handleAutoExecuteTag },
-    { tag: "keep-output", handler: handleKeepOutputTag },
+    { tag: "disable-execution-page", handler: handleDisableExecutionTag },
+    { tag: "disable-download-page", handler: handleDisableDownloadTag },
+    { tag: "auto-execute-page", handler: handleAutoExecuteTag },
+    { tag: "disable-execution-cell", handler: handleDisableExecutionCellTag },
   ];
 
   window.specialTaggedElements = [];
@@ -533,14 +568,18 @@ function consumeSpecialTags() {
   }
 }
 
-// Check whether DOM is already loaded, or add an event listener for the event
-if (document.readyState !== "loading") {
-  consumeSpecialTags();
-} else {
-  document.addEventListener("DOMContentLoaded", function () {
-    consumeSpecialTags();
-  });
-}
+const styleLoading = [
+  loadStyleAsync(`${PAGE_ROOT}thebe.css`),
+  loadStyleAsync(`${PAGE_ROOT}_static/code.css`),
+];
 
-loadStyleAsync(`${PAGE_ROOT}thebe.css`);
-loadStyleAsync(`${PAGE_ROOT}_static/code.css`);
+Promise.all(styleLoading).then(() => {
+  // Check whether DOM is already loaded, or add an event listener for the event
+  if (document.readyState !== "loading") {
+    consumeSpecialTags();
+  } else {
+    document.addEventListener("DOMContentLoaded", function () {
+      consumeSpecialTags();
+    });
+  }
+});
