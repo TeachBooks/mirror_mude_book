@@ -237,7 +237,9 @@ parts:
     - file: sandbox/SanPart/ObservationTheory/01_Introduction.md
       title: Sensing and Observation Theory
       sections:
-      - file: sandbox/SanPart/ObservationTheory/02_LeastSquares.md    
+      - file: sandbox/SanPart/ObservationTheory/02_LeastSquares.md  
+        sections:
+        - file: sandbox/SanPart/ObservationTheory/02_LeastSquares_NB.ipynb  
       - file: sandbox/SanPart/ObservationTheory/03_WeightedLSQ.md
       - file: sandbox/SanPart/ObservationTheory/04_BLUE.md
       - file: sandbox/SanPart/ObservationTheory/05_Precision.md

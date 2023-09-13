@@ -1,4 +1,4 @@
-# Uncertainty
+# Uncertainty Classification
 
 All of us have an idea of what is uncertainty, but we may use different names for it: unpredictability, randomness, ambiguity, variability... Thus, we can say that something is uncertain if we don't know for sure (*not a big surprise, right?*).
 
