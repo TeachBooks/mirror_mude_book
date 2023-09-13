@@ -175,8 +175,8 @@ var configureThebe = () => {
 
     updateThebeButtonStatus(
       `<span class='launch_msg'>Launching Pyodide kernel: </span><span class='status'>` +
-      data.status +
-      "</span>"
+        data.status +
+        "</span>"
     );
 
     if (data.status === "attached") {
@@ -301,7 +301,7 @@ function override_pyodide_lookup(fs, server_path) {
       currentDirectory += directory + "/";
       try {
         fs.mkdir(currentDirectory);
-      } catch { }
+      } catch {}
     }
   }
 
@@ -430,8 +430,9 @@ var initThebe = async () => {
   // 4. Execute the override_pyodide_lookup function in JS, and bake in the relative path from root in the book (the home)
   // NOTE: All functions used in override_pyodide_lookup should be nested inside it, since the web worker cannot access functions in this script
   thebelab.session.kernel.requestExecute({
-    code: `import js; import pyodide_js; js.fs = pyodide_js.FS; js.eval("""${override_pyodide_lookup.toString()}"""); js.eval(f"override_pyodide_lookup(fs, '${location.pathname.split("/").slice(0, -1).join("/") + "/"
-      }')")`,
+    code: `import js; import pyodide_js; js.fs = pyodide_js.FS; js.eval("""${override_pyodide_lookup.toString()}"""); js.eval(f"override_pyodide_lookup(fs, '${
+      location.pathname.split("/").slice(0, -1).join("/") + "/"
+    }')")`,
   });
 
   const request = new XMLHttpRequest();
@@ -451,7 +452,7 @@ var initThebe = async () => {
 
   // Fix for issues with ipywidgets in Thebe
   await thebelab.session.kernel.requestExecute({
-    code: `import ipykernel; ipykernel.version_info = (0,0)`,
+    code: `import ipykernel; ipykernel.version_info = (0,0); import micropip; await micropip.install("ipywidgets")`,
   }).done;
   updateThebeButtonStatus("Running pre-intialized cells...");
   setupSpecialTaggedElements();
