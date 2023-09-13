@@ -1,4 +1,5 @@
-import ipywidgets as widgets
+import micropip
+await micropip.install("ipywidgets")
 from IPython.display import display
 
 def check(f):
