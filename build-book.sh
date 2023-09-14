@@ -18,7 +18,7 @@ else
 		echo "yq could not be found, the banner will not be added"
 	else
 		cp book/_config.yml book/_config.yml.bak
-		yq -i '.html.announcement = .draft_banner' book/_config.yml
+		yq -yi '.html.announcement = .draft_banner' book/_config.yml
 	fi
 fi
 
