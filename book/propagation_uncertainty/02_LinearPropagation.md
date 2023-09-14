@@ -87,3 +87,28 @@ $$
 
 ```
 :::
+
+:::{card} Exercise buckets of concrete
+
+You want to measure out 1.5$l$ of concrete in a bucket, but only have a bucket of with lines indicating 5$l$, 2$l$, and 0.5$l$. These buckets are named $a$, $b$, and $c$, respectively. To achieve this you take the 5$l$ bucket, take out 2$l$ using bucket $b$, and then three times 0.5$l$ using bucket $c$: $Y_1 = V_a - V_b - 3V_c$ (with $V_i$ is the volume of bucket $i$). However, you can't read the lines on the buckets perfectly, and the variance of your pouring skills is 1/100th of the volume of the bucket. Assume the volumes to be independent.
+
+You do something similar to achieve 4.5$l$ ($Y_2 = V_a - V_c$) and 1$l$ ($Y_3 = V_a-2V_b$). Compute the covariance matrix of $[Y_1 \ Y_2 \ Y_3]^T$.
+
+Hint: first find the $\mathrm{A}$ matrix of the linear system $Y=\mathrm{A}\cdot V$.
+
+ ```{admonition} Solution
+:class: tip, dropdown
+
+$$
+\mathrm{A} = \begin{bmatrix} 1& -1& -3 \\ 1 & 0& -1\\1&-2&0 \end{bmatrix},\; \Sigma_V = \begin{bmatrix} \frac{5}{100}& 0 & 0 \\ 0 & \frac{2}{100}& 0\\0&0& \frac{0.5}{100}\end{bmatrix}
+$$
+
+$$
+\begin{align*}
+\Sigma_Y &= \mathrm{A}\Sigma_V\mathrm{A}^T \\
+&= \begin{bmatrix} 1& -1& -3 \\ 1 & 0& -1\\1&-2&0 \end{bmatrix}\begin{bmatrix} \frac{5}{100}& 0 & 0 \\ 0 & \frac{2}{100}& 0\\0&0& \frac{0.5}{100}\end{bmatrix}\begin{bmatrix} 1& 1& 1 \\ -1 & 0& -2\\-3&-1&0 \end{bmatrix}=\frac{1}{100}\begin{bmatrix} 11.5& 6.5 & 9 \\ 6.5 & 5.5& 5\\9&5& 13\end{bmatrix}
+\end{align*}
+$$
+
+```
+:::

@@ -29,6 +29,28 @@ $$
 \hat{\epsilon}= Y-\mathrm{A}(\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1} \mathrm{A^T} \Sigma_Y^{-1} Y
 $$
 
+:::{card} Exercise
+
+Let's consider an estimation problem with $m$ observables and functional model $\mathbb{E}(Y)=\mathrm{Ax}$ and stochastic model $\Sigma_Y = \sigma^2 I_m$ (i.e., the covariance matrix is a scaled identity matrix). 
+
+Find the expressions for the ordinary (unweighted) least-squares estimator and the best linear unbiased estimator.
+
+True or False:
+
+The ordinary least-squares and best linear unbiased estimator are equal to each other if \(\Sigma_Y\) is a scaled identity matrix.
+
+```{admonition} Solution
+:class: tip, dropdown
+
+True:
+
+$$
+\hat{X}_{\text{BLU}}= (\mathrm{A^T} \frac{1}{\sigma^2}I_m\mathrm{A})^{-1} \mathrm{A^T} \frac{1}{\sigma^2}I_m Y = (\mathrm{A^T}  \mathrm{A})^{-1} \mathrm{A^T} Y = \hat{X}_{\text{LS}}
+$$
+
+```
+:::
+
 ## Video
 
 ```{eval-rst}
@@ -43,7 +65,7 @@ In BLUE, Best Linear Unbiased Estimation, the parts of the acronym ‘B’, ‘L
 *Linear* means that there is a linear (matrix) relation between the variables. Such linear relations imply that if we have a normally distributed vector $Y\sim N(\mathrm{Ax},\Sigma_Y)$, which is multiplied with a matrix $\mathrm{L}$, this product will be normally distributed as well:
 
 $$
-\hat{X}=\mathrm{L^T}Y\sim N(\mathrm{L^TAx},\mathrm{L^T} \Sigma_Y \mathrm{L})
+\hat{X}=\mathrm{L^T}Y\sim N(\mathrm{L^T Ax},\mathrm{L^T} \Sigma_Y \mathrm{L})
 $$ 
 
 where we use the linear propagation laws of the mean and covariance.
@@ -57,7 +79,7 @@ $$
 The unbiased property also implies that:
 
 $$
-\begin{align*}\mathbb{E}(\hat{Y} ) &=\mathrm{A} \mathbb{E}(\underline{\hat{x}} )=\mathrm{Ax} \\ \mathbb{E}(\hat{\epsilon} )  &= \mathbb{E}(Y)-\mathbb{E}(\hat{Y})= \mathrm{Ax-Ax}= 0 \end{align*}
+\begin{align*}\mathbb{E}(\hat{Y} ) &=\mathrm{A} \mathbb{E}(\hat{X} )=\mathrm{Ax} \\ \mathbb{E}(\hat{\epsilon} )  &= \mathbb{E}(Y)-\mathbb{E}(\hat{Y})= \mathrm{Ax-Ax}= 0 \end{align*}
 $$
 
 *Best* means that the estimator has minimum variance (best precision), when compared to all other possible linear estimators:
@@ -76,7 +98,7 @@ The quality of the estimator is expressed by its covariance matrix. For the ‘b
 $$
 \begin{align*}
 \Sigma_{\hat{X}} &= \mathrm{L^T} \Sigma_Y \mathrm{L} \\ &= (\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1}\mathrm{A^T} \Sigma_Y^{-1} \cdot \Sigma_Y \cdot \Sigma_Y^{-1} \mathrm{A} (\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1}\\ &=(\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1}\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A} (\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1}\\ &= (\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1}\\ \\ \Sigma_{\hat{Y}} &=\mathrm{A}\Sigma_{\hat{X}} \mathrm{A^T} \\ &=\mathrm{A} (\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1} \mathrm{A^T} \\ \\
-\Sigma_{\hat{\epsilon}} &= (\mathrm{I}_m - A (\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1}\mathrm{A^T} \Sigma_Y^{-1}) \cdot \Sigma_Y \cdot (\mathrm{I}_m - A (\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1}\mathrm{A^T} \Sigma_Y^{-1})^T \\ &= (\Sigma_Y - \mathrm{A}(\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1}\mathrm{A^T}) (\mathrm{I}_m -\Sigma_Y^{-1}\mathrm{A} (\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1}\mathrm{A^T})\\ &= \Sigma_Y - \Sigma_{\hat{Y}}-\Sigma_{\hat{Y}}+\Sigma_{\hat{Y}}\\ &= \Sigma_Y - \Sigma_{\hat{Y}}\end{align*}
+\Sigma_{\hat{\epsilon}} &= (\mathrm{I}_m - \mathrm{A} (\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1}\mathrm{A^T} \Sigma_Y^{-1}) \cdot \Sigma_Y \cdot (\mathrm{I}_m - \mathrm{A} (\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1}\mathrm{A^T} \Sigma_Y^{-1})^T \\ &= (\Sigma_Y - \mathrm{A}(\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1}\mathrm{A^T}) (\mathrm{I}_m -\Sigma_Y^{-1}\mathrm{A} (\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1}\mathrm{A^T})\\ &= \Sigma_Y - \Sigma_{\hat{Y}}-\Sigma_{\hat{Y}}+\Sigma_{\hat{Y}}\\ &= \Sigma_Y - \Sigma_{\hat{Y}}\end{align*}
 $$
 
 In summary, by applying the BLUE method, we can compute best estimators among all linear unbiased estimators, where ‘best’ is quantitatively expressed via the covariance matrix.
