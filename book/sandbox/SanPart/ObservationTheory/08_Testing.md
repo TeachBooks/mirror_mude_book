@@ -43,7 +43,7 @@ $$
 
 {numref}`H0Ha` shows the PDFs of the test statistic under the null and alternative hypothesis. Based on the distributions, the null hypothesis is obviously more likely in case the observed mean error (realization of $T$) is smaller than $k$. Therefore the null hypothesis would be accepted if $T \leq k$ and rejected otherwise. The corresponding *acceptance* and *critical region* are also shown.
 
-```{figure} ../figures/ObservationTheory/08_H0Ha.png
+```{figure} ./figures/08_H0Ha.png
 ---
 height: 250px
 name: H0Ha
@@ -67,7 +67,7 @@ where $\mathcal{C}$ is the critical region.
 
 See {numref}`H0Ha_alpha`, where this principle has been applied for the same example as above. Given that under the null hypothesis $T\sim N(0,\sigma^2)$, we can easily determine the threshold value $k_{\alpha}$ for a given $\alpha$ using the inverse CDF. The critical region $\mathcal{C}$ is thus given by $T>k_{\alpha}$.
 
-```{figure} ../figures/ObservationTheory/08_H0Ha_2.png
+```{figure} ./figures/08_H0Ha_2.png
 ---
 height: 250px
 name: H0Ha_alpha
@@ -97,7 +97,7 @@ Ideally, both the type I and type II error probabilities should be small. Howeve
 
 The *decision matrix* in {numref}`decision` summarizes the four types of decisions and corresponding probabilities.
 
-```{figure} ../figures/ObservationTheory/08_decision.png
+```{figure} ./figures/08_decision.png
 ---
 height: 150px
 name: decision

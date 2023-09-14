@@ -76,7 +76,7 @@ $$
 
 with $k_{\alpha}$ the threshold value based on a choice for the false alarm probability $\alpha$, see {numref}`chi2`
 
-```{figure} ../figures/ObservationTheory/09_chi2.png
+```{figure} ./figures/09_chi2.png
 ---
 height: 250px
 name: chi2

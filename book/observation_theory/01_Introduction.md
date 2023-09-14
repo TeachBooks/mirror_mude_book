@@ -1,6 +1,4 @@
-# Observation theory
-
-As in other physical sciences, empirical data are used in Civil and Environmental Engineering and Applied Earth Sciences to make inferences so as to describe physical reality. Many such problems involve the determination of unknown model parameters that bear a functional relationship to the set of observed data or measurements. This determination or parameter estimation can be based on different estimation principles. 
+## Introduction
 
 From experience we know that various uncertain phenomena can be modeled as a random variable (or a random vector), say $Y$. In this part the random variables are measurements (e.g., sensor readings), which are uncertain due to random errors. We will refer to these random variables (our input data) $Y$ as the *observables*.
 
@@ -56,9 +54,9 @@ This covariance matrix is assumed to be known here. In practice, it can be deter
 Parameter estimation requires specification of the underlying functional and stochastic models. It may happen, however, that some parts of the models are misspecified, thereby invalidating the results of estimation. Some measurements, for instance, may be corrupted by blunders (which are not random!), or the chosen model may fail to give an adequate description of physical reality. Testing for such misspecifications is the topic of the last sections of this chapter.
 
 (01_funcmodel)=
-## Functional model: examples
+### Functional model: examples
 
-### Linear trend model 
+#### Linear trend model 
 The unknown parameters are the intercept $x_1$ and rate of change (velocity) $x_2$. The observation equation of a single observable $Y_i$ is:
 
 $$
@@ -90,7 +88,7 @@ This is model is linear in $\mathrm{x}$, therefore we refer to it as a linear mo
 ```
 :::
 
-### Step function
+#### Step function
 Consider a process with unknown parameter $x_1$ assumed to be constant up till time $t_{i-1}$, and a sudden change (step) at time $t_i$, after which the parameter remains constant at $x_2$. See {numref}`stepfun`.
 
 ```{figure} ./figures/00_step.png
@@ -127,7 +125,7 @@ $$
 <iframe src="https://tudelft.h5p.com/content/1292060588665722877/embed" aria-label="Quiz_subduction" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
 :::
 
-### Positioning model
+#### Positioning model
 As a final example we will consider a non-linear functional model for estimating the unknown position $\mathrm{x}=\begin{bmatrix} x, y, z\end{bmatrix}^T$ of a satellite. The observables are distance measured with laser ranging from $m$ ground stations at known positions $\begin{bmatrix} x_i, y_i, z_i\end{bmatrix}^T$.
 
 ```{figure} ./figures/01_laser.png
@@ -145,7 +143,7 @@ $$
 =\begin{bmatrix} q_{1}(\mathrm{x}) \\ q_{2}(\mathrm{x}) \\ \vdots \\ q_{m}(\mathrm{x}) \end{bmatrix}
 $$
 
-## Redundancy
+### Redundancy
 Later we will see that the *redundancy* of our model plays an important role regarding the precision of our estimated parameters. For a model with $m$ observables and $n$ unknown parameters, the [redundancy](redundancy) is given by:
 
 $$
@@ -154,7 +152,7 @@ $$
 
 this is true since we assume to work with $\mathrm{A}$-matrices (size $m\times n$) that have full column rank: $rank(\mathrm{A})=n$.
 
-## Estimation and linear regression
+### Estimation and linear regression
 
 The goal of estimation is the estimate *model parameters* from a set of observations. In Civil Engineering, Applied Earth Sciences and Environmental Engineering this is needed in many monitoring and sensing applications, such as:
 * Sea level rise
@@ -185,6 +183,6 @@ name: Regres
 Linear regression example for amount of rainfall (independent variable) and river runoff (dependent variable).
 ```
 
-The estimation principles discussed in this part can be used for estimating these relationships.
+The estimation principles discussed in this part are needed for estimating these relationships.
 
-Supervised machine learning (MUDE topic in Q2) is all about finding relationships between target (dependent) variables and certain features (predictors), and therefore regression analysis. However, in this part, we will focus on monitoring and sensing applications, and not on (linear) regression.
+Supervised machine learning (MUDE topic in Q2) is all about finding relationships between target (dependent) variables and certain features (predictors), and therefore regression analysis.
