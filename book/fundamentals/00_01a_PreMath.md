@@ -17,6 +17,7 @@ x = \left[ \begin{array}{c} x_{1} \\ x_{2} \\ \vdots \\ x_{m} \\ \end{array} \ri
 
 is called an $m$-dimensional column vector. A $ 1 \times n $ matrix is called an $ n$-dimensional row vector. When we speak of vectors, we usually refer to column vectors, unless otherwise stated.
 
+(pm_matrix)=
 ## Matrix operations 
 *Summation*: The sum of two matrices $A$ and $B$ is defined if they have the same size. Then $A+B=(a_{ij}+b_{ij})$. The product of a scalar $\alpha$ and a matrix $A$ is $ \alpha A = A \alpha = (\alpha a_{ij}) $.
 

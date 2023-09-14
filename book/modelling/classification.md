@@ -70,6 +70,7 @@ In summary, our model will be based on a series of assumptions depending on the 
 
 ![tradeoff](./figs/modelling/tradeoff.png "tradeoff")
 
+(modelclass)=
 ## Classifying Models
 
 Models can be classified in different ways. Here, we are going to introduce the classification according to their nature. There are four categories:

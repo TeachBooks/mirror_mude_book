@@ -39,6 +39,14 @@ $$
  \mathrm{\hat{\epsilon} = y - \hat{y}= y - A \hat{x} = y-A (A^T W A )^{-1} A^T W y = (I- A(A^T W A )^{-1} A^T W) y}
 $$
 
+:::{card} Exercises
+
+<iframe src="https://tudelft.h5p.com/content/1292060781042105617/embed" aria-label="Quiz_WLS_state" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+
+<iframe src="https://tudelft.h5p.com/content/1292046737060674407/embed" aria-label="WLS_1" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+
+:::
+
 ## Video
 ```{eval-rst}
 .. raw:: html
@@ -52,6 +60,12 @@ The weight matrix $\mathrm{W}$ expresses the (relative) weights between the obse
 If it is a unit matrix ($\mathrm{W=I}$), this implies that all observations have equal weight. Note that in this case the equations are equal to the ordinary least-squares solution. 
 
 If it is a diagonal matrix, with different values on the diagonal, this implies that entries with a higher value correspond to the observations which are considered to be of more importance. If the weight matrix has non-zero elements on the off-diagonal positions, this implies that (some) observations are correlated.
+
+:::{card} Exercise
+
+<iframe src="https://tudelft.h5p.com/content/1292061170916709387/embed" aria-label="Quiz_weight" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+
+:::
 
 ## Weighted least-squares estimator: properties
 
@@ -72,3 +86,24 @@ $$
 $$
 
 This a very desirable property. It applies that if we would repeat the measurements many times to obtain a new estimate, the *average of the estimated* values would be equal to the true values.
+
+:::{card} Exercise
+
+What is the covariance matrix of the weighted least-squares estimator? You can assume the covariance matrix $\Sigma_Y$ of the observables to be given. Hence, you need to apply the (co)variance propagation law:
+
+If $\hat{X}=\mathrm{L}^T Y$, then $\Sigma_{\hat{X}} = \mathrm{L}^T\Sigma_Y  \mathrm{L} $
+
+
+```{admonition} Solution
+:class: tip, dropdown
+
+$$
+\Sigma_{\hat{X}}=\left(\mathrm{A}^T \mathrm{WA} \right)^{-1} \mathrm{A}^T \mathrm{W} \Sigma_Y \mathrm{WA}  \left(\mathrm{A}^T \mathrm{WA} \right)^{-1} 
+$$
+
+On the exam you might be asked for deriving this (i.e., not as multiple choice).
+
+```
+
+<iframe src="https://tudelft.h5p.com/content/1292060771065957877/embed" aria-label="Quiz_WLS_apply" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+:::

@@ -28,7 +28,7 @@ $$
 
 ```{figure} ../figures/ObservationTheory/02_LeastSquares_fit.png
 ---
-height: 250px
+height: 300px
 name: LSfit
 ---
 Linear trend line fitted to a set of $m$ observations affected by random errors.
@@ -43,17 +43,17 @@ $$
 The length of the error vector (or vector of residuals) $\mathrm{\epsilon}$ is equal to the length of the vector of observations $\mathrm{y}$.
 
 ## Least-squares principle
-We are looking for a solution for $\mathrm{x}$; this solution will be denoted by $\hat{\mathrm{x}}$. Based on this solution, the 'adjusted observations' would be $\hat{y}= A\hat{\mathrm{x}}$ (solution of the forward model).
+We are looking for a solution for $\mathrm{x}$; this solution will be denoted by $\hat{\mathrm{x}}$. Based on this solution, the 'adjusted observations' would be $\hat{\mathrm{y}}= \mathrm{A}\hat{\mathrm{x}}$ (solution of the forward model).
 
-To find a solution for an inconsistent system of equations, we prefer the one for which the observations are as ‘close as possible’ to the model. This is a ‘minimum distance’ objective. In mathematical terms, we look at the vector of residuals $\hat{\epsilon}$: the difference between the observations $\mathrm{y}$ and the model realization $\mathrm{\hat{y}}$:
+To find a solution for an inconsistent system of equations, we prefer the one for which the observations are 'as close as possible’ to the model. This is a ‘minimum distance’ objective. In mathematical terms, we look at the vector of residuals $\hat{\epsilon}$: the difference between the observations $\mathrm{y}$ and the model realization $\mathrm{\hat{y}}$:
 
 $$
 \mathrm{\hat{\epsilon}=y-\hat{y}=y-A\hat{x}}
 $$
 
-We want this vector of residuals to be as small as possible (i.e., the minimum distance objective).The ‘least-squares’ principle attempts to achieve that: by minimizing (‘least’) the sum of the squared residuals (‘squares’). 
+We want this vector of residuals to be as small as possible (i.e., the minimum distance objective). The ‘least-squares’ principle attempts achieves this by minimizing (‘least’) the sum of the squared residuals (‘squares’). 
 
-If we take the square-root of this sum, we find the length of the vector, also known as the ‘norm’ of the vector. Thus, the various possible error vectors have a norm defined as:
+If we take the square-root of this sum, we find the length of the vector, also known as the *norm* of the vector. Thus, the various possible error vectors have a norm defined as:
 
 $$
 \left \| \epsilon \right \| = \sqrt{\epsilon_1^2+\epsilon_2^2+...+\epsilon_m^2}=\sqrt{\epsilon^T\epsilon}
@@ -73,19 +73,19 @@ $$
 \mathrm{\hat{x}} =\arg \underset{\mathrm{x}}{\min} {\mathrm{(y-Ax)^T (y-Ax)}}.
 $$
 
-In other words, we find $\mathrm{\hat{x}}$ by finding the minimum of $\mathrm{(y-Ax)^T (y-Ax)}=\sum_{i=1}^m \epsilon_i^2$, hence the smallest sum of squared residuals.
+In other words, $\mathrm{\hat{x}}$ is the solution for $\mathrm{x}$ which provides the minimum of $\mathrm{(y-Ax)^T (y-Ax)}=\sum_{i=1}^m \epsilon_i^2$, hence the smallest sum of squared residuals.
 
 ## Least-squares solution
-We can find the minimum of a function by taking the first derivative with respect to the 'free variable'. Since the observation vector is not free, and also the design matrix $A$ is fixed, the only variable which we can vary is $x$. The first derivative of our objective function should be equal to zero to reach a minimum (see [Gradient](PM_gradient)):
+We can find the minimum of a function by taking the first derivative with respect to the 'free variable'. Since the observation vector is not free, and also the design matrix $\mathrm{A}$ is fixed, the only variable which we can vary is $\mathrm{x}$. The first derivative of our objective function should be equal to zero to reach a minimum (see [Gradient](PM_gradient), and [Vectors and matrices](pm_matrix)):
 
 $$
 \begin{align*} 
 \partial_x \mathrm{(y-Ax)^T (y-Ax)} &=0\\  
-\partial_x \mathrm{( y^Ty -(Ax)^T y -y^T Ax + (Ax)^T(Ax) )}&=0\\ 
-\partial_x \mathrm{( y^Ty -x^TA^T y -y^T Ax + x^T A^TAx )}&=0\\ 
-\partial_x \mathrm{(y^Ty -2x^TA^T y + x^T A^TAx) }&=0\\ 
-\mathrm{-2A^T y +  2A^TAx} &=0\\ 
-\mathrm{A^TAx} &=\mathrm{A^T y }
+\partial_x \left(\mathrm{ y^T y -(Ax)^T y -y^T Ax + (Ax)^T (Ax)} \right)&=0\\ 
+\partial_x \mathrm{( y^T y -x^T A^T y -y^T Ax + x^T A^T Ax )}&=0\\ 
+\partial_x \mathrm{(y^T y -2x^T A^T y + x^T A^T Ax) }&=0\\ 
+\mathrm{-2A^T y +  2A^T Ax} &=0\\ 
+\mathrm{A^T Ax} &=\mathrm{A^T y }
 \end{align*}
 $$
 

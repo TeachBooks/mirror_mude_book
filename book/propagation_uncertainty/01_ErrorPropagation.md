@@ -18,7 +18,7 @@ $$
 
 ### Video
 
-In this video the first part of this chapter is explained.
+In this video the first part of this chapter is explained. You can also first read this section, and only watch the video if you like someone to explain it.
 
 ```{eval-rst}
 .. raw:: html
@@ -84,6 +84,10 @@ $$
 $$
 :::
 
+:::{card} Example gravitational force
+<iframe src="https://tudelft.h5p.com/content/1292060618387216967/embed" aria-label="Quiz_gravity" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+:::
+
 ### Function of two random variables 
 Let's consider the case that we have one function of two random variables, $Y = [Y_1\; \;Y_2]^T$ with known mean and covariance matrix:
 
@@ -130,16 +134,86 @@ $$
 ```
 :::
 
+:::{card} Exercise moment of inertia
+<iframe src="https://tudelft.h5p.com/content/1292060624442937017/embed" aria-label="Quiz_inertia" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+:::
+
+
 ### Functions of $n$ random variables
 The propagation laws for functions of $n$ random variables are as follows:
 
 $$
-\mathbb{E}(X)\approx q(\mu_Y)+\frac{1}{2} \sum_{i=1}^{n}\left(\frac{\partial^2 q}{\partial Y_i^2}\right)_0\sigma_i^2 + \frac{1}{2} \sum_{i=1}^{n}\sum_{j=1,j\neq i}^{n} \left(\frac{\partial^2 q}{\partial Y_i \partial Y_j}\right)_0Cov(Y_1,Y_2)
+\mathbb{E}(X)\approx q(\mu_Y)+\frac{1}{2} \sum_{i=1}^{n}\left(\frac{\partial^2 q}{\partial Y_i^2}\right)_0\sigma_i^2 + \frac{1}{2} \sum_{i=1}^{n}\sum_{j=1,j\neq i}^{n} \left(\frac{\partial^2 q}{\partial Y_i \partial Y_j}\right)_0Cov(Y_i,Y_j)
 $$
 
 $$
 \sigma_X^2 \approx \sum_{i=1}^{n}\left(\frac{\partial q}{\partial Y_i}\right)_0^2\sigma_i^2  + \sum_{i=1}^{n}\sum_{j=1,j\neq i}^{n}\left(\frac{\partial q}{\partial Y_i}\right)_0\left(\frac{\partial q}{\partial Y_j}\right)_0Cov(Y_i,Y_j)
 $$
+
+:::{card} Exercises wind load
+We have the following equation, corresponding to the wind loading equation $F$, 
+
+$$
+F=A \cdot P \cdot C_d
+$$
+
+Assume $A$, $P$, and $C_d$ are independent random variables.
+
+What is the covariance matrix of the random vector $Y=[A, P, C_d]^T$? 
+
+```{admonition} Solution
+:class: tip, dropdown
+
+$$
+\Sigma_Y =\begin{bmatrix}\sigma^2_A & 0 & 0\\ 0& \sigma^2_P &0 \\ 0 & 0 & \sigma^2_{C_d}\end{bmatrix}
+$$
+
+```
+
+What is the approximation of the mean $\mu_F$?
+
+```{admonition} Solution
+:class: tip, dropdown
+
+$$
+\mu_F \approx q(\mu_A ,\mu_P, \mu_{C_d}) = \mu_A \mu_P \mu_{C_d}
+$$
+
+(second-order partial derivatives are all 0, and also the covariances are all 0)
+
+```
+
+What is the approximation of $\sigma^2_F$?
+
+```{admonition} Solution
+:class: tip, dropdown
+
+$$
+\sigma^2_F \approx \left(P \cdot C_d \cdot \sigma_A\right)^2 + \left(A \cdot C_d \cdot \sigma_P\right)^2+ \left(A \cdot P \cdot \sigma_{C_d}\right)^2
+$$
+
+```
+:::
+
+:::{card} Exercise evaporation
+The evaporation $Q$ is given as function of net radiation $R_n$, ground heat flux $G$ and Bowen ratio $B$:
+
+$$
+Q=\frac{R_n-G}{1-B}
+$$
+
+Assume that the random variables $R_n$, $G$, $B$ are independent.
+
+What is the approximation of $\sigma^2_Q$:
+
+```{admonition} Solution
+:class: tip, dropdown
+
+$$
+\sigma^2_Q \approx \frac{1}{1-2\mu_B+\mu_B^2}\cdot(\sigma^2_{R_n}+\sigma^2_{G})+\left(\frac{\mu_{R_n}-\mu_G}{(1-\mu_B)^2}\right)^2\sigma^2_B
+$$
+```
+:::
 
 ### Video
 
