@@ -17,7 +17,7 @@ The precision of the estimated parameters is provided by the covariance matrix $
 ## Review normal distribution and probabilities
 Let's start with a standard normally distributed random variable $Z\sim N(0,1)$, which has an expectation equal to 0, and variance (for us: precision) of 1. {numref}`standard` shows the corresponding PDF.
 
-```{figure} ../figures/ObservationTheory/05_standard.png
+```{figure} ./figures/05_standard.png
 ---
 height: 250px
 name: standard
@@ -39,7 +39,7 @@ $$
 
 If we choose a certain value for $\alpha$ we can thus find the value of $k$ using the inverse CDF, e.g., with $\alpha = 0.05$ we would obtain $k=1.96$.
 
-ADD CODE BLOCK TO SHOW
+MMMMM: ADD CODE BLOCK TO SHOW
 
 ## Confidence interval of observations
 
@@ -81,7 +81,7 @@ So far we considered the confidence level of a single random error. If we have m
 
 {numref}`CI` shows how the confidence intervals can be visualized as error bars for the corresponding observations $y_i$.
 
-```{figure} ../figures/ObservationTheory/05_CI.png
+```{figure} ./figures/05_CI.png
 ---
 height: 350px
 name: CI
@@ -119,7 +119,7 @@ where $k$ is determined by the chosen confidence level.
 
 {numref}`CI_model` shows a visualization of the confidence interval of the *predicted* observations, i.e., the fitted model.
 
-```{figure} ../figures/ObservationTheory/05_CI_model.png
+```{figure} ./figures/05_CI_model.png
 ---
 height: 350px
 name: CI_model
@@ -134,7 +134,7 @@ As can be seen from the expression $\Sigma_{\hat{X}}=(\mathrm{A^T} \Sigma_Y^{-1}
 * design matrix $\mathrm{A}$: proper design of the measurement set-up can improve the precision
 * covariance matrix $\Sigma_Y$: more precise observations will result in more precise estimates
 
-Not immediately clear from the expression is that also the redundancy is an important factor: more observations will improve the precision, due to the averaging of the random errors (if $m$ large enough, the mean error will go to zero).
+Not immediately clear from the expression is that also the redundancy ($=m-n$) is an important factor: more observations will improve the precision, due to the averaging of the random errors (if $m$ large enough, the mean error will go to zero).
 
-MMM
+MMMMM
 NOTEBOOK to show this.

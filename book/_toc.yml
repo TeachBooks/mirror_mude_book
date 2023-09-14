@@ -30,8 +30,13 @@ parts:
       - file: propagation_uncertainty/01_ErrorPropagation.md
       - file: propagation_uncertainty/02_LinearPropagation.md
     # START REMOVE-FROM-PUBLISH
-    - file: observation_theory/overview
-      title: Observation Theory
+    - file: observation_theory/overview.md
+      sections:
+      - file: observation_theory/01_Introduction.md
+      - file: observation_theory/02_LeastSquares.md  
+        sections:
+        - file: observation_theory/02_LeastSquares_NB.ipynb  
+      - file: observation_theory/03_WeightedLSQ.md
     - file: numerical_analysis/overview
       title: Numerical Analysis
     - file: probability/overview
@@ -284,6 +289,7 @@ parts:
       - file: cookbook/benchmarks/benchmark_aux.ipynb
       - file: cookbook/benchmarks/benchmark_tags.ipynb
       - file: cookbook/benchmarks/benchmark_load.ipynb
+      - file: cookbook/benchmarks/benchmark_noexec.ipynb
     - file: cookbook/widgets.ipynb
     - file: cookbook/exercise_checking.ipynb
     - file: cookbook/interactive_templates

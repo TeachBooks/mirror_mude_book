@@ -62,7 +62,7 @@ repeat the process with $\mathrm{x}_{[1]}=\mathrm{x}_{[0]}+\Delta \hat{X}_{[0]}$
 
 See {numref}`gn` for an illustration of the iterative procedure, referred to as the Gauss-Newton iteration.
 
-```{figure} ../figures/ObservationTheory/07_gn.png
+```{figure} ./figures/07_gn.png
 ---
 height: 250px
 name: gn
