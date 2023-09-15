@@ -1,4 +1,4 @@
-# Best linear unbiased estimation
+## Best linear unbiased estimation
 Best Linear Unbiased estimation (BLUE) is based on a fundamentally different  principle than (weighted) least-squares (WLS), it can be regarded as a special case of WLS.
 
 Comparing the weighted least-squares estimator:
@@ -51,7 +51,7 @@ $$
 ```
 :::
 
-## Video
+### Video
 
 ```{eval-rst}
 .. raw:: html
@@ -59,7 +59,7 @@ $$
     <iframe width="560" height="315" src="https://www.youtube.com/embed/EIZvJrlxZhs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 
-## BLUE decomposed
+### BLUE decomposed
 In BLUE, Best Linear Unbiased Estimation, the parts of the acronym ‘B’, ‘L’, and ‘U’ refer to specific properties.
 
 *Linear* means that there is a linear (matrix) relation between the variables. Such linear relations imply that if we have a normally distributed vector $Y\sim N(\mathrm{Ax},\Sigma_Y)$, which is multiplied with a matrix $\mathrm{L}$, this product will be normally distributed as well:
@@ -92,7 +92,7 @@ $$
 (Note that this is equivalent to "minimum mean squared errors" $\mathbb{E}(\|\hat{X}-\mathrm{x}\|^2)$. )
 
 (04_cov)=
-## Covariance matrices of the BLU estimators
+### Covariance matrices of the BLU estimators
 The quality of the estimator is expressed by its covariance matrix. For the ‘best linear unbiased’ estimator of $\hat{X}$, $\hat{Y}$  and $\hat{\underline{e}}$ we (by applying the [linear covariance propagation laws](99_proplaw))
 
 $$
@@ -104,5 +104,5 @@ $$
 In summary, by applying the BLUE method, we can compute best estimators among all linear unbiased estimators, where ‘best’ is quantitatively expressed via the covariance matrix.
 
 
-## Additional note on the linearity condition of BLUE 
+### Additional note on the linearity condition of BLUE 
 The BLUE estimator is the best (or minimum variance) among all linear unbiased estimators. So if we drop the condition of linearity, then BLUE is not necessarily the best.  It means that there may be some other non-linear estimators that have even better precision than the BLUE. However, it can be proven that, in the case of normally distributed observations, the BLUE is also the best among all possible estimators. So we can say: for observations $Y$ that are normally distributed, the BLUE is BUE (best unbiased estimator). 

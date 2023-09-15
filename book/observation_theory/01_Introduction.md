@@ -147,7 +147,7 @@ $$
 Later we will see that the *redundancy* of our model plays an important role regarding the precision of our estimated parameters. For a model with $m$ observables and $n$ unknown parameters, the [redundancy](redundancy) is given by:
 
 $$
-\text{reduncany} = m-n
+\text{redundancy} = m-n
 $$
 
 this is true since we assume to work with $\mathrm{A}$-matrices (size $m\times n$) that have full column rank: $rank(\mathrm{A})=n$.

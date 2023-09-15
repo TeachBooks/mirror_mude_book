@@ -1,5 +1,6 @@
 (03_wls)=
 # Weighted least-squares estimation
+
 In ordinary least-squares estimation, we assume that all observations are equally important. In many cases this is not realistic, as observations may be obtained by different measurement systems, or under different circumstances. We want our methodology for least-squares estimation to be able to take this into account.
 
 We achieve this goal by introducing a weight matrix in the minimization problem:
@@ -29,6 +30,8 @@ $$
 \end{align*}
 $$
 
+To see the derivation, watch [the video](video_WLS).
+
 We also find the derived estimate $ \mathrm{\hat{y}} $ and $ \mathrm{\hat{\epsilon}} $:
 
 $$
@@ -47,6 +50,7 @@ $$
 
 :::
 
+(video_WLS)=
 ## Video
 ```{eval-rst}
 .. raw:: html

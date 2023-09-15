@@ -28,4 +28,5 @@ This is a new feature that we are actively working to incorporate in the MUDE te
 
 
 Updates:
+- Friday, Week 1.2: new exercises have been added to Sections 2.4 and 2.5
 - Monday, Week 1.2: correction in [pendulum problem](https://mude.citg.tudelft.nl/book/propagation_uncertainty/01_ErrorPropagation.html): $\pi$ changed to $\pi^2$
