@@ -1,4 +1,4 @@
-# Maximum Likelihood Estimation
+## Maximum Likelihood Estimation
 Maximum likelihood estimation is yet another estimation principle. In contrast to (weighted) least-squares and Best Linear Unbiased estimation, it relies on the probability distribution of the observables. Recall that for BLUE, we need to know the first two moments, given by the functional and stochastic model, respectively:
 
 $$
@@ -7,7 +7,7 @@ $$
 
 in order to estimate the unknown parameters $\mathrm{x}$. However, the solution $\hat{X}$ does not depend on the underlying distribution of $Y$.
 
-## Maximum likelihood principle
+### Maximum likelihood principle
 The principle of Maximum Likelihood estimation (MLE) is to find the *most likely* $\mathrm{x}$ given a realization $\mathrm{y}$ of the $Y$.
 
 This boils down to estimating the unknown parameters $\alpha$ of the underlying distribution, which means that the probability density function (PDF) is known apart from the $n$ parameters in $\alpha$. We will now distinguish between a PDF and likelihood function.
@@ -18,7 +18,7 @@ A *likelihood function* $L(\theta|\mathrm{y})$ is given for a certain realizatio
 
 Wiht MLE, the goal is to find the $\alpha$ which maximizes the likelihood function for the given realization $\mathrm{y}$.
 
-### Example exponential distribution:
+#### Example exponential distribution
 
 If $Y\sim \text{Exp}(\lambda)$, the goal would be to estimate $\lambda$ based on a realization $\mathrm{y_{obs}}$ of $Y$. The {numref}`MLEexp` shows the PDF of $Y$
 
@@ -36,7 +36,7 @@ name: MLEexp
 PDF and likelihood function for exponential distribution.
 ```
 
-## Maximum Likelihood estimator of $\mathrm{x}$
+### Maximum Likelihood estimator of $\mathrm{x}$
 We have that our observables are assumed to be normally distributed: $Y\sim N(\mathrm{Ax},\Sigma_Y)$, where $\mathrm{x}$ is unknown. The covariance matrix $\Sigma_Y$ is assumed to be known, for instance from a calibration campaign.
 
 ```{note}

@@ -30,6 +30,8 @@ $$
 \end{align*}
 $$
 
+To see the derivation, watch [the video](video_WLS), though you will not be asked to do this on the exam.
+
 We also find the derived estimate $ \mathrm{\hat{y}} $ and $ \mathrm{\hat{\epsilon}} $:
 
 $$
@@ -53,6 +55,10 @@ $$
 .. raw:: html
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/iJmkkz37EuU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+```{admonition} MUDE exam information
+:class: tip, dropdown
+You will not be asked to derive the weighted least-squares solution as shown in the video.
 ```
 
 ### Discussion on the weight matrix
