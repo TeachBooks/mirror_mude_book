@@ -37,6 +37,8 @@ parts:
         sections:
         - file: observation_theory/02_LeastSquares_NB.ipynb  
       - file: observation_theory/03_WeightedLSQ.md
+        sections:
+        - file: observation_theory/03_Notebook_WLS.ipynb 
     - file: numerical_analysis/overview
       title: Numerical Analysis
     - file: probability/overview
@@ -246,6 +248,8 @@ parts:
         sections:
         - file: sandbox/SanPart/ObservationTheory/02_LeastSquares_NB.ipynb  
       - file: sandbox/SanPart/ObservationTheory/03_WeightedLSQ.md
+        sections:
+        - file: sandbox/SanPart/ObservationTheory/03_Notebook_WLS.ipynb 
       - file: sandbox/SanPart/ObservationTheory/04_BLUE.md
       - file: sandbox/SanPart/ObservationTheory/05_Precision.md
       - file: sandbox/SanPart/ObservationTheory/06_MLE.md

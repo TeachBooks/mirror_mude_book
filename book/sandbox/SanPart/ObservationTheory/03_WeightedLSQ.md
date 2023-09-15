@@ -29,6 +29,8 @@ $$
 \end{align*}
 $$
 
+To see the derivation, watch [the video](video_WLS).
+
 We also find the derived estimate $ \mathrm{\hat{y}} $ and $ \mathrm{\hat{\epsilon}} $:
 
 $$
@@ -47,6 +49,7 @@ $$
 
 :::
 
+(video_WLS)=
 ## Video
 ```{eval-rst}
 .. raw:: html
