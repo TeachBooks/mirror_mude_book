@@ -54,7 +54,7 @@ $$
 \mathrm{\hat{\epsilon}=y-\hat{y}=y-A\hat{x}}
 $$
 
-We want this vector of residuals to be as small as possible (i.e., the minimum distance objective). The ‘least-squares’ principle attempts achieves this by minimizing (‘least’) the sum of the squared residuals (‘squares’).
+We want this vector of residuals to be as small as possible (i.e., the minimum distance objective). The ‘least-squares’ principle achieves this by minimizing (‘least’) the sum of the squared residuals (‘squares’).
 
 If we take the square-root of this sum, we find the length of the vector, also known as the *norm* of the vector. Thus, the various possible error vectors have a norm defined as:
 
