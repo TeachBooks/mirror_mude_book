@@ -1,5 +1,6 @@
 (03_wls)=
 ## Weighted least-squares estimation
+
 In ordinary least-squares estimation, we assume that all observations are equally important. In many cases this is not realistic, as observations may be obtained by different measurement systems, or under different circumstances. We want our methodology for least-squares estimation to be able to take this into account.
 
 We achieve this goal by introducing a weight matrix in the minimization problem:
@@ -61,9 +62,9 @@ You will not be asked to derive the weighted least-squares solution as shown in 
 ```
 
 ### Discussion on the weight matrix
-The weight matrix $\mathrm{W}$ expresses the (relative) weights between the observations. It is always a square matrix. The size of the weight matrix depends on the number of observations, $m$. The size of the weight matrix is $m\times m$. 
+The weight matrix $\mathrm{W}$ expresses the (relative) weights between the observations. It is always a square matrix. The size of the weight matrix depends on the number of observations, $m$. The size of the weight matrix is $m\times m$.
 
-If it is a unit matrix ($\mathrm{W=I}$), this implies that all observations have equal weight. Note that in this case the equations are equal to the ordinary least-squares solution. 
+If it is a unit matrix ($\mathrm{W=I}$), this implies that all observations have equal weight. Note that in this case the equations are equal to the ordinary least-squares solution.
 
 If it is a diagonal matrix, with different values on the diagonal, this implies that entries with a higher value correspond to the observations which are considered to be of more importance. If the weight matrix has non-zero elements on the off-diagonal positions, this implies that (some) observations are correlated.
 
