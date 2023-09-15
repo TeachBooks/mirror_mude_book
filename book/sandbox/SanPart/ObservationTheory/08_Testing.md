@@ -1,5 +1,5 @@
 (08_testing)=
-# Model testing
+## Model testing
 In Chapter [Precision and confidence intervals](05_precision) one part of the quality assessment was presented. But evaluating the precision does not tell us how well the model fits the data we collected. It might be that we worked with a wrong functional model (e.g., too simplistic), or a wrong stochastic model. Or it may be that our observations are affected by blunders or systematic biases. 
 
 In some cases, a first indication that something may be wrong can be obtained by plotting the observations and the fitted model together with the confidence intervals. If the residuals are large compared to the confidence interval, SEE EXAMPLE, this is obviously an indication that something is wrong. However, this is less straightforward for models with more than two unknown parameters. Moreover, the question remains: is the fit good enough or not? And if not, what is the underlying misspecification/error?
@@ -8,14 +8,14 @@ To answer these questions, we need to apply statistical hypothesis testing. In t
 * test for blunders or systematic biases in the observations;
 * test for misspecifications of the functional model and/or decide between two competing hypotheses regarding the functional model.
 
-## Statistical hypothesis testing: principle
+### Statistical hypothesis testing: principle
 Statistical hypothesis testing means that we apply a certain test to decide between two (or more) competing hypothesis regarding the underlying model (in our case the functional or stochastic model). Therefore we assume a nominal model, corresponding to the null hypothesis $\mathcal{H}_0$, and another model for the alternative hypothesis $\mathcal{H}_a$.
 
 An important note to be made here is that the null hypothesis is presumed to be true unless the data provides convincing evidence against it (i.e., there is significant misfit).
 
 > This is similar as in the court house: a defendant is presumed to be innocent until proven guilty based on convincing evidence.
 
-### Example laser distometer
+#### Example laser distometer
 We would like to test whether a laser distometer is well-calibrated, implying that the mean error of repeated measurements should be zero (null hypothesis). An alternative hypothesis in this case could be that all measurements are affected by a certain constant offset (i.e., systematic bias). We can also write this as:
 
 $$
@@ -29,7 +29,7 @@ $$
 
 The next step is then to define a so-called *test statistic* $T$ with a known distribution. Based on the actual observations, a realization of this test statistic can be computed and it can be assessed whether this realization is a likely outcome given the distribution. This can be illustrated based on the previous example.
 
-### Example laser distometer (continued)
+#### Example laser distometer (continued)
 Assuming that the random errors of the observed distances with the laser distometer are normally distributed with zero mean and standard deviation $\sigma$, a logical choice for the test statistic would be simply to use the mean error. To test whether the laser distometer is well-calibrated we measure a known distance $d$ $m$ times, such that we can calculate the errors $\epsilon_i = y_i - d$ ($i=1,\ldots,m$).
 
 We thus have for the null and alternative hypothesis:
