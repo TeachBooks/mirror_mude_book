@@ -38,6 +38,10 @@ parts:
       - file: observation_theory/03_WeightedLSQ.md
         sections:
         - file: observation_theory/03_Notebook_WLS.ipynb 
+      - file: observation_theory/04_BLUE.md
+      - file: observation_theory/05_Precision.md
+      - file: observation_theory/06_MLE.md
+      - file: observation_theory/99_NotationFormulas
     # START REMOVE-FROM-PUBLISH
     - file: numerical_analysis/overview
       title: Numerical Analysis
@@ -244,15 +248,6 @@ parts:
     - file: sandbox/SanPart/ObservationTheory/01_Introduction.md
       title: Sensing and Observation Theory
       sections:
-      - file: sandbox/SanPart/ObservationTheory/02_LeastSquares.md  
-        sections:
-        - file: sandbox/SanPart/ObservationTheory/02_LeastSquares_NB.ipynb  
-      - file: sandbox/SanPart/ObservationTheory/03_WeightedLSQ.md
-        sections:
-        - file: sandbox/SanPart/ObservationTheory/03_Notebook_WLS.ipynb 
-      - file: sandbox/SanPart/ObservationTheory/04_BLUE.md
-      - file: sandbox/SanPart/ObservationTheory/05_Precision.md
-      - file: sandbox/SanPart/ObservationTheory/06_MLE.md
       - file: sandbox/SanPart/ObservationTheory/07_NLSQ.md
       - file: sandbox/SanPart/ObservationTheory/08_Testing.md
       - file: sandbox/SanPart/ObservationTheory/09_TestingSandM.md

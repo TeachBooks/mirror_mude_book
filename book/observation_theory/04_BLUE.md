@@ -1,5 +1,6 @@
 ## Best linear unbiased estimation
-Best Linear Unbiased estimation (BLUE) is based on a fundamentally different  principle than (weighted) least-squares (WLS), it can be regarded as a special case of WLS.
+
+Best Linear Unbiased estimation (BLUE) is based on a fundamentally different  principle than (weighted) least-squares (WLS), but still it turns out to be a special case of WLS.
 
 Comparing the weighted least-squares estimator:
 
@@ -13,11 +14,11 @@ $$
 \hat{X}_{\text{BLU}}= (\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1} \mathrm{A^T} \Sigma_Y^{-1} Y
 $$
 
-We see that the weight matrix $\mathrm{W}$ is now replaced by the inverse of the covariance matrix $\Sigma_Y$.
+We see that the weight matrix $\mathrm{W}$ is now replaced by the inverse of the covariance matrix $\Sigma_Y$ (our stochastic model). 
 
 This makes sense intuitively: suppose the observables are all independent and thus uncorrelated, such that the covariance matrix is a diagonal matrix with the variances as its diagonal element. The weights for the individual observables are then equal to the inverse of their variances, which implies that a more precise observable (smaller variance) receives a larger weight.
 
-Taking this particular weight matrix, i.e., $\mathrm{W}=\Sigma_Y^{-1}$, has a special meaning. It has the “Best” property. This means that using this particular weight matrix, we obtain a linear estimator which has minimal variance. In other words, with this particular weight matrix we get the best possible estimator among all linear estimators, where ‘best’ represents optimal precision or minimal variance.
+Taking this particular weight matrix, i.e., $\mathrm{W}=\Sigma_Y^{-1}$, has a special meaning. It has the “Best” property. This means that using this particular weight matrix, we obtain a linear unbiased estimator which has minimal variance. In other words, with this particular weight matrix we get the best possible estimator among all linear unbiased estimators, where ‘best’ represents optimal precision or minimal variance.
 
 Given the BLU-estimator for $\hat{X}$, we can also find the BLU-estimators for $\hat{Y} =\mathrm{A}\hat{X}$,and for $\hat{\epsilon} =  Y-\hat{Y} $,
 
@@ -29,15 +30,19 @@ $$
 \hat{\epsilon}= Y-\mathrm{A}(\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1} \mathrm{A^T} \Sigma_Y^{-1} Y
 $$
 
-:::{card} Exercise
+:::{card} Exercise stochastic model
+
+<iframe src="https://tudelft.h5p.com/content/1292061604348573907/embed" aria-label="quiz_stochastic_model2" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+
+:::
+
+:::{card} Exercise least-squares versus BLUE
 
 Let's consider an estimation problem with $m$ observables and functional model $\mathbb{E}(Y)=\mathrm{Ax}$ and stochastic model $\Sigma_Y = \sigma^2 I_m$ (i.e., the covariance matrix is a scaled identity matrix). 
 
 Find the expressions for the ordinary (unweighted) least-squares estimator and the best linear unbiased estimator.
 
-True or False:
-
-The ordinary least-squares and best linear unbiased estimator are equal to each other if \(\Sigma_Y\) is a scaled identity matrix.
+**True or False:** The ordinary least-squares and best linear unbiased estimator are equal to each other if $\Sigma_Y$ is a scaled identity matrix?
 
 ```{admonition} Solution
 :class: tip, dropdown
@@ -60,6 +65,7 @@ $$
 ```
 
 ### BLUE decomposed
+
 In BLUE, Best Linear Unbiased Estimation, the parts of the acronym ‘B’, ‘L’, and ‘U’ refer to specific properties.
 
 *Linear* means that there is a linear (matrix) relation between the variables. Such linear relations imply that if we have a normally distributed vector $Y\sim N(\mathrm{Ax},\Sigma_Y)$, which is multiplied with a matrix $\mathrm{L}$, this product will be normally distributed as well:
@@ -93,7 +99,8 @@ $$
 
 (04_cov)=
 ### Covariance matrices of the BLU estimators
-The quality of the estimator is expressed by its covariance matrix. For the ‘best linear unbiased’ estimator of $\hat{X}$, $\hat{Y}$  and $\hat{\underline{e}}$ we (by applying the [linear covariance propagation laws](99_proplaw))
+
+The precision of the estimator is expressed by its covariance matrix. For the ‘best linear unbiased’ estimator of $\hat{X}$, $\hat{Y}$  and $\hat{\epsilon}$ we obtain (by applying the [linear covariance propagation laws](99_proplaw)):
 
 $$
 \begin{align*}
@@ -101,8 +108,14 @@ $$
 \Sigma_{\hat{\epsilon}} &= (\mathrm{I}_m - \mathrm{A} (\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1}\mathrm{A^T} \Sigma_Y^{-1}) \cdot \Sigma_Y \cdot (\mathrm{I}_m - \mathrm{A} (\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1}\mathrm{A^T} \Sigma_Y^{-1})^T \\ &= (\Sigma_Y - \mathrm{A}(\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1}\mathrm{A^T}) (\mathrm{I}_m -\Sigma_Y^{-1}\mathrm{A} (\mathrm{A^T} \Sigma_Y^{-1} \mathrm{A})^{-1}\mathrm{A^T})\\ &= \Sigma_Y - \Sigma_{\hat{Y}}-\Sigma_{\hat{Y}}+\Sigma_{\hat{Y}}\\ &= \Sigma_Y - \Sigma_{\hat{Y}}\end{align*}
 $$
 
-In summary, by applying the BLUE method, we can compute best estimators among all linear unbiased estimators, where ‘best’ is quantitatively expressed via the covariance matrix.
-
+In summary, by applying the BLUE method, we obtain the best estimator among all linear unbiased estimators, where ‘best’ is quantitatively expressed via the covariance matrix.
 
 ### Additional note on the linearity condition of BLUE 
-The BLUE estimator is the best (or minimum variance) among all linear unbiased estimators. So if we drop the condition of linearity, then BLUE is not necessarily the best.  It means that there may be some other non-linear estimators that have even better precision than the BLUE. However, it can be proven that, in the case of normally distributed observations, the BLUE is also the best among all possible estimators. So we can say: for observations $Y$ that are normally distributed, the BLUE is BUE (best unbiased estimator). 
+
+The BLUE estimator is the best (or minimum variance) among all linear unbiased estimators. However, if we drop the condition of linearity, then BLUE is not necessarily the best.  It means that there may be non-linear estimators that have even better precision than the BLUE. However, it can be proven that, in the case of normally distributed observations, the BLUE is also the best among all possible unbiased estimators. So we can say: for observations $Y$ that are normally distributed, the BLUE is BUE (best unbiased estimator). 
+
+:::{card} Exercises
+
+<iframe src="https://tudelft.h5p.com/content/1292062185757789447/embed" aria-label="quiz-RoC_glacier" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+
+:::
