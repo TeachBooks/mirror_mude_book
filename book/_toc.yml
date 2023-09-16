@@ -212,6 +212,7 @@ parts:
     - file: fundamentals/prob-background.md   
     - file: fundamentals/prob-rv.md
     - file: fundamentals/00_04_MeanVar
+    - file: fundamentals/Table_StandardNormal.md
     - file: fundamentals/eemc-stuff
 
   # START REMOVE-FROM-PUBLISH
