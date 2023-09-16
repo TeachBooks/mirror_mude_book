@@ -18,7 +18,7 @@ $$
 In the weighted least-squares approach, we now need to add weight matrix $\mathrm{W}$ to this pre-multiplication factor, i.e., $ \mathrm{A^T W}$, to obtain the normal equation:
 
 $$ 
-\mathrm{y=Ax} \; \rightarrow \; \mathrm{A^T W \; y = A^TW \; A x}
+\mathrm{y=Ax} \; \rightarrow \; \mathrm{A^T W \; y = A^T W \; A x}
 $$
 
 The normal matrix is now defined as $\mathrm{N=A^T W A}$. From this, assuming that the normal matrix $\mathrm{N}$ is invertible (non-singular) we find the weighted least-squares estimate $ \mathrm{\hat{x}} $, 
