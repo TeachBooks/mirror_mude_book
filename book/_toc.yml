@@ -40,6 +40,8 @@ parts:
         - file: observation_theory/03_Notebook_WLS.ipynb 
       - file: observation_theory/04_BLUE.md
       - file: observation_theory/05_Precision.md
+        sections:
+        - file: observation_theory/05_Notebook_ConfInt.ipynb 
       - file: observation_theory/06_MLE.md
       - file: observation_theory/99_NotationFormulas
     # START REMOVE-FROM-PUBLISH
