@@ -212,7 +212,13 @@ parts:
     - file: fundamentals/prob-background.md   
     - file: fundamentals/prob-rv.md
     - file: fundamentals/00_04_MeanVar
-    - file: fundamentals/Table_StandardNormal.md
+    - file: fundamentals/prob_tables/overview
+      title: Probability Tables
+      sections:
+      - file: fundamentals/prob_tables/normal
+        title: Normal
+      - file: fundamentals/prob_tables/chi2
+        title: Chi-Squared
     - file: fundamentals/eemc-stuff
 
   # START REMOVE-FROM-PUBLISH
