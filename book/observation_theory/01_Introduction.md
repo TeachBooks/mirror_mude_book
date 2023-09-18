@@ -115,7 +115,7 @@ The functional model of the step function can also be parameterized in terms of 
 :class: tip, dropdown
 
 $$
-\mathbb{E}(\begin{bmatrix} Y_1 \\ \vdots \\ Y_{i-1} \\ Y_i \\ \vdots \\ Y_m \end{bmatrix} )= \underset{\mathrm{A}}{\underbrace{\begin{bmatrix} 1 & 1 \\ \vdots & \vdots \\ 1 & 0 \\ 1 & 1 \\ \vdots & \vdots \\ 1& 1 \end{bmatrix}}}\underset{\mathrm{x}}{\underbrace{\begin{bmatrix} x_1 \\ s \end{bmatrix}}}
+\mathbb{E}(\begin{bmatrix} Y_1 \\ \vdots \\ Y_{i-1} \\ Y_i \\ \vdots \\ Y_m \end{bmatrix} )= \underset{\mathrm{A}}{\underbrace{\begin{bmatrix} 1 & 0 \\ \vdots & \vdots \\ 1 & 0 \\ 1 & 1 \\ \vdots & \vdots \\ 1& 1 \end{bmatrix}}}\underset{\mathrm{x}}{\underbrace{\begin{bmatrix} x_1 \\ s \end{bmatrix}}}
 $$
 
 ```
