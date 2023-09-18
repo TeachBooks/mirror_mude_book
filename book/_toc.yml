@@ -46,7 +46,17 @@ parts:
       - file: observation_theory/99_NotationFormulas
     # START REMOVE-FROM-PUBLISH
     - file: numerical_analysis/overview
-      title: Numerical Analysis
+      title: Numerical Methods
+      sections:
+        - file: numerical_methods/1-numerical-solns.ipynb
+        - file: numerical_methods/2-numerical-interp.ipynb
+        - file: numerical_methods/3-taylor-series.ipynb
+        - file: numerical_methods/4-numerical=derivatives.ipynb
+        - file: numerical_methods/5-simple-ODE-solver.ipynb
+        - file: numerical_methods/6-second-order-ODE-solver.ipynb
+        - file: numerical_methods/7-general-solvers.ipynb
+        - file: numerical_methods/8-implicit-ode-solver.ipynb
+
     - file: probability/overview
       title: Probability
     # END REMOVE-FROM-PUBLISH
