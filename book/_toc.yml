@@ -271,9 +271,6 @@ parts:
     - file: sandbox/1-5-NumericalMethods/1-numerical-solns.ipynb
     - file: sandbox/1-5-NumericalMethods/2-numerical-interp.ipynb
     - file: sandbox/1-5-NumericalMethods/3-taylor-series.ipynb
-
-  - caption: Introduction to Finite Difference
-    chapters:
     - file: sandbox/1-5-NumericalMethods/1-numerical-derivatives.ipynb
     - file: sandbox/1-5-NumericalMethods/2-simple-ODE-solver.ipynb
     - file: sandbox/1-5-NumericalMethods/3-second-order-ODE-solver.ipynb
