@@ -38,6 +38,12 @@ parts:
       - file: observation_theory/03_WeightedLSQ.md
         sections:
         - file: observation_theory/03_Notebook_WLS.ipynb 
+      - file: observation_theory/04_BLUE.md
+      - file: observation_theory/05_Precision.md
+        sections:
+        - file: observation_theory/05_Notebook_ConfInt.ipynb 
+      - file: observation_theory/06_MLE.md
+      - file: observation_theory/99_NotationFormulas
     # START REMOVE-FROM-PUBLISH
     - file: numerical_analysis/overview
       title: Numerical Analysis
@@ -208,19 +214,19 @@ parts:
     - file: fundamentals/prob-background.md   
     - file: fundamentals/prob-rv.md
     - file: fundamentals/00_04_MeanVar
+    - file: fundamentals/prob_tables/overview
+      title: Probability Tables
+      sections:
+      - file: fundamentals/prob_tables/normal
+        title: Normal
+      - file: fundamentals/prob_tables/chi2
+        title: Chi-Squared
     - file: fundamentals/eemc-stuff
 
   # START REMOVE-FROM-PUBLISH
   - caption: Sandbox
     chapters:
     - file: sandbox/blank
-    - file: sandbox/robert
-    - file: sandbox/prob/prob-intro
-      title: Probability
-      sections:
-      - file: sandbox/prob/prob-discrete
-      - file: sandbox/prob/prob-notation
-        title: Notation
     - file: sandbox/continuous/Reminder_intro.md
       sections:
       - file: sandbox/continuous/PDF_CDF
@@ -244,15 +250,6 @@ parts:
     - file: sandbox/SanPart/ObservationTheory/01_Introduction.md
       title: Sensing and Observation Theory
       sections:
-      - file: sandbox/SanPart/ObservationTheory/02_LeastSquares.md  
-        sections:
-        - file: sandbox/SanPart/ObservationTheory/02_LeastSquares_NB.ipynb  
-      - file: sandbox/SanPart/ObservationTheory/03_WeightedLSQ.md
-        sections:
-        - file: sandbox/SanPart/ObservationTheory/03_Notebook_WLS.ipynb 
-      - file: sandbox/SanPart/ObservationTheory/04_BLUE.md
-      - file: sandbox/SanPart/ObservationTheory/05_Precision.md
-      - file: sandbox/SanPart/ObservationTheory/06_MLE.md
       - file: sandbox/SanPart/ObservationTheory/07_NLSQ.md
       - file: sandbox/SanPart/ObservationTheory/08_Testing.md
       - file: sandbox/SanPart/ObservationTheory/09_TestingSandM.md

@@ -8,25 +8,25 @@ $$
 in order to estimate the unknown parameters $\mathrm{x}$. However, the solution $\hat{X}$ does not depend on the underlying distribution of $Y$.
 
 ### Maximum likelihood principle
-The principle of Maximum Likelihood estimation (MLE) is to find the *most likely* $\mathrm{x}$ given a realization $\mathrm{y}$ of the $Y$.
+The principle of Maximum Likelihood estimation (MLE) is to find the *most likely* $\mathrm{x}$ given a realization $\mathrm{y}$ of $Y$.
 
-This boils down to estimating the unknown parameters $\alpha$ of the underlying distribution, which means that the probability density function (PDF) is known apart from the $n$ parameters in $\alpha$. We will now distinguish between a PDF and likelihood function.
+This boils down to estimating the unknown parameters $\theta$ of the underlying distribution, which means that the probability density function (PDF) is known apart from the $n$ parameters in $\theta$. We will now distinguish between a PDF and likelihood function.
 
-A *probability density function* $f_Y(\mathrm{y}|\theta)$ is given as function of $\mathrm{y}$ and with $\theta$ known.
+The *probability density function* $f_Y(\mathrm{y}|\theta)$ is given as function of $\mathrm{y}$ and with $\theta$ known.
 
-A *likelihood function* $L(\theta|\mathrm{y})$ is given for a certain realization $\mathrm{y}$ as function of all possible values of $\alpha$.
+The *likelihood function* $L(\theta|\mathrm{y})$ is given for a certain realization $\mathrm{y}$ of $Y$ as function of all possible values of $\theta$.
 
-Wiht MLE, the goal is to find the $\alpha$ which maximizes the likelihood function for the given realization $\mathrm{y}$.
+Wiht MLE, the goal is to find the $\theta$ which maximizes the likelihood function for the given realization $\mathrm{y}$.
 
 #### Example exponential distribution
 
-If $Y\sim \text{Exp}(\lambda)$, the goal would be to estimate $\lambda$ based on a realization $\mathrm{y_{obs}}$ of $Y$. The {numref}`MLEexp` shows the PDF of $Y$
+If $Y\sim \text{Exp}(\lambda)$, the goal would be to estimate $\lambda$ based on a realization $\mathrm{y_{obs}}$ of $Y$. {numref}`MLEexp` shows the PDF of $Y$
 
 $$
 f_Y(\mathrm{y}|\lambda)=\lambda \exp(-\lambda \mathrm{y})
 $$
 
-for different possible values of $\lambda$. The likelihood function for the given $\mathrm{y_{obs}}$ is shown on the right-hand side. It is shown that for instance the likelihood value for $\lambda_1$ is equal to the corresponding density value in the left panel. The maximum likelihood estimate $\hat{\lambda}$ is the value for which the likelihood function is maximized, in this case $\hat{\lambda}=\lambda_2$, as shown in the figure.
+for different values of $\lambda$. The likelihood function for the given $\mathrm{y_{obs}}$ is shown on the right-hand side. It is shown that for instance the likelihood value for $\lambda_1$ is equal to the corresponding density value in the left panel. The maximum likelihood estimate $\hat{\lambda}$ is the value for which the likelihood function is maximized, in this case $\hat{\lambda}=\lambda_2$, as shown in the figure.
 
 ```{figure} ./figures/06_MLEexp.png
 ---
@@ -45,7 +45,7 @@ It is also possible to consider the case that $\Sigma_Y$ is not (completely) kno
 The likelihood function of the multivariate normal distribution is given by:
 
 $$
-L(\mathrm{Ax},\Sigma_Y|\mathrm{y})=\underset{c}{\underbrace{(\det{2\pi \Sigma_Y})^{-0.5}}}\exp(-\frac{1}{2}\mathrm{(y-Ax)^T} \Sigma_Y^{-1}(\mathrm{y-Ax})) 
+L(\mathrm{Ax},\Sigma_Y|\mathrm{y})=\underset{c}{\underbrace{(\det{2\pi \Sigma_Y})^{-0.5}}}\exp\left(-\frac{1}{2}\mathrm{(y-Ax)^T} \Sigma_Y^{-1}(\mathrm{y-Ax})\right) 
 $$
 
 Maximizing this likelihood function for $\mathrm{x}$ means that we have to find the $\mathrm{x}$ such that:
