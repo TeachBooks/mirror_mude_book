@@ -227,13 +227,6 @@ parts:
   - caption: Sandbox
     chapters:
     - file: sandbox/blank
-    - file: sandbox/robert
-    - file: sandbox/prob/prob-intro
-      title: Probability
-      sections:
-      - file: sandbox/prob/prob-discrete
-      - file: sandbox/prob/prob-notation
-        title: Notation
     - file: sandbox/continuous/Reminder_intro.md
       sections:
       - file: sandbox/continuous/PDF_CDF
