@@ -1,4 +1,4 @@
-# Hypothesis testing for Sensing and Monitoring
+## Hypothesis testing for Sensing and Monitoring
 Statistical hypothesis testing is applied for many applications and in different forms. Here, we will restrict ourselves to applications in observation theory with the following general form for the hypotheses:
 
 $$
@@ -16,9 +16,9 @@ Example for linear trend versus second-order polynomial
 
 ***
 
-## Testing procedure
+### Testing procedure
 
-### Step 1 is to apply BLUE for both the null and alternative hypothesis
+#### Step 1 is to apply BLUE for both the null and alternative hypothesis
 
 Under $\mathcal{H}_0$ we obtain the estimator of $\mathrm{x}$ and the residuals as:
 
@@ -45,7 +45,7 @@ $$
 
 with $m-n$ the redundancy (number of observations $m$ minus number of unknowns $n$). 
 
-MMM
+MMMMM
 link to Chi2 distribution section
 
 For the alternative hypothesis, the BLUE solution follows as:
@@ -59,7 +59,7 @@ $$
 
 where the subscript $_a$ is used to indicate that the solution is different from the one with the null hypothesis. Also, the corresponding weighted squared norm of residuals $\hat{\epsilon}_a^T\Sigma_Y^{-1}\hat{\epsilon}_a$ is to be computed.
 
-### Step 2: apply test
+#### Step 2: apply test
 As a test statistic to decide between $\mathcal{H}_0$ and $\mathcal{H}_a$ the difference between the weighted squared norms of residuals is used, which is known to have a Central $\chi^2$-distribution if $\mathcal{H}_0$ is true:
 
 $$
@@ -76,7 +76,7 @@ $$
 
 with $k_{\alpha}$ the threshold value based on a choice for the false alarm probability $\alpha$, see {numref}`chi2`
 
-```{figure} ../figures/ObservationTheory/09_chi2.png
+```{figure} ./figures/09_chi2.png
 ---
 height: 250px
 name: chi2
@@ -88,7 +88,7 @@ This test is known as the *Generalized Likelihood Ratio Test* (GLRT). It can be 
 
 Important to mention is that this is the *most powerful* test: no other test statistic can be found that would result in a larger [detection power](betagamma) $\gamma$ for the same $\alpha$.
 
-## Overall model test
+### Overall model test
 Many options for the alternative hypothesis are possible, but instead of immediately testing the null hypothesis against a very specific alternative, it common to first apply the so-called *overall model test* (OMT): it is a test which just focuses on the validity of $\mathcal{H}_0$ (how well do data and model fit) without having a specific $\mathcal{H}_a$ in mind. This is identical to choosing the alternative hypothesis as follows:
 
 $$
@@ -133,7 +133,7 @@ $$
 
 since $\hat{\epsilon}_a = 0$.
 
-## Estimation and testing procedure
+### Estimation and testing procedure
 If the OMT is accepted you are done and can present your estimation results, including precision and testing results. However, if the OMT is rejected, the next step would be to identify an alternative hypothesis that can be accepted. This might be an iterative procedure, since many options are possible for the alternative model.
 
 The complete procedure is:

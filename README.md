@@ -3,6 +3,8 @@
 **NOTES:**
 - use 5 M's (`MMMMM`) anywhere in MUDE repositories to mark to-do's for teachers and TA's. The idea is that you will use text search in VS Code or another platform to find them. Feel free to add your own letters or initials afterwards to make it easier to find certain things yourself or with a sub-team (e.g., `MMMMM-RL` for Robert).
 - ~~unless you want a notebook to execute when the jupyter book is built, you should include "_dont_execute" at the end of the file name. This means cell output in the notebook will be rendered in the JB HTML as-is once the document is saved.~~ book build changed to **not** run notebooks by default, so this is no longer needed - to see interactive stuff locally, run `build-book.sh` and follow instructions for the (local) Python server to use it
+- seems like you can't have single word titles for figures, otherwise the `numref` (and possibly similar commands) break; try including `-` or `_` symbols
+- using interactive widgets: if you don't do plt.show() at the end of the interactive function, it won't properly update the plots.
 - these notes will be incorporated in JB documentation sometime in the future
 
 **UPDATE FOR THOSE BUILDING THE BOOK:** _we've been adding a lot of functionality related to interactive features, for example, Python code that runs in your browser, and Tom has added some examples of the quiz features we can use in the Cookbook. You can still use the "normal" approach of building the book with_ `jupyter book build book` _but if you want to use the interactive features, see the instructions in the Live Code chapter of the Cookbook. If your book build with the "normal" is breaking due to package issues, simply run the following:_

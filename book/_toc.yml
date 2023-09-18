@@ -16,15 +16,50 @@ parts:
         title: Calibration, Validation & Verification
       - file: modelling/gof
         title: Goodness of Fit
+    # START REMOVE-FROM-PUBLISH
       - file: modelling/sensitivity
         title: Sensitivity Analysis
+    # END REMOVE-FROM-PUBLISH
+
+
     - file: propagation_uncertainty/overview
-    - file: observation_theory/overview
-      title: Observation Theory
+      sections:
+      - file: propagation_uncertainty/00a_CovCorr.md
+      - file: propagation_uncertainty/00b_MultivariateNormal
+      - file: propagation_uncertainty/uncertainty
+      - file: propagation_uncertainty/01_ErrorPropagation.md
+      - file: propagation_uncertainty/02_LinearPropagation.md
+    - file: observation_theory/overview.md
+      sections:
+      - file: observation_theory/01_Introduction.md
+      - file: observation_theory/02_LeastSquares.md  
+        sections:
+        - file: observation_theory/02_LeastSquares_NB.ipynb  
+      - file: observation_theory/03_WeightedLSQ.md
+        sections:
+        - file: observation_theory/03_Notebook_WLS.ipynb 
+      - file: observation_theory/04_BLUE.md
+      - file: observation_theory/05_Precision.md
+        sections:
+        - file: observation_theory/05_Notebook_ConfInt.ipynb 
+      - file: observation_theory/06_MLE.md
+      - file: observation_theory/99_NotationFormulas
+    # START REMOVE-FROM-PUBLISH
     - file: numerical_analysis/overview
-      title: Numerical Analysis
+      title: Numerical Methods
+      sections:
+        - file: numerical_methods/1-numerical-solns.ipynb
+        - file: numerical_methods/2-numerical-interp.ipynb
+        - file: numerical_methods/3-taylor-series.ipynb
+        - file: numerical_methods/4-numerical=derivatives.ipynb
+        - file: numerical_methods/5-simple-ODE-solver.ipynb
+        - file: numerical_methods/6-second-order-ODE-solver.ipynb
+        - file: numerical_methods/7-general-solvers.ipynb
+        - file: numerical_methods/8-implicit-ode-solver.ipynb
+
     - file: probability/overview
       title: Probability
+    # END REMOVE-FROM-PUBLISH
       
   # START REMOVE-FROM-PUBLISH
   - caption: Q2 Topics
@@ -165,6 +200,7 @@ parts:
       title: Overview
     - file: programming/golden_rules.ipynb
       title: The Golden Rules
+# START REMOVE-FROM-PUBLISH
     - file: programming/code/overview
       title: Computers & Code
       sections:
@@ -176,28 +212,31 @@ parts:
       title: Communication
       sections:
       - file: programming/communication/visualization
-
+# END REMOVE-FROM-PUBLISH
   - caption: Fundamental Concepts
     numbered: 2
     chapters: 
-    - file: fundamentals/overview
-    - file: fundamentals/taylor
-    - file: fundamentals/linear_algebra
-    - file: fundamentals/probability
+    - file: fundamentals/00_01a_PreMath
+    - file: fundamentals/00_01b_PreMath
+    - file: fundamentals/00_01c_PreMath
+    - file: fundamentals/00_02_PreMath
+    - file: fundamentals/00_03_PreMath
+    - file: fundamentals/prob-background.md   
+    - file: fundamentals/prob-rv.md
+    - file: fundamentals/00_04_MeanVar
+    - file: fundamentals/prob_tables/overview
+      title: Probability Tables
+      sections:
+      - file: fundamentals/prob_tables/normal
+        title: Normal
+      - file: fundamentals/prob_tables/chi2
+        title: Chi-Squared
+    - file: fundamentals/eemc-stuff
 
   # START REMOVE-FROM-PUBLISH
   - caption: Sandbox
     chapters:
     - file: sandbox/blank
-    - file: sandbox/robert
-    - file: sandbox/prob/prob-intro
-      title: Probability
-      sections:
-      - file: sandbox/prob/prob-background
-      - file: sandbox/prob/prob-rv
-      - file: sandbox/prob/prob-discrete
-      - file: sandbox/prob/prob-notation
-        title: Notation
     - file: sandbox/continuous/Reminder_intro.md
       sections:
       - file: sandbox/continuous/PDF_CDF
@@ -221,24 +260,10 @@ parts:
     - file: sandbox/SanPart/ObservationTheory/01_Introduction.md
       title: Sensing and Observation Theory
       sections:
-      - file: sandbox/SanPart/ObservationTheory/02_LeastSquares.md    
-      - file: sandbox/SanPart/ObservationTheory/03_WeightedLSQ.md
-      - file: sandbox/SanPart/ObservationTheory/04_BLUE.md
-      - file: sandbox/SanPart/ObservationTheory/05_Precision.md
-      - file: sandbox/SanPart/ObservationTheory/06_MLE.md
       - file: sandbox/SanPart/ObservationTheory/07_NLSQ.md
       - file: sandbox/SanPart/ObservationTheory/08_Testing.md
       - file: sandbox/SanPart/ObservationTheory/09_TestingSandM.md
       - file: sandbox/SanPart/ObservationTheory/99_NotationFormulas.md
-    - file: sandbox/SanPart/premath/00_00_PreMath.md
-      title: Pre-Math
-      sections:
-      - file: sandbox/SanPart/premath/00_01a_PreMath.md
-      - file: sandbox/SanPart/premath/00_01b_PreMath.md
-      - file: sandbox/SanPart/premath/00_01c_PreMath.md
-      - file: sandbox/SanPart/premath/00_02_PreMath.md
-      - file: sandbox/SanPart/premath/00_03_PreMath.md
-      - file: sandbox/functions_rand_vars/functions_dont_execute.ipynb
     - file: sandbox/dist_fit_example/overview
       title: Distribution Fitting Examples
       sections:
@@ -256,9 +281,6 @@ parts:
     - file: sandbox/1-5-NumericalMethods/1-numerical-solns.ipynb
     - file: sandbox/1-5-NumericalMethods/2-numerical-interp.ipynb
     - file: sandbox/1-5-NumericalMethods/3-taylor-series.ipynb
-
-  - caption: Introduction to Finite Difference
-    chapters:
     - file: sandbox/1-5-NumericalMethods/1-numerical-derivatives.ipynb
     - file: sandbox/1-5-NumericalMethods/2-simple-ODE-solver.ipynb
     - file: sandbox/1-5-NumericalMethods/3-second-order-ODE-solver.ipynb
@@ -275,6 +297,7 @@ parts:
       - file: cookbook/benchmarks/benchmark_aux.ipynb
       - file: cookbook/benchmarks/benchmark_tags.ipynb
       - file: cookbook/benchmarks/benchmark_load.ipynb
+      - file: cookbook/benchmarks/benchmark_noexec.ipynb
     - file: cookbook/widgets.ipynb
     - file: cookbook/exercise_checking.ipynb
     - file: cookbook/interactive_templates
