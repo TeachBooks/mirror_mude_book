@@ -208,6 +208,9 @@ parts:
       - file: programming/code/environments
     - file: programming/programs/overview
       title: Programs
+      sections:
+      - file: programming/git/git
+        title: git and GitLab
     - file: programming/communication/overview
       title: Communication
       sections:
