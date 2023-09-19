@@ -210,7 +210,6 @@ parts:
       title: Programs
       sections:
       - file: programming/programs/git/version_control
-        title: Version Control
       - file: programming/programs/git/git_gitlab
         title: git and GitLab
         sections:
@@ -223,6 +222,7 @@ parts:
       - file: programming/programs/debugging/overview
         title: Debugging and Testing
         sections:
+        - file: programming/programs/debugging/errors
         - file: programming/programs/debugging/debugging_2022
       - file: programming/programs/modules
     - file: programming/communication/overview
