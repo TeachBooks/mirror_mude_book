@@ -277,6 +277,8 @@ parts:
       title: Sensing and Observation Theory
       sections:
       - file: sandbox/SanPart/ObservationTheory/07_NLSQ.md
+        sections:
+        - file: sandbox/SanPart/ObservationTheory/07_Notebook_NLSQ.ipynb
       - file: sandbox/SanPart/ObservationTheory/08_Testing.md
       - file: sandbox/SanPart/ObservationTheory/09_TestingSandM.md
       - file: sandbox/SanPart/ObservationTheory/99_NotationFormulas.md
