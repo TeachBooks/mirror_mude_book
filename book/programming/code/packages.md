@@ -23,7 +23,7 @@ How to install packages
 
 Use conda. Always do it this way:
 
-```{admonition}
+```{admonition} conda
 code
 ```
 
