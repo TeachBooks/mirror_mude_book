@@ -46,7 +46,7 @@ parts:
       - file: observation_theory/99_NotationFormulas
     # START REMOVE-FROM-PUBLISH
     - file: numerical_methods/overview
-      title: Numerical Methods
+      title: Numerical Modelling
       sections:
         - file: numerical_methods/2-numerical-interp.ipynb
         - file: numerical_methods/3-taylor-series.ipynb
