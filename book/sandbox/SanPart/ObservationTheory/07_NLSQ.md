@@ -16,7 +16,7 @@ This system cannot be directly solved using the weighted least-squares or the be
 ```
 
 ### Linearization
-For the linearization we need the [first-order Taylor polynomial](PM_taylor), which gives the linear approximation of for instance the first observable $Y_1 = q_1(\mathrm{x})$ at $\mathrm{x}_{[0]}$ as:
+For the linearization we need the [first-order Taylor polynomial](PM_taylor), which gives the linear approximation of for instance the first observable $Y_1 = q_1(\mathrm{x})$ at $\mathrm{x}=\mathrm{x}_{[0]}$ as:
 
 $$
 Y_1\approx q_1( \mathrm{x}_{[0]})+ \partial_{x_1} q_1(\mathrm{x}_{[0]})\Delta \mathrm{x}_{[0]}+ \partial_{x_2} q_1(\mathrm{x}_{[0]})\Delta \mathrm{x}_{[0]}+ \ldots + \partial_{x_n} q_1(\mathrm{x}_{[0]})\Delta \mathrm{x}_{[0]}
@@ -30,7 +30,7 @@ $$
 \begin{align*} \Delta Y_{1[0]} &= Y_1- q_1(\mathrm{x}_{[0]}) \\ &\approx \left[ \partial_{x_1} q_1(\mathrm{x}_{[0]}) \quad \partial_{x_2} q_1(\mathrm{x}_{[0]}) \quad \ldots \quad \partial_{x_n} q_1(\mathrm{x}_{[0]})\right]\Delta \mathrm{x}_{[0]} \end{align*}
 $$
 
-which we refer to as the *observed-minus-computed* observable.
+which we refer to as the *observed-minus-computed* observable. Note that $\Delta \mathrm{x}_{[0]}$ is an $n\times 1$ vector.
 
 We can now obtain the linearized functional model:
 
@@ -54,9 +54,7 @@ $$
 \hat{X}=\mathrm{x}_{[0]}+\Delta \hat{X}_{[0]}
 $$
 
-However, the quality of the linear approximation depends very much on the closeness of $\mathrm{x}_{[0]}$ to $\mathrm{x}$. Therefore, instead we apply an iterative procedure.
-
-repeat the process with $\mathrm{x}_{[1]}=\mathrm{x}_{[0]}+\Delta \hat{X}_{[0]}$ as our new guess. This procedure is continued until the $\Delta \hat{\mathrm{x}}_{[i]}$ becomes small enough. This is called the Gauss-Newton iteration procedure, and is shown in the scheme below.
+However, the quality of the linear approximation depends very much on the closeness of $\mathrm{x}_{[0]}$ to $\mathrm{x}$. Therefore, instead we apply an iterative procedure, which meanse that we repeat the process with $\mathrm{x}_{[1]}=\mathrm{x}_{[0]}+\Delta \hat{X}_{[0]}$ as our new guess. This procedure is continued until the $\Delta \hat{\mathrm{x}}_{[i]}$ becomes small enough. This is called the Gauss-Newton iteration procedure, and is shown in the scheme below.
 
 ### Gauss-Newton iteration
 
@@ -87,9 +85,15 @@ $$
 
 The normal matrix $\mathrm{N}_{[i]}$ is used as a weight matrix, since it is equal to the inverse of the covariance matrix of the estimated $\Delta \hat{\mathrm{x}}_{[i]}$, and estimated parameters with small variance should have a relatively small deviation compared to parameters with large variance.
 
-The threshold $\delta$ must be set to a very small value, e.g., $10^{-8}$. 
+The threshold $\delta$ must be set to a very small value, e.g., $10^{-8}$.
 
 Once the stop criterion is met, we say that the solution *converged*, and the last solution $ \mathrm{x}_{[i+1]}$ is then finally used as our estimate of $\mathrm{x}$. 
+
+:::{card} Exercise
+
+<iframe src="https://tudelft.h5p.com/content/1292064774866067777/embed" aria-label="quiz_non-linear_LS" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+
+:::
 
 ### Remarks and properties
 There is no default recipe for making the initial guess $\mathrm{x}_{[0]}$; it must be made based on insight into the problem at hand. A good initial guess is important for two reasons:
@@ -103,6 +107,8 @@ $$
 \Sigma_{\hat{X}}=\left(\mathrm{J}_{[i]}^T \Sigma_{Y}^{-1} \mathrm{J}_{[i]} \right)^{-1}
 $$
 
-although this is not strictly true. The estimator $\hat X$ is namely NOT a best linear unbiased estimator of $x$ since we used a linear approximation. And since the estimator is not a linear estimator, it is not normally distributed. 
+although this is not strictly true. The estimator $\hat X$ is namely NOT a best linear unbiased estimator of $\mathrm{x}$ since we used a linear approximation. And since the estimator is not a linear estimator due to ignoring the higher-order terms, it is not normally distributed. 
 
 However, in practice the linear (first-order Taylor) approximation often works so well that the performance is very close to that of BLUE and we may assume the normal distribution.
+
+As a final note we would like to mention that the Gauss-Newton method is just one approach for solving a non-linear least-squares problem. In practice, especially for highly non-linear problems, the Levenberg-Marquardt method is often used. It can be considered as a refinement of the Gauss-Newton method with a higher chance of convergence.
