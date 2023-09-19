@@ -45,10 +45,9 @@ parts:
       - file: observation_theory/06_MLE.md
       - file: observation_theory/99_NotationFormulas
     # START REMOVE-FROM-PUBLISH
-    - file: numerical_analysis/overview
+    - file: numerical_methods/overview
       title: Numerical Methods
       sections:
-        - file: numerical_methods/1-numerical-solns.ipynb
         - file: numerical_methods/2-numerical-interp.ipynb
         - file: numerical_methods/3-taylor-series.ipynb
         - file: numerical_methods/4-numerical=derivatives.ipynb
