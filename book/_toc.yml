@@ -194,7 +194,7 @@ parts:
   # END REMOVE-FROM-PUBLISH
 
   - caption: Programming
-    numbered: 2
+    numbered: 3
     chapters:
     - file: programming/overview
       title: Overview
@@ -209,8 +209,22 @@ parts:
     - file: programming/programs/overview
       title: Programs
       sections:
-      - file: programming/git/git
+      - file: programming/programs/git/version_control
+        title: Version Control
+      - file: programming/programs/git/git_gitlab
         title: git and GitLab
+        sections:
+        - file: programming/programs/git/remote
+          title: Remote Repositories
+        - file: programming/programs/git/branch_merge
+        - file: programming/programs/git/merge_conflicts
+        - file: programming/programs/git/git_the_rest
+          title: The Rest
+      - file: programming/programs/debugging/overview
+        title: Debugging and Testing
+        sections:
+        - file: programming/programs/debugging/debugging_2022
+      - file: programming/programs/modules
     - file: programming/communication/overview
       title: Communication
       sections:
@@ -320,12 +334,8 @@ parts:
       - file: old/coding/1-1/1-1-solution.ipynb
       - file: old/coding/1-1/1-2-student.ipynb
       - file: old/coding/1-1/1-2-solution.ipynb
-    - file: old/coding/1-2-Golden_Rules.ipynb
-    - file: old/coding/1-3-git
     - file: old/coding/1-4/1-overview.md
       sections:
-      - file: old/coding/1-4/1-1-testing-student
-      - file: old/coding/1-4/1-1-testing-solution
       - file: old/coding/1-4/1-2-oop-student
       - file: old/coding/1-4/1-2-oop-solution
       - file: old/coding/1-4/1-3-modules-student
