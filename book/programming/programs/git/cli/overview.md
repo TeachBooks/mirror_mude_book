@@ -1,18 +1,16 @@
 # git and GitLab
 
-This chapter is an introductory tutorial on git and
-GitLab. We will start with teaching you how to use Git via command line
-interface and next we will cover the interaction with GitLab.
+There are two methods for using git and GitLab in MUDE:
+1. Using graphical user interface (GUI) tools, and
+2. Using command line interface (CLI) tools (**this Chapter**).
 
-Note: some of the sections in this document have "Optional" next to
-them. These sections cover bonus material, which is very interesting to
-go over, but it is not mandatory.
+**At minimum for MUDE, you should be able to use the GUI tools.** The CLI tools are provided for those who are interested in learning how git works, and using a larger subset of the git toolkit; this will help you later on in your career if you are interested in getting involved with software projects and/or collaborating with a group of engineers working on programs and code.
 
-***We strongly recommend that you complete the steps in this tutorial as
-well to familiarise yourself how this tool works instead of simply
-reading over the document. In addition, try to type the commands instead
-of copy-pasting them, so that you could memorise them and be more
-efficient in your work later.***
+This chapter will teach you how git works, as well as some particular workflows for working on distributed software projects with a team. We will start by teaching you how to use Git via command line interface then cover the interaction with GitLab.
+
+We strongly recommend that you complete the steps in this tutorial instead of simply reading over the document to familiarise yourself with how this tool works. In addition, try to type the commands instead of copy-pasting them, so that you could memorise them and be more efficient in your work later.
+
+This Chapter assumes you have already installed the git software, as described on the module website [Software page](https://mude.citg.tudelft.nl/software/git/).
 
 **What is git?**
 
@@ -26,7 +24,7 @@ GitLab is a cloud-based version control system built around git. It provides a l
 
 **What is GitHub?**
 
-GitHub is a competitor company to GitLab. It provides very similar services, but they are often called different names, or have slightly different features. Although we will not be using it directly, GitHub provides a free software that is very useful: GitHub Desktop! We will use this manage our git repositories on our computers, even though they are stored on Git**Lab**.
+GitHub is a competitor company to GitLab. It provides very similar services, but they are often called different names, or have slightly different features. Although we will not be using it directly, GitHub provides a free software that is very useful: **GitHub Desktop**! We will use this manage our git repositories on our computers, even though they are stored on Git**Lab**.
 
 
 ## Main concepts and terminology

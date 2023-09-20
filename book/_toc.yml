@@ -210,14 +210,18 @@ parts:
       title: Programs
       sections:
       - file: programming/programs/git/version_control
-      - file: programming/programs/git/git_gitlab
-        title: git and GitLab
+      - file: programming/programs/git/gui/overview
+        title: git and GitLab (GUI)
+      - file: programming/programs/git/cli/overview
+        title: git and GitLab (CLI)
         sections:
-        - file: programming/programs/git/remote
+        - file: programming/programs/git/cli/getting_started
+          title: Getting Started
+        - file: programming/programs/git/cli/remote
           title: Remote Repositories
-        - file: programming/programs/git/branch_merge
-        - file: programming/programs/git/merge_conflicts
-        - file: programming/programs/git/git_the_rest
+        - file: programming/programs/git/cli/branch_merge
+        - file: programming/programs/git/cli/merge_conflicts
+        - file: programming/programs/git/cli/git_the_rest
           title: The Rest
       - file: programming/programs/debugging/overview
         title: Debugging and Testing
