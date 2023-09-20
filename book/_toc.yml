@@ -281,6 +281,8 @@ parts:
         - file: sandbox/SanPart/ObservationTheory/07_Notebook_NLSQ.ipynb
       - file: sandbox/SanPart/ObservationTheory/08_Testing.md
       - file: sandbox/SanPart/ObservationTheory/09_TestingSandM.md
+        sections:
+        - file: sandbox/SanPart/ObservationTheory/09_Notebook_Testing.ipynb
       - file: sandbox/SanPart/ObservationTheory/99_NotationFormulas.md
     - file: sandbox/dist_fit_example/overview
       title: Distribution Fitting Examples

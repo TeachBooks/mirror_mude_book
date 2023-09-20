@@ -29,13 +29,13 @@ $$
 \end{align*}
 $$
 
-The residuals are important measure for the misfit between individual observations and the fitted model. Recall that BLUE provides us with the solution for $\mathrm{x}$ which minimizes the weighted squared norm of residuals $\hat{\epsilon}^T\Sigma_Y^{-1}\hat{\epsilon}$ (note that $\Sigma_Y=\Sigma_{\epsilon}$), see [Weighted least-squares estimation](03_wls), and it makes sense that this is a good measure for the discrepancy between data and model. This is especially clear if we consider (the common) case that $\Sigma_Y$ is a diagonal matrix with the variances $\sigma_i$ ($i=1,\ldots,m$) of the random errors on the diagonal, since then:
+The residuals are important to measure the misfit between individual observations and the fitted model. Recall that BLUE provides us with the solution for $\mathrm{x}$ which minimizes the weighted squared norm of residuals $\hat{\epsilon}^T\Sigma_Y^{-1}\hat{\epsilon}$ (note that $\Sigma_Y=\Sigma_{\epsilon}$), see [Weighted least-squares estimation](03_wls), and it makes sense that this is a good measure for the discrepancy between data and model. This is especially clear if we consider (the common) case that $\Sigma_Y$ is a diagonal matrix with the variances $\sigma^2_i$ ($i=1,\ldots,m$) of the random errors on the diagonal, since then:
 
 $$
 \hat{\epsilon}^T\Sigma_Y^{-1}\hat{\epsilon} = \sum_{i=1}^m \frac{\epsilon^2_i}{\sigma^2_i}
 $$
 
-This is thus the sum of *squared residuals* (= estimated errors) divided by the variance of the random errors.
+This is thus the sum of the *squared residuals* (= estimated errors) divided by the variance of the random errors.
 
 It can be shown that the distribution of the weighted squared norm of residuals is given by the central $\chi^2$-distribution:
 
@@ -66,7 +66,7 @@ $$
 T_q = \hat{\epsilon}^T\Sigma_Y^{-1}\hat{\epsilon}-\hat{\epsilon}_a^T\Sigma_Y^{-1}\hat{\epsilon}_a \sim \chi^2(q,0)
 $$
 
-where $q$ is equal to the number of additional parameters in $\mathcal{H}_a$.
+where $q$ is equal to the number of additional parameters in $\mathcal{H}_a$ (i.e., the length of the $\nabla$-vector).
 
 We would reject $\mathcal{H}_0$ if:
 
@@ -89,6 +89,7 @@ This test is known as the *Generalized Likelihood Ratio Test* (GLRT). It can be 
 Important to mention is that this is the *most powerful* test: no other test statistic can be found that would result in a larger [detection power](betagamma) $\gamma$ for the same $\alpha$.
 
 ### Overall model test
+
 Many options for the alternative hypothesis are possible, but instead of immediately testing the null hypothesis against a very specific alternative, it common to first apply the so-called *overall model test* (OMT): it is a test which just focuses on the validity of $\mathcal{H}_0$ (how well do data and model fit) without having a specific $\mathcal{H}_a$ in mind. This is identical to choosing the alternative hypothesis as follows:
 
 $$
@@ -134,6 +135,7 @@ $$
 since $\hat{\epsilon}_a = 0$.
 
 ### Estimation and testing procedure
+
 If the OMT is accepted you are done and can present your estimation results, including precision and testing results. However, if the OMT is rejected, the next step would be to identify an alternative hypothesis that can be accepted. This might be an iterative procedure, since many options are possible for the alternative model.
 
 The complete procedure is:
