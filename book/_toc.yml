@@ -312,20 +312,24 @@ parts:
     chapters:
     - file: cookbook/blank
     - file: cookbook/interactive_element
+      sections:
+      - file: cookbook/h5p_examples
+      - file: cookbook/theory_questions
     - file: cookbook/live_code
       sections:
-      - file: cookbook/benchmarks/benchmark_aux.ipynb
-      - file: cookbook/benchmarks/benchmark_tags.ipynb
-      - file: cookbook/benchmarks/benchmark_load.ipynb
-      - file: cookbook/benchmarks/benchmark_noexec.ipynb
-    - file: cookbook/widgets.ipynb
-    - file: cookbook/exercise_checking.ipynb
-    - file: cookbook/interactive_templates
-      sections:
-      - file: cookbook/example_gumbel.ipynb
-      - file: cookbook/example_quiz_interactive.ipynb
-      - file: cookbook/coding_theory_widgets.ipynb
-      - file: cookbook/theory_questions
+      - file: cookbook/widgets.ipynb
+      - file: cookbook/exercise_checking.ipynb
+      - file: cookbook/interactive_templates
+        sections:
+        - file: cookbook/example_gumbel.ipynb
+        - file: cookbook/example_quiz_interactive.ipynb
+        - file: cookbook/coding_theory_widgets.ipynb
+      - file: cookbook/benchmarks/benchmarks
+        sections:
+        - file: cookbook/benchmarks/benchmark_aux.ipynb
+        - file: cookbook/benchmarks/benchmark_tags.ipynb
+        - file: cookbook/benchmarks/benchmark_load.ipynb
+        - file: cookbook/benchmarks/benchmark_noexec.ipynb
 
  # Coding
   - caption: Coding (Last Year)

@@ -1,31 +1,23 @@
-# Live Code
+# Python-enabled interactivity
 
-Our book has been enable to run Python code live in the browser (thanks Max!). This page contains some installation instructions, and the other sections in this chapter provide some Benchmarks which illustrate the functionality that has been added (note that examples for how this functionality can be used in an educational context is still missing). See also the next chapter in the Cookbook, where Tom has implemented an example with widgets working in the browser!
+Our book has been enable to run Python code live in the browser (thanks Max!). This page contains some installation instructions, and the other sections in this chapter provide some benchmarks which illustrate the functionality that has been added.
 
-Detailed instructions will be added elsewhere later, but for now, try the following steps to use the interactive features on your local computer. If you would like to see them live on the MUDE website, create a Merge Request and tag Robert for review. Note that by the beginning of Q1 these examples will be moved to the generic Manual [here](https://interactivetextbooks.citg.tudelft.nl/intro.html).
+## Custom cell tags
+With the extended functionality of live code, additional cell tags have been developed to be added to cells in any .ipynb file, next to the [existing tags] of the jupyter book (https://jupyterbook.org/en/stable/content/metadata.html):
+- `disable-execution-cell` disables the ability to execute the cell when thebe is activated. This might be useful if you notebook file includes interactivity for only a part of the coding cells
+- `disable-execution-page` disable the ability to execute the entire page. This might be useful if you use python code for creating a page, but the code is not part of the actual content of the book.
+- `auto-execute-page`, automatically starts the thebe live coding functionality whenever the page is opened. This is particularly useful if you're using widgets on a page. At this moment, this tags doesn't work in combination with `thebe-remove-input-init`
+- `thebe-init`, directly starts running this cell as soon as the thebe live coding functionality starts.
+- `thebe-remove-input-init`, as `thebe-init` the cell is started directly as soon as the thebe live coding functionality starts. However, the input is not shown to the students (in static and interactive mode). The original `remove-input` tag will not work as it deletes the entire cell, so it can never be executed.
+- `keep-output` ...? Max?
 
 ## Instructions: local build
 
-1. build the book by running the shell script `build-book.sh` (type `./build-book.sh true` in the terminal)
-2. Open the book by going to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser, or use the "live" version of the book at [https://mude.citg.tudelft.nl/book-draft/](https://mude.citg.tudelft.nl/book-draft/)
-3. go to any page that is created from a Jupyter notebook
-4. in the top right, click "Live Code" in the rocket ship menu item ({fa}`rocket`)
+To test the fuctionality, you have to run a local server, otherwise the interactivity doens't work. So, you cannot just open the index.html file any more. This can be done with the following steps:
+1. build the book by running the shell script `build-book.sh` (type `./build-book.sh true` in the terminal). If you are using Windows you should use the Git Bash terminal. Set this as your default in VS Code, then open it using "New Terminal." If you have not already done so, you will need to allow Git Bash to use your Python libraries by running the command `conda init bash`.Run the shell script from `book/` (not `book/book/`) using `./build-book.sh`. You may notice that `build-book.sh` creates a Python server (`python -m http.server....`) if you include `true` in the command.; this is critical for getting the interactive code pages to work, you cannot just open the index.html file any more.
+2. Open the book by going to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser. You may need to reload the page once the rebuild is complete. You can do this on Chrome by right-clicking somewhere on the page, select "Inspect", open the "Network" tab, then reload with `CTRL+R`. Or try `ctrl`+`F5`
+3. Go to any page that is created from a Jupyter notebook
+4. In the top right, click "Live Code" in the rocket ship menu item ({fa}`rocket`)
 5. Once the message "Python interaction ready!" is displayed, you can run all the cells of the notebook!
-6. Check out the cool "add cell" button that Max added, this will be very useful for allowing students to experiment with Python without having to open up another software (e.g., Anaconda)
-7. Check out the benchmarks page, which illustrates 4 ways we can include auxiliary files in the book build and use them with the live code. _This will allow us to provide instant feedback to the students when running code! For example, using asserts to check that they got the right answer, and return string messages to confirm. This code will also be hidden from the students._
 
-Play around with this functionality and let Robert know if you run into any issues, or want to set up some exercises for students. Examples will be provided soon!
-
-## Using the Python Server
-
-You may notice that `build-book.sh` creates a Python server (`python -m http.server....`); this is critical for getting the interactive code pages to work, you cannot just open the index.html file any more. Otherwise, the edit-build-view workflow is the same, except you may need to reload the page once the rebuild is complete. You can do this on Chrome by right-clicking somewhere on the page, select "Inspect", open the "Network" tab, then reload with `CTRL+R`. You can also skip automatically running the server by not passing in `true` in the command.
-
-```{note}
-If you are using Windows you should use the Git Bash terminal. Set this as your default in VS Code, then open it using "New Terminal." If you have not already done so, you will need to allow Git Bash to use your Python libraries by running the command `conda init bash`.
-
-Run the shell script from `book/` (not `book/book/`) using `./build-book.sh`.
-```
-
-```{tableofcontents}
-
-```
+If you push to main, you can test the interactivity on the book-draft website as well.
