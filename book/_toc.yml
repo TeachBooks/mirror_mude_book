@@ -311,8 +311,8 @@ parts:
   - caption: MUDE Cookbook
     chapters:
     - file: cookbook/blank
-    - file: cookbook/interactive_element
     - file: cookbook/custom_download
+    - file: cookbook/interactive_element
     - file: cookbook/live_code
       sections:
       - file: cookbook/benchmarks/benchmark_aux.ipynb
