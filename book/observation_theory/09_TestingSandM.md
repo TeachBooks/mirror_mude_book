@@ -230,6 +230,16 @@ The test statistic is given by $T_q = \hat{\epsilon}^T\Sigma_Y^{-1}\hat{\epsilon
 ```
 :::
 
+{numref}`outlier` shows an example where on the left a linear trend is fitted to four observations without outliers. Here the overall model test would be accepted. On the right, the same example but with a bias of 10 mm added to the third observation. The bias has a large impact: the fitted line is pulled upwards with a much steeper slope. Consequently, the residuals of three observations become very large, which would result in a rejection of the overall model test. The green line shows the fitted model after removing the third observation.
+
+```{figure} ./figures/09_outlier.png
+---
+height: 300px
+name: outlier
+---
+Linear trend fitted to a set of four observations without (left) and with one outlier (right).
+```
+
 #### Model selection
 
 In some cases, you may immediately want to test between two competing models, for instance if you are interested in the height change of a point over time you may want to test a linear trend model (constant velocity) versus a model including a constant acceleration. In that case, the procedure would be:
