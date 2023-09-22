@@ -169,7 +169,7 @@ $$
 From this follows that the residuals become zero:
 
 $$
-\hat{\epsilon}_a = Y- \begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}\hat{X} = Y - \begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}\begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}^{-1}Y = 0
+\hat{\epsilon}_a = Y- \begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}\begin{bmatrix}\hat{X}_a \\ \hat{\nabla}\end{bmatrix} = Y - \begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}\begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}^{-1}Y = 0
 $$
 
 Hence, any alternative hypothesis for which the design matrix $\begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}$ is an $m\times m$ invertible matrix will result in residuals being equal to 0. This implies that any observed $\mathrm{y}$ will satisfy the alternative hypothesis, which can thus also be formulated as 
