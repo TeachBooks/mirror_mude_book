@@ -115,7 +115,7 @@ The functional model of the step function can also be parameterized in terms of 
 :class: tip, dropdown
 
 $$
-\mathbb{E}(\begin{bmatrix} Y_1 \\ \vdots \\ Y_{i-1} \\ Y_i \\ \vdots \\ Y_m \end{bmatrix} )= \underset{\mathrm{A}}{\underbrace{\begin{bmatrix} 1 & 1 \\ \vdots & \vdots \\ 1 & 0 \\ 1 & 1 \\ \vdots & \vdots \\ 1& 1 \end{bmatrix}}}\underset{\mathrm{x}}{\underbrace{\begin{bmatrix} x_1 \\ s \end{bmatrix}}}
+\mathbb{E}(\begin{bmatrix} Y_1 \\ \vdots \\ Y_{i-1} \\ Y_i \\ \vdots \\ Y_m \end{bmatrix} )= \underset{\mathrm{A}}{\underbrace{\begin{bmatrix} 1 & 0 \\ \vdots & \vdots \\ 1 & 0 \\ 1 & 1 \\ \vdots & \vdots \\ 1& 1 \end{bmatrix}}}\underset{\mathrm{x}}{\underbrace{\begin{bmatrix} x_1 \\ s \end{bmatrix}}}
 $$
 
 ```
@@ -125,6 +125,7 @@ $$
 <iframe src="https://tudelft.h5p.com/content/1292060588665722877/embed" aria-label="Quiz_subduction" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
 :::
 
+(positioning)=
 #### Positioning model
 As a final example we will consider a non-linear functional model for estimating the unknown position $\mathrm{x}=\begin{bmatrix} x, y, z\end{bmatrix}^T$ of a satellite. The observables are distance measured with laser ranging from $m$ ground stations at known positions $\begin{bmatrix} x_i, y_i, z_i\end{bmatrix}^T$.
 

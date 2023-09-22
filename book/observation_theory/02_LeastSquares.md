@@ -64,7 +64,7 @@ $$
 
 Finding the minimum of (a) the sum of the squared differences, or (b) the square-root of the sum of the squared differences, yields the same result, since both terms are always positive or zero.
 
-If we find this minimum, the corresponding solution $\mathrm{\hat{x}}$ is than the least-squares solution of the system of observation equations. In mathematical terms this is written as
+If we find this minimum, the corresponding solution $\mathrm{\hat{x}}$ is the least-squares solution of the system of observation equations. In mathematical terms this is written as
 
 $$
 \mathrm{\hat{x}} = \arg \underset{\mathrm{x}}{\min} \left \| \epsilon \right \|^2= \arg \underset{x}{\min} {(\epsilon^T\epsilon)}
