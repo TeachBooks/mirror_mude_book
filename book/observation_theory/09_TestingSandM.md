@@ -169,7 +169,7 @@ $$
 From this follows that the residuals become zero:
 
 $$
-\hat{\epsilon}_a = Y- \begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}\hat{X} = Y - \begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}\begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}^{-1}Y = 0
+\hat{\epsilon}_a = Y- \begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}\begin{bmatrix}\hat{X}_a \\ \hat{\nabla}\end{bmatrix} = Y - \begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}\begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}^{-1}Y = 0
 $$
 
 Hence, any alternative hypothesis for which the design matrix $\begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}$ is an $m\times m$ invertible matrix will result in residuals being equal to 0. This implies that any observed $\mathrm{y}$ will satisfy the alternative hypothesis, which can thus also be formulated as 
@@ -212,7 +212,35 @@ The complete procedure is:
 7. If alternative hypothesis accepted go to step 8; if rejected go back to step 5
 8. Present estimates, precision and testing results
 
-See the examples of [common alternative hypotheses](althyp). Note that if you want to test for an outlier in an individual observation, there are in fact $m$ alternative hypotheses to be considered. In that case, in step 6 we would apply the test for all $m$ hypotheses and the one with the largest test statistic would be selected.
+See the examples of [common alternative hypotheses](althyp). 
+
+#### Outlier testing
+
+Note that if you want to test for an outlier in an individual observation, there are in fact $m$ alternative hypotheses to be considered. In that case, in step 6 we would apply the test for all $m$ hypotheses and the one with the largest test statistic would be selected. However, it could be that there is more than one outlier. Therefore we would remove the outlying observation and go back to step 1. This procedure is repeated until no more outliers can be identified.
+
+:::{card} Exercise
+
+Why would you select the alternative model with the largest test statistic?
+
+```{admonition} Solution
+:class: tip, dropdown
+
+The test statistic is given by $T_q = \hat{\epsilon}^T\Sigma_Y^{-1}\hat{\epsilon}-\hat{\epsilon}_a^T\Sigma_Y^{-1}\hat{\epsilon}_a $. Hence,the alternative hypothesis with largest $T_q$ must have the smallest weighted squared norm of residuals $\hat{\epsilon}_a^T\Sigma_Y^{-1}\hat{\epsilon}_a $, and thus the best fit in a weighted least-squares sense.
+
+```
+:::
+
+{numref}`outlier` shows an example where on the left a linear trend is fitted to four observations without outliers. Here the overall model test would be accepted. On the right, the same example but with a bias of 10 mm added to the third observation. The bias has a large impact: the fitted line is pulled upwards with a much steeper slope. Consequently, the residuals of three observations become very large, which would result in a rejection of the overall model test. The green line shows the fitted model after removing the third observation.
+
+```{figure} ./figures/09_outlier.png
+---
+height: 300px
+name: outlier
+---
+Linear trend fitted to a set of four observations without (left) and with one outlier (right).
+```
+
+#### Model selection
 
 In some cases, you may immediately want to test between two competing models, for instance if you are interested in the height change of a point over time you may want to test a linear trend model (constant velocity) versus a model including a constant acceleration. In that case, the procedure would be:
 1. Define the functional and stochastic models (under $\mathcal{H}_0$ and $\mathcal{H}_a$)
