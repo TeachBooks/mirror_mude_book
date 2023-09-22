@@ -8,6 +8,31 @@ $$
 
 This system cannot be directly solved using the weighted least-squares or the best linear unbiased estimators. Here, we will introduce the non-linear least-squares principle, based on a linearization of the system of equations. 
 
+One example of a non-linear problem is the [positioning model](positioning).
+
+(volcano_example)=
+:::{card} Example volcano deformation
+
+Observable $Y_i$ is deformation rate at known location $(x_i,y_i)$ due to an unknown volume change $\Delta V$ of a magma chamber at unknown depth $d$. The observation equation according to the so-called Mogi model would be:
+
+$$
+\mathbb{E} ( Y_i)=q_i(\Delta V, d, x_s, y_s)=\frac{0.73\Delta V}{\pi d^2} \left(1 + \frac{1}{d^2}\left((x_i − x_s)^2 + (y_i − y_s)^2\right)\right)^{-3/2}
+$$
+
+where $(x_s,y_s)$ are the unknown horizontal coordinates of the centre of the magma chamber. This observation equation is non-linear in three out of the four unknowns.
+
+{numref}`volcano_obs` shows a spatial dataset with 10,000 observed deformation rates above a magma chamber. Hence we have a system of 10,000 non-linear observation equations in four unknowns. How to solve it?
+
+```{figure} ./figures/07_volcano_obs.png
+---
+height: 300px
+name: volcano_obs
+---
+Observed deformation rates above a magma chamber.
+```
+
+:::
+
 ### Video
 ```{eval-rst}
 .. raw:: html
