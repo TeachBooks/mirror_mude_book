@@ -43,7 +43,6 @@ parts:
         sections:
         - file: observation_theory/05_Notebook_ConfInt.ipynb 
       - file: observation_theory/06_MLE.md
-      # START REMOVE-FROM-PUBLISH
       - file: observation_theory/07_NLSQ.md
         sections:
         - file: observation_theory/07_Notebook_NLSQ.ipynb
@@ -52,7 +51,6 @@ parts:
         sections:
         - file: observation_theory/09_Notebook_Testing.ipynb
       - file: observation_theory/99_NotationFormulas
-      # END REMOVE-FROM-PUBLISH
     # START REMOVE-FROM-PUBLISH
     - file: numerical_methods/overview
       title: Numerical Modelling
@@ -282,17 +280,6 @@ parts:
       - file: sandbox/continuous/MLE_1.ipynb
       - file: sandbox/continuous/GOF
       - file: sandbox/continuous/GOF_quiz.md
-    - file: sandbox/SanPart/ObservationTheory/01_Introduction.md
-      title: Sensing and Observation Theory
-      sections:
-      # - file: sandbox/SanPart/ObservationTheory/07_NLSQ.md
-      #   sections:
-      #   - file: sandbox/SanPart/ObservationTheory/07_Notebook_NLSQ.ipynb
-      # - file: sandbox/SanPart/ObservationTheory/08_Testing.md
-      # - file: sandbox/SanPart/ObservationTheory/09_TestingSandM.md
-        # sections:
-        # - file: sandbox/SanPart/ObservationTheory/09_Notebook_Testing.ipynb
-      - file: sandbox/SanPart/ObservationTheory/99_NotationFormulas.md
     - file: sandbox/dist_fit_example/overview
       title: Distribution Fitting Examples
       sections:

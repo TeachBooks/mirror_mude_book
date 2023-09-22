@@ -212,7 +212,25 @@ The complete procedure is:
 7. If alternative hypothesis accepted go to step 8; if rejected go back to step 5
 8. Present estimates, precision and testing results
 
-See the examples of [common alternative hypotheses](althyp). Note that if you want to test for an outlier in an individual observation, there are in fact $m$ alternative hypotheses to be considered. In that case, in step 6 we would apply the test for all $m$ hypotheses and the one with the largest test statistic would be selected.
+See the examples of [common alternative hypotheses](althyp). 
+
+#### Outlier testing
+
+Note that if you want to test for an outlier in an individual observation, there are in fact $m$ alternative hypotheses to be considered. In that case, in step 6 we would apply the test for all $m$ hypotheses and the one with the largest test statistic would be selected. However, it could be that there is more than one outlier. Therefore we would remove the outlying observation and go back to step 1. This procedure is repeated until no more outliers can be identified.
+
+:::{card} Exercise
+
+Why would you select the alternative model with the largest test statistic?
+
+```{admonition} Solution
+:class: tip, dropdown
+
+The test statistic is given by $T_q = \hat{\epsilon}^T\Sigma_Y^{-1}\hat{\epsilon}-\hat{\epsilon}_a^T\Sigma_Y^{-1}\hat{\epsilon}_a $. Hence,the alternative hypothesis with largest $T_q$ must have the smallest weighted squared norm of residuals $\hat{\epsilon}_a^T\Sigma_Y^{-1}\hat{\epsilon}_a $, and thus the best fit in a weighted least-squares sense.
+
+```
+:::
+
+#### Model selection
 
 In some cases, you may immediately want to test between two competing models, for instance if you are interested in the height change of a point over time you may want to test a linear trend model (constant velocity) versus a model including a constant acceleration. In that case, the procedure would be:
 1. Define the functional and stochastic models (under $\mathcal{H}_0$ and $\mathcal{H}_a$)

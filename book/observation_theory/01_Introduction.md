@@ -125,6 +125,7 @@ $$
 <iframe src="https://tudelft.h5p.com/content/1292060588665722877/embed" aria-label="Quiz_subduction" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
 :::
 
+(positioning)=
 #### Positioning model
 As a final example we will consider a non-linear functional model for estimating the unknown position $\mathrm{x}=\begin{bmatrix} x, y, z\end{bmatrix}^T$ of a satellite. The observables are distance measured with laser ranging from $m$ ground stations at known positions $\begin{bmatrix} x_i, y_i, z_i\end{bmatrix}^T$.
 
