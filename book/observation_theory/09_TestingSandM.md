@@ -169,7 +169,7 @@ $$
 From this follows that the residuals become zero:
 
 $$
-\hat{\epsilon}_a = Y- \begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}\hat{X} = Y - \begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}\begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}^{-1}Y = 0
+\hat{\epsilon}_a = Y- \begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}\begin{bmatrix}\hat{X}_a \\ \hat{\nabla}\end{bmatrix} = Y - \begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}\begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}^{-1}Y = 0
 $$
 
 Hence, any alternative hypothesis for which the design matrix $\begin{bmatrix}\mathrm{A}&\mathrm{C}\end{bmatrix}$ is an $m\times m$ invertible matrix will result in residuals being equal to 0. This implies that any observed $\mathrm{y}$ will satisfy the alternative hypothesis, which can thus also be formulated as 
@@ -229,6 +229,16 @@ The test statistic is given by $T_q = \hat{\epsilon}^T\Sigma_Y^{-1}\hat{\epsilon
 
 ```
 :::
+
+{numref}`outlier` shows an example where on the left a linear trend is fitted to four observations without outliers. Here the overall model test would be accepted. On the right, the same example but with a bias of 10 mm added to the third observation. The bias has a large impact: the fitted line is pulled upwards with a much steeper slope. Consequently, the residuals of three observations become very large, which would result in a rejection of the overall model test. The green line shows the fitted model after removing the third observation.
+
+```{figure} ./figures/09_outlier.png
+---
+height: 300px
+name: outlier
+---
+Linear trend fitted to a set of four observations without (left) and with one outlier (right).
+```
 
 #### Model selection
 
