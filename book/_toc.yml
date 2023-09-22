@@ -43,12 +43,20 @@ parts:
         sections:
         - file: observation_theory/05_Notebook_ConfInt.ipynb 
       - file: observation_theory/06_MLE.md
+      # START REMOVE-FROM-PUBLISH
+      - file: observation_theory/07_NLSQ.md
+        sections:
+        - file: observation_theory/07_Notebook_NLSQ.ipynb
+      - file: observation_theory/08_Testing.md
+      - file: observation_theory/09_TestingSandM.md
+        sections:
+        - file: observation_theory/09_Notebook_Testing.ipynb
       - file: observation_theory/99_NotationFormulas
+      # END REMOVE-FROM-PUBLISH
     # START REMOVE-FROM-PUBLISH
-    - file: numerical_analysis/overview
-      title: Numerical Methods
+    - file: numerical_methods/overview
+      title: Numerical Modelling
       sections:
-        - file: numerical_methods/1-numerical-solns.ipynb
         - file: numerical_methods/2-numerical-interp.ipynb
         - file: numerical_methods/3-taylor-series.ipynb
         - file: numerical_methods/4-numerical=derivatives.ipynb
@@ -281,9 +289,13 @@ parts:
     - file: sandbox/SanPart/ObservationTheory/01_Introduction.md
       title: Sensing and Observation Theory
       sections:
-      - file: sandbox/SanPart/ObservationTheory/07_NLSQ.md
-      - file: sandbox/SanPart/ObservationTheory/08_Testing.md
-      - file: sandbox/SanPart/ObservationTheory/09_TestingSandM.md
+      # - file: sandbox/SanPart/ObservationTheory/07_NLSQ.md
+      #   sections:
+      #   - file: sandbox/SanPart/ObservationTheory/07_Notebook_NLSQ.ipynb
+      # - file: sandbox/SanPart/ObservationTheory/08_Testing.md
+      # - file: sandbox/SanPart/ObservationTheory/09_TestingSandM.md
+        # sections:
+        # - file: sandbox/SanPart/ObservationTheory/09_Notebook_Testing.ipynb
       - file: sandbox/SanPart/ObservationTheory/99_NotationFormulas.md
     - file: sandbox/dist_fit_example/overview
       title: Distribution Fitting Examples

@@ -54,7 +54,7 @@ $$
 \hat{X}=\mathrm{x}_{[0]}+\Delta \hat{X}_{[0]}
 $$
 
-However, the quality of the linear approximation depends very much on the closeness of $\mathrm{x}_{[0]}$ to $\mathrm{x}$. Therefore, instead we apply an iterative procedure, which meanse that we repeat the process with $\mathrm{x}_{[1]}=\mathrm{x}_{[0]}+\Delta \hat{X}_{[0]}$ as our new guess. This procedure is continued until the $\Delta \hat{\mathrm{x}}_{[i]}$ becomes small enough. This is called the Gauss-Newton iteration procedure, and is shown in the scheme below.
+However, the quality of the linear approximation depends very much on the closeness of $\mathrm{x}_{[0]}$ to $\mathrm{x}$. Therefore, instead we apply an iterative procedure, which means that we repeat the process with $\mathrm{x}_{[1]}=\mathrm{x}_{[0]}+\Delta \hat{X}_{[0]}$ as our new guess. This procedure is continued until the $\Delta \hat{\mathrm{x}}_{[i]}$ becomes small enough. This is called the Gauss-Newton iteration procedure, and is shown in the scheme below.
 
 ### Gauss-Newton iteration
 
