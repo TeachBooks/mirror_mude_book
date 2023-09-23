@@ -50,6 +50,7 @@ parts:
       - file: observation_theory/09_TestingSandM.md
         sections:
         - file: observation_theory/09_Notebook_Testing.ipynb
+        - file: observation_theory/09_Notebook_OMT.ipynb
       - file: observation_theory/99_NotationFormulas
     # START REMOVE-FROM-PUBLISH
     - file: numerical_methods/overview
