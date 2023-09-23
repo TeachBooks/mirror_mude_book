@@ -50,6 +50,7 @@ parts:
       - file: observation_theory/09_TestingSandM.md
         sections:
         - file: observation_theory/09_Notebook_Testing.ipynb
+        - file: observation_theory/09_Notebook_OMT.ipynb
       - file: observation_theory/99_NotationFormulas
     # START REMOVE-FROM-PUBLISH
     - file: numerical_methods/overview
@@ -206,24 +207,32 @@ parts:
       title: Overview
     - file: programming/golden_rules.ipynb
       title: The Golden Rules
-# START REMOVE-FROM-PUBLISH
-    - file: programming/code/overview
-      title: Computers & Code
-      sections:
-      - file: programming/code/packages
-      - file: programming/code/environments
     - file: programming/programs/overview
       title: Programs
       sections:
       - file: programming/programs/git/version_control
-      - file: programming/programs/git/git_gitlab
-        title: git and GitLab
+      - file: programming/programs/git/gui/overview
+        title: git and GitLab (GUI)
         sections:
-        - file: programming/programs/git/remote
+        - file: programming/programs/git/gui/cloning
+          title: Cloning
+        - file: programming/programs/git/gui/commits_local
+          title: Local Commits
+        - file: programming/programs/git/gui/commits_remote
+          title: Remote Commits
+        - file: programming/programs/git/gui/fetch_pull
+          title: Fetch and Pull
+      - file: programming/programs/git/cli/overview
+        title: git and GitLab (CLI)
+        sections:
+        - file: programming/programs/git/cli/getting_started
+          title: Getting Started
+        - file: programming/programs/git/cli/remote
           title: Remote Repositories
-        - file: programming/programs/git/branch_merge
-        - file: programming/programs/git/merge_conflicts
-        - file: programming/programs/git/git_the_rest
+# START REMOVE-FROM-PUBLISH
+        - file: programming/programs/git/cli/branch_merge
+        - file: programming/programs/git/cli/merge_conflicts
+        - file: programming/programs/git/cli/git_the_rest
           title: The Rest
       - file: programming/programs/debugging/overview
         title: Debugging and Testing
@@ -235,6 +244,11 @@ parts:
       title: Communication
       sections:
       - file: programming/communication/visualization
+    - file: programming/code/overview
+      title: Computers & Code
+      sections:
+      - file: programming/code/packages
+      - file: programming/code/environments
 # END REMOVE-FROM-PUBLISH
   - caption: Fundamental Concepts
     numbered: 2
