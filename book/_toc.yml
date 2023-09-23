@@ -218,6 +218,15 @@ parts:
       - file: programming/programs/git/version_control
       - file: programming/programs/git/gui/overview
         title: git and GitLab (GUI)
+        sections:
+        - file: programming/programs/git/gui/cloning
+          title: Cloning
+        - file: programming/programs/git/gui/commits_local
+          title: Local Commits
+        - file: programming/programs/git/gui/commits_remote
+          title: Remote Commits
+        - file: programming/programs/git/gui/fetch_pull
+          title: Fetch and Pull
       - file: programming/programs/git/cli/overview
         title: git and GitLab (CLI)
         sections:

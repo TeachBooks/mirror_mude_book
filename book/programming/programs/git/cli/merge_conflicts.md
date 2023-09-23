@@ -3,35 +3,32 @@
 Merge conflicts arise when people on separate branches modify the same
 parts of one (or multiple) files. Since git does not know how to handle
 that and whose changes to consider, it prompts the user to decide
-instead (figure [34](#mconflict1){reference-type="ref"
-reference="mconflict1"}).
+instead ({numref}`mconflict1`).
 
-![Visualisation of a merge conflict](images/mconflict1.png)
+![Visualisation of a merge conflict](../images/mconflict1.png)
 
 Let us create a merge conflict ourselves:
 
 We will start by making a new branch `change-date-format`. We will
 checkout to it, modify the date format and make a commit as show in
-figure [35](#mconflict2){reference-type="ref" reference="mconflict2"}.
+figure {numref}`mconflict2`.
 
-![Committing the changes](images/mconflict2.png)
+![Committing the changes](../images/mconflict2.png)
 
 Next, we will return to `main` branch. We will edit the same line of the
-README.md and then checkout back to `change-date-format` branch (figure
-[36](#mconflict3){reference-type="ref" reference="mconflict3"}).
+README.md and then checkout back to `change-date-format` branch ({numref}`mconflict3`).
 
-In figure [37](#mconflict4){reference-type="ref" reference="mconflict4"}
+In figure {numref}`mconflict3`
 there is also a graph visualization.
 
-![Committing the changes](images/mconflict3.png)
+![Committing the changes](../images/mconflict3.png)
 
-![Graph visualisation](images/mconflict4.png)
+![Graph visualisation](../images/mconflict4.png)
 
 Finally, we will merge `main` into `change-date-format` and get a merge
-conflict as seen in figure [38](#mconflict5){reference-type="ref"
-reference="mconflict5"}, because we modify the same parts of the file.
+conflict as seen in figure {numref}`mconflict5`}, because we modify the same parts of the file.
 
-![Merge conflict](images/mconflict5.png)
+![Merge conflict](../images/mconflict5.png)
 
 The changes on the current branch are preceded by \<\<\<\<\<\<\< HEAD,
 while the changes from `main` branch are preceded by ======= and
@@ -43,8 +40,8 @@ just need to make a new commit. Note that the current branch is now in
 stage "MERGING". We have decided to take the best out of the 2 branches
 and merge their changes.
 
-![Completing the merge](images/mconflict6.png)
+![Completing the merge](../images/mconflict6.png)
 
 Thus, we have succeeded in dealing with a merge conflict! The graph in
-figure [39](#mconflict6){reference-type="ref" reference="mconflict6"}
+figure {numref}`mconflict6`
 displays how the 2 branches have now been merged.

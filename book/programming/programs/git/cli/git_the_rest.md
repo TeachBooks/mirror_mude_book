@@ -9,10 +9,9 @@
 
 
 We have previously mentioned the command `git log`, which gives a list
-of all commits (figure [40](#track1){reference-type="ref"
-reference="track1"}).
+of all commits ({numref}`track1`).
 
-![Results from `git log`](images/track1.png)
+![Results from `git log`](../images/track1.png)
 
 ## Git checkout -- recover old versions of a file (Optional) 
 
@@ -23,10 +22,9 @@ use the following format to achieve this:
 
     git checkout 448332d README.md
 
-![Recovery of old version](images/track2.png)
+![Recovery of old version](../images/track2.png)
 
-Notice in figure [41](#track2){reference-type="ref" reference="track2"}
-that because we included file name in the checkout command we have
+Notice in {numref}`track2` that because we included file name in the checkout command we have
 returned to a previous version of the file, however, we have not moved
 in the commit timeline, and we remain on our previous position in the
 graph.
@@ -49,11 +47,10 @@ commit HEAD points to:
 git checkout HEAD README.md
 ```
 
-![Cancelling staged and unstaged changes](images/track3.png)
+![Cancelling staged and unstaged changes](../images/track3.png)
 
 As previously mentioned, we do not move in the commit timeline since we
-have neither staged our changes nor moved in branches (figure
-[42](#track3){reference-type="ref" reference="track3"}).
+have neither staged our changes nor moved in branches ({numref}`track3`).
 
 ## Git blame (Optional) 
 
@@ -62,9 +59,9 @@ Another way to track who modified a specific file is via the command
 `git blame <file>`, where in `<file>` you put the file name and
 extension that you want to check. This way, you will get line-by-line
 information of who modified the line last, when and in which commit
-(figure [43](#track4){reference-type="ref" reference="track4"}).
+(figure {numref}`track4`).
 
-![Running `git blame`](images/track4.png)
+![Running `git blame`](../images/track4.png)
 
 # Reverting changes
 
@@ -85,7 +82,7 @@ reverting to the changes, to which parent commit you wish to revert.
 This situation is shown in the image [44](#revert1){reference-type="ref"
 reference="revert1"}.
 
-![Reverting changes](images/revert1.png)
+![Reverting changes](../images/revert1.png)
 
 When executing the `git log` command with argument -1, we can get the
 most recent commit. Since that commit is a merge commit, it has 2 parent
@@ -99,7 +96,7 @@ the commit message. If you wish to make no changes to the message, just
 write `:x` to close it (figure [45](#revert2){reference-type="ref"
 reference="revert2"}).
 
-![Revert commit message](images/revert2.png)
+![Revert commit message](../images/revert2.png)
 
 Since git is a version control system, when reverting changes, we are
 making a new commit for that. Run the command for graph visualization to
@@ -135,9 +132,9 @@ changes to the file(s).
 In order to show its power, we will reset the revert we did in the
 previous section and leave no trace of it happening. Note that we also
 pass as an argument the commit we are resetting to (figure
-[46](#revert3){reference-type="ref" reference="revert3"}).
+{numref}`revert3`).
 
-![Resetting changes](images/revert3.png)
+![Resetting changes](../images/revert3.png)
 
 # Stashing changes (Optional) 
 
@@ -152,9 +149,9 @@ This is possible using the command `git stash save <name>`, where
 `<name>` depicts the name, you give to your stashed changes. Let us make
 some changes to our README.md file and stash them. Note that when you
 stash your changes, you remove them and store them for later use (figure
-[47](#stash1){reference-type="ref" reference="stash1"}).
+{numref}`stash1`).
 
-![Stashing changes](images/stash1.png)
+![Stashing changes](../images/stash1.png)
 
 We can use the command `git stash list` to get a list of all stashes.
 Notice that every stash is associated with an id next to it, which is
@@ -162,24 +159,24 @@ modified every time we save or pop a stash.
 
 We will make a few more changes to the file and stash them again. The
 list of stashes will grow as a result as seen in figure
-[48](#stash2){reference-type="ref" reference="stash2"}.
+{numref}`stash2`.
 
-![Stashing changes second time](images/stash2.png)
+![Stashing changes second time](../images/stash2.png)
 
 We can now safely move to other branches and when ready return to the
 current one and unstash the changes. This is possible via this command:
 `git stash pop <index>`, where `<index>` is the index of the stash we
 want to unstash. We have decided to unstash changes on index 1. Popping
 the stash will effectively remove it from the list of stashes (figure
-[49](#stash3){reference-type="ref" reference="stash3"}).
+{numref}`stash3`).
 
-![Unstashing changes](images/stash3.png)
+![Unstashing changes](../images/stash3.png)
 
 We may also choose to delete a stash without using it. Using the
 following command to achieve this: `git stash drop <index>` (figure
-[50](#stash4){reference-type="ref" reference="stash4"}).
+{numref}``).
 
-![Deleting stashed changes by index](images/stash4.png)
+![Deleting stashed changes by index](../images/stash4.png)
 
 # GitIgnore
 
@@ -198,48 +195,44 @@ Suppose we want to ignore all files of type png. Suppose that we also
 wish to ignore a folder and all its contents called data, which we will
 create now. In order to do so, we need to create a new file called
 .gitgnore. Notice that the file has no name and has extension gitignore
-(normally we can use `ls` to list files (figure
-[51](#ignore1){reference-type="ref" reference="ignore1"}), but since
+(normally we can use `ls` to list files ({numref}`ignore1`), but since
 those beginning with a '.' are generally hidden we pass the argument --a
-to list all files - figure [52](#ignore2){reference-type="ref"
-reference="ignore2"}).
+to list all files - {numref}`ignore2`).
 
-![Listing visible files](images/ignore1.png)
+![Listing visible files](../images/ignore1.png)
 
-![Listing visible and hidden files](images/ignore2.png)
+![Listing visible and hidden files](../images/ignore2.png)
 
 To instruct git to ignore that file and everything inside that folder,
 we must modify the contents of our gitignore file to contain the
 following (where '/' indicates all files in the directory 'data' and the
 '\*' symbol is a wildcard to ignore all files with extension '.png').
 Note that you can open the gitignore file as a normal text file to
-modify it (using a text editor app) (figure
-[53](#ignore3){reference-type="ref" reference="ignore3"}).
+modify it (using a text editor app) ({numref}`ignore3`).
 
 ```
 data/
 *.png
 ```
 
-![Check contents of .gitignore](images/ignore3.png)
+![Check contents of .gitignore](../images/ignore3.png)
 
 We would first need to commit our gitignore file to come into effect and
 ignore files and directories (figure [54](#ignore4){reference-type="ref"
 reference="ignore4"}).
 
-![Comitting .gitignore](images/ignore4.png)
+![Comitting .gitignore](../images/ignore4.png)
 
 The changes are no longer tracked (the images and files in the data
 folder cannot be staged). This can be verified by using `git status`
-(figure [55](#ignore5){reference-type="ref" reference="ignore5"}).
+({numref}`ignore5`).
 
-![Verify files are ignored](images/ignore5.png)
+![Verify files are ignored](../images/ignore5.png)
 
 Another advantage you get is that git will not let you stage a file,
-which you have specifically set to be ignored by git (figure
-[56](#ignore6){reference-type="ref" reference="ignore6"}).
+which you have specifically set to be ignored by git ({numref}`ignore6`).
 
-![Verify ignored files cannot be staged](images/ignore6.png)
+![Verify ignored files cannot be staged](../images/ignore6.png)
 
 Depending on the projects you work on, there already exist pre-made
 templates for gitignore files that you can make use of. Just make sure
@@ -251,42 +244,35 @@ on and/or the IDE (integrated development environment) you are using.
 So far when we wish to commit changes to a file, we were only able to
 commit all of them. However, sometimes, we may wish to commit only some
 of the changes. This can be done by passing an argument --p to your
-`git add` command (figure [57](#interactive1){reference-type="ref"
-reference="interactive1"}).
+`git add` command ({numref}`interactive1`).
 
-![Interactive staging of a file](images/interactive1.png)
+![Interactive staging of a file](../images/interactive1.png)
 
 You will get an overview of all the changes in your file and git will
-ask you at every step what you wish to do. Use ? (figure
-[58](#interactive2){reference-type="ref" reference="interactive2"}) to
-get an explanation of what each option does. A hunk denotes a block of
+ask you at every step what you wish to do. Use `?`({numref}`interactive2`) to get an explanation of what each option does. A hunk denotes a block of
 changes (such as the one in the image above). Git allows you to split
 the hunk into smaller hunks until a hunk becomes as small as 1 change.
 
-![Available options for interactive
-commits](images/interactive2.png)
+![Available options for interactive commits](../images/interactive2.png)
 
 We have decided to split the hunk into smaller hunks and stage only the
 second, fourth and fifth hunks and leave out the first and third (figure
-[59](#interactive3){reference-type="ref" reference="interactive3"}).
+{numref}`interactive3`).
 
-![Staging second, fourth and fifth
-hunks](images/interactive3.png)
+![Staging second, fourth and fifth hunks](../images/interactive3.png)
 
 We can verify that we have successfully achieved this by calling
 `git diff --staged` to compare the HEAD with the staged files -- only
 second, fourth and fifth changes were staged (figure
-[60](#interactive4){reference-type="ref" reference="interactive4"}).
+{numref}`interactive4`).
 
-![Show difference between staged and unstaged
-files](images/interactive4.png)
+![Show difference between staged and unstaged files](../images/interactive4.png)
 
 Of course, since those changes contain mistakes (extra s at the end of 3
 sentences), we can reset them. We use the `--mixed` argument to unstage
-the changes, but not delete them (figure
-[61](#interactive5){reference-type="ref" reference="interactive5"}).
+the changes, but not delete them ({numref}`interactive5`).
 
-![Unstaging the changes](images/interactive5.png)
+![Unstaging the changes](../images/interactive5.png)
 
 You can also commit part of the staged changes (the same way as we did
 with staging only selected lines) by passing the --p parameter to
@@ -341,10 +327,9 @@ replace the long command with a shorter one called git graph:
 git config --global alias.graph "log --all --graph --decorate --oneline" 
 ```
 
-Try using `git graph` afterwards to verify it worked (figure
-[82](#alias1){reference-type="ref" reference="alias1"}).
+Try using `git graph` afterwards to verify it worked ({numref}`alias1`).
 
-![Aliasing a command](images/alias1.png)
+![Aliasing a command](../images/alias1.png)
 
 If you wish to remove an alias, simply execute the following:
 
@@ -352,7 +337,7 @@ If you wish to remove an alias, simply execute the following:
 git config --global --unset alias.graph 
 ```
 
-![Alias is removed](images/alias2.png)
+![Alias is removed](../images/alias2.png)
 
 # Conclusion 
 
@@ -367,10 +352,9 @@ the required basics of Git, which should be sufficient for you to work
 in group projects.
 
 Finally, in case something goes wrong, remember to follow the
-instructions in figure [84](#conclusion){reference-type="ref"
-reference="conclusion"} ;)
+instructions in {numref}`conclusion` ;)
 
-![Source: <https://xkcd.com/1597/>](images/conclusion.png)
+![Source: <https://xkcd.com/1597/>](../images/conclusion.png)
 
 # References and used resources
 
