@@ -1,6 +1,6 @@
 # Making Commits to the Local Repository
 
-Text.
+Now that we have learned how to clone a repository, we will find out how to make changes to it and record my making **commits**.
 
 ```{note}
 The examples in this page will be illustrated using an arbitrary public repository set up by Robert Lanzafame on the TU Delft GitLab called [sandbox-public](https://gitlab.tudelft.nl/rlanzafame/sandbox-public/). You can follow along by creating your own repository in your MUDE group, then cloning it to your computer (i.e., making a _local_ repository, as we learned in the previous section).

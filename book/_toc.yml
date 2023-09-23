@@ -206,13 +206,6 @@ parts:
       title: Overview
     - file: programming/golden_rules.ipynb
       title: The Golden Rules
-# START REMOVE-FROM-PUBLISH
-    - file: programming/code/overview
-      title: Computers & Code
-      sections:
-      - file: programming/code/packages
-      - file: programming/code/environments
-# END REMOVE-FROM-PUBLISH
     - file: programming/programs/overview
       title: Programs
       sections:
@@ -250,6 +243,11 @@ parts:
       title: Communication
       sections:
       - file: programming/communication/visualization
+    - file: programming/code/overview
+      title: Computers & Code
+      sections:
+      - file: programming/code/packages
+      - file: programming/code/environments
 # END REMOVE-FROM-PUBLISH
   - caption: Fundamental Concepts
     numbered: 2
