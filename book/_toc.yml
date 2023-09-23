@@ -212,6 +212,7 @@ parts:
       sections:
       - file: programming/code/packages
       - file: programming/code/environments
+# END REMOVE-FROM-PUBLISH
     - file: programming/programs/overview
       title: Programs
       sections:
@@ -234,6 +235,7 @@ parts:
           title: Getting Started
         - file: programming/programs/git/cli/remote
           title: Remote Repositories
+# START REMOVE-FROM-PUBLISH
         - file: programming/programs/git/cli/branch_merge
         - file: programming/programs/git/cli/merge_conflicts
         - file: programming/programs/git/cli/git_the_rest

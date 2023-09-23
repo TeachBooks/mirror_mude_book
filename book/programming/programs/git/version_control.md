@@ -110,7 +110,7 @@ GitHub is a competitor company to GitLab. It provides very similar services, but
 
 ## Main concepts and terminology
 
-Here we present a list of the terminology we will use when referring to VCS. Do not panic if you do not understand what each of the following means. Later, we will provide a more elaborate explanation with examples. Bear in mind that the list below is not exhaustive, and more terms may show up.
+Here we present a list of the terminology we may use when referring to VCS. Do not panic if you do not understand what each of the following means. Later, we will provide a more elaborate explanation with examples. Bear in mind that the list below is not exhaustive, and more terms may show up. Also, if you only do the GUI option, you might not encounter some of them.
 
 1. **Repository:** storage, where VCS (git, in our case) store their history of changes and information about who made them.
 1. **Remote (of repository):** a version control repository stored somewhere else and the changes between the two are usually synchronized. We will refer to the Gitlab repository as a *remote*.
