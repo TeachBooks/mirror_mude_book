@@ -3,7 +3,7 @@
 This page shows some examples of H5p questions.
 
 Some best-practices on the use of H5p:
- - To startup your H5p-account, first login to H5p via Brightspace. After that, direct login is possible via [tudelft.h5p.com](tudelft.h5p.com)
+ - To startup your H5p-account, first login to H5p via Brightspace (follow instructions as under [https://www.tudelft.nl/teaching-support/educational-tools/h5p](https://www.tudelft.nl/teaching-support/educational-tools/h5p)). After that, direct login is possible via [tudelft.h5p.com](tudelft.h5p.com)
  - Place your H5p-elements in a shared folder in H5p.
  - Disable the display options "Toolbar Below Content" and "Display author's name to public (anonymous users) (only relevant when content's status is set to Public )" for each 
 
