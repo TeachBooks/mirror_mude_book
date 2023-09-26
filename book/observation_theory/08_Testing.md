@@ -99,7 +99,7 @@ Besides the probability of a false alarm, the figure also shows the probability 
 The missed detecion or type II error probability $\beta$ is defined as:
 
 $$
-\beta= P(T\in \mathcal{C}|\mathcal{H}_a)
+\beta= P(T\notin \mathcal{C}|\mathcal{H}_a)
 $$
 where $\mathcal{C}$ is the critical region.
 
