@@ -52,7 +52,7 @@ parts:
         - file: numerical_methods/3-taylor-series.ipynb
         - file: numerical_methods/4-FDM-intro.ipynb
         - file: numerical_methods/5-numerical_derivatives.ipynb
-        - file: numerical_methods/6-simple_solvers_ODE.ipynbsolver.ipynb
+        - file: numerical_methods/6-simple_solvers_ODE.ipynb
         - file: numerical_methods/7-solver_2nd_order.ipynb
         - file: numerical_methods/8-solvers_non-linear.ipynb
         - file: numerical_methods/9-exercise.ipynb
