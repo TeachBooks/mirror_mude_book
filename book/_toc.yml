@@ -320,7 +320,7 @@ parts:
 
   - caption: MUDE Cookbook
     chapters:
-    - file: cookbook/blank
+    - file: cookbook/overview
     - file: cookbook/custom_download
     - file: cookbook/interactive_element
       sections:
