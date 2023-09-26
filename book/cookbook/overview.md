@@ -13,3 +13,9 @@ Especially for type 2, there is a lot of potential for providing immediate feedb
 ```{admonition} Are you developing educational content?
 If you know how you want to implement a particular type of question in your book, send a description! For example, "I want to have students write a function to implement method A, and when they run the code cell they see if it gives the right answer. It will be checked by confirming a few inputs and outputs of the function, but I don't want the students to see the correct answer (values nor function code)."
 ```
+
+```{note}
+The exercises in this book will be under constant development until the end of Q2, at least. As such, the Cookbook chapter in the draft book temporarily supercedes the Cookbook in our other (non-MUDE) book (links to: [website](https://interactivetextbooks.citg.tudelft.nl/) and [repo](https://gitlab.tudelft.nl/interactivetextbooks-citg/jupyter-book-manual)). Some day the content here may be moved to the other book and adapted into explanations and examples.
+
+The `REMOVE-FROM-PUBLISH` feature was developed to retain testing of all interactive features on the web server and we recommended incorporating this in all books that rely on these features. It avoids problems associated with building the book on various platforms and virtual environments, rather than the actualy webserver where the book will be deployed.
+```
