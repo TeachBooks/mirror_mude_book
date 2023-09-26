@@ -50,11 +50,13 @@ parts:
       sections:
         - file: numerical_methods/2-numerical-interp.ipynb
         - file: numerical_methods/3-taylor-series.ipynb
-        - file: numerical_methods/4-numerical=derivatives.ipynb
-        - file: numerical_methods/5-simple-ODE-solver.ipynb
-        - file: numerical_methods/6-second-order-ODE-solver.ipynb
-        - file: numerical_methods/7-general-solvers.ipynb
-        - file: numerical_methods/8-implicit-ode-solver.ipynb
+        - file: numerical_methods/4-FDM-intro.ipynb
+        - file: numerical_methods/5-numerical_derivatives.ipynb
+        - file: numerical_methods/6-simple_solvers_ODE.ipynbsolver.ipynb
+        - file: numerical_methods/7-solver_2nd_order.ipynb
+        - file: numerical_methods/8-solvers_non-linear.ipynb
+        - file: numerical_methods/9-exercise.ipynb
+        - file: numerical_methods/10-advanced_solvers.ipynb
 
     - file: probability/overview
       title: Probability
