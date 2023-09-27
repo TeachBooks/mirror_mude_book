@@ -323,6 +323,7 @@ parts:
   - caption: MUDE Cookbook
     chapters:
     - file: cookbook/overview
+    - file: cookbook/custom_toc
     - file: cookbook/custom_download
     - file: cookbook/interactive_element
       sections:
