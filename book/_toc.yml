@@ -43,6 +43,14 @@ parts:
         sections:
         - file: observation_theory/05_Notebook_ConfInt.ipynb 
       - file: observation_theory/06_MLE.md
+      - file: observation_theory/07_NLSQ.md
+        sections:
+        - file: observation_theory/07_Notebook_NLSQ.ipynb
+      - file: observation_theory/08_Testing.md
+      - file: observation_theory/09_TestingSandM.md
+        sections:
+        - file: observation_theory/09_Notebook_Testing.ipynb
+        - file: observation_theory/09_Notebook_OMT.ipynb
       - file: observation_theory/99_NotationFormulas
     # START REMOVE-FROM-PUBLISH
     - file: numerical_methods/overview
@@ -201,24 +209,32 @@ parts:
       title: Overview
     - file: programming/golden_rules.ipynb
       title: The Golden Rules
-# START REMOVE-FROM-PUBLISH
-    - file: programming/code/overview
-      title: Computers & Code
-      sections:
-      - file: programming/code/packages
-      - file: programming/code/environments
     - file: programming/programs/overview
       title: Programs
       sections:
       - file: programming/programs/git/version_control
-      - file: programming/programs/git/git_gitlab
-        title: git and GitLab
+      - file: programming/programs/git/gui/overview
+        title: git and GitLab (GUI)
         sections:
-        - file: programming/programs/git/remote
+        - file: programming/programs/git/gui/cloning
+          title: Cloning
+        - file: programming/programs/git/gui/commits_local
+          title: Local Commits
+        - file: programming/programs/git/gui/commits_remote
+          title: Remote Commits
+        - file: programming/programs/git/gui/fetch_pull
+          title: Fetch and Pull
+      - file: programming/programs/git/cli/overview
+        title: git and GitLab (CLI)
+        sections:
+        - file: programming/programs/git/cli/getting_started
+          title: Getting Started
+        - file: programming/programs/git/cli/remote
           title: Remote Repositories
-        - file: programming/programs/git/branch_merge
-        - file: programming/programs/git/merge_conflicts
-        - file: programming/programs/git/git_the_rest
+# START REMOVE-FROM-PUBLISH
+        - file: programming/programs/git/cli/branch_merge
+        - file: programming/programs/git/cli/merge_conflicts
+        - file: programming/programs/git/cli/git_the_rest
           title: The Rest
       - file: programming/programs/debugging/overview
         title: Debugging and Testing
@@ -230,6 +246,11 @@ parts:
       title: Communication
       sections:
       - file: programming/communication/visualization
+    - file: programming/code/overview
+      title: Computers & Code
+      sections:
+      - file: programming/code/packages
+      - file: programming/code/environments
 # END REMOVE-FROM-PUBLISH
   - caption: Fundamental Concepts
     numbered: 2
@@ -275,13 +296,6 @@ parts:
       - file: sandbox/continuous/MLE_1.ipynb
       - file: sandbox/continuous/GOF
       - file: sandbox/continuous/GOF_quiz.md
-    - file: sandbox/SanPart/ObservationTheory/01_Introduction.md
-      title: Sensing and Observation Theory
-      sections:
-      - file: sandbox/SanPart/ObservationTheory/07_NLSQ.md
-      - file: sandbox/SanPart/ObservationTheory/08_Testing.md
-      - file: sandbox/SanPart/ObservationTheory/09_TestingSandM.md
-      - file: sandbox/SanPart/ObservationTheory/99_NotationFormulas.md
     - file: sandbox/dist_fit_example/overview
       title: Distribution Fitting Examples
       sections:
@@ -308,22 +322,27 @@ parts:
 
   - caption: MUDE Cookbook
     chapters:
-    - file: cookbook/blank
+    - file: cookbook/overview
+    - file: cookbook/custom_download
     - file: cookbook/interactive_element
+      sections:
+      - file: cookbook/h5p_examples
+      - file: cookbook/theory_questions
     - file: cookbook/live_code
       sections:
-      - file: cookbook/benchmarks/benchmark_aux.ipynb
-      - file: cookbook/benchmarks/benchmark_tags.ipynb
-      - file: cookbook/benchmarks/benchmark_load.ipynb
-      - file: cookbook/benchmarks/benchmark_noexec.ipynb
-    - file: cookbook/widgets.ipynb
-    - file: cookbook/exercise_checking.ipynb
-    - file: cookbook/interactive_templates
-      sections:
-      - file: cookbook/example_gumbel.ipynb
-      - file: cookbook/example_quiz_interactive.ipynb
-      - file: cookbook/coding_theory_widgets.ipynb
-      - file: cookbook/theory_questions
+      - file: cookbook/widgets.ipynb
+      - file: cookbook/exercise_checking.ipynb
+      - file: cookbook/interactive_templates
+        sections:
+        - file: cookbook/example_gumbel.ipynb
+        - file: cookbook/example_quiz_interactive.ipynb
+        - file: cookbook/coding_theory_widgets.ipynb
+      - file: cookbook/benchmarks/benchmarks
+        sections:
+        - file: cookbook/benchmarks/benchmark_aux.ipynb
+        - file: cookbook/benchmarks/benchmark_tags.ipynb
+        - file: cookbook/benchmarks/benchmark_load.ipynb
+        - file: cookbook/benchmarks/benchmark_noexec.ipynb
 
  # Coding
   - caption: Coding (Last Year)
