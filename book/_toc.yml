@@ -56,6 +56,7 @@ parts:
     - file: numerical_methods/overview
       title: Numerical Modelling
       sections:
+        - file: numerical_methods/1-numerical-solns.ipynb
         - file: numerical_methods/2-numerical-interp.ipynb
         - file: numerical_methods/3-taylor-series.ipynb
         - file: numerical_methods/4-FDM-intro.ipynb
