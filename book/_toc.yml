@@ -240,7 +240,10 @@ parts:
         title: Debugging and Testing
         sections:
         - file: programming/programs/debugging/errors
-        - file: programming/programs/debugging/debugging_2022
+        - file: programming/programs/debugging/errors_raise_handle
+        - file: programming/programs/debugging/assertions
+        - file: programming/programs/debugging/logging
+        - file: programming/programs/debugging/exercises
       - file: programming/programs/modules
     - file: programming/communication/overview
       title: Communication
