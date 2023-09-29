@@ -4,7 +4,7 @@ These pages show examples of how to use interactive coding / non-coding elements
 
 You can make use of:
 - Admonitions
-- JupyterQuiz, for now this shouldn't be combined with thebe on a single page
+- JupyterQuiz
 - H5p
 - Grasple-exercises
 - Interactive widgets

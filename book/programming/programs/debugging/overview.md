@@ -34,3 +34,10 @@ Testing our code is necessary, because we as humans all make mistakes. Some of o
 **Debugging** is the process of identifying code-related problems (bugs) by analysing the behaviour of the program we have written. Testing and debugging are complementary to one another. Testing is used to identify a bug, while debugging is used to fix a bug.
 
 In the sections that follow, we will start to learn about errors as a practical way of identifying issues with our code. Then we will learn how to improve our code with testing to make it easier to debug in the future.
+
+## References and used resources
+
+- https://carpentries-lab.github.io/python-aos-lesson/08-defensive/index.html
+- https://python-textbok.readthedocs.io/en/1.0/Errors_and_Exceptions.html
+- https://docs.python.org/3/tutorial/errors.html
+- https://coderefinery.github.io/testing/

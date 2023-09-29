@@ -52,21 +52,24 @@ parts:
         - file: observation_theory/09_Notebook_Testing.ipynb
         - file: observation_theory/09_Notebook_OMT.ipynb
       - file: observation_theory/99_NotationFormulas
-    # START REMOVE-FROM-PUBLISH
+    
     - file: numerical_methods/overview
       title: Numerical Modelling
       sections:
+        - file: numerical_methods/1-numerical-solns.ipynb
         - file: numerical_methods/2-numerical-interp.ipynb
         - file: numerical_methods/3-taylor-series.ipynb
-        - file: numerical_methods/4-numerical=derivatives.ipynb
-        - file: numerical_methods/5-simple-ODE-solver.ipynb
-        - file: numerical_methods/6-second-order-ODE-solver.ipynb
-        - file: numerical_methods/7-general-solvers.ipynb
-        - file: numerical_methods/8-implicit-ode-solver.ipynb
+        - file: numerical_methods/4-FDM-intro.ipynb
+        - file: numerical_methods/5-numerical_derivatives.ipynb
+        - file: numerical_methods/6-simple_solvers_ODE.ipynb
+        - file: numerical_methods/7-solver_2nd_order.ipynb
+        - file: numerical_methods/8-solvers_non-linear.ipynb
+        - file: numerical_methods/9-exercise.ipynb
+        - file: numerical_methods/10-advanced_solvers.ipynb
 
     - file: probability/overview
       title: Probability
-    # END REMOVE-FROM-PUBLISH
+    
       
   # START REMOVE-FROM-PUBLISH
   - caption: Q2 Topics
@@ -238,7 +241,10 @@ parts:
         title: Debugging and Testing
         sections:
         - file: programming/programs/debugging/errors
-        - file: programming/programs/debugging/debugging_2022
+        - file: programming/programs/debugging/errors_raise_handle
+        - file: programming/programs/debugging/assertions
+        - file: programming/programs/debugging/logging
+        - file: programming/programs/debugging/exercises
       - file: programming/programs/modules
     - file: programming/communication/overview
       title: Communication
@@ -320,22 +326,28 @@ parts:
 
   - caption: MUDE Cookbook
     chapters:
-    - file: cookbook/blank
+    - file: cookbook/overview
+    - file: cookbook/custom_toc
+    - file: cookbook/custom_download
     - file: cookbook/interactive_element
+      sections:
+      - file: cookbook/h5p_examples
+      - file: cookbook/theory_questions
     - file: cookbook/live_code
       sections:
-      - file: cookbook/benchmarks/benchmark_aux.ipynb
-      - file: cookbook/benchmarks/benchmark_tags.ipynb
-      - file: cookbook/benchmarks/benchmark_load.ipynb
-      - file: cookbook/benchmarks/benchmark_noexec.ipynb
-    - file: cookbook/widgets.ipynb
-    - file: cookbook/exercise_checking.ipynb
-    - file: cookbook/interactive_templates
-      sections:
-      - file: cookbook/example_gumbel.ipynb
-      - file: cookbook/example_quiz_interactive.ipynb
-      - file: cookbook/coding_theory_widgets.ipynb
-      - file: cookbook/theory_questions
+      - file: cookbook/widgets.ipynb
+      - file: cookbook/exercise_checking.ipynb
+      - file: cookbook/interactive_templates
+        sections:
+        - file: cookbook/example_gumbel.ipynb
+        - file: cookbook/example_quiz_interactive.ipynb
+        - file: cookbook/coding_theory_widgets.ipynb
+      - file: cookbook/benchmarks/benchmarks
+        sections:
+        - file: cookbook/benchmarks/benchmark_aux.ipynb
+        - file: cookbook/benchmarks/benchmark_tags.ipynb
+        - file: cookbook/benchmarks/benchmark_load.ipynb
+        - file: cookbook/benchmarks/benchmark_noexec.ipynb
 
  # Coding
   - caption: Coding (Last Year)
