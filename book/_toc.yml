@@ -52,7 +52,7 @@ parts:
         - file: observation_theory/09_Notebook_Testing.ipynb
         - file: observation_theory/09_Notebook_OMT.ipynb
       - file: observation_theory/99_NotationFormulas
-    # START REMOVE-FROM-PUBLISH
+    
     - file: numerical_methods/overview
       title: Numerical Modelling
       sections:
@@ -69,7 +69,7 @@ parts:
 
     - file: probability/overview
       title: Probability
-    # END REMOVE-FROM-PUBLISH
+    
       
   # START REMOVE-FROM-PUBLISH
   - caption: Q2 Topics
