@@ -66,10 +66,10 @@ parts:
         - file: numerical_methods/8-solvers_non-linear.ipynb
         - file: numerical_methods/9-exercise.ipynb
         - file: numerical_methods/10-advanced_solvers.ipynb
-  # START REMOVE-FROM-PUBLISH
+    # START REMOVE-FROM-PUBLISH
     - file: probability/overview
       title: Probability
-    
+    # END REMOVE-FROM-PUBLISH 
       
 
   - caption: Q2 Topics
