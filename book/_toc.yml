@@ -238,6 +238,7 @@ parts:
         - file: programming/programs/git/cli/merge_conflicts
         - file: programming/programs/git/cli/git_the_rest
           title: The Rest
+# END REMOVE-FROM-PUBLISH
       - file: programming/programs/debugging/overview
         title: Debugging and Testing
         sections:
@@ -245,6 +246,7 @@ parts:
           title: Error Types
         - file: programming/programs/debugging/traceback
           title: Traceback
+# START REMOVE-FROM-PUBLISH
         - file: programming/programs/debugging/errors_raise_handle
         - file: programming/programs/debugging/assertions
         - file: programming/programs/debugging/logging
