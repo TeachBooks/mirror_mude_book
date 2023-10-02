@@ -210,3 +210,4 @@ Password: access
 A new feature is added: anything in `_toc.yml` between `# START REMOVE-FROM-PUBLISH` and `# END REMOVE-FROM-PUBLISH` will be automatically removed from the published version of the book (the banner warning about a draft book is also automatically removed).
 
 If you need to remove the published version, a push to branch `purge-book` will deploy the book in that branch. It is set up with all unnecessary files removed and a 1-page Jupyter Book. The branch is protected with permission granted only to those with maintainer role.
+~
