@@ -1,8 +1,5 @@
 # Debugging and Testing
 
-
-
-
 <!-- ## Contents
 - [Introduction](#Introduction)
 - [Why are we doing testing](#Why-are-we-doing-testing)
@@ -16,8 +13,6 @@
 - [References and used resources](#References-and-used-resources) -->
 
 This chapter is focused on software testing with Python---it focuses on a number of different topics to help you identify and fix errors. Incorporating the concepts in this chapter into your own coding practice will help you fix problems in the future, especially as you work on larger projects with multiple people. 
-
-Some of the sections are marked as **\[Optional\]**. Those parts are not mandatory to study and if you wish, you may skip them.
 
 ## Why should we learn about software testing?
 
@@ -35,9 +30,15 @@ Testing our code is necessary, because we as humans all make mistakes. Some of o
 
 In the sections that follow, we will start to learn about errors as a practical way of identifying issues with our code. Then we will learn how to improve our code with testing to make it easier to debug in the future.
 
-## References and used resources
+
+## Additional Resources
+
+New sections will be added to this chapter progressively throughout the semester.
+
+<!-- If you are interested in the topic, you can check out the references below, some of which were also used in the creation of this chapter:
 
 - https://carpentries-lab.github.io/python-aos-lesson/08-defensive/index.html
+- https://swcarpentry.github.io/python-novice-inflammation/09-errors.html
 - https://python-textbok.readthedocs.io/en/1.0/Errors_and_Exceptions.html
 - https://docs.python.org/3/tutorial/errors.html
-- https://coderefinery.github.io/testing/
+- https://coderefinery.github.io/testing/ -->
