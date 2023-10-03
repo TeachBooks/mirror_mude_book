@@ -95,37 +95,35 @@ parts:
     chapters:
     - file: signal/overview
       title: Overview
-      sections:
-      - file: signal/fourier_real
-        title: Fourier Series (Real)
-      - file: signal/fourier_complex
-        title: Fourier Series (Complex)
-      - file: signal/fourier_transf
-        title: Fourier Transform
-      - file: signal/sampling
-        title: Sampling
-      - file: signal/dft
-        title: Discrete Fourier Transform (DFT)
-      - file: signal/spectral_est
-        title: Spectral Estimation
+    - file: signal/fourier_real
+      title: Fourier Series (Real)
+    - file: signal/fourier_complex
+      title: Fourier Series (Complex)
+    - file: signal/fourier_transf
+      title: Fourier Transform
+    - file: signal/sampling
+      title: Sampling
+    - file: signal/dft
+      title: Discrete Fourier Transform (DFT)
+    - file: signal/spectral_est
+      title: Spectral Estimation
 
   - caption: Time Series Analysis
     chapters:
     - file: time_series/overview
       title: Overview
-      sections:
-      - file: time_series/types
-        title: "Types of Time Series"
-      - file: time_series/stationarity
-        title: "Stationarity"
-      - file: time_series/acf
-        title: "Auto-covariance function (ACF)"
-      - file: time_series/arma
-        title: "Auto-Regressive Moving Average (ARMA) process"
-      - file: time_series/modelling
-        title: "Time Series modelling and estimation"
-      - file: time_series/forecasting
-        title: "Time Series forecasting"
+    - file: time_series/types
+      title: "Types of Time Series"
+    - file: time_series/stationarity
+      title: "Stationarity"
+    - file: time_series/acf
+      title: "Auto-covariance function (ACF)"
+    - file: time_series/arma
+      title: "Auto-Regressive Moving Average (ARMA) process"
+    - file: time_series/modelling
+      title: "Time Series modelling and estimation"
+    - file: time_series/forecasting
+      title: "Time Series forecasting"
       
   - caption: Optimization
     numbered: 2
