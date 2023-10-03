@@ -1,6 +1,10 @@
 # Programs 
 
-text. Can briefly mention programming paradigms and that we focus on object-oriented and functional. FORTRAN was old standard in engineering, which is declarative. 
+This part of the textbook covers aspects related to computer _programs_. We will cover methodologies, for example, modular programs, object-oriented programming, as well as tools for writing programs effectiveley, for example, debugging, testing and git/GitLab.
+
+Content will be added here throughout the semester. When special software is concerned, remember to check the [software page](https://mude.citg.tudelft.nl/software/overview/) on the module website for information related to installation.
+
+<!-- text. Can briefly mention programming paradigms and that we focus on object-oriented and functional. FORTRAN was old standard in engineering, which is declarative. 
 
 Things that will definitely go here:
 - Objects
@@ -13,4 +17,4 @@ Things that will definitely go here:
   - add theory missing from Code chapter
   - explicit case studies illustrating best practices
   - examples that quantitatively show the effect of bad practices
-  - e.g., sparse matrices, for loops and why they should be avoided
+  - e.g., sparse matrices, for loops and why they should be avoided -->

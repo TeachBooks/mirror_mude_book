@@ -16,7 +16,7 @@ The *probability density function* $f_Y(\mathrm{y}|\theta)$ is given as function
 
 The *likelihood function* $L(\theta|\mathrm{y})$ is given for a certain realization $\mathrm{y}$ of $Y$ as function of all possible values of $\theta$.
 
-Wiht MLE, the goal is to find the $\theta$ which maximizes the likelihood function for the given realization $\mathrm{y}$.
+With MLE, the goal is to find the $\theta$ which maximizes the likelihood function for the given realization $\mathrm{y}$.
 
 #### Example exponential distribution
 

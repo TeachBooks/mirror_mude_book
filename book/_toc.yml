@@ -43,25 +43,36 @@ parts:
         sections:
         - file: observation_theory/05_Notebook_ConfInt.ipynb 
       - file: observation_theory/06_MLE.md
+      - file: observation_theory/07_NLSQ.md
+        sections:
+        - file: observation_theory/07_Notebook_NLSQ.ipynb
+      - file: observation_theory/08_Testing.md
+      - file: observation_theory/09_TestingSandM.md
+        sections:
+        - file: observation_theory/09_Notebook_Testing.ipynb
+        - file: observation_theory/09_Notebook_OMT.ipynb
       - file: observation_theory/99_NotationFormulas
-    # START REMOVE-FROM-PUBLISH
-    - file: numerical_analysis/overview
-      title: Numerical Methods
+    
+    - file: numerical_methods/overview
+      title: Numerical Modelling
       sections:
         - file: numerical_methods/1-numerical-solns.ipynb
         - file: numerical_methods/2-numerical-interp.ipynb
         - file: numerical_methods/3-taylor-series.ipynb
-        - file: numerical_methods/4-numerical=derivatives.ipynb
-        - file: numerical_methods/5-simple-ODE-solver.ipynb
-        - file: numerical_methods/6-second-order-ODE-solver.ipynb
-        - file: numerical_methods/7-general-solvers.ipynb
-        - file: numerical_methods/8-implicit-ode-solver.ipynb
+  # START REMOVE-FROM-PUBLISH
+        - file: numerical_methods/4-FDM-intro.ipynb
+        - file: numerical_methods/5-numerical_derivatives.ipynb
+        - file: numerical_methods/6-simple_solvers_ODE.ipynb
+        - file: numerical_methods/7-solver_2nd_order.ipynb
+        - file: numerical_methods/8-solvers_non-linear.ipynb
+        - file: numerical_methods/9-exercise.ipynb
+        - file: numerical_methods/10-advanced_solvers.ipynb
 
     - file: probability/overview
       title: Probability
-    # END REMOVE-FROM-PUBLISH
+    
       
-  # START REMOVE-FROM-PUBLISH
+
   - caption: Q2 Topics
     numbered: false
     chapters:
@@ -218,24 +229,62 @@ parts:
   # END REMOVE-FROM-PUBLISH
 
   - caption: Programming
-    numbered: 2
+    numbered: 3
     chapters:
     - file: programming/overview
       title: Overview
     - file: programming/golden_rules.ipynb
       title: The Golden Rules
+    - file: programming/programs/overview
+      title: Programs
+      sections:
+      - file: programming/programs/git/version_control
+      - file: programming/programs/git/gui/overview
+        title: git and GitLab (GUI)
+        sections:
+        - file: programming/programs/git/gui/cloning
+          title: Cloning
+        - file: programming/programs/git/gui/commits_local
+          title: Local Commits
+        - file: programming/programs/git/gui/commits_remote
+          title: Remote Commits
+        - file: programming/programs/git/gui/fetch_pull
+          title: Fetch and Pull
+      - file: programming/programs/git/cli/overview
+        title: git and GitLab (CLI)
+        sections:
+        - file: programming/programs/git/cli/getting_started
+          title: Getting Started
+        - file: programming/programs/git/cli/remote
+          title: Remote Repositories
 # START REMOVE-FROM-PUBLISH
+        - file: programming/programs/git/cli/branch_merge
+        - file: programming/programs/git/cli/merge_conflicts
+        - file: programming/programs/git/cli/git_the_rest
+          title: The Rest
+# END REMOVE-FROM-PUBLISH
+      - file: programming/programs/debugging/overview
+        title: Debugging and Testing
+        sections:
+        - file: programming/programs/debugging/errors
+          title: Error Types
+        - file: programming/programs/debugging/traceback
+          title: Traceback
+# START REMOVE-FROM-PUBLISH
+        - file: programming/programs/debugging/errors_raise_handle
+        - file: programming/programs/debugging/assertions
+        - file: programming/programs/debugging/logging
+        - file: programming/programs/debugging/exercises
+      - file: programming/programs/modules
+    - file: programming/communication/overview
+      title: Communication
+      sections:
+      - file: programming/communication/visualization
     - file: programming/code/overview
       title: Computers & Code
       sections:
       - file: programming/code/packages
       - file: programming/code/environments
-    - file: programming/programs/overview
-      title: Programs
-    - file: programming/communication/overview
-      title: Communication
-      sections:
-      - file: programming/communication/visualization
 # END REMOVE-FROM-PUBLISH
   - caption: Fundamental Concepts
     numbered: 2
@@ -281,13 +330,6 @@ parts:
       - file: sandbox/continuous/MLE_1.ipynb
       - file: sandbox/continuous/GOF
       - file: sandbox/continuous/GOF_quiz.md
-    - file: sandbox/SanPart/ObservationTheory/01_Introduction.md
-      title: Sensing and Observation Theory
-      sections:
-      - file: sandbox/SanPart/ObservationTheory/07_NLSQ.md
-      - file: sandbox/SanPart/ObservationTheory/08_Testing.md
-      - file: sandbox/SanPart/ObservationTheory/09_TestingSandM.md
-      - file: sandbox/SanPart/ObservationTheory/99_NotationFormulas.md
     - file: sandbox/dist_fit_example/overview
       title: Distribution Fitting Examples
       sections:
@@ -314,22 +356,28 @@ parts:
 
   - caption: MUDE Cookbook
     chapters:
-    - file: cookbook/blank
+    - file: cookbook/overview
+    - file: cookbook/custom_toc
+    - file: cookbook/custom_download
     - file: cookbook/interactive_element
+      sections:
+      - file: cookbook/h5p_examples
+      - file: cookbook/theory_questions
     - file: cookbook/live_code
       sections:
-      - file: cookbook/benchmarks/benchmark_aux.ipynb
-      - file: cookbook/benchmarks/benchmark_tags.ipynb
-      - file: cookbook/benchmarks/benchmark_load.ipynb
-      - file: cookbook/benchmarks/benchmark_noexec.ipynb
-    - file: cookbook/widgets.ipynb
-    - file: cookbook/exercise_checking.ipynb
-    - file: cookbook/interactive_templates
-      sections:
-      - file: cookbook/example_gumbel.ipynb
-      - file: cookbook/example_quiz_interactive.ipynb
-      - file: cookbook/coding_theory_widgets.ipynb
-      - file: cookbook/theory_questions
+      - file: cookbook/widgets.ipynb
+      - file: cookbook/exercise_checking.ipynb
+      - file: cookbook/interactive_templates
+        sections:
+        - file: cookbook/example_gumbel.ipynb
+        - file: cookbook/example_quiz_interactive.ipynb
+        - file: cookbook/coding_theory_widgets.ipynb
+      - file: cookbook/benchmarks/benchmarks
+        sections:
+        - file: cookbook/benchmarks/benchmark_aux.ipynb
+        - file: cookbook/benchmarks/benchmark_tags.ipynb
+        - file: cookbook/benchmarks/benchmark_load.ipynb
+        - file: cookbook/benchmarks/benchmark_noexec.ipynb
 
  # Coding
   - caption: Coding (Last Year)
@@ -341,12 +389,8 @@ parts:
       - file: old/coding/1-1/1-1-solution.ipynb
       - file: old/coding/1-1/1-2-student.ipynb
       - file: old/coding/1-1/1-2-solution.ipynb
-    - file: old/coding/1-2-Golden_Rules.ipynb
-    - file: old/coding/1-3-git
     - file: old/coding/1-4/1-overview.md
       sections:
-      - file: old/coding/1-4/1-1-testing-student
-      - file: old/coding/1-4/1-1-testing-solution
       - file: old/coding/1-4/1-2-oop-student
       - file: old/coding/1-4/1-2-oop-solution
       - file: old/coding/1-4/1-3-modules-student
