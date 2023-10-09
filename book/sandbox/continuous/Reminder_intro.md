@@ -1,11 +1,7 @@
 # Continuous Distributions
 
-```{note}
-check what's in the probability chapter and include a short overview about what's there and what's here. Depending on what the random variable chapter includes, this page should show the normal distribution and point out that we will take this concept MUCH further in this chapter. It shows the PDF/CDF, but the theory is in the next section.
-```
+Civil engineering and Geosciences involve working with nature and that comes with associated [uncertainties](https://mude.citg.tudelft.nl/book-draft/propagation_uncertainty/uncertainty.html). Natural phenomena have an intrinsic aleatoric uncertainty that we need to model. Moreover, we don't always have the resources to neglect the epistemic uncertainty; we typically need to make decisions in scenarios of data scarcity. 
 
-```{note}
-This page needs to explicitly state that we will be using continuous parametric distributions as models, and have a strong link to the modeling terminology and framework that will be added elsewhere in the MUDE book.
-```
+This is where probability in general and continuous distributions in particular come in indispensable as they model the uncertainty and allow to assess the risk in our decisions and incorporate it in the decision-making process.
 
 
