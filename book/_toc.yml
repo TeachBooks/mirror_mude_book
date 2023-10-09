@@ -251,6 +251,7 @@ parts:
         - file: programming/programs/debugging/assertions
         - file: programming/programs/debugging/logging
         - file: programming/programs/debugging/exercises
+      - file: programming/classes/classes_solution
       - file: programming/programs/modules
     - file: programming/communication/overview
       title: Communication
