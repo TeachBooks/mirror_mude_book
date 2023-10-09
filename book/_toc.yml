@@ -305,6 +305,7 @@ parts:
       - file: sandbox/continuous/MLE_1.ipynb
       - file: sandbox/continuous/GOF
       - file: sandbox/continuous/GOF_quiz.md
+      - file: sandbox/continuous/Loc-scale.ipynb
     - file: sandbox/dist_fit_example/overview
       title: Distribution Fitting Examples
       sections:
