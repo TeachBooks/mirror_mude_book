@@ -252,7 +252,7 @@ parts:
         - file: programming/programs/debugging/logging
         - file: programming/programs/debugging/exercises
       - file: programming/classes/classes_solution
-      - file: programming/programs/modules
+      - file: programming/programs/modules_solution
     - file: programming/communication/overview
       title: Communication
       sections:
