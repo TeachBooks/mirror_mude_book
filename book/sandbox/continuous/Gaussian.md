@@ -1,65 +1,32 @@
 
-# Lognormal distribution
+# Revisiting Gaussian distribution
 
-Lognormal distribution is the continuous distribution of a random variable whose natural logarithm is normally distributed. This is, if the random variable $X \sim Lognormal$, then the random variable $Y=ln(X) \sim Normal$.
+You have already used Gaussian or Normal distribution during your BSc and this course since it is widely used in Observation Theory or to model errors in measurements. The PDF of the Normal distribution is given by
 
-```{figure} /sandbox/continuous/figures/Lognormal_Distribution.svg
+$
+f(x) = \frac{1}{\sigma \sqrt{2 \pi}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}
+$
+
+where $x$ is the value of the random variable and $\mu$ and $\sigma$ are the two parameters of the distribution. These parameters, $\mu$ and $\sigma$, correspond to the mean and standard deviation of the random variable.
+
+If we integrate it, we obtain the CDF (non-exceedance probabilities). In the case of the Normal distribution, there is no closed form of the CDF (the integral). Let's see how the distribution looks.
+
+ In the figure below, the PDF and CDF of the Gaussian distribution are shown for different values of its parameters. In the left pannel, the PDF of three Gumbel Exponential distributions is shown. The black and blue distributions present the same value of the standard deviation ($\sigma$=1), so in the PDF plot the width of the bell is the same. However, they have different values of the mean ($\mu$), which acts like a location parameter. Thus, increasing the mean moves the distribution towards the right, making more likely higher values of the random variable. You can also see that in the CDF plot. The distribution moves towards the right so for a given value, $x = 2$, $F(x\leq2) \approx 0.98$ for the black line and $F(x\leq2) \approx 0.84$ for the blue line. 
+
+ Regarding the standard deviation ($\sigma$), it can be interpreted as the dispersion around the mean ($\mu$). Thus, you can see in the PDF plot the the red distribution is wider that the black or blue ones, since the standard deviation is the double of the other two. You can also see the effect in the CDF plot, where the slope of the red distribution is more gentle than those of the black and blue distributions.
+
+
+```{figure} /sandbox/continuous/figures/gaussian.png
+---
+scale: 75%
+name: gaussian distr
 
 ---
-
----
-Relationship between Lognormal and Normal distribution[^ref].
+Gaussian distribution function: PDF and CDF.
 ```
 
- It is widely used in engineering, since it models variables which only take positive real values.  The PDF of the Lognormal distribution is given by 
 
-$
-f(x) = \frac{1}{x \sigma \sqrt{2 \pi}}e^{\left( -\frac{(ln(x)-\mu)^2}{2\sigma^2}\right)}
-$
-
-where $\mu$ and $\sigma$ are the mean and standard deviation of the variable's natural logarithm. Note that they are not the mean and standard deviation of the variable $X$ itself.
-
-Let's see how these parameters influence the shape of the distribution. In the figure below, two sets of three PDFs are displayed. In the left pannel, the displayed distributions present the same $\sigma$ and different values of $\mu=$0.5, 1 and 2. The lower the value of $\mu$, the more peaked is the distribution and the mode of the distribution moves towards 0. In the right pannel, all the distributions present the same value of $\mu$ and different values of $\sigma=$0.5, 1 and 2. When $\sigma$ grows towards values $\sigma>0$, the distribution moves towards 0 and becomes much more peakes. Similarly, when $\sigma$ reduces with values below 1, the distribution becomes more peaked. However, it moves towards positive values. Therefore, the influence of this parameter is different if $\sigma$ is above or below 1. 
-
-```{figure} /sandbox/continuous/figures/logn_density.png
-
----
-
----
-PDF of Lognormal distribution: (left) influence of parameter $\mu$, and (right) influence of parameter $\sigma$.
-```
-
-Integrating the PDF, the following expression of the CDF is derived
-
-$
-F(x) = \Phi\left( \frac{ln(x)-\mu}{\sigma} \right) = \frac{1}{2}\left[ 1+erf\left( \frac{ln(x)-\mu}{\sigma \sqrt{2}}\right)\right]
-$
-
-where $\Phi$ is the cumulative distribution function of of the standard Normal distribution function ($N(0,1)$). The CDF of the Lognormal distribution is displayed in the figure below.
-
-```{figure} /sandbox/continuous/figures/logn_cdf.png
-
----
-
-CDF of Lognormal distribution: (left) influence of parameter $\mu$, and (right) influence of parameter $\sigma$.
-```
-
-In the left pannel, the influence of the parameter $\mu$ is shown. The lower the $\mu$, the steeper becomes the CDF, reaching higher non-exceedance probabilities for increasing values of the random variable. In the right pannel, the influence of the parameter $\sigma$ is presented. Again, it can be seen that the influence of $\sigma$ depends whether it is above or below 1.
 
 ## Some properties
 
-The mean of the Lognormal distribution can be computed as
-
-$
-E[X]=e^{\mu + \frac{\sigma^2}{2}}
-$
-
-The variance is given by
-
-$
-Var[X] = \left( e^{\sigma^2}-1 \right)e^{2\mu + \sigma^2}
-$
-
-Finally, note that Lognormal distribution is not symmetric and presents positive skewness. This is, it presents a tail towards positive values.
-
-[^ref]: "Lognormal Distribution" by StijnDeVuyst is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/?ref=openverse.
+The mean, median and mode of the Normal distribution is equal to $\mu$. The variance is $\sigma^2$. Note that Normal distribution is symmetric and presents 0 skewness. 
