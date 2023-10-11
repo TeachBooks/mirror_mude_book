@@ -225,6 +225,8 @@ parts:
           title: Remote Commits
         - file: programming/programs/git/gui/fetch_pull
           title: Fetch and Pull
+        - file: programming/programs/git/gui/pushing_problems
+          title: Pushing Problems
       - file: programming/programs/git/cli/overview
         title: git and GitLab (CLI)
         sections:
