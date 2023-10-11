@@ -68,7 +68,7 @@ Thus, we can compute the empirical PDF assuming a bin size. To do so, we need to
     densities = freq / bin_size
 
     #plot epdf
-    bar plot densities
+    barplot densities
 
 Using the above algorithm, the following figure is obtained. We can see that most of the density is concentrated between 2 and 9 m/s.
 
