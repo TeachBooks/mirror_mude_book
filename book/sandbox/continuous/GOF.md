@@ -46,24 +46,24 @@ Pseudo code is presented to illustrate the procedure to build a QQ-plot.
     read observations
 
     #calculate the empirical cdf
-    p_emp, q_emp = ecdf(observations)
+    p_emp, q_emp = empirical CDF of observations
 
     #define the parameters of the Gaussian distribution
     mean_gaussian = 5.17
     sd_gaussian = 5.76
     
     #compute the values of the random variable predicted by the Normal distribution
-    q_gaussian = cdf.norm(p_emp, param = [mean_gaussian, sd_gaussian])
+    q_gaussian = CDF of Normal distribution evaluated in p_emp with parameters mean_gaussian and sd_gaussian
 
     #define the parameters of the Exponential distribution
     loc_expon = -5.25
     scale_expon = 10.42
     
     #compute the values of the random variable predicted by the fitted distribution
-    q_exponential = cdf.expon(p_emp, param = [loc_expon, scale_expon])
+    q_exponential = CDF of Exponential distribution evaluated in p_emp with parameters loc_expon, scale_expon
     
-    scatter(q_emp, q_gaussian)
-    scatter(q_emp, q_expon)
+    scatterplot of q_emp versus q_gaussian
+    scatterplot of q_emp versys q_expon
 
 
 ### Log-scale
