@@ -1,4 +1,4 @@
-# How to Takle Pushing Problems
+# How to Tackle Pushing Problems
 
 Have you encountered a problem when pushing to your remote repository? This tutorial is to help wolve pushing problems when dealing with notebooks, specifically when a commit has been made to the remote repository that conflicts with the local repository. In simple language, this means _the file online is different from the one on your computer and you can't push the file on your computer to GitLab automatically._
 
@@ -29,7 +29,7 @@ If you are curious, you can see the source files used to create the screenshots 
 
 Let's assume we have a remote repository on GitLab that we have already cloned to our computer (our local repository). {numref}`clone1` illustrates a change we have made locally to the files `README.md`.
 
-```{figure}./images/history.JPG
+```{figure} ./images/history.JPG
 ---
 width: 80%
 name: clone1
@@ -39,7 +39,7 @@ name: clone1
 
 If you have made changes in the remote file (on GitLab), as illustrated in {numref}`remote` and the local file (on your laptop), when you attempt to push your file to GitLab, an error occurs.
 
-```{figure}./images/edit_remote.JPG
+```{figure} ./images/edit_remote.JPG
 ---
 width: 80%
 name: remote
@@ -57,7 +57,7 @@ In addition, if the commit from the remote repository had been fetched and pulle
 
 Now that the file has been changed separately in two different locations, we will see the error when trying to push the local commit to the remote repository: an error message will pop up:
 
-```{figure}./images/push_error.JPG
+```{figure} ./images/push_error.JPG
 ---
 width: 80%
 name: error
@@ -67,7 +67,7 @@ Error message when pushing when the remote file has been edited.
 
 When clicking "fetch," GitHub GUI gives a summary telling us exactly what is going on: the "commit on remote" is not on your machine!
 
-```{figure}./images/after_fetch.JPG
+```{figure} ./images/after_fetch.JPG
 ---
 width: 80%
 name: fetch
@@ -77,7 +77,7 @@ The screen after clicking fetch, showing the issue
 
 In fact, if you click "pull origin" it asks you to resolve the conflicts.
 
-```{figure}./images/resolve_conflict.JPG
+```{figure} ./images/resolve_conflict.JPG
 ---
 width: 80%
 name: conflict
@@ -108,7 +108,7 @@ In this case, we will keep the changes as made locally and overwrite the changes
 - right click to get the situation as illustrated in {numref}`resolve1`
 - click "use the modified file from main"
 
-```{figure}./images/resolve_conflict_with_overwrite.JPG
+```{figure} ./images/resolve_conflict_with_overwrite.JPG
 ---
 width: 80%
 name: resolve1
@@ -122,7 +122,7 @@ Resolving conflicts using modified file from local copy of `main` branch`.
 
 After this you will get the following notification:
 
-```{figure}./images/resolve_conflict_ready.JPG
+```{figure} ./images/resolve_conflict_ready.JPG
 ---
 width: 80%
 name: resolve2
@@ -132,7 +132,7 @@ Conflict resolved message.
 
 Now that the conflict has been resolved, you should be good to push the commits to the remote repository:
 
-```{figure}./images/resolve conflict_success.JPG
+```{figure} ./images/resolve conflict_success.JPG
 ---
 width: 80%
 name: resolve3
@@ -142,9 +142,9 @@ After resolving conflict, you can push to remote.
 
 To confirm that things have worked as planned, via the GitLab website by clicking on the file and "history", where you can see all the commits that have modified the file (within GitLab).
 
-```{figure}./images/history_gitlab.JPG
+```{figure} ./images/history_gitlab.JPG
 ---
-width: 80%
+width: 40%
 name: resolve4
 ---
 GitLab showing commits in history for a particular file.
@@ -156,9 +156,9 @@ Note that the meaning of "revert" changes is explained below.
 
 In this case we want to preserve some (or all) of the changes in _both_ files. You know when looking at the history what the offending changes are. 
 
-```{figure}./images/undo_commit.JPG
+```{figure} ./images/undo_commit.JPG
 ---
-width: 80%
+width: 90%
 name: both1
 ---
 Github GUI showing the changed lines.
@@ -166,9 +166,9 @@ Github GUI showing the changed lines.
 
 Note that {numref}`both1` makes the changes obvious, but this won't always be the case when working with noteoboks. Luckily you can also understand the previous changes by looking at the commits shown in the changes list.
 
-```{figure}./images/undo_commit_staged.JPG
+```{figure} ./images/undo_commit_staged.JPG
 ---
-width: 80%
+width: 90%
 name: both2
 ---
 Github GUI showing the changed lines in the changes list.
@@ -183,9 +183,9 @@ You can see that other work has also been done with the notebook. Here it is imp
 - Copy and paste the updated file back into your git repository (with the original name), then commit and push to the remote repository. You can delete the temporary files and directory.
 - Remember to check that the changes have been made appropriately in GitLab.
 
-```{figure}./images/combining_2_files_manually.JPG
+```{figure} ./images/combining_2_files_manually.JPG
 ---
-width: 80%
+width: 90%
 name: both3
 ---
 Manually combine the two files.
@@ -199,9 +199,9 @@ Sometimes it may be useful to "undo" the changes made to a file in a given commi
 
 If you do this and then change your mind, luckily, it is reversible---but not in the way you might expect! Git reverts a commit by _making a new commit,_ which you will immediately see in the history. Thus, you can easily revert your reverted commit using the same procedure as before: right-click on the offending commit in the history (thus reverting the revert).
 
-```{figure}./images/revert-revert-edit-local.JPG
+```{figure} ./images/revert-revert-edit-local.JPG
 ---
-width: 80%
+width: 90%
 name: clone1
 ---
 Revert revert changes in the history tab.
