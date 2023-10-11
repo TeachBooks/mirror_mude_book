@@ -16,15 +16,13 @@ Let's start computing the empirical CDF. We need to assign to each observation a
 
     read observations
 
-    #sort the observations in ascending order
-    x = sort(observations, order=ascending)
+    x = sort observations in ascending order
 
-    #calculate the non-exceedance probabilities
-    length = len(x)
-    non_exc_prob = range(from=1, to=length+1, by=1)/length
+    length = the number of observations
+    probability of not exceeding = (range of integer values from 1 \
+                                    to length + 1) / length
 
-    #plot ecdf
-    plot(x, non_exc_prob)
+    plot x versus probability of not exceeding 
 
 Using the above algorithm, the following figure is obtained. Note that empirical CDFs are usually plotted using a step plot.
 
@@ -52,27 +50,25 @@ Thus, we can compute the empirical PDF assuming a bin size. To do so, we need to
     bin_size = 2
 
     #Calculate the number of bins and the bin edges given the bin size
-    min_value = min(observations)
-    max_value = max(observations)
+    min_value = minimum value of observations
+    max_value = maximum value observations 
+    n_bins = (max_value - min_value) / bin_size 
+    bin_edges = range of n_bins + 1 values between the truncated value \
+                of min_value and the ceiling value of max_value
 
-    n_bins = (max_value-min_value)/bin_size 
-    bin_edges = linspace(trunc(min_value), ceil(max_value), n_bins+1)
-
-    #Count the number of observations in each interval
-    count = []
-    for in in range(len(bin_edges)-1):
-        n = len(observations>bin_edges[i] and observations<bin_edges[i+1])
-        count.append(n)
+    #Count the number of observations in each bin
+    count = empty list
+    for each bin:
+        append the number of observations between the bin_edges to count
 
     #Compute relative frequencies
-    freq = count/len(observations)
+    freq = count / number of observations
 
     #Compute densities
-    densities = freq/bin_size
+    densities = freq / bin_size
 
     #plot epdf
-    mid_points = (bin_edges[1:] + bin_edges[:-1]) * 0.5
-    bar(mid_points, densities, width=bin_size)
+    barplot densities
 
 Using the above algorithm, the following figure is obtained. We can see that most of the density is concentrated between 2 and 9 m/s.
 
