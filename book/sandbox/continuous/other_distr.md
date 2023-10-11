@@ -20,10 +20,10 @@ As you can see, the shape of the PDF is perfectly symmetric with respect to the 
 As you can imagine, it is also possible to analyze the asymmetry of an empirical distribution. To this end, we can visually inspect the empirical PDF and compute the *sample coefficient of skewness* from a set of observations as
 
 $
-g_1 = \frac{\sum_{i=1}^n{(x_i-\overline{x})^3}}{ns^3}
+g_1 = \frac{\sum_{i=1}^n{(x_i-\overline{x})^3}}{n\sigma^3}
 $
 
-where $x_i$ are the observations, $\overline{x}$ is the mean of the observations, $n$ is the number of observations, and $s$ is the standard deviation.
+where $x_i$ are the observations, $\overline{x}$ is the mean of the observations, $n$ is the number of observations, and $\sigma$ is the standard deviation.
 
 **And what happens when my observations are not symmetric?**
 

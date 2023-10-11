@@ -12,7 +12,7 @@ name: data_wind
 Time series of wind speed close to Schiphol Airport.
 ```
 
-Let's start computing the empirical CDF. We need to assign to each observation a non-exceedance probability. To do so, we just need to sort to observations and compute the non-exceedance probabilities using the ranks. This is illustrated below with pseudo-code.
+Let's start computing the empirical CDF. We need to assign to each observation a non-exceedance probability. To do so, we just need to sort the observations and compute the non-exceedance probabilities using the ranks. This is illustrated below with pseudo-code.
 
     read observations
 
