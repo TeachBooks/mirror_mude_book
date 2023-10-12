@@ -252,16 +252,28 @@ parts:
         - file: programming/programs/debugging/assertions
         - file: programming/programs/debugging/logging
         - file: programming/programs/debugging/exercises
-      - file: programming/programs/modules
-    - file: programming/communication/overview
-      title: Communication
+# END REMOVE-FROM-PUBLISH
+# START REMOVE-FROM-PUBLISH
+    # Python Topics ADDED OCTOBER 2023 (REVISE FOR 2024)
+    - file: programming/python_topics/overview
       sections:
-      - file: programming/communication/visualization
-    - file: programming/code/overview
-      title: Computers & Code
-      sections:
-      - file: programming/code/packages
-      - file: programming/code/environments
+      - file: programming/python_topics/classes_solution
+        title: Classes
+      - file: programming/python_topics/visualization
+        title: Advanced Visualization
+      - file: programming/python_topics/modules_solution
+        title: Modules
+      # TO BE ADDED LATER: NUMPY ADVANCED, PANDAS, PYTHONIC, ETC.
+    # REMOVED OCTOBER 2023 TO REORGGANIZE IN "Python Topics"
+    # - file: programming/communication/overview
+    #   title: Communication
+    #   sections:
+    #   - file: programming/communication/visualization
+    # - file: programming/code/overview
+    #   title: Computers & Code
+    #   sections:
+    #   - file: programming/code/packages
+    #   - file: programming/code/environments
 # END REMOVE-FROM-PUBLISH
   - caption: Fundamental Concepts
     numbered: 2
