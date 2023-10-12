@@ -257,9 +257,9 @@ parts:
     # Python Topics ADDED OCTOBER 2023 (REVISE FOR 2024)
     - file: programming/python_topics/overview
       sections:
-      - file: programming/classes/classes_solution
-      - file: programming/communication/visualization
-      - file: programming/programs/modules_solution
+      - file: programming/python_topics/classes_solution
+      - file: programming/python_topics/visualization
+      - file: programming/python_topics/modules_solution
     # REMOVED OCTOBER 2023 TO REORGGANIZE IN "Python Topics"
     # - file: programming/communication/overview
     #   title: Communication
