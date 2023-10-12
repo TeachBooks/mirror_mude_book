@@ -62,4 +62,21 @@ $
 
 Finally, note that Lognormal distribution is not symmetric and presents positive skewness. This is, it presents a tail towards positive values.
 
+# Let's practice
+
+````{card} Exercises
+During the design phase of a coastal structure, it is needed to assess if its height is enough to protect the sheltered area from overtopping events (sea water overpassing the structure and reaching the lee side). The distribution of overtopping volumes is known to follow a Lognormal distribution. The engineer has already calculated the parameters of the Lognormal distribution ($\mu$=5.5 and $\sigma$=1.15) and has plotted the CDF for you.
+
+```{figure} /sandbox/continuous/figures/logn_ex.png
+
+---
+
+---
+PDF and CDF of Lognormal distribution to describe overtopping volumes $V (l/m)$.
+```
+
+<iframe src="https://tudelft.h5p.com/content/1292083830902957237/embed" aria-label="Lognormal" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+
+```````
+
 [^ref]: "Lognormal Distribution" by StijnDeVuyst is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/?ref=openverse.

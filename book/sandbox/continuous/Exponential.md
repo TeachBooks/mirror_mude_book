@@ -68,3 +68,12 @@ $
 If the waiting time $X$ is exponential-distributed, you can see that the probability of the waiting time of one occurence ($x_2$) does not depend on the previous one ($x_1$).
 
 Finally, note that this distribution is not bell-shaped and, thus, not symmetric. It presents a positive tail and its skewness is 2.
+
+```{card} Exercises
+An engineer is the manager of the construction of a bridge across a river and is concerned about large floods (floods with discharges higher than $50 m^3/s$) in the river, since they may damage the construction works. Higher floods than that occur in average every 10 years.
+
+Assume that floods are independent and identically distributed. This means that they can be modelled using a Poisson process and, thus, the time between floods can be modelled using an Exponential distribution.
+
+<iframe src="https://tudelft.h5p.com/content/1292083679343540347/embed" aria-label="Exponential" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+
+```

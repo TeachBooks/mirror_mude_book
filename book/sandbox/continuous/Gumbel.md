@@ -53,3 +53,53 @@ Var[X] = \frac{\pi^2}{6}\beta^2
 $
 
 Finally, note that Gumbel distribution is not symmetric and presents positive skewness. This is, it presents a tail towards positive values. Actually, the skewness of this distribution can be analytically computed and it is approximately 1.14.
+
+## What about a negative tail?
+
+Although less common, we can also find a variation of the Gumbel distribution with a left tail. The PDF of the left-tailed Gumbel distribution is given by 
+
+$
+f(x) = \frac{1}{\beta}e^{\left( \frac{x-\mu}{\beta} - e^{\left( \frac{x-\mu}{\beta} \right)}\right)}
+$
+
+where $\mu$ is the location parameter and $\beta>0$ is the scale parameter. In the figure below the influence of these parameters is presented. Parameter interpretation is equivalent to that for the parameters of the right-tailed one.
+
+```{figure} /sandbox/continuous/figures/left_gumbel.png
+
+---
+
+---
+Left-tailed Gumbel distribution function: (left) random samples, and (right) PDF.
+```
+
+Integrating the PDF, the following expression of the CDF is derived
+
+$
+F(x) = e^{-e^{\frac{x-\mu}{\beta}}}
+$
+
+which is displayed in the figure below. Note how the difference in a symbol switches the distribution.
+
+```{figure} /sandbox/continuous/figures/left_gumbel_cdf.png
+
+---
+
+Left-tailed Gumbel distribution function: CDF.
+```
+
+Actually, if we compare the PDF of a right-tailed and left-tailed Gumbel distributions with the same parameters ($\mu$=0 and  $\beta$=1 in the figure below), the mode of the distribution is the same in both distributions and one PDF is the symmetrical of the other.
+
+```{figure} /sandbox/continuous/figures/left_right_gumbel_pdf.png
+
+---
+
+Comparison between the left-tailed and right-tailed Gumbel distribution.
+```
+
+```{card} Exercises
+Groundwater quality of a shallow aquifer has been tracked for a year to determine if it is duable to use it or if it is getting polluted. To this end, the daily maximum concentration of chloride in miligrams per liter has been measured. These concentration has been described using a Gumbel distribution with parameters $\mu=60$ and $\beta=10$.
+
+Chlorides between 1mg/L an 100mg/L are normal in freshwater. Use the Gumbel distribution to compute the probability of being in that interval.
+
+<iframe src="https://tudelft.h5p.com/content/1292083690582888367/embed" aria-label="Gumbel" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+```

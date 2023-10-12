@@ -59,7 +59,6 @@ parts:
         - file: numerical_methods/1-numerical-solns.ipynb
         - file: numerical_methods/2-numerical-interp.ipynb
         - file: numerical_methods/3-taylor-series.ipynb
-  # START REMOVE-FROM-PUBLISH
         - file: numerical_methods/4-FDM-intro.ipynb
         - file: numerical_methods/5-numerical_derivatives.ipynb
         - file: numerical_methods/6-simple_solvers_ODE.ipynb
@@ -67,7 +66,7 @@ parts:
         - file: numerical_methods/8-solvers_non-linear.ipynb
         - file: numerical_methods/9-exercise.ipynb
         - file: numerical_methods/10-advanced_solvers.ipynb
-
+ # START REMOVE-FROM-PUBLISH
     - file: probability/overview
       title: Probability
     
@@ -226,6 +225,8 @@ parts:
           title: Remote Commits
         - file: programming/programs/git/gui/fetch_pull
           title: Fetch and Pull
+        - file: programming/programs/git/gui/pushing_problems
+          title: Pushing Problems
       - file: programming/programs/git/cli/overview
         title: git and GitLab (CLI)
         sections:
@@ -292,21 +293,22 @@ parts:
       - file: sandbox/continuous/PDF_CDF
       - file: sandbox/continuous/empirical
       - file: sandbox/continuous/Param_distr.md
-      - file: sandbox/continuous/other_distr.md
-      - file: sandbox/continuous/Uniform.md
-      - file: sandbox/continuous/Exponential.md
-      - file: sandbox/continuous/Exponential_quiz.md
-      - file: sandbox/continuous/Gumbel.md
-      - file: sandbox/continuous/Gumbel_quiz.md
-      - file: sandbox/continuous/Lognormal.md
-      - file: sandbox/continuous/Lognormal_quiz.md
-      - file: sandbox/continuous/Parameterization.md
+        title: Parametric distributions
+        sections: 
+        - file: sandbox/continuous/Gaussian.md
+        - file: sandbox/continuous/other_distr.md
+        - file: sandbox/continuous/Uniform.md
+        - file: sandbox/continuous/Exponential.md
+        - file: sandbox/continuous/Gumbel.md
+        - file: sandbox/continuous/Lognormal.md
+        - file: sandbox/continuous/summary.md
       - file: sandbox/continuous/fitting.md
-      - file: sandbox/continuous/moments.md
-      - file: sandbox/continuous/moments_quiz.md
-      - file: sandbox/continuous/MLE_1.ipynb
-      - file: sandbox/continuous/GOF
-      - file: sandbox/continuous/GOF_quiz.md
+        title: Fitting parametric distributions
+        sections: 
+        - file: sandbox/continuous/moments.md
+        - file: sandbox/continuous/MLE_1.ipynb
+        - file: sandbox/continuous/GOF
+      - file: sandbox/continuous/Loc-scale.ipynb
     - file: sandbox/dist_fit_example/overview
       title: Distribution Fitting Examples
       sections:
