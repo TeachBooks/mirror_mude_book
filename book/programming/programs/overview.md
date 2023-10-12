@@ -1,8 +1,10 @@
 # Programs 
 
-This part of the textbook covers aspects related to computer _programs_. We will cover methodologies, for example, modular programs, object-oriented programming, as well as tools for writing programs effectiveley, for example, debugging, testing and git/GitLab.
+This part of the textbook covers aspects related to computer _programs_. We cover tools, for example, tools for writing programs effectively, for example, debugging, testing and git/GitLab. We may also cover methodological aspects such as modular programs and object-oriented programming.
 
-Content will be added here throughout the semester. When special software is concerned, remember to check the [software page](https://mude.citg.tudelft.nl/software/overview/) on the module website for information related to installation.
+<!-- MMMMM 2024: at end of Q1 2023 Robert abandoned the original 5-chapter plan for programming, but left the directory structure in place. a new chapter Python Topics was created. -->
+
+Content will be added here throughout the semester. When special software is concerned, remember to check the [software page](https://mude.citg.tudelft.nl/software/overview/) of the module website for information related to installation.
 
 <!-- text. Can briefly mention programming paradigms and that we focus on object-oriented and functional. FORTRAN was old standard in engineering, which is declarative. 
 
