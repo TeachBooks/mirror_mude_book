@@ -258,8 +258,12 @@ parts:
     - file: programming/python_topics/overview
       sections:
       - file: programming/python_topics/classes_solution
+        title: Classes
       - file: programming/python_topics/visualization
+        title: Advanced Visualization
       - file: programming/python_topics/modules_solution
+        title: Modules
+      # TO BE ADDED LATER: NUMPY ADVANCED, PANDAS, PYTHONIC, ETC.
     # REMOVED OCTOBER 2023 TO REORGGANIZE IN "Python Topics"
     # - file: programming/communication/overview
     #   title: Communication
