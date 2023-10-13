@@ -67,50 +67,50 @@ parts:
         - file: numerical_methods/9-exercise.ipynb
         - file: numerical_methods/10-advanced_solvers.ipynb
 
-    - caption: Extreme Value Analysis
-      numbered: 2
-      chapters:
-      - file: EVA/00_00_EVA
-      - file: EVA/01_00_Extreme
-        title: Extremes
-        sections:
-        - file: EVA/01_01_Bernoulli
-        - file: EVA/01_02_RT
-        - file: EVA/01_03_Sampling
-      - file: EVA/02_00_BM_GEV
-        sections:
-        - file: EVA/02_01_BM
-        - file: EVA/02_02_Asymptotic
-        - file: EVA/02_03_GEV
-        - file: EVA/02_04_RP_Binomial
-      - file: EVA/03_00_POT_GPD
-        sections:
-        - file: EVA/03_01_POT
-        - file: EVA/03_02_GPD
-        - file: EVA/03_03_GPD2
-        - file: EVA/03_04_Poisson
-        - file: EVA/03_05_GPD3
-        - file: EVA/03_06_RP_Poisson
-          title: Return Period
-      - file: EVA/04_00_Threshold
-        sections:
-        - file: EVA/04_01_Threshold_Poisson
-        - file: EVA/04_02_Threshold_MRL
-        - file: EVA/04_03_Threshold_stability
-        - file: EVA/04_04_Threshold_DI
-      - file: EVA/MUDE/01_00_MUDE
-        title: MUDE Materials
-        sections:
-        - file: EVA/MUDE/01_01_EVA_1
-        - file: EVA/MUDE/01_02_3-1-Extreme_Value_notebook.ipynb
-          title: Assignment 1
-        - file: EVA/MUDE/01_03_3-1-Extreme_Value_notebook_solved.ipynb
-          title: Solution 1
-        - file: EVA/MUDE/01_04_EVA_2
-        - file: EVA/MUDE/01_05_4-1-EVA2_student.ipynb
-          title: Assignment 2
-        - file: EVA/MUDE/01_06_4-1-EVA2_teacher.ipynb
-          title: Solution 2
+  - caption: Extreme Value Analysis
+    numbered: 2
+    chapters:
+    - file: EVA/00_00_EVA
+    - file: EVA/01_00_Extreme
+      title: Extremes
+      sections:
+      - file: EVA/01_01_Bernoulli
+      - file: EVA/01_02_RT
+      - file: EVA/01_03_Sampling
+    - file: EVA/02_00_BM_GEV
+      sections:
+      - file: EVA/02_01_BM
+      - file: EVA/02_02_Asymptotic
+      - file: EVA/02_03_GEV
+      - file: EVA/02_04_RP_Binomial
+    - file: EVA/03_00_POT_GPD
+      sections:
+      - file: EVA/03_01_POT
+      - file: EVA/03_02_GPD
+      - file: EVA/03_03_GPD2
+      - file: EVA/03_04_Poisson
+      - file: EVA/03_05_GPD3
+      - file: EVA/03_06_RP_Poisson
+        title: Return Period
+    - file: EVA/04_00_Threshold
+      sections:
+      - file: EVA/04_01_Threshold_Poisson
+      - file: EVA/04_02_Threshold_MRL
+      - file: EVA/04_03_Threshold_stability
+      - file: EVA/04_04_Threshold_DI
+    - file: EVA/MUDE/01_00_MUDE
+      title: MUDE Materials
+      sections:
+      - file: EVA/MUDE/01_01_EVA_1
+      - file: EVA/MUDE/01_02_3-1-Extreme_Value_notebook.ipynb
+        title: Assignment 1
+      - file: EVA/MUDE/01_03_3-1-Extreme_Value_notebook_solved.ipynb
+        title: Solution 1
+      - file: EVA/MUDE/01_04_EVA_2
+      - file: EVA/MUDE/01_05_4-1-EVA2_student.ipynb
+        title: Assignment 2
+      - file: EVA/MUDE/01_06_4-1-EVA2_teacher.ipynb
+        title: Solution 2
 
 
  # START REMOVE-FROM-PUBLISH
