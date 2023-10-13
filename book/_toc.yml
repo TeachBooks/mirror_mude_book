@@ -257,11 +257,11 @@ parts:
     # Python Topics ADDED OCTOBER 2023 (REVISE FOR 2024)
     - file: programming/python_topics/overview
       sections:
-      - file: programming/python_topics/classes_solution
+      - file: programming/python_topics/classes
         title: Classes
       - file: programming/python_topics/visualization
         title: Advanced Visualization
-      - file: programming/python_topics/modules_solution
+      - file: programming/python_topics/modules
         title: Modules
       # TO BE ADDED LATER: NUMPY ADVANCED, PANDAS, PYTHONIC, ETC.
     # REMOVED OCTOBER 2023 TO REORGGANIZE IN "Python Topics"
