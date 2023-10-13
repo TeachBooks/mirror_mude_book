@@ -67,7 +67,7 @@ parts:
         - file: numerical_methods/9-exercise.ipynb
         - file: numerical_methods/10-advanced_solvers.ipynb
     - file: probability/Reminder_intro.md
-      title: Probability
+      title: Continuous Distributions
       sections:
       - file: probability/PDF_CDF
       - file: probability/empirical
