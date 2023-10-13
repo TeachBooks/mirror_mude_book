@@ -27,12 +27,12 @@ If you are curious, you can see the source files used to create the screenshots 
 
 ## Recreating the Problem
 
-Let's assume we have a remote repository on GitLab that we have already cloned to our computer (our local repository). {numref}`clone1` illustrates a change we have made locally to the files `README.md`.
+Let's assume we have a remote repository on GitLab that we have already cloned to our computer (our local repository). {numref}`clone21` illustrates a change we have made locally to the files `README.md`.
 
 ```{figure} ./images/history.JPG
 ---
 width: 80%
-name: clone1
+name: clone21
 ---
 `README.md` with change in the local repostory, viewed GitHub GUI.
 ```
@@ -87,7 +87,7 @@ Github GUI showing the conflicted file.
 
 **When using notebooks DO NOT continue merge!** Instead, click "abort merge".
 
-After aborting the merge, you can check out the view history to see exactly what is causing the issue (for exmaple, {numref}`history`), but assuming you know what changes have been made, this should be relatively easy to figure out.
+After aborting the merge, you can check out the view history to see exactly what is causing the issue (for examaple, {numref}`clone21`), but assuming you know what changes have been made, this should be relatively easy to figure out.
 
 ## The Solutions
 
@@ -132,7 +132,7 @@ Conflict resolved message.
 
 Now that the conflict has been resolved, you should be good to push the commits to the remote repository:
 
-```{figure} ./images/resolve conflict_success.JPG
+```{figure} ./images/resolve_conflict_success.JPG
 ---
 width: 80%
 name: resolve3
@@ -202,7 +202,7 @@ If you do this and then change your mind, luckily, it is reversible---but not in
 ```{figure} ./images/revert-revert-edit-local.JPG
 ---
 width: 90%
-name: clone1
+name: revert
 ---
 Revert revert changes in the history tab.
 ```

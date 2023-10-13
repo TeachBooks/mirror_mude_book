@@ -66,12 +66,29 @@ parts:
         - file: numerical_methods/8-solvers_non-linear.ipynb
         - file: numerical_methods/9-exercise.ipynb
         - file: numerical_methods/10-advanced_solvers.ipynb
- # START REMOVE-FROM-PUBLISH
-    - file: probability/overview
-      title: Probability
-    
-      
-
+    - file: probability/Reminder_intro.md
+      title: Continuous Distributions
+      sections:
+      - file: probability/PDF_CDF
+      - file: probability/empirical
+      - file: probability/Param_distr.md
+        title: Parametric distributions
+        sections: 
+        - file: probability/Gaussian.md
+        - file: probability/other_distr.md
+        - file: probability/Uniform.md
+        - file: probability/Exponential.md
+        - file: probability/Gumbel.md
+        - file: probability/Lognormal.md
+        - file: probability/summary.md
+      - file: probability/fitting.md
+        title: Fitting parametric distributions
+        sections: 
+        - file: probability/moments.md
+        - file: probability/MLE_1.ipynb
+        - file: probability/GOF
+      - file: probability/Loc-scale.ipynb
+  # START REMOVE-FROM-PUBLISH  
   - caption: Q2 Topics
     numbered: false
     chapters:
@@ -252,16 +269,28 @@ parts:
         - file: programming/programs/debugging/assertions
         - file: programming/programs/debugging/logging
         - file: programming/programs/debugging/exercises
-      - file: programming/programs/modules
-    - file: programming/communication/overview
-      title: Communication
+# END REMOVE-FROM-PUBLISH
+    # Python Topics ADDED OCTOBER 2023 (REVISE FOR 2024)
+    - file: programming/python_topics/overview
       sections:
-      - file: programming/communication/visualization
-    - file: programming/code/overview
-      title: Computers & Code
-      sections:
-      - file: programming/code/packages
-      - file: programming/code/environments
+      - file: programming/python_topics/classes
+        title: Classes
+      - file: programming/python_topics/visualization
+        title: Advanced Visualization
+# START REMOVE-FROM-PUBLISH
+      - file: programming/python_topics/modules
+        title: Modules
+      # TO BE ADDED LATER: NUMPY ADVANCED, PANDAS, PYTHONIC, ETC.
+    # REMOVED OCTOBER 2023 TO REORGGANIZE IN "Python Topics"
+    # - file: programming/communication/overview
+    #   title: Communication
+    #   sections:
+    #   - file: programming/communication/visualization
+    # - file: programming/code/overview
+    #   title: Computers & Code
+    #   sections:
+    #   - file: programming/code/packages
+    #   - file: programming/code/environments
 # END REMOVE-FROM-PUBLISH
   - caption: Fundamental Concepts
     numbered: 2
@@ -287,26 +316,6 @@ parts:
   - caption: Sandbox
     chapters:
     - file: sandbox/blank
-    - file: sandbox/continuous/Reminder_intro.md
-      sections:
-      - file: sandbox/continuous/PDF_CDF
-      - file: sandbox/continuous/empirical
-      - file: sandbox/continuous/Param_distr.md
-        title: Parametric distributions
-        sections: 
-        - file: sandbox/continuous/Gaussian.md
-        - file: sandbox/continuous/other_distr.md
-        - file: sandbox/continuous/Uniform.md
-        - file: sandbox/continuous/Exponential.md
-        - file: sandbox/continuous/Gumbel.md
-        - file: sandbox/continuous/Lognormal.md
-      - file: sandbox/continuous/fitting.md
-        title: Fitting parametric distributions
-        sections: 
-        - file: sandbox/continuous/moments.md
-        - file: sandbox/continuous/MLE_1.ipynb
-        - file: sandbox/continuous/GOF
-      - file: sandbox/continuous/Loc-scale.ipynb
     - file: sandbox/dist_fit_example/overview
       title: Distribution Fitting Examples
       sections:
