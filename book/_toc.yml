@@ -66,12 +66,29 @@ parts:
         - file: numerical_methods/8-solvers_non-linear.ipynb
         - file: numerical_methods/9-exercise.ipynb
         - file: numerical_methods/10-advanced_solvers.ipynb
- # START REMOVE-FROM-PUBLISH
-    - file: probability/overview
+    - file: probability/Reminder_intro.md
       title: Probability
-    
-      
-
+      sections:
+      - file: probability/PDF_CDF
+      - file: probability/empirical
+      - file: probability/Param_distr.md
+        title: Parametric distributions
+        sections: 
+        - file: probability/Gaussian.md
+        - file: probability/other_distr.md
+        - file: probability/Uniform.md
+        - file: probability/Exponential.md
+        - file: probability/Gumbel.md
+        - file: probability/Lognormal.md
+        - file: probability/summary.md
+      - file: probability/fitting.md
+        title: Fitting parametric distributions
+        sections: 
+        - file: probability/moments.md
+        - file: probability/MLE_1.ipynb
+        - file: probability/GOF
+      - file: probability/Loc-scale.ipynb
+  # START REMOVE-FROM-PUBLISH  
   - caption: Q2 Topics
     numbered: false
     chapters:
@@ -299,27 +316,6 @@ parts:
   - caption: Sandbox
     chapters:
     - file: sandbox/blank
-    - file: sandbox/continuous/Reminder_intro.md
-      sections:
-      - file: sandbox/continuous/PDF_CDF
-      - file: sandbox/continuous/empirical
-      - file: sandbox/continuous/Param_distr.md
-        title: Parametric distributions
-        sections: 
-        - file: sandbox/continuous/Gaussian.md
-        - file: sandbox/continuous/other_distr.md
-        - file: sandbox/continuous/Uniform.md
-        - file: sandbox/continuous/Exponential.md
-        - file: sandbox/continuous/Gumbel.md
-        - file: sandbox/continuous/Lognormal.md
-        - file: sandbox/continuous/summary.md
-      - file: sandbox/continuous/fitting.md
-        title: Fitting parametric distributions
-        sections: 
-        - file: sandbox/continuous/moments.md
-        - file: sandbox/continuous/MLE_1.ipynb
-        - file: sandbox/continuous/GOF
-      - file: sandbox/continuous/Loc-scale.ipynb
     - file: sandbox/dist_fit_example/overview
       title: Distribution Fitting Examples
       sections:
