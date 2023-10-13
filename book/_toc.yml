@@ -253,7 +253,6 @@ parts:
         - file: programming/programs/debugging/logging
         - file: programming/programs/debugging/exercises
 # END REMOVE-FROM-PUBLISH
-# START REMOVE-FROM-PUBLISH
     # Python Topics ADDED OCTOBER 2023 (REVISE FOR 2024)
     - file: programming/python_topics/overview
       sections:
@@ -261,6 +260,7 @@ parts:
         title: Classes
       - file: programming/python_topics/visualization
         title: Advanced Visualization
+# START REMOVE-FROM-PUBLISH
       - file: programming/python_topics/modules
         title: Modules
       # TO BE ADDED LATER: NUMPY ADVANCED, PANDAS, PYTHONIC, ETC.
