@@ -20,7 +20,7 @@ Let's start computing the empirical CDF. We need to assign to each observation a
 
     length = the number of observations
     probability of not exceeding = (range of integer values from 1 \
-                                    to length + 1) / length
+                                    to length) / length + 1
 
     plot x versus probability of not exceeding 
 
