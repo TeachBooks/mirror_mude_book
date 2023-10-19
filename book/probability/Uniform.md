@@ -31,7 +31,7 @@ F(x) = \frac{x-a}{b-a}   \hspace{1cm}   for \ a\leq x \leq b
 $
 
 $
-F(x) = 0  \hspace{1cm} for \ x>b
+F(x) = 1  \hspace{1cm} for \ x>b
 $
 
 If we make $a=0$ and $b=1$, we obtain the standard or unity uniform distribution, which is used to generate random values from other distribution functions for simulation purposes.
