@@ -11,14 +11,14 @@ name: rating_curve
 Rating curve for hypothetical river. Relationship is $q=C \cdot h_w^\beta$ where $\beta$=2.0 and $C$=4.0.
 ```
 
-This is a difficult question because the actual discharge observed in a given year is random. In addition to other variables, it is largely dependent on rainfall in the drainage basin, which is impossible to predict far in advance---certainly not for the entire year. Furthermore, we don't have a way to accurately extrapolate our past observations to identify a logical maximum discharge. For this reason, we will use a continuous probability distribution to quantify the probability associated with a specific maximum discharge, $q$, that might be observed in a given year, defined by the PDF $f_{Q}(q)$ and CDF $F_{Q}(q)$. The only other piece of information needed is a design standard---a probability that defines the discharge to use for our design. Other chapters in this book cover the derivation of a design standard, so for this discussion we will assume that a flooding probability of 1/100 has already been determined as the acceptable level (often referred to as the 100 year return period event). Because there is only one random variable, we can use the PDF to determine the design discharge ({numref}`design_1_rv`).
+This is a difficult question because the actual discharge observed in a given year is random. In addition to other variables, it is largely dependent on rainfall in the drainage basin, which is impossible to predict far in advance---certainly not for the entire year. Furthermore, we don't have a way to accurately extrapolate our past observations to identify a logical maximum discharge. For this reason, we will use a continuous probability distribution to quantify the probability associated with a specific maximum discharge, $q$, that might be observed in a given year, defined by the PDF $f_{Q}(q)$ and CDF $F_{Q}(q)$. The only other piece of information needed is a design standard---a probability that defines the discharge to use for our design. Other chapters in this book cover the derivation of a design standard, so for this discussion we will assume that a flooding probability of 1/100 has already been determined as the acceptable level. Because there is only one random variable, we can use the PDF to determine the design discharge ({numref}`design_1_rv`).
 
 ```{figure} ../../figures/pd/design_1_rv.svg
 ---
 height: 400px
 name: design_1_rv
 ---
-PDF and design value for river discharge with 0.01 probability of exceedance, or 100 year return period: $q_{design}=155 \: \text{m}^3\text{/s}$.
+PDF and design value for river discharge with 0.01 probability of exceedance: $q_{design}=155 \: \text{m}^3\text{/s}$.
 ```
 
 In particular, we note that failure occurs for high discharge, so we must use the complementary CDF to find the design value, in this case probability of exceeding $q_{\mathrm{design}}$:
