@@ -1,4 +1,4 @@
-
+(summary_dist)=
 # Summary of parametric distributions
 
 Here a summary of the main equations for each of the presented distirbution functions is presented.

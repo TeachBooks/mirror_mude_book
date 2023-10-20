@@ -1,4 +1,4 @@
-(summary_dist)=
+
 # Uniform distribution
 
 The uniform distribution is the simplest type of continuous parametric distribution and, as it is implied in its name, the PDF has a constant value along a given interval $[a,b]$, where $a < b$. The PDF of the uniform is given by
