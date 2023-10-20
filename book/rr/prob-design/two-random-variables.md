@@ -15,7 +15,7 @@ VAR[X] &= \left( \exp(\sigma^2)-1 \right)\exp(2\mu + \sigma^2)= 400
 $$
 See the table in [Summary of parametric distribibutions](summary_dist)
 
-For the `lognorm` method in `scipy.stats` we need to provide the parameters shape `s` = $\sigma$, `loc` = 0 and `scale` = $\exp(\mu)$, in this case:
+For the `lognorm` method in `scipy.stats` we need to provide the parameters shape `s` = $\sigma$, `loc` = 0 and `scale` = $\exp(\mu)$ (see explanation [here](https://mude.citg.tudelft.nl/book/probability/Loc-scale.html)), in this case:
 ```python
 import scipy.stats as stats
 s = 0.198
@@ -183,7 +183,7 @@ All four design values of $Q$ are collected in the table below, along with the r
 
 We need to be explicit in what we are trying to evaluate. In this case, it is the distribution of a function of random variables, $Q$.
 
-Sometimes we can't get the distribution of the function of random variables analyticaly. There are two main reasons: 1) non-Gaussian distributions, and 2) non-linear function of random variables. Fortunately it is easy to find it numerically through sampling techniques. This will be discussed elsewhere.
+For non-Gaussian distributions and for non-linear functions of random variables it is often not possible to get the distribution of the function of random variables analytically. Fortunately it is easy to find it numerically through sampling techniques. This will be discussed elsewhere.
 
 The 'and' and 'or' approaches (intersection and union) are simple, but really only limited to discrete cases. As illustrated above, they cannot be used in the case of continuous random variables, or with functions of random variables because one must integrate across all possible scenarios leading to failure. Nonetheless, these approaches are extremely useful for many situations, and are the basis of *system reliability* problems.
 
