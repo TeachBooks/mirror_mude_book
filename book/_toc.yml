@@ -59,6 +59,8 @@ parts:
         - file: numerical_methods/1-numerical-solns.ipynb
         - file: numerical_methods/2-numerical-interp.ipynb
         - file: numerical_methods/3-taylor-series.ipynb
+          sections:
+          - file: numerical_methods/3-taylor-series-exercise.ipynb
         - file: numerical_methods/4-FDM-intro.ipynb
         - file: numerical_methods/5-numerical_derivatives.ipynb
         - file: numerical_methods/6-simple_solvers_ODE.ipynb
