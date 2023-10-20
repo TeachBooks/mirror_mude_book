@@ -88,7 +88,15 @@ parts:
         - file: probability/MLE_1.ipynb
         - file: probability/GOF
       - file: probability/Loc-scale.ipynb
-  # START REMOVE-FROM-PUBLISH  
+  # START REMOVE-FROM-PUBLISH 
+    - file: rr/prob-design/overview
+      title: Risk and Reliability Intro
+      sections:
+      - file: rr/prob-design/one-random-variable
+      - file: rr/prob-design/two-random-variables
+      - file: rr/prob-design/exercise
+
+   
   - caption: Q2 Topics
     numbered: false
     chapters:
@@ -180,11 +188,11 @@ parts:
     numbered: 2
     chapters:
     # - file: pd/intro
-    - file: pd/prob-design/overview.md
-      sections:
-      - file: pd/prob-design/01-one-random-variable.md
-      - file: pd/prob-design/02-two-random-variables.md
-      - file: pd/prob-design/example-river-system.md
+    # - file: pd/prob-design/overview.md
+    #   sections:
+    #   - file: pd/prob-design/01-one-random-variable.md
+    #   - file: pd/prob-design/02-two-random-variables.md
+    #   - file: pd/prob-design/example-river-system.md
     - file: pd/risk-analysis/overview.md
       sections:
       - file: pd/risk-analysis/definition.md
