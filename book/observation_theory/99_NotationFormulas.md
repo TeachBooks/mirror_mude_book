@@ -1,5 +1,10 @@
 # Notation and formulas
 
+```{admonition} MUDE exam information
+:class: tip, dropdown
+This overview with Notation and Formulas will be given on the MUDE exam.
+```
+
 ```{list-table}
 :header-rows: 1
 
@@ -66,8 +71,4 @@
   -  $\mathbb{E}(\hat{X}) = \mathrm{L^T}\mathbb{E}(Y)$ 
 * - ... covariance matrix 
   - $\Sigma_{\hat{X}} =\mathrm{L^T}\Sigma_Y \mathrm{L} $ 
-
-```{admonition} MUDE exam information
-:class: tip, dropdown
-This overview with Notation and Formulas will be given on the MUDE exam.
 ```
