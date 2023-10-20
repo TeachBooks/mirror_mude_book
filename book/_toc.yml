@@ -88,13 +88,13 @@ parts:
         - file: probability/MLE_1.ipynb
         - file: probability/GOF
       - file: probability/Loc-scale.ipynb
-  # START REMOVE-FROM-PUBLISH 
     - file: rr/prob-design/overview
       title: Risk and Reliability Intro
       sections:
       - file: rr/prob-design/one-random-variable
       - file: rr/prob-design/two-random-variables
       - file: rr/prob-design/exercise
+  # START REMOVE-FROM-PUBLISH 
 
    
   - caption: Q2 Topics
