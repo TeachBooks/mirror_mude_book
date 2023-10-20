@@ -8,19 +8,24 @@ The previous section illustrated how a decision for dike height, $h_{dike}$, can
 On this page all calculations assume the same lognormal distribution for random variables $q_1$ and $q_1$, where the first and second moments of the distribution are:
 
 $$
-\mu &= 100\\
-\sigma &= 20
+\begin{align*}
+E[X] &= \exp\left(\mu + \frac{\sigma^2}{2}\right) = 100\\
+VAR[X] &= \left( \exp(\sigma^2)-1 \right)\exp(2\mu + \sigma^2)= 400
+\end{align*}
 $$
-The shape, location and scale parameters and usage for the `lognorm` method in `scipy.stats`are:
+See the table in [Summary of parametric distribibutions](summary_dist)
+
+For the `lognorm` method in `scipy.stats` we need to provide the parameters shape `s` = $\sigma$, `loc` = 0 and `scale` = $\exp(\mu)$, in this case:
 ```python
-import scipy.stats as st
+import scipy.stats as stats
 s = 0.198
 loc = 0.000
 scale = 98.058
-q_1 = st.lognorm(s=s, loc=loc, scale=scale)
-q_2 = st.lognorm(s=s, loc=loc, scale=scale)
+q_1 = stats.lognorm(s=s, loc=loc, scale=scale)
+q_2 = stats.lognorm(s=s, loc=loc, scale=scale)
 ```
 ````
+
 ## Discharge from Two Rivers
 
 In this scenario our objective for choosing $h_{dike}$ is still the same, except now we recognize that our location on the river is downstream of a confluence of two smaller rivers. The discharge at the location of our dike is thus the sum of the dicharge from Rivers 1 and 2:
@@ -33,7 +38,7 @@ where the same rating curve applies, giving $h_w$ as a function of $q$. As befor
 
 *Compared to the previous example, now there are two distributions---how do we find the design discharge and dike height?*
 
-Before presenting the correct approach, 3 common mistakes are illustrated.
+Before presenting the correct approach, three common mistakes are illustrated.
 
 ### Incorrect Approach 1
 
@@ -176,7 +181,7 @@ All four design values of $Q$ are collected in the table below, along with the r
 % Dependence considered in componenet reliability part (and system!)
 % Design point consideration NOT included here, and probably not in this book!!!
 
-We need to be explicit in what we are trying to evaluate. In this case, it is the distribution of a function of random variables, $Q_{dike}$.
+We need to be explicit in what we are trying to evaluate. In this case, it is the distribution of a function of random variables, $Q$.
 
 Sometimes we can't get the distribution of the function of random variables analyticaly. There are two main reasons: 1) non-Gaussian distributions, and 2) non-linear function of random variables. Fortunately it is easy to find it numerically through sampling techniques. This will be discussed elsewhere.
 
