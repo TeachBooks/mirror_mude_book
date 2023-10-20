@@ -466,7 +466,7 @@ var initThebe = async () => {
   thebelab.session.kernel.requestExecute({
     code: fetchImportHookCode,
   });
-
+  
   // Fix for issues with ipywidgets in Thebe
   await thebelab.session.kernel.requestExecute({
     code: `import ipykernel; ipykernel.version_info = (0,0); import micropip; await micropip.install("ipywidgets")`,
