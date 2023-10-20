@@ -55,6 +55,7 @@ Consider some arbitrary object--let's call it a thingamajig--which we must desig
 3. $R$ and $S$ are easy to measure in all locations of interest
 4. the model used to design the thingamajig is nearly perfect
 5. the consequence of a failure is negligible
+
 In situations like this you can make your design decision and rest assured that there won't be any lawyers knocking on your door in the near future because the thingamajig broke.
 
 For many situations, however, a deterministic analysis is not wise because we cannot guarantee that our thingamajig will always survive. When $R$ and/or $S$ can take on a range of possible values, all of a sudden there is a chance that our thingamajig is *not* reliable: there is a distinct probability it may *fail.* Part of this book is concerned with the quantification of what is often called the *failure probability,* $p_f$, for which there are many different techniques. These techniques all rely on  probability theory because it is because it allows us to quantitatively account for the following in our engineering process:  
