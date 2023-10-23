@@ -8,6 +8,6 @@ Elsewhere in this book we have covered methods that will allow you to solve the 
 4. Use the moments to define Normal distributions for $q_1$ and $q_2$, then use the multivariate normal distribution in Scipy to define a correlation coefficient and explore what the effect of dependence between $q_1$ and $q_2$ has on the result.
 
 ```{note}
-Check this page later for solutions to these exercises.
+Solutions to these exercises are on the next page.
 ```
 
