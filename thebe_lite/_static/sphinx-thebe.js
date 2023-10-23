@@ -184,6 +184,11 @@ var configureThebe = () => {
       updateThebeButtonStatus(`Waiting for packages to load...`);
 
       thebelab.events.listeners.status.clear(); // Remove further status message handling
+      thebelab.on("status", function (evt, data) { // But we add one to trigger automatic Mathjax rendering
+        if (data.subject == 'cell' && data.status == 'idle') {
+          MathJax.typeset()
+        }
+      })
     }
   });
 };
@@ -428,6 +433,13 @@ var initThebe = async () => {
   configureThebe();
   modifyDOMForThebe();
   await thebelab.bootstrap(thebeLiteConfig);
+  
+  // Setup MathJax settings for handling Jupyter output
+  localStorage.setItem("MathJax-Menu-Settings", '{"renderer":"SVG"}')
+  MathJax.config.tex.inlineMath = [['$', '$']]                          // Include $ delimeter to indicate Maths (used by IPython)
+  MathJax.config.options.processHtmlClass += "|jp-OutputArea-output"    // Include Thebe output cells as containing Maths
+  MathJax.startup.getComponents()                                       // Reset all built-in components
+  
 
   document.querySelectorAll(".keep").forEach((kept, _) => {
     //console.log(Object.valueskept.previousClasses);
@@ -466,7 +478,7 @@ var initThebe = async () => {
   thebelab.session.kernel.requestExecute({
     code: fetchImportHookCode,
   });
-
+  
   // Fix for issues with ipywidgets in Thebe
   await thebelab.session.kernel.requestExecute({
     code: `import ipykernel; ipykernel.version_info = (0,0); import micropip; await micropip.install("ipywidgets")`,
