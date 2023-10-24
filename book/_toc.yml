@@ -371,6 +371,7 @@ parts:
         - file: cookbook/example_gumbel.ipynb
         - file: cookbook/example_quiz_interactive.ipynb
         - file: cookbook/coding_theory_widgets.ipynb
+        - file: cookbook/parametric_questions.ipynb
       - file: cookbook/benchmarks/benchmarks
         sections:
         - file: cookbook/benchmarks/benchmark_aux.ipynb
