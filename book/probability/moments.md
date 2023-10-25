@@ -36,7 +36,7 @@ $
 
 Therefore, the value of $\mu$ and $\beta$ needs to be determined based on the observations to fit the distribution.
 
-The first thing the engineer needs to do is to calculate the moments of the observations in the Table. The mean ($\overline{X}$) and variance ($\sigma^2$) are calculated as
+The first thing the engineer needs to do is to calculate the moments of the observations in the Table. The empirical mean ($\overline{X}$) and empirical variance ($\sigma^2$) are calculated as:
 
 $
 \overline{X} = \frac{2 \cdot 113 + 3 \cdot 132 + 4 \cdot 56 + 5 \cdot 22 + 6 \cdot 4 + 7 \cdot 2}{113+132+56+22+4+2} \approx 3.02
@@ -87,7 +87,7 @@ F(x) = \frac{x-a}{b-a}   \hspace{1cm}   for \ a\leq x \leq b
 $
 
 $
-F(x) = 0  \hspace{1cm} for \ x>b
+F(x) = 1  \hspace{1cm} for \ x>b
 $
 
 <iframe src="https://tudelft.h5p.com/content/1292083850830375117/embed" aria-label="Method moments" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
