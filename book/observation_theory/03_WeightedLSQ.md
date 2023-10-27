@@ -62,7 +62,7 @@ You will not be asked to derive the weighted least-squares solution as shown in 
 ```
 
 ### Discussion on the weight matrix
-The weight matrix $\mathrm{W}$ expresses the (relative) weights between the observations. It is always a square matrix. The size of the weight matrix depends on the number of observations, $m$. The size of the weight matrix is $m\times m$.
+The weight matrix $\mathrm{W}$ expresses the (relative) weights between the observations. It is always a symmetric square matrix. The size of the weight matrix depends on the number of observations, $m$. The size of the weight matrix is $m\times m$.
 
 If it is a unit matrix ($\mathrm{W=I}$), this implies that all observations have equal weight. Note that in this case the equations are equal to the ordinary least-squares solution.
 
