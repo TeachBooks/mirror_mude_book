@@ -23,7 +23,7 @@ $$Q_{\hat{y_p}\hat{y_p}}=A_pQ_{\hat{x}\hat{x}}A_p^T+Q_{y_py}Q_{yy}^{-1}Q_{\hat{e
 * $Q_{y_py}Q_{yy}^{-1}(y-A\hat{x})=Q_{y_py}Q_{yy}^{-1}\hat{e}$ is the stochastic part (stochastic process)
 
 ```{note}
-$$\hat{y_p}=A_p\hat{x}+Q_{y_py}Q_y^{-1}\hat{e}
+$$\hat{y_p}=A_p\hat{x}+Q_{y_py}Q_y^{-1}\hat{e}$$
 
 * For a purely random process (white noise), we have $Q_{y_py}=0$ and, therefore, stochastic process/part cannot affect the prediction;
 * We focus on the ARMA random process to forecast future values. How to determine orders $p$ and $q$ in ARMA($p,q$)?

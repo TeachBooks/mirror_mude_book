@@ -149,7 +149,7 @@ $$\text{cov}(y_t, y_{t+2}) = \mathbb{E}(y_t, y_{t+2}) = \sigma^2\beta^2$$
 ### Worked example
 Let us now take a look into a worked example on PACF to remove the intervening term, $\beta y_{t+1}$ between $y_t$ and $y_{t+2}$. As we saw before, ACF can be obtained from
 
-$$\text{COV} = \text{cov}(y_t, y_{t+2}) = \mathbb{E}(y_t, y_{t+2}) = \sigma^2\beta^2
+$$\text{COV} = \text{cov}(y_t, y_{t+2}) = \mathbb{E}(y_t, y_{t+2}) = \sigma^2\beta^2$$
 
 Regarding the partial ACF, we know from the autoregression $y_t = \beta y_{t-1}$ that $\hat{y}_t = \hat{y}_{t+2} = \beta y_{t+1}$. Therefore:
 

@@ -84,6 +84,10 @@ parts:
     chapters:
     - file: fvm/overview
       title: Overview
+      sections:
+        - file: fvm/first_draft.md
+        - file: fvm/gauss.md
+        - file: fvm/lagrangian.md
 
   - caption: Finite Element Method
     numbered: 2
