@@ -88,6 +88,10 @@ parts:
         - file: fvm/first_draft.md
         - file: fvm/gauss.md
         - file: fvm/lagrangian.md
+        - file: fvm/conservation.md
+        - file: fvm/navier.md
+        - file: fvm/stability.md
+        - file: fvm/summary.md
 
   - caption: Finite Element Method
     numbered: 2

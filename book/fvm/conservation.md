@@ -73,3 +73,62 @@ $$\phi\left[\frac{\partial\rho}{\partial t}+\mathbf{\nabla}\cdot(\rho\mathbf{v})
 We know that the term in with the square brackets on the left is zero (*why?*), whereas the term on within the square brackets on the right is the Lagrangian derivative of $\phi$. So, one can simply write:
 
 $$\rho\frac{D\phi}{Dt}=\frac{\partial(\rho\phi)}{\partial t}+\mathbf{\nabla}\cdot(\rho\phi\mathbf{v})$$
+
+Coincidentally, setting $\phi=1$ simply gives the conservation of mass as derived previously using Gauss's theorem. The above equation is the general conservation law for any quantity using information from an Eulerian frame.
+
+***Think about this:* what does one obtain if $\phi$ is set equal to the velocity?**
+
+If you keep in mind that density is representative of mass, you will realize we obtain **conservation of momentum**! In that case, what should the right-hand side of the above equation be? What can bring about a change in momentum (Newton's second law)? The right-hand side will read $\rho\frac{Dv}{Dt}$ or the density (mass) times acceleration - which is simply the **force**.
+
+Hence, the conservation law of momentum obtained by setting $\phi$ equal to the velocity is simply **Newton’s second law of motion**. Let’s have a look at this in more detail, to derive the fundamental yet extremely challenging equation of fluid mechanics. 
+
+## The Navier-Stokes equations
+
+```{note} Before we begin this section...
+
+Let us recall what we have derived so far:
+
+* The relationship between the **divergence** of a quantity inside a fixed volume and the **flux** of the same quantity through the surface enclosing the volume (**Gauss’s theorem**);
+* The **Lagrangian derivative** that translates the information obtained in an **Eulerian** frame (most common in fluid mechanics) **to a Lagrangian** (particle tracking) measurement;
+* A simple **conservation law** for the **mass inside a volume** and relating it back to Gauss’s theorem;
+* **Extending the conservation law** for mass to any quantity of interest. 
+
+```
+
+Now, we will use the conservation law with velocity as the quantity of interest. Let us start with the general conservation law:
+
+$$\rho\frac{D\phi}{Dt}=\frac{\partial(\rho\phi)}{\partial t}+\mathbf{\nabla}\cdot(\rho\phi\mathbf{v})$$
+
+For simplicity, let us set $\phi=v$, i.e. the y-component of velocity, to obtain:
+
+$$\rho\frac{Dv}{Dt}=\frac{\partial(\rho v)}{\partial t}+\mathbf{\nabla}\cdot(\rho v\mathbf{v})$$
+
+From Newton’s second law, the left-hand side is the **change of momentum** or the **force**. This force is the sum total of all forces acting on a particle. If the particle is infinitesimally small volume filled with a fluid, the forces will be
+
+* **Pressure**, that seeks to the compress the fluid
+* **Shear**, due to friction, which seeks to change the shape of the volume element
+* **Gravity**, the weight of the volume
+
+The sum of all these forces in the $y$ direction will equal $\frac{\partial(\rho v)}{\partial t}+\mathbf{\nabla}\cdot(\rho v\mathbf{v})$. The schematic shows these forces in detail:
+
+![conservation2](./figs/conservation2.png "conservation2")
+
+Without going into much detail, the forces in the $y$ direction can be summarized (and keeping the same structure as shown in the last list of bullet points) as:
+
+* The pressure $p$ that acts in all directions equally
+* The three components of the stress tensor in the $y$ direction, namely the normal stress $\tau_{yy}$ acting on the top and bottom faces; and the shear stresses on the left-right and front-back faces, $\tau_{xy}$ and $\tau_{zy}$
+* A body force (like gravity) with a component in the $y$ direction, $F_y$
+
+For each force, one must interpolate the value at the center of the cell to estimate the flux at the faces as done previously for the mass flux. If done correctly, we will obtain:
+
+$$\rho\frac{Dv}{Dt}=\frac{\partial(\rho v)}{\partial t}+\mathbf{\nabla}\cdot(\rho v\mathbf{v})=\frac{\partial\tau_{xy}}{\partial x}+\frac{\partial(-p+\tau_{yy})}{\partial y}+\frac{\partial\tau_{zy}}{\partial z}+F_y$$
+
+Extending to all three directions, we obtain **Newton's second law for an incompressible fluid**:
+
+$$\rho\frac{Dv}{Dt}=\frac{\partial(\rho v)}{\partial t}+\mathbf{\nabla}\cdot(\rho v\mathbf{v})=\nabla p+\mathbf{\nabla}\cdot(\mu\mathbf{\nabla}v)+mathbf{F}$$
+
+The above equation, together with the conservation of mass (i.e. the continuity equation):
+
+$$\frac{\partial\rho}{\partial t}+\mathbf{\nabla}\cdot(\rho\mathbf{v})=0$$
+
+form the **Navier-Stokes equation**.
