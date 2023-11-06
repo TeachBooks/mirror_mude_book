@@ -1,4 +1,6 @@
-# Navier-Stokes equations
+# Conservation Law Discretization
+
+This chapter uses the Navier-Stokes Equations to illustrate the discretization of conservation laws that have been put into integral form (the previous page).
 
 ```{note} Important things to retain from this chapter
 

@@ -1,6 +1,7 @@
-# An approach targeted to conservation laws
+(fvm)=
+# Introduction to the Finite Volume Method
 
-Previously, you were introduced to the Finite Difference Method (FDM), which is a numerical approach that discretises both space and time, allowing one to approximate the behaviour of physical systems and better understand how things change within a given field. The field in question could be the distribution of heat in a medium, the wind velocity over a large volume of the atmosphere, etc.  
+Previously, you were introduced to the Finite Difference Method (FDM), which is a numerical approach that discretizes both space and time, allowing one to approximate the behavior of physical systems and better understand how things change within a given _field_. In this case, the _field_ in question could be the distribution of heat in a medium, the wind velocity over a large volume of the atmosphere, etc.  
 
 One can understand the FDM with a simple analogy - imagine you are observing how a property of interest, such as the temperature or flow speed, changes at pre-defined discrete grid points in a field over time. These observations when used with the underlying differential equations, can generate insight into how the field changes over time and space.  
 

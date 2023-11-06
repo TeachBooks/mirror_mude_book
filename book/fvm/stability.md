@@ -1,4 +1,4 @@
-# A note on stability
+# Stability
 
 ```{note} Important things to retain from this chapter
 

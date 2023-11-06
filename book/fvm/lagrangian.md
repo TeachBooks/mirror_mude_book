@@ -1,4 +1,4 @@
-# Lagrangian derivative
+# Lagrangian Reference Frame
 
 ```{note} Important things to retain from this chapter
 

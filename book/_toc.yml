@@ -82,16 +82,23 @@ parts:
   - caption: Finite Volume Method
     numbered: 2
     chapters:
-    - file: fvm/overview
-      title: Overview
-      sections:
-        - file: fvm/first_draft.md
-        - file: fvm/gauss.md
-        - file: fvm/lagrangian.md
-        - file: fvm/conservation.md
-        - file: fvm/navier.md
-        - file: fvm/stability.md
-        - file: fvm/summary.md
+    # - file: fvm/overview
+    #   title: Overview
+    #   sections:
+    - file: fvm/intro.md
+      title: Introduction
+    - file: fvm/gauss.md
+      title: Gauss' Theorem
+    - file: fvm/lagrangian.md
+      title: Reference Frame
+    - file: fvm/conservation.md
+      title: Conservation Laws
+    - file: fvm/navier.md
+      title: Discretization
+    - file: fvm/stability.md
+      title: Stability
+    - file: fvm/summary.md
+      title: Summary
 
   - caption: Finite Element Method
     numbered: 2
