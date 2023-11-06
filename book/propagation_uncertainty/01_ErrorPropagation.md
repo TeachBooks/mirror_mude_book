@@ -189,7 +189,7 @@ What is the approximation of $\sigma^2_F$?
 :class: tip, dropdown
 
 $$
-\sigma^2_F \approx \left(P \cdot C_d \cdot \sigma_A\right)^2 + \left(A \cdot C_d \cdot \sigma_P\right)^2+ \left(A \cdot P \cdot \sigma_{C_d}\right)^2
+\sigma^2_F \approx \left(\mu_P \cdot \mu_{C_d} \cdot \sigma_A\right)^2 + \left(\mu_A \cdot \mu_{C_d} \cdot \sigma_P\right)^2+ \left(\mu_A \cdot \mu_P \cdot \sigma_{C_d}\right)^2
 $$
 
 ```
