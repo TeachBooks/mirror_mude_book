@@ -328,6 +328,7 @@ parts:
       - file: programming/python_topics/visualization
         title: Advanced Visualization
 # START REMOVE-FROM-PUBLISH
+      - file: programming/sympy/sympy.ipynb
       - file: programming/python_topics/modules
         title: Modules
       # TO BE ADDED LATER: NUMPY ADVANCED, PANDAS, PYTHONIC, ETC.
