@@ -184,12 +184,6 @@ var configureThebe = () => {
       updateThebeButtonStatus(`Waiting for packages to load...`);
 
       thebelab.events.listeners.status.clear(); // Remove further status message handling
-      thebelab.on("status", function (evt, data) { // But we add one to trigger automatic Mathjax rendering
-        if (data.subject == 'cell' && data.status == 'idle') {
-          if (window.MathJax === undefined) { return; }
-          MathJax.typeset()
-        }
-      })
     }
   });
 };
@@ -387,14 +381,15 @@ function setupSpecialTaggedElements() {
           taggedElement.code
         );
 
-        const wrappedOutput = wrapNakedOutput(newNotebookCell.area.node);
         // The 4 following lines are an ugly hack to make sure we preserve init order
         // Maybe improving runInitCells could circumvent this
-        wrappedOutput.classList.add("tag_thebe-init");
-        const idDiv = document.createElement("div");
-        idDiv.setAttribute("data-thebe-id", newNotebookCell.id);
-        wrappedOutput.appendChild(idDiv);
-        taggedElement.placeholder.before(wrappedOutput);
+        
+        newNotebookCell.area.node.setAttribute("data-thebe-id", newNotebookCell.id);
+        
+        newNotebookCell.attachToDOM(taggedElement.placeholder);
+        taggedElement.placeholder.classList.add("tag_thebe-init");
+        taggedElement.placeholder.style.display = "block";
+
         break;
       }
       default: {
@@ -434,15 +429,6 @@ var initThebe = async () => {
   configureThebe();
   modifyDOMForThebe();
   await thebelab.bootstrap(thebeLiteConfig);
-  
-  if (window.MathJax !== undefined) { 
-    // Setup MathJax settings for handling Jupyter output
-    localStorage.setItem("MathJax-Menu-Settings", '{"renderer":"SVG"}')
-    MathJax.config.tex.inlineMath = [['$', '$']]                          // Include $ delimeter to indicate Maths (used by IPython)
-    MathJax.config.options.processHtmlClass += "|jp-OutputArea-output"    // Include Thebe output cells as containing Maths
-    MathJax.startup.getComponents()                                       // Reset all built-in components
-  }
-  
 
   document.querySelectorAll(".keep").forEach((kept, _) => {
     //console.log(Object.valueskept.previousClasses);
@@ -507,7 +493,7 @@ var detectLanguage = (language) => {
 };
 
 function handleThebeRemoveInputTag(element) {
-  const placeholder = document.createElement("pre");
+  const placeholder = document.createElement("div");
   placeholder.style.display = "none";
 
   window.specialTaggedElements.push({
