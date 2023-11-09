@@ -70,7 +70,7 @@ where the symbols have their usual meanings and $\mathbf{\nabla}$ is the gradien
 
 The derivative on the left-hand side is now written with an **uppercase D** to indicate a **Lagrangian frame**. The equation above relates the **derivative in a Lagrangian form** with the **information obtained in an Eulerian frame**. The equation can be generalised for any quantity, scalar or vector ($\phi$ is a scalar in this case) as
 
-$$\frac{D\mathbf{v}}{Dt}=\frac{\partial\phi}{\partial t}+(\phi\cdot\nabla)\phi$$
+$$\frac{D\mathbf{\phi}}{Dt}=\frac{\partial\phi}{\partial t}+(\phi\cdot\nabla)\phi$$
 
 In case you find it difficult to understand the above, take a pen and paper and start over again. Please **do not proceed to the next section without understanding this equation.**
 
