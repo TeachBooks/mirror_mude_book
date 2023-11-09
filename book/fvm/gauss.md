@@ -12,21 +12,26 @@
 
 FVM begins with Gauss's theorem that relates the **flux of a vector field through a closed surface** with the **divergence of the vector field inside the volume** enclosed by that closed surface.
 
+```{warning}
+All **bold** variables are vectors and must be mathematically treated as such.
+```
+
+
 ```{admonition} A simple analogy
 
 Imagine you have a bucket of water that has a few holes at the bottom and a few inlets connected to pipes at the top. The pipes bring in a finite amount of water, while the holes at the bottom lead to a constant discharge from the bucket. Intuition alone tells us that the change in volume of water inside the bucket is simply the sum of the rates at which the water enters the bucket through the pipes and leaves through the holes. **Gauss's theorem is simply a generalised mathematical expression of this phenomenon**. 
 
 ```
-
-![gauss1](./figs/gauss1.png "gauss1")
+```{figure} ./figs/gauss1.png
+---
+width: 60%
+name: gauss1
+---
+Generalized schematic of a 3D "volume", $\Omega$, illustrated by a 2D ellipse. The bounding surface $\Gamma$, surface normal vector $\mathbf{\hat{n}}$ and vector field 
+```
 
 Consider the volume shown in the figure above, let us call it $\Omega$. Let the surface enclosing the volume be $\Gamma$ and $d\Gamma$ be a small surface element with a normal vector $\mathbf{\hat{n}}$. Assume we are *observing* the vector field $u$ inside this volume, which is transported across the surface in time.
 
-```{warning}
-
-Note that all **bold** variables are vectors and must be mathematically treated as such
-
-```
 
 For simplicity and relevance, let us consider $\mathbf{u}$ to be velocity. Hence, one can write
 
