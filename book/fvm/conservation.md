@@ -1,5 +1,17 @@
 # Conservation laws
 
+MMMMM
+In general we will consider conservation problems, for example a simple mass balance:
+
+$$
+\textrm{Input} - \textrm{Output} = \Delta \textrm{Storage}
+$$
+
+For mass
+
+- 
+
+
 ```{note} Important things to retain from this chapter
 
 * A simple mathematical form of the conservation law for any physical quantity
