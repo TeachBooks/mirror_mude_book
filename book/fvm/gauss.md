@@ -1,27 +1,7 @@
 # Gauss's Theorem
 
-```{note} Important things to retain from this chapter
+Gauss's theorem (also referred to as the divergence theorem) relates the flux of a vector field $\mathbf{u}$ through a closed surface $\Gamma$ with the divergence of the vector field inside the volume $\Omega$ enclosed by closed surface ({numref}`gauss1`). 
 
-* Mathematical relationship between divergence and its integral
-* Relationship between the integral of a physical quantity inside a fixed volume with the flux through the volume’s boundaries (Gauss's theorem).  
-* A discrete form of the above expressions.  
-
-```
-
-## Definition and explanation
-
-FVM begins with Gauss's theorem that relates the **flux of a vector field through a closed surface** with the **divergence of the vector field inside the volume** enclosed by that closed surface.
-
-```{warning}
-All **bold** variables are vectors and must be mathematically treated as such.
-```
-
-
-```{admonition} A simple analogy
-
-Imagine you have a bucket of water that has a few holes at the bottom and a few inlets connected to pipes at the top. The pipes bring in a finite amount of water, while the holes at the bottom lead to a constant discharge from the bucket. Intuition alone tells us that the change in volume of water inside the bucket is simply the sum of the rates at which the water enters the bucket through the pipes and leaves through the holes. **Gauss's theorem is simply a generalised mathematical expression of this phenomenon**. 
-
-```
 ```{figure} ./figs/gauss1.png
 ---
 width: 60%
@@ -30,32 +10,37 @@ name: gauss1
 Generalized schematic of a 3D "volume", $\Omega$, illustrated by a 2D ellipse. The bounding surface $\Gamma$, surface normal vector $\mathbf{\hat{n}}$ and vector field 
 ```
 
-Consider the volume shown in the figure above, let us call it $\Omega$. Let the surface enclosing the volume be $\Gamma$ and $d\Gamma$ be a small surface element with a normal vector $\mathbf{\hat{n}}$. Assume we are *observing* the vector field $u$ inside this volume, which is transported across the surface in time.
+Consider $\mathbf{u}$ to be a vector field describing velocity at all $\mathbf{x}$ in volume $\Omega$ as a function of time $t$. The divergence of $\mathbf{u}$ is: 
 
+$$
+\nabla\cdot\mathbf{u}
+=\left(\frac{\partial}{\partial x}\,\hat{i}
++\frac{\partial}{\partial y}\,\hat{j}
++\frac{\partial}{\partial z}\,\hat{k}\right)
+\cdot\left(u\,\hat{i}+v\,\hat{j}+w\,\hat{k}\right)
+=\frac{\partial u}{\partial x}
++\frac{\partial v}{\partial y}
++\frac{\partial w}{\partial z}
+$$
 
-For simplicity and relevance, let us consider $\mathbf{u}$ to be velocity. Hence, one can write
+which produces a scalar quantity that can conceptually be thought of as quantifying the strength of the vector field as a source (positive) or sink (negative). Alternatively, the divergence describes the flux of the vector field out of an infinitesimally small unit volume, which can be extended to illustrate Gauss's theorem.
 
-$$\mathbf{u}=u_{\hat{i}}+v_{\hat{j}}+w_{\hat{k}}$$
+For a small surface element $d\Gamma$ with a normal vector $\mathbf{\hat{n}}$ (normal to the surface $\Gamma$ of volume $\Omega$, {numref}`gauss1`), the flux $\Lambda$ through $d\Gamma$, is defined as:
 
-The divergence of any vector $u$ is a measure of the strength of a source or a sink of a vector in space. A **positive divergence** is a **source** and a **negative divergence** is a **sink**. Mathematically:
+$$
+\Lambda=\mathbf{u}\cdot\mathbf{\hat{n}}\,d\Gamma
+$$
 
-$$\mathbf{\nabla}\cdot\mathbf{u}=\left(\frac{\partial}{\partial x}\hat{i}+\frac{\partial}{\partial y}\hat{j}+\frac{\partial}{\partial z}\hat{k}\right)\cdot\left(u_{\hat{i}}+v_{\hat{j}}+w_{\hat{k}}\right)=\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}+\frac{\partial w}{\partial z}$$
+Gauss's theorem relates the divergence of the vector field in $\Omega$ to the surface flux through the boundary $\Gamma$ by integrating over the two regions:
 
-On the other hand, the surface experiences a constant inflow or outflow of the vector. The flux $\Lambda$ through an infinitesimally small unit of surface $\Gamma$, $d\Gamma$, is defined as
+$$
+\int_{\Omega}\mathbf{\nabla}\cdot\mathbf{u}\,d\Omega
+=\oint_{\Gamma}\mathbf{u}\cdot\mathbf{\hat{n}}\,d\Gamma
+$$
 
-$$\Lambda=\mathbf{u}\cdot\mathbf{\hat{n}}\,d\Gamma$$
+In other words, the volumetric integral of the divergence of $\mathbf{u}$ over volume $\Omega$ is equivalent to the closed surface integral of the flux of $\mathbf{u}$ over the boundary $\Gamma$.
 
-or the amount of $\mathbf{u}$ at the surface in the direction of the surface's normal times the area of the surface. In the case of the bucket, the flux is the volumetric flow rate of the water in through the pipes and out through the holes.
-
-Gauss's theorem simply relates the surface flux to the volumetric divergence:
-
-$$\int_{\Omega}\mathbf{\nabla}\cdot\mathbf{u}\,d\Omega=\oint_{\Gamma}\mathbf{u}\cdot\mathbf{\hat{n}}\,d\Gamma$$
-
-i.e. the volumetric integral of the divergence of $\mathbf{u}$ is the closed surface integral of the flux of $\mathbf{u}$. Now, let us see how this works in a discrete setting and enables us to develop the FVM.
-
-## A Volume-based Discretization
-
-**MMMMM** move this to different page?
+## Discretization
 
 We will now discretize space into finite volumes as shown in the figure below. Each of the squares is an individual "finite volume" with velocity $\mathbf{u}$ at the geometric center. In 2D, for example, $\mathbf{u}=u\hat{i}+v\hat{j}$, where each velocity component is a function of space and time: $u=u(x,y,t)$ and $v=v(x,y,t)$.
 
