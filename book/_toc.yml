@@ -128,6 +128,8 @@ parts:
       title: Stability
     - file: fvm/summary.md
       title: Summary
+    - file: fvm/notation.md
+      title: Notation and Formulas
 
   - caption: Finite Element Method
     numbered: 2

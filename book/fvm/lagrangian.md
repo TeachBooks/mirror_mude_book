@@ -1,5 +1,7 @@
 # Lagrangian Reference Frame
 
+**MMMMM:** last part (mostly) fixed, top 60% untouched.
+
 ```{note} Important things to retain from this chapter
 
 * Relationship between Eulerian and Lagrangian frames 
@@ -50,33 +52,33 @@ In the Lagrangian frame you, as an observer, have just moved with the particle a
 
 Therefore, one can write that the small change in velocity in the Lagrangian frame for the black dot is the same as the change observed in the Eulerian frame as the black dot is replaced by the white dot, i.e.:
 
-$$d\mathbf{v_L}(t)=d\mathbf{v}(x,y,z,t)$$
+$$d\mathbf{u_L}(t)=d\mathbf{u}(x,y,z,t)$$
 
 The right hand side is a function of 4 variables. The application of the chain rule of differentiation leads to:
 
-$$d\mathbf{v_L}(t)=\frac{\partial\mathbb{v}}{\partial x}dx+\frac{\partial\mathbb{v}}{\partial y}dy+\frac{\partial\mathbb{v}}{\partial z}dz+\frac{\partial\mathbb{v}}{\partial t}dt$$
+$$
+d\mathbf{u_L}(t)
+= \frac{\partial\mathbf{u}}{\partial x}dx
++ \frac{\partial\mathbf{u}}{\partial y}dy
++ \frac{\partial\mathbf{u}}{\partial z}dz
++ \frac{\partial\mathbf{u}}{\partial t}dt
+$$
 
 Dividing by $dt$ while recalling that $\frac{dx}{dt}=u$, which is the $x$-component of velocity, one gets:
 
-$$\frac{d\mathbf{v_L}(t)}{dt}=u\frac{\partial\mathbb{v}}{\partial x}+v\frac{\partial\mathbb{v}}{\partial y}+w\frac{\partial\mathbb{v}}{\partial z}+\frac{\partial\mathbb{v}}{\partial t}$$
+$$
+\frac{d\mathbf{u_L}(t)}{dt}
+= u\frac{\partial\mathbf{u}}{\partial x}
++ v\frac{\partial\mathbf{u}}{\partial y}
++ w\frac{\partial\mathbf{u}}{\partial z}
++ \frac{\partial\mathbf{u}}{\partial t}
+$$
 
-In the above equation, it is important to note that $\mathbf{v}$ is in bold and, therefore, it represents a **vector** $\implies$ the above equation is a **vector equation**. Each term in the equation will have the $x$, $y$ and $z$-components. Using Lagrangian-Eulerian equivalence, the velocity vectors on both sides should be the same in the Cartesian frame!
+This is called Lagrangian-Eulerian equivalence, and implies that the quantities on both sides are the same in the Cartesian frame. Rearranging and combining terms (see {ref}`notation page <fvn_notation>`):
+$$
+\frac{D\mathbf{u}}{Dt}
+= \frac{\partial\mathbf{u}}{\partial t}
++ (\mathbf{u}\cdot\nabla)\,\mathbf{u}
+$$
 
-A mathematical trick allows one to express the above equation more compactly as
-
-$$\frac{D\mathbf{v}}{Dt}=\frac{\partial\mathbf{v}}{\partial t}+(\mathbf{v}\cdot\nabla)\mathbf{v}$$
-
-where the symbols have their usual meanings and $\mathbf{\nabla}$ is the gradient operator.
-
-The derivative on the left-hand side is now written with an **uppercase D** to indicate a **Lagrangian frame**. The equation above relates the **derivative in a Lagrangian form** with the **information obtained in an Eulerian frame**. The equation can be generalised for any quantity, scalar or vector ($\phi$ is a scalar in this case) as
-
-$$\frac{D\mathbf{\phi}}{Dt}=\frac{\partial\phi}{\partial t}+(\phi\cdot\nabla)\phi$$
-
-In case you find it difficult to understand the above, take a pen and paper and start over again. Please **do not proceed to the next section without understanding this equation.**
-
-```{note} Importance of the Lagrangian derivative
-
-Before we go further, it is important as a summary to mention why one needs to know (and learn about) the Lagrangian derivative at all! In most cases conserving track/future, you’ll come across spatial flows wherein measurements are being performed at certain locations with probes, laser sheets or sound waves. Hence, you’ll always operate in an Eulerian frame i.e. not tracking a particle but observing a volume (or multiple volumes) of space.  
-
-The Lagrangian derivative is the only way that one can convert that Eulerian spatial experimental data into something meaningful that gives you the history of the flow.  
-```
+This is called the _material derivative_ (or _Lagrangian derivative_), and while we will not use it often in MUDE, it is important for later work. When conservation laws are used to model real-world phenomenon, especially flow applications, measurements are being performed at specific locations defined in a Lagrangian frame, for example, probes (points) or electromagnetic or sound waves (lines), but the phenomenon is being measures in an Eulerian frame. In other words, observing changes in a volume (or multiple volumes) rather than the movement of a particle in the fluid of interest. The Lagrangian derivative is the only way to convert the Eulerian spatial experimental data into a (Lagrangian) description of the way that the fluid moves through space and time.

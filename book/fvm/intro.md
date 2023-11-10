@@ -1,7 +1,21 @@
 (fvm)=
-# Introduction to the Finite Volume Method
+# PDEs and the Finite Volume Method
 
-The Finite Volume Method (FVM) is a numerical approach for solving Partial Differential Equations (PDEs); it builds on many of the concepts covered by the Finite Difference Method (FDM), covered earlier in this textbook. One main advantage of the FV method is that it is relatively simple to apply to a wide variety of physics-based conservation laws (e.g., mass, momentum and energy), and an Eulerian reference frame, making it well-suited to flow-based problems (e.g., fluid flow). 
+The Finite Volume Method (FVM) is a numerical approach for solving partial differential equations (PDEs); it builds on many of the concepts covered by the Finite Difference Method (FDM), covered earlier in this textbook. One main advantage of the finite volume method is that it is relatively simple to apply to a wide variety of physics-based conservation laws (e.g., mass, momentum and energy), and an Eulerian reference frame, making it well-suited to flow-based problems (e.g., fluid flow). 
+
+## PDEs
+
+In general we will consider conservation problems, for example a simple mass balance:
+
+$$
+\textrm{Input} - \textrm{Output} = \Delta \textrm{Storage}
+$$
+
+For mass
+
+- 
+
+## FVM Overview
 
 The general scheme for FV problems is as follows:
 
@@ -9,9 +23,6 @@ The general scheme for FV problems is as follows:
 2. Apply Gauss's Theorem on the bounding surface
 3. Discretize the integral equations over finite volumes
 4. Apply a numerical scheme to solve the discretized equations (typically in time)
-
-
-
 
 
 to that discretizes both space and time, allowing one to approximate the behavior of physical systems and better understand how things change within a given _field_. In this case, the _field_ in question could be the distribution of heat in a medium, the wind velocity over a large volume of the atmosphere, etc.  
@@ -79,14 +90,4 @@ Some of these topics have already been covered elsewhere in this textbook.
 
 ``` 
 
-
-## Notation
-
-This part of the book uses:
-
-Bold straight lower-case letters for vector quantities; typically velocity is $\mathbf{u}$:
-
-$$
-\mathbf{u}=u_{\hat{i}}+v_{\hat{j}}+w_{\hat{k}}
-$$
 
