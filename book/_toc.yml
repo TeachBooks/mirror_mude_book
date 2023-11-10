@@ -116,6 +116,8 @@ parts:
     #   sections:
     - file: fvm/intro.md
       title: Introduction
+    - file: fvm/getting_started.md
+      title: Getting Started
     - file: fvm/gauss.md
       title: Gauss' Theorem
     - file: fvm/frames.md
@@ -128,8 +130,6 @@ parts:
       title: Stability
     - file: fvm/summary.md
       title: Summary
-    - file: fvm/notation.md
-      title: Notation and Formulas
 
   - caption: Finite Element Method
     numbered: 2

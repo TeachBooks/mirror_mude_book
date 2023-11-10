@@ -1,9 +1,9 @@
 (fvm_notation)=
-# Notation and Formulas
+# Getting Started
 
-At the moment, this page only applies for the Finite Volume Method.
+This is a very quick overview of some fundamental knowledge that is helpful for understanding the analytic and numeric work needed for FVM. Some of it is calculus and continuum mechanics that should be mostly review (and can be used as a reference for notation), whereas the later sections give some context and insight into the derivation of commonly used conservation laws (PDE's) that can be solved using FVM.
 
-LaTeX commands are provided to help you use the same notation in your Markdown-formatted reports (optional).
+At the moment, the notation on this page only applies for the Finite Volume Method. A few selected LaTeX commands are provided as well to help you use the same notation in your Markdown-formatted reports (optional).
 
 ## Notation
 
@@ -31,7 +31,9 @@ $$
 
 LaTeX commands:
 ```
+$$
 \mathbf{u} = u \,\hat{i} + v \,\hat{j} + w \,\hat{k}
+$$
 ```
 
 ## Derivatives
@@ -55,6 +57,15 @@ $$
 = \frac{\partial\mathbf{u}}{\partial t}
 + (\mathbf{u}\cdot\nabla)\,\mathbf{u}
 $$
+
+LaTeX commands:
+```
+$$
+\frac{D\mathbf{u}}{Dt}
+= \frac{\partial\mathbf{u}}{\partial t}
++ (\mathbf{u}\cdot\nabla)\,\mathbf{u}
+$$
+```
 
 ## Nabla Operations
 
@@ -103,7 +114,15 @@ $$
 + \frac{\partial^2 w}{\partial z^2}
 $$
 
-
+LaTeX commands:
+```
+$$
+\nabla\
+= \frac{\partial }{\partial x} \,\hat{i}
++ \frac{\partial }{\partial y} \,\hat{j}
++ \frac{\partial }{\partial z} \,\hat{k}
+$$
+```
 
 ## Conservation Laws
 
@@ -167,6 +186,15 @@ See the Navier-Stokes section for a more detailed description using momentum, ($
 
 Sometimes the term _convection_ is used interchangeably with advection; technically the difference is that advection specifies a quantity that is carried by the fluid, rather than the fluid particles themselves (convection).
 
+LaTeX commands:
+```
+$$
+\frac{\partial \phi}{\partial t}
++  \mathbf{u} \cdot \nabla \phi
+= C \nabla^2 \phi
+$$
+```
+
 ### Navier-Stokes Equations
 
 Derivation of the Navier-Stokes equations typically begins with conservation of momentum, where the Cauchy term is divided into a volumetric and deviatoric stress ($\mathbf{\sigma}$ and $\mathbf{\tau}$):
@@ -207,23 +235,13 @@ where $\mu$ is the dynamic viscosity (SI units: [kg/m/s]). Note that since $\rho
 
 In addition, terms 1 and 2 form the inertial component, whereas terms 3 and 4 form represent stress divergence.
 
-**MMMMM: below here is just copy-paste from Dhruv's original text, as typed in latex by Joao. Between the text and the ppt, no two equations used consistent notation...**
-
-$$\rho\left(\frac{\partial \mathbf{u}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{u}\right) = -\nabla p + \mu\nabla^2\mathbf{u} + \mathbf{f}$$
-
-
-For each force, one must interpolate the value at the center of the cell to estimate the flux at the faces as done previously for the mass flux. If done correctly, we will obtain:
-
-$$\rho\frac{Dv}{Dt}=\frac{\partial(\rho v)}{\partial t}+\mathbf{\nabla}\cdot(\rho v\mathbf{v})=\frac{\partial\tau_{xy}}{\partial x}+\frac{\partial(-p+\tau_{yy})}{\partial y}+\frac{\partial\tau_{zy}}{\partial z}+F_y$$
-
-Extending to all three directions, we obtain **Newton's second law for an incompressible fluid**:
-
-$$\rho\frac{Dv}{Dt}=\frac{\partial(\rho v)}{\partial t}+\mathbf{\nabla}\cdot(\rho v\mathbf{v})=\nabla p+\mathbf{\nabla}\cdot(\mu\mathbf{\nabla}v)+\mathbf{F}$$
-
-The above equation, together with the conservation of mass (i.e. the continuity equation):
-
-$$\frac{\partial\rho}{\partial t}+\mathbf{\nabla}\cdot(\rho\mathbf{v})=0$$
-
-$$\frac{\partial}{\partial t}\left(\int_{\Omega}\rho\mathbf{v}d\Omega\right)+\int_{\Gamma}\rho\mathbf{v}(\mathbf{v}\cdot\mathbf{n})d\Gamma=\int_{\Gamma}p\mathbf{n}d\Gamma+\int_{\Gamma}\mathbf{\bar{\tau}}\cdot\mathbf{n}d\Gamma+\int_{\Omega}\mathbf{F}d\Omega$$
-
-The above equations are the **integral form of the Navier-Stokes equations**.
+LaTeX commands:
+```
+$$
+\frac{\partial (\rho \,\mathbf{u})}{\partial t}
++  (\rho  \,\mathbf{u} \cdot \nabla) \,\mathbf{u}
+= -\nabla p 
++ \mu \nabla^2 \mathbf{u}
++ \mathbf{f}
+$$
+```
