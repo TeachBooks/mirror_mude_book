@@ -40,9 +40,7 @@ $$
 
 In other words, the volumetric integral of the divergence of $\mathbf{u}$ over volume $\Omega$ is equivalent to the closed surface integral of the flux of $\mathbf{u}$ over the boundary $\Gamma$.
 
-## A Volume-based Discretization
-
-**MMMMM** move this to different page?
+## Discretization
 
 We will now discretize space into finite volumes as shown in the figure below. Each of the squares is an individual "finite volume" with velocity $\mathbf{u}$ at the geometric center. In 2D, for example, $\mathbf{u}=u\hat{i}+v\hat{j}$, where each velocity component is a function of space and time: $u=u(x,y,t)$ and $v=v(x,y,t)$.
 
