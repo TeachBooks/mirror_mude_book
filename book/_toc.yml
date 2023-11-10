@@ -118,7 +118,7 @@ parts:
       title: Introduction
     - file: fvm/gauss.md
       title: Gauss' Theorem
-    - file: fvm/lagrangian.md
+    - file: fvm/frames.md
       title: Reference Frames
     - file: fvm/conservation.md
       title: Conservation Laws
