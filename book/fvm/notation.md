@@ -154,7 +154,7 @@ Many phenomena can be described by the advection-diffusion equation. To derive i
 
 $$
 \frac{\partial \phi}{\partial t}
-+  \mathrm{u} \cdot \nabla \phi
++  \mathbf{u} \cdot \nabla \phi
 = C \nabla^2 \phi
 $$
 
@@ -206,8 +206,6 @@ where $\mu$ is the dynamic viscosity (SI units: [kg/m/s]). Note that since $\rho
 5. External source
 
 In addition, terms 1 and 2 form the inertial component, whereas terms 3 and 4 form represent stress divergence.
-
-
 
 **MMMMM: below here is just copy-paste from Dhruv's original text, as typed in latex by Joao. Between the text and the ppt, no two equations used consistent notation...**
 
