@@ -1,19 +1,11 @@
 (fvm_frames)=
 # Lagrangian and Eulerian Reference Frames
 
-```{note} Important things to retain from this chapter
-
-* Relationship between Eulerian and Lagrangian frames 
-* Lagrangian derivative that expresses this relationship mathematically 
-* Why one works with an Eulerian frame (generally) in fluid mechanics  
-
-```
 In physics-based modelling, a _reference frame_ describes a coordinate system that is defined relative to specific points of interest. _Lagrangian_ and _Eulerian_ reference frames are two approaches used in fluid mechanics that are useful for describing the motion and behavior of a fluid over time. Although they are completely different perspectives on the same phenomenon, both are necessary to fully model the movement of particles or elements within the fluid mathematically.
 
-Some concepts and notation on this page are explained further in {ref}`notation page <fvn_notation>`.
+Some concepts and notation on this page are explained further on the {ref}`notation page <fvn_notation>`.
 
 ```{admonition} MUDE Exam Information
-
 :class: tip
 
 This page is to provide background information to support the flow-focused conervation equations that are used in FVM. You are not expexted to reproduce this for the exam, but reading through it will give you a better understanding for why and how the equations are derived, as well as different modelling persectives.
@@ -53,7 +45,7 @@ name: gauss5
 Displaced particle in Lagrangian (left) and Eulerian (right) reference frames.
 ```
 
-Consider a system of particles in motion using the reference frames in {numref}`gauss5` from time $t$ to $t+\t$. In the Lagrangian frame a new velocity is observed for the particle of interest at time $t+dt$ (a function of time only). The reference frame has moved with the particle (black circle), and a new particle is now in the location of the frame at time $t$ (white circle). On the other hand, in the Eulerian frame the original particle (black circle) has simply left the cube after time $dt$ has passed and a new particle (white circle) is observed with a different velocity (a function of both time and space). In this case, the reference frame does not move.
+Consider a system of particles in motion using the reference frames in {numref}`gauss5` from time $t$ to $t+dt$. In the Lagrangian frame a new velocity is observed for the particle of interest at time $t+dt$ (a function of time only). The reference frame has moved with the particle (black circle), and a new particle is now in the location of the frame at time $t$ (white circle). On the other hand, in the Eulerian frame the original particle (black circle) has simply left the cube after time $dt$ has passed and a new particle (white circle) is observed with a different velocity (a function of both time and space). In this case, the reference frame does not move.
 
 For small $dt$ and if the spatial scale at which the particles are being observed is much larger than the scale of the particles themselves (the molecular scale), the particle system can be viewed as a continuous mass (i.e., a fluid or deformable solid). Therefore, the change in velocity in the Lagrangian frame is the same as the change observed in the Eulerian frame. In other words, the two descriptions of motion of the black and white circles are equivalent. Mathematically:
 
@@ -82,6 +74,7 @@ $$
 $$
 
 This is the mathematical representation of Lagrangian-Eulerian equivalence, and implies that the quantities on both sides are the same in the Cartesian frame. Rearranging and combining terms the _material derivative_ (or _Lagrangian derivative_):
+
 $$
 \frac{D\mathbf{u}}{Dt}
 = \frac{\partial\mathbf{u}}{\partial t}
