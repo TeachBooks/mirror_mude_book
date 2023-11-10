@@ -1,20 +1,7 @@
 # Gauss's Theorem
 
-```{note} Important things to retain from this chapter
-
-* Mathematical relationship between divergence and its integral
-* Relationship between the integral of a physical quantity inside a fixed volume with the flux through the volume’s boundaries (Gauss's theorem).  
-* A discrete form of the above expressions.  
-
-```
-
 Gauss's theorem (also referred to as the divergence theorem) relates the flux of a vector field $\mathbf{u}$ through a closed surface $\Gamma$ with the divergence of the vector field inside the volume $\Omega$ enclosed by closed surface ({numref}`gauss1`). 
 
-```{admonition} A simple analogy
-
-Imagine you have a bucket of water that has a few holes at the bottom and a few inlets connected to pipes at the top. The pipes bring in a finite amount of water, while the holes at the bottom lead to a constant discharge from the bucket. Intuition alone tells us that the change in volume of water inside the bucket is simply the sum of the rates at which the water enters the bucket through the pipes and leaves through the holes. **Gauss's theorem is simply a generalised mathematical expression of this phenomenon**. 
-
-```
 ```{figure} ./figs/gauss1.png
 ---
 width: 60%
