@@ -91,7 +91,7 @@ The discrete closed surface integral is then:
 
 $$
 \begin{align}\oint_{\Gamma}\mathbf{u}\cdot\mathbf{\hat{n}}\,d\Gamma &=\oint_{\Gamma_E}\mathbf{u_E}\cdot\mathbf{\hat{n_E}}\,d\Gamma+\oint_{\Gamma_W}\mathbf{u_W}\cdot\mathbf{\hat{n_W}}\,d\Gamma+\oint_{\Gamma_N}\mathbf{u_N}\cdot\mathbf{\hat{n_N}}\,d\Gamma+\oint_{\Gamma_S}\mathbf{u_S}\cdot\mathbf{\hat{n_S}}\,d\Gamma \\
-&=(u_E-u_W)\Delta y+(u_N+u_S)\Delta x
+&=(u_E-u_W)\Delta y+(u_N-u_S)\Delta x
 \end{align}
 $$
 

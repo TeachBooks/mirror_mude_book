@@ -39,7 +39,7 @@ LaTeX commands:
 The _total_ or _direct derivative_ uses $d$. For example, if $z=g(y)$ and $y=f(x)$, the chain rule is:
 
 $$
-\frac{dz}{dx} = \frac{d}{dx}g(f(x)) = \frac{dz}{dy}\frac{dy}{dx}
+\frac{dz}{dx} = \frac{d}{dx}g(f(x)) = \frac{dg}{df}\frac{df}{dx}
 $$
 
 The partial derivative uses $\partial$. For example, the time derivative of $f(\mathbf{x},t)$ can be represented as follows:
