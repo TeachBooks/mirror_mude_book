@@ -109,7 +109,7 @@ parts:
       title: Overview of Q2
 
   - caption: Finite Volume Method
-    numbered: 2
+    numbered: 3
     chapters:
     # - file: fvm/overview
     #   title: Overview
@@ -119,7 +119,7 @@ parts:
     - file: fvm/gauss.md
       title: Gauss' Theorem
     - file: fvm/lagrangian.md
-      title: Reference Frame
+      title: Reference Frames
     - file: fvm/conservation.md
       title: Conservation Laws
     - file: fvm/navier.md
@@ -128,6 +128,8 @@ parts:
       title: Stability
     - file: fvm/summary.md
       title: Summary
+    - file: fvm/notation.md
+      title: Notation and Formulas
 
   - caption: Finite Element Method
     numbered: 2
