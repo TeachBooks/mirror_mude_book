@@ -552,11 +552,11 @@ function handleDisableExecutionCellTag(element) {
 // Current special tags: thebe-remove-input-init
 function consumeSpecialTags() {
   const specialTagsInfo = [
-    { tag: "thebe-remove-input-init", handler: handleThebeRemoveInputTag },
     { tag: "disable-execution-page", handler: handleDisableExecutionTag },
     { tag: "disable-download-page", handler: handleDisableDownloadTag },
     { tag: "auto-execute-page", handler: handleAutoExecuteTag },
     { tag: "disable-execution-cell", handler: handleDisableExecutionCellTag },
+    { tag: "thebe-remove-input-init", handler: handleThebeRemoveInputTag },
   ];
 
   window.specialTaggedElements = [];
