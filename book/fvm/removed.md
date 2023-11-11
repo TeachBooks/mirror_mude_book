@@ -5,6 +5,13 @@ From final draft changes just prior to week 2.1 2023.
 _Warning: most of the notation is inconsistent!_
 
 
+## intro
+
+Given fluids don’t have a shape of their own, it is challenging (but possible) to define a discrete set of points that can represent the fluid. Therefore, one deals with fluids using discrete finite volumes in space. 
+
+Imagine the flow of water inside a river but divided into a finite number of volumes that are fixed (for simplicity) in space inside the a river. To track the flow of water, one can simply track the volume of water and its change inside each finite volume. Because mass must remain conserved, the total volume (mass times the constant density of water; an incompressible fluid), is also conserved. This basic conservation law can be expressed mathematically for each finite volume (as a differential equation). If one can solve the underlying equation for each volume, one can track the overall flow of water.
+
+
 
 ## misc equations
 

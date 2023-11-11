@@ -2,12 +2,12 @@
 
 Gauss's theorem (also referred to as the divergence theorem) relates the flux of a vector field $\mathbf{u}$ through a closed surface $\Gamma$ with the divergence of the vector field inside the volume $\Omega$ enclosed by closed surface ({numref}`gauss1`). 
 
-```{figure} ./figs/gauss1.png
+```{figure} ./figs/fvm1.png
 ---
 width: 60%
 name: gauss1
 ---
-Generalized schematic of a 3D "volume", $\Omega$, illustrated by a 2D ellipse. The bounding surface $\Gamma$, surface normal vector $\mathbf{\hat{n}}$ and vector field 
+Generalized schematic of a 3D "volume", $\Omega$, illustrated by a 2D ellipse, with bounding surface $\Gamma$. The surface normal vector $\mathbf{\hat{n}}$ and vector field $\mathbf{u}$ are also illustrated, describing flux through an infinitesimal part of the surface, $d\mathbf{\Gamma}$.
 ```
 
 Consider $\mathbf{u}$ to be a vector field describing velocity at all $\mathbf{x}$ in volume $\Omega$ as a function of time $t$. The divergence of $\mathbf{u}$ is: 
@@ -54,7 +54,7 @@ Discretized volume: indexes.
 
 **MMMMM:** this description updated Friday. Need to create new figures to separate FDM and FVM approach and explicitly show the FV element. Make the FDM connection just a small note at the end.
 
-The value of $u$ is only known at the center of the cell and the center of the four faces labelled above as N, S, W and E. The value of $u$ at the center is assumed to be constant over the volume and denoted as $\mathbf{u_{i,j}}}$:
+The value of $u$ is only known at the center of the cell and the center of the four faces labelled above as N, S, W and E. The value of $u$ at the center is assumed to be constant over the volume and denoted as $\mathbf{u}_{i,j}$:
 
 ```{figure} ./figs/gauss3.png
 ---

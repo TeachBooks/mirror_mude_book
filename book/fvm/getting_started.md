@@ -3,7 +3,13 @@
 
 This is a very quick overview of some fundamental knowledge that is helpful for understanding the analytic and numeric work needed for FVM. Some of it is calculus and continuum mechanics that should be mostly review (and can be used as a reference for notation), whereas the later sections give some context and insight into the derivation of commonly used conservation laws (PDE's) that can be solved using FVM.
 
-At the moment, the notation on this page only applies for the Finite Volume Method. A few selected LaTeX commands are provided as well to help you use the same notation in your Markdown-formatted reports (optional).
+At the moment, the notation on this page only applies for the Finite Volume Method. A few selected LaTeX equations are provided as well to help you use the same notation in your Markdown-formatted reports (optional).
+
+```{admonition} MUDE Exam Information
+:class: tip
+
+You are not expected to produce the material below from memory, but you _are_ expected to understand any of the equations and notation below if included on the exam. One exception is the Navier-Stokes equation; there you would only be expected to know the transient, convection and diffusion terms.
+```
 
 ## Notation
 
@@ -21,6 +27,8 @@ $$
 \mathbf{u} = u \,\hat{i} + v \,\hat{j} + w \,\hat{k}
 $$
 
+In the finite volume discretization scheme, volume indices are denoted with a subscript that refers to increments of each axis in $\mathbf{x}$, starting at index 1 (not 0, as in Python!). For example, subscript $i$, $j$ are used in 2D, such that the volume centered as $x$-coordinate 4 and $y$-coordinate 6 would be described with velocity $\mathbf{u}_{4,6}^n$.  The time increment is identified with a superscript, $n$; the initial condition starts at index 0. In other words, the initial condition is specified at time $t_0$.
+
 Locations or quantities in a 1-dimensional (1D) discretized continuum in are expressed as a column vector, for example, the velocity in the $x$- or $\hat{i}$-direction at points $i=1:n$ is:
 
 $$
@@ -29,7 +37,9 @@ u_i \; \forall \; i
 = \begin{bmatrix} u_1 & u_2 & \dots & u_n\end{bmatrix}^T
 $$
 
-LaTeX commands:
+<!-- The structure of vectors and matrices for problems in dimension greater than 1 is not unique, In 2D the collection of vector values does not imply a unique -->
+
+Selected LaTeX equations:
 ```
 $$
 \mathbf{u} = u \,\hat{i} + v \,\hat{j} + w \,\hat{k}
@@ -58,7 +68,7 @@ $$
 + (\mathbf{u}\cdot\nabla)\,\mathbf{u}
 $$
 
-LaTeX commands:
+Selected LaTeX equations:
 ```
 $$
 \frac{D\mathbf{u}}{Dt}
@@ -114,7 +124,7 @@ $$
 + \frac{\partial^2 w}{\partial z^2}
 $$
 
-LaTeX commands:
+Selected LaTeX equations:
 ```
 $$
 \nabla\
@@ -186,7 +196,7 @@ See the Navier-Stokes section for a more detailed description using momentum, ($
 
 Sometimes the term _convection_ is used interchangeably with advection; technically the difference is that advection specifies a quantity that is carried by the fluid, rather than the fluid particles themselves (convection).
 
-LaTeX commands:
+Selected LaTeX equations:
 ```
 $$
 \frac{\partial \phi}{\partial t}
@@ -235,7 +245,7 @@ where $\mu$ is the dynamic viscosity (SI units: [kg/m/s]). Note that since $\rho
 
 In addition, terms 1 and 2 form the inertial component, whereas terms 3 and 4 form represent stress divergence.
 
-LaTeX commands:
+Selected LaTeX equations:
 ```
 $$
 \frac{\partial (\rho \,\mathbf{u})}{\partial t}
