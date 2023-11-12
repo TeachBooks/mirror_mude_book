@@ -22,7 +22,7 @@ $$
 = 0
 $$
 
-From here, we will apply the finite volume method in 1D and 2D. A simple convection problem can be used to illustrate the finite volume method by applying the following steps:
+From here, we will apply the finite volume method in 1D. A simple convection problem can be used to illustrate the finite volume method by applying the following steps:
 
 1. Integrate PDE over volume of interest $\Omega$
 2. Apply Gauss's Theorem on the bounding surface $\Gamma$
@@ -223,6 +223,4 @@ The coefficient matrix $A$ only has non-zero elements along the diagonal due to 
 
 ### Solution Techniques
 
-**MMMMM**
-
-Note that the matrix is sparse. We would never solve it simultaneously, as it is mostly zeros, and matrix inversion is computationally expensive. As with many other numerical techniques, this is actually done by iterating over each finite volume individually.
+Note that the matrix in the above example contains a lot of zeros: 10 out of 36 elements are non-zero (28%). This is called a _sparse_ matrix, and the proportion of non-zero entries grows with the size of the problem. For example, $N=1000$ finite volumes requires $2N-2$ non-zero entries (1998), which is only 0.1% of the matrix! Since matrix calculations are computationally expensive, we would never carry out the matrix calculations as represented here. Instead, various vectorization approaches are implemented in all numerical analysis software packages. Typically, a mapping of volumes and coordinates are stored in a vector format that retains the relationship between volumes and the interpolation points (e.g., neighbor volumes). Then calculations per volume are carried out using this vectorized information. This can be easily implemented in any programming language, for example, with a for loop over each volume. However, note that as geometry of the domain of interest and the discretization scheme changes (e.g., non-square volumes!) more advanced vectorization techniques are required.
