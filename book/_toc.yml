@@ -119,7 +119,7 @@ parts:
     - file: fvm/getting_started.md
       title: Getting Started
     - file: fvm/gauss.md
-      title: Gauss' Theorem
+      title: Gauss's Theorem
     - file: fvm/frames.md
       title: Reference Frames
     - file: fvm/conservation.md

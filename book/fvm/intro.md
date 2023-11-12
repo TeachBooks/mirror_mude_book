@@ -96,7 +96,7 @@ In addition, as will be seen later, FVM integrates over the volumes prior to app
 
 ## Quantity of Interest
 
-In the introduction to FVM on this page, a generic scalar or vector quantity $\phi(\mathbf{x},t)$ is introduced. However, the figures are illustrated with a vector quantity $\mathbf{u}(\mathbf{x},t)$. As FVM is commonly used for computational fluid dynamics problems, $\mathbf{u}$ can be considered a fluid velocity. In this case, the characteristics of the fluid are being solved for directly. For example, using the Navier-Stokes equation (introduced on in {ref}`fvm_notation`) to solve for as $\mathbf{u}(\mathbf{x},t)$:
+In the introduction to FVM on this page, a generic scalar or vector quantity $\phi(\mathbf{x},t)$ is introduced. However, the figures are illustrated with a vector quantity $\mathbf{u}(\mathbf{x},t)$. As FVM is commonly used for computational fluid dynamics problems, $\mathbf{u}$ can be considered a fluid velocity. In this case, the characteristics of the fluid are being solved for directly. For example, using the Navier-Stokes equation (introduced in {ref}`fvm_notation`) to solve for as $\mathbf{u}(\mathbf{x},t)$:
 
 $$
 \frac{\partial (\rho \,\mathbf{u})}{\partial t}
@@ -106,12 +106,12 @@ $$
 + \mathbf{f}
 $$
 
-However, depending on the conservation laws that are applied, the transport of a quantity of interest $\phi$ is dependent on the velocity field of a fluid. In this case, _both_ quantities may be included in the formulation. For example, a contaminant with concentration that is a function of space and time, $\mathrm{C}(\mathbf{x},t)$, may be transported by a fluid with velocty $\mathbf{u}(\mathbf{x},t)$. When governed by advection-diffusion processes (with diffusion coefficient $C$), the conservation euqation becomes:
+However, depending on the conservation laws that are applied, transport of a quantity of interest $\phi$ is dependent on the velocity field of a fluid. In this case, _both_ quantities may be included in the formulation. For example, a contaminant with concentration that is a function of space and time, $C(\mathbf{x},t)$, may be transported by a fluid with velocty $\mathbf{u}(\mathbf{x},t)$. When governed by advection-diffusion processes (with diffusion coefficient $D$), the conservation euqation becomes:
 
 $$
-\frac{\partial \mathrm{C}}{\partial t}
+\frac{\partial C}{\partial t}
 +  \mathbf{u} \cdot \nabla \phi
-= C \nabla^2 \phi
+= D \nabla^2 \phi
 $$
 
-which clearly includes the fluid velocity as a transport mechanism.
+which clearly includes the role of fluid velocity as a transport mechanism. The next chapter provides a quick review of these equations before continuing with FVM.

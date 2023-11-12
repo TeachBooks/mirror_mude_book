@@ -115,7 +115,7 @@ $$
 + w\frac{\partial}{\partial z}
 $$
 
-The Laplacian is defined as $\nabla^2$ applied to a scalar, which produces a scalar quantity:
+The Laplacian is defined as $\nabla^2$, and is the divergence of the gradient $\nabla \cdot \nabla$. When applied to a scalar it produces a scalar quantity:
 
 $$
 \nabla^2 \phi
@@ -168,10 +168,22 @@ which is easy to see in 1D as the hydrostatic pressure $h\rho$ of a water column
 For solids, conservation of momentum is expressed by the Cauchy equation:
 
 $$
-\rho \frac{D\mathbf{u}}{Dt} = \nabla \cdot \mathbf{\sigma} + \mathbf{f}
+\rho \frac{\mathrm{D}\mathbf{u}}{\mathrm{D}t} = \nabla \cdot \mathbf{\sigma} + \mathbf{f}
 $$
 
-where $\mathbf{\sigma}$ is a stress tensor and $\mathbf{f}$ is the body force.
+where $\mathbf{\sigma}$ is a stress tensor, $\mathbf{f}$ is the body force and $\mathrm{D}$ represents the total derivative in the Lagrangian reference frame.
+
+## Material Derivative
+
+The _material derivative_ (also called _Lagrangian derivative_) describes the time rate of change of a scalar or vector quantity $\phi(\mathrm{x},t)$ that is subject to a velocity field $\mathrm{u}(\mathrm{x},t)$:
+
+$$
+\frac{\mathrm{D} \phi}{\mathrm{D}t}
+= \frac{\partial \phi}{\partial t}
++ \mathbf{u} \cdot \nabla \phi
+$$
+
+where $\mathrm{D}$ represents the total derivative in the Lagrangian reference frame. This concept is explained in more detail in (see {ref}`fvm_frames`).
 
 ## Conservation Equations
 
@@ -179,12 +191,12 @@ Although a complete derivation is outside the scope of this textbook, it is usef
 
 ### Advection-Diffusion Equation
 
-Many phenomena can be described by the advection-diffusion equation. To derive it for an arbitrary quantity $\phi$, conservation of mass and momentum are invoked, formulated using the material derivative. Consider the quantity to be a a scalar or vector field and a function of space and time, $\phi=\phi(\mathbf{x}, t)$. It is also transported by particles in the fluid, which is described by a velocity vector field, $\mathbf{u}$. For incompressible flow, constant diffusion coefficient ($C$) and no source terms, the conservation equation is:
+Many phenomena can be described by the advection-diffusion equation. To derive it for an arbitrary quantity $\phi$, conservation of mass and momentum are invoked, formulated using the material derivative. Consider the quantity to be a a scalar or vector field and a function of space and time, $\phi=\phi(\mathbf{x}, t)$. It is also transported by particles in the fluid, which is described by a velocity vector field, $\mathbf{u}$. For incompressible flow, constant diffusion coefficient ($D$) and no source terms, the conservation equation is:
 
 $$
 \frac{\partial \phi}{\partial t}
 +  \mathbf{u} \cdot \nabla \phi
-= C \nabla^2 \phi
+= D \nabla^2 \phi
 $$
 
 From left to right, these three terms are explained as follows, relative to the quantity $\phi$:
@@ -210,13 +222,13 @@ $$
 Derivation of the Navier-Stokes equations typically begins with conservation of momentum, where the Cauchy term is divided into a volumetric and deviatoric stress ($\mathbf{\sigma}$ and $\mathbf{\tau}$):
 
 $$
-\rho \frac{D\mathbf{u}}{Dt} 
+\rho \frac{\mathrm{D}\mathbf{u}}{\mathrm{D}t} 
 = -\nabla p 
 + \nabla \cdot \mathbf{\tau}
 + \mathbf{f}
 $$
 
-Where $\mathbf{f}$ is a body force. Conservation of mass and the material derivative give:
+Where $\mathbf{f}$ is a body force and $\mathrm{D}$ represents the total derivative in the Lagrangian reference frame. Conservation of mass and the material derivative give:
 
 $$
 \frac{\partial (\rho\,\mathbf{u})}{\partial t}

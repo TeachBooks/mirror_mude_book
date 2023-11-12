@@ -73,12 +73,14 @@ $$
 + \frac{\partial\mathbf{u}}{\partial t}
 $$
 
-This is the mathematical representation of Lagrangian-Eulerian equivalence, and implies that the quantities on both sides are the same in the Cartesian frame. Rearranging and combining terms the _material derivative_ (or _Lagrangian derivative_):
+This is the mathematical representation of Lagrangian-Eulerian equivalence, and implies that the quantities on both sides are the same in the Cartesian frame. Rearranging and combining terms results in:
 
 $$
-\frac{D\mathbf{u}}{Dt}
+\frac{\mathrm{D}\mathbf{u}}{\mathrm{D}t}
 = \frac{\partial\mathbf{u}}{\partial t}
 + (\mathbf{u}\cdot\nabla)\,\mathbf{u}
 $$
+
+where an upright capital symbol $\mathrm{D}$ is used to represent the total derivative in the Lagrangian reference frame, and the entire equation above is called the _material derivative_ or _Lagrangian derivative._
 
 While we will not use the material derivative often in this textbook, it is important for work in continuum mechanics. When conservation laws are used to model real-world phenomenon, especially flow applications, measurements are being performed at specific locations defined in a Lagrangian frame, for example, probes (points) or electromagnetic or sound waves (lines), but the phenomenon is being measures in an Eulerian frame. In other words, observing changes in a volume (or multiple volumes) rather than the movement of a particle in the fluid of interest. The Lagrangian derivative is the only way to convert the Eulerian spatial experimental data into a (Lagrangian) description of the way that the fluid moves through space and time.
