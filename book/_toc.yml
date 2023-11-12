@@ -128,8 +128,6 @@ parts:
       title: Discretization
     - file: fvm/stability.md
       title: Stability
-    - file: fvm/summary.md
-      title: Summary
 
   - caption: Finite Element Method
     numbered: 2

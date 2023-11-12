@@ -40,71 +40,34 @@ $$
 
 In other words, the volumetric integral of the divergence of $\mathbf{u}$ over volume $\Omega$ is equivalent to the closed surface integral of the flux of $\mathbf{u}$ over the boundary $\Gamma$.
 
-## Discretization
-
-We will now discretize space into finite volumes as shown in the figure below. Each of the squares is an individual "finite volume" with velocity $\mathbf{u}$ at the geometric center. In 2D, for example, $\mathbf{u}=u\hat{i}+v\hat{j}$, where each velocity component is a function of space and time: $u=u(x,y,t)$ and $v=v(x,y,t)$.
-
-```{figure} ./figs/gauss2.png
----
-width: 60%
-name: gauss2
----
-Discretized volume: indexes.
-```
-
-**MMMMM:** this description updated Friday. Need to create new figures to separate FDM and FVM approach and explicitly show the FV element. Make the FDM connection just a small note at the end.
-
-The value of $u$ is only known at the center of the cell and the center of the four faces labelled above as N, S, W and E. The value of $u$ at the center is assumed to be constant over the volume and denoted as $\mathbf{u}_{i,j}$:
-
-```{figure} ./figs/gauss3.png
----
-width: 40%
-name: gauss3
----
-Discretized volume: single volume illustrating center and faces.
-```
-
-
-**MMMMM** The intersection of the lines ("corners" of the volumes) are where velocity would be computed in the finite difference method. As the finite volume method is concerned with 
-
 ## Gauss's Theorem, Discretized
 
-**MMMMM:** check use of $\Omega$....maybe $V$ or $\Delta V$ would be better?
-
-Applying Gauss's theorem for a 2D velocity field  
-
-Recall that the value of $\mathbf{u}$ at the center, $\mathbf{u}_{i,j}$, is assumed to be constant over the volume, allowing for a significant simplification of the volumetric integral when applied to a finite volume with differential volume $\Delta V$:
+This section applies Gauss's theorem to a 2D velocity field, which is then discretized for a single finite volume with center located at $(x_i,y_j$). Recall that the value of $\mathbf{u}$ at the center, $\mathbf{u}_{i,j}$, is assumed to be constant over the volume, allowing for a significant simplification of the volumetric integral when applied to a finite volume with differential volume $\Delta \Omega$:
 
 $$
-\int_{\Omega}\mathbf{\nabla}\cdot\mathbf{u}\,d\Omega=\mathbf{\nabla}\cdot\mathbf{u}_{i,j}\int_{\Omega}\,d\Omega=\mathbf{\nabla}\cdot\mathbf{u}_{i,j}\,\Delta V
+\int_{\Omega} \nabla \cdot \mathbf{u} \,d\Omega
+= \nabla \cdot \mathbf{u}_{i,j}\int_{\Omega} \,d\Omega
+= \nabla \cdot \mathbf{u}_{i,j}\,\Delta V
 $$
 
-In 2D:
+Resulting in the following expression for divergence in 2D:
 
 $$
 \left(\frac{\partial u_{i,j}}{\partial x}+\frac{\partial v_{i,j}}{\partial y}\right)\Delta x \Delta y
 $$
 
-
-
-The discrete closed surface integral is then:
+The right-hand side of Gauss's theorem, the discretized closed surface integral is then:
 
 $$
-\begin{align}\oint_{\Gamma}\mathbf{u}\cdot\mathbf{\hat{n}}\,d\Gamma &=\oint_{\Gamma_E}\mathbf{u_E}\cdot\mathbf{\hat{n_E}}\,d\Gamma+\oint_{\Gamma_W}\mathbf{u_W}\cdot\mathbf{\hat{n_W}}\,d\Gamma+\oint_{\Gamma_N}\mathbf{u_N}\cdot\mathbf{\hat{n_N}}\,d\Gamma+\oint_{\Gamma_S}\mathbf{u_S}\cdot\mathbf{\hat{n_S}}\,d\Gamma \\
+\begin{align}\oint_{\Gamma}\mathbf{u}\cdot\mathbf{\hat{n}}\,d\Gamma &
+=\oint_{\Gamma_E} \mathbf{u}_E \cdot \mathbf{\hat{n}}_E \,d\Gamma
++\oint_{\Gamma_W} \mathbf{u}_W \cdot \mathbf{\hat{n}}_W \,d\Gamma
++\oint_{\Gamma_N} \mathbf{u}_N \cdot \mathbf{\hat{n}}_N \,d\Gamma
++\oint_{\Gamma_S} \mathbf{u}_S \cdot \mathbf{\hat{n}}_S \,d\Gamma \\
 &=(u_E-u_W)\Delta y+(u_N-u_S)\Delta x
 \end{align}
 $$
 
 This algebraic expression concisely describes the flux entering and leaving the finite volume, and is a key feature of the finite volume method. Although shown here for a fluid velocity in 2D, Gauss’s theorem ensures that the result applies in 3D, as well as for the 3 fundamental conservation laws of physics: mass, momentum and energy conservation.
-
-**MMMMM:** this is out of place becuase this page only has the divergence theorem, it does not state conservation laws. Move.
-
-Together with the conservation equation
-
-* Change in mass inside a volume equals the rate at which mass enters or leaves through its surface (conservation of mass);
-* Change in momentum of the volume equals the sum of all forces acting on its surface (conservation of momentum, Newton’s second law);
-* Change in energy of the volume equals the sum of heat transfer and the work done at the surface (conservation of energy).  
-
-**MMMMM:** E/L RF's...in or out?
 
 But before we can derive the above equations in the context of the finite volume method, we need to understand the concept of *Eulerian* and *Lagrangian reference frames*.  
