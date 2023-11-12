@@ -9,16 +9,6 @@ $$
 
 For mass
 
-- 
-
-
-```{note} Important things to retain from this chapter
-
-* A simple mathematical form of the conservation law for any physical quantity
-* The conservation of mass for a fluid
-* The conservation of momentum for a fluid (Navier-Stokes equation)
-
-```
 
 Establishing a relationship between the Lagrangian and Eulerian frames, was the first step to the FVM. Now, let us see how the Lagrangian derivative can allow one to express the **fundamental conservation laws** in a manner that is consistent with the FVM.  
 
@@ -46,7 +36,7 @@ The signs for top and bottom here are as follows - a flux into the cell is posit
 
 $$\frac{\partial\rho}{\partial t}=-\frac{\partial(\rho v)}{\partial y}$$
 
-Extending to 3D and 3 components of flux, one can generalise the above equation as:
+Extending to 3D and 3 components of flux, one can generalize the above equation as:
 
 $$\frac{\partial\rho}{\partial t}=-\frac{\partial(\rho u)}{\partial x}-\frac{\partial(\rho v)}{\partial y}-\frac{\partial(\rho w)}{\partial z}$$
 

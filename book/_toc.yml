@@ -116,20 +116,22 @@ parts:
     #   sections:
     - file: fvm/intro.md
       title: Introduction
+    - file: fvm/getting_started.md
+      title: Getting Started
     - file: fvm/gauss.md
-      title: Gauss' Theorem
+      title: Gauss's Theorem
     - file: fvm/frames.md
       title: Reference Frames
-    - file: fvm/conservation.md
-      title: Conservation Laws
-    - file: fvm/navier.md
-      title: Discretization
+    - file: fvm/advection.md
+      title: Advection
+    # - file: boundaries.md
+    #   title: Boundary Conditions
     - file: fvm/stability.md
       title: Stability
-    - file: fvm/summary.md
-      title: Summary
-    - file: fvm/notation.md
-      title: Notation and Formulas
+    # - file: fvm/conservation.md
+    #   title: Conservation Laws
+    # - file: fvm/navier.md
+    #   title: Discretization
 
   - caption: Finite Element Method
     numbered: 2
