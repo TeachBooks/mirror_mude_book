@@ -7,8 +7,8 @@ The general scheme for FV problems is as follows:
 
 1. Convert the PDE to integral formulation, over a volume of interest
 2. Apply Gauss's Theorem on the bounding surface
-3. Discretize the integral equations over finite volumes
-4. Apply a numerical scheme to solve the discretized equations (typically in time)
+3. Discretize the domain into finite volumes and apply the integral equations 
+4. Apply a numerical scheme to discretize equations in space and time then solve
 
 These topics will be discussed in more detail after the discretizing of a general problem into finite volumes is introduced below.
 
@@ -40,6 +40,10 @@ width: 60%
 name: fvm1
 ---
 Generalized schematic of a 3D "volume", $\Omega$, illustrated by a 2D ellipse, with bounding surface $\Gamma$ and a single vector of the field $\mathbf{u}$. Flux out of the volume is through an infinitesimal part of the surface, $d\mathbf{\Gamma}$, wihch has a surface normal vector $\mathbf{\hat{n}}$.
+```
+
+```{note}
+In this section no distinction is made between the quantity of interest, $\phi$, and the velocity field of the fluid, $\mathbf{u}$; this is analagous to most computational fluid dynamics problems.
 ```
 
 It is difficult to develop a solution for situations with complex geometry and physical phenomenon, and the general volume $\Omega$, illustrated in {numref}`fvm1`, must be discretized into smaller volumes that are more easily evaluated, for example the smaller _finite volume_ illustrated in {numref}`fvm2`. Only the domain has changed, becoming smaller; the same conservation laws are used to evaluate the quantity of interest $\mathbf{u}$.
@@ -96,7 +100,7 @@ In addition, as will be seen later, FVM integrates over the volumes prior to app
 
 ## Quantity of Interest
 
-In the introduction to FVM on this page, a generic scalar or vector quantity $\phi(\mathbf{x},t)$ is introduced. However, the figures are illustrated with a vector quantity $\mathbf{u}(\mathbf{x},t)$. As FVM is commonly used for computational fluid dynamics problems, $\mathbf{u}$ can be considered a fluid velocity. In this case, the characteristics of the fluid are being solved for directly. For example, using the Navier-Stokes equation (introduced in {ref}`fvm_notation`) to solve for as $\mathbf{u}(\mathbf{x},t)$:
+In the introduction to FVM on this page, a generic scalar or vector quantity $\phi(\mathbf{x},t)$ was briefly stated. However, the figures used to illustrate the FVM discretization employ a vector quantity $\mathbf{u}(\mathbf{x},t)$. As FVM is commonly used for computational fluid dynamics problems, $\mathbf{u}$ can be considered a fluid velocity. In this case, the characteristics of the fluid are being solved for directly. For example, using the Navier-Stokes equation (introduced in {ref}`fvm_notation`) to solve for as $\mathbf{u}(\mathbf{x},t)$:
 
 $$
 \frac{\partial (\rho \,\mathbf{u})}{\partial t}
@@ -106,7 +110,7 @@ $$
 + \mathbf{f}
 $$
 
-However, depending on the conservation laws that are applied, transport of a quantity of interest $\phi$ is dependent on the velocity field of a fluid. In this case, _both_ quantities may be included in the formulation. For example, a contaminant with concentration that is a function of space and time, $C(\mathbf{x},t)$, may be transported by a fluid with velocty $\mathbf{u}(\mathbf{x},t)$. When governed by advection-diffusion processes (with diffusion coefficient $D$), the conservation euqation becomes:
+However, depending on the conservation laws that are applied, transport of a quantity of interest $\phi$ is dependent on the velocity field of a fluid in different ways. In this case, _both_ quantities should be included in the formulation. For example, consider a contaminant with concentration that is a function of space and time, $C(\mathbf{x},t)$, transported by a fluid with velocity $\mathbf{u}(\mathbf{x},t)$. When governed by advection-diffusion processes (with diffusion coefficient $D$), the conservation euqation becomes:
 
 $$
 \frac{\partial C}{\partial t}

@@ -4,6 +4,7 @@ From final draft changes just prior to week 2.1 2023.
 
 _Warning: most of the notation is inconsistent!_
 
+
 ## Final short summary
 
 To summarise this chapter more holistically:
@@ -25,6 +26,68 @@ The **mathematical concepts** that you have learnt:
 The FVM is a powerful method, without which, any design that has something to do with fluid cannot be realised. The method is based on conservation law and hence, is fundamental and versatile and therefore, is found in applications from fluid mechanics to electromagnetism!
 
 ```
+
+
+
+
+
+$$
+\begin{bmatrix}
+\phi_{1}\\\phi_{2}\\\phi_{3}\\\phi_{4}\\\phi_{5}\\\phi_{6}
+\end{bmatrix}^{n+1}
+=
+\begin{bmatrix}
+\phi_{1}\\\phi_{2}\\\phi_{3}\\\phi_{4}\\\phi_{5}\\\phi_{6}
+\end{bmatrix}^{n}
++ \frac{c\Delta t}{\Delta x} 
+\begin{bmatrix}
+? & ? & ? & ? & ? & ? \\
+? & ? & ? & ? & ? & ? \\
+? & ? & ? & ? & ? & ? \\
+? & ? & ? & ? & ? & ? \\
+? & ? & ? & ? & ? & ? \\
+? & ? & ? & ? & ? & ? \\
+\end{bmatrix}
+\begin{bmatrix}
+\phi_{1}\\\phi_{2}\\\phi_{3}\\\phi_{4}\\\phi_{5}\\\phi_{6}
+\end{bmatrix}^{n}
++ \frac{c\Delta t}{\Delta x} 
+\begin{bmatrix}
+? & ? \\
+? & ? \\
+? & ? \\
+? & ? \\
+? & ? \\
+? & ?
+\end{bmatrix}
+\begin{bmatrix}
+\phi_{in}\\\phi_{out}
+\end{bmatrix}
+$$
+
+
+$$
+\begin{bmatrix}
+\phi_{1} \\ \phi_{2} \\ \phi_{3} \\ \phi_{4} \\ \phi_{5} \\ \phi_{6}
+\end{bmatrix}^{n+1}
+=
+\quad \begin{bmatrix} \:I\: \end{bmatrix}
+\begin{bmatrix}
+\phi_{1} \\ \phi_{2} \\ \phi_{3} \\ \phi_{4} \\ \phi_{5} \\ \phi_{6}
+\end{bmatrix}^{n}
++ \frac{c\Delta t}{\Delta x} 
+\begin{bmatrix}
+0 & \frac{1}{2} & 0 & 0 & 0 &  0 \\
+-\frac{1}{2} & 0 & \frac{1}{2} & 0 & 0 & 0 \\
+0 & -\frac{1}{2} & 0 & \frac{1}{2} & 0 & 0 \\
+0 & 0 & -\frac{1}{2} & 0 & \frac{1}{2} & 0 \\
+0 & 0 & 0 & -\frac{1}{2} & 0 & \frac{1}{2} \\
+0 & 0 & 0 & 0 & \frac{1}{2} & 0 \\
+\end{bmatrix}
+\begin{bmatrix}
+\phi_{1} \\ \phi_{2} \\ \phi_{3} \\ \phi_{4} \\ \phi_{5} \\ \phi_{6}
+\end{bmatrix}^{n}
+$$
 
 
 ## intro
