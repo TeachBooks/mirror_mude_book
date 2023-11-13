@@ -5,11 +5,6 @@ In this chapter we will introduce all the steps that are usually followed to sol
 <!-- For this purpose, both linear and non-linear problems will be demonstrated. The FEM is a broadly used numerical tool that solves PDEs. The areas of application range from solid and structural mechanics to fluid mechanics. In recent years the application of such a method for solving complex physical phenomena end geometries is receiving more attention and is more frequently applied are it is bound with computational power. To be more specific, when a domain is discretised using FEM, a system of linear equations is built. Then, this matrix is solved numerically, using the available computational power. -->
 
 
-This chapter includes the following sections:
-
-```{tableofcontents}
-```
-
 The general goal of the FE method is to convert PDEs into a form which we, or rather a computer, can solve. The reason for doing this is because it allows a PDE with no analytical solution for the full domain, to be approximated by solving it on smaller 'elements'. This *discretization* into several elements enables us to solve the problems in irregular geometries, different materials, dynamic effects, jumps or complex changes in geometry, ...
 
 The general scheme for FE problems is as follows:
