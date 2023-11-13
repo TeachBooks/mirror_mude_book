@@ -1,6 +1,6 @@
 # Advection: Linear Propagation
 
-A linear advection problem is a simple way to illustrate application of the finite volume method. Consider a quantity $\phi(\mathbf{x},t)$ travelling in a fluid with velocity field $\mathbf{u}(\mathbf{x},t)$. If only concerned with the advective transport of $\phi$, the following linear conservation equation:
+A linear advection problem is a simple way to illustrate application of the finite volume method. Consider a quantity $\phi(\mathbf{x},t)$ traveling in a fluid with velocity field $\mathbf{u}(\mathbf{x},t)$. If only concerned with the advective transport of $\phi$, the following linear conservation equation:
 
 $$
 \frac{\partial \phi(\mathbf{x},t)}{\partial t}
@@ -8,7 +8,7 @@ $$
 = 0
 $$
 
-This relationship describes phenomenon that can be thought of as a "pulse" of quantity $\phi$ travelling through the fluid, for example a single wave ($\phi$ as wave amplitude), or a pollutant ($\phi$ as concentration). In the example presented here, we will consider the pulse being carried (advected) through a fluid with constant velocity $\mathbf{c}$, where the components in each direction are:
+This relationship describes phenomenon that can be thought of as a "pulse" of quantity $\phi$ traveling through the fluid, for example a single wave ($\phi$ as wave amplitude), or a pollutant ($\phi$ as concentration). In the example presented here, we will consider the pulse being carried (advected) through a fluid with constant velocity $\mathbf{c}$, where the components in each direction are:
 
 $$
 \mathbf{c} = c_u \,\hat{i} + c_v \,\hat{j} + c_w \,\hat{k}
@@ -42,7 +42,7 @@ $$
 + c \, \frac{\partial \phi}{\partial x}
 = 0
 $$
-where the subscript $u$ (denoting the $u$-component of $\mathbf{u}$) has been temporarily dropped. The situation represents a "pulse" travelling along the $x$-axis with speed $c$, and is illustrated in {numref}`adv1` for initial conditions such that a pulse with width $(b-a)$ has amplitude $\phi_0$ between the interval $(a,b)$ in $x$. 
+where the subscript $u$ (denoting the $u$-component of $\mathbf{u}$) has been temporarily dropped. The situation represents a "pulse" traveling along the $x$-axis with speed $c$, and is illustrated in {numref}`adv1` for initial conditions such that a pulse with width $(b-a)$ has amplitude $\phi_0$ between the interval $(a,b)$ in $x$. 
 
 ```{figure} ./figs/adv1.png
 ---
@@ -86,7 +86,7 @@ Schematic of 6 finite volumes aligned with $\hat{i}$ ($x$-direction).
 
 ### Discretization
 
-The integral equations may now be discretized over each finite volumes with the "unkown" at the center, $\phi_i$, and with dimensions $\Delta x$ and $\Delta y$. Although at the moment only the $x$-axis is considered, $\Delta y$ is needed to compute the flux on the East and West faces of each volume.
+The integral equations may now be discretized over each finite volumes with the "unknown" at the center, $\phi_i$, and with dimensions $\Delta x$ and $\Delta y$. Although at the moment only the $x$-axis is considered, $\Delta y$ is needed to compute the flux on the East and West faces of each volume.
 
 For the first term: velocity $\phi$ is constant over the domain, the integral is applied over the finite volume $i$ and a forward Euler scheme is applied with time-step $\Delta t$:
 

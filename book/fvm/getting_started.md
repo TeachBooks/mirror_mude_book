@@ -191,7 +191,7 @@ Although a complete derivation is outside the scope of this textbook, it is usef
 
 ### Advection-Diffusion Equation
 
-Many phenomena can be described by the advection-diffusion equation. To derive it for an arbitrary quantity $\phi$, conservation of mass and momentum are invoked, formulated using the material derivative. Consider the quantity to be a a scalar or vector field and a function of space and time, $\phi=\phi(\mathbf{x}, t)$. It is also transported by particles in the fluid, which is described by a velocity vector field, $\mathbf{u}$. For incompressible flow, constant diffusion coefficient ($D$) and no source terms, the conservation equation is:
+Many phenomena can be described by the advection-diffusion equation. To derive it for an arbitrary quantity $\phi$, conservation of mass and momentum are invoked, formulated using the material derivative. Consider the quantity to be a scalar or vector field and a function of space and time, $\phi=\phi(\mathbf{x}, t)$. It is also transported by particles in the fluid, which is described by a velocity vector field, $\mathbf{u}$. For incompressible flow, constant diffusion coefficient ($D$) and no source terms, the conservation equation is:
 
 $$
 \frac{\partial \phi}{\partial t}

@@ -8,12 +8,12 @@ Some concepts and notation on this page are explained further on the {ref}`notat
 ```{admonition} MUDE Exam Information
 :class: tip
 
-This page is to provide background information to support the flow-focused conervation equations that are used in FVM. You are not expexted to reproduce this for the exam, but reading through it will give you a better understanding for why and how the equations are derived, as well as different modelling persectives.
+This page is to provide background information to support the flow-focused conservation equations that are used in FVM. You are not expected to reproduce this for the exam, but reading through it will give you a better understanding for why and how the equations are derived, as well as different modelling perspectives.
 ```
 
 **Lagrangian Frame**
 
-In a Lagrangian frame, one follows the particles as they move through space; {numref}`gauss4` illustrates how a particle is described in Cartesian coordinates for the Lagrangian frame using position $\mathbf{x}_L(t)$ and velocity $\mathbf{u}_L$. The reference frame is illustrated by the small Cartesian coordinate system  attached to the particle. Because the frame is moving with the particle it will not witness any relative motion. Therefore, position and velocity are functions of time only, not space.
+In a Lagrangian frame, one follows the particles as they move through space; {numref}`gauss4` illustrates how a particle is described in Cartesian coordinates for the Lagrangian frame using position $\mathbf{x}_L(t)$ and velocity $\mathbf{u}_L$. The reference frame is illustrated by the small Cartesian coordinate system attached to the particle. Because the frame is moving with the particle it will not witness any relative motion. Therefore, position and velocity are functions of time only, not space.
 
 A Lagrangian frame is helpful for understanding the history and trajectory of individual particles. In fluid mechanics it is suitable for studying issues like particle dispersion, tracer movement or tracking the paths of specific objects in a flow. For solid mechanics it is useful for describing deformation.
 
