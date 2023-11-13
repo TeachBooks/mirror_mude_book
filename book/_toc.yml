@@ -107,13 +107,35 @@ parts:
     chapters:
     - file: Q2_overview
       title: Overview of Q2
-
+  # END REMOVE-FROM-PUBLISH 
   - caption: Finite Volume Method
-    numbered: 2
+    numbered: 3
     chapters:
-    - file: fvm/overview
-      title: Overview
-
+    # - file: fvm/overview
+    #   title: Overview
+    #   sections:
+    - file: fvm/intro.md
+      title: Introduction
+    - file: fvm/getting_started.md
+      title: Getting Started
+    - file: fvm/gauss.md
+      title: Gauss's Theorem
+    - file: fvm/frames.md
+      title: Reference Frames
+    - file: fvm/advection.md
+      title: Advection
+    # - file: boundaries.md
+    #   title: Boundary Conditions
+    - file: fvm/stability.md
+      title: Stability
+    - file: fvm/exercises.md
+      title: Exercises
+    # - file: fvm/conservation.md
+    #   title: Conservation Laws
+    # - file: fvm/navier.md
+    #   title: Discretization
+    
+  # START REMOVE-FROM-PUBLISH 
   - caption: Finite Element Method
     numbered: 2
     chapters:
@@ -121,16 +143,38 @@ parts:
       title: Overview
 
   - caption: Signal Processing
-    numbered: 2
     chapters:
     - file: signal/overview
       title: Overview
+    - file: signal/fourier_real
+      title: Fourier Series (Real)
+    - file: signal/fourier_complex
+      title: Fourier Series (Complex)
+    - file: signal/fourier_transf
+      title: Fourier Transform
+    - file: signal/sampling
+      title: Sampling
+    - file: signal/dft
+      title: Discrete Fourier Transform (DFT)
+    - file: signal/spectral_est
+      title: Spectral Estimation
 
   - caption: Time Series Analysis
-    numbered: 2
     chapters:
     - file: time_series/overview
       title: Overview
+    - file: time_series/types
+      title: "Types of Time Series"
+    - file: time_series/stationarity
+      title: "Stationarity"
+    - file: time_series/acf
+      title: "Auto-covariance function (ACF)"
+    - file: time_series/arma
+      title: "Auto-Regressive Moving Average (ARMA) process"
+    - file: time_series/modelling
+      title: "Time Series modelling and estimation"
+    - file: time_series/forecasting
+      title: "Time Series forecasting"
       
   - caption: Optimization
     numbered: 2
@@ -291,6 +335,7 @@ parts:
       - file: programming/python_topics/visualization
         title: Advanced Visualization
 # START REMOVE-FROM-PUBLISH
+      - file: programming/sympy/sympy.ipynb
       - file: programming/python_topics/modules
         title: Modules
       # TO BE ADDED LATER: NUMPY ADVANCED, PANDAS, PYTHONIC, ETC.

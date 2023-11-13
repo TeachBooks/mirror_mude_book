@@ -133,3 +133,5 @@ dmypy.json
 
 # Jupyter Book
 _build/
+
+book/_config.yml.bak
