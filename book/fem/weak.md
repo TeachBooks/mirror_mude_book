@@ -59,13 +59,13 @@ In the case introduced in the previous section (see Figure {numref}`rodDefinitio
 To enforce Dirichlet boundary conditions we strongly[^weak_bc] prescribe the value of the solution and set the test function to zero at that boundary. This effectively means that the boundary term coming from the integration by parts evaluated at the Dirichlet boundary goes to zero.
 
 $$
-{\textcolor{red}w} EA \left.\frac{\partial u}{\partial x}\right|_{x=0} = {\textcolor{red}0} EA \left.\frac{\partial u}{\partial x}\right|_{x=0} = 0
+{\color{red}w} EA \left.\frac{\partial u}{\partial x}\right|_{x=0} = {\color{red}0} EA \left.\frac{\partial u}{\partial x}\right|_{x=0} = 0
 $$ (1drodDirichlet)
 
 To enforce the Neumann boundary condition we just need to replace the value of the prescribed flux (or force) in the boundary term appearing after the integration by parts. This type of boundary condition is often called *natural* as it naturally appears when deriving the weak form.
 
 $$
-w {\textcolor{red}{EA \left.\frac{\partial u}{\partial x}\right|_{x=L}}} = w(L){\textcolor{red}F}.
+w {\color{red}EA \left.\frac{\partial u}{\partial x}\right|_{x=L}} = w(L){\color{red}F}.
 $$ (1drodNeumann)
 
 Now we can replace equations {eq}`1drodDirichlet` and {eq}`1drodNeumann` into the weak form {eq}`1drod_weak`, and send to the right-hand site the terms that do not depend on the unknown $u$. This leads us to the final weak form:
