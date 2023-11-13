@@ -7,8 +7,8 @@ The general scheme for FV problems is as follows:
 
 1. Convert the PDE to integral formulation, over a volume of interest
 2. Apply Gauss's Theorem on the bounding surface
-3. Discretize the domain into finite volumes and apply the integral equations 
-4. Apply a numerical scheme to discretize equations in space and time then solve
+3. Discretize domain into finite volumes and apply the integral equations (spatial discretization)
+4. Apply a numerical scheme to discretize equations in time, then solve
 
 These topics will be discussed in more detail after the discretizing of a general problem into finite volumes is introduced below.
 

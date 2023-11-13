@@ -107,7 +107,7 @@ parts:
     chapters:
     - file: Q2_overview
       title: Overview of Q2
-
+  # END REMOVE-FROM-PUBLISH 
   - caption: Finite Volume Method
     numbered: 3
     chapters:
@@ -128,11 +128,14 @@ parts:
     #   title: Boundary Conditions
     - file: fvm/stability.md
       title: Stability
+    - file: fvm/exercises.md
+      title: Exercises
     # - file: fvm/conservation.md
     #   title: Conservation Laws
     # - file: fvm/navier.md
     #   title: Discretization
-
+    
+  # START REMOVE-FROM-PUBLISH 
   - caption: Finite Element Method
     numbered: 2
     chapters:

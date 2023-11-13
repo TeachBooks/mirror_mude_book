@@ -26,8 +26,8 @@ From here, we will apply the finite volume method in 1D. A simple convection pro
 
 1. Integrate PDE over volume of interest $\Omega$
 2. Apply Gauss's Theorem on the bounding surface $\Gamma$
-3. Discretize the volume and integral equations over finite volumes
-4. Apply a numerical scheme to discretize equations in space and time then solve
+3. Discretize the volume and integral equations over finite volumes (in space)
+4. Apply a numerical scheme to discretize equations in time, then solve
 
 ```{note}
 In this example we consider the fluid velocity field to be constant in time and space, and independent from the quantity of interest, $\phi$. In the study of fluid dynamics the quantity of interest $\phi$ is the fluid velocity $\mathbf{u}$ itself. In other words, in the advection example here the quantity $\phi$ describing our "pulse" can be nearly any phenomenon _except_ the velocity of the fluid! Mathematically, this would result in a different approach in step 3 (below).
