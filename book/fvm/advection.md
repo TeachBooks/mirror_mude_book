@@ -1,4 +1,4 @@
-# Advection: Linear Propagation
+# Advection - Linear Propagation
 
 A linear advection problem is a simple way to illustrate application of the finite volume method. Consider a quantity $\phi(\mathbf{x},t)$ traveling in a fluid with velocity field $\mathbf{u}(\mathbf{x},t)$. If only concerned with the advective transport of $\phi$, the following linear conservation equation:
 
