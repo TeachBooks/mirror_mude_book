@@ -2,7 +2,7 @@
 
 In the FE method, before the problem is discretized, the governing equation is rewritten in the so-called **weak form**. In some cases, the weak form can be given a physical interpretation. In solid mechanics, for instance, one can interpret the weak form as an expression for a minimization problem of an energy potential. The weak form is then also referred to as *variational form* in the sense that in the minimization problem a solution is found for which variations in the potential are equal to zero. Here, however, we follow a formal route that arrives at the weak form by recasting the strong form as an integral equation without physical considerations. 
 
-```{figure} .././images/Chapter1/1_3_1.png
+```{figure} ./figures/1_3_1.png
 ---
 height: 400px
 
@@ -19,7 +19,7 @@ Let's put this in practice for the rod equation {eq}`1drod`. The first step is p
 
 $$ -\int_{0}^{L} wEA \frac{\partial^{2} u}{\partial x^{2}}\,dx = \int_0^Lwq\,dx,\quad\forall\quad w$$ (integralform)
 
-The $\forall w$ means that the equality has to hold for all possible test functions $w(x)$. Note that a solution of the *strong form* will indeed satisfy this equation for every function $w(x)$. Conversely, for any $u(x)$ that does not satisfy the strong form anywhere in the domain, it is possible to find a function $w(x)$ for which equation {eq}`integralform` does not hold.
+The $\forall w$ means that the equality has to hold for all possible test functions $w$. Note that a solution of the *strong form* will indeed satisfy this equation for every function $w$. Conversely, for any $u$ that does not satisfy the strong form anywhere in the domain, it is possible to find a function $w$ for which equation {eq}`integralform` does not hold.
 
 Next, integration by parts is used to get rid of the second order derivative in $u$:
 
@@ -51,7 +51,7 @@ We typically distinguish between two[^BC_types] types of boundary conditions:
 - **Dirichlet** (or *essential*) boundary conditions, where we enforce the value of the solution. 
 - **Neumann** (or *natural*) boundary conditions, where we enforce the flux (or force). 
 
-In the case introduced in the previous section (see Figure {numref}`rodDefinition`), one boundary condition of each type is specified:
+In the case introduced in the previous section (see {numref}`rodDefinition`), one boundary condition of each type is specified:
 
 - Dirichlet: $u=0$ at $x=0$
 - Neumann: $EA \frac{\partial u}{\partial x}=F$ at $x=L$
