@@ -19,7 +19,7 @@ Let's put this in practice for the rod equation {eq}`1drod`. The first step is p
 
 $$ -\int_{0}^{L} wEA \frac{\partial^{2} u}{\partial x^{2}}\,dx = \int_0^Lwq\,dx,\quad\forall\quad w$$ (integralform)
 
-The $\forall w$ means that the equality has to hold for all possible test functions $w(x)$. Note that a solution of the *strong form* will indeed satisfy this equation for every function $w(x)$. Conversely, for any $u(x)$ that does not satisfy the strong form anywhere in the domain, it is possible to find a function $w(x)$ for which equation {eq}`integralform` does not hold.
+The $\forall w$ means that the equality has to hold for all possible test functions $w$. Note that a solution of the *strong form* will indeed satisfy this equation for every function $w$. Conversely, for any $u$ that does not satisfy the strong form anywhere in the domain, it is possible to find a function $w$ for which equation {eq}`integralform` does not hold.
 
 Next, integration by parts is used to get rid of the second order derivative in $u$:
 
