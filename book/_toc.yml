@@ -139,8 +139,16 @@ parts:
   - caption: Finite Element Method
     numbered: 2
     chapters:
-    - file: fem/overview
-      title: Overview
+    - file: fem/intro.md
+      title: Introduction
+    - file: fem/strong.md
+      title: Strong form of the problem
+    - file: fem/weak.md
+      title: Weak form
+    - file: fem/discrete.ipynb
+      title: Discrete form
+    - file: fem/matrix.ipynb
+      title: Matrix form
 
   - caption: Signal Processing
     chapters:
