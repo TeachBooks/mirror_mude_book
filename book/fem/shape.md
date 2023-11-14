@@ -7,6 +7,7 @@ Another important feature of the finite element method is that it allows for hig
 In summary, there are two directions in which we can generalize the finite element method by choosing different shape functions
 - Increasing the dimensionality
 - Increasing the interpolation order 
+
 In this section, we will start with the second of these. 
 
 ## Recap of linear shape function 
