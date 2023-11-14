@@ -53,6 +53,12 @@ name: adv1
 Propagation of wave in 1D with constant speed $c$.
 ```
 
+```{admonition} Is the figure above missing?
+:class: danger
+
+This issue affects some readers; until it is fixed you can view the image [here](https://mude.citg.tudelft.nl/book/_images/adv1.png). 
+```
+
 ### Integral Form and Gauss
 
 
@@ -83,6 +89,12 @@ width: 60%
 name: adv2
 ---
 Schematic of 6 finite volumes aligned with $\hat{i}$ ($x$-direction).
+```
+
+```{admonition} Is the figure above missing?
+:class: danger
+
+This issue affects some readers; until it is fixed you can view the image [here](https://mude.citg.tudelft.nl/book/_images/adv2.png). 
 ```
 
 ### Discretization
@@ -206,7 +218,7 @@ $$
 \begin{bmatrix}
 \phi_{1} \\ \phi_{2} \\ \phi_{3} \\ \phi_{4} \\ \phi_{5} \\ \phi_{6}
 \end{bmatrix}^{n}
-+ \frac{c\Delta t}{\Delta x} 
+- \frac{c\Delta t}{\Delta x} 
 \begin{bmatrix}
 0 & \frac{1}{2} & 0 & 0 & 0 &  0 \\
 -\frac{1}{2} & 0 & \frac{1}{2} & 0 & 0 & 0 \\
