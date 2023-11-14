@@ -51,7 +51,7 @@ We typically distinguish between two[^BC_types] types of boundary conditions:
 - **Dirichlet** (or *essential*) boundary conditions, where we enforce the value of the solution. 
 - **Neumann** (or *natural*) boundary conditions, where we enforce the flux (or force). 
 
-In the case introduced in the previous section (see Figure {numref}`rodDefinition`), one boundary condition of each type is specified:
+In the case introduced in the previous section (see {numref}`rodDefinition`), one boundary condition of each type is specified:
 
 - Dirichlet: $u=0$ at $x=0$
 - Neumann: $EA \frac{\partial u}{\partial x}=F$ at $x=L$
