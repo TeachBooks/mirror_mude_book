@@ -42,6 +42,7 @@ $$
 + c \, \frac{\partial \phi}{\partial x}
 = 0
 $$
+
 where the subscript $u$ (denoting the $u$-component of $\mathbf{u}$) has been temporarily dropped. The situation represents a "pulse" traveling along the $x$-axis with speed $c$, and is illustrated in {numref}`adv1` for initial conditions such that a pulse with width $(b-a)$ has amplitude $\phi_0$ between the interval $(a,b)$ in $x$. 
 
 ```{figure} ./figs/adv1.png
