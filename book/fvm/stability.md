@@ -1,6 +1,6 @@
 # Stability
 
-Stability analysis provides insight into whether a numerical analysis scheme can be applied successfully, as well as to choose characteristics of a discretization scheme (e.g., time step or grid size). As shown with ODE's, the solution to the Cauchy equation and its existence depended directly on the method used: tje forward and backward Euler stability criterion.
+Stability analysis provides insight into whether a numerical analysis scheme can be applied successfully, as well as to choose characteristics of a discretization scheme (e.g., time step or grid size). As shown with ODE's, the solution to the Cauchy equation and its existence depended directly on the method used: the forward and backward Euler stability criterion.
 
 The same approach can be applied to any time-dependent problem being solved with FVM: if forward Euler is used, the system is conditionally stable. However, the stability criterion derived for the Cauchy problem is not as simple to derive for the more complicated algebraic equations used in FVM. The backward Euler scheme could be used, as it is unconditionally stable; however, as an implicit method it is computationally expensive, requiring an iterative solution (e.g., Newton-Raphson) for each time step.
 

@@ -1,4 +1,4 @@
-# Advection: Linear Propagation
+# Advection - Linear Propagation
 
 A linear advection problem is a simple way to illustrate application of the finite volume method. Consider a quantity $\phi(\mathbf{x},t)$ traveling in a fluid with velocity field $\mathbf{u}(\mathbf{x},t)$. If only concerned with the advective transport of $\phi$, the following linear conservation equation:
 
@@ -42,15 +42,22 @@ $$
 + c \, \frac{\partial \phi}{\partial x}
 = 0
 $$
+
 where the subscript $u$ (denoting the $u$-component of $\mathbf{u}$) has been temporarily dropped. The situation represents a "pulse" traveling along the $x$-axis with speed $c$, and is illustrated in {numref}`adv1` for initial conditions such that a pulse with width $(b-a)$ has amplitude $\phi_0$ between the interval $(a,b)$ in $x$. 
 
-```{figure} ./figs/adv1.png
+```{figure} ./figs/advection1.png
 ---
 width: 60%
 name: adv1
 ---
 Propagation of wave in 1D with constant speed $c$.
 ```
+
+% ```{admonition} Is the figure above missing?
+% :class: danger
+% 
+% This issue affects some readers; until it is fixed you can view the image [here](https://mude.citg.tudelft.nl/book/_images/adv1.png). 
+% ```
 
 ### Integral Form and Gauss
 
@@ -76,13 +83,19 @@ $$
 
 The $x$-domain will be divided into six finite volumes, shown in {numref}`adv2`, numbered 1 through 6 from left to right, such that the volume number refers to the $x$-coordinate of the geometric center. For example, volume 3 is located with center at $x_1$. The quantity $\phi$ will only being calculated at the center of the finite volume, $\phi(x_i)$.
 
-```{figure} ./figs/adv2.png
+```{figure} ./figs/advection2.png
 ---
 width: 60%
 name: adv2
 ---
 Schematic of 6 finite volumes aligned with $\hat{i}$ ($x$-direction).
 ```
+
+% ```{admonition} Is the figure above missing?
+% :class: danger
+% 
+% This issue affects some readers; until it is fixed you can view the image [here](https://mude.citg.tudelft.nl/book/_images/adv2.png). 
+% ```
 
 ### Discretization
 
@@ -205,7 +218,7 @@ $$
 \begin{bmatrix}
 \phi_{1} \\ \phi_{2} \\ \phi_{3} \\ \phi_{4} \\ \phi_{5} \\ \phi_{6}
 \end{bmatrix}^{n}
-+ \frac{c\Delta t}{\Delta x} 
+- \frac{c\Delta t}{\Delta x} 
 \begin{bmatrix}
 0 & \frac{1}{2} & 0 & 0 & 0 &  0 \\
 -\frac{1}{2} & 0 & \frac{1}{2} & 0 & 0 & 0 \\

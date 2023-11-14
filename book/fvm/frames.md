@@ -3,7 +3,7 @@
 
 In physics-based modelling, a _reference frame_ describes a coordinate system that is defined relative to specific points of interest. _Lagrangian_ and _Eulerian_ reference frames are two approaches used in fluid mechanics that are useful for describing the motion and behavior of a fluid over time. Although they are completely different perspectives on the same phenomenon, both are necessary to fully model the movement of particles or elements within the fluid mathematically.
 
-Some concepts and notation on this page are explained further on the {ref}`notation page <fvn_notation>`.
+Some concepts and notation on this page are explained further on the {ref}`notation page <fvm_notation>`.
 
 ```{admonition} MUDE Exam Information
 :class: tip
