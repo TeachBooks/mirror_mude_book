@@ -31,7 +31,7 @@ In the case of heat conduction, for instance, $u$ in the above equation is the t
 Keep in mind that the constitutive relationship always depends on the problem being solved and $ \nu $ can take different meanings. For the heat equation, $\nu$ is the thermal conductivity while for Darcy’s law $ \nu $ is the hydraulic conductivity and for extension of a rod $\nu$ is a measure for the stiffness. 
 
 ## The strong form of a linear elastic rod
-```{figure} .././images/Chapter1/barDefinition-1.png
+```{figure} ./figures/barDefinition-1.png
 ---
 height: 150px
 name: rodDefinition

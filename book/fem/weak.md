@@ -2,7 +2,7 @@
 
 In the FE method, before the problem is discretized, the governing equation is rewritten in the so-called **weak form**. In some cases, the weak form can be given a physical interpretation. In solid mechanics, for instance, one can interpret the weak form as an expression for a minimization problem of an energy potential. The weak form is then also referred to as *variational form* in the sense that in the minimization problem a solution is found for which variations in the potential are equal to zero. Here, however, we follow a formal route that arrives at the weak form by recasting the strong form as an integral equation without physical considerations. 
 
-```{figure} .././images/Chapter1/1_3_1.png
+```{figure} ./figures/1_3_1.png
 ---
 height: 400px
 
