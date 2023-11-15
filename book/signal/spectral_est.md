@@ -130,7 +130,7 @@ $$P=\int_{-\infty}^{\infty}S(f)df$$
 
 The **energy** and the **power** of a signal are given by:
 
-$$\begin{gather*}E=\lim_{T\to\infty}int_{-T}^{T}|x(t)|^2dt\\ P=\lim_{T\to\infty}\frac{1}{2T}\int_{-T}^T|x(t)|^2dt\end{gather*}$$
+$$\begin{gather*}E=\lim_{T\to\infty}\int_{-T}^{T}|x(t)|^2dt\\ P=\lim_{T\to\infty}\frac{1}{2T}\int_{-T}^T|x(t)|^2dt\end{gather*}$$
 
 Finally, we derived and gave a formal definition for **Parseval's theorem** which reads (for an a-periodic signal) as:
 

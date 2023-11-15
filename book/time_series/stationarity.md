@@ -36,28 +36,20 @@ However, many real-world time series are indeed non-stationary. We have to find 
 In general, there are 5 ways to make a non-stationary time series to a stationary one. They are known as transformation methods. They are itemized as follows:
 
 * **Difference transformation of data**:
-  * Single differencing
-    $$\Delta y_t = y_t - y_{t-1}$$
-  * Double differencing
-    $$\Delta^2 y_t = \Delta y_t - \Delta y_{t-1} = y_t - 2y_{t-1}+y_{t-2}$$
+  * Single differencing, $\Delta y_t = y_t - y_{t-1}$
+  * Double differencing, $\Delta^2 y_t = \Delta y_t - \Delta y_{t-1} = y_t - 2y_{t-1}+y_{t-2}$
 
 * **Moving average of data**:
-  * Moving average
-    $$\bar{y}_t \longleftarrow \frac{1}{k}(y_{t-1}+...+y_{t-k})$$
-  * Handle residuals in stochastic model
-    $$\Delta^2 y_t = \Delta y_t - \Delta y_{t-1} = y_t - 2y_{t-1}+y_{t-2}$$
+  * Moving average, $\bar{y}_t \longleftarrow \frac{1}{k}(y_{t-1}+...+y_{t-k})$
+  * Handle residuals in stochastic model, $\Delta^2 y_t = \Delta y_t - \Delta y_{t-1} = y_t - 2y_{t-1}+y_{t-2}$
 
 * **Function-based transformation of data**:
-  * Log transformation
-    $$y_t \longleftarrow \log(y_t)$$
-  * Square root transformation
-    $$y_t \longleftarrow \sqrt{y_t}$$
+  * Log transformation, $y_t \longleftarrow \log(y_t)$
+  * Square root transformation, $y_t \longleftarrow \sqrt{y_t}$
 
 * **Functional model least squares fit (de-trending)**:
-  * Modelling the trend and seasonality
-    $$y=Ax+e$$
-  * Deal with residuals in the stochastic model
-    $$y \longleftarrow e = y-Ax$$
+  * Modelling the trend and seasonality, $y=Ax+e$
+  * Deal with residuals in the stochastic model, $y \longleftarrow e = y-Ax$
 
 * **Combination of abovementioned methods**
 
@@ -124,7 +116,7 @@ The BLUE of $y$ and $e$ are, then
 
 $$\hat{y}=A(A^TQ_{yy}^{-1}A)^{-1}A^TQ_{yy}^{-1}y \implies \hat{e}=y-A\hat{x}$$
 
-The **de-trended \hat{e} is assumed to be stationary** for further **stochastic process**. This is also an admissible transformation because $y$ can uniquely be reconstructed as $y=A\hat{x}+\hat{e}$. Let us take a look into an example:
+The **de-trended $\hat{e}$ is assumed to be stationary** for further **stochastic process**. This is also an admissible transformation because $y$ can uniquely be reconstructed as $y=A\hat{x}+\hat{e}$. Let us take a look into an example:
 
 ![least_squares](./figs/least_squares.png "least_squares")
 
