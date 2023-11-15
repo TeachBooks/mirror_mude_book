@@ -1,5 +1,5 @@
 
-# Fitting a Distribution: Method of moments
+# Method of moments
 
 The method of moments consists of equating the moments[^moment] in the observations to those of the distribution we want to fit. This is, there is a relationship between the moments and the parameters of the distribution. Then, if we equate the moments of the distribution to the moments of the observations, we can obtain the values of the parameters of the distribution. Actually, you have already done it in the exercises of the Exponential distribution! 
 
@@ -72,7 +72,27 @@ $
 
 Thus, $\mu \approx 2.57$ and $\beta \approx 0.77$. 
 
+```{card} Exercises
 
+As part of the quality control of the construction of a building, lab tests are performed to determine the compressive strengths of concrete. The following values in $N/mm^2$ are obtained: 60.5, 59.8, 53.4, 56.9 and 61.9. 
+
+The engineer responsible for quality assumes that the compressive strength follows a uniform distribution, whose CDF is given by 
+
+$
+F(x) = 0   \hspace{1cm}   for \ x<a
+$
+
+$
+F(x) = \frac{x-a}{b-a}   \hspace{1cm}   for \ a\leq x \leq b
+$
+
+$
+F(x) = 0  \hspace{1cm} for \ x>b
+$
+
+<iframe src="https://tudelft.h5p.com/content/1292083850830375117/embed" aria-label="Method moments" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+
+```
 
 [^moment]: We denote as moments in statistics to the quantitative properties to characterize a distribution. The four commonly used moments are the mean, the variance, the skewness and the kurtosis.
 [^ref]: Data extracted from Kottegoda and Rosso (2008).

@@ -59,7 +59,8 @@ parts:
         - file: numerical_methods/1-numerical-solns.ipynb
         - file: numerical_methods/2-numerical-interp.ipynb
         - file: numerical_methods/3-taylor-series.ipynb
-  # START REMOVE-FROM-PUBLISH
+          sections:
+          - file: numerical_methods/3-taylor-series-exercise.ipynb
         - file: numerical_methods/4-FDM-intro.ipynb
         - file: numerical_methods/5-numerical_derivatives.ipynb
         - file: numerical_methods/6-simple_solvers_ODE.ipynb
@@ -67,12 +68,40 @@ parts:
         - file: numerical_methods/8-solvers_non-linear.ipynb
         - file: numerical_methods/9-exercise.ipynb
         - file: numerical_methods/10-advanced_solvers.ipynb
+    - file: probability/Reminder_intro.md
+      title: Continuous Distributions
+      sections:
+      - file: probability/PDF_CDF
+      - file: probability/empirical
+      - file: probability/Param_distr.md
+        title: Parametric distributions
+        sections: 
+        - file: probability/Gaussian.md
+        - file: probability/other_distr.md
+        - file: probability/Uniform.md
+        - file: probability/Exponential.md
+        - file: probability/Gumbel.md
+        - file: probability/Lognormal.md
+        - file: probability/summary.md
+      - file: probability/fitting.md
+        title: Fitting parametric distributions
+        sections: 
+        - file: probability/moments.md
+        - file: probability/MLE_1.ipynb
+        - file: probability/GOF
+      - file: probability/Loc-scale.ipynb
+    - file: rr/prob-design/overview
+      title: Risk and Reliability Intro
+      sections:
+      - file: rr/prob-design/one-random-variable
+      - file: rr/prob-design/two-random-variables
+      - file: rr/prob-design/exercise
+        sections:
+        - file: rr/prob-design/exercise_solutions
 
-    - file: probability/overview
-      title: Probability
-    
-      
+  # START REMOVE-FROM-PUBLISH 
 
+   
   - caption: Q2 Topics
     numbered: false
     chapters:
@@ -82,16 +111,23 @@ parts:
   - caption: Finite Volume Method
     numbered: 2
     chapters:
-    - file: fvm/overview
-      title: Overview
-      sections:
-        - file: fvm/first_draft.md
-        - file: fvm/gauss.md
-        - file: fvm/lagrangian.md
-        - file: fvm/conservation.md
-        - file: fvm/navier.md
-        - file: fvm/stability.md
-        - file: fvm/summary.md
+    # - file: fvm/overview
+    #   title: Overview
+    #   sections:
+    - file: fvm/intro.md
+      title: Introduction
+    - file: fvm/gauss.md
+      title: Gauss' Theorem
+    - file: fvm/lagrangian.md
+      title: Reference Frame
+    - file: fvm/conservation.md
+      title: Conservation Laws
+    - file: fvm/navier.md
+      title: Discretization
+    - file: fvm/stability.md
+      title: Stability
+    - file: fvm/summary.md
+      title: Summary
 
   - caption: Finite Element Method
     numbered: 2
@@ -194,11 +230,11 @@ parts:
     numbered: 2
     chapters:
     # - file: pd/intro
-    - file: pd/prob-design/overview.md
-      sections:
-      - file: pd/prob-design/01-one-random-variable.md
-      - file: pd/prob-design/02-two-random-variables.md
-      - file: pd/prob-design/example-river-system.md
+    # - file: pd/prob-design/overview.md
+    #   sections:
+    #   - file: pd/prob-design/01-one-random-variable.md
+    #   - file: pd/prob-design/02-two-random-variables.md
+    #   - file: pd/prob-design/example-river-system.md
     - file: pd/risk-analysis/overview.md
       sections:
       - file: pd/risk-analysis/definition.md
@@ -256,6 +292,8 @@ parts:
           title: Remote Commits
         - file: programming/programs/git/gui/fetch_pull
           title: Fetch and Pull
+        - file: programming/programs/git/gui/pushing_problems
+          title: Pushing Problems
       - file: programming/programs/git/cli/overview
         title: git and GitLab (CLI)
         sections:
@@ -281,16 +319,28 @@ parts:
         - file: programming/programs/debugging/assertions
         - file: programming/programs/debugging/logging
         - file: programming/programs/debugging/exercises
-      - file: programming/programs/modules
-    - file: programming/communication/overview
-      title: Communication
+# END REMOVE-FROM-PUBLISH
+    # Python Topics ADDED OCTOBER 2023 (REVISE FOR 2024)
+    - file: programming/python_topics/overview
       sections:
-      - file: programming/communication/visualization
-    - file: programming/code/overview
-      title: Computers & Code
-      sections:
-      - file: programming/code/packages
-      - file: programming/code/environments
+      - file: programming/python_topics/classes
+        title: Classes
+      - file: programming/python_topics/visualization
+        title: Advanced Visualization
+# START REMOVE-FROM-PUBLISH
+      - file: programming/python_topics/modules
+        title: Modules
+      # TO BE ADDED LATER: NUMPY ADVANCED, PANDAS, PYTHONIC, ETC.
+    # REMOVED OCTOBER 2023 TO REORGGANIZE IN "Python Topics"
+    # - file: programming/communication/overview
+    #   title: Communication
+    #   sections:
+    #   - file: programming/communication/visualization
+    # - file: programming/code/overview
+    #   title: Computers & Code
+    #   sections:
+    #   - file: programming/code/packages
+    #   - file: programming/code/environments
 # END REMOVE-FROM-PUBLISH
   - caption: Fundamental Concepts
     numbered: 2
@@ -316,26 +366,6 @@ parts:
   - caption: Sandbox
     chapters:
     - file: sandbox/blank
-    - file: sandbox/continuous/Reminder_intro.md
-      sections:
-      - file: sandbox/continuous/PDF_CDF
-      - file: sandbox/continuous/empirical
-      - file: sandbox/continuous/Param_distr.md
-      - file: sandbox/continuous/other_distr.md
-      - file: sandbox/continuous/Uniform.md
-      - file: sandbox/continuous/Exponential.md
-      - file: sandbox/continuous/Exponential_quiz.md
-      - file: sandbox/continuous/Gumbel.md
-      - file: sandbox/continuous/Gumbel_quiz.md
-      - file: sandbox/continuous/Lognormal.md
-      - file: sandbox/continuous/Lognormal_quiz.md
-      - file: sandbox/continuous/Parameterization.md
-      - file: sandbox/continuous/fitting.md
-      - file: sandbox/continuous/moments.md
-      - file: sandbox/continuous/moments_quiz.md
-      - file: sandbox/continuous/MLE_1.ipynb
-      - file: sandbox/continuous/GOF
-      - file: sandbox/continuous/GOF_quiz.md
     - file: sandbox/dist_fit_example/overview
       title: Distribution Fitting Examples
       sections:
@@ -378,6 +408,7 @@ parts:
         - file: cookbook/example_gumbel.ipynb
         - file: cookbook/example_quiz_interactive.ipynb
         - file: cookbook/coding_theory_widgets.ipynb
+        - file: cookbook/parametric_questions.ipynb
       - file: cookbook/benchmarks/benchmarks
         sections:
         - file: cookbook/benchmarks/benchmark_aux.ipynb

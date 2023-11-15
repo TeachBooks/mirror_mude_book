@@ -36,7 +36,7 @@ In the case of the Normal distribution, the parameters $\mu$ and $\sigma$ corres
 
 As you have already seen, the previous expression provides us with probability densities, so we need to integrate it to obtain actual probabilities through the CDF (non-exceedance probabilities). In the case of the Normal distribution, there is no closed form of the CDF (the integral). 
 
-Let's see how the distribution looks. In the figure below, the PDF and CDF of the Gaussian distribution are shown for different values of its parameters. In the PDF plot, you can see the bell shape that was already mentioned.
+Let's see how the distribution looks. In the figure below, the PDF and CDF of the Gaussian distribution are shown for different values of its parameters. In the PDF plot, you can see the bell shape that was already mentioned. You will learn more about how this distribution behaves later on.
 
 
 ```{figure} /sandbox/continuous/figures/gaussian.png
@@ -47,10 +47,6 @@ name: gaussian distr
 ---
 Gaussian distribution function: PDF and CDF.
 ```
-
-As shown in the legend, the black and blue lines present the same value of the standard deviation ($\sigma$), so in the PDF plot the width of the bell is the same. However, they have different values of the mean ($\mu$), which acts like a location parameter. Thus, increasing the mean moves the distribution towards the right, making more likely higher values of the random variable. You can also see that in the CDF plot. The distribution moves towards the right so for a given value, $x = 2$, $F(x\leq2) \approx 0.98$ for the black line and $F(x\leq2) \approx 0.84$ for the blue line. 
-
-Regarding the standard deviation ($\sigma$), it can be interpreted as the dispersion around the mean ($\mu$). Thus, you can see in the PDF plot the the red distribution is wider that the black or blue ones, since the standard deviation is the double of the other two. You can also see the effect in the CDF plot, where the slope of the red distribution is more gentle than those of the black and blue distributions.
 
 ## Probability of other intervals
 
