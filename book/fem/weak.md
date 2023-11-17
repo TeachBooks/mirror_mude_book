@@ -17,14 +17,14 @@ In general, the weak form of the problem is derived by multiplying the strong fo
 
 Let's put this in practice for the rod equation {eq}`1drod`. The first step is pre-multiplication of left hand side and right hand side with a test function $w(x)$ and integrating over the domain. Assuming constant $EA$, we get:
 
-$$ -\int_{0}^{L} wEA \frac{\partial^{2} u}{\partial x^{2}}\,dx = \int_0^Lwq\,dx,\quad\forall\quad w$$ (integralform)
+$$ -\int_{0}^{L} wEA \frac{\partial^{2} u}{\partial x^{2}}\,dx = \int_0^Lwf\,dx,\quad\forall\quad w$$ (integralform)
 
 The $\forall w$ means that the equality has to hold for all possible test functions $w$. Note that a solution of the *strong form* will indeed satisfy this equation for every function $w$. Conversely, for any $u$ that does not satisfy the strong form anywhere in the domain, it is possible to find a function $w$ for which equation {eq}`integralform` does not hold.
 
 Next, integration by parts is used to get rid of the second order derivative in $u$:
 
 $$ 
-\int_{0}^{L} \frac{\partial w}{\partial x}EA \frac{\partial u}{\partial x}\,dx -\left[w EA \frac{\partial u}{\partial x}\right]_0^L = \int_0^Lwq\,dx,\quad\forall\quad w
+\int_{0}^{L} \frac{\partial w}{\partial x}EA \frac{\partial u}{\partial x}\,dx -\left[w EA \frac{\partial u}{\partial x}\right]_0^L = \int_0^Lwf\,dx,\quad\forall\quad w
 $$ (1drod_weak)
 
 Note that after integrating by parts, a boundary term appears. 
@@ -70,7 +70,7 @@ $$ (1drodNeumann)
 
 Now we can replace equations {eq}`1drodDirichlet` and {eq}`1drodNeumann` into the weak form {eq}`1drod_weak`, and send to the right-hand site the terms that do not depend on the unknown $u$. This leads us to the final weak form:
 
-$$ \int_{0}^{L} \frac{\partial w}{\partial x}EA \frac{\partial u}{\partial x}\,dx = \int_0^Lwq\,dx + w(L)F,\quad\forall\quad w$$ (1drod_weak_final)
+$$ \int_{0}^{L} \frac{\partial w}{\partial x}EA \frac{\partial u}{\partial x}\,dx = \int_0^Lwf\,dx + w(L)F,\quad\forall\quad w$$ (1drod_weak_final)
 
 :::{card} Quiz questions
 <iframe src="https://tudelft.h5p.com/content/1292102792292432297/embed" aria-label="Natural boundary conditions" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
@@ -88,7 +88,7 @@ Show that the weak form can be derived to be exactly the same if $EA$ is not ass
 We would have 
 
 $$
--\int_{0}^{L} w\frac{\partial}{\partial x}\left(EA \frac{\partial u}{\partial x}\right)\,dx = \int_0^Lwq\,dx,\quad\forall\quad w
+-\int_{0}^{L} w\frac{\partial}{\partial x}\left(EA \frac{\partial u}{\partial x}\right)\,dx = \int_0^Lwf\,dx,\quad\forall\quad w
 $$
 ```
 
@@ -116,7 +116,6 @@ The boundary condition $EA\frac{\partial u}{\partial x}=F$ at $x=L$ involves eva
 
 [^integration_by_parts]: Note that this is not a general rule. There are cases of terms containing derivatives that might not be integrated by parts, typically non-symmetric terms.
 
-[^BC_types]: We can also find Robin type of boundary conditions, which are a mix between Dirichlet and Neumann type, for example: $\alpha u + EA \frac{\partial u}{\partial x}=f$.
+[^BC_types]: We can also find Robin type of boundary conditions, which are a mix between Dirichlet and Neumann type, for example: $\alpha u + EA \frac{\partial u}{\partial x}=F$.
 
 [^weak_bc]: We can also enforce Dirichlet boundary conditions in a *weak* sense, by introducing additional terms on the weak form that penalize the difference between the solution and the prescribed value at the boundary. This will not be covered in this chapter.
-
