@@ -99,9 +99,6 @@ parts:
         sections:
         - file: rr/prob-design/exercise_solutions
 
-  # START REMOVE-FROM-PUBLISH 
-
-   
   - caption: Q2 Topics
     numbered: 2
     # START REMOVE-FROM-PUBLISH
