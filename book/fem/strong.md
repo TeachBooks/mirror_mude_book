@@ -17,13 +17,13 @@ Equation {eq}`1Dpoissonequation` can be used to express various physical phenome
 Alternatively, the Poisson equation can be written as: 
 
 $$ 
-−\frac{\partial}{\partial x} q + f = 0 
+−\frac{\partial}{\partial x} \Lambda + f = 0 
 $$ (generalpoisson)
 
-where $q$ is a flux term, of which the interpretation depends on the problem at hand. In the case of heat conductivity, $q$ is the heat flux, while in Darcy’s law, $q$ is the flow rate, and in extension of a rod, $q$ is the stress. The typical constitutive relationship between the flux $q$ and the unknown solution $u$ is given by:
+where $\Lambda$ is a flux term, of which the interpretation depends on the problem at hand. In the case of heat conductivity, $\Lambda$ is the heat flux, while in Darcy’s law, $\Lambda$ is the flow rate, and in extension of a rod, $\Lambda$ is the stress. The typical constitutive relationship between the flux $\Lambda$ and the unknown solution $u$ is given by:
 
 $$ 
-q=-\nu \frac{\partial u}{\partial x}
+\Lambda=-\nu \frac{\partial u}{\partial x}
 $$ (constitutive)
 
 In the case of heat conduction, for instance, $u$ in the above equation is the temperature. In the case of a structural problem, $u$ would be the displacement. For Darcy’s law, $u$ is the hydraulic head. 
@@ -43,13 +43,13 @@ An application of the Poisson equation is the extension of one-dimensional struc
 
 
 $$
--\frac{\partial}{\partial x}\left(EA \frac{\partial u}{\partial x}\right) = f(x)
+-\frac{\partial}{\partial x}\left(EA \frac{\partial u}{\partial x}\right) = f
 $$ (1drod)
 
 where $u$ is the displacement of the rod as function of location $x$. For constant $EA$, this can be simplified to
 
 $$
--EA \frac{\partial^2 u}{\partial x^2} = f(x)
+-EA \frac{\partial^2 u}{\partial x^2} = f
 $$ (1drodsimplified)
 
 
