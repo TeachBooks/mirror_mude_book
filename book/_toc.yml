@@ -103,55 +103,53 @@ parts:
 
    
   - caption: Q2 Topics
-    numbered: false
+    numbered: 2
+    # START REMOVE-FROM-PUBLISH
     chapters:
     - file: Q2_overview
       title: Overview of Q2
-  # END REMOVE-FROM-PUBLISH 
-  - caption: Finite Volume Method
-    numbered: 3
-    chapters:
-    # - file: fvm/overview
-    #   title: Overview
-    #   sections:
+    # END REMOVE-FROM-PUBLISH
+    chapters: 
     - file: fvm/intro.md
-      title: Introduction
-    - file: fvm/getting_started.md
-      title: Getting Started
-    - file: fvm/gauss.md
-      title: Gauss's Theorem
-    - file: fvm/frames.md
-      title: Reference Frames
-    - file: fvm/advection.md
-      title: Advection
-    # - file: boundaries.md
-    #   title: Boundary Conditions
-    - file: fvm/stability.md
-      title: Stability
-    - file: fvm/exercises.md
-      title: Exercises
-    # - file: fvm/conservation.md
-    #   title: Conservation Laws
-    # - file: fvm/navier.md
-    #   title: Discretization
-    
-  - caption: Finite Element Method
-    numbered: 2
-    chapters:
+      title: Finite Volume Method
+      sections:
+      # - file: fvm/overview
+      #   title: Overview
+      #   sections:
+      - file: fvm/getting_started.md
+        title: Getting Started
+      - file: fvm/intro_2.md
+      - file: fvm/gauss.md
+        title: Gauss's Theorem
+      - file: fvm/frames.md
+        title: Reference Frames
+      - file: fvm/advection.md
+        title: Advection
+      # - file: boundaries.md
+      #   title: Boundary Conditions
+      - file: fvm/stability.md
+        title: Stability
+      - file: fvm/exercises.md
+        title: Exercises
+      # - file: fvm/conservation.md
+      #   title: Conservation Laws
+      # - file: fvm/navier.md
+      #   title: Discretization    
     - file: fem/intro.md
-      title: Introduction
-    - file: fem/strong.md
-      title: Strong form of the problem
-    - file: fem/weak.md
-      title: Weak form
-    - file: fem/discrete.ipynb
-      title: Discrete form
-    - file: fem/matrix.ipynb
-      title: Matrix form
-    - file: fem/shape.md
-      title: Elements and shape functions
-    - file: fem/videos.md
-      title: Videos (summary and additional material)
+      title: Finite Element Method
+      sections:
+      - file: fem/strong.md
+        title: Strong form of the problem
+      - file: fem/weak.md
+        title: Weak form
+      - file: fem/discrete.ipynb
+        title: Discrete form
+      - file: fem/matrix.ipynb
+        title: Matrix form
+      - file: fem/shape.md
+        title: Elements and shape functions
+      - file: fem/videos.md
+        title: Videos (summary and additional material)
 
   # START REMOVE-FROM-PUBLISH 
   - caption: Signal Processing
