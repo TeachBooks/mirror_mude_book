@@ -135,7 +135,6 @@ parts:
     # - file: fvm/navier.md
     #   title: Discretization
     
-  # START REMOVE-FROM-PUBLISH 
   - caption: Finite Element Method
     numbered: 2
     chapters:
@@ -154,6 +153,7 @@ parts:
     - file: fem/videos.md
       title: Videos (summary and additional material)
 
+  # START REMOVE-FROM-PUBLISH 
   - caption: Signal Processing
     chapters:
     - file: signal/overview
