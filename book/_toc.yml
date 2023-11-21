@@ -142,7 +142,7 @@ parts:
       - file: fem/discrete.ipynb
         title: Discrete form
       - file: fem/matrix.ipynb
-        title: Matrix form
+        title: Finite element implementation
       - file: fem/shape.md
         title: Elements and shape functions
       - file: fem/videos.md
