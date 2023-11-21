@@ -1,12 +1,14 @@
 # Conservation laws
 
-```{note} Important things to retain from this chapter
+MMMMM
+In general we will consider conservation problems, for example a simple mass balance:
 
-* A simple mathematical form of the conservation law for any physical quantity
-* The conservation of mass for a fluid
-* The conservation of momentum for a fluid (Navier-Stokes equation)
+$$
+\textrm{Input} - \textrm{Output} = \Delta \textrm{Storage}
+$$
 
-```
+For mass
+
 
 Establishing a relationship between the Lagrangian and Eulerian frames, was the first step to the FVM. Now, let us see how the Lagrangian derivative can allow one to express the **fundamental conservation laws** in a manner that is consistent with the FVM.  
 
@@ -34,7 +36,7 @@ The signs for top and bottom here are as follows - a flux into the cell is posit
 
 $$\frac{\partial\rho}{\partial t}=-\frac{\partial(\rho v)}{\partial y}$$
 
-Extending to 3D and 3 components of flux, one can generalise the above equation as:
+Extending to 3D and 3 components of flux, one can generalize the above equation as:
 
 $$\frac{\partial\rho}{\partial t}=-\frac{\partial(\rho u)}{\partial x}-\frac{\partial(\rho v)}{\partial y}-\frac{\partial(\rho w)}{\partial z}$$
 
@@ -42,15 +44,19 @@ or using the vector notation
 
 $$\frac{\partial\rho}{\partial t}+\mathbf{\nabla}\cdot(\rho\mathbf{v})=0$$
 
-Let us expand the operator $\mathbf{\nabla}\cdot(\rho\mathbf{v})$ using the chain rule:
+Expanding the operator $\mathbf{\nabla}\cdot(\rho\mathbf{v})$ using the product rule:
 
-$$\mathbf{\nabla}\cdot(\rho\mathbf{v})=\frac{\partial\rho}{\partial t}+\rho\mathbf{\nabla}\cdot\mathbf{v}+(\mathbf{v}\cdot\mathbf{\nabla})\rho=0$$
+$$\mathbf{\nabla}\cdot(\rho\mathbf{v})=\rho\mathbf{\nabla}\cdot\mathbf{v}+(\mathbf{v}\cdot\mathbf{\nabla})\rho$$
+
+Combining this result with the previous expression, we define
+
+$$\frac{\partial\rho}{\partial t}+\rho\mathbf{\nabla}\cdot\mathbf{v}+(\mathbf{v}\cdot\mathbf{\nabla})\rho=0$$
 
 Look at the above equation carefully. Do the first and the third term together match something that we spoke of before this section? You are correct if you guessed that they represent the Lagrangian derivative. So, the equation ultimately reads:
 
 $$\frac{D\rho}{Dt}+\rho\mathbf{\nabla}\cdot\mathbf{v}=0$$
 
-This is the conservation law for mass, i.e. mass can neither be created nor destroyed *(classic mechanics)*
+This is the conservation law for mass, i.e. mass can neither be created nor destroyed *(classical mechanics)*.
 
 ## A general conservation law?
 
@@ -82,9 +88,9 @@ If you keep in mind that density is representative of mass, you will realize we 
 
 Hence, the conservation law of momentum obtained by setting $\phi$ equal to the velocity is simply **Newton’s second law of motion**. Let’s have a look at this in more detail, to derive the fundamental yet extremely challenging equation of fluid mechanics. 
 
-## The Navier-Stokes equations
+<!-- ## The Navier-Stokes equations -->
 
-```{note} Before we begin this section...
+```{note} Before we begin this section... 
 
 Let us recall what we have derived so far:
 
@@ -125,7 +131,7 @@ $$\rho\frac{Dv}{Dt}=\frac{\partial(\rho v)}{\partial t}+\mathbf{\nabla}\cdot(\rh
 
 Extending to all three directions, we obtain **Newton's second law for an incompressible fluid**:
 
-$$\rho\frac{Dv}{Dt}=\frac{\partial(\rho v)}{\partial t}+\mathbf{\nabla}\cdot(\rho v\mathbf{v})=\nabla p+\mathbf{\nabla}\cdot(\mu\mathbf{\nabla}v)+mathbf{F}$$
+$$\rho\frac{Dv}{Dt}=\frac{\partial(\rho v)}{\partial t}+\mathbf{\nabla}\cdot(\rho v\mathbf{v})=\nabla p+\mathbf{\nabla}\cdot(\mu\mathbf{\nabla}v)+\mathbf{F}$$
 
 The above equation, together with the conservation of mass (i.e. the continuity equation):
 
