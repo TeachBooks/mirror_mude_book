@@ -137,6 +137,30 @@ $$T = y^T C(C^TC)^{-1}C^Ty$$
 
 This, in fact, can be show to be identical to a scaled version (by factor 2) of PSD, as explained in the last subchapter.
 
+```{note} Proof: Implementation of T(q=2) test statistics
+
+As we have seen just before, the test statistics can be obtained and it is of the form:
+
+$$T=e_0^TQ_{yy}^{-1}C(C^TQ_{yy}^{-1}P_A^\perp C)^{-1}C^TQ_{yy}^{-1}e_0$$
+
+or, with $P_A^{\perp}Q_{yy}Q_{yy}^{-1}=Q_{e_0e_0}Q_{yy}^{-1}$, as:
+
+$$T_q=e_0^TQ_{yy}^{-1}C(C^TQ_{yy}^{-1}Q_{e_0e_0}Q_{yy}^{-1}C)^{-1}C^TQ_{yy}^{-1}e_0$$
+
+where
+
+$$Q_{e_0e_0}=Q_{yy}-A(A^TQ_{yy}^{-1}A)^{-1}A^T$$
+
+If we assume $Q_{yy}=\sigma^2I$, we then have
+
+$$T_q=e_0^TC(C^TQ_{e_0e_0}C)^{-1}C^Te_0=\sigma^{-2}e_0^TC(C^T(I-A(A^TA)^{-1}A^T)C)^{-1}C^Te_0$$
+
+or
+
+$$T_q=\sigma^{-2}e_0^TC(C^TC-C^TA(A^TA)^{-1}A^TC)^{-1}C^Te_0$$
+
+```
+
 #### Example LS power spectral density
 
 ![ls-psd](./figs/ls-psd.png "ls-psd")
