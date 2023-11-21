@@ -281,7 +281,6 @@ parts:
       - file: pd/notebooks/flood-risk/Exercise_Flood_Risk_Render.ipynb
       - file: pd/notebooks/contamination/Exercise_Contamination_Render.ipynb
       - file: pd/notebooks/traffic/Exercise_Traffic_Render.ipynb
-    - file: references.md
   # END REMOVE-FROM-PUBLISH
 
   - caption: Programming
@@ -467,3 +466,5 @@ parts:
       - file: old/coding/2-2/1-part-2.md
       - file: old/coding/2-2/1-part-3.md
 # END REMOVE-FROM-PUBLISH
+
+- file: references.md
