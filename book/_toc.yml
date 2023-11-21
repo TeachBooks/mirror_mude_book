@@ -466,5 +466,3 @@ parts:
       - file: old/coding/2-2/1-part-2.md
       - file: old/coding/2-2/1-part-3.md
 # END REMOVE-FROM-PUBLISH
-
-- file: references.md
