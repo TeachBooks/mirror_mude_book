@@ -86,5 +86,3 @@ But, in the end, how can we describe both signal and noise?
 There are different estimates of the state vector possible (mainly in dynamic systems)
 
 ![prediction](./figs/prediction.png "prediction")
-
-# BLUE and BLUP (?)

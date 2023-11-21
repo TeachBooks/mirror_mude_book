@@ -17,6 +17,7 @@ Now the same signal decomposition, but in a different form using complex algebra
 ### Complex Algebra
 
 $j$: imaginary unit (or number) such that $j^2=-1$
+
 $e$: Euler's number (base of the natural logarithm), $e\approx 2.71$
 
 **Euler's formula:**
@@ -65,7 +66,7 @@ so
 
 $$\begin{gather*}X_1=\frac{1}{2}(a_1-jb_1), X_2=\frac{1}{2}(a_2-jb_2)\\ X_{-1}=\frac{1}{2}(a_1+jb_1), X_{-2}=\frac{1}{2}(a_2+jb_2)\end{gather*}$$
 
-And we clearly see that $X_k=X^*_{-k}$, with $*$ denoting the complex conjugate. The visual representation of $X_k$ and $X_{-k} will be, therefore:
+And we clearly see that $X_k=X^*_{-k}$, with $*$ denoting the complex conjugate. The visual representation of $X_k$ and $X_{-k}$ will be, therefore:
 
 ![complex_plane](./figs/complex_plane.png "complex_plane")
 

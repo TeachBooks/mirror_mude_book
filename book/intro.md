@@ -13,3 +13,7 @@ Sometimes the interactivity will involve completing an exercise, wheras on other
 
 This is a new feature that we are actively working to incorporate in the MUDE textbook, so please provide us feedback via the [Answers platform](https://answers.citg.tudelft.nl/) if things go well or you have suggestions for improvement.
 ````
+
+**References**
+```{bibliography}
+```
