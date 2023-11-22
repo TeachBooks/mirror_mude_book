@@ -68,6 +68,20 @@ $$
 w {\color{red}EA \left.\frac{\partial u}{\partial x}\right|_{x=L}} = w(L){\color{red}F}.
 $$ (1drodNeumann)
 
+````{admonition} Strange formula?
+:class: dropdown
+For some reason we don't fully understand the formula's above might show some strang colorred-statement. You can solve this by opening this page in a incognito window or by clearing your cache. The formula's should look like this:
+
+```{image} ./figures/equation1.png
+:width: 300px
+```
+
+```{image} ./figures/equation2.png
+:width: 200px
+```
+
+````
+
 Now we can replace equations {eq}`1drodDirichlet` and {eq}`1drodNeumann` into the weak form {eq}`1drod_weak`, and send to the right-hand site the terms that do not depend on the unknown $u$. This leads us to the final weak form:
 
 $$ \int_{0}^{L} \frac{\partial w}{\partial x}EA \frac{\partial u}{\partial x}\,dx = \int_0^Lwf\,dx + w(L)F,\quad\forall\quad w$$ (1drod_weak_final)
