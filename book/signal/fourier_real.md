@@ -18,7 +18,7 @@ It is easy to see that, in this case we will have:
     * Period $T_0 = \frac{1}{f_0} = \frac{2\pi}{\omega_0}$ [s]
 * Phase $\theta$ [rad]
 
-With this, the **time delay**, $\theta_t$, caused by the phase can be computed as
+With this, the **time delay**, $\theta_t$ [s], caused by the phase can be computed as
 
 $$\theta_t = \frac{\theta}{2\pi f_0}$$
 
@@ -28,13 +28,13 @@ as $x(t)=A\cos(2\pi f_0(t+\theta_t))$
 
 ---
 
-Cosine and sine can be thought of as originating from an object travelling over a circle; the object is *rotating* at angular frequency $\omega_0$. The circle is interpreted as being in the complex plane
+Cosine and sine can be thought of as originating from an object travelling over a circle; the object is *rotating* at angular frequency $\omega_0$. The unit circle is interpreted as being in the complex plane, with Euler's formula:
 
 $$\tilde{x}(t)=e^{j\omega_0 t}=\cos(\omega_0 t)+j\sin(\omega_0 t)$$
 
-The position of the object is described by the complex number $\tilde{x}(t)$. We can also easily state that:
+The position of the object is described by the complex number $\tilde{x}(t)$, which is illustrated by the red vector in the figure below. We can also easily state that:
 
-* $\text{Re}(\tilde{x}(t))=\cos(\omega_0 t)$
+* $\text{Re}(\tilde{x}(t))=\cos(\omega_0 t)$ (illustrated by the red dot in the figure)
 * $\text{Im}(\tilde{x}(t))=\sin(\omega_0 t)$
 
 ![trig_circle](./figs/trig_circle.png "trig_circle")
@@ -49,7 +49,7 @@ where $T_0$ is the **period** of the signal. The smallest value of $T_0$ that sa
 
 ---
 
-We consider signals in single dimension, typically time $t$ (independent variable), hence $x(t)$. Instead we can have $x(r)$, with $r$ (1D) position coordinate, or even multi-variate position vector \textbf{$r$} (the Earth's surface or the sea surface with waves can be considered as 2D examples).
+We consider signals in single dimension, typically time $t$ (independent variable), hence $x(t)$. Instead we can have $x(r)$, with $r$ (1D) position coordinate, or even multi-variate position vector $\textbf{r}$ (the Earth's surface or the sea surface with waves can be considered as 2D examples).
 
 ## Fourier Series
 
@@ -75,7 +75,9 @@ Though this result is not fully correct, Fourier’s observation that some disco
 
 The general form of the real trigonometric Fourier Series is
 
-$$x(t) = a_0+a_1\cos(\omega_0 t)+a_2\cos(2\omega_0 t)+...+b_1\sin(\omega_0 t)+b_2\sin(\omega_0 t)$$
+$$
+x(t) = a_0+a_1\cos(\omega_0 t)+a_2\cos(2\omega_0 t)+\dots+b_1\sin(\omega_0 t)+b_2\sin(2\omega_0 t)\dots
+$$
 
 or, in a more compact form:
 
@@ -83,7 +85,12 @@ $$x(t) = a_0 + \sum_{k=1}^{\infty}a_k\cos(k\omega_0 t)+\sum_{k=1}^{\infty}b_k\si
 
 with **integer** values for $k$. Note that as the right-hand side is a sum of *harmonically-related* sinusoids, so must be the left-hand side (i.e. it must be periodic). Now our goal is to find the coefficients $a_0$, $a_k$ and $b_k$ such that $x(t)$ is represented (or approximated) best.
 
-### Derivation
+:::{card} Derivation
+
+```{admonition} MUDE Exam Information
+:class: tip, dropdown
+This derivation is provided for additional insight and will not be part of the exam.
+```
 
 We start with $a_0$. Integrate all terms over one period:
 
@@ -121,9 +128,11 @@ The above integrals are quite easily proven by using trigonometric identities, s
 $$\sin{u}\sin{v}=\frac{1}{2}\cos{(u-v)}-\frac{1}{2}\cos{(u+v)}$$
 ```
 
-Applying these properties, we see that all terms in second series are equal to 0 for all $k$. In the first series, only the terms for which $k=m$ are non-zero. So:
+Applying these properties, we see that all terms in second series are equal to 0 for all $k$. In the first series, only the term for which $k=m$ is non-zero. So:
 
-$$\begin{align} & \int_{T_0}x(t)\cos(m\omega_0 t)dt = \int_{T_0}x(t)\cos(k\omega_0 t)dt = \\ &\sum_{k=1}^{\infty}a_k\int_{T_0}\cos(k\omega_0 t)\cos(m\omega_0 t)dt + \sum_{k=1}^{\infty}b_k\int_{T_0}\sin(k\omega_0 t)\cos(m\omega_0 t)dt = \frac{a_k T_0}{2} \end{align}$$
+$$
+\begin{align} & \int_{T_0}x(t)\cos(m\omega_0 t)dt = \int_{T_0}x(t)\cos(k\omega_0 t)dt = \\ &\sum_{k=1}^{\infty}a_k\int_{T_0}\cos(k\omega_0 t)\cos(m\omega_0 t)dt + \sum_{k=1}^{\infty}b_k\int_{T_0}\sin(k\omega_0 t)\cos(m\omega_0 t)dt = \frac{a_k T_0}{2} \end{align}
+$$
 
 So, finally:
 
@@ -132,6 +141,8 @@ $$a_k = \frac{2}{T_0}\int_{T_0}x(t)\cos(k\omega_0 t)dt, \hspace{10px}\text{with 
 In a similar manner, we can find the coefficients $b_k$ by multiplying series with $\sin(m\omega_0 t)$, integrating over $T_0$ and using orthogonality properties. We therefore obtain:
 
 $$b_k = \frac{2}{T_0}\int_{T_0}x(t)\sin(k\omega_0 t)dt, \hspace{10px}\text{with } k\in\mathbb{N}^+$$
+
+:::
 
 ### Summary
 

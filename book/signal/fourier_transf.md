@@ -2,13 +2,15 @@
 
 ## Before starting...
 
-Let us start by taking a look into the results found in the previous chapter. We have defined the complex exponential Fourier series by
+Let us start by taking a look into the results found in the previous chapter. We have defined the complex exponential Fourier series for a periodic signal $x(t)$ as:
 
 $$x(t)=\sum_{k=-\infty}^{\infty}X_ke^{jk\omega_0 t}$$
 
 with $\omega_0=2\pi f_0$ and $k\in\mathbb{Z}$ and complex coefficients found as
 
 $$X_k=\frac{1}{T_0}\int_{-\frac{T_0}{2}}^{\frac{T_0}{2}}x(t)e^{-jk\omega_0 t}dt, \hspace{10px}k\in\mathbb{Z}$$
+
+where the integration period $T_0$ is taken symmetrically about zero.
 
 ## Fourier Transform
 
@@ -18,7 +20,12 @@ Fourier coefficients will lie infinitesimally close to each other, so they defin
 
 ![frequencies](./figs/frequencies.png "frequencies")
 
-### Derivation
+:::{card} Derivation
+
+```{admonition} MUDE Exam Information
+:class: tip, dropdown
+This derivation is provided for additional insight and will not be part of the exam.
+```
 
 Substituting the definition of the series coefficients into $x(t)$, we find
 
@@ -26,17 +33,20 @@ $$x(t)=\sum_{k=-\infty}^{\infty}\left(f_0\int_{-\frac{T_0}{2}}^{\frac{T_0}{2}}x(
 
 Now, when $T_0\to\infty$, $f_0$ becomes infinitesimally small, $f_0\to df$. Multiplying $f_0$ with $k$ then becomes a continuous function, $kf_0\to f$. The summation from $k=-\infty$ to $k=\infty$ then becomes an integration in $f$ from $f=-\infty$ to $f=\infty$
 
-$$x(t)=\int_{-\infty}^{\infty}\left(df\int_{-\infty}^{\infty}x(t)e^{-j2\pi ft}\right)e^{j2\pi ft}$$
+$$x(t)=\int_{-\infty}^{\infty}\left(df\int_{-\infty}^{\infty}x(t)e^{-j2\pi ft}\,dt\right)e^{j2\pi ft}$$
 
 Re-arranging the terms:
 
-$$x(t)=\int_{-\infty}^{\infty}\underbrace{\left(\int_{-\infty}^{\infty}x(t)e^{-j2\pi ft}\right)}_{X(f)}e^{j2\pi ft}df$$
+$$x(t)=\int_{-\infty}^{\infty}\underbrace{\left(\int_{-\infty}^{\infty}x(t)e^{-j2\pi ft}\,dt\right)}_{X(f)}e^{j2\pi ft}\,df$$
+
+
+:::
 
 The integral between parentheses is defined as **Fourier integral** or (continuous-time) **Fourier transform**, $\mathcal{F}()$:
 
 $$X(f)=\int_{-\infty}^{\infty}x(t)e^{-j2\pi ft}dt$$
 
-The complex number $X_k$ of the Fourier series is now a complex function of the frequency, $f$: $X(f)$.
+The complex number $X_k$ of the Fourier series is now a complex **function** of the frequency, $f$: $X(f)$.
 
 ---
 
@@ -67,7 +77,7 @@ $$X(f)=|X(f)|e^{j\theta(f)}$$
 
 with
 
-$$\begin{gather*}|X(f)|=\sqrt{\left(\text{Re}(X(f)) +\right)^2+\left(\text{Im}(X(f))\right)^2}\\ \theta(f)=\arctan\left(\frac{\text{Im}(X(f))}{\text{Re}(X(f))}\right)\end{gather*}$$
+$$\begin{gather*}|X(f)|=\sqrt{\left(\text{Re}(X(f)) \right)^2+\left(\text{Im}(X(f))\right)^2}\\ \theta(f)=\arctan\left(\frac{\text{Im}(X(f))}{\text{Re}(X(f))}\right)\end{gather*}$$
 
 ![complex_plane_2](./figs/complex_plane_2.png "complex_plane_2")
 
@@ -80,6 +90,8 @@ $$|X(f)|=|X(-f)|\hspace{10px}\text{and}\hspace{10px}\theta(f)=-\theta(-f)$$
 
 ![odd_even](./figs/odd_even.png "odd_even")
 
+The figure above illustrates an example of $|X(f)|$ and $\theta(f)$ both as a function of frequency.
+
 ### Summary
 
 A-periodic functions can be written as integrals, **continuous** over **frequency**. This yields the so-called **Fourier tranform** (and its inverse):
@@ -88,4 +100,4 @@ $$\begin{gather*}X(f)=\int_{-\infty}^{\infty}x(t)e^{-j2\pi ft}dt\\ x(t)=\int_{-\
 
 Amplitude and phase spectrum are given by:
 
-$$\begin{gather*}|X(f)|=\sqrt{\left(\text{Re}(X(f)) +\right)^2+\left(\text{Im}(X(f))\right)^2}\\ \theta(f)=\arctan\left(\frac{\text{Im}(X(f))}{\text{Re}(X(f))}\right)\end{gather*}$$
+$$\begin{gather*}|X(f)|=\sqrt{\left(\text{Re}(X(f)) \right)^2+\left(\text{Im}(X(f))\right)^2}\\ \theta(f)=\arctan\left(\frac{\text{Im}(X(f))}{\text{Re}(X(f))}\right)\end{gather*}$$

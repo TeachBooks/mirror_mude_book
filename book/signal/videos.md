@@ -7,12 +7,12 @@ _Codes for the videos:_
 ```bash
 2.4.1a, intro: https://youtu.be/p-xaYd0hCJ0
 2.4.1b, FS real: https://youtu.be/VJGuQmJQLyg
-2.4.1c, spectral: https://youtu.be/dt7GqVbN-0A
-2.4.1d, concl: https://youtu.be/q7diLuuvSRU
-2.4.1a, sampling: https://youtu.be/9_l6FBwXhJY
-2.4.1b, discrete FT: https://youtu.be/PkqJDM85Mkw
 2.4.1c, FS complex: https://youtu.be/K62HCgmHwzw
 2.4.1d, FT: https://youtu.be/T51AFxUy3fY
+2.4.2a, sampling: https://youtu.be/9_l6FBwXhJY
+2.4.2b, discrete FT: https://youtu.be/PkqJDM85Mkw
+2.4.2c, spectral: https://youtu.be/dt7GqVbN-0A
+2.4.2d, concl: https://youtu.be/q7diLuuvSRU
 ```
 
 The story of this chapter is told once more in this section with a series of videos. 
