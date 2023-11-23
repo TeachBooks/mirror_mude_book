@@ -26,8 +26,6 @@ as $x(t)=A\cos(2\pi f_0(t+\theta_t))$
 
 ![time_delay](./figs/time_delay.png "time_delay")
 
----
-
 Cosine and sine can be thought of as originating from an object travelling over a circle; the object is *rotating* at angular frequency $\omega_0$. The unit circle is interpreted as being in the complex plane, with Euler's formula:
 
 $$\tilde{x}(t)=e^{j\omega_0 t}=\cos(\omega_0 t)+j\sin(\omega_0 t)$$
@@ -39,15 +37,11 @@ The position of the object is described by the complex number $\tilde{x}(t)$, wh
 
 ![trig_circle](./figs/trig_circle.png "trig_circle")
 
----
-
 A deterministic function/signal is **periodic** if
 
 $$x(t+T_0)=x(t), \hspace{10px} \text{for } -\infty<t<\infty$$
 
 where $T_0$ is the **period** of the signal. The smallest value of $T_0$ that satisfies the above equation is the so-called **fundamental period**. And, finally, if the equation is not satisfied for any value of $T_0$ then the signal is **aperiodic**.
-
----
 
 We consider signals in single dimension, typically time $t$ (independent variable), hence $x(t)$. Instead we can have $x(r)$, with $r$ (1D) position coordinate, or even multi-variate position vector $\textbf{r}$ (the Earth's surface or the sea surface with waves can be considered as 2D examples).
 
@@ -105,8 +99,6 @@ So:
 $$a_0=\frac{1}{T_0}\int_{T_0}x(t)dt$$
 
 Hence, $a_0$ is the **average value of the signal**. It can also be interpreted as cosine with zero frequency.
-
----
 
 Next, for the $a_k$ coefficients, these can be found by multiplying both sides of the equation with $\cos(m\omega_0 t)$ and integrating over $T_0$:
 

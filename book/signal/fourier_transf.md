@@ -48,8 +48,6 @@ $$X(f)=\int_{-\infty}^{\infty}x(t)e^{-j2\pi ft}dt$$
 
 The complex number $X_k$ of the Fourier series is now a complex **function** of the frequency, $f$: $X(f)$.
 
----
-
 The **inverse Fourier transform**, $\mathcal{F}^{-1}()$ can also be derived
 
 $$x(t)=\int_{-\infty}^{\infty}X(f)e^{j2\pi ft}df$$

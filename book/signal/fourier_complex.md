@@ -12,8 +12,6 @@ $$\begin{gather*}a_0=\frac{1}{T_0}\int_{T_0}x(t)dt\\ a_k = \frac{2}{T_0}\int_{T_
 
 Now the _same_ signal decomposition, but _in a different form_ using complex algebra as commonly done in spectral analysis of signals, will be used.
 
----
-
 ### Complex Algebra
 
 $j$: imaginary unit (or number) such that $j^2=-1$

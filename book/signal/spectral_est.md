@@ -18,8 +18,6 @@ Integrating over $|t|\leq T$, we define **total energy** and **average power** a
 
 $$\begin{gather*}E=\lim_{T\to\infty}\int_{-T}^Tu^2(t)dt\hspace{10px}[J]\\ P=\lim_{T\to\infty}\frac{1}{2T}\int_{-T}^Tu^2(t)dt\hspace{10px}[W]\end{gather*}$$
 
----
-
 For signal $x(t)$, the **total energy**, normalized to a unit resistance, is defined similarly as:
 
 $$E=\lim_{T\to\infty}\int_{-T}^T|x(t)|^2dt$$
@@ -35,7 +33,6 @@ For real signals, the modulus signs can be removed from the two equations above.
 ```{admonition} Definition
 
 Average (normalized) power of signal in **time domain** is the same as the average (normalized) power of corresponding a **signal in the frequency domain**; and similarly for total (normalized) energy.
-
 ```
 
 :::{card} Derivation

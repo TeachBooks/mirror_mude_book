@@ -67,8 +67,6 @@ Sampling can be modelled by multiplication of continuous-time signal $x(t)$ with
 
 The sampled signal then becomes $x_p(t)=x(t)p(t)$.
 
----
-
 The sampling function, $p(t)$, is assumed to be periodic pulse train with **sampling period** $\Delta t$ (note that earlier, $T$ or $T_0$ denoted the period of a periodic signal).
 
 In practice, time during which $p(t)$ is non-zero (pulse width) is very small relative to period $\Delta t$.
@@ -150,11 +148,11 @@ This is called **aliasing**, and it is illustrated in the following example.
 
 ```{admonition} Theoretical Example
 
-As an example, we will study the effect of sampling a sinusoidal signal with frequency $f_c=5Hz$ we have $x(t)=6\cos(10\pi t)$
+As an example, we will study the effect of sampling a sinusoidal signal with frequency $f_c=5$ Hz we have $x(t)=6\cos(10\pi t)$
 
 ![first](./figs/first.png "first")
 
-First, we look at the *correctly* sampled signal, with $f_s=14Hz$ ($f_s>2f_c$). The spectrum (which is real, because $x(t)$ is even) of original continuous-time signal will have two Dirac-functions with weight 3, at $f=5Hz$ and $f=-5Hz$, i.e.
+First, we look at the *correctly* sampled signal, with $f_s=14$ Hz ($f_s>2f_c$). The spectrum (which is real, because $x(t)$ is even) of original continuous-time signal will have two Dirac-functions with weight 3, at $f=5$ Hz and $f=-5$ Hz, i.e.
 
 $$X(f)=\frac{6}{2}(\delta(f-5)+\delta(f+5))$$
 
@@ -164,7 +162,7 @@ Sampled at 14 Hz, we find:
 
 **Spectrum**
 
-With $x(t)=6\cos(10\pi t)$ and $f_s=14Hz$:
+With $x(t)=6\cos(10\pi t)$ and $f_s=14$ Hz:
 
 $$X_s(f)=3\sum_{k=-\infty}^{\infty}(\delta(f+5-kf_s)+\delta(f-5-kf_s)), \hspace{5px}\text{with }k\in\mathbb{Z}$$
 
@@ -178,9 +176,9 @@ And we see that with this sampling we get a **correct result** (just the two ori
 
 ![sampling5](./figs/sampling5.png "sampling5")
 
-*But what if we try to sample our signal using a sampling frequency of 7Hz?*
+*But what if we try to sample our signal using a sampling frequency of 7 Hz?*
 
-Well, with this we violate the sampling theorem, as $f_s=7Hz$ and, therefore, $f_s\ngeq 2f_c$. We find:
+Well, with this we violate the sampling theorem, as $f_s=7$ Hz and, therefore, $f_s\ngeq 2f_c$. We find:
 
 ![sampling6](./figs/sampling6.png "sampling6")
 

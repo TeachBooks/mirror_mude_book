@@ -43,8 +43,6 @@ and the *largest* frequency is related to the sampling frequency by $f_s=\frac{1
 
 $$f=0,\frac{1}{N}f_s,\frac{2}{N}f_s,...,\frac{N-1}{N}f_s$$
 
----
-
 This results in the so-called **Discrete Fourier Transform (DFT)**. DFT turns $N$ samples of signal $x(t)$ into $N$ samples of spectrum $X_{sw}(f)$:
 
 $$x(n\Delta t) \leftrightarrow X_{sw}(kf_0)$$
@@ -100,8 +98,6 @@ with both $k$ and $n\in\{0,1,...,N-1\}$
 With $X_k$, we consider function $X(k\Delta f)$ by restoring *frequency dimension*, frequency resolution, $\Delta f=f_0=\frac{1}{T}=\frac{1}{N\Delta t}=\frac{f_s}{N}$
 
 With $x_n$, we consider function $x(n\Delta t)$ by restoring time dimension, with time resolution $\Delta t=\frac{1}{f_s}$
-
----
 
 In many textbooks we also find DFT as:
 
