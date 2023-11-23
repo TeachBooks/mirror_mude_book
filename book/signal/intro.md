@@ -1,7 +1,11 @@
 # Signal Processing
 
-The goal of this week is to be able to identify and analyze frequency components in a signal; this is referred to as _spectral analysis._ The following chapters are organized such that you will be guided through this process naturally.
+The goal of this week is to be able to identify and analyze frequency components in a signal; this is referred to as _spectral analysis._ The following chapters are told in a story-like sequence that will guide you through this process naturally.
 
-Practically speaking, our goal is to work with signals that have been measured and recorded in a data set; in other words, a recording in the _time domain._ Since it can be difficult to interpret such a signal, we will cover techniques for converting and evaluating it in the _frequency domain._ 
+Practically speaking, our objective is to understand and work with signals that have been measured and recorded in a discrete way (i.e., understand and use a data set); in other words, in practice we generally work with recordings in the _time domain._ Since it can be difficult to interpret such a signal, we will explore techniques for converting and evaluating this record in the _frequency domain._ The story first begins with a theoretical perspective (e.g., continuous functions), after which we consider the discrete case.
 
-Proofs and derivations are provided in this textbook, but will not be asked in exam; there is no need to memorize equations, which will be provided on a formula sheet as needed. Instead, you are expexted to be able to apply the theory to actual problems (problem solving), and interpret the results (as obtained with a Python Notebook). MMMMM For the exam it is recommended to focus on video 4 (video 2.4.2a on sampling) and video 5 (video 2.4.2b on the DFT), the Python notebook on the DFT (2.4.2b), and in particular questions 2, 3, 4, 5, 8, 9, 10 in the application with the geophone measurements (2.4.3).
+```{admonition} MUDE Exam Information
+:class: tip,dropdown
+
+Proofs and derivations are provided in this textbook, but will not be asked in exam; there is no need to memorize equations, which will be provided on a formula sheet as needed. Instead, you are expected to apply the theory to actual problems (problem solving), and interpret the results (as obtained with a Python Notebook). Although all of the videos are needed to understand the complete Signal Processing story, for the exam it is recommended to focus on two videos in particular: Sampling and Discrete Fourier Transform. In-class activities (not in this book) are also relevant; for example, the Jupyter notebook assignments.
+```
