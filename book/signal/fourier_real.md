@@ -1,8 +1,10 @@
-# Real Fourier Series
+# Fourier Series
 
-**Main objective:** our goal in this chapter is to be able to express a periodic signal $x(t)$ as a sum of harmonically related cosines and sines
+Our goal in this chapter is to be able to express a periodic signal $x(t)$ as a sum of harmonically related cosines and sines
 
 $$x(t)=a_0+\sum_{k=1}^{\infty}a_k\cos(k\omega_0 t)+\sum_{k=1}^{\infty}b_k\sin(k\omega_0 t)$$
+
+Here we will formulate the series using real-valued functions (known as the _Real Fourier Series_ or simply _Fourier Series_), and the next chapter will use complex numbers (the _Complex Fourier Series_).
 
 ## Periodic functions (a recap)
 

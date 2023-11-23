@@ -4,16 +4,14 @@
 
 _Codes for the videos:_  
 
-```bash
-2.4.1a, intro: https://youtu.be/p-xaYd0hCJ0
-2.4.1b, FS real: https://youtu.be/VJGuQmJQLyg
-2.4.1c, FS complex: https://youtu.be/K62HCgmHwzw
-2.4.1d, FT: https://youtu.be/T51AFxUy3fY
-2.4.2a, sampling: https://youtu.be/9_l6FBwXhJY
-2.4.2b, discrete FT: https://youtu.be/PkqJDM85Mkw
-2.4.2c, spectral: https://youtu.be/dt7GqVbN-0A
-2.4.2d, concl: https://youtu.be/q7diLuuvSRU
-```
+- [Introduction](https://youtu.be/p-xaYd0hCJ0)
+- [Fourier Series](https://youtu.be/VJGuQmJQLyg)
+- [Complex Fourier Series](https://youtu.be/K62HCgmHwzw)
+- [Fourier Transform](https://youtu.be/T51AFxUy3fY)
+- [Sampling](https://youtu.be/9_l6FBwXhJY)
+- [Discrete Fourier Transform](https://youtu.be/PkqJDM85Mkw)
+- [Spectral Estimation](https://youtu.be/dt7GqVbN-0A)
+- [Conclusions](https://youtu.be/q7diLuuvSRU)
 
 The story of this chapter is told once more in this section with a series of videos. 
 
@@ -28,27 +26,11 @@ These videos overlap to some extent with the theory presented in the book, and a
     <iframe width="560" height="315" src="https://www.youtube.com/embed/p-xaYd0hCJ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 
-
 ```{eval-rst}
 .. raw:: html
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/VJGuQmJQLyg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
-
-
-```{eval-rst}
-.. raw:: html
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/dt7GqVbN-0A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-```
-
-
-```{eval-rst}
-.. raw:: html
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/q7diLuuvSRU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-```
-
 
 ```{eval-rst}
 .. raw:: html
@@ -56,6 +38,17 @@ These videos overlap to some extent with the theory presented in the book, and a
     <iframe width="560" height="315" src="https://www.youtube.com/embed/9_l6FBwXhJY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/K62HCgmHwzw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/T51AFxUy3fY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
 
 ```{eval-rst}
 .. raw:: html
@@ -63,16 +56,14 @@ These videos overlap to some extent with the theory presented in the book, and a
     <iframe width="560" height="315" src="https://www.youtube.com/embed/PkqJDM85Mkw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 
-
 ```{eval-rst}
 .. raw:: html
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/K62HCgmHwzw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/dt7GqVbN-0A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 
-
 ```{eval-rst}
 .. raw:: html
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/T51AFxUy3fY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/q7diLuuvSRU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
