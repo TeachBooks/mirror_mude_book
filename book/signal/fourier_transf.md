@@ -2,13 +2,15 @@
 
 ## Before starting...
 
-Let us start by taking a look into the results found in the previous chapter. We have defined the complex exponential Fourier series by
+Let us start by taking a look into the results found in the previous chapter. We have defined the complex exponential Fourier series for a periodic signal $x(t)$ as:
 
 $$x(t)=\sum_{k=-\infty}^{\infty}X_ke^{jk\omega_0 t}$$
 
 with $\omega_0=2\pi f_0$ and $k\in\mathbb{Z}$ and complex coefficients found as
 
 $$X_k=\frac{1}{T_0}\int_{-\frac{T_0}{2}}^{\frac{T_0}{2}}x(t)e^{-jk\omega_0 t}dt, \hspace{10px}k\in\mathbb{Z}$$
+
+where the integration period $T_0$ is taken symmetrically about zero.
 
 ## Fourier Transform
 
@@ -18,7 +20,12 @@ Fourier coefficients will lie infinitesimally close to each other, so they defin
 
 ![frequencies](./figs/frequencies.png "frequencies")
 
-### Derivation
+:::{card} Derivation
+
+```{admonition} MUDE Exam Information
+:class: tip, dropdown
+This derivation is provided for additional insight and will not be part of the exam.
+```
 
 Substituting the definition of the series coefficients into $x(t)$, we find
 
@@ -26,19 +33,20 @@ $$x(t)=\sum_{k=-\infty}^{\infty}\left(f_0\int_{-\frac{T_0}{2}}^{\frac{T_0}{2}}x(
 
 Now, when $T_0\to\infty$, $f_0$ becomes infinitesimally small, $f_0\to df$. Multiplying $f_0$ with $k$ then becomes a continuous function, $kf_0\to f$. The summation from $k=-\infty$ to $k=\infty$ then becomes an integration in $f$ from $f=-\infty$ to $f=\infty$
 
-$$x(t)=\int_{-\infty}^{\infty}\left(df\int_{-\infty}^{\infty}x(t)e^{-j2\pi ft}\right)e^{j2\pi ft}$$
+$$x(t)=\int_{-\infty}^{\infty}\left(df\int_{-\infty}^{\infty}x(t)e^{-j2\pi ft}\,dt\right)e^{j2\pi ft}$$
 
 Re-arranging the terms:
 
-$$x(t)=\int_{-\infty}^{\infty}\underbrace{\left(\int_{-\infty}^{\infty}x(t)e^{-j2\pi ft}\right)}_{X(f)}e^{j2\pi ft}df$$
+$$x(t)=\int_{-\infty}^{\infty}\underbrace{\left(\int_{-\infty}^{\infty}x(t)e^{-j2\pi ft}\,dt\right)}_{X(f)}e^{j2\pi ft}\,df$$
+
+
+:::
 
 The integral between parentheses is defined as **Fourier integral** or (continuous-time) **Fourier transform**, $\mathcal{F}()$:
 
 $$X(f)=\int_{-\infty}^{\infty}x(t)e^{-j2\pi ft}dt$$
 
-The complex number $X_k$ of the Fourier series is now a complex function of the frequency, $f$: $X(f)$.
-
----
+The complex number $X_k$ of the Fourier series is now a complex **function** of the frequency, $f$: $X(f)$.
 
 The **inverse Fourier transform**, $\mathcal{F}^{-1}()$ can also be derived
 
@@ -67,7 +75,7 @@ $$X(f)=|X(f)|e^{j\theta(f)}$$
 
 with
 
-$$\begin{gather*}|X(f)|=\sqrt{\left(\text{Re}(X(f)) +\right)^2+\left(\text{Im}(X(f))\right)^2}\\ \theta(f)=\arctan\left(\frac{\text{Im}(X(f))}{\text{Re}(X(f))}\right)\end{gather*}$$
+$$\begin{gather*}|X(f)|=\sqrt{\left(\text{Re}(X(f)) \right)^2+\left(\text{Im}(X(f))\right)^2}\\ \theta(f)=\arctan\left(\frac{\text{Im}(X(f))}{\text{Re}(X(f))}\right)\end{gather*}$$
 
 ![complex_plane_2](./figs/complex_plane_2.png "complex_plane_2")
 
@@ -80,7 +88,9 @@ $$|X(f)|=|X(-f)|\hspace{10px}\text{and}\hspace{10px}\theta(f)=-\theta(-f)$$
 
 ![odd_even](./figs/odd_even.png "odd_even")
 
-### Summary
+The figure above illustrates an example of $|X(f)|$ and $\theta(f)$ both as a function of frequency.
+
+## Summary
 
 A-periodic functions can be written as integrals, **continuous** over **frequency**. This yields the so-called **Fourier tranform** (and its inverse):
 
@@ -88,4 +98,70 @@ $$\begin{gather*}X(f)=\int_{-\infty}^{\infty}x(t)e^{-j2\pi ft}dt\\ x(t)=\int_{-\
 
 Amplitude and phase spectrum are given by:
 
-$$\begin{gather*}|X(f)|=\sqrt{\left(\text{Re}(X(f)) +\right)^2+\left(\text{Im}(X(f))\right)^2}\\ \theta(f)=\arctan\left(\frac{\text{Im}(X(f))}{\text{Re}(X(f))}\right)\end{gather*}$$
+$$\begin{gather*}|X(f)|=\sqrt{\left(\text{Re}(X(f)) \right)^2+\left(\text{Im}(X(f))\right)^2}\\ \theta(f)=\arctan\left(\frac{\text{Im}(X(f))}{\text{Re}(X(f))}\right)\end{gather*}$$
+
+## Exercises
+
+:::{card} Fourier Transform Exercise (1 of 2)
+
+The signal $x(t)=\Pi(\frac{t}{\tau})$ is defined by a pulse function with duration $\tau$ [s]:
+
+$$
+\Pi\left(\frac{t}{\tau}\right) = 
+\begin{cases}
+1, & \text{for $-\frac{\tau}{2} \leq t \leq \frac{\tau}{2}$}.\\
+0, & \text{otherwise}.
+\end{cases}
+$$
+
+Derive an expression for the Fourier transform $X(f)$ of signal $x(t)$.
+
+_Hint: you may want to use Euler's formula to turn the difference of two complex exponentials into a sine function. In addition, to turn your answer into an even more compact form, you may want to use the cardinal sine, which is defined as $\textrm{sinc}(z)=\frac{\sin(\pi z)}{\pi z}$._
+
+````{admonition} Solution
+:class: tip, dropdown
+
+The video below illustrates how to arrive at the solution, which is presented here:
+
+$$
+X(f) = 
+\tau \,\textrm{sinc}(\tau f)
+$$
+
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/w3hhvGzeXoA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
+````
+
+:::
+
+:::{card} Fourier Transform in the Limit Exercise (2 of 2)
+
+Given the Fourier transform $X(f)=\delta(f)$, find the expression for signal $x(t)$. Then, verify the following two points:
+
+1. When $x(t)=e^{j2\pi f_0 t}$, then $X(f)=\delta(f-f_0)$, and
+2. When $x(t)=\cos(2\pi f_0 t)$, then $X(f)=\frac{1}{2}(\delta(f-f_0)+\delta(f+f_0))$.
+
+_Hint: for the first part (finding $x(t)$), use the *inverse* Fourier transform, and use the sifting property of the Dirac delta function (in this case in the frequency domain) when solving the integral._
+
+````{admonition} Solution
+:class: tip, dropdown
+
+The video below illustrates how to arrive at the solution, which is presented here:
+
+$$
+x(t) = \cos (2\pi f_0 t)
+$$
+
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/VigjJtHXNY4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
+````
+
+:::
