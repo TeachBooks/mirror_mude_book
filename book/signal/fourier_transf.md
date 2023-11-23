@@ -90,7 +90,7 @@ $$|X(f)|=|X(-f)|\hspace{10px}\text{and}\hspace{10px}\theta(f)=-\theta(-f)$$
 
 The figure above illustrates an example of $|X(f)|$ and $\theta(f)$ both as a function of frequency.
 
-### Summary
+## Summary
 
 A-periodic functions can be written as integrals, **continuous** over **frequency**. This yields the so-called **Fourier tranform** (and its inverse):
 
@@ -99,3 +99,69 @@ $$\begin{gather*}X(f)=\int_{-\infty}^{\infty}x(t)e^{-j2\pi ft}dt\\ x(t)=\int_{-\
 Amplitude and phase spectrum are given by:
 
 $$\begin{gather*}|X(f)|=\sqrt{\left(\text{Re}(X(f)) \right)^2+\left(\text{Im}(X(f))\right)^2}\\ \theta(f)=\arctan\left(\frac{\text{Im}(X(f))}{\text{Re}(X(f))}\right)\end{gather*}$$
+
+## Exercises
+
+:::{card} Fourier Transform Exercise (1 of 2)
+
+The signal $x(t)=\Pi(\frac{t}{\tau})$ is defined by a pulse function with duration $\tau$ [s]:
+
+$$
+\Pi\left(\frac{t}{\tau}\right) = 
+\begin{cases}
+1, & \text{for $-\frac{\tau}{2} \leq t \leq \frac{\tau}{2}$}.\\
+0, & \text{otherwise}.
+\end{cases}
+$$
+
+Derive an expression for the Fourier transform $X(f)$ of signal $x(t)$.
+
+_Hint: you may want to use Euler's formula to turn the difference of two complex exponentials into a sine function. In addition, to turn your answer into an even more compact form, you may want to use the cardinal sine, which is defined as $\textrm{sinc}(z)=\frac{\sin(\pi z)}{\pi z}$._
+
+````{admonition} Solution
+:class: tip, dropdown
+
+The video below illustrates how to arrive at the solution, which is presented here:
+
+$$
+X(f) = 
+\tau \,\textrm{sinc}(\tau f)
+$$
+
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/w3hhvGzeXoA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
+````
+
+:::
+
+:::{card} Fourier Transform in the Limit Exercise (2 of 2)
+
+Given the Fourier transform $X(f)=\delta(f)$, find the expression for signal $x(t)$. Then, verify the following two points:
+
+1. When $x(t)=e^{j2\pi f_0 t}$, then $X(f)=\delta(f-f_0)$, and
+2. When $x(t)=\cos(2\pi f_0 t)$, then $X(f)=\frac{1}{2}(\delta(f-f_0)+\delta(f+f_0))$.
+
+_Hint: for the first part (finding $x(t)$), use the *inverse* Fourier transform, and use the sifting property of the Dirac delta function (in this case in the frequency domain) when solving the integral._
+
+````{admonition} Solution
+:class: tip, dropdown
+
+The video below illustrates how to arrive at the solution, which is presented here:
+
+$$
+x(t) = \cos (2\pi f_0 t)
+$$
+
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/VigjJtHXNY4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
+````
+
+:::

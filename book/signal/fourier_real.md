@@ -138,7 +138,7 @@ $$b_k = \frac{2}{T_0}\int_{T_0}x(t)\sin(k\omega_0 t)dt, \hspace{10px}\text{with 
 
 :::
 
-### Summary
+## Summary
 
 Any periodic signal can be written into series of harmonically related sinusoids:
 
@@ -147,3 +147,50 @@ $$x(t)=a_0+\sum_{k=1}^{\infty}a_k\cos(k\omega_0 t)+\sum_{k=1}^{\infty}b_k\sin(k\
 where the coefficients can be found as:
 
 $$\begin{gather*}a_0=\frac{1}{T_0}\int_{T_0}x(t)dt\\ a_k = \frac{2}{T_0}\int_{T_0}x(t)\cos(k\omega_0 t)dt, \hspace{10px}\text{with } k\in\mathbb{N}^+\\ b_k = \frac{2}{T_0}\int_{T_0}x(t)\sin(k\omega_0 t)dt, \hspace{10px}\text{with } k\in\mathbb{N}^+\end{gather*}$$
+
+## Exercise
+
+:::{card} Fourier Series Exercise
+
+The following periodic signal with period $T_0$ signal is a so-called "square wave:"
+
+$$
+x(t) = 
+\begin{cases}
++1, & \text{for $0\leq t < \frac{T_0}{2}$}.\\
+-1, & \text{for $\frac{T_0}{2}\leq t < T_0$}.
+\end{cases}
+$$
+
+Derive expressions for the coefficients $a_0$, $a_k$ and $b_k$, with $k\in \mathbb{N}^+$, of the real, trigonometric Fourier series of $x(t)$. Include also the full expression of the Fourier series of signal $x(t)$.
+
+_Hint: it is always a good idea to first make a sketch of signal $x(t)$. In addition, at some point you may want to use the relation $\omega_0=2\pi/T_0$._
+
+````{admonition} Solution
+:class: tip, dropdown
+
+The video below illustrates how to arrive at the solutions, which are presented here:
+
+$$
+a_0 = 0
+\quad \text{and} \quad 
+a_k = 0
+$$
+
+$$
+b_k = 
+\begin{cases}
+\frac{4}{k\pi}, & \text{for $k$ odd}.\\
+0, & \text{for $k$ even}.
+\end{cases}
+$$
+
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/17oJFVuImuw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
+````
+
+:::

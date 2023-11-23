@@ -106,7 +106,7 @@ Real and complex Fourier coefficients are shown below
 
 ![coeffs](./figs/coeffs.png "coeffs")
 
-### Summary
+## Summary
 
 The complex exponential Fourier series is given by
 

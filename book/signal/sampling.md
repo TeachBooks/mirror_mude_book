@@ -200,7 +200,7 @@ And we see we find an **incorrect result**, as the sampled and reconstructed sig
 MMMMM Insert wheel video here
 ```
 
-## Final summary
+## Summary
 
 The Fourier transform of a **sampled signal**, $x_s(t)$, is given as:
 
