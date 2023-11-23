@@ -34,7 +34,7 @@ First equation is known as **synthesis** equation of Fourier Series, as in contr
 
 $$X_k=\frac{1}{T_0}\int_{T_0}x(t)e^{-jk\omega_0 t}dt, \hspace{10px}k\in\mathbb{Z}$$
 
-Second equation is known as analysis equation of Fourier Series, as it allows us to analyse how signal can be represented by complex exponential basis functions (where index $k$ refers to frequency $k\omega_0=k2\pi f_0$).
+Second equation is known as **analysis** equation of Fourier Series, as it allows us to analyze how signal can be represented by complex exponential basis functions (where index $k$ refers to frequency $k\omega_0=k2\pi f_0$).
 
 :::{card} Derivation
 

@@ -110,7 +110,7 @@ Note that $X_k$ denotes DFT-coefficients, with $\Delta t$ included ($X_k=\Delta 
 
 :::
 
-The power of the signal, contained in a frequency band of width $\Delta f=\frac{1}{T}$, at frequency $f=k\Delta f$ is:
+For a sampled signal, with the coefficients $X_k$, obtained through the DFT (with the $\Delta t$ included), the power of the signal, contained in a frequency band of width $\Delta f=\frac{1}{T}$, at frequency $f=k\Delta f$ is:
 
 $$
 S(k\Delta f)=\frac{1}{T}|X_k|^2 \quad \textrm{for} \quad k=0,\dots,N-1
