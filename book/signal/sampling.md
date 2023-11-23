@@ -209,3 +209,9 @@ $$X_s(f)=\sum_{k=\infty}^{\infty}X(f-kf_s)$$
 where $f_s$ is the sampling frequency.
 
 To prevent aliases, this frequency $f_s$ should be larger than $2f_h$, where $f_h$ is the highest frequency occurring in the signal!
+
+## Exercises
+
+Given a signal $x(t)$ that is sampled at frequency $f_s$, what does $X_s(f)$ look like? The following quiz questions will test your knowledge.
+
+<iframe src="https://tudelft.h5p.com/content/1292121772554459737/embed" aria-label="Sampling Quiz" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
