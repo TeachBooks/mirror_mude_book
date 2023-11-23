@@ -32,12 +32,19 @@ Cosine and sine can be thought of as originating from an object travelling over 
 
 $$\tilde{x}(t)=e^{j\omega_0 t}=\cos(\omega_0 t)+j\sin(\omega_0 t)$$
 
-The position of the object is described by the complex number $\tilde{x}(t)$, which is illustrated by the red vector in the figure below. We can also easily state that:
+The position of the object is described by the complex number $\tilde{x}(t)$, which is illustrated by the h vector in the figure below. We can also easily state that:
 
-* $\text{Re}(\tilde{x}(t))=\cos(\omega_0 t)$ (illustrated by the red dot in the figure)
+* $\text{Re}(\tilde{x}(t))=\cos(\omega_0 t)$
 * $\text{Im}(\tilde{x}(t))=\sin(\omega_0 t)$
 
-![trig_circle](./figs/trig_circle.png "trig_circle")
+
+```{figure} ./figs/Unitycircle-complex.gif
+---
+height: 300px
+name: unitycircle
+---
+CC-BY-SA-4.0 licensed by {cite:t}`BFG`
+```
 
 A deterministic function/signal is **periodic** if
 
