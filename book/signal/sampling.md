@@ -122,29 +122,35 @@ Finally, the Fourier transform of the *sampled* signal becomes:
 
 $$X_s(f)=\sum_{k=-\infty}^{\infty}X(f-kf_s)$$
 
-so, the spectrum of the sampled signal is the spectrum of the original signal, but repeated with **"period"** $f_s$ (in the frequency domain); copies of spectrum are called **aliases**
+so, the spectrum of the sampled signal is the spectrum of the original signal, but repeated with "period" $f_s$ (in the frequency domain); copies of spectrum are called _aliases._
 
 | ![sampled](./figs/sampled.png "sampled") |
 | :--: |
 | *Spectrum of an assumed original signal $x(t)$ (left) and that of its sampled equivalent (right)* |
 
-## Sampling theorem
+## Sampling Theory
 
-**Band-limited** signals $x(t)$, having no frequency components above $f_h$ Hz, are *completely specified* by samples taken at **uniform** rate greater than $2f_h$ Hz.
+In practice, we should choose a _sample rate_ that is capable of representing the frequency components of a continuous signal as a discrete sequence. The term _rate_ is quantified in units of samples per second, whereas a _frequency_ component of the signal is described using cycles per second; both are represented by units of frequency, Hertz (Hz).
 
-```{warning} Definition
+Consider a **band-limited** signal, $x(t)$, which has no frequency components above $f_h$ Hz. Such a signal can be *completely specified* by samples taken at a *uniform* sample rate greater than $2f_h$ Hz.
 
-**Frequency $2f_h$ is called the *Nyquist rate***
+```{admonition} Definition: Nyquist *rate* and Nyquist *frequency.*
 
-This frequency is characteristic of the signal, whereas Nyquist frequency, $f_s/2$, is characteristic of the sampling system! In practice we consider only the domain $-\frac{f_s}{2}<f<\frac{f_s}{2}$ of the spectrum obtained from the sampled signal
+If $f_h$ is the maximum frequency of a band-limited signal, the quantity $2f_h$ is called the **Nyquist rate.**
+
+If the same signal is sampled at rate $f_s$, the quantity $f_s/2$ is called the **Nyquist frequency.**
+
+Note that the Nyquist _rate_ is related to the _frequency_ of a signal, and the Nyquist _frequency_ is related to the _rate_ of a sample. In other words, the Nyquist rate is characteristic of the signal, whereas the Nyquist frequency is characteristic of the sampling system!
+
+In practice we consider only the domain $-\frac{f_s}{2}<f<\frac{f_s}{2}$ of the spectrum obtained from the sampled signal.
 
 ```
 
-### Aliasing
+Although many signals in practice are not band-limited, by considering the maximum frequency of interest for a particular application, the Nyquist rate can be applied to determine a suitable sampling strategy; specifically, to avoid aliasing.
 
-Note that in order to reconstruct original continuous-time signal from samples, it is crucial to **sample signal at a rate larger than Nyquist rate**. When sampling is below this rate, the adjacent spectra (aliases) will overlap, and it will be impossible to reconstruct signal from its samples.
+## Aliasing
 
-This is called **aliasing**, and it is illustrated in the following example.
+Note that in order to reconstruct original continuous-time signal from samples, it is crucial to **sample the signal at a rate larger than Nyquist rate**. When sampling is below this rate, the adjacent spectra (aliases) will overlap, and it will be impossible to reconstruct the signal from its samples. This phenomenon is called **aliasing**, and is illustrated in the following two examples.
 
 ```{admonition} Theoretical Example
 
@@ -196,9 +202,25 @@ And we see we find an **incorrect result**, as the sampled and reconstructed sig
 
 ```
 
-```{admonition} Example in Practice
-MMMMM Insert wheel video here
+````{admonition} Example in Practice
+
+The phenomenon illustrated in this video is known as the "wagon wheel effect," and, more generally as the _stroboscopic effect_ (and you can find loads of videos on it in addition to the one her). This phenomenon is a result of aliasing.
+
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/TkPT9ataS-Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
+
+Suppose you have a wheel with, hypothetically, only one spoke connecting the rim to the axle. By watching the spoke we can tell whether, and how, the wheel is turning. If this wheel would be turning at a frequency of $f_c$ = 1 cycle per second (Hz), and we would capture frames with a video camera at exactly $f_s$ = 1 Hz (one frame per second), then we would see the spoke in exactly the same position in all frames recorded by the camera; hence, it looks like the wheel is standing still in our video! Of course in reality the wheel is turning. In this case the video, a series of images taken at discrete time instants, gives us a false impression about reality.
+
+Connecting this to Nyquist sampling: the wheel rotation frequency is $f_c$ = 1 Hz, and hence the Nyquist rate is 2 Hz, and our sampling frequency $f_s$ = 1 Hz is clearly below it (we're sampling too slowly). The spectrum (with frequencies $f_c$ = -1 and +1 Hz) gets copied to integer multiples of the sampling frequency $f_s$ (e.g. at 1 Hz), hence a copy of $f_c$ = -1 Hz, shows up as an alias at $f$ = 0 Hz.
+
+The example in the video is slightly more involved as the wheel has 7 identical spokes, causing the frequency of interest ($f_c$) to be actually 7 times as large. We achieve an identically looking image already after 1/7th turn of the wheel.
+
+In the video, at some point, the wheel is turning backward: not in reality, but in our observations based on the sampled signal. At this point we were driving slightly over 30 km/h, which is 8.9 m/s. With a wheel circumference of 1.92 m, the turning frequency is 4.6 Hz. With 7 identical spokes, the periodic signal has a frequency of 7 times 4.6 Hz, which yields $f_c$ = 32.4 Hz. The camera on the smartphone captures the video at 30 frames per second (fps), hence $f_s$ = 30 Hz. So, we can expect an alias of $f_c$ at a frequency of -2.4 Hz (a negative frequency, materialized by the apparently a backward turning wheel).
+
+````
 
 ## Summary
 
