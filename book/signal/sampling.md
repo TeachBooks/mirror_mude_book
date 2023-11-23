@@ -140,7 +140,7 @@ If $f_h$ is the maximum frequency of a band-limited signal, the quantity $2f_h$ 
 
 If the same signal is sampled at rate $f_s$, the quantity $f_s/2$ is called the **Nyquist frequency.**
 
-Note that the Nyquist _rate_ is related to the _frequency_ of a signal, and the Nyquist _frequency_ is related to the _rate_ of a sample. In other words, the Nyquist rate is characteristic of the signal, whereas the Nyquist frequency is characteristic of the sampling system!
+Note that the Nyquist _rate_ is related to the _frequency_ of a signal, and the Nyquist _frequency_ is related to the sampling. In other words, the Nyquist rate is characteristic of the signal, whereas the Nyquist frequency is characteristic of the sampling system!
 
 In practice we consider only the domain $-\frac{f_s}{2}<f<\frac{f_s}{2}$ of the spectrum obtained from the sampled signal.
 

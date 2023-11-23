@@ -47,18 +47,18 @@ These videos overlap to some extent with the theory presented in the book, and a
     <iframe width="560" height="315" src="https://www.youtube.com/embed/K62HCgmHwzw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 
-**Sampling**
-```{eval-rst}
-.. raw:: html
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/T51AFxUy3fY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-```
-
 **Discrete Fourier Transform**
 ```{eval-rst}
 .. raw:: html
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/PkqJDM85Mkw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
+**Sampling**
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/T51AFxUy3fY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 
 **Spectral Estimation**

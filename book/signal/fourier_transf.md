@@ -121,7 +121,7 @@ _Hint: you may want to use Euler's formula to turn the difference of two complex
 ````{admonition} Solution
 :class: tip, dropdown
 
-The video below illustrates how to arrive at the solution, which is presented here:
+The video below illustrates how to arrive at the final solution, which is presented here:
 
 $$
 X(f) = 
@@ -172,7 +172,7 @@ _Hint: for the first part (finding $x(t)$), use the *inverse* Fourier transform,
 ````{admonition} Solution
 :class: tip, dropdown
 
-The video below illustrates how to arrive at the solution, which is presented here:
+The video below illustrates how to arrive at the final solution, which is presented here:
 
 $$
 x(t) = \cos (2\pi f_0 t)
