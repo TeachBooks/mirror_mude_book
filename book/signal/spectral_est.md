@@ -18,9 +18,7 @@ Integrating over $|t|\leq T$, we define **total energy** and **average power** a
 
 $$\begin{gather*}E=\lim_{T\to\infty}\int_{-T}^Tu^2(t)dt\hspace{10px}[J]\\ P=\lim_{T\to\infty}\frac{1}{2T}\int_{-T}^Tu^2(t)dt\hspace{10px}[W]\end{gather*}$$
 
----
-
-For signal $x(t)$, the **total energy**, normalized to a unit resistance, is defined as:
+For signal $x(t)$, the **total energy**, normalized to a unit resistance, is defined similarly as:
 
 $$E=\lim_{T\to\infty}\int_{-T}^T|x(t)|^2dt$$
 
@@ -35,8 +33,16 @@ For real signals, the modulus signs can be removed from the two equations above.
 ```{admonition} Definition
 
 Average (normalized) power of signal in **time domain** is the same as the average (normalized) power of corresponding a **signal in the frequency domain**; and similarly for total (normalized) energy.
-
 ```
+
+:::{card} Derivation
+
+```{admonition} MUDE Exam Information
+:class: tip, dropdown
+This derivation is provided for additional insight and will not be part of the exam.
+```
+
+### Fourier Series
 
 **Average power** of **periodic** waveform $x(t)$ with period $T_0$ can be written as:
 
@@ -44,11 +50,9 @@ $$P=\frac{1}{T_0}\int_{T_0}|x(t)|^2dt$$
 
 Since $|x(t)|^2=x(t)x^*(t)$, we can replace $x^*(t)$ with its complex exponential Fourier series:
 
-$$P=\frac{1}{T_0}\int_{T_0}x(t)\left(\sum_{k=-\infty}^{\infty}X_k^*e^{-j2\pi kf_0t}\right)dt = \sum_{k=-\infty}^{\infty}X_k^*\underbrace{\frac{1}{T_0}\int_{T_0}x(t)e^{-j2\pi kf_0t}}_{X_k}$$
+$$P=\frac{1}{T_0}\int_{T_0}x(t)\left(\sum_{k=-\infty}^{\infty}X_k^*e^{-j2\pi kf_0t}\right)dt = \sum_{k=-\infty}^{\infty}X_k^*\underbrace{\frac{1}{T_0}\int_{T_0}x(t)e^{-j2\pi kf_0t}\,dt}_{X_k}$$
 
 Where we just interchanged the order of summation and integration.
-
-### Fourier Series
 
 Now, we may write:
 
@@ -68,7 +72,7 @@ We derived that, for **periodic** signals $x(t)$, the **average power** in the t
 
 $$P=\frac{1}{T_0}\int_{T_0}|x(t)|^2dt=\sum_{k=-\infty}^{\infty}|X_k|^2$$
 
-This is know as the **Parseval's theorem**.
+This is known as **Parseval's theorem**.
 
 ### Fourier Transform
 
@@ -82,27 +86,43 @@ $$E=\int_{-\infty}^{\infty}X(f)\left(\int_{-\infty}^{\infty}x(t)e^{j2\pi ft}dt\r
 
 We obtain Parseval's theorem for Fourier transforms that can be expressed as:
 
-$$E=\int_{-\infty}^{\infty}|x(t)|^2dt=\int_{-\infty}^{\infty}|X(f)|^2df$$
+$$E=\int_{-\infty}^{\infty}|x(t)|^2dt=\int_{-\infty}^{\infty}|X(f)|^2\,df$$
+
+Energy in the timedomain equals energy in the frequency domain.
 
 ### Discrete Fourier Transform
 
-Starting from a discrete, finite sequence of samples, $x_n$, in the time domain, the **average power** becomes:
+Starting from a discrete, finite sequence of samples, $x_n$, in the time domain, the **average power** start as:
 
-$$P=\frac{1}{N}\sum_{n=0}^{N-1}|x_n|^2=\frac{1}{N^2\Delta t^2}\sum_{k=0}^{N-1}|X_k|^2=\frac{1}{T^2}\sum_{k=0}^{N-1}|X_k|^2$$
+$$
+P=\frac{1}{T}\sum_{n=0}^{N-1}|x_n|^2 \,\Delta t
+$$
 
-Note that $X_k$ denotes DFT-coefficients, with $\Delta t$ included ($X_k=\Delta t\sum_{n=0}^{N-1}x_ne^{-j\frac{2\pi}{N}kn}$).
+where we have discretized the integral over $x^2(t)$, which then becomes:
 
-The power of the signal, contained in a frequency band of width $\Delta f=\frac{1}{T}$, at frequency $f=k\Delta f$ is:
+$$
+P=\frac{1}{N}\sum_{n=0}^{N-1}|x_n|^2
+=\frac{1}{N^2\Delta t^2}\sum_{k=0}^{N-1}|X_k|^2
+=\frac{1}{T^2}\sum_{k=0}^{N-1}|X_k|^2
+$$
 
-$$S(k\Delta f)=\frac{1}{T}|X_k|^2$$
+Note that $X_k$ denotes DFT-coefficients, with $\Delta t$ included ($X_k=\Delta t\sum_{n=0}^{N-1}x_ne^{-j\frac{2\pi}{N}kn}$). The full proof is ommitted (if you think this optional derivation box is long, you don't want to see that one!).
 
-and this is actually the **power density**.
+:::
+
+For a sampled signal, with the coefficients $X_k$, obtained through the DFT (with the $\Delta t$ included), the power of the signal, contained in a frequency band of width $\Delta f=\frac{1}{T}$, at frequency $f=k\Delta f$ is:
+
+$$
+S(k\Delta f)=\frac{1}{T}|X_k|^2 \quad \textrm{for} \quad k=0,\dots,N-1
+$$
+
+and this is actually the **power density** [W/Hz].
 
 #### Periodogram
 
-This turns out to be an *estimate* for the PSD, and it is referred to as a **periodogram** (estimate may be indicated by a hat-symbol, hence $\hat{S}$).
+This turns out to be an *estimate* for the power spectral density (PSD), and it is referred to as a **periodogram** (estimate may be indicated by a hat-symbol, hence $\hat{S}$).
 
-The product $\Delta fS(k\Delta f)$ will, therefore, represent the contribution by frequency band with width $\Delta f$ at a frequency $f=k\Delta f$, to a certain power $P$ of the signal.
+The product $\Delta fS(k\Delta f)$ will, therefore, represent the contribution by frequency band with width $\Delta f$ at a frequency $f=k\Delta f$, to a power $P$ of the signal.
 
 The periodogram, $S(f)$, defined for $0\leq f<f_s$ or, equivalently, $-\frac{f_s}{2}<f\leq\frac{f_s}{2}$, with $f_s=\frac{1}{\Delta t}$ will be given by:
 
@@ -110,7 +130,7 @@ The periodogram, $S(f)$, defined for $0\leq f<f_s$ or, equivalently, $-\frac{f_s
 
 ## Power Spectral Density (PSD)
 
-Over a limited time duration, $T$, one can still use the notion of **power** for energy signals:
+<!-- Over a limited time duration, $T$, one can still use the notion of **power** for energy signals:
 
 $$\underbrace{x_T(t)}_{\text{truncated}}=\begin{cases}x(t):-\frac{T}{2}<t<\frac{T}{2}\\ 0: \text{otherwise}\end{cases}$$
 
@@ -120,7 +140,7 @@ $$P=\lim_{T\to\infty}\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}|x(t)|^2dt=\lim
 
 and, using Parseval's theorem:
 
-$$P=\lim_{T\to\infty}\frac{1}{T}\int_{-\infty}^{\infty}|X_T(f)|^2df=\int_{-\infty}^{\infty}\underbrace{\lim_{T\to\infty}\frac{|X_T(f)|^2}{T}}_{S(f)}df$$
+$$P=\lim_{T\to\infty}\frac{1}{T}\int_{-\infty}^{\infty}|X_T(f)|^2df=\int_{-\infty}^{\infty}\underbrace{\lim_{T\to\infty}\frac{|X_T(f)|^2}{T}}_{S(f)}df$$ -->
 
 $S(f)$ represents the **power spectral density**, with $P$ being given trivially (considering the definition of power spectral **density**) by:
 
