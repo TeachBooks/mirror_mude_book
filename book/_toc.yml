@@ -147,7 +147,7 @@ parts:
         title: Elements and shape functions
       - file: fem/videos.md
         title: Videos (summary and additional material)
-  # START REMOVE-FROM-PUBLISH 
+   
     - file: signal/intro.md
       title: Signal Processing
       sections:
@@ -168,6 +168,7 @@ parts:
         title: Spectral Estimation
       - file: signal/videos
         title: Supplementary Videos
+  # START REMOVE-FROM-PUBLISH
     - file: time_series/intro.md
       title: Time Series Analysis
       sections:
@@ -395,18 +396,7 @@ parts:
       - file: sandbox/multivariate/Multivariate.ipynb
       - file: sandbox/multivariate/Vessels.ipynb
 
-  - caption: Numerical Modelling
-    chapters:
-    - file: sandbox/1-5-NumericalMethods/1-numerical-solns.ipynb
-    - file: sandbox/1-5-NumericalMethods/2-numerical-interp.ipynb
-    - file: sandbox/1-5-NumericalMethods/3-taylor-series.ipynb
-    - file: sandbox/1-5-NumericalMethods/1-numerical-derivatives.ipynb
-    - file: sandbox/1-5-NumericalMethods/2-simple-ODE-solver.ipynb
-    - file: sandbox/1-5-NumericalMethods/3-second-order-ODE-solver.ipynb
-    - file: sandbox/1-5-NumericalMethods/1-general-solvers.ipynb
-    - file: sandbox/1-5-NumericalMethods/2-implicit-ode-solver.ipynb
   
-
   - caption: MUDE Cookbook
     chapters:
     - file: cookbook/overview
