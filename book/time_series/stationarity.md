@@ -119,7 +119,7 @@ $$
 
 :::{card} Exercise
 
-Show yourself for that applying double differencing to the time series $Y_t = y_0+vt+at^2+\epsilon_t$ results in a stationary time series $\Delta^2 Y_t$
+Show for yourself that applying double differencing to the time series $Y_t = y_0+vt+at^2+\epsilon_t$ results in a stationary time series $\Delta^2 Y_t$
 
 ```{admonition} Solution
 :class: tip, dropdown
@@ -133,8 +133,7 @@ $$
 with $\mathbb{E}(\Delta^2 Y_t)=2a$.
 ```
 :::
-
-MMMMM: add a figure showing on the left simulated time series including the 'truth model' (second order polynomial), and on right the double differenced results.
+![doubledifference](./figs/doubledifference.png "doubledifference")
 
 ### Moving average
 
