@@ -64,7 +64,7 @@ In this section, you can find a few examples of optimization problems with their
 **Goal**: determine the optimal layout of wind turbines to produce the *highest amount of energy at minimum costs*. Considering different types of turbines, their power curves, physical characteristics, wake effect, etc.
 
 <div style="display: block; justify-content: space-between;">
-  <img src="../../../../book/optimization/figs/ex_norway.png" style="width: 95%;">
+  <img src="./figs/ex_norway.png" style="width: 95%;">
 </div>
 ```
 
@@ -74,7 +74,7 @@ In this section, you can find a few examples of optimization problems with their
 **Goal**: determine the most economic configuration of areas for wind turbines, solar panels, algae, and battery storage to meet the hourly energy demand in the future for a certain area. Considering the fluctuating demand, climatic conditions, etc.
 
 <div style="display: block; justify-content: space-between;">
-  <img src="../../../../book/optimization/figs/ex_2.png" style="width: 75%;">
+  <img src="./figs/ex_2.png" style="width: 75%;">
 </div>
 ```
 
@@ -84,7 +84,7 @@ In this section, you can find a few examples of optimization problems with their
 **Goal**: identify the optimal distribution of charging stations that maximizes the utility accounting for the population density, existence of other charging stations, and other urban elements (e.g. rivers, parks, etc.)
 
 <div style="display: block; justify-content: space-between;">
-  <img src="../../../../book/optimization/figs/ex_3.png" style="width: 75%;">
+  <img src="./figs/ex_3.png" style="width: 75%;">
 </div>
 ```
 
@@ -94,8 +94,8 @@ In this section, you can find a few examples of optimization problems with their
 **Goal**: identify the most economic location of EV charging stations to satisfy the users' requirements.
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="../../../../book/optimization/figs/ex_4_1.png" style="width: 55%;">
-  <img src="../../../../book/optimization/figs/ex_4_2.png" style="width: 40%;">
+  <img src="./figs/ex_4_1.png" style="width: 55%;">
+  <img src="./figs/ex_4_2.png" style="width: 40%;">
 </div>
 ```
 
@@ -105,7 +105,7 @@ In this section, you can find a few examples of optimization problems with their
 **Goal:** identify the optimal geometry and plies layout with consideration of the tradeoff between cost and sustainability. The design must guarantee the structural safety conditions.
 
 <div style="display: block; justify-content: space-between;">
-  <img src="../../../../book/optimization/figs/ex_5.png" style="width: 85%;">
+  <img src="./figs/ex_5.png" style="width: 85%;">
 </div>
 ```
 
@@ -115,7 +115,7 @@ In this section, you can find a few examples of optimization problems with their
 **Goal:** determine the most efficient process for building components that have physical interdependencies (fulfilling constructive constraints), with consideration of the tradeoff between the cost and construction duration.
 
 <div style="display: block; justify-content: space-between;">
-  <img src="../../../../book/optimization/figs/ex_6.png" style="width: 75%;">
+  <img src="./figs/ex_6.png" style="width: 75%;">
 </div>
 ```
 
@@ -125,7 +125,7 @@ In this section, you can find a few examples of optimization problems with their
 **Goal:** identify the optimal locations of mobility hubs that make available several modes, such as shared bikes, shared cars and cargo bikes maximizing accessibility and minimizing costs with consideration of the demand.
 
 <div style="display: block; justify-content: space-between;">
-  <img src="../../../../book/optimization/figs/ex_7.png" style="width: 75%;">
+  <img src="./figs/ex_7.png" style="width: 75%;">
 </div>
 ```
 
@@ -136,8 +136,8 @@ In this section, you can find a few examples of optimization problems with their
 
 
 <div style="display: block; justify-content: space-between;">
-  <img src="../../../../book/optimization/figs/ex_8.png" style="width: 95%;">
-  <img src="../../../../book/optimization/figs/ex_8_2.png" style="width: 95%;">
+  <img src="./figs/ex_8.png" style="width: 95%;">
+  <img src="./figs/ex_8_2.png" style="width: 95%;">
 </div>
 
 ```

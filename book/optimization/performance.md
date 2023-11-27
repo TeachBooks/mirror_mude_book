@@ -56,7 +56,7 @@ When considering the modelling aspect, we should take into account two main thin
 In Gurobi (Python API), building large linear models and compiling them can take longer than solving them, so efficient ways of building models are essential
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="../../../../book/optimization/figs/need-for-efficiency.png" style="width: 90%;">
+  <img src="./figs/need-for-efficiency.png" style="width: 90%;">
 </div>
 
 ```{note}
@@ -77,7 +77,7 @@ Modelling performance is often platform-specific, but we are going to give a few
 As an example illustrative of the second tip given in this section, check the graph below that shows the difference of the computation tipes between matrix and loop modeling in Gurobi-Python:
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="../../../../book/optimization/figs/last.png" style="width: 75%;">
+  <img src="./figs/last.png" style="width: 75%;">
 </div>
 
 ## Solving
@@ -92,8 +92,8 @@ The choice of our solution for linear programs with continuous variables depends
 If we compare the results obtained by the Simplex model (large float coefficients and an A matrix with a 50% percentage of non-zero elements) with the results obtained from interior point (large integer coefficients, and an A matrix with only 5% non-zero elements), both with $m=n$, we find:
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="../../../../book/optimization/figs/simplex.png" style="width: 50%;">
-  <img src="../../../../book/optimization/figs/interior_point.png" style="width: 50%;">
+  <img src="./figs/simplex.png" style="width: 50%;">
+  <img src="./figs/interior_point.png" style="width: 50%;">
 </div>
 
 ```{note}
@@ -107,8 +107,8 @@ If we compare the results obtained by the Simplex model (large float coefficient
 If we see another example, now with $n>>m$ and 40% non-zero elements in matrix A for both cases, and large integer coefficients in the left case and large float coefficients in the right figure, we can see:
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="../../../../book/optimization/figs/large_integer.png" style="width: 50%;">
-  <img src="../../../../book/optimization/figs/large_float.png" style="width: 50%;">
+  <img src="./figs/large_integer.png" style="width: 50%;">
+  <img src="./figs/large_float.png" style="width: 50%;">
 </div>
 
 ## Problem type

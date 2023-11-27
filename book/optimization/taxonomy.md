@@ -25,8 +25,8 @@ It depends on the number of objective functions we need to define to address our
 
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="../../../../book/optimization/figs/convex.png" style="width: 65%;">
-  <img src="../../../../book/optimization/figs/non-convex.png" style="width: 34%;">
+  <img src="./figs/convex.png" style="width: 65%;">
+  <img src="./figs/non-convex.png" style="width: 34%;">
 </div>
 
 ## Deterministic vs Stochastic
