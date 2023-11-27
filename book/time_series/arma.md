@@ -1,10 +1,11 @@
+(ARMA)=
 # ARMA process
 
 The main goal is to introduce the Auto-Regressive Moving Average (ARMA) stochastic process, as a widely used stochastic process. This includes
 
-* ARMA (p,q) process
-* ARMA (p,0) = AR(p) process $\implies$ AR(1)
-* ARMA (0,q) = MA(q) process $\implies$ MA(1)
+* ARMA ($p,q$) process
+* ARMA ($p,0$) = AR($p$) process $\implies$ AR(1)
+* ARMA ($0,q$) = MA($q$) process $\implies$ MA(1)
 
 ## Process definition
 
@@ -24,7 +25,7 @@ To have a better understanding of the process itself, we consider two special ca
 
 ### Special case 1 - ARMA$(p,0) = $ AR$(p)$
 
-The first special case we are going to study considers $q=0$. A zero mean $p$-order autoregressive (AR) random process, abbreviated to ARMA(p,0) = AR(p), can be written as follows
+The first special case we are going to study considers $q=0$. A zero mean $p$-order autoregressive (AR) random process, abbreviated to ARMA($p,0$) = AR($p$), can be written as follows
 
 $$y_t = \beta_1y_{t-1}+...+\beta_py_{t-p} + e_t$$
 
@@ -44,7 +45,15 @@ where $e_t$ is an i.i.d. noise process, e.g. distributed as $e_t\sim\mathbb{N}(0
 
 Initializing $y_1=e_1$, with $\mathbb{E}(y_1)=\mathbb{E}(e_1)=0$ and $\mathbb{D}(y_1)=\mathbb{D}(e_1)=\sigma^2$. Following this, multiple applications of the above "autoregressive" formula ($y_t = \beta y_{t-1} + e_t$) give:
 
-$$\begin{align*}y_1=e_1\\ y_2=\beta y_1+e_2\\ y_3 = \beta y_2+e_3 = \beta^2y_1+\beta e_2+e_3\\ ...\\ y_m = \beta y_{m-1} + e_m = \beta^{m-1}y_1+\beta^{m-2}e_2+...+\beta e_{m-1}+e_m\end{align*}$$
+$$
+\begin{align*}
+y_1&=e_1\\ 
+y_2&=\beta y_1+e_2\\ 
+y_3 &= \beta y_2+e_3 = \beta^2y_1+\beta e_2+e_3\\ 
+&\vdots\\ 
+y_m &= \beta y_{m-1} + e_m = \beta^{m-1}y_1+\beta^{m-2}e_2+...+\beta e_{m-1}+e_m
+\end{align*}
+$$
 
 of which we still have (to impose the *stationarity*):
 
@@ -52,7 +61,7 @@ $$\mathbb{E}(y_t)=0 \hspace{5px}\text{and}\hspace{5px} \mathbb{D}(y_t)=\sigma^2,
 
 All the noise components, $e_t$, are uncorrelated as $\mathbb{E}(e_t,e_{t+\tau})=0$ if $\tau = 0$. If $\tau\neq 0$, then $\mathbb{E}(e_t,e_{t+\tau})=\sigma_e^2$.
 
-**Auto-covariance**
+**Autocovariance**
 
 The mean of the process is zero and, therefore:
 
@@ -68,21 +77,21 @@ $$\sigma^2 = \frac{\sigma_e^2}{1-\beta^2} \Longleftrightarrow \sigma_e^2 = \sigm
 
 The auto-covariance (covariance between $y_t$ and $y_{t+\tau}$) is
 
-$$Q_{yy}(y_t,y_{t+\tau})=\mathbb{E}(y_t,y_{t+\tau})$$
+$$\Sigma_{yy}(y_t,y_{t+\tau})=\mathbb{E}(y_t,y_{t+\tau})$$
 
 resulting in
 
-$$Q_{yy}(y_t,y_{t+\tau}) = \mathbb{E}(y_t, y_{t+\tau}) = \mathbb{E}(y_t(\beta^\tau y_t + ...)) = \beta^\tau\mathbb{E}(y_t^2)=\sigma^2\beta^\tau$$
+$$\Sigma_{yy}(y_t,y_{t+\tau}) = \mathbb{E}(y_t, y_{t+\tau}) = \mathbb{E}(y_t(\beta^\tau y_t + ...)) = \beta^\tau\mathbb{E}(y_t^2)=\sigma^2\beta^\tau$$
 
 **Model structure**
 
-$$\mathbb{E}(y) = \mathbb{E}\begin{bmatrix}y_1\\ y_2\\ ...\\ y_m\end{bmatrix} = \begin{bmatrix}0\\ 0\\ ...\\ 0\end{bmatrix}, \hspace{15px} \mathbb{D}(y)=Q_{yy}=\sigma^2\begin{bmatrix}1&\beta&...&\beta^{m-1}\\ \beta&1&...&\beta^{m-2}\\ ...&...&...&...\\ \beta^{m-1}&\beta^{m-2}&...&1\end{bmatrix}$$
+$$\mathbb{E}(y) = \mathbb{E}\begin{bmatrix}y_1\\ y_2\\ ...\\ y_m\end{bmatrix} = \begin{bmatrix}0\\ 0\\ ...\\ 0\end{bmatrix}, \hspace{15px} \mathbb{D}(y)=\Sigma_{yy}=\sigma^2\begin{bmatrix}1&\beta&...&\beta^{m-1}\\ \beta&1&...&\beta^{m-2}\\ ...&...&...&...\\ \beta^{m-1}&\beta^{m-2}&...&1\end{bmatrix}$$
 
-* Auto-covariance function $\implies$ $Q_{yy}(\tau)=\sigma_\tau=\sigma^2\beta^\tau$
+* Auto-covariance function $\implies$ $\Sigma_{yy}(\tau)=\sigma_\tau=\sigma^2\beta^\tau$
 * Normalized auto-covariance function (ACF) $\implies$ $\rho_{yy}(\tau)=\rho_\tau=\beta^\tau$
 * Larger value of $\beta$ indicates long-memory random process
 * If $\beta=0$, this is called *purely random process* (white noise)
-* $Q_{yy}(\tau)=Q_{yy}(-\tau)=Q_{yy}(|\tau|)$ and so is $\rho_{yy}(\tau)=\rho_{yy}(-\tau)=\rho_{yy}(|\tau|)$
+* $\Sigma_{yy}(\tau)=\Sigma_{yy}(-\tau)=\Sigma_{yy}(|\tau|)$ and so is $\rho_{yy}(\tau)=\rho_{yy}(-\tau)=\rho_{yy}(|\tau|)$
 
 **Simulated example**
 
@@ -138,25 +147,25 @@ $$\sigma^2 = \frac{\sigma_e^2}{1+\theta^2} \Longleftrightarrow \sigma_e^2 = \fra
 
 The auto-covariance (covariance between $y_t$ and $y_{t+\tau}$) is
 
-$$Q_{yy}(y_t,y_{t+\tau})=\mathbb{E}(y_t,y_{t+\tau}) = 0, \hspace{10px}\text{for}\hspace{5px}\tau\geq 2$$
+$$\Sigma_{yy}(y_t,y_{t+\tau})=\mathbb{E}(y_t,y_{t+\tau}) = 0, \hspace{10px}\text{for}\hspace{5px}\tau\geq 2$$
 
 resulting in
 
-$$Q_{yy}(y_t, y_{t+1}) = \mathbb{E}((\theta e_{t-1} + e_t)(\theta e_t + e_{t+1})) = \sigma_e^2\theta\\ Q_{yy}(y_t, y_{t-1}) = \mathbb{E}((\theta e_{t-1} + e_t)(\theta e_{t-2} + e_{t-1})) = \sigma_e^2\theta$$
+$$\Sigma_{yy}(y_t, y_{t+1}) = \mathbb{E}((\theta e_{t-1} + e_t)(\theta e_t + e_{t+1})) = \sigma_e^2\theta\\ \Sigma_{yy}(y_t, y_{t-1}) = \mathbb{E}((\theta e_{t-1} + e_t)(\theta e_{t-2} + e_{t-1})) = \sigma_e^2\theta$$
 
 ```{note}
-Only $Q_{yy}(y_t, y_{t\pm 1}) = \mathbb{E}(y_t, y_{t\pm 1})\neq 0$
+Only $\Sigma_{yy}(y_t, y_{t\pm 1}) = \mathbb{E}(y_t, y_{t\pm 1})\neq 0$
 ```
 
 **Model structure**
 
-$$\mathbb{E}(y) = \mathbb{E}\begin{bmatrix}y_1\\ y_2\\ ...\\ y_m\end{bmatrix} = \begin{bmatrix}0\\ 0\\ ...\\ 0\end{bmatrix}, \hspace{15px} \mathbb{D}(y)=Q_{yy}=\sigma^2\begin{bmatrix}1&\rho_1&0&...&0\\ \rho_1&1&\rho_1&...&0\\ 0&\rho_1&1&...&...\\ ...&...&...&...&\rho_1\\ 0&0&...&\rho_1&1\end{bmatrix}$$
+$$\mathbb{E}(y) = \mathbb{E}\begin{bmatrix}y_1\\ y_2\\ ...\\ y_m\end{bmatrix} = \begin{bmatrix}0\\ 0\\ ...\\ 0\end{bmatrix}, \hspace{15px} \mathbb{D}(y)=\Sigma_{yy}=\sigma^2\begin{bmatrix}1&\rho_1&0&...&0\\ \rho_1&1&\rho_1&...&0\\ 0&\rho_1&1&...&...\\ ...&...&...&...&\rho_1\\ 0&0&...&\rho_1&1\end{bmatrix}$$
 
-* Auto-covariance function $\implies$ $Q_{yy}(\tau)=\sigma_\tau=\begin{cases}\frac{\sigma^2\theta}{1+\theta^2}, \hspace{5px}\text{if}\hspace{5px}\tau=1\\ 0, \hspace{5px}\text{if}\hspace{5px}\tau>1\end{cases}$
+* Auto-covariance function $\implies$ $\Sigma_{yy}(\tau)=\sigma_\tau=\begin{cases}\frac{\sigma^2\theta}{1+\theta^2}, \hspace{5px}\text{if}\hspace{5px}\tau=1\\ 0, \hspace{5px}\text{if}\hspace{5px}\tau>1\end{cases}$
 
 * Normalized auto-covariance function (ACF) $\implies$ $\rho_{yy}(\tau)=\rho_\tau=\begin{cases}\frac{\theta}{1+\theta^2}\end{cases}, \hspace{5px}\text{if}\hspace{5px}\tau=1\\ 0, \hspace{5px}\text{if}\hspace{5px}\tau\neq 1$
 
-* ACF is even, $Q_{yy}(\tau)=Q_{yy}(-\tau)=Q_{yy}(|\tau|)$ and so is $\rho_{yy}(\tau)=\rho_{yy}(-\tau)=\rho_{yy}(|\tau|)$
+* ACF is even, $\Sigma_{yy}(\tau)=\Sigma_{yy}(-\tau)=\Sigma_{yy}(|\tau|)$ and so is $\rho_{yy}(\tau)=\rho_{yy}(-\tau)=\rho_{yy}(|\tau|)$
 
 **Simulated example**
 
@@ -172,15 +181,21 @@ The random processes (noise processes) explained are:
 
 * ARMA(p,q) process
 
-$$y_t = \sum_{i=1}^p \beta_iy_{t-i}+e_t+\sum_{i=1}^q\theta_ie_{t-1}$$
+$$
+y_t = \sum_{i=1}^p \beta_iy_{t-i}+e_t+\sum_{i=1}^q\theta_ie_{t-1}
+$$
 
 * AR(p) process
 
-$$y_t = \sum_{i=1}^p \beta_iy_{t-i}+e_t$$
+$$
+y_t = \sum_{i=1}^p \beta_iy_{t-i}+e_t
+$$
 
 * MA(q) process
 
-$$y_t = e_t+\sum_{i=1}^q\theta_ie_{t-1}$$
+$$
+y_t = e_t+\sum_{i=1}^q\theta_ie_{t-1}
+$$
 
 * The parameters of these stochastic processes should be estimated (e.g. by LSE or MLE)
 
@@ -188,7 +203,7 @@ $$y_t = e_t+\sum_{i=1}^q\theta_ie_{t-1}$$
 
 On this worked example, we will try to show that single differencing induces an MA(1). Let us consider
 
-$$y=\begin{bmatrix}y_1\\ y_2\\ ...\\ y_m\end{bmatrix}, \hspace{10px} Q_{yy}=\sigma_\omega^2\begin{bmatrix}1&0&...&0\\ 0&1&...&0\\ ...&...&...&...\\ 0&0&...&1\end{bmatrix}=\sigma^2_\omega I_m$$
+$$y=\begin{bmatrix}y_1\\ y_2\\ ...\\ y_m\end{bmatrix}, \hspace{10px} \Sigma_{yy}=\sigma_\omega^2\begin{bmatrix}1&0&...&0\\ 0&1&...&0\\ ...&...&...&...\\ 0&0&...&1\end{bmatrix}=\sigma^2_\omega I_m$$
 
 Having $\Delta y_1 = y_1$, then:
 
@@ -200,11 +215,11 @@ $$\begin{bmatrix}\Delta y_2\\ \Delta y_3\\ ...\\ \Delta y_m\end{bmatrix} = \begi
 
 Therefore:
 
-$$Q_{\Delta y\Delta y}=TQ_{yy}T^T = T\sigma_\omega^2I_mT^T=\sigma_\omega^2TT^T$$
+$$\Sigma_{\Delta y\Delta y}=T\Sigma_{yy}T^T = T\sigma_\omega^2I_mT^T=\sigma_\omega^2TT^T$$
 
 which can simplify to:
 
-$$Q_{\Delta y\Delta y} = \sigma_\omega^2TT^T = 2\sigma_\omega^2\begin{bmatrix}1&-0.5&0&...&0\\ -0.5&1&-0.5&...&0\\ 0&-0.5&1&...&0\\ ...&...&...&...&...\\ 0&0&0&...&1\end{bmatrix}$$
+$$\Sigma_{\Delta y\Delta y} = \sigma_\omega^2TT^T = 2\sigma_\omega^2\begin{bmatrix}1&-0.5&0&...&0\\ -0.5&1&-0.5&...&0\\ 0&-0.5&1&...&0\\ ...&...&...&...&...\\ 0&0&0&...&1\end{bmatrix}$$
 
 Now we need to find the value of $\theta$ to get $\Delta y_t$. Therefore:
 
