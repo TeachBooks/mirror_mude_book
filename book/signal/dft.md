@@ -1,3 +1,4 @@
+(dft)=
 # Discrete Fourier Transform (DFT)
 
 ## Discrete time Fourier Transform (DTFT)
