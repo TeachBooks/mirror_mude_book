@@ -14,7 +14,7 @@ $$\mathbb{E}(Y(t))=\mathbb{E}(Y_t)=\mu$$
 * Covariance of the process is independent of $t$ for each time shift $\tau$:
 
 $$
-Cov(Y_t,Y_{t-\tau})=\mathbb{E}((y_t-\mu)(y_{t-\tau}-\mu))=c_\tau
+Cov(Y_t,Y_{t-\tau})=\mathbb{E}((Y_t-\mu)(Y_{t-\tau}-\mu))=c_\tau
 $$
 
 * The variance (i.e., $\tau=0$) is then also constant with respect to time :
@@ -209,7 +209,9 @@ The null hypothesis assumes that the time series consists of non-stationary nois
 
 The test statistic is (which can be tested in a given confidence level) given by:
 
-$$T_{ADF}=\frac{\hat{\gamma}}{\sigma_{\hat{\gamma}}}$$
+$$
+T_{ADF}=\frac{\hat{\gamma}}{\sigma_{\hat{\gamma}}}
+$$
 
 The test statistic, $T_{ADF}$ is a **negative number**. The more negative it is, the stronger the rejection of the hypothesis, and hence the more level of confidence that the series is a stationary process.
 

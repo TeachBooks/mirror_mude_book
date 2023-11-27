@@ -44,7 +44,15 @@ where $e_t$ is an i.i.d. noise process, e.g. distributed as $e_t\sim\mathbb{N}(0
 
 Initializing $y_1=e_1$, with $\mathbb{E}(y_1)=\mathbb{E}(e_1)=0$ and $\mathbb{D}(y_1)=\mathbb{D}(e_1)=\sigma^2$. Following this, multiple applications of the above "autoregressive" formula ($y_t = \beta y_{t-1} + e_t$) give:
 
-$$\begin{align*}y_1=e_1\\ y_2=\beta y_1+e_2\\ y_3 = \beta y_2+e_3 = \beta^2y_1+\beta e_2+e_3\\ ...\\ y_m = \beta y_{m-1} + e_m = \beta^{m-1}y_1+\beta^{m-2}e_2+...+\beta e_{m-1}+e_m\end{align*}$$
+$$
+\begin{align*}
+y_1&=e_1\\ 
+y_2&=\beta y_1+e_2\\ 
+y_3 &= \beta y_2+e_3 = \beta^2y_1+\beta e_2+e_3\\ 
+&\vdots\\ 
+y_m &= \beta y_{m-1} + e_m = \beta^{m-1}y_1+\beta^{m-2}e_2+...+\beta e_{m-1}+e_m
+\end{align*}
+$$
 
 of which we still have (to impose the *stationarity*):
 

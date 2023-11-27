@@ -182,15 +182,22 @@ $$y_t = \beta y_{t-1}+e_t, \hspace{30px} 0\leq\beta<1, \hspace{30px} t=2,...,m$$
 
 where $e_t$ is an i.i.d noise process (e.g. distributed as $e_t\sim\mathbb{N}(0,\sigma_e^2)$). Multiple applications of the above *autoregressive* formula give
 
-$$\begin{align*}&y_t=y_t\\ &y_{t+1} = \beta y_t + e_{t+1}\\ &y_{t+2}=\beta y_{t+1} + e_{t+2} = \beta^2 y_t + \beta e_{t+1} + e_{t+2}\\ &...\end{align*}$$
+$$\begin{align*}
+y_t&=y_t\\ 
+y_{t+1} &= \beta y_t + e_{t+1}\\ 
+y_{t+2}&=\beta y_{t+1} + e_{t+2} = \beta^2 y_t + \beta e_{t+1} + e_{t+2}\\ &\vdots \end{align*}$$
 
 We can show that the covariance between $y_t$ and $y_{t+1}$ is
 
-$$\text{cov}(y_t, y_{t+1}) = \mathbb{E}(y_t, y_{t+1}) = \sigma^2\beta$$
+$$
+Cov(y_t, y_{t+1}) = \mathbb{E}(y_t, y_{t+1}) = \sigma^2\beta
+$$
 
 We can also show that the covariance between $y_t$ and $y_{t+2}$ is
 
-$$\text{cov}(y_t, y_{t+2}) = \mathbb{E}(y_t, y_{t+2}) = \sigma^2\beta^2$$
+$$
+Cov(y_t, y_{t+2}) = \mathbb{E}(y_t, y_{t+2}) = \sigma^2\beta^2
+$$
 
 ### Worked example
 Let us now take a look into a worked example on PACF to remove the intervening term, $\beta y_{t+1}$ between $y_t$ and $y_{t+2}$. As we saw before, ACF can be obtained from
