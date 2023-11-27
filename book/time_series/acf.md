@@ -195,7 +195,7 @@ $$\hat{\rho}_{yy}(\tau=1) = \hat{\rho}(1)=0.4$$
 
 and
 
-$$\hat{\rho}(1) \sim \mathbb{N}(\rho(1),\sigma^2_{\hat{\rho}(1)})
+$$\hat{\rho}(1) \sim \mathbb{N}(\rho(1),\sigma^2_{\hat{\rho}(1)})$$
 
 where
 

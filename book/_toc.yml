@@ -142,46 +142,50 @@ parts:
       - file: fem/discrete.ipynb
         title: Discrete form
       - file: fem/matrix.ipynb
-        title: Matrix form
+        title: Finite element implementation
       - file: fem/shape.md
         title: Elements and shape functions
       - file: fem/videos.md
         title: Videos (summary and additional material)
-
-  # START REMOVE-FROM-PUBLISH 
-  - caption: Signal Processing
-    chapters:
-    - file: signal/overview
-      title: Overview
-    - file: signal/fourier_real
-      title: Fourier Series (Real)
-    - file: signal/fourier_complex
-      title: Fourier Series (Complex)
-    - file: signal/fourier_transf
-      title: Fourier Transform
-    - file: signal/sampling
-      title: Sampling
-    - file: signal/dft
-      title: Discrete Fourier Transform (DFT)
-    - file: signal/spectral_est
-      title: Spectral Estimation
-
-  - caption: Time Series Analysis
-    chapters:
-    - file: time_series/overview
-      title: Overview
-    - file: time_series/types
-      title: "Types of Time Series"
-    - file: time_series/stationarity
-      title: "Stationarity"
-    - file: time_series/acf
-      title: "Auto-covariance function (ACF)"
-    - file: time_series/arma
-      title: "Auto-Regressive Moving Average (ARMA) process"
-    - file: time_series/modelling
-      title: "Time Series modelling and estimation"
-    - file: time_series/forecasting
-      title: "Time Series forecasting"
+   
+    - file: signal/intro.md
+      title: Signal Processing
+      sections:
+      - file: signal/fourier_real
+        title: Fourier Series
+        sections:
+        - file: signal/fourier_nb
+          title: Square Wave Example
+      - file: signal/fourier_complex
+        title: Complex Fourier Series
+      - file: signal/fourier_transf
+        title: Fourier Transform
+      - file: signal/sampling
+        title: Sampling
+      - file: signal/dft
+        title: Discrete Fourier Transform
+      - file: signal/spectral_est
+        title: Spectral Estimation
+      - file: signal/videos
+        title: Supplementary Videos
+  # START REMOVE-FROM-PUBLISH
+    - file: time_series/intro.md
+      title: Time Series Analysis
+      sections:
+      - file: time_series/types
+        title: "Types of Time Series"
+      - file: time_series/stationarity
+        title: "Stationarity"
+      - file: time_series/acf
+        title: "Auto-covariance function (ACF)"
+      - file: time_series/arma
+        title: "Auto-Regressive Moving Average (ARMA) process"
+      - file: time_series/modelling
+        title: "Time Series modelling and estimation"
+      - file: time_series/forecasting
+        title: "Time Series forecasting"
+      - file: time_series/videos
+        title: Supplementary Videos
       
   - caption: Optimization
     numbered: 2
@@ -287,7 +291,6 @@ parts:
       - file: pd/notebooks/flood-risk/Exercise_Flood_Risk_Render.ipynb
       - file: pd/notebooks/contamination/Exercise_Contamination_Render.ipynb
       - file: pd/notebooks/traffic/Exercise_Traffic_Render.ipynb
-    - file: references.md
   # END REMOVE-FROM-PUBLISH
 
   - caption: Programming
@@ -399,18 +402,7 @@ parts:
       - file: sandbox/multivariate/Multivariate.ipynb
       - file: sandbox/multivariate/Vessels.ipynb
 
-  - caption: Numerical Modelling
-    chapters:
-    - file: sandbox/1-5-NumericalMethods/1-numerical-solns.ipynb
-    - file: sandbox/1-5-NumericalMethods/2-numerical-interp.ipynb
-    - file: sandbox/1-5-NumericalMethods/3-taylor-series.ipynb
-    - file: sandbox/1-5-NumericalMethods/1-numerical-derivatives.ipynb
-    - file: sandbox/1-5-NumericalMethods/2-simple-ODE-solver.ipynb
-    - file: sandbox/1-5-NumericalMethods/3-second-order-ODE-solver.ipynb
-    - file: sandbox/1-5-NumericalMethods/1-general-solvers.ipynb
-    - file: sandbox/1-5-NumericalMethods/2-implicit-ode-solver.ipynb
   
-
   - caption: MUDE Cookbook
     chapters:
     - file: cookbook/overview

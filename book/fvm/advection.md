@@ -81,7 +81,7 @@ $$
 
 ### Finite Volume Specification
 
-The $x$-domain will be divided into six finite volumes, shown in {numref}`adv2`, numbered 1 through 6 from left to right, such that the volume number refers to the $x$-coordinate of the geometric center. For example, volume 3 is located with center at $x_1$. The quantity $\phi$ will only being calculated at the center of the finite volume, $\phi(x_i)$.
+The $x$-domain will be divided into six finite volumes, shown in {numref}`adv2`, numbered 1 through 6 from left to right, such that the volume number refers to the $x$-coordinate of the geometric center. For example, volume 3 is located with center at $x_3$. The quantity $\phi$ will only being calculated at the center of the finite volume, $\phi(x_i)$.
 
 ```{figure} ./figs/advection2.png
 ---
