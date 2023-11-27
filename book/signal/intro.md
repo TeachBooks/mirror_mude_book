@@ -1,3 +1,4 @@
+(SP)=
 # Signal Processing
 
 The goal of this week is to be able to identify and analyze frequency components in a signal; this is referred to as _spectral analysis._ The following chapters are told in a story-like sequence that will guide you through this process naturally.
