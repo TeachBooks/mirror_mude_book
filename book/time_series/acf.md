@@ -104,7 +104,8 @@ $$
 * If $m$ is sufficiently large, $\hat{\rho}_{\tau}$ is normally distributed as
 
 $$
-\hat{\rho}_{\tau} \sim \mathbb{N}(\rho_{\tau},\sigma^2_{\hat{\rho}_{\tau}})$$
+\hat{\rho}_{\tau} \sim N(\rho_{\tau},\sigma^2_{\hat{\rho}_{\tau}})
+$$
 
 ### Worked example
 
@@ -117,7 +118,7 @@ $$
 We know that 
 
 $$
-\hat{\rho}_1 \sim \mathbb{N}(\rho_1,\sigma^2_{\hat{\rho}_1})
+\hat{\rho}_1 \sim N(\rho_1,\sigma^2_{\hat{\rho}_1})
 $$
 
 with $\rho_1$ unknown and
@@ -180,7 +181,7 @@ Let us assume that we have an autoregressive noise process of order one, AR(1),
 
 $$y_t = \beta y_{t-1}+e_t, \hspace{30px} 0\leq\beta<1, \hspace{30px} t=2,...,m$$
 
-where $e_t$ is an i.i.d noise process (e.g. distributed as $e_t\sim\mathbb{N}(0,\sigma_e^2)$). Multiple applications of the above *autoregressive* formula give
+where $e_t$ is an i.i.d noise process (e.g. distributed as $e_t\simN(0,\sigma_e^2)$). Multiple applications of the above *autoregressive* formula give
 
 $$\begin{align*}
 y_t&=y_t\\ 
@@ -239,37 +240,3 @@ $$\hat{Q}_{yy}(\tau) = \hat{\sigma}(\tau) = \frac{\sum_{i=1}^{m-\tau}(y_i-\mu_y)
 $$\hat{\rho}_{yy}(\tau) = \hat{\rho}_\tau = \frac{\hat{\sigma}(\tau)}{\hat{\sigma}(0)}, \hspace{20px}\tau = 0,...,m-1 \implies \hat{\rho}_{yy}(0) = 1$$
 
 The partial ACF (pure correlation) considers removing the intervening observations.
-
-
-
-
-
-MMMMM Below part not to be included (was at start of this section)
-
-## Cross-covariance and cross-correlation
-
-In general, *formal* and *empirical* cross-covariance and cross-correlation functions can be defined. Let us assume an arbitrary time series, $y=[y_1,y_2m,...,y_m]$, with mean $\mathbb{E}(y)=\mu_y$ and $x=[x_1,x_2,...,x_m]$, with mean $\mathbb{E}(x)=\mu_x$.
-
-* The *formal* cross-covariance (between $x$ and $y$) is defined as (both $t$ and $\tau$ are integer indices)
-
-$$\text{cov}(x_t, y_{t-\tau}) = Q_{xy}(\tau) = \sigma_{xy}(t) = \mathbb{E}((x_t-\mu_x)(y_{t-\tau}-\mu_y))$$
-
-* The *formal* cross-correlation (between $x$ and $y$) is defined as
-
-$$\text{corr}(x_t, y_{t-\tau}) = R_{xy}(\tau) = \mathbb{E}(x_t, y_{t-\tau})$$
-
-Let us look to 2 practical examples:
-
-* If $\tau=0$, we have $\text{cov}(0) = Q_{xy}(0)$
-
-$$\begin{bmatrix}x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & ... & ...\\ y_1 & y_2 & y_3 & y_4 & y_5 & y_6 & ... & ...\end{bmatrix}$$
-
-* If $\tau=1$, we have $\text{cov}(1) = Q_{xy}(1)$
-
-$$\begin{bmatrix}x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & ... & ...\\ - & y_1 & y_2 & y_3 & y_4 & y_5 & y_6 & ...\end{bmatrix}$$
-
-
-
-$$
-\rho_{\tau} = \frac{Cov(Y_t, Y_{t-\tau})}{\sqrt{Var(Y_t)}\sqrt{Var(Y_{t-\tau}})} = \frac{c_{\tau}}{\sigma^2}
-$$
