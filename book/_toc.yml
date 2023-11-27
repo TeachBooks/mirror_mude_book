@@ -196,8 +196,12 @@ parts:
     - file: optimization/general
     - file: optimization/taxonomy
     - file: optimization/sand_and_clay
+      sections:
+      - file: optimization/claysand.ipynb
+        title: Implementation in Python
     - file: optimization/airlines
     - file: optimization/performance
+    - file: optimization/videos
 
   - caption: Machine Learning
     numbered: 2

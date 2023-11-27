@@ -30,7 +30,11 @@ subject to:
 * $50x_1+13x_2\leq 200$: maximum of 5 (men) x 40 hours of driving time available per week per worker
 * $x_1,x_2\geq 0$: the production must be positive!
 
-## Solution
+:::{card} Quiz questions
+<iframe src="https://tudelft.h5p.com/content/1292120485436114287/embed" aria-label="2_3_2_1_Sand_and_clay" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+:::
+
+### Solution
 
 The abovementioned constraints define the **feasible region** of the solution space. The feasible region is represented by the yellow polygon on the graph below
 
@@ -72,3 +76,7 @@ If we do the same for the remaining vertices, for example, we confirm that the o
 * $\mu_2=\left(\frac{35}{12},\frac{25}{6}\right)\implies L = 416.5$
 * $\mu_3=(4,0)\implies L=228$
 * $\mu_4=(0,0)\implies L=0$
+
+:::{card} Quiz questions
+<iframe src="https://tudelft.h5p.com/content/1292121213033110307/embed" aria-label="2_3_2_2_graphical_solution_method" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+:::
