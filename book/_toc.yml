@@ -147,24 +147,28 @@ parts:
         title: Elements and shape functions
       - file: fem/videos.md
         title: Videos (summary and additional material)
-  # START REMOVE-FROM-PUBLISH 
+   
     - file: signal/intro.md
       title: Signal Processing
       sections:
       - file: signal/fourier_real
-        title: Fourier Series (Real)
+        title: Fourier Series
+        sections:
+        - file: signal/fourier_nb
+          title: Square Wave Example
       - file: signal/fourier_complex
-        title: Fourier Series (Complex)
+        title: Complex Fourier Series
       - file: signal/fourier_transf
         title: Fourier Transform
       - file: signal/sampling
         title: Sampling
       - file: signal/dft
-        title: Discrete Fourier Transform (DFT)
+        title: Discrete Fourier Transform
       - file: signal/spectral_est
         title: Spectral Estimation
       - file: signal/videos
         title: Supplementary Videos
+  # START REMOVE-FROM-PUBLISH
     - file: time_series/intro.md
       title: Time Series Analysis
       sections:
@@ -188,6 +192,16 @@ parts:
     chapters:
     - file: optimization/overview
       title: Overview
+    - file: optimization/origins
+    - file: optimization/general
+    - file: optimization/taxonomy
+    - file: optimization/sand_and_clay
+      sections:
+      - file: optimization/claysand.ipynb
+        title: Implementation in Python
+    - file: optimization/airlines
+    - file: optimization/performance
+    - file: optimization/videos
 
   - caption: Machine Learning
     numbered: 2
@@ -392,18 +406,7 @@ parts:
       - file: sandbox/multivariate/Multivariate.ipynb
       - file: sandbox/multivariate/Vessels.ipynb
 
-  - caption: Numerical Modelling
-    chapters:
-    - file: sandbox/1-5-NumericalMethods/1-numerical-solns.ipynb
-    - file: sandbox/1-5-NumericalMethods/2-numerical-interp.ipynb
-    - file: sandbox/1-5-NumericalMethods/3-taylor-series.ipynb
-    - file: sandbox/1-5-NumericalMethods/1-numerical-derivatives.ipynb
-    - file: sandbox/1-5-NumericalMethods/2-simple-ODE-solver.ipynb
-    - file: sandbox/1-5-NumericalMethods/3-second-order-ODE-solver.ipynb
-    - file: sandbox/1-5-NumericalMethods/1-general-solvers.ipynb
-    - file: sandbox/1-5-NumericalMethods/2-implicit-ode-solver.ipynb
   
-
   - caption: MUDE Cookbook
     chapters:
     - file: cookbook/overview

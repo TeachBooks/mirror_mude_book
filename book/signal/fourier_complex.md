@@ -10,9 +10,7 @@ where the coefficients can be found as:
 
 $$\begin{gather*}a_0=\frac{1}{T_0}\int_{T_0}x(t)dt\\ a_k = \frac{2}{T_0}\int_{T_0}x(t)\cos(k\omega_0 t)dt, \hspace{10px}\text{with } k\in\mathbb{N}^+\\ b_k = \frac{2}{T_0}\int_{T_0}x(t)\sin(k\omega_0 t)dt, \hspace{10px}\text{with } k\in\mathbb{N}^+\end{gather*}$$
 
-Now the same signal decomposition, but in a different form using complex algebra as commonly done in spectral analysis of signals, will be used.
-
----
+Now the _same_ signal decomposition, but _in a different form_ using complex algebra as commonly done in spectral analysis of signals, will be used.
 
 ### Complex Algebra
 
@@ -36,9 +34,14 @@ First equation is known as **synthesis** equation of Fourier Series, as in contr
 
 $$X_k=\frac{1}{T_0}\int_{T_0}x(t)e^{-jk\omega_0 t}dt, \hspace{10px}k\in\mathbb{Z}$$
 
-Second equation is known as analysis equation of Fourier Series, as it allows us to analyse how signal can be represented by complex exponential basis functions (where index $k$ refers to frequency $k\omega_0$).
+Second equation is known as **analysis** equation of Fourier Series, as it allows us to analyze how signal can be represented by complex exponential basis functions (where index $k$ refers to frequency $k\omega_0=k2\pi f_0$).
 
-### Derivation
+:::{card} Derivation
+
+```{admonition} MUDE Exam Information
+:class: tip, dropdown
+This derivation is provided for additional insight and will not be part of the exam.
+```
 
 Start by substituting the complex exponential forms of both <font color='red'>$\cos(k\omega_0 t)$</font> and <font color='green'>$\sin(k\omega_0 t)$</font> into trigonometric series:
 
@@ -55,6 +58,7 @@ $$x(t)=\sum_{k=-\infty}^{\infty}X_ke^{jk\omega_0 t}$$
 where
 
 $$X_k=\frac{1}{T_0}\int_{T_0}x(t)e^{-jk\omega_0 t}dt, \hspace{10px}k\in\mathbb{Z}$$
+:::
 
 ### Coefficients
 
@@ -81,7 +85,7 @@ and we find:
 * **Magnitude** $|X_k|=\frac{1}{2}\sqrt{a_k^2+b_k^2}$, k>0
 * **Argument** $\theta_k=\arctan\left(-\frac{b_k}{a_k}\right)$, k>0
 
-Note that for real signals $|X_k|=|X_{-k}|$ and $\theta_k=-\theta_{-k}$
+Note that for real signals $x(t)$, as we use in this practical course, $|X_k|=|X_{-k}|$ and $\theta_k=-\theta_{-k}$
 
 ## Line Spectra
 
@@ -102,7 +106,7 @@ Real and complex Fourier coefficients are shown below
 
 ![coeffs](./figs/coeffs.png "coeffs")
 
-### Summary
+## Summary
 
 The complex exponential Fourier series is given by
 

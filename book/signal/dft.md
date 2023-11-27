@@ -27,7 +27,7 @@ $$X_s(f)=\sum_{n=-\infty}^{\infty}\Delta tx_ne^{-j2\pi fn\Delta t}$$
 
 Sampled signal $x_s(t)$ is a sequence $x_n$ with $n=\{-\infty,...,\infty\}$, so values $x_n=x(n\Delta t)$ at discrete times $t=n\Delta t$ (with $n\in\mathbb{Z}$).
 
-We consider it only for time duration $T=N\Delta t$, resulting in just N samples; effectively this means applying a window $\Pi\left(\frac{t}{T}\right)$; in practice we set the signal to zero outside window, hence: $x_{SW}(t)=\Pi\left(\frac{t}{T}\right)x_s(t)$
+We consider it only for time duration $T=N\Delta t$, resulting in just N samples; effectively this means applying a window $\Pi\left(\frac{t}{T}\right)$; in practice we set the signal to zero outside window, hence: $x_{sw}(t)=\Pi\left(\frac{t}{T}\right)x_s(t)$
 
 This means $x_n$ with $n=0,...,N-1$ has **finite length**
 
@@ -43,41 +43,41 @@ and the *largest* frequency is related to the sampling frequency by $f_s=\frac{1
 
 $$f=0,\frac{1}{N}f_s,\frac{2}{N}f_s,...,\frac{N-1}{N}f_s$$
 
----
-
 This results in the so-called **Discrete Fourier Transform (DFT)**. DFT turns $N$ samples of signal $x(t)$ into $N$ samples of spectrum $X_{sw}(f)$:
 
 $$x(n\Delta t) \leftrightarrow X_{sw}(kf_0)$$
 
 with both $n$ and $k\in\{0,1,...,N-1\}$.
 
-### Frequency sampling (background)
+```{admonition} Frequency sampling (background information)
+:class: tip
 
 By default, analysis frequencies are $f=0,\frac{1}{N}f_s$,$\frac{2}{N}f_s,...,\frac{N-1}{N}f_s$ or, in terms of the sampling duration, $T$: $f=0,\frac{1}{T},\frac{2}{T},...,\frac{N-1}{T}$
 
-The sampling spectrum at interval of $\frac{1}{T}$ Hz turns sampled time signal into *periodic* (instead of windowed) signal with period $T$. This choice causes DFT to turn $N$ samples of $x(t)$ into $N$ samples of $X_{sw}(f)$.
+Sampling the spectrum at interval of $\frac{1}{T}$ Hz turns sampled time signal into *periodic* (instead of windowed) signal with period $T$. This choice causes DFT to turn $N$ samples of $x(t)$ into $N$ samples of $X_{sw}(f)$.
 
 Sampling frequency at *higher* rate (smaller interval in frequency) is possible. On the other hand, sampling at *lower* rate is **not allowed**. A longer interval of, e.g. $\frac{2}{T}$ Hz would cause the signal to repeat every $\frac{T}{2}$, thus causing **aliasing** in the time domain
-
----
+```
 
 Going back to our action items:
 
 **Action item 1**:
 
-Sampled, windowed signal $x_{sw}(t)$ equals sequence $x_n$ with $n=0,1,...,N-1$. Then, $X_{sw}(f)=\int_{-\infty}^{\infty}x_{sw}(t)e^{-j2\pi ft}dt$, which we discretize into:
+Sampled, windowed signal $x_{sw}(t)$ equals sequence $x_n$ with $n=0,1,...,N-1$. Then, $X_{sw}(f)=\int_{-\infty}^{\infty}x_{sw}(t)e^{-j2\pi ft}dt$, which we discretize with step size $\Delta t$ into:
 
-$$X_{sw}(f)=\sum_{n=0}^{N-1}\Delta tx_ne^{-j2\pi fn\Delta t}$$
+$$X_{sw}(f)=\sum_{n=0}^{N-1}\Delta t\,x_ne^{-j2\pi fn\Delta t}$$
 
 **Action item 2**:
 
 Finally, we sample the frequency spectrum, turning $X_{sw}(f)$ into $X_{sws}(f)$ by considering only $f=k\Delta f$ with $\Delta f=f_0=\frac{1}{T}=\frac{1}{N\Delta t}=\frac{f_s}{n}$ and $k=0,1,...,N-1$:
 
-$$X_{sws}(k\Delta f)=\Delta t\sum_{n=0}^{N-1}x_ne^{-j2\pi k\Delta fn\Delta t}=\Delta t\sum_{n=0}^{N-1}x_ne^{-j\frac{2\pi}{N}kn},\hspace{5px}\text{with }k\in\mathcal{Z}$$
+$$X_{sws}(k\Delta f)=\Delta t\sum_{n=0}^{N-1}x_ne^{-j2\pi k\Delta fn\Delta t}=\Delta t\sum_{n=0}^{N-1}x_ne^{-j\frac{2\pi}{N}kn},\hspace{5px}\text{with }k\in\mathbb{Z}$$
 
 Hence sequence $X_k$ equals $X_{sws}(f)$ at $f=k\Delta f$ for $k=0,1,...,N-1$:
 
 $$X_k=\Delta t\sum_{n=0}^{N-1}x_ne^{-j\frac{2\pi}{N}kn}$$
+
+This is the discrete Fourier transform (DFT), typically implemented in software packages as `fft` (in Python, we will use `numpy.fft.fft`).
 
 ## Inverse Fourier Transform (IDFT)
 
@@ -95,11 +95,9 @@ $$\begin{gather*}X_k=\Delta t\sum_{n=0}^{N-1}x_ne^{-j\frac{2\pi}{N}kn}\\ x_n=\fr
 
 with both $k$ and $n\in\{0,1,...,N-1\}$
 
-With $X_k$, we consider function $X(k\Delta f)$ by restoring *frequency dimension*, frequency resolution, $Delta f=f_0=\frac{1}{T}=\frac{1}{N\Delta t}=\frac{f_s}{N}$
+With $X_k$, we consider function $X(k\Delta f)$ by restoring *frequency dimension*, frequency resolution, $\Delta f=f_0=\frac{1}{T}=\frac{1}{N\Delta t}=\frac{f_s}{N}$
 
-With $x_n$, we consider function $x(n\Delta t)$ by restoring time dimension, with time resolution $Delta t=\frac{1}{f_s}$
-
----
+With $x_n$, we consider function $x(n\Delta t)$ by restoring time dimension, with time resolution $\Delta t=\frac{1}{f_s}$
 
 In many textbooks we also find DFT as:
 
