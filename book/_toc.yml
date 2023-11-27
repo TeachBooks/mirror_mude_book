@@ -188,6 +188,12 @@ parts:
     chapters:
     - file: optimization/overview
       title: Overview
+    - file: optimization/origins
+    - file: optimization/general
+    - file: optimization/taxonomy
+    - file: optimization/sand_and_clay
+    - file: optimization/airlines
+    - file: optimization/performance
 
   - caption: Machine Learning
     numbered: 2
