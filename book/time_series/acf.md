@@ -175,7 +175,13 @@ Inversely, the inverse discrete Fourier transform (IDFT) of the PSD is the ACF, 
 
 $$\text{IDFT}(S_{yy}(k))=\hat{c}_{\tau}, \hspace{35px} \tau = 1,...,m \hspace{5px}\text{and}\hspace{5px} k = 1,...,m$$
 
-MMMMM Add figure + explanation from slides
+```{figure} ./figs/ACF_PSD.png
+---
+height: 300px
+name: ACF_PSD
+---
+Time series data, auto-covariance and its power spectral density plots of white noise above and colored noise (not purely random) below.
+```
 
 :::{card} **Partial ACF**
 
