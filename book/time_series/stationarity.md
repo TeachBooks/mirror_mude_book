@@ -51,27 +51,27 @@ $$
     \Delta Y_1 \\ \Delta Y_2 \\ \Delta Y_3 \\ ... \\ \Delta Y_m
 \end{bmatrix} = 
 \begin{bmatrix}
-    1 & 0 & 0 & \dots & 0\\
-    -1 & 1 & 0 & \dots & 0\\
-    0 & -1 & 1 & \dots & 0\\
-    \vdots & \vdots &\vdots & \ddots & \vdots \\
-    0 & 0 & 0 & -1 & 1
+    1 & 0 &   & \dots & 0\\
+    -1 & 1 & 0 &   &  \\
+    0 & -1 & 1 & \ddots & \\
+    \vdots & \ddots &\ddots & \ddots & 0 \\
+    0 & \dots & 0 & -1 & 1
 \end{bmatrix}
 \begin{bmatrix}
-    Y_1\\ Y_2\\ Y_3\\ ...\\ Y_m
+    Y_1\\ Y_2\\ Y_3\\ \vdots\\ Y_m
 \end{bmatrix}\Longleftrightarrow
 \begin{bmatrix}
-    Y_1\\ Y_2\\ Y_3\\ ...\\ Y_m
+    Y_1\\ Y_2\\ Y_3\\ \vdots \\Y_m
 \end{bmatrix} = 
 \begin{bmatrix}
     1 & 0 & 0 & \dots & 0\\
     1 & 1 & 0 & \dots & 0\\
-    1 & 1 & 1 & \dots & 0\\
-    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    1 & 1 & 1 &  & \vdots\\
+    \vdots & \vdots & \vdots & \ddots &0\\
     1 & 1 & 1 & 1 & 1
 \end{bmatrix}
 \begin{bmatrix}
-    \Delta Y_1 \\ \Delta Y_2 \\ \Delta Y_3 \\ ... \\ \Delta Y_m
+    \Delta Y_1 \\ \Delta Y_2 \\ \Delta Y_3 \\ \vdots \\ \Delta Y_m
 \end{bmatrix}
 $$
 
@@ -80,7 +80,7 @@ $$
 Let us consider the following time series
 
 $$
-Y_t = y_0+vt+\epsilon_t
+Y_t = y_0+rt+\epsilon_t
 $$
 
 This time series is non-stationary, due to the presence of a linear trend (the expectation is a function of $t$).
@@ -89,29 +89,29 @@ Now we will apply single differencing to the time series:
 
 $$
 \begin{align*}
-\Delta Y_t = Y_t-Y_{t-1} &= y_0+vt+\epsilon_t-(Y_0+v(t-1)+\epsilon_{t-1}) \\
-&= v+\Delta \epsilon_t
+\Delta Y_t = Y_t-Y_{t-1} &= y_0+rt+\epsilon_t-(Y_0+r(t-1)+\epsilon_{t-1}) \\
+&= r+\Delta \epsilon_t
 \end{align*}
 $$
 
-It follows that $\mathbb{E}(\Delta Y_t)=v$, and therefore not a function of $t$ anymore.
+It follows that $\mathbb{E}(\Delta Y_t)=r$, and therefore not a function of $t$ anymore.
 
 Now consider
 
 $$
-Y_t = y_0+vt+at^2+\epsilon_t
+Y_t = y_0+rt+at^2+\epsilon_t
 $$
 
 We again apply single differencing:
 
 $$
 \begin{align*}
-\Delta Y_t = Y_t-Y_{t-1} &= y_0+vt+at^2+\epsilon_t-(Y_0+v(t-1)+a(t-1)^2+\epsilon_{t-1}) \\
-&= v-a+2at+\Delta \epsilon_t
+\Delta Y_t = Y_t-Y_{t-1} &= y_0+rt+at^2+\epsilon_t-(Y_0+r(t-1)+a(t-1)^2+\epsilon_{t-1}) \\
+&= r-a+2at+\Delta \epsilon_t
 \end{align*}
 $$
 
-In this case we find that $\mathbb{E}(\Delta Y_t)=v-a+2at$, which is still a function of $t$ and therefore not stationary. The solution would be to continue the process, which is referred to as *double differencing*:
+In this case we find that $\mathbb{E}(\Delta Y_t)=r-a+2at$, which is still a function of $t$ and therefore not stationary. The solution would be to continue the process, which is referred to as *double differencing*:
 
 $$
 \Delta^2 Y_t = \Delta Y_t - \Delta Y_{t-1}
@@ -119,14 +119,14 @@ $$
 
 :::{card} Exercise
 
-Show for yourself that applying double differencing to the time series $Y_t = y_0+vt+at^2+\epsilon_t$ results in a stationary time series $\Delta^2 Y_t$.
+Show for yourself that applying double differencing to the time series $Y_t = y_0+rt+at^2+\epsilon_t$ results in a stationary time series $\Delta^2 Y_t$.
 
 ```{admonition} Solution
 :class: tip, dropdown
 
 $$
 \begin{align*}
-\Delta^2 Y_t = \Delta Y_t-\Delta Y_{t-1} &= v-a+2at+\Delta \epsilon_t-(v-a+2a(t-1)+\Delta \epsilon_{t-1}) \\&= 2a+\Delta^2\epsilon_t
+\Delta^2 Y_t = \Delta Y_t-\Delta Y_{t-1} &= r-a+2at+\Delta \epsilon_t-(r-a+2a(t-1)+\Delta \epsilon_{t-1}) \\&= 2a+\Delta^2\epsilon_t
 \end{align*}
 $$
 

@@ -90,7 +90,7 @@ $$
 \mathbb{E}(\hat{C}_{\tau}) =  c_\tau
 $$
 
-* The normalized autocovariance fucntioncan directly be obtained from the autocovariance function as
+* The normalized autocovariance fucntion can directly be obtained from the autocovariance function as
  
 $$
 \hat{\rho}_{\tau} = \frac{\hat{C}_{\tau}}{\hat{C_0}}, \hspace{20px}\tau = 0,...,m-1 \implies \hat{\rho}_0 = 1$$
@@ -138,7 +138,7 @@ $$
 T = \frac{\hat{\rho}_1}{\sigma_{\hat{\rho}_1}} \sim N(0,1)
 $$
 
-where we would reject $\mathcal{H}_0$ if $|T|>k_{\alpha}$. With a false alarm rate of $\alpha = 0.01$, we find that the critical value can be obtained from the [table of the standard normal distribution](table_standardnormal). Note that we have a 2-sided critical region, hence we need to look up the value for $0.5\alpha$.
+where we would reject $\mathcal{H}_0$ if $|T|>k_{\alpha}$. With a false alarm rate of $\alpha = 0.01$, we find that the critical value can be obtained from the [table of the standard normal distribution](tabl\epsilon_standardnormal). Note that we have a 2-sided critical region, hence we need to look up the value for $0.5\alpha$.
 
 In this example, we obtain:
 
@@ -157,86 +157,87 @@ MMMMM From here on the notation needs to be updated. An issue may arise with the
 
 ### PSD vs ACF
 
-Knowledge on ACF, in time domain, is mathematically equivalent to knowledge on PSD, in the frequency domain, and vice-versa. And, from here, you might have a clue of where this is taking us... The PSD is the **discrete Fourier transform (DFT)** of the ACF
+Knowledge on ACF, in time domain, is mathematically equivalent to knowledge on PSD, in the frequency domain, and vice-versa. And, from here, you might have a clue of where this is taking us... The PSD is the **discrete Fourier transform (DFT)** of the ACF.
 
-$$\text{DFT}(\hat{\sigma}_{yy}(\tau))=S_{yy}(k), \hspace{35px} \tau = 1,...,m \hspace{5px}\text{and}\hspace{5px} k = 1,...,m$$
+$$\text{DFT}(\hat{c}_{\tau})=S_{yy}(k), \hspace{35px} \tau = 1,...,m \hspace{5px}\text{and}\hspace{5px} k = 1,...,m$$
 
 Writing it out, this means
 
-$$\text{DFT}\left(\frac{1}{m}\sum_{i=1}^my_iy_{i+\tau}\right)=\frac{1}{m\Delta t}Y(k)Y^*(k)=\frac{1}{m\Delta t}|Y(k)|^2$$
+$$\text{DFT}\left(\frac{1}{m}\sum_{i=1}^m y_i y_{i+\tau}\right)=\frac{1}{m\Delta t}Y_s(k) Y_s(k)^*=\frac{1}{m\Delta t}|Y_s(k)|^2$$
 
-where
+where the Fourier coefficients are
 
-$$Y(k) = Y_k = \Delta t\sum_{i=1}^my_ie^{-j\frac{2\pi}{m}(k-1)(i-1)}$$
+$$Y_s(k)  = \Delta t\sum_{i=1}^my_ie^{-j\frac{2\pi}{m}(k-1)(i-1)}$$
+
+```{note}
+In signal processing, it is common to write a sampled (discrete) signal as a small letter $y(t_i)=y_i$ and the Fourier coefficients with capitals $Y_s(f)$. Since we also use capitals to indicate that $Y$ is a random variable, we describe the FFT here for a realization of $Y$, and add the subscript $s$ to the Fourier coefficients.
+```
 
 Inversely, the inverse discrete Fourier transform (IDFT) of the PSD is the ACF, so
 
-$$\text{IDFT}(S_{yy}(k))=\hat{\sigma}(\tau), \hspace{35px} \tau = 1,...,m \hspace{5px}\text{and}\hspace{5px} k = 1,...,m$$
+$$\text{IDFT}(S_{yy}(k))=\hat{c}_{\tau}, \hspace{35px} \tau = 1,...,m \hspace{5px}\text{and}\hspace{5px} k = 1,...,m$$
 
-## Partial ACF
+:::{card} **Partial ACF**
+
+```{admonition} MUDE exam information
+:class: tip, dropdown
+This part is optional and will not be assessed on the exam.
+```
 
 A partial ACF (PACF) is a covariance between an observation in a time series with observations at prior time steps with the relationships of intervening observations removed. We work this out using a simple example.
 
-Let us assume that we have an autoregressive noise process of order one, AR(1),
+Let us assume that we have an autoregressive noise process
 
-$$y_t = \beta y_{t-1}+e_t, \hspace{30px} 0\leq\beta<1, \hspace{30px} t=2,...,m$$
+$$Y_t = \beta Y_{t-1}+\epsilon_t, \hspace{30px} 0\leq\beta<1, \hspace{30px} t=2,...,m$$
 
-where $e_t$ is an i.i.d noise process (e.g. distributed as $e_t\simN(0,\sigma_e^2)$). Multiple applications of the above *autoregressive* formula give
+where $\epsilon_t$ is an i.i.d noise process (e.g. distributed as $\epsilon_t\sim N(0,\sigma^2)$). Multiple applications of the above *autoregressive* formula give
 
 $$\begin{align*}
-y_t&=y_t\\ 
-y_{t+1} &= \beta y_t + e_{t+1}\\ 
-y_{t+2}&=\beta y_{t+1} + e_{t+2} = \beta^2 y_t + \beta e_{t+1} + e_{t+2}\\ &\vdots \end{align*}$$
+Y_t&=Y_t\\ 
+Y_{t+1} &= \beta Y_t + \epsilon_{t+1}\\ 
+Y_{t+2}&=\beta Y_{t+1} + \epsilon_{t+2} = \beta^2 Y_t + \beta \epsilon_{t+1} + \epsilon_{t+2}\\ &\vdots \end{align*}$$
 
-We can show that the covariance between $y_t$ and $y_{t+1}$ is
-
-$$
-Cov(y_t, y_{t+1}) = \mathbb{E}(y_t, y_{t+1}) = \sigma^2\beta
-$$
-
-We can also show that the covariance between $y_t$ and $y_{t+2}$ is
+We can show that the covariance between $Y_t$ and $Y_{t+1}$ is
 
 $$
-Cov(y_t, y_{t+2}) = \mathbb{E}(y_t, y_{t+2}) = \sigma^2\beta^2
+Cov(Y_t, Y_{t+1})  = \sigma^2\beta
 $$
+
+We can also show that the covariance between $Y_t$ and $Y_{t+2}$ is
+
+$$
+Cov(Y_t, Y_{t+2}) =  \sigma^2\beta^2
+$$
+
+Hence, the $Y_t$ and $Y_{t+2}$ are correlated, even though according to the expression $Y_t = \beta Y_{t-1}+\epsilon_t$ should just depend on the previous value. This makes sense, since the previous value again depends on its own previous value, etcetera. However, using the partial ACF allows to 'remove' this correlation.
 
 ### Worked example
-Let us now take a look into a worked example on PACF to remove the intervening term, $\beta y_{t+1}$ between $y_t$ and $y_{t+2}$. As we saw before, ACF can be obtained from
+Let us now take a look into a worked example on PACF to remove the intervening term, $\beta Y_{t+1}$ between $Y_t$ and $Y_{t+2}$. As we saw before, ACF can be obtained from
 
-$$\text{COV} = \text{cov}(y_t, y_{t+2}) = \mathbb{E}(y_t, y_{t+2}) = \sigma^2\beta^2$$
+$$\text{COV} = Cov(Y_t, Y_{t+2}) =  \sigma^2\beta^2$$
 
-Regarding the partial ACF, we know from the autoregression $y_t = \beta y_{t-1}$ that $\hat{y}_t = \hat{y}_{t+2} = \beta y_{t+1}$. Therefore:
+Regarding the partial ACF, it is knowns from the autoregression $Y_t = \beta Y_{t-1}$ that $\hat{Y}_t = \hat{Y}_{t+2} = \beta Y_{t+1}$. Therefore:
 
-$$\text{PCOV} = \text{cov}(y_t-\hat{y}_t,y_{t+2}-\hat{y}_{t+2})=\text{cov}(y_t-\beta y_{t+1},y_{t+2}-\beta y_{t+1})$$
-
-or
-
-$$\text{PCOV} = \mathbb{E}((y_t-\beta y_{t+1})(y_{t+2}-\beta y_{t+1}))$$
+$$\text{PCOV} = Cov(Y_t-\hat{Y}_t,Y_{t+2}-\hat{Y}_{t+2})=Cov(Y_t-\beta Y_{t+1},Y_{t+2}-\beta Y_{t+1})$$
 
 or
 
-$$\text{PCOV} = \mathbb{E}(y_ty_{t+2}-\beta y_t y_{t+1}-\beta y_{t+1}y_{t+2} + \beta^2y_{t+1}^2)$$
+$$\text{PCOV} = \mathbb{E}((Y_t-\beta Y_{t+1})(Y_{t+2}-\beta Y_{t+1}))$$
+
+or
+
+$$\text{PCOV} = \mathbb{E}(Y_tY_{t+2}-\beta Y_t Y_{t+1}-\beta Y_{t+1}Y_{t+2} + \beta^2Y_{t+1}^2)$$
 
 and, finally
 
 $$\text{PCOV} = \sigma^2\beta^2-\beta\sigma^2\beta-\beta\sigma^2\beta+\sigma^2\beta^2=0$$
 
-### Comparison - Normalized ACF vs PCF
+This shows indeed that with the partial ACF the correlation for a time lag of 2 (or higher) becomes zero.
 
-A simulated example of $y_t = 0.8y_{t-1}+e_t$ having 1000 samples
+### Example - Normalized ACF vs PCF
+
+The figure shows a simulated example of $Y_t = 0.8Y_{t-1}+\epsilon_t$ having 1000 samples. The spectrum of the ACF clearly shows that there is a (decreasing) correlation up till lag 10, while the spectrum of the partial ACF only shows correlation at lag 1.
 
 ![acf_pacf](./figs/acf_pacf.png "acf_pacf")
 
-## Short summary
-
-Knowledge on autocovariance functions of time series provides an insight into the stochastic model of time series.
-
-**Auto-covariance function**
-
-$$\hat{Q}_{yy}(\tau) = \hat{\sigma}(\tau) = \frac{\sum_{i=1}^{m-\tau}(y_i-\mu_y)(y_{i+\tau}-\mu_y)}{m-\tau}, \hspace{25px} \tau=0,1,...,m-1$$
-
-**Normalized autocovariance function (ACF)**
-
-$$\hat{\rho}_{yy}(\tau) = \hat{\rho}_\tau = \frac{\hat{\sigma}(\tau)}{\hat{\sigma}(0)}, \hspace{20px}\tau = 0,...,m-1 \implies \hat{\rho}_{yy}(0) = 1$$
-
-The partial ACF (pure correlation) considers removing the intervening observations.
+:::
