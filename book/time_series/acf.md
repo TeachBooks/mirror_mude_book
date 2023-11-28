@@ -153,8 +153,6 @@ and hence the null hypothesis is rejected, implying that the autocorrelation is 
 
 The power spectral density (PSD) explains how the power (variance) of the signal is distributed over different frequencies. For instance, the PSD of a pure sine wave is flat *except* at its constituent frequency, where it will show a peak. Purely random noise has a flat power spectrum, indicating that all frequencies have an identical contribution to the variance of the signal!
 
-MMMMM From here on the notation needs to be updated. An issue may arise with the capitals used for DFT.
-
 ### PSD vs ACF
 
 Knowledge on ACF, in time domain, is mathematically equivalent to knowledge on PSD, in the frequency domain, and vice-versa. And, from here, you might have a clue of where this is taking us... The PSD is the **discrete Fourier transform (DFT)** of the ACF.
@@ -176,6 +174,8 @@ In signal processing, it is common to write a sampled (discrete) signal as a sma
 Inversely, the inverse discrete Fourier transform (IDFT) of the PSD is the ACF, so
 
 $$\text{IDFT}(S_{yy}(k))=\hat{c}_{\tau}, \hspace{35px} \tau = 1,...,m \hspace{5px}\text{and}\hspace{5px} k = 1,...,m$$
+
+MMMMM Add figure + explanation from slides
 
 :::{card} **Partial ACF**
 
@@ -218,25 +218,20 @@ $$\text{COV} = Cov(Y_t, Y_{t+2}) =  \sigma^2\beta^2$$
 
 Regarding the partial ACF, it is knowns from the autoregression $Y_t = \beta Y_{t-1}$ that $\hat{Y}_t = \hat{Y}_{t+2} = \beta Y_{t+1}$. Therefore:
 
-$$\text{PCOV} = Cov(Y_t-\hat{Y}_t,Y_{t+2}-\hat{Y}_{t+2})=Cov(Y_t-\beta Y_{t+1},Y_{t+2}-\beta Y_{t+1})$$
-
-or
-
-$$\text{PCOV} = \mathbb{E}((Y_t-\beta Y_{t+1})(Y_{t+2}-\beta Y_{t+1}))$$
-
-or
-
-$$\text{PCOV} = \mathbb{E}(Y_tY_{t+2}-\beta Y_t Y_{t+1}-\beta Y_{t+1}Y_{t+2} + \beta^2Y_{t+1}^2)$$
-
-and, finally
-
-$$\text{PCOV} = \sigma^2\beta^2-\beta\sigma^2\beta-\beta\sigma^2\beta+\sigma^2\beta^2=0$$
+$$
+\begin{align*}
+\text{PCOV} &= Cov(Y_t-\hat{Y}_t,Y_{t+2}-\hat{Y}_{t+2})\\&=Cov(Y_t-\beta Y_{t+1},Y_{t+2}-\beta Y_{t+1})
+\\ & = \mathbb{E}((Y_t-\beta Y_{t+1})(Y_{t+2}-\beta Y_{t+1}))\\
+& = \mathbb{E}(Y_tY_{t+2}-\beta Y_t Y_{t+1}-\beta Y_{t+1}Y_{t+2} + \beta^2Y_{t+1}^2)\\
+& = \sigma^2\beta^2-\beta\sigma^2\beta-\beta\sigma^2\beta+\sigma^2\beta^2=0
+\end{align*}
+$$
 
 This shows indeed that with the partial ACF the correlation for a time lag of 2 (or higher) becomes zero.
 
-### Example - Normalized ACF vs PCF
+#### Normalized ACF vs Partial ACF
 
-The figure shows a simulated example of $Y_t = 0.8Y_{t-1}+\epsilon_t$ having 1000 samples. The spectrum of the ACF clearly shows that there is a (decreasing) correlation up till lag 10, while the spectrum of the partial ACF only shows correlation at lag 1.
+The figure shows a simulated example of $Y_t = 0.8Y_{t-1}+\epsilon_t$ having 1000 samples. The spectrum of the normalized ACF clearly shows that there is a (decreasing) correlation up till lag 10, while the spectrum of the partial ACF only shows correlation at lag 1.
 
 ![acf_pacf](./figs/acf_pacf.png "acf_pacf")
 
