@@ -183,6 +183,9 @@ name: ACF_PSD
 Time series data, auto-covariance and its power spectral density plots of white noise above and colored noise (not purely random) below.
 ```
 
+The PSD explains how the power (variance) of the signal is distributed over different frequencies. The PSD of a pure sine wave is flat except at its constituent frequency.
+Purey random noise (i.e., white noise) has a flat power, indicating that all frequencies have identical contribution in making the variance of the signal.
+
 :::{card} **Partial ACF**
 
 ```{admonition} MUDE exam information
