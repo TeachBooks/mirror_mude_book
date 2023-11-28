@@ -172,6 +172,8 @@ parts:
     - file: time_series/intro.md
       title: Time Series Analysis
       sections:
+      - file: time_series/components
+        title: "Time Series components"
       - file: time_series/types
         title: "Types of Time Series"
       - file: time_series/stationarity
