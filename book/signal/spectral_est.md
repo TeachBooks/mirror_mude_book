@@ -2,17 +2,22 @@
 
 ## Energy and power signals
 
-We will start by specifying how signals can be classified:
-
-* **energy** signals have finite energy, $E$
-* **power** signals have finite power, $P$
-* other signals
-
-Definitions of energy and power stem from electrical engineering. Suppose $u(t)$ is voltage across a resistor $R$ producing a time-varying current $i(t)$.
+The amplitude of an harmonic wave is related to its energy (denoted by $E$) and power (denoted by $P$).
+In this chapter we introduce the Power Spectral Density (PSD) which describes how the signal power is distributed over frequency.
+For later analyses it is relevant to know how much power is contained at what frequencies.
+ 
+The PSD is used with many different observed signals (e.g. displacement in [m], and acceleration in [m/s<sup>2</sup>]), maintaining the notions of
+power and energy, but the classical development originates from electrical engineering, starting with the fact that an electrical sensor delivers a voltage, which hopefully
+is proportional to the observed physical phenomenon, in which we're interested.
+ 
+We'll start with a flashback to high-school physics, and use Ohm's law. Suppose $u(t)$ is voltage across a resistor $R$ producing a time-varying current $i(t)$.
 
 Instantaneous power is defined as $p(t)=u(t)i(t)$, and $u(t)=i(t)R$, so $p(t)=i^2(t)R=\frac{u^2(t)}{R}$. With $R=1\Omega$, the instantaneous power, in Ohm, is given as:
 
 $$p(t)=u(t)i(t)=i^2(t)=u^2(t)$$
+
+For 1 Ohm resistor, power $P$ in Watt [W], equals the square of the voltage $u(t)$ [V<sup>2</sup>].
+The total energy $E$, in Joule [J], is obtained by integrating the power $P$ (power equals energy per unit time [W = J/s]).
 
 Integrating over $|t|\leq T$, we define **total energy** and **average power** as
 
@@ -118,6 +123,9 @@ $$
 
 and this is actually the **power density** [W/Hz].
 
+Returning to a voltage signal $x(t)$, or its sampled, discrete time version $x_n$, we have, see the previous chapter on the DFT,
+that $X_k$ is in [Vs] or equivalently in [V/Hz]. Then the unit of $S$ equals [V<sup>2</sup> s], which equals, with the above exposition on the 1 Ohm resistor, [W/Hz].
+
 #### Periodogram
 
 This turns out to be an *estimate* for the power spectral density (PSD), and it is referred to as a **periodogram** (estimate may be indicated by a hat-symbol, hence $\hat{S}$).
@@ -145,6 +153,8 @@ $$P=\lim_{T\to\infty}\frac{1}{T}\int_{-\infty}^{\infty}|X_T(f)|^2df=\int_{-\inft
 $S(f)$ represents the **power spectral density**, with $P$ being given trivially (considering the definition of power spectral **density**) by:
 
 $$P=\int_{-\infty}^{\infty}S(f)df$$
+
+Integrating the PSD over frequency yields the power contained in the signal.
 
 ## Summary
 
