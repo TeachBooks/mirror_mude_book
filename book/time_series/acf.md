@@ -90,7 +90,7 @@ $$
 \mathbb{E}(\hat{C}_{\tau}) =  c_\tau
 $$
 
-* The normalized autocovariance fucntion can directly be obtained from the autocovariance function as
+* The normalized autocovariance function can directly be obtained from the autocovariance function as
  
 $$
 \hat{\rho}_{\tau} = \frac{\hat{C}_{\tau}}{\hat{C_0}}, \hspace{20px}\tau = 0,...,m-1 \implies \hat{\rho}_0 = 1$$

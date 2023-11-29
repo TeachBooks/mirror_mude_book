@@ -35,7 +35,7 @@ $$\hat{Y}=\mathrm{A}\hat{X},\hspace{10px}\Sigma_{\hat{Y}}=\mathrm{A}\Sigma_{\hat
 
 and
 
-$$\hat{\epsilon}=Y-\hat{Y},\hspace{10px}\Sigma_{\hat{e}\hat{\epsilon}}=\Sigma_{Y}-\Sigma_{\hat{Y}}$$
+$$\hat{\epsilon}=Y-\hat{Y},\hspace{10px}\Sigma_{\hat{\epsilon}}=\Sigma_{Y}-\Sigma_{\hat{Y}}$$
 
 ### Model of observation equations
 
@@ -99,17 +99,25 @@ The design matrix $\mathrm{A}$ is usually assumed to be known. So far, we have a
 
 The first method we will study is the **Discrete Fourier Transform**. The DFT or fast FT (FFT) of a real time series, $Y_t$, is a complex array as
 
-$$\text{DFT}(Y(t))=Y_s(\nu)$$
+$$\text{DFT}(Y(t))=Y_s(\omega)$$
 
 having a real and an imaginary part. The power at each frequency component can be computed by squaring the magnitude of that frequency component: **power spectral density** (PSD).
 
-$$S_{Y}(\nu)=P_\nu=\frac{1}{m\Delta t}|Y_s(\nu)|^2$$
+$$S_{Y}(\omega)=P_{\omega}=\frac{1}{m\Delta t}|Y_s(\omega)|^2$$
 
-where $|Y(\nu)|$ is the magnitude at the frequency $\nu$. If a significant seasonality is present at frequency $\nu=\omega$, there should be a clear peak at this frequency, so
+where $|Y(\omega)|$ is the magnitude at the frequency $\omega$. If a significant seasonality is present at frequency $\omega$, there should be a clear peak at this frequency, so that $S_{Y}(\omega)$ is more peaked than the neighboring powers.
 
-$$S_{Y}(\omega)=P_\omega=\frac{1}{m\Delta t}|Y(\omega)|^2$$
+#### Example power spectral density
 
-is more peaked than the neighboring powers.
+{numref}`ls-psd` shows on the left the original time series as well as the estimated linear trend and seasonal signal. The sine wave has a period (=$1/\omega$) of 100. Indeed the PSD as function of period on the right shows a peak at a period of 100.
+
+```{figure} ./figs/ls-psd.png
+:name: ls-psd
+:width: 600px
+:align: center
+
+Left: time series (grey) and estimated linear trend and sine wave with period of 100. Right: estimated PSD.
+```
 
 ### Least-Squares Harmonic Estimation (LS-HE)
 
@@ -119,8 +127,7 @@ We put forward two hypotheses:
 
 $$\mathcal{H}_0: Y=\mathrm{Ax}+\epsilon \hspace{5px}\text{vs.}\hspace{5px} \mathcal{H}_a: Y=\mathrm{Ax}+\mathrm{C}\nabla+\epsilon$$
 
-```{admonition} Example
-:class: tip, dropdown
+:::{card} **Example**
 
 $$
 \begin{align*}
@@ -130,55 +137,72 @@ $$
 $$
 
 $$\begin{align*}
-\mathcal{H}_0: &\begin{bmatrix}Y_1\\ Y_2\\ ...\\ Y_m\end{bmatrix} = \begin{bmatrix}1&t_1\\ 1&t_2\\ ...&...\\ 1&t_m\end{bmatrix}\begin{bmatrix}y_0\\ r\end{bmatrix} + \begin{bmatrix}\epsilon_1\\ \epsilon_2\\ ...\\ \epsilon_m\end{bmatrix} \\
-\mathcal{H}_a: &\begin{bmatrix}Y_1\\ Y_2\\ ...\\ Y_m\end{bmatrix} = \begin{bmatrix}1&t_1\\ 1&t_2\\ ...&...\\ 1&t_m\end{bmatrix}\begin{bmatrix}y_0\\ r\end{bmatrix}+\begin{bmatrix}\cos{\omega t_1}&\sin{\omega t_1}\\ \cos{\omega t_2}&\sin{\omega t_2}\\ ...&...\\ \cos{\omega t_m}&\sin{\omega t_m}\end{bmatrix}\begin{bmatrix}a\\ b\end{bmatrix}+\begin{bmatrix}\epsilon_1\\ \epsilon_2\\ ...\\ \epsilon_m\end{bmatrix}
+\mathcal{H}_0: &\begin{bmatrix}Y_1\\ Y_2\\ \vdots\\ Y_m\end{bmatrix} = \begin{bmatrix}1&t_1\\ 1&t_2\\ \vdots&\vdots\\ 1&t_m\end{bmatrix}\begin{bmatrix}y_0\\ r\end{bmatrix} + \begin{bmatrix}\epsilon_1\\ \epsilon_2\\ \vdots\\ \epsilon_m\end{bmatrix} \\
+\mathcal{H}_a: &\begin{bmatrix}Y_1\\ Y_2\\ \vdots\\ Y_m\end{bmatrix} = \begin{bmatrix}1&t_1\\ 1&t_2\\ \vdots&\vdots\\ 1&t_m\end{bmatrix}\begin{bmatrix}y_0\\ r\end{bmatrix}+\begin{bmatrix}\cos{\omega t_1}&\sin{\omega t_1}\\ \cos{\omega t_2}&\sin{\omega t_2}\\ \vdots&\vdots\\ \cos{\omega t_m}&\sin{\omega t_m}\end{bmatrix}\begin{bmatrix}a\\ b\end{bmatrix}+\begin{bmatrix}\epsilon_1\\ \epsilon_2\\ \vdots\\ \epsilon_m\end{bmatrix}
 \end{align*}$$
 
 ![hypotheses](./figs/hypotheses.png "hypotheses")
-
-```
+:::
 
 The [Generalized Ratio Test](GLRT) statistic is given by
 
 $$\begin{align*}
-T_q &= \hat{\epsilon}^T\Sigma_Y^{-1}\hat{\epsilon}-\hat{\epsilon}_a^T\Sigma_Y^{-1}\hat{\epsilon}_a \\ &=\epsilon^T\Sigma_{Y}^{-1}\mathrm{C}(\mathrm{C}^T\Sigma_{Y}^{-1}\Sigma_{\epsilon_0\epsilon_0}\Sigma_{Y}^{-1}\mathrm{C})^{-1}\mathrm{C}^T\Sigma_{Y}^{-1}\epsilon
+T_q &= \hat{\epsilon}^T\Sigma_Y^{-1}\hat{\epsilon}-\hat{\epsilon}_a^T\Sigma_Y^{-1}\hat{\epsilon}_a \\ &=\hat{\epsilon}^T\Sigma_{Y}^{-1}\mathrm{C}(\mathrm{C}^T\Sigma_{Y}^{-1}\Sigma_{\hat{\epsilon}}\Sigma_{Y}^{-1}\mathrm{C})^{-1}\mathrm{C}^T\Sigma_{Y}^{-1}\hat{\epsilon}
 \end{align*}$$
 
 where $\hat{\epsilon}$ and $\hat{\epsilon}_a$ refer to the BLUE residuals obtained with the null and alternative hypothesis, respectively. 
 
 The derivation of the second equality is beyond the scope of this book, but the advantage of this expression is that it only requires to apply BLUE with the model of the null hypothesis; the alternative model is accounted for with matrix $\mathrm{C}$.
 
-This test statistic, having a central $\chi^2$-square distribution under $\mathcal{H}_0, can be tested for a given confidence level: 
+This test statistic, having a central $\chi^2$-square distribution under $\mathcal{H}_0$, can be tested for a given confidence level: 
 
 $$T_q\sim\chi^2(q,0)$$
 
 In our example above, we have that $q=2$, the number of extra parameters in $\nabla=[a,b]^T$.
 
-**Special case:** for a zero-mean time series $\hat{\epsilon}=Y$ such that $\mathbb{E}(Y)=0$), and white noise ($\Sigma_{Y}=\sigma^2 I$) time series, we have
+**Special case:** for a zero-mean time series and white noise time series with $\Sigma_{Y}=\sigma^2 I$ we have
 
-$$T = Y^T C(C^TC)^{-1}C^TY$$
+$$Y=\hat{\epsilon} \quad \Rightarrow \mathbb{E}(Y)=0 \quad \Rightarrow \mathrm{A}=0$$ 
 
-This, in fact, can be show to be identical to a scaled version (by factor 2) of the PSD, as explained in the last subchapter.
+In this case the test statistic simplifies to:
 
-```{note} Optional: proof
+$$T_q = \frac{1}{\sigma^2}Y^T \mathrm{C}(\mathrm{C}^T\mathrm{C})^{-1}\mathrm{C}^TY$$
 
-If we assume $\Sigma_{Y}=\sigma^2I$, we have
+This, in fact, can be shown to be identical to a scaled version (by a factor 2) of the PSD, as explained in the last subchapter.
 
-MMMMM left here
+:::{card} **Proof**
 
-$$T_q=\epsilon_0^TC(C^T\Sigma_{\epsilon_0\epsilon_0}C)^{-1}C^T\epsilon_0=\sigma^{-2}\epsilon_0^TC(C^T(I-A(A^TA)^{-1}A^T)C)^{-1}C^T\epsilon_0$$
-
-or
-
-$$T_q=\sigma^{-2}\epsilon_0^TC(C^TC-C^TA(A^TA)^{-1}A^TC)^{-1}C^T\epsilon_0$$
-
+```{admonition} MUDE exam information
+:class: tip, dropdown
+This proof is optional and will not be assessed on the exam.
 ```
 
-#### Example LS power spectral density
+If we assume $\Sigma_{Y}=\sigma^2I$ and $Y=\hat{\epsilon}$ such that $\mathrm{A}=0$, we have
 
-![ls-psd](./figs/ls-psd.png "ls-psd")
+$$
+\begin{align*}
+\Sigma_{\hat{\epsilon}}&=\Sigma_{Y}-\Sigma_{\hat{Y}}\\
+& = \sigma^2I - \mathrm{A}(\mathrm{A}^T(\sigma^{-2}I)\mathrm{A})^{-1}\mathrm{A}^T \\
+&=\sigma^2(I - \mathrm{A}(\mathrm{A}^T\mathrm{A})^{-1}\mathrm{A}^T )\\
+& = \sigma^2I
+\end{align*}
+$$
 
-## Worked proof: equality of PSD and LS-HE T-test statistics
+and
 
+$$
+\begin{align*}
+T_q&=\hat{\epsilon}^T\Sigma_{Y}^{-1}\mathrm{C}(\mathrm{C}^T\Sigma_{Y}^{-1}\Sigma_{\hat{\epsilon}}\Sigma_{Y}^{-1}\mathrm{C})^{-1}\mathrm{C}^T\Sigma_{Y}^{-1}\hat{\epsilon}\\
+&= \frac{1}{\sigma^2}Y^T \mathrm{C}(\mathrm{C}^T\mathrm{C})^{-1}\mathrm{C}^TY
+\end{align*}
+$$
+:::
+
+
+```{admonition} Optional: proof of equality of PSD and LS-HE
+:class: tip, dropdown
 [On the equality of the PSD and the LS-HE T-test statistics](./proof.pdf)
+```
+
+
 
