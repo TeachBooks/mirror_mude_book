@@ -120,7 +120,7 @@ $$\begin{align}X_s(f)&=\underbrace{\Delta tf_s}_{1}\sum_{k=-\infty}^{\infty}\int
 
 Finally, the Fourier transform of the *sampled* signal becomes:
 
-$$X_s(f)=\sum_{k=-\infty}^{\infty}X(f-kf_s)$$
+$$X_s(f)=\sum_{k=-\infty}^{\infty}X(f-kf_s), \hspace{10px}\textrm{with }\,k\in\mathbb{Z}$$
 
 so, the spectrum of the sampled signal is the spectrum of the original signal, but repeated with "period" $f_s$ (in the frequency domain); copies of spectrum are called _aliases._
 

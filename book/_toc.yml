@@ -172,6 +172,8 @@ parts:
     - file: time_series/intro.md
       title: Time Series Analysis
       sections:
+      - file: time_series/components
+        title: "Time Series components"
       - file: time_series/types
         title: "Types of Time Series"
       - file: time_series/stationarity
@@ -192,6 +194,16 @@ parts:
     chapters:
     - file: optimization/overview
       title: Overview
+    - file: optimization/origins
+    - file: optimization/general
+    - file: optimization/taxonomy
+    - file: optimization/sand_and_clay
+      sections:
+      - file: optimization/claysand.ipynb
+        title: Implementation in Python
+    - file: optimization/airlines
+    - file: optimization/performance
+    - file: optimization/videos
 
   - caption: Machine Learning
     numbered: 2

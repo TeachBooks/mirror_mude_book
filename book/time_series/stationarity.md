@@ -1,140 +1,232 @@
 # Time Series Stationarity
 
-**Definition:** a stationary time series is a stochastic process whose joint probability distribution function does not change when shifted in time.
 
-This means that parameters such as *mean* and *(co)variance* should also remain constant over time and not follow any trend, seasonality or irregularity.
+```{admonition} Definition
+A stationary time series is a stochastic process whose statistical properties do not depend on the time at which it is observed.
+```
+
+This means that parameters such as *mean* and *(co)variance* should remain constant over time and not follow any trend, seasonality or irregularity.
 
 * Mean of the process is time-independent
 
-$$\mathbb{E}(y(t))=\mathbb{E}(y_t)=\mu$$
+$$\mathbb{E}(Y(t))=\mathbb{E}(Y_t)=\mu$$
 
-* Covariance of the process is independent of t for each $\tau$
+* Covariance of the process is independent of $t$ for each time shift $\tau$:
 
-$$\text{cov}(y_t,y_{t-\tau})=\sigma_{t,t-\tau}=\mathbb{E}((y_t-\mu)(y_{t-\tau}-\mu))=\sigma_\tau$$
+$$
+Cov(Y_t,Y_{t-\tau})=\mathbb{E}((Y_t-\mu)(Y_{t-\tau}-\mu))=c_\tau
+$$
 
-* If $\tau=0$, the variance becomes also constant with respect to time
+* The variance (i.e., $\tau=0$) is then also constant with respect to time :
 
-$$\mathbb{D}(y_t)=\text{var}(y_t)=\sigma_0=\mathbb{E}((y_t-\mu)^2)=\sigma^2$$
+$$
+Var(Y_t)=\mathbb{E}((Y_t-\mu)^2)=c_0=\sigma^2
+$$
 
 ## Why stationary time series?
 
-We desire to have stationary time series because:
+Stationarity is important if we want to use a time series for forecasting (predicting future behaviour), which is not possible if the statistical properties change over time.
 
-* Non-stationary time series models are usually more difficult for prediction
-* Random processes require time series to be stationary
-* Best linear unbiased predictor (BLUP) property can be formulated for stationary time series
+In practice, we may in fact be interested in for instance the trend and seasonality of a time series. Also, many real-world time series are of course non-stationary. Therefore the approach is to first "stationarize" the time series (e.g., remove the trend), use this stationary time series to predict future states based on the statistical properties (stochastic process), and then apply a back-transformation to account for the non-stationarity (e.g., add back the trend).
 
-```{note}
-Sometimes studying the non-stationarity causes (trend and seasonality) is
-the subject of question/research.
 
-However, many real-world time series are indeed non-stationary. We have to find tools to ensure their stationarity.
-```
+## How to "stationarize" a time series?
 
-## How should we ensure stationarity?
+In general, there are five ways to make a non-stationary time series to a stationary one. They are known as transformation methods. An important requirement is that such transformation in regular, or admissible, meaning that a back-transformation is possible. 
 
-In general, there are 5 ways to make a non-stationary time series to a stationary one. They are known as transformation methods. They are itemized as follows:
+These methods are:
 
-* **Difference transformation of data**:
-  * Single differencing, $\Delta y_t = y_t - y_{t-1}$
-  * Double differencing, $\Delta^2 y_t = \Delta y_t - \Delta y_{t-1} = y_t - 2y_{t-1}+y_{t-2}$
+* Difference transformation of data
+* Moving average of data
+* Function-based transformation of data
+* Least-squares fit (de-trending)
+* Combination of abovementioned methods
 
-* **Moving average of data**:
-  * Moving average, $\bar{y}_t \longleftarrow \frac{1}{k}(y_{t-1}+...+y_{t-k})$
-  * Handle residuals in stochastic model, $\Delta^2 y_t = \Delta y_t - \Delta y_{t-1} = y_t - 2y_{t-1}+y_{t-2}$
+### Single and double differencing
 
-* **Function-based transformation of data**:
-  * Log transformation, $y_t \longleftarrow \log(y_t)$
-  * Square root transformation, $y_t \longleftarrow \sqrt{y_t}$
+Single differencing of $Y=[Y_1,...,Y_m]^T$ makes a time series $\Delta Y_t=Y_t - Y_{t-1},\; t\geq 2$ with starting value of $\Delta Y_1 = Y_1$. This is a **regular transformation** of data, and hence allowed, as shown in the equation below.
 
-* **Functional model least squares fit (de-trending)**:
-  * Modelling the trend and seasonality, $y=Ax+e$
-  * Deal with residuals in the stochastic model, $y \longleftarrow e = y-Ax$
-
-* **Combination of abovementioned methods**
-
-### Single differencing
-
-Single differencing of $y=[y_1,...,y_m]$ makes a time series $\Delta y_t=y_t - y_{t-1}, t\geq 2$ starting value of $\Delta y_1 = y_1$. This is a **regular transformation** of data, and hence allowed.
-
-$$\begin{bmatrix}
-    \Delta y_1 \\ \Delta y_2 \\ \Delta y_3 \\ ... \\ \Delta y_m
+$$
+\begin{bmatrix}
+    \Delta Y_1 \\ \Delta Y_2 \\ \Delta Y_3 \\ ... \\ \Delta Y_m
 \end{bmatrix} = 
 \begin{bmatrix}
-    1 & 0 & 0 & ... & 0\\
-    -1 & 1 & 0 & ... & 0\\
-    0 & -1 & 1 & ... & 0\\
-    ... & ... & ... & ... & ...\\
-    0 & 0 & 0 & -1 & 1
+    1 & 0 &   & \dots & 0\\
+    -1 & 1 & 0 &   &  \\
+    0 & -1 & 1 & \ddots & \\
+    \vdots & \ddots &\ddots & \ddots & 0 \\
+    0 & \dots & 0 & -1 & 1
 \end{bmatrix}
 \begin{bmatrix}
-    y_1\\ y_2\\ y_3\\ ...\\ y_m
+    Y_1\\ Y_2\\ Y_3\\ \vdots\\ Y_m
 \end{bmatrix}\Longleftrightarrow
 \begin{bmatrix}
-    y_1\\ y_2\\ y_3\\ ...\\ y_m
+    Y_1\\ Y_2\\ Y_3\\ \vdots \\Y_m
 \end{bmatrix} = 
 \begin{bmatrix}
-    1 & 0 & 0 & ... & 0\\
-    1 & 1 & 0 & ... & 0\\
-    1 & 1 & 1 & ... & 0\\
-    ... & ... & ... & ... & ...\\
+    1 & 0 & 0 & \dots & 0\\
+    1 & 1 & 0 & \dots & 0\\
+    1 & 1 & 1 &  & \vdots\\
+    \vdots & \vdots & \vdots & \ddots &0\\
     1 & 1 & 1 & 1 & 1
 \end{bmatrix}
 \begin{bmatrix}
-    \Delta y_1 \\ \Delta y_2 \\ \Delta y_3 \\ ... \\ \Delta y_m
-\end{bmatrix}$$
+    \Delta Y_1 \\ \Delta Y_2 \\ \Delta Y_3 \\ \vdots \\ \Delta Y_m
+\end{bmatrix}
+$$
+
+#### Worked example
+
+Let us consider the following time series
+
+$$
+Y_t = y_0+rt+\epsilon_t
+$$
+
+This time series is non-stationary, due to the presence of a linear trend (the expectation is a function of $t$).
+
+Now we will apply single differencing to the time series:
+
+$$
+\begin{align*}
+\Delta Y_t = Y_t-Y_{t-1} &= y_0+rt+\epsilon_t-(Y_0+r(t-1)+\epsilon_{t-1}) \\
+&= r+\Delta \epsilon_t
+\end{align*}
+$$
+
+It follows that $\mathbb{E}(\Delta Y_t)=r$, and therefore not a function of $t$ anymore.
+
+Now consider
+
+$$
+Y_t = y_0+rt+at^2+\epsilon_t
+$$
+
+We again apply single differencing:
+
+$$
+\begin{align*}
+\Delta Y_t = Y_t-Y_{t-1} &= y_0+rt+at^2+\epsilon_t-(Y_0+r(t-1)+a(t-1)^2+\epsilon_{t-1}) \\
+&= r-a+2at+\Delta \epsilon_t
+\end{align*}
+$$
+
+In this case we find that $\mathbb{E}(\Delta Y_t)=r-a+2at$, which is still a function of $t$ and therefore not stationary. The solution would be to continue the process, which is referred to as *double differencing*:
+
+$$
+\Delta^2 Y_t = \Delta Y_t - \Delta Y_{t-1}
+$$
+
+:::{card} Exercise
+
+Show for yourself that applying double differencing to the time series $Y_t = y_0+rt+at^2+\epsilon_t$ results in a stationary time series $\Delta^2 Y_t$.
+
+```{admonition} Solution
+:class: tip, dropdown
+
+$$
+\begin{align*}
+\Delta^2 Y_t = \Delta Y_t-\Delta Y_{t-1} &= r-a+2at+\Delta \epsilon_t-(r-a+2a(t-1)+\Delta \epsilon_{t-1}) \\&= 2a+\Delta^2\epsilon_t
+\end{align*}
+$$
+
+with $\mathbb{E}(\Delta^2 Y_t)=2a$.
+```
+
+```{figure} ./figs/doubledifference.png 
+---
+height: 300px
+name: doubledifference
+---
+Original time series (second-order polynomial) on the left; double differenced time series on the right.
+```
+:::
 
 ### Moving average
 
-The moving average of $y = [y_1, ..., y_m]$ will create a time series $\bar{y}_t = {\bar{y}_1,...,\bar{y}_m}$. The difference between two time series makes a $\Delta y_t = y_t - \bar{y}_t$.
+The moving average of $Y = [Y_1, ..., Y_m]^T$ will create a time series $\bar{Y}_t = {\bar{Y}_1,...,\bar{Y}_m}$, with 
 
-**The recipe:**
-* $\bar{y}_t \longleftarrow \frac{1}{k}(y_{t-1} + ... + y_{t-k})$
-* $y_t \longleftarrow y_t - \bar{y}_t$
+$$
+\bar{Y}_t = \frac{1}{k}\sum_{i=-m}^{m}Y_{t-i}
+$$
 
-![moving_avg](./figs/moving_avg.png "moving_avg")
+where the length of the interval over which the average is taken is equal to $k=2m+1$.
+
+The difference between two time series provides a (nearly) stationary time series $\Delta Y_t = Y_t - \bar{Y}_t$.
+
+```{figure} ./figs/moving_avg.png
+---
+height: 300px
+name: moving_avg
+---
+Original time series and moving average on the right; stationarized times series on the left.
+```
+
 
 ### Function-based transformation
 
-A function-based transformation of $y=[y_1,...,y_m]$ makes a time series $s_t \longleftarrow f(y_t)$. For example, a log function would downscale the range of variations of the data. This is a nonlinear but *regular* transformation of data, and hence allowed.
+A function-based transformation of $Y=[Y_1,...,Y_m]^T$ makes a time series $S_t \longleftarrow f(Y_t)$. For example, a log function would downscale the range of variations of the data. This is a nonlinear but *regular* transformation of data, and hence allowed.
 
-![function_transf](./figs/function_transf.png "function_transf")
+```{figure} ./figs/function_transf.png 
+---
+height: 300px
+name: function_transf
+---
+Original time series on the right; stationarized times series on the left (not log-scale on vertical axis).
+```
 
 ### Least-squares fit
 
-The least squares fit of a time series $y=[y_1, ..., y_m]^T$ makes a linear model of observation equations as $y = Ax + e$, which can read as $y = A\hat{x}+\hat{e}=\hat{y}+\hat{e}$. This will then give the de-trended time series, $\hat{e} = y - A\hat{x}$, which is assumed to be stationary.
+If we can express the time series $Y=[Y_1, ..., Y_m]^T$ with a linear model of observation equations as $Y = \mathrm{Ax} + \epsilon$, we can apply [best linear unbiased estimation](BLUE) (equivalent to weighted least-squares) to estimate the parameters $\mathrm{x}$ that describe e.g. the trend and seasonality:
 
-The linear model of observation equations is:
+$$
+\hat{X}=\mathrm{A}(\mathrm{A}^T\Sigma_{yy}^{-1}\mathrm{A})^{-1}\mathrm{A}^T\Sigma_{yy}^{-1}Y 
+$$
 
-$$y=Ax+e, \hspace{50px} \mathbb{D}(y)=Q_{yy}$$
+A "detrended" time series is obtained in the form of the residuals 
 
-The *best linear unbiased estimation* (BLUE) of $x$ is
+$$
+\hat{\epsilon} = Y - \mathrm{A}\hat{X}
+$$ 
 
-$$\hat{x} = (A^TQ_{yy}^{-1}A)^{-1}A^TQ_{yy}^{-1}y, \hspace{50px} Q_{\hat{x}\hat{x}}=(A^TQ_{yy}^{-1}A)^{-1}$$
+The **de-trended $\hat{\epsilon}$ is assumed to be stationary** for further **stochastic processing**. This is also an admissible transformation because $Y$ can uniquely be reconstructed as $Y=\mathrm{A}\hat{X}+\hat{\epsilon}$. 
 
-The BLUE of $y$ and $e$ are, then
+Let us take a look into an example:
 
-$$\hat{y}=A(A^TQ_{yy}^{-1}A)^{-1}A^TQ_{yy}^{-1}y \implies \hat{e}=y-A\hat{x}$$
+```{figure} ./figs/least_squares.png 
+---
+height: 300px
+name: least_squares
+---
+Example of a time series (right graph) with linear and seasonal trend. The residuals (= stationary time series) after applying BLUE are shown on the left.
+```
 
-The **de-trended $\hat{e}$ is assumed to be stationary** for further **stochastic process**. This is also an admissible transformation because $y$ can uniquely be reconstructed as $y=A\hat{x}+\hat{e}$. Let us take a look into an example:
+MMMMM include the model (equations) as well!!
 
-![least_squares](./figs/least_squares.png "least_squares")
 
-## Testing stationarity
+:::{card} **Testing stationarity**
 
-Different tests can be performed to test whether or not a time series is stationary. One of the commonly used methods is the **Augmented Dickey-Fuller (ADF)** test. We just highlight some background and its use in this chapter.
+```{admonition} MUDE exam information
+:class: tip, dropdown
+This part is optional and will not be assessed on the exam.
+```
 
-If we have an auto-regressive noise process
+Different tests can be performed to test whether or not a time series is stationary. One of the commonly used methods is the **Augmented Dickey-Fuller (ADF)** test. 
 
-$$y_t = \beta y_{t-1}+e_t$$
+Consider a time series
 
-It is known that if $\beta=1$, the noise is **accumulated** and thus the process is **not stationary**. It is known to be a so-called *random walk noise* process (non-stationary). The single differencing gives
+$$Y_t = \beta Y_{t-1}+\epsilon_t$$
 
-$$\Delta y_t = y_t - y_{t-1} = \beta y_{t-1}+e_t-y_{t-1}$$
+where we see that the value at time $t$ depends on the previous value at time $t-1$ plus the noise $\epsilon_t$ (this is an autoregressive process, as we will see later in the section [ARMA process](ARMA)). This implies that if $\beta=1$, the noise is **accumulated** and thus the process is **not stationary**. It is known to be a so-called *random walk noise* process. 
 
-or
+Single differencing gives
 
-$$\Delta y_t = (\beta - 1)y_{t-1}+e_t = \gamma y_{t-1} + e_t$$
+$$
+\begin{align*}
+\Delta Y_t = Y_t - Y_{t-1} &= \beta Y_{t-1}+\epsilon_t-Y_{t-1}\\
+&= (\beta - 1)Y_{t-1}+\epsilon_t \\&= \gamma Y_{t-1} + \epsilon_t
+\end{align*}
+$$
 
 The parameter $\gamma = \beta-1$ plays an important role to test the stationarity of the time series.
 
@@ -142,29 +234,17 @@ The parameter $\gamma = \beta-1$ plays an important role to test the stationarit
 
 The ADF test is performed using the following two hypotheses:
 
-* **Null Hypothesis ($H_0$)**: Time series is non-stationary ($\gamma=0\implies\beta=1$)
-* **Alternate Hypothesis ($H_a$)**: Time series is stationary ($\gamma<0\implies\beta<1$)
+* **Null Hypothesis ($\mathcal{H}_0$)**: Time series is non-stationary ($\gamma=0\implies\beta=1$)
+* **Alternative Hypothesis ($\mathcal{H}_a$)**: Time series is stationary ($\gamma<0\implies\beta<1$)
 
-The null hypothesis assumes that the time series consists of non-stationary noise, mainly **Random Walk** noise. Under the alternative hypothesis, the Random Walk noise is absent, so the time series is stationary.
+The null hypothesis assumes that the time series consists of non-stationary noise, mainly **Random Walk** noise. Under the alternative hypothesis, the Random Walk noise is absent, and therefore the time series is stationary.
 
 The test statistic is (which can be tested in a given confidence level) given by:
 
-$$T_{ADF}=\frac{\hat{\gamma}}{\sigma_{\hat{\gamma}}}$$
+$$
+T_{\text{ADF}}=\frac{\hat{\gamma}}{\sigma_{\hat{\gamma}}}
+$$
 
 The test statistic, $T_{ADF}$ is a **negative number**. The more negative it is, the stronger the rejection of the hypothesis, and hence the more level of confidence that the series is a stationary process.
 
-## Worked example
-
-Let us consider the following time series
-
-$$y(t) = y_0+vt+at^2+e_t$$
-
-**Show that double differencing makes this time series stationary.**
-
-We start by applying single differencing to the time series:
-
-$$\begin{align*}\Delta y(t) = y(t)-y(t-1) &= y_0+rt+at^2+e_t-(y_0+r(t-1)+a(t-1)^2+e_{t-1}) \\&= r-a+2at+\Delta e_t\end{align*}$$
-
-Repeating the process to achieve double differencing:
-
-$$\begin{align*}\Delta^2 y(t) = \Delta y(t) - \Delta y(t-1) &= r-a+2at+\Delta e_t-(r-a+2a(t-1)+\Delta e_{t-1}) \\&= 2a+\Delta^2e_t\end{align*}$$
+:::
