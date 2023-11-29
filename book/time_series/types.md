@@ -57,8 +57,7 @@ We will mainly focus on static time series from here on!
 
 ### Examples
 
-MMMMM
-* insert examples from slides
+%MMMMM insert examples from slides (not clear what example - Antonio)
 
 ## Additional concepts
 

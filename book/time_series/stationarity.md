@@ -201,7 +201,20 @@ name: least_squares
 Example of a time series (right graph) with linear and seasonal trend. The residuals (= stationary time series) after applying BLUE are shown on the left.
 ```
 
-MMMMM include the model (equations) as well!!
+
+In the example above, for each observation $Y_m = x_1 \sin{\omega_0t_m} + x_2\cos{\omega_0t_m}+x_3t_m+x_4$, where $x_1$ and $x_2$ denote the seasonality and $x_3$ the trend. [As explained here,](components#seasonality) $\omega_0$ is found by a Spectral Analysis method. The time series then is:
+$$
+\begin{bmatrix}
+    Y_1 \\ Y_2 \\  \vdots \\ Y_m
+\end{bmatrix} = \begin{bmatrix}
+    \sin{\omega_0 t_1} & \cos{\omega_0 t_1} & t_1 & 1\\
+     \sin{\omega_0 t_2} & \cos{\omega_0 t_2} & t_2 & 1 \\
+       \vdots & \vdots & \vdots & \vdots \\ 
+     \sin{\omega_0 t_m} & \cos{\omega_0 t_m} & t_m & 1
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix} + \epsilon
+$$
 
 
 :::{card} **Testing stationarity**

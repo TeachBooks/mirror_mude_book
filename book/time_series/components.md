@@ -58,14 +58,14 @@ It is generally of two types:
 
 Assume $\hat y_0 = 5$ and $\hat r = 2$.
 
-Therefore, $y_t = \hat y_0 + \hat r  t = 5 + 2  t$. At $t=10$, $y_{10} = 5 + 2 \times 10 = 25$.
+Therefore, $Y_t = \hat y_0 + \hat r  t = 5 + 2  t$. At $t=10$, $Y_{10} = 5 + 2 \times 10 = 25$.
 :::
 
 :::{card} Example - log-linear trend
 
 Assume again $\hat y_0 = 5$ and $\hat r = 2$.
 
-$ln(y_t) = \hat y_0 + \hat r  t = 5 + 2  t$. At $t=10$, $ln(y_{10}) = 5 + 2 \times 10 \Rightarrow y_{10} = 72004899337.4$
+$ln(Y_t) = \hat y_0 + \hat r  t = 5 + 2  t$. At $t=10$, $ln(Y_{10}) = 5 + 2 \times 10 \Rightarrow Y_{10} = 72004899337.4$
 :::
 
 ## Seasonality
@@ -87,11 +87,20 @@ where $\omega_0$ is the base (fundamental) frequency of the seasonal variation a
 
 $$ A_k = \sqrt{(a_k^2 + b_k^2)}, \hspace{1cm} \theta_k = \arctan(\frac{a_k}{b_k}), \hspace{1cm} k = 1, \ldots{}, p $$
 
+(season)=
 :::{card} Example - seasonal variations
+
+```{figure} ./figs/sine_wave_1.jpg
+:name: trendab
+:width: 600px
+:align: center
+
+Seasonal variations components: blue line is the time series $Y(t)$; red and green lines represent the contributions $a  \cos(0.5\pi t)$ and  $b   \sin(0.5\pi t)$, respectively.
+```
 
 The seasonal variation is given as $y = A \sin(\omega_0 t + \theta)$.
 
-Assume amplitude $A=2$, base frequency $\omega_0=0.5\pi$ and initial phase $\theta = -0.8 \pi$ (rad).
+Assume amplitude $A=2$, base frequency $\omega_0=0.5\pi$ and initial phase $\theta = -0.8 \pi$ (rad), see top panel of {numref}`trendab`.
 
 $y(t) = 2 \sin(0.5 \pi t - 0.8\pi)$
 
@@ -104,8 +113,6 @@ $y(t) = a  \cos(0.5\pi t) + b   \sin(0.5\pi t)$
 where $a = A  \sin(\theta)=-1.1756$ and $b=A  \cos(\theta)=-1.6180$.
 
 :::
-
-%MMMMM add image of slides without arrows? 
 
 ## Offset (jump)
 
@@ -170,7 +177,7 @@ The noise can be represented with a Gaussian distribution with mean $\mu=0$ and 
 
 It can be written as 
 
-$$y(t) = y_0 + rt + a cos(\omega_0 t) + b sin(\omega_0 t) + o u_k(t) + \epsilon(t)$$
+$$Y(t) = y_0 + rt + a cos(\omega_0 t) + b sin(\omega_0 t) + o u_k(t) + \epsilon(t)$$
 
 where 
 - $y_0$ is the intercept (e.g. in mm)

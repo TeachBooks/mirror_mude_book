@@ -68,7 +68,7 @@ Always check which of the estimators a certain software tool uses!
 The structure of a covariance matrix for a stationary time series is purely symmetric and it looks like
 
 $$
-\Sigma_{yy} = \begin{bmatrix} 
+\Sigma_{Y} = \begin{bmatrix} 
 \sigma^2 & c_1 & c_2 & \dots & c_{m-1}\\ 
 c_1 & \sigma^2 & c_1 & \ddots  & \vdots \\ 
 c_2 & c_1 & \sigma^2 &  \ddots & c_2  \\ 
@@ -77,7 +77,7 @@ c_2 & c_1 & \sigma^2 &  \ddots & c_2  \\
 There are $m$ (co)variance components - **one** variance component, $\sigma^2 = c_0$, and $m-1$ covariance components, $c_i$.
 
 ```{note}
-The covariance matrix $\Sigma_{yy}$ is a so-called Toeplitz matrix!
+The covariance matrix $\Sigma_{Y}$ is a so-called Toeplitz matrix!
 ```
 
 ## Normalized ACF
@@ -157,25 +157,34 @@ The power spectral density (PSD) explains how the power (variance) of the signal
 
 Knowledge on ACF, in time domain, is mathematically equivalent to knowledge on PSD, in the frequency domain, and vice-versa. And, from here, you might have a clue of where this is taking us... The PSD is the **discrete Fourier transform (DFT)** of the ACF.
 
-$$\text{DFT}(\hat{c}_{\tau})=S_{yy}(k), \hspace{35px} \tau = 1,...,m \hspace{5px}\text{and}\hspace{5px} k = 1,...,m$$
+$$\text{DFT}(\hat{c}_{\tau})=S_{Y}(k), \hspace{35px} \tau = 1,...,m \hspace{5px}\text{and}\hspace{5px} k = 1,...,m$$
 
 Writing it out, this means
 
 $$\text{DFT}\left(\frac{1}{m}\sum_{i=1}^m y_i y_{i+\tau}\right)=\frac{1}{m\Delta t}Y_s(k) Y_s(k)^*=\frac{1}{m\Delta t}|Y_s(k)|^2$$
 
-where the Fourier coefficients are
+where the Fourier coefficients see [DFT section](FFT) are
 
 $$Y_s(k)  = \Delta t\sum_{i=1}^my_ie^{-j\frac{2\pi}{m}(k-1)(i-1)}$$
 
 ```{note}
-In signal processing, it is common to write a sampled (discrete) signal as a small letter $y(t_i)=y_i$ and the Fourier coefficients with capitals $Y_s(f)$. Since we also use capitals to indicate that $Y$ is a random variable, we describe the FFT here for a realization of $Y$, and add the subscript $s$ to the Fourier coefficients.
+In signal processing, it is common to write a sampled (discrete) signal as a small letter $y(t_i)=y_i$ and the Fourier coefficients with capitals $Y_k$. Since we also use capitals to indicate that $Y$ is a random variable, we describe the DFT here for a realization $y$ of $Y$, and use the notation $Y_s(k)$ for the Fourier coefficients.
 ```
 
 Inversely, the inverse discrete Fourier transform (IDFT) of the PSD is the ACF, so
 
 $$\text{IDFT}(S_{yy}(k))=\hat{c}_{\tau}, \hspace{35px} \tau = 1,...,m \hspace{5px}\text{and}\hspace{5px} k = 1,...,m$$
 
-MMMMM Add figure + explanation from slides
+```{figure} ./figs/ACF_PSD.png
+---
+height: 300px
+name: ACF_PSD
+---
+Time series data, auto-covariance and its power spectral density plots of white noise above and colored noise (not purely random) below.
+```
+
+The PSD explains how the power (variance) of the signal is distributed over different frequencies. The PSD of a pure sine wave is flat except at its constituent frequency.
+Purey random noise (i.e., white noise) has a flat power, indicating that all frequencies have identical contribution in making the variance of the signal.
 
 :::{card} **Partial ACF**
 
