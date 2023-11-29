@@ -76,22 +76,22 @@ resulting in
 $$c_{\tau}^2 = \frac{\sigma^2}{1-\beta^2} \Longleftrightarrow \sigma^2 = c_{\tau}^2(1-\beta^2)$$
 
 The auto-covariance (covariance between $Y_t$ and $Y_{t+\tau}$) is
-%MMMMM in stationarity there is \Sigma_{yy}. we keep \Sigma_{yy} or \Sigma_{YY}? same issue for modelling
-$$\Sigma_{yy}(Y_t,Y_{t+\tau})=\mathbb{E}(Y_t,Y_{t+\tau})$$
+
+$$\Sigma_{Y}(Y_t,Y_{t+\tau})=\mathbb{E}(Y_t,Y_{t+\tau})$$
 
 resulting in
 
-$$\Sigma_{yy}(Y_t,Y_{t+\tau}) = \mathbb{E}(Y_t, Y_{t+\tau}) = \mathbb{E}(Y_t(\beta^\tau Y_t + ...)) = \beta^\tau\mathbb{E}(Y_t^2)=c_{\tau}^2\beta^\tau$$
+$$\Sigma_{Y}(Y_t,Y_{t+\tau}) = \mathbb{E}(Y_t, Y_{t+\tau}) = \mathbb{E}(Y_t(\beta^\tau Y_t + ...)) = \beta^\tau\mathbb{E}(Y_t^2)=c_{\tau}^2\beta^\tau$$
 
 **Model structure**
 
-$$\mathbb{E}(Y) = \mathbb{E}\begin{bmatrix}Y_1\\ Y_2\\ ...\\ Y_m\end{bmatrix} = \begin{bmatrix}0\\ 0\\ ...\\ 0\end{bmatrix}, \hspace{15px} \mathbb{D}(Y)=\Sigma_{yy}=c_{\tau}^2\begin{bmatrix}1&\beta&...&\beta^{m-1}\\ \beta&1&...&\beta^{m-2}\\ ...&...&...&...\\ \beta^{m-1}&\beta^{m-2}&...&1\end{bmatrix}$$
+$$\mathbb{E}(Y) = \mathbb{E}\begin{bmatrix}Y_1\\ Y_2\\ ...\\ Y_m\end{bmatrix} = \begin{bmatrix}0\\ 0\\ ...\\ 0\end{bmatrix}, \hspace{15px} \mathbb{D}(Y)=\Sigma_{Y}=c_{\tau}^2\begin{bmatrix}1&\beta&...&\beta^{m-1}\\ \beta&1&...&\beta^{m-2}\\ ...&...&...&...\\ \beta^{m-1}&\beta^{m-2}&...&1\end{bmatrix}$$
 
-* Auto-covariance function $\implies$ $\Sigma_{yy}(\tau)=c_{\tau}=c_{\tau}^2\beta^\tau$
+* Auto-covariance function $\implies$ $\Sigma_{Y}(\tau)=c_{\tau}=c_{\tau}^2\beta^\tau$
 * Normalized auto-covariance function (ACF) $\implies$ $\rho_{YY}(\tau)=\rho_\tau=\beta^\tau$
 * Larger value of $\beta$ indicates long-memory random process
 * If $\beta=0$, this is called *purely random process* (white noise)
-* $\Sigma_{yy}(\tau)=\Sigma_{yy}(-\tau)=\Sigma_{yy}(|\tau|)$ and so is $\rho_{YY}(\tau)=\rho_{YY}(-\tau)=\rho_{YY}(|\tau|)$
+* $\Sigma_{Y}(\tau)=\Sigma_{Y}(-\tau)=\Sigma_{Y}(|\tau|)$ and so is $\rho_{YY}(\tau)=\rho_{YY}(-\tau)=\rho_{YY}(|\tau|)$
 
 **Simulated example**
 
@@ -147,25 +147,25 @@ $$\sigma^2 = \frac{\sigma_\epsilon^2}{1+\theta^2} \Longleftrightarrow \sigma_\ep
 
 The auto-covariance (covariance between $Y_t$ and $Y_{t+\tau}$) is
 
-$$\Sigma_{yy}(Y_t,Y_{t+\tau})=\mathbb{E}(Y_t,Y_{t+\tau}) = 0, \hspace{10px}\text{for}\hspace{5px}\tau\geq 2$$
+$$\Sigma_{Y}(Y_t,Y_{t+\tau})=\mathbb{E}(Y_t,Y_{t+\tau}) = 0, \hspace{10px}\text{for}\hspace{5px}\tau\geq 2$$
 
 resulting in
 
-$$\Sigma_{yy}(Y_t, Y_{t+1}) = \mathbb{E}((\theta \epsilon_{t-1} + \epsilon_t)(\theta \epsilon_t + \epsilon_{t+1})) = \sigma_\epsilon^2\theta\\ \Sigma_{yy}(Y_t, Y_{t-1}) = \mathbb{E}((\theta \epsilon_{t-1} + \epsilon_t)(\theta \epsilon_{t-2} + \epsilon_{t-1})) = \sigma_\epsilon^2\theta$$
+$$\Sigma_{Y}(Y_t, Y_{t+1}) = \mathbb{E}((\theta \epsilon_{t-1} + \epsilon_t)(\theta \epsilon_t + \epsilon_{t+1})) = \sigma_\epsilon^2\theta\\ \Sigma_{Y}(Y_t, Y_{t-1}) = \mathbb{E}((\theta \epsilon_{t-1} + \epsilon_t)(\theta \epsilon_{t-2} + \epsilon_{t-1})) = \sigma_\epsilon^2\theta$$
 
 ```{note}
-Only $\Sigma_{yy}(Y_t, Y_{t\pm 1}) = \mathbb{E}(Y_t, Y_{t\pm 1})\neq 0$
+Only $\Sigma_{Y}(Y_t, Y_{t\pm 1}) = \mathbb{E}(Y_t, Y_{t\pm 1})\neq 0$
 ```
 
 **Model structure**
 
-$$\mathbb{E}(y) = \mathbb{E}\begin{bmatrix}Y_1\\ Y_2\\ ...\\ Y_m\end{bmatrix} = \begin{bmatrix}0\\ 0\\ ...\\ 0\end{bmatrix}, \hspace{15px} \mathbb{D}(y)=\Sigma_{yy}=c_{\tau}^2\begin{bmatrix}1&\rho_1&0&...&0\\ \rho_1&1&\rho_1&...&0\\ 0&\rho_1&1&...&...\\ ...&...&...&...&\rho_1\\ 0&0&...&\rho_1&1\end{bmatrix}$$
+$$\mathbb{E}(y) = \mathbb{E}\begin{bmatrix}Y_1\\ Y_2\\ ...\\ Y_m\end{bmatrix} = \begin{bmatrix}0\\ 0\\ ...\\ 0\end{bmatrix}, \hspace{15px} \mathbb{D}(y)=\Sigma_{Y}=c_{\tau}^2\begin{bmatrix}1&\rho_1&0&...&0\\ \rho_1&1&\rho_1&...&0\\ 0&\rho_1&1&...&...\\ ...&...&...&...&\rho_1\\ 0&0&...&\rho_1&1\end{bmatrix}$$
 
-* Auto-covariance function $\implies$ $\Sigma_{yy}(\tau)=c_{\tau}=\begin{cases}\frac{c_{\tau}^2\theta}{1+\theta^2}, \hspace{5px}\text{if}\hspace{5px}\tau=1\\ 0, \hspace{5px}\text{if}\hspace{5px}\tau>1\end{cases}$
+* Auto-covariance function $\implies$ $\Sigma_{Y}(\tau)=c_{\tau}=\begin{cases}\frac{c_{\tau}^2\theta}{1+\theta^2}, \hspace{5px}\text{if}\hspace{5px}\tau=1\\ 0, \hspace{5px}\text{if}\hspace{5px}\tau>1\end{cases}$
 
 * Normalized auto-covariance function (ACF) $\implies$ $\rho_{YY}(\tau)=\rho_\tau=\begin{cases}\frac{\theta}{1+\theta^2}\end{cases}, \hspace{5px}\text{if}\hspace{5px}\tau=1\\ 0, \hspace{5px}\text{if}\hspace{5px}\tau\neq 1$
 
-* ACF is even, $\Sigma_{yy}(\tau)=\Sigma_{yy}(-\tau)=\Sigma_{yy}(|\tau|)$ and so is $\rho_{YY}(\tau)=\rho_{YY}(-\tau)=\rho_{YY}(|\tau|)$
+* ACF is even, $\Sigma_{Y}(\tau)=\Sigma_{Y}(-\tau)=\Sigma_{Y}(|\tau|)$ and so is $\rho_{YY}(\tau)=\rho_{YY}(-\tau)=\rho_{YY}(|\tau|)$
 
 **Simulated example**
 
@@ -203,7 +203,7 @@ $$
 
 On this worked example, we will try to show that single differencing induces an MA(1). Let us consider
 
-$$Y=\begin{bmatrix}Y_1\\ Y_2\\ ...\\ Y_m\end{bmatrix}, \hspace{10px} \Sigma_{yy}=c_{\tau}^2\begin{bmatrix}1&0&...&0\\ 0&1&...&0\\ ...&...&...&...\\ 0&0&...&1\end{bmatrix}=c_{\tau}^2 I_m$$
+$$Y=\begin{bmatrix}Y_1\\ Y_2\\ ...\\ Y_m\end{bmatrix}, \hspace{10px} \Sigma_{Y}=c_{\tau}^2\begin{bmatrix}1&0&...&0\\ 0&1&...&0\\ ...&...&...&...\\ 0&0&...&1\end{bmatrix}=c_{\tau}^2 I_m$$
 
 Having $\Delta Y_1 = Y_1$, then:
 
@@ -215,7 +215,7 @@ $$\begin{bmatrix}\Delta Y_2\\ \Delta Y_3\\ ...\\ \Delta Y_m\end{bmatrix} = \begi
 
 Therefore:
 
-$$\Sigma_{\Delta Y\Delta Y}=T\Sigma_{yy}T^T = Tc_{\tau}^2I_mT^T=c_{\tau}^2TT^T$$
+$$\Sigma_{\Delta Y\Delta Y}=T\Sigma_{Y}T^T = Tc_{\tau}^2I_mT^T=c_{\tau}^2TT^T$$
 
 which can simplify to:
 

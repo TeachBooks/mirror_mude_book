@@ -87,19 +87,20 @@ where $\omega_0$ is the base (fundamental) frequency of the seasonal variation a
 
 $$ A_k = \sqrt{(a_k^2 + b_k^2)}, \hspace{1cm} \theta_k = \arctan(\frac{a_k}{b_k}), \hspace{1cm} k = 1, \ldots{}, p $$
 
+(season)=
 :::{card} Example - seasonal variations
 
 ```{figure} ./figs/sine_wave_1.jpg
-:name: trend
+:name: trendab
 :width: 600px
 :align: center
 
-Seasonal variations components: red line represents $a$ and green line represents $b$. Blue line is the time series $Y(t)$.
+Seasonal variations components: blue line is the time series $Y(t)$; red and green lines represent the contributions $a  \cos(0.5\pi t)$ and  $b   \sin(0.5\pi t)$, respectively.
 ```
 
 The seasonal variation is given as $y = A \sin(\omega_0 t + \theta)$.
 
-Assume amplitude $A=2$, base frequency $\omega_0=0.5\pi$ and initial phase $\theta = -0.8 \pi$ (rad).
+Assume amplitude $A=2$, base frequency $\omega_0=0.5\pi$ and initial phase $\theta = -0.8 \pi$ (rad), see top panel of {numref}`trendab`.
 
 $y(t) = 2 \sin(0.5 \pi t - 0.8\pi)$
 
