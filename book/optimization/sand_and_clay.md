@@ -1,5 +1,7 @@
 # Worked example - Sand and Clay Extraction Problem
 
+test edit 29/11 
+
 ## The problem
 
 A company extracts sand and clay from a site which when sold gives a profit of 57 and 60 monetary units per thousand units of product, respectively. For this extraction, **sand** needs a manpower of **50 men x hours** to extract **1000 units of product** whilst **clay** needs **13 men x hours for 1000 units**.
