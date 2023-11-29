@@ -46,9 +46,10 @@ These methods are:
 
 Single differencing of $Y=[Y_1,...,Y_m]^T$ makes a time series $\Delta Y_t=Y_t - Y_{t-1},\; t\geq 2$ with starting value of $\Delta Y_1 = Y_1$. This is a **regular transformation** of data, and hence allowed, as shown in the equation below.
 
+(SD)=
 $$
 \begin{bmatrix}
-    \Delta Y_1 \\ \Delta Y_2 \\ \Delta Y_3 \\ ... \\ \Delta Y_m
+    \Delta Y_1 \\ \Delta Y_2 \\ \Delta Y_3 \\ \vdots \\ \Delta Y_m
 \end{bmatrix} = 
 \begin{bmatrix}
     1 & 0 &   & \dots & 0\\
