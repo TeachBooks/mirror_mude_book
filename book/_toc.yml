@@ -179,9 +179,9 @@ parts:
       - file: time_series/stationarity
         title: "Stationarity"
       - file: time_series/acf
-        title: "Auto-covariance function (ACF)"
+        title: "Autocovariance function (ACF)"
       - file: time_series/arma
-        title: "Auto-Regressive Moving Average (ARMA) process"
+        title: "AutoRegressive Moving Average (ARMA) process"
       - file: time_series/modelling
         title: "Time Series modelling and estimation"
       - file: time_series/forecasting
