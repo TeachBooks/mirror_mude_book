@@ -1,0 +1,389 @@
+# TSA Exercises
+
+## Exercises
+
+MMMMM from 231129 word doc from Alireza: move these to the right page, or keep all here? If on other page, put under a second-level heading, as above
+
+:::{card} Exercise 1
+
+A time series exhibits a linear regression model $y(t)=y_0 + rt + e(t)$. The measurements have also been taken at a measurement frequency of 10 Hz, producing epochs of $t=0.1,0.2, \dots,100$ seconds, so $m=1000$. Later an offset was also detected at epoch 260 using statistical hypothesis testing. For the linear model $y=Ax+e$, establish an approprate design matrix that can capture all the above effects.
+
+```{admonition} Solution
+:class: tip, dropdown
+
+Inthe linear regression case, the design matrix consists of two columns, one for the unknown $y_0$ (a column on ones), and the other for $r$ (a column of time, $t$). Due to the presence of an offset, the mathematical model should be modified to:
+
+$$
+y(t) = y_0 =rt +o_k u_k(t) + e(t)
+$$
+
+where $u_k(t)$ is the Heaviside step function:
+
+$$
+u_k(t) = 
+\begin{cases}
+0, & \textrm{if} & t<t_k=26 \\
+1, & \textrm{if} & t\geq t_k=26
+\end{cases}
+$$
+
+and $o_k$ is the magnitude of the offset. This means that we have to add a third column to the design matrix having zeros before the epoch 260, and ones afterwards. Since epoch 260 corresponds to $t=26$ s (noting that we have 10 Hz data), in $A$ we begin to have 1's in that row:
+
+$$
+A = 
+\begin{bmatrix}
+1 & t_1 & 0 \\
+\vdots & \vdots & \vdots\\
+1 & t_{260} & 1\\
+\vdots & \vdots & \vdots \\
+1 & t_{1000} & 1 \\
+\end{bmatrix}
+= 
+\begin{bmatrix}
+1 & 0.1 & 0 \\
+\vdots & \vdots & \vdots\\
+1 & 26 & 1\\
+\vdots & \vdots & \vdots \\
+1 & 100 & 1 \\
+\end{bmatrix}
+$$
+```
+:::
+
+:::{card} Exercise 2
+
+In a zero-mean first order autoregressive process, abbreviated as AR(1), we have $m=3$ observations, $\beta=0.8$, and the generated white noise errors are $e_t = [e_1,\, e_2,\, e_3]=[1,\, 2,\, -1]$. What is the generated AR(1) process $y_t = [y_1,\, y_2,\, y_3]$?
+
+a. $y_t = \begin{bmatrix}1 & 2.8 & 1.24\end{bmatrix}$  
+b. $y_t = \begin{bmatrix} 0 & 2 & 0.6 \end{bmatrix}$  
+c. $y_t = \begin{bmatrix} 1 & 2 & -1 \end{bmatrix}$  
+
+```{admonition} Solution
+:class: tip, dropdown
+
+The correct answer is **a**. The AR(1) process can be initialized as $y_1=e_1=1$. The next values can be obtained through:
+
+$$
+y_t = \beta y_{t-1} + e_t
+$$
+
+Giving $y_2=0.8 y_1 + e_2 = 0.8\cdot 1 + 2 = 2.8$ and $y_3=0.8 y_2 + e_3 = 0.8\cdot 2.8 - 1= 1.24$, so we have:
+
+$$
+y_t = 
+\begin{bmatrix}1 & 2.8 & 1.24\end{bmatrix} 
+$$
+
+```
+:::
+
+:::{card} Exercise 3
+
+A zero-mean stationary noise process consists of $m=5$ observations:
+
+$$
+y = \begin{bmatrix} 2 & 1 & 0 & -1 & -2 \end{bmatrix}
+$$
+
+What is the _least-squares estimate_ of the normalized ACF at $\tau=1$; so compute $\hat{\rho}_{yy}(\tau=1)$?
+
+```{admonition} Solution
+:class: tip, dropdown
+
+The normalized auto-covariance function (ACF) can be estimated from the auto-covariance function as:
+
+$$
+\hat{\rho}_{yy}(\tau)=\hat{\rho}_\tau=\frac{\hat{\sigma(\tau)}}{\hat{\sigma}(0)}, \qquad \tau=0, \dots , m-1
+$$
+
+where the least-squares estimate of auto-covariance function is:
+
+$$
+\hat{Q}_{yy}(\tau)
+= \hat{\sigma}(\tau)
+= \frac{\sum_{i=1}^{m-\tau}(y_i - \mu_y)(y_{i+\tau} - \mu_y)}{m-\tau},
+\qquad \tau=0, \dots , m-1
+$$
+
+For our application we have $\mu_y=0$, as we deal with a zero-mean process. We have to compute $\hat{\sigma}(0)$ and $\hat{\sigma}(1)$ given as:
+
+$$
+\hat{\sigma}(0)
+= \frac{\sum_{i=1}^{m} y_i^2}{m-0}
+= \frac{10}{5} = 2
+$$
+
+And 
+
+$$
+\hat{\sigma}(1)
+= \frac{\sum_{i=1}^{m} y_i y_{i+1}}{m-1}
+= \frac{2(1) + 1(0) + 0(-1) + (-1)(-2)}{5 - 1}
+= \frac{2 + 0 + 0 + 2}{4}
+= 1
+$$
+
+Giving
+
+$$
+\hat{\rho}_{yy}(\tau=1)
+= \frac{1}{2}
+$$
+
+```
+
+:::
+
+:::{card} Exercise 4
+
+The linear model of observation equations of a time series measured at $t=\begin{bmatrix}1 & 2 &3 & 4\end{bmatrix}^T$ is as $y(t)=y_0+rt+e(t)$, where the errors $e(t)\sim N(0,1)$ contain independent standard normal errors. The observations are given as $y=\begin{bmatrix}0.1 & 1 2.2& 3\end{bmatrix}^T$. Estimate the rate $r$ and its standard deviation using BLUE. In other words, find $\hat{r}$ and $\sigma_{\hat{r}}$.
+
+```{admonition} Solution
+:class: tip, dropdown
+
+Based on the information provided, the design matrix, the unknown parameters and the covariance matrix of observations are as follows:
+
+$$
+A =
+\begin{bmatrix}
+1&1\\1&2\\1&3\\1&4\\
+\end{bmatrix},
+\quad
+x = 
+\begin{bmatrix}
+y_0\\r\\
+\end{bmatrix},
+\quad
+Q_{yy} = 
+\begin{bmatrix}
+1&0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1\\
+\end{bmatrix}
+= I_4,
+$$
+
+This gives the BLUE of $x$ as
+
+$$
+\hat{x} 
+= \bigl(A^T Q_{yy}^{-1} A\bigr)^{-1} A^T Q_{yy}^{-1}y
+= (A^TA)^{-1}A^Ty
+$$
+
+with the variance matrix of 
+
+$$
+Q_{\hat{x}\hat{x}}
+= \bigl(A^T Q_{yy}^{-1} A\bigr)^{-1}
+= (A^TA)^{-1}
+$$
+
+Working out the above formulas gives
+
+$$
+Q_{\hat{x}\hat{x}} = (A^TA)^{-1}
+= \Biggl(
+\begin{bmatrix}
+1&1&1&1\\1&2&3&4
+\end{bmatrix}
+\begin{bmatrix}
+1&1\\1&2\\1&3\\1&4\\
+\end{bmatrix}
+\Biggr)^{-1}
+= 
+\begin{bmatrix}
+4&10\\10&30
+\end{bmatrix}^{-1}
+= \frac{1}{10}
+\begin{bmatrix}
+15&-5\\-5&2\\
+\end{bmatrix}^{-1}
+$$
+
+And
+
+$$
+\hat{x} = (A^TA)^{-1}A^Ty
+= \frac{1}{10}
+\begin{bmatrix}
+15 & -5 \\ -5 & 2 \\
+\end{bmatrix}
+\begin{bmatrix}
+1&1&1&1\\1&2&3&4\\
+\end{bmatrix}
+\begin{bmatrix}
+0.1\\1\\2.2\\3\\
+\end{bmatrix}
+$$
+
+or
+
+$$
+\hat{x} = (A^TA)^{-1}A^Ty
+= \frac{1}{10}
+\begin{bmatrix}
+15 & -5 \\ -5 & 2 \\
+\end{bmatrix}
+\begin{bmatrix}
+6.3\\20.7
+\end{bmatrix}
+= \frac{1}{10}
+\begin{bmatrix}
+-9\\9.9
+\end{bmatrix}
+= 
+\begin{bmatrix}
+-0.9\\0..99
+\end{bmatrix}
+$$
+
+We therefore have
+
+$$
+\hat{r} = 0.99,
+\quad \textrm{and} \quad
+\sigma_{\hat{r}} = \sqrt{Q_{\hat{x}\hat{x}}(2.2)}=\sqrt{0.2}=0.458
+$$
+
+or
+
+$$
+\hat{r}\pm \sigma_{\hat{r}} = 0.99 \pm 0.45
+$$
+
+```
+:::
+
+:::{card} Exercise 5
+
+For the stationary AR(2) process, calculate the ACF at lag 1. In other words, calculate $\rho(\tau=1)$.
+
+```{admonition} Solution
+:class: tip, dropdown
+
+For the AR($p$) process we know that $\mathbb{E}(y_t)=0$, and $\mathrm{D}(y_t)=\sigma^2$. Therefore, for AR(2):
+
+$$
+\mathrm{D}(y_t)=\sigma^2=\sigma^2(\beta_1^2 + \beta_2^2)+\sigma_e^2
+$$
+
+or
+
+$$
+\sigma^2
+= (1 - \beta_1^2 - \beta_2^2)
+= \sigma_e^2
+$$
+
+which is a condition for the AR(2) process to be stationary. To compute the auto-covariance function at lag 1, $\sigma(1)$, we need to compute the covariance between $y_{t-1}$ and $y_t$, which is given as
+
+$$
+\sigma(1) = \mathbb{E}(y_{t-1}y_t)
+= \mathbb{E}
+\bigl(y_{t-1}
+(\beta_1 y_{t-1} + \beta_2 y_{t-2} + e_t)
+\bigr)
+$$
+
+or 
+
+$$
+\sigma(1)
+= \beta_1 \mathbb{E}(y_{t-1}^2)
++ \beta_2 \mathbb{E}(y_{t-2}y_{t-1})
++ \mathbb{E}(y_{t-1}e_t)
+$$
+
+or
+
+$$
+\sigma(1)
+= \beta_1 \sigma^2
++ \beta_2 \sigma(1)
+$$
+
+which gives
+
+$$
+\beta_1 \sigma^2 = \sigma(1)(1-\beta_2)
+$$
+
+or, because $\rho(1)=\sigma(\tau)/\sigma^2$:
+
+$$
+\rho(1)=\frac{\beta_1}{1-\beta_2}
+$$
+
+```
+:::
+
+:::{card} Exercise 6
+
+Consider a random process time series as:
+
+$$
+x_t
+= u \cos (\theta t) + v \sin (\theta t)
+$$
+
+where $u$ and $v$ are two uncorrelated random variables with zero means and unit variances and $\theta$ is a deterministic value in the interval $\theta \in [-\pi, \pi]$. Show that this noise process is stationary.
+
+```{admonition} Solution
+:class: tip, dropdown
+
+Because $\mathbb{E}(u)=\mathbb{E}(v)=0$, it simply follows that 
+
+$$
+\mathbb{E}(x_t)=0
+$$
+
+For a given $\tau$, the covariance between $x_t$ and $x_{t+\tau}$ is obtained as:
+
+$$
+\textrm{cov} (x_t, x_{t+\tau})
+= \mathbb{E}(x_t, x_{t+\tau}) - \mathbb{E}(x_t)\mathbb{E}(x_{t+\tau})
+= \mathbb{E}x_t, x_{t+\tau}
+$$
+
+or
+
+$$
+\textrm{cov} (x_t, x_{t+\tau})
+= \mathbb{E}
+\biggl(
+    \bigl[ u \cos(\theta t) + v \sin(\theta t) \bigr]
+    \bigl[ u \cos(\theta t + \theta \tau)
+         + v \sin(\theta t + \theta \tau) \bigr]
+\biggr)
+$$
+
+The multiplication consists of four terms in which the terms $u^2$, $v^2$, $uv$ and $vu$ appear. Because the two random variables $u$ and $v$ are uncorrelated with zero means and unit variances, it follows that:
+
+$$
+\mathbb{E}(u^2) = \mathbb{E}(v^2) = 1
+\quad \mathrm{and} \quad
+\mathbb{E}(uv) = \mathbb{E}(vu) = 0
+$$
+
+This, with the previous equations, gives:
+
+$$
+\textrm{cov}(x_t, x_{t+\tau})
+= \cos(\theta t) \cos(\theta t + \theta \tau)
++ \sin(\theta t) \sin(\theta t + \theta \tau)
+$$
+
+Using the identity $\cos(a-b)=\cos(a)\cos(b)+\sin(a)\sin(b)$, it follows:
+
+$$
+\textrm{cov}(x_t, x_{t+\tau})
+= \cos(\theta t + \theta \tau - \theta t)
+= \cos(\theta \tau)
+$$
+
+Which is a function of $\tau$ as $\sigma(\tau)$, and not a function of time, $t$. This shows that the random process is stationary.
+
+```
+:::

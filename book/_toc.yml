@@ -188,6 +188,10 @@ parts:
         title: "Time Series forecasting"
       - file: time_series/videos
         title: Supplementary Videos
+      - file: time_series/exercises
+        title: Exercises
+      - file: time_series/notebook
+        title: Notebook
       
   - caption: Optimization
     numbered: 2

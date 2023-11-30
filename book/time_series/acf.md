@@ -1,12 +1,14 @@
 # Autocovariance function (ACF)
 
-The goal of this chapter will be to the autocovariance function (ACF) for a stationary time series, and the relation between ACF and power spectral density (PSD)
+The goal of this chapter is to introduce the autocovariance function (ACF) for a stationary time series, and describe the relationship between ACF and power spectral density (PSD).
 
-## Autocovariance and autocorrelation
+## Autocovariance and utocorrelation
 
 Let us assume an arbitrary (discrete) time series, $Y=[Y_1,Y_2,...,Y_m]$, with mean $\mathbb{E}(Y)=\mu$ and variance $\sigma^2_{i}=\sigma^2$.
 
 The *formal* autocovariance is defined as
+
+% see below MMMMM
 
 $$
 Cov(Y_t, Y_{t-\tau}) = \mathbb{E}((Y_t-\mu)(Y_{t-\tau}-\mu))=\mathbb{E}(Y_tY_{t-\tau})-\mu^2=c_{\tau}
@@ -16,11 +18,15 @@ $$
 The reason to refer to *auto*covariance is that we are considering the covariance of $Y$ with itself (with a certain time lag $\tau$). If the covariance of $Y$ with the time series of another variable, $X$, would be considerd, this is referred to as the *cross*-covariance.
 ```
 
-* The *formal* autocorrelation is defined as
+The *formal* autocorrelation is defined as
+
+% MMMMM "formal autoco..." or "formal definition of autoco..."?
 
 $$
 R_{\tau} = \mathbb{E}(Y_tY_{t-\tau})
 $$
+
+% MMMMM should equation above include R_tau or rho_tau? the note below has rho
 
 ```{note}
 When we have a zero-mean time series, $\mu=0$, it follows that $c_{\tau}=\rho_{\tau}$
@@ -51,7 +57,7 @@ $$
 \hat{C}_{\tau} = \frac{\sum_{i=1}^{m-\tau}(Y_i-\mu)(Y_{i+\tau}-\mu)}{m}, \hspace{25px} \tau=0,1,...,m-1
 $$
 
-Note that this is a biased estimatot, $\mathbb{E}(\hat{C}_{\tau})\neq c_{\tau}$.
+Note that this is a biased estimator, $\mathbb{E}(\hat{C}_{\tau})\neq c_{\tau}$.
 
 Similarly, the maximum likelihood estimate of the autocorrelation follows as:
 
@@ -61,6 +67,7 @@ $$
 
 ```{note}
 Always check which of the estimators a certain software tool uses! 
+% MMMMM Easier said than done? https://www.statsmodels.org/dev/generated/statsmodels.tsa.stattools.acovf.html
 ```
 
 ### Covariance matrix based on autocovariance
@@ -76,8 +83,10 @@ c_2 & c_1 & \sigma^2 &  \ddots & c_2  \\
 
 There are $m$ (co)variance components - **one** variance component, $\sigma^2 = c_0$, and $m-1$ covariance components, $c_i$.
 
+% MMMMM add this? As in the Chapters on `ref`{OT}, the variance component is often determined based on the precision of an observation (at a given epoch), and the covarience components quantitatively indicate the statistical dependence (or independence) between observations. In this case, depednence is inherently introduced by the phyiscal processes that produce the signal (of which our time series is a sample), and in fact our time series methods seek to (mathematically) reduce this.
+
 ```{note}
-The covariance matrix $\Sigma_{Y}$ is a so-called Toeplitz matrix!
+The covariance matrix $\Sigma_{Y}$ has constant values along the top-left to bottom-right diagonal and is called a _Toeplitz matrix._
 ```
 
 ## Normalized ACF
@@ -91,9 +100,12 @@ $$
 $$
 
 * The normalized autocovariance function can directly be obtained from the autocovariance function as
- 
+
+% MMMMM here we have rho_tau again. Maybe also good to points out upper- and lower-case C/c...is it a random variable/realization thing? Seems to be slightly different, since each c corresponds to a RV X_{t_i}, but C and c notation seems to imply that c is a realization of a stochastic variable/process C?
+
 $$
-\hat{\rho}_{\tau} = \frac{\hat{C}_{\tau}}{\hat{C_0}}, \hspace{20px}\tau = 0,...,m-1 \implies \hat{\rho}_0 = 1$$
+\hat{\rho}_{\tau} = \frac{\hat{C}_{\tau}}{\hat{C_0}}, \hspace{20px}\tau = 0,...,m-1 \implies \hat{\rho}_0 = 1
+$$
 
 * The variance of the normalized ACF can be approximated as
 
@@ -163,7 +175,7 @@ Writing it out, this means
 
 $$\text{DFT}\left(\frac{1}{m}\sum_{i=1}^m y_i y_{i+\tau}\right)=\frac{1}{m\Delta t}Y_s(k) Y_s(k)^*=\frac{1}{m\Delta t}|Y_s(k)|^2$$
 
-where the Fourier coefficients see [DFT section](FFT) are
+where the Fourier coefficients (see [DFT section](FFT)) are:
 
 $$Y_s(k)  = \Delta t\sum_{i=1}^my_ie^{-j\frac{2\pi}{m}(k-1)(i-1)}$$
 
@@ -171,7 +183,7 @@ $$Y_s(k)  = \Delta t\sum_{i=1}^my_ie^{-j\frac{2\pi}{m}(k-1)(i-1)}$$
 In signal processing, it is common to write a sampled (discrete) signal as a small letter $y(t_i)=y_i$ and the Fourier coefficients with capitals $Y_k$. Since we also use capitals to indicate that $Y$ is a random variable, we describe the DFT here for a realization $y$ of $Y$, and use the notation $Y_s(k)$ for the Fourier coefficients.
 ```
 
-Inversely, the inverse discrete Fourier transform (IDFT) of the PSD is the ACF, so
+Conversely, the inverse discrete Fourier transform (IDFT) of the PSD is the ACF, so
 
 $$\text{IDFT}(S_{yy}(k))=\hat{c}_{\tau}, \hspace{35px} \tau = 1,...,m \hspace{5px}\text{and}\hspace{5px} k = 1,...,m$$
 
@@ -186,14 +198,16 @@ Time series data, auto-covariance and its power spectral density plots of white 
 The PSD explains how the power (variance) of the signal is distributed over different frequencies. The PSD of a pure sine wave is flat except at its constituent frequency.
 Purey random noise (i.e., white noise) has a flat power, indicating that all frequencies have identical contribution in making the variance of the signal.
 
-:::{card} **Partial ACF**
+## Partial ACF
+
+A partial ACF (PACF) is a covariance between an observation in a time series with observations at prior time steps with the relationships of intervening observations removed. We work this out using a simple example.
 
 ```{admonition} MUDE exam information
 :class: tip, dropdown
-This part is optional and will not be assessed on the exam.
+The concept of PACF and derivation is optional and will not be assessed on the exam.
 ```
 
-A partial ACF (PACF) is a covariance between an observation in a time series with observations at prior time steps with the relationships of intervening observations removed. We work this out using a simple example.
+:::{card} Illustration of PACF
 
 Let us assume that we have an autoregressive noise process
 
@@ -218,12 +232,17 @@ $$
 Cov(Y_t, Y_{t+2}) =  \sigma^2\beta^2
 $$
 
-Hence, the $Y_t$ and $Y_{t+2}$ are correlated, even though according to the expression $Y_t = \beta Y_{t-1}+\epsilon_t$ should just depend on the previous value. This makes sense, since the previous value again depends on its own previous value, etcetera. However, using the partial ACF allows to 'remove' this correlation.
+Hence, the $Y_t$ and $Y_{t+2}$ are correlated, even though according to the expression $Y_t = \beta Y_{t-1}+\epsilon_t$ should just depend on the previous value. This makes sense, since the previous value again depends on its own previous value, et cetera. However, using the partial ACF allows to 'remove' this correlation.
 
 ### Worked example
+
 Let us now take a look into a worked example on PACF to remove the intervening term, $\beta Y_{t+1}$ between $Y_t$ and $Y_{t+2}$. As we saw before, ACF can be obtained from
 
-$$\text{COV} = Cov(Y_t, Y_{t+2}) =  \sigma^2\beta^2$$
+% MMMMM Why all of a sudden t+2 instead of t-2?
+
+$$
+\text{COV} = Cov(Y_t, Y_{t+2}) =  \sigma^2\beta^2
+$$
 
 Regarding the partial ACF, it is knowns from the autoregression $Y_t = \beta Y_{t-1}$ that $\hat{Y}_t = \hat{Y}_{t+2} = \beta Y_{t+1}$. Therefore:
 
