@@ -215,7 +215,10 @@ $$
      \sin{\omega_0 t_m} & \cos{\omega_0 t_m} & t_m & 1
 \end{bmatrix}
 \begin{bmatrix}
-x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix} + \epsilon
+x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix} + 
+\begin{bmatrix}
+    \epsilon_1 \\ \epsilon_2 \\  \vdots \\ \epsilon_m
+\end{bmatrix}
 $$
 
 

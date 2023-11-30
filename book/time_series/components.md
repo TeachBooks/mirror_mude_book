@@ -29,7 +29,7 @@ where we distinguish the following components:
 1. $tr(t)$ = trend, provides the general behavior and variation of the process
 2. $s(t)$ = seasonality, shows the regular seasonal variations
 3. $o(t)$ = offset, is a discontinuity (or jump) in the data
-4. $b(t)$ = irregularities and outliers (also referred to as biases), due to unexpected reasons
+4. $b(t)$ = irregularities and outliers (also referred to as biases), due to unexpected reasons. From here on, we will not continue with irregularities.
 5. $N(t)$ = noise, can be white or colored noise.
 
 In this book only irregularities will not be considered.
