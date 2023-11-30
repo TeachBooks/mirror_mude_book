@@ -122,7 +122,7 @@ $$
 
 Show for yourself that applying double differencing to the time series $Y_t = y_0+rt+at^2+\epsilon_t$ results in a stationary time series $\Delta^2 Y_t$.
 
-```{admonition} Solution
+````{admonition} Solution
 :class: tip, dropdown
 
 $$
@@ -132,7 +132,6 @@ $$
 $$
 
 with $\mathbb{E}(\Delta^2 Y_t)=2a$.
-```
 
 ```{figure} ./figs/doubledifference.png 
 ---
@@ -141,6 +140,7 @@ name: doubledifference
 ---
 Original time series (second-order polynomial) on the left; double differenced time series on the right.
 ```
+````
 :::
 
 ### Moving average
@@ -204,6 +204,7 @@ Example of a time series (right graph) with linear and seasonal trend. The resid
 
 
 In the example above, for each observation $Y_m = x_1 \sin{\omega_0t_m} + x_2\cos{\omega_0t_m}+x_3t_m+x_4$, where $x_1$ and $x_2$ denote the seasonality and $x_3$ the trend. [As explained here,](components#seasonality) $\omega_0$ is found by a Spectral Analysis method. The time series then is:
+
 $$
 \begin{bmatrix}
     Y_1 \\ Y_2 \\  \vdots \\ Y_m
