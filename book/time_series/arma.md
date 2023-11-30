@@ -146,9 +146,9 @@ where $\epsilon_t$ is an i.i.d. noise process (white noise), e.g. distributed as
 
 **Formulation**
 
-Initializing $Y_1$ and $\epsilon_1$, with $\mathbb{E}(Y_1)=\mathbb{E}(\epsilon_1)=0$, $\mathbb{D}(Y_1)=\sigma^2$ and $\mathbb{D}(\epsilon_1)=\sigma_{\epsilon}^2$. Following this, multiple applications of the above "moving average" formula ($Y_t = \theta \epsilon_{t-1} + \epsilon_t$) gives:
+Initializing $Y_1=\epsilon_1$, with $\mathbb{E}(Y_1)=\mathbb{E}(\epsilon_1)=0$, $Var(Y_1)=\sigma^2$ and $Var(\epsilon_i)=\sigma_{\epsilon}^2$ for $i=2,\dots,m$. Following this, multiple applications of the above "moving average" formula  gives:
 
-$$\begin{align*}Y_1&=\epsilon_1\\ Y_2&=\theta \epsilon_1+\epsilon_2\\ Y_3 &= \theta \epsilon_2+\epsilon_3\\ ...\\ Y_m &= \theta \epsilon_{m-1} + \epsilon_m\end{align*}$$
+$$\begin{align*}Y_1&=\epsilon_1\\ Y_2&=\theta \epsilon_1+\epsilon_2\\ Y_3 &= \theta \epsilon_2+\epsilon_3\\ &\vdots\\ Y_m &= \theta \epsilon_{m-1} + \epsilon_m\end{align*}$$
 
 of which we still have (in order to impose the *stationarity*):
 
