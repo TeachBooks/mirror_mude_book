@@ -127,6 +127,8 @@ We put forward two hypotheses:
 
 $$\mathcal{H}_0: Y=\mathrm{Ax}+\epsilon \hspace{5px}\text{vs.}\hspace{5px} \mathcal{H}_a: Y=\mathrm{Ax}+\mathrm{C}\nabla+\epsilon$$
 
+The null hypothesis could be a model without a seasonal component, while the alternative hypothesis would include a seasonal component with a certain choice for $\omega$.
+
 :::{card} **Example**
 
 $$

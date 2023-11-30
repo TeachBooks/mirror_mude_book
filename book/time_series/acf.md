@@ -4,7 +4,7 @@ The goal of this chapter will be to the autocovariance function (ACF) for a stat
 
 ## Autocovariance and autocorrelation
 
-Let us assume an arbitrary (discrete) time series, $Y=[Y_1,Y_2,...,Y_m]$, with mean $\mathbb{E}(Y)=\mu$ and variance $\sigma^2_{i}=\sigma^2$.
+Let us assume an arbitrary (discrete) time series, $Y=[Y_1,Y_2,...,Y_m]^T$, with mean $\mathbb{E}(Y)=\mu$ and variance $\sigma^2_{i}=\sigma^2$.
 
 The *formal* autocovariance is defined as
 
@@ -80,6 +80,7 @@ There are $m$ (co)variance components - **one** variance component, $\sigma^2 = 
 The covariance matrix $\Sigma_{Y}$ is a so-called Toeplitz matrix!
 ```
 
+(NACF)=
 ## Normalized ACF
 
 The least-squares estimator of the autocovariance function (ACF) has the following properties (derivations are outside the scope of MUDE):
@@ -98,7 +99,7 @@ $$
 * The variance of the normalized ACF can be approximated as
 
 $$
-\sigma_{\hat{\rho}_0}^2 = \frac{1}{m-\tau}+\frac{2\hat{\rho}^2_{\tau}}{m}
+\sigma_{\hat{\rho}_{\tau}}^2 = \frac{1}{m-\tau}+\frac{2\hat{\rho}^2_{\tau}}{m}
 $$
 
 * If $m$ is sufficiently large, $\hat{\rho}_{\tau}$ is normally distributed as
