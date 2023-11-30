@@ -1,31 +1,32 @@
-# General component optimization problems
+# Optimization
 
-In general, for optimization problems, we have a linear mathematical program that can be solved, for example, through the Simplex method:
+## General components of an optimization problem
+In general you have the following linear (simplest) structure for a mathematial programing problem. The first equation is the objective function:
 
 $$\underbrace{\text{Max (Min) }Z}_{\text{objective function}}=\underbrace{c_1x_1+c_2x_2+...+c_nx_n}_{\text{objective function coefficients}}$$
 
-subject to a set of constraints given, for example, by:
+this ojective function is subject to a set of constraints given by:
 
 $$\begin{cases}a_{11}x_1+a_{12}x_2+...+a_{1n}x_n(\leq,=,\geq)b_1\\a_{21}x_1+a_{22}x_2+...+a_{2n}x_n(\leq,=,\geq)b_2\\...\\ a_{m1}x_1+a_{m2}x_2+...+a_{mn}x_n(\leq,=,\geq)b_m\end{cases}$$
 
-In this case $a_{ij}$ refer to technology coefficients that measure the usage of a resource, $b_m$ is an independent term, $n$ is the number of variables, and $m$ is the number of constraints.
+In this case $a_{ij}$ refer to technology coefficients that measure the usage of a resource, $b_m$ is an independent term, whihc translates usually as an available resource, $n$ is the number of variables, and $m$ is the number of constraints.
 
 ## Optimization vs Simulation
 
 **Optimization**
 
-Some modeling approaches attempt to provide optimal answers for problems (e.g., mathematical programming) or near optimum answers (e.g., heuristic and meta-heuristic methods).
+Some modeling approaches attempt to provide optimal answers for problems (e.g., mathematical programming) or near optimum answers (e.g., heuristic and meta-heuristic methods). That's what this week is all about.
 
 **Simulation**
 
 A simulation model predicts the performance of a system under a specific set of inputs (experimental parameters).In general, with simulation, we are not searching for an optimal solution but for the system’s performance under different scenarios that are selected according to their importance or likelihood.
 
----
+**Understand the different betwen both**
 
 Imagine the case of planning a bus line through simulation. You have your route defined (the streets where it’s going to go through) and the demand around that route is dependent on the
 frequency of the buses and the bus stop distance. You want to simulate the bus operation in order to maximize your profit.
 
-The variables involved are the bus fleet size, $b$, and the number of stops in the line, $s$. Defining them:
+The variables involved are the bus fleet size, $b$, and the number of stops in the line, $s$. They can be bounded to form a range:
 
 * $5 \leq b \leq 15$ -> we have 11 bus fleet dimensions to test in a simulation model;
 * $10 \leq s \leq 30$ -> we have 21 possible stops dimensions
@@ -133,7 +134,6 @@ In this section, you can find a few examples of optimization problems with their
 :class: tip, dropdown
 
 **Goal:** identify the best location and time for deploying enhanced roads for automated vehicles, minimizing deployment cost and maximizing efficiency and safety given the uncertain evolution path of automated driving technology and the travelers' mode and route choice behavior.
-
 
 <div style="display: block; justify-content: space-between;">
   <img src="./figs/ex_8.png" style="width: 95%;">
