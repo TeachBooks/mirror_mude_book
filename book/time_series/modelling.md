@@ -146,7 +146,7 @@ $$\begin{align*}
 ![hypotheses](./figs/hypotheses.png "hypotheses")
 :::
 
-The [Generalized Ratio Test](GLRT) statistic is given by
+The [Generalized Likelihood Ratio Test](GLRT) statistic is given by
 
 $$\begin{align*}
 T_q &= \hat{\epsilon}^T\Sigma_Y^{-1}\hat{\epsilon}-\hat{\epsilon}_a^T\Sigma_Y^{-1}\hat{\epsilon}_a \\ &=\hat{\epsilon}^T\Sigma_{Y}^{-1}\mathrm{C}(\mathrm{C}^T\Sigma_{Y}^{-1}\Sigma_{\hat{\epsilon}}\Sigma_{Y}^{-1}\mathrm{C})^{-1}\mathrm{C}^T\Sigma_{Y}^{-1}\hat{\epsilon}

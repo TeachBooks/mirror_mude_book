@@ -2,7 +2,9 @@
 
 The goal of this chapter is to introduce the autocovariance function (ACF) for a stationary time series, and describe the relationship between ACF and power spectral density (PSD).
 
-## Autocovariance and utocorrelation
+As in the Chapter on `ref`{OT}, the variance component is often determined based on the precision of an observation (at a given epoch), and the covarience components quantitatively indicate the statistical dependence (or independence) between observations. In this case, dependence is inherently introduced by the phyiscal processes that produce the signal (of which our time series is a sample), and in fact our time series methods seek to (mathematically) account for this.
+
+## Autocovariance and autocorrelation
 
 Let us assume an arbitrary (discrete) time series, $Y=[Y_1,Y_2,...,Y_m]^T$, with mean $\mathbb{E}(Y)=\mu$ and variance $\sigma^2_{i}=\sigma^2$.
 
@@ -20,16 +22,12 @@ The reason to refer to *auto*covariance is that we are considering the covarianc
 
 The *formal* autocorrelation is defined as
 
-% MMMMM "formal autoco..." or "formal definition of autoco..."?
-
 $$
-R_{\tau} = \mathbb{E}(Y_tY_{t-\tau})
+r_{\tau} = \mathbb{E}(Y_tY_{t-\tau})
 $$
-
-% MMMMM should equation above include R_tau or rho_tau? the note below has rho
 
 ```{note}
-When we have a zero-mean time series, $\mu=0$, it follows that $c_{\tau}=\rho_{\tau}$
+When we have a zero-mean time series, $\mu=0$, it follows that $c_{\tau}=r_{\tau}$
 ```
 
 ### Empirical autocovariance
@@ -66,6 +64,10 @@ $$
 $$
 
 ```{note}
+Here we use capitals for $\hat{C}_{\tau}$ and $\hat{R}_{\tau}$ since **estimators** are always a function of the random observables $Y_t$.
+```
+
+```{note}
 Always check which of the estimators a certain software tool uses! 
 % MMMMM Easier said than done? https://www.statsmodels.org/dev/generated/statsmodels.tsa.stattools.acovf.html
 ```
@@ -83,8 +85,6 @@ c_2 & c_1 & \sigma^2 &  \ddots & c_2  \\
 
 There are $m$ (co)variance components - **one** variance component, $\sigma^2 = c_0$, and $m-1$ covariance components, $c_i$.
 
-% MMMMM add this? As in the Chapters on `ref`{OT}, the variance component is often determined based on the precision of an observation (at a given epoch), and the covarience components quantitatively indicate the statistical dependence (or independence) between observations. In this case, depednence is inherently introduced by the phyiscal processes that produce the signal (of which our time series is a sample), and in fact our time series methods seek to (mathematically) reduce this.
-
 ```{note}
 The covariance matrix $\Sigma_{Y}$ has constant values along the top-left to bottom-right diagonal and is called a _Toeplitz matrix._
 ```
@@ -100,13 +100,17 @@ $$
 \mathbb{E}(\hat{C}_{\tau}) =  c_\tau
 $$
 
-* The normalized autocovariance function can directly be obtained from the autocovariance function as
+* The normalized autocovariance estimator can directly be obtained from the autocovariance estimator as
 
 % MMMMM here we have rho_tau again. Maybe also good to points out upper- and lower-case C/c...is it a random variable/realization thing? Seems to be slightly different, since each c corresponds to a RV X_{t_i}, but C and c notation seems to imply that c is a realization of a stochastic variable/process C?
 
 $$
 \hat{\rho}_{\tau} = \frac{\hat{C}_{\tau}}{\hat{C_0}}, \hspace{20px}\tau = 0,...,m-1 \implies \hat{\rho}_0 = 1
 $$
+
+```{note}
+The estimated normalized autocovariance is the same as  the time dependent Pearson correlation coefficient.
+```
 
 * The variance of the normalized ACF can be approximated as
 

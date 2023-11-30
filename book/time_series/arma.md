@@ -1,7 +1,7 @@
 (ARMA)=
 # ARMA process
 
-The main goal is to introduce the Auto-Regressive Moving Average (ARMA) stochastic process, as a widely used stochastic process. 
+The main goal is to introduce the AutoRegressive Moving Average (ARMA) stochastic process, as a widely used stochastic process. 
 
 ## Process definition
 
