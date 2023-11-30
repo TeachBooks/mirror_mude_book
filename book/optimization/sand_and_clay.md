@@ -19,7 +19,7 @@ The company has a work schedule of 40 hours per week for the men but also for th
 * $x_1$ - **thousands of units of sand** to be produced and transported in **one week**
 * $x_2$ - **thousands of units of clay** to be produced and transported in **one week**
 
-Our objective function then will look like (with $L\equiv$$ profit in monetary units in one week):
+Our objective function then will look like (with $L being the profit in monetary units for one week):
 
 $$\text{Max} L = 57x_1+60x_2$$
 
