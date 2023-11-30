@@ -110,7 +110,7 @@ $$\mathbb{E}(Y) = \mathbb{E}\begin{bmatrix}Y_1\\ Y_2\\ \vdots\\ Y_m\end{bmatrix}
 * If $\beta=0$, this is called *purely random process* (white noise)
 * ACF is even, $c_{\tau}=c_{-\tau}=c_{|\tau|}$ and so is $\rho_{\tau}=\rho_{-\tau}=\rho_{|\tau|}$
 
-Recall that $\rho_{\tau}$ can be estimated as explained in the section on [autocovariance](NACF), and from that an estimate $\beta$ can be obtained.
+Later in this section we will see how the coefficient $\beta$ can be estimated.
 
 **Simulated example**
 
@@ -197,8 +197,6 @@ In summmary:
 
 * ACF is even, $c_{\tau}=c_{-\tau}=c_{|\tau|}$ and so is $\rho_{\tau}=\rho_{-\tau}=\rho_{|\tau|}$
 
-Recall that $\rho_{\tau}$ can be estimated as explained in the section on [autocovariance](NACF), and from that an estimate $\theta$ can be obtained.
-
 **Simulated example**
 
 A time series has been simulated to have a standard normal distribution, $\epsilon_i \sim \text{N}(0,1)$. This indicates that the entries of $Y$ have $Y_i \sim \text{N}(0,1+\theta^2)$, $i=1,...,m=1000$, where the variance of the noise process is $\sigma^2 = 1+\theta^2$. In fact, $\sigma_{\epsilon_t}=1$, but not the random process MA(1) in total. The time series is shown in {numref}`ma1ex`. 
@@ -215,15 +213,37 @@ MMMMM should delete the equation in the right panels!
 Left: time series for $\beta =0.9$ and $\beta =-0.9$. Right: corresponding normalized autocovariance functions.
 ```
 
+## Estimation of coefficients of ARMA process
+
+If the values of $p$ and $q$ of the ARMA($p,q$) process are known, the question is: **how can we estimate the coefficients $\beta_1,...,\beta_p$ and $\theta_1,...,\theta_q$?**
+
+Here, we only elaborate on AR(2) = ARMA(2,0) using best linear unbiased estimation (BLUE) to estimate $\beta_1$ and $\beta_2$. The method can be generalized to estimate the parameters of an ARMA($p,q$) process.
+
+**Example: Parameter estimation of AR(2)**
+
+The AR(2) process is of the form
+
+$$Y_t=\beta_1 Y_{t-1}+\beta_2 Y_{t-2}+\epsilon_t$$
+
+In order to esitimate the $\beta_i$ we can set up the following linear model of observation equations (starting from $t=3$):
+
+$$\begin{bmatrix}Y_3 \\ Y_4 \\ \vdots \\ Y_m \end{bmatrix} = \begin{bmatrix}Y_2 & Y_1 \\Y_3 & Y_2\\ \vdots & \vdots\\ Y_{m-1}&Y_{m-2} \end{bmatrix}\begin{bmatrix}\beta_1 \\ \beta_2\end{bmatrix} + \begin{bmatrix}\epsilon_{3} \\ \epsilon_{4}\\ \vdots \\ \epsilon_{m} \end{bmatrix}$$
+
+The BLUE estimator of $\beta=[\beta_1,\beta_2]^T$ is
+
+$$\hat{\beta}=(\mathrm{A}^T\Sigma_{Y}^{-1}\mathrm{A})^{-1}\mathrm{A}^T\Sigma_{Y}^{-1}Y$$
+
+A similar strategy can be followed to estimate the parameters $\theta$ of an MA process.
+
 ## Worked example - Single Differencing
 
-On this worked example, we will show that [single differencing](SD) induces an MA(1) process. Let us consider a purely random process
+On this worked example, we will show that [single differencing](SD) induces an MA(1) process. The original time series is given as:
 
 $$Y=\begin{bmatrix}Y_1\\ Y_2\\ \vdots \\ Y_m\end{bmatrix}, \hspace{10px} \Sigma_{Y}=\sigma^2 I_m$$
 
-Having $\Delta Y_1 = Y_1$, then apply single differencing:
+We apply single differencing which in this case results in a purely random process:
 
-$$\begin{cases}\Delta Y_2 = Y_2 - Y_1\\ \Delta Y_3 = Y_3-Y_2\\ \quad\vdots \\ \Delta Y_m = Y_m - Y_{m-1}\end{cases}$$
+$$\begin{cases}\Delta Y_1 = Y_1\\\Delta Y_2 = Y_2 - Y_1\\ \Delta Y_3 = Y_3-Y_2\\ \quad\vdots \\ \Delta Y_m = Y_m - Y_{m-1}\end{cases}$$
 
 In matrix notation, this can be written as:
 
@@ -235,15 +255,15 @@ $$\begin{bmatrix}\Delta Y_1\\ \Delta Y_2\\ \vdots \\ \Delta Y_m\end{bmatrix} = \
     0 & \dots & 0 & -1 & 1
 \end{bmatrix}}_{\mathrm{T}}\begin{bmatrix}Y_1\\ Y_2\\ \vdots \\ Y_m\end{bmatrix} \Longleftrightarrow \Delta Y = \mathrm{T}Y$$
 
-Therefore:
+We apply the [variance propagation law](01_LinearProp):
 
 $$\Sigma_{\Delta Y}=\mathrm{T}\Sigma_{Y}\mathrm{T}^T = \mathrm{T}\sigma^2I_m\mathrm{T}^T=\sigma^2\mathrm{TT}^T$$
 
-which can simplify to:
+such that we obtain:
 
 $$\Sigma_{\Delta Y} = \sigma^2\mathrm{TT}^T = 2\sigma^2\begin{bmatrix}1&-0.5&0&\dots&0\\ -0.5&1&-0.5& &\\ 0&-0.5&1&\ddots&0\\ \vdots& &\ddots&\ddots&-0.5\\ 0&\dots&0&-0.5&1\end{bmatrix}$$
 
-Now we need to find the value of $\theta$ to get the $\Delta Y_t$ process. Therefore:
+We can see that the structure indeed corresponds with the covariance matrix of an AR(1) process, from which we see that $\rho_1=-0.5$. Now we can find the value of $\theta$: 
 
 $$\begin{cases}\rho_1=-0.5=\frac{\theta}{1+\theta^2}\\ \Delta Y_t = \theta \epsilon_{t-1}+\epsilon_t\end{cases}\implies \theta=-1 \implies \Delta Y_t = \epsilon_t-\epsilon_{t-1}$$
 

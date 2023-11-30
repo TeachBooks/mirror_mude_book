@@ -180,7 +180,7 @@ Original time series on the right; stationarized times series on the left (note 
 If we can express the time series $Y=[Y_1, ..., Y_m]^T$ with a linear model of observation equations as $Y = \mathrm{Ax} + \epsilon$, we can apply [best linear unbiased estimation](BLUE) (equivalent to weighted least-squares) to estimate the parameters $\mathrm{x}$ that describe e.g. the trend and seasonality:
 
 $$
-\hat{X}=(\mathrm{A}^T\Sigma_{yy}^{-1}\mathrm{A})^{-1}\mathrm{A}^T\Sigma_{yy}^{-1}Y 
+\hat{X}=(\mathrm{A}^T\Sigma_{Y}^{-1}\mathrm{A})^{-1}\mathrm{A}^T\Sigma_{Y}^{-1}Y 
 $$
 
 A "detrended" time series is obtained in the form of the residuals 
@@ -201,19 +201,19 @@ name: least_squares
 Example of a time series (right graph) with linear and seasonal trend. The residuals (= stationary time series) after applying BLUE are shown on the left.
 ```
 
-In the example above, for each observation $Y_m = x_1 \sin{\omega_0t_m} + x_2\cos{\omega_0t_m}+x_3t_m+x_4$, where $x_1$ and $x_2$ denote the seasonality and $x_3$ and $x_4$ the trend. [As explained here,](components#seasonality) $\omega_0$ is found by a Spectral Analysis method. The time series then is:
+In the example above, for each observation $Y_i = y_0+ rt_i+a\cos{\omega_0t_i}+b \sin{\omega_0t_i} + +x_3t_i+\epsilon_i$, where $a$ and $b$ describe the seasonality and $y_0$ and $r$ the trend. [As explained here,](components#seasonality) $\omega_0$ is found by a Spectral Analysis method. The time series then is:
 
 $$
 \begin{bmatrix}
     Y_1 \\ Y_2 \\  \vdots \\ Y_m
 \end{bmatrix} = \begin{bmatrix}
-    \sin{\omega_0 t_1} & \cos{\omega_0 t_1} & t_1 & 1\\
-     \sin{\omega_0 t_2} & \cos{\omega_0 t_2} & t_2 & 1 \\
+    1&t_1&\cos{\omega_0 t_1} & \sin{\omega_0 t_1} \\
+     1&t_2&\cos{\omega_0 t_2} & \sin{\omega_0 t_2} \\
        \vdots & \vdots & \vdots & \vdots \\ 
-     \sin{\omega_0 t_m} & \cos{\omega_0 t_m} & t_m & 1
+     1&t_m&\cos{\omega_0 t_m} & \sin{\omega_0 t_m}
 \end{bmatrix}
 \begin{bmatrix}
-x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix} + 
+y_0 \\ r \\ a \\ b \end{bmatrix} + 
 \begin{bmatrix}
     \epsilon_1 \\ \epsilon_2 \\  \vdots \\ \epsilon_m
 \end{bmatrix}
