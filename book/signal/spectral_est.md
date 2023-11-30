@@ -136,6 +136,7 @@ The periodogram, $S(f)$, defined for $0\leq f<f_s$ or, equivalently, $-\frac{f_s
 
 ![periodogram](./figs/periodogram.png "periodogram")
 
+(psd)=
 ## Power Spectral Density (PSD)
 
 <!-- Over a limited time duration, $T$, one can still use the notion of **power** for energy signals:

@@ -1,3 +1,4 @@
+(hypothesis_testing)=
 ## Hypothesis testing for Sensing and Monitoring
 Statistical hypothesis testing is applied for many applications and in different forms. Here, we will restrict ourselves to applications in observation theory with the following general form for the hypotheses:
 

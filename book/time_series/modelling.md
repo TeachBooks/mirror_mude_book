@@ -1,3 +1,4 @@
+(modelling_tsa)=
 # Modelling and Estimation
 
 The goal is now to:
@@ -119,6 +120,7 @@ where $|Y(\omega)|$ is the magnitude at the frequency $\omega$. If a significant
 Left: time series (grey) and estimated linear trend and sine wave with period of 100. Right: estimated PSD.
 ```
 
+(LS-HE)=
 ### Least-Squares Harmonic Estimation (LS-HE)
 
 The second method we will study is BLUE in combination with hypothesis testing, here called **Least Squares Harmonic Estimation** (LS-HE). We make use of the hypothesis testing to test the validity of the linear model and, hence, to improve it.

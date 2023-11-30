@@ -11,10 +11,10 @@ This means that parameters such as *mean* and *(co)variance* should remain const
 
 $$\mathbb{E}(Y(t))=\mathbb{E}(Y_t)=\mu$$
 
-* Covariance of the process is independent of $t$ for each time shift $\tau$:
+* Covariance of the process is independent of $t$ for each time shift $\tau$ (so only a function of τ  and not t):
 
 $$
-Cov(Y_t,Y_{t-\tau})=\mathbb{E}((Y_t-\mu)(Y_{t-\tau}-\mu))=c_\tau
+Cov(Y_t,Y_{t-\tau})= Cov(Y_t,Y_{t+\tau}) =\mathbb{E}((Y_t-\mu)(Y_{t-\tau}-\mu))=c_\tau
 $$
 
 * The variance (i.e., $\tau=0$) is then also constant with respect to time :
@@ -32,7 +32,7 @@ In practice, we may in fact be interested in for instance the trend and seasonal
 
 ## How to "stationarize" a time series?
 
-In general, there are five ways to make a non-stationary time series to a stationary one. They are known as transformation methods. An important requirement is that such transformation in regular, or admissible, meaning that a back-transformation is possible. 
+In general, there are five ways to make a non-stationary time series to a stationary one. They are known as transformation methods. An important requirement is that such transformation is regular, or admissible, meaning that a back-transformation is possible. 
 
 These methods are:
 
@@ -148,10 +148,10 @@ Original time series (second-order polynomial) on the left; double differenced t
 The moving average of $Y = [Y_1, ..., Y_m]^T$ will create a time series $\bar{Y}_t = {\bar{Y}_1,...,\bar{Y}_m}$, with 
 
 $$
-\bar{Y}_t = \frac{1}{k}\sum_{i=-m}^{m}Y_{t-i}
+\bar{Y}_t = \frac{1}{k}\sum_{i=1}^{k}Y_{t-i}
 $$
 
-where the length of the interval over which the average is taken is equal to $k=2m+1$.
+where the length of the interval over which the average is taken is equal to $k$.
 
 The difference between two time series provides a (nearly) stationary time series $\Delta Y_t = Y_t - \bar{Y}_t$.
 
@@ -173,7 +173,7 @@ A function-based transformation of $Y=[Y_1,...,Y_m]^T$ makes a time series $S_t 
 height: 300px
 name: function_transf
 ---
-Original time series on the right; stationarized times series on the left (not log-scale on vertical axis).
+Original time series on the right; stationarized times series on the left (note log-scale on vertical axis).
 ```
 
 ### Least-squares fit
@@ -181,7 +181,7 @@ Original time series on the right; stationarized times series on the left (not l
 If we can express the time series $Y=[Y_1, ..., Y_m]^T$ with a linear model of observation equations as $Y = \mathrm{Ax} + \epsilon$, we can apply [best linear unbiased estimation](BLUE) (equivalent to weighted least-squares) to estimate the parameters $\mathrm{x}$ that describe e.g. the trend and seasonality:
 
 $$
-\hat{X}=\mathrm{A}(\mathrm{A}^T\Sigma_{yy}^{-1}\mathrm{A})^{-1}\mathrm{A}^T\Sigma_{yy}^{-1}Y 
+\hat{X}=(\mathrm{A}^T\Sigma_{yy}^{-1}\mathrm{A})^{-1}\mathrm{A}^T\Sigma_{yy}^{-1}Y 
 $$
 
 A "detrended" time series is obtained in the form of the residuals 
@@ -203,7 +203,7 @@ Example of a time series (right graph) with linear and seasonal trend. The resid
 ```
 
 
-In the example above, for each observation $Y_m = x_1 \sin{\omega_0t_m} + x_2\cos{\omega_0t_m}+x_3t_m+x_4$, where $x_1$ and $x_2$ denote the seasonality and $x_3$ the trend. [As explained here,](components#seasonality) $\omega_0$ is found by a Spectral Analysis method. The time series then is:
+In the example above, for each observation $Y_m = x_1 \sin{\omega_0t_m} + x_2\cos{\omega_0t_m}+x_3t_m+x_4$, where $x_1$ and $x_2$ denote the seasonality and $x_3$ and $x_4$ the trend. [As explained here,](components#seasonality) $\omega_0$ is found by a Spectral Analysis method. The time series then is:
 
 $$
 \begin{bmatrix}
@@ -219,14 +219,14 @@ x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix} + \epsilon
 $$
 
 
-:::{card} **Testing stationarity**
+:::{card} **Testing stationarity (optional)**
 
 ```{admonition} MUDE exam information
 :class: tip, dropdown
 This part is optional and will not be assessed on the exam.
 ```
 
-Different tests can be performed to test whether or not a time series is stationary. One of the commonly used methods is the **Augmented Dickey-Fuller (ADF)** test. 
+Different tests can be performed to test whether or not a time series is stationary. One of the commonly used methods is the **Augmented Dickey-Fuller (ADF)** test. **ADF** is also optional material. 
 
 Consider a time series
 
