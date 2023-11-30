@@ -11,10 +11,10 @@ $$\mathcal{H}_0: Y=\mathrm{Ax}+\epsilon \hspace{5px}\text{vs.}\hspace{5px} \math
 
 ## Components of time series
 
-We will distinguish the following components in a time series:
+As already discussed, we will distinguish the following components in a time series:
 
 * **Trend:** General behavior and variation of the process. This often is a linear trend with an unknown intercept $y_0$ and a rate $r$.
-* **Seasonality:** Regular seasonal variations, which can be expressed as sine functions with known frequency $\omega$, and unknown amplitude $A$ and phase $\theta$, or with unknowns $a(=A\sin\theta)$ and $b(=A\cos\theta)$, see [example](season).
+* **Seasonality:** Regular seasonal variations, which can be expressed as sine functions with (un)known frequency $\omega$, and unknown amplitude $A$ and phase $\theta$, or with unknowns $a(=A\sin\theta)$ and $b(=A\cos\theta)$, see [example](season).
 * **Offset:** A jump of size $o$ in a time series starting at epoch $t_k$.
 * **Noise:** White or colored noise (e.g., ARMA process).
 
@@ -110,7 +110,7 @@ where $|Y(\omega)|$ is the magnitude at the frequency $\omega$. If a significant
 
 #### Example power spectral density
 
-{numref}`ls-psd` shows on the left the original time series as well as the estimated linear trend and seasonal signal. The sine wave has a period (=$1/\omega$) of 100. Indeed the PSD as function of period on the right shows a peak at a period of 100.
+{numref}`ls-psd` shows on the left the original time series as well as the estimated linear trend and seasonal signal. The sine wave has a period ($T=1/f$) of 100. Indeed the PSD as function of period on the right shows a peak at a period of 100.
 
 ```{figure} ./figs/ls-psd.png
 :name: ls-psd

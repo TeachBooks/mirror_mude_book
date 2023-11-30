@@ -13,11 +13,11 @@ or as
 
 $$Y_t = \sum_{i=1}^p \beta_iY_{t-i}+\epsilon_t+\sum_{i=1}^q \theta_i \epsilon_{t-i}$$
 
-Each observation is made up of a **random error** $\epsilon_t$ at that epoch, a linear combination of **past observations**, and a linear combination of **past errors**. We note the process should still be stationary, satisfying
+Each observation is made up of a **random error** $\epsilon_t$ at that epoch, a linear combination of **past observations**, and a linear combination of **past errors**. The errors $\epsilon_t$  are uncorrelated purely random noise process, known also as white noise. We note the process should still be stationary, satisfying
 
 $$\mathbb{E}(Y_t)=0, \hspace{20px} \mathbb{D}(Y_t)=\sigma^2,\quad \forall t$$
 
-To have a better understanding of the process itself, we consider two special cases, $q=0$ and $p=0$.
+This indicates that parts of the total variability of the process come from the signal and noise of past epochs, and only a (small) portion belongs to the noise of that epoch (denoted as $\epsilon_t$). To have a better understanding of the process itself, we consider two special cases, $q=0$ and $p=0$.
 
 ### Special case 1: ARMA$(p,0) = $ AR$(p)$
 
@@ -27,11 +27,11 @@ $$Y_t = \beta_1Y_{t-1}+...+\beta_pY_{t-p} + \epsilon_t=Y_t = \sum_{i=1}^p \beta_
 
 #### First-order AR(1) process
 
-We will just focus on explaining $p=1$, i.e. the AR(1) process. A **zero-mean first order autoregressive** process like this, can be written as follows
+We will just focus on explaining $p=1$, i.e. the AR(1) process. A **zero-mean first order autoregressive** process can be written as follows
 
 $$Y_t = \beta Y_{t-1}+\epsilon_t, \hspace{20px} -1\leq\beta<1, \hspace{20px} t=2,...,m$$
 
-where $\epsilon_t$ is an i.i.d. noise process, e.g. distributed as $\epsilon_t\sim N(0,\sigma^2)$.
+where $\epsilon_t$ is an i.i.d. noise process, e.g. distributed as $\epsilon_t\sim N(0,\sigma_{\epsilon}^2)$. See later the definition of $\sigma_{\epsilon}^2$.
 
 **Formulation**
 
@@ -51,7 +51,7 @@ of which we still have (in order to impose the *stationarity*):
 
 $$\mathbb{E}(Y_t)=0 \hspace{5px}\text{and}\hspace{5px} \mathbb{D}(Y_t)=\sigma^2, \hspace{10px} t=1,...,m$$
 
-All the error components, $\epsilon_t$, are uncorrelated such that $Cov(\epsilon_t,\epsilon_{t+\tau})=0$ if $\tau \neq 0$, and with variance $\sigma_{\epsilon}^2$.
+All the error components, $\epsilon_t$, are uncorrelated such that $Cov(\epsilon_t,\epsilon_{t+\tau})=0$ if $\tau \neq 0$, and with variance $\sigma_{\epsilon}^2$ which still needs to be determined.
 
 **Autocovariance**
 
@@ -66,6 +66,8 @@ $$\mathbb{D}(Y_t) = \mathbb{D}(\beta Y_{t-1} +\epsilon_t) \Leftrightarrow \sigma
 resulting in
 
 $$\sigma_{\epsilon}^2 = \sigma^2 (1-\beta^2)$$
+
+indicating that $\sigma_{\epsilon}^2$ is smaller than $\sigma^2$.
 
 The autocovariance (covariance between $Y_t$ and $Y_{t+\tau}$) is
 
@@ -98,7 +100,7 @@ $$
 
 ```
 
-**Model structure**
+**Model structure of AR(1)**
 
 $$\mathbb{E}(Y) = \mathbb{E}\begin{bmatrix}Y_1\\ Y_2\\ \vdots\\ Y_m\end{bmatrix} = \begin{bmatrix}0\\ 0\\ \vdots\\ 0\end{bmatrix}, \hspace{15px} \mathbb{D}(Y)=\Sigma_{Y}=\sigma^2 \begin{bmatrix}1&\beta&...&\beta^{m-1}\\ \beta&1&...&\beta^{m-2}\\ \vdots&\vdots&\ddots&\vdots\\ \beta^{m-1}&\beta^{m-2}&...&1\end{bmatrix}$$
 
@@ -136,7 +138,7 @@ $$Y_t=\sum_{i=1}^q \theta_i \epsilon_{t-i} + \epsilon_t$$
 
 #### First-order MA(1) process
 
-Here we will just focus on the case $q=1$, i.e. MA(1). A **zero-mean first order moving average process** like this one can be written as:
+Here we will just focus on the case $q=1$, i.e. MA(1). A **zero-mean first order moving average process** can be written as:
 
 $$Y_t = \theta \epsilon_{t-1} + \epsilon_t, \hspace{10px} -1\leq\theta<1 \hspace{10px} t=2,...,m$$
 
@@ -168,6 +170,8 @@ resulting in
 
 $$ \sigma_\epsilon^2 = \frac{\sigma^2}{1+\theta^2}$$
 
+indicaating that $\sigma_\epsilon^2$ is smaller than $\sigma^2$
+
 The autocovariance is
 
 $$c_1=Cov(Y_t, Y_{t+1}) = \sigma_\epsilon^2\theta\\ c_{-1}=Cov(Y_t, Y_{t-1}) =  \sigma_\epsilon^2\theta$$
@@ -176,7 +180,7 @@ and
 
 $$c_{\tau}=Cov(Y_t,Y_{t+\tau}) = 0, \hspace{10px}\text{for}\hspace{5px}\tau\geq 2$$
 
-The normalized auto-covariance function (ACF) follow as:
+The normalized auto-covariance function (ACF) follows:
 
 $$\rho_{\tau}=\frac{c_{\tau}}{\sigma^2}=\begin{cases}\frac{\theta}{1+\theta^2}, \hspace{5px}&\text{if}\hspace{5px}\tau=1\\ 0, \hspace{5px}&\text{if}\hspace{5px}\tau\neq 1\end{cases}
 $$
@@ -197,7 +201,7 @@ Recall that $\rho_{\tau}$ can be estimated as explained in the section on [autoc
 
 **Simulated example**
 
-A time series has been simulated to have a standard normal distribution, $\epsilon_i \sim \text{N}(0,1)$. This indicates that the entries of $Y$ have $Y_i \sim \text{N}(0,1+\theta^2)$, $i=1,...,m=1000$. The time series is shown in {numref}`ma1ex`. 
+A time series has been simulated to have a standard normal distribution, $\epsilon_i \sim \text{N}(0,1)$. This indicates that the entries of $Y$ have $Y_i \sim \text{N}(0,1+\theta^2)$, $i=1,...,m=1000$, where the variance of the noise process is $\sigma^2 = 1+\theta^2$. The time series is shown in {numref}`ma1ex`. 
 
 The normalized ACF shows the temporal correlation, $\rho_{\tau}=\frac{\theta}{1+\theta^2}$, if $\tau=1$, and $\rho_{\tau}=0$ if $\tau>1$.
 
@@ -213,11 +217,11 @@ Left: time series for $\beta =0.9$ and $\beta =-0.9$. Right: corresponding norma
 
 ## Worked example - Single Differencing
 
-On this worked example, we will show that [single differencing](SD) induces an MA(1) process. Let us consider
+On this worked example, we will show that [single differencing](SD) induces an MA(1) process. Let us consider a purely random process
 
 $$Y=\begin{bmatrix}Y_1\\ Y_2\\ \vdots \\ Y_m\end{bmatrix}, \hspace{10px} \Sigma_{Y}=\sigma^2 I_m$$
 
-Having $\Delta Y_1 = Y_1$, then:
+Having $\Delta Y_1 = Y_1$, then apply single differencing:
 
 $$\begin{cases}\Delta Y_2 = Y_2 - Y_1\\ \Delta Y_3 = Y_3-Y_2\\ \quad\vdots \\ \Delta Y_m = Y_m - Y_{m-1}\end{cases}$$
 
@@ -239,7 +243,7 @@ which can simplify to:
 
 $$\Sigma_{\Delta Y} = \sigma^2\mathrm{TT}^T = 2\sigma^2\begin{bmatrix}1&-0.5&0&\dots&0\\ -0.5&1&-0.5& &\\ 0&-0.5&1&\ddots&0\\ \vdots& &\ddots&\ddots&-0.5\\ 0&\dots&0&-0.5&1\end{bmatrix}$$
 
-Now we need to find the value of $\theta$ to get $\Delta Y_t$. Therefore:
+Now we need to find the value of $\theta$ to get the $\Delta Y_t$ process. Therefore:
 
 $$\begin{cases}\rho_1=-0.5=\frac{\theta}{1+\theta^2}\\ \Delta Y_t = \theta \epsilon_{t-1}+\epsilon_t\end{cases}\implies \theta=-1 \implies \Delta Y_t = \epsilon_t-\epsilon_{t-1}$$
 
@@ -265,4 +269,4 @@ $$
 Y_t = \epsilon_t+\sum_{i=1}^q\theta_i\epsilon_{t-1}
 $$
 
-The parameters of these stochastic processes should be estimated.
+The parameters of these stochastic processes should be estimated using the least squares method.

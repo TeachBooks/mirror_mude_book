@@ -106,7 +106,7 @@ After estimating the ARMA process parameters $\hat{\beta}_i,i=1,...,p$ and $\hat
 
 $$\hat{Y}_{t|t-1}=\hat{\beta}_1Y_{t-1}+...+\hat{\beta}_pY_{t-p}+\hat{\theta}_1\epsilon_{t-1}+...+\hat{\theta}_q\epsilon_{t-q}$$
 
-The above formulation is in conjunction with the Best Linear Unbiased Predictor (BLUP) for $Y_t$ in a given stochastic process. The general form of BLUP is
+The above formulation is in conjunction with the Best Linear Unbiased Predictor (BLUP) for $Y_t$ in a given stochastic process. Further elaboration is beyond the scope of this week. The general form of BLUP is
 
 $$\hat{Y}_p=\mathrm{A}_p\hat{X}+\Sigma_{Y_p Y}\Sigma_{Y}^{-1}\hat{\epsilon}$$
 
