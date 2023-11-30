@@ -1,3 +1,4 @@
+(ACF)=
 # Autocovariance function (ACF)
 
 The goal of this chapter is to introduce the autocovariance function (ACF) for a stationary time series, and describe the relationship between ACF and power spectral density (PSD).
@@ -9,8 +10,6 @@ As in the Chapter on {ref}`OT`, the variance component is often determined based
 Let us assume an arbitrary (discrete) time series, $Y=[Y_1,Y_2,...,Y_m]^T$, with mean $\mathbb{E}(Y)=\mu$ and variance $\sigma^2_{i}=\sigma^2$.
 
 The *formal* autocovariance is defined as
-
-% see below MMMMM
 
 $$
 Cov(Y_t, Y_{t-\tau}) = \mathbb{E}((Y_t-\mu)(Y_{t-\tau}-\mu))=\mathbb{E}(Y_tY_{t-\tau})-\mu^2=c_{\tau}
@@ -101,8 +100,6 @@ $$
 $$
 
 * The normalized autocovariance estimator can directly be obtained from the autocovariance estimator as
-
-% MMMMM here we have rho_tau again. Maybe also good to points out upper- and lower-case C/c...is it a random variable/realization thing? Seems to be slightly different, since each c corresponds to a RV X_{t_i}, but C and c notation seems to imply that c is a realization of a stochastic variable/process C?
 
 $$
 \hat{\rho}_{\tau} = \frac{\hat{C}_{\tau}}{\hat{C_0}}, \hspace{20px}\tau = 0,...,m-1 \implies \hat{\rho}_0 = 1
@@ -197,7 +194,7 @@ $$\text{IDFT}(S_{Y}(k))=\hat{c}_{\tau}, \hspace{35px} \tau = 1,...,m \hspace{5px
 height: 300px
 name: ACF_PSD
 ---
-Time series data, auto-covariance and its power spectral density plots of white noise above and colored noise (not purely random) below.
+Time series data, autocovariance and its power spectral density plots of white noise above and colored noise (not purely random) below.
 ```
 
 The PSD explains how the power (variance) of the signal is distributed over different frequencies. The PSD of a pure sine wave is flat except at its constituent frequency.
@@ -242,8 +239,6 @@ Hence, the $Y_t$ and $Y_{t+2}$ are correlated, even though according to the expr
 ### Worked example (optional)
 
 Let us now take a look into a worked example on PACF to remove the intervening term, $\beta Y_{t+1}$ between $Y_t$ and $Y_{t+2}$. As we saw before, ACF can be obtained from
-
-% MMMMM Why all of a sudden t+2 instead of t-2?
 
 $$
 \text{COV} = Cov(Y_t, Y_{t+2}) =  \sigma^2\beta^2

@@ -29,7 +29,7 @@ Stationarity is important if we want to use a time series for forecasting (predi
 
 In practice, we may in fact be interested in for instance the trend and seasonality of a time series. Also, many real-world time series are of course non-stationary. Therefore the approach is to first "stationarize" the time series (e.g., remove the trend), use this stationary time series to predict future states based on the statistical properties (stochastic process), and then apply a back-transformation to account for the non-stationarity (e.g., add back the trend).
 
-
+(stationarize)=
 ## How to "stationarize" a time series?
 
 In general, there are five ways to make a non-stationary time series to a stationary one. They are known as transformation methods. An important requirement is that such transformation is regular, or admissible, meaning that a back-transformation is possible. 
@@ -163,7 +163,6 @@ name: moving_avg
 Original time series and moving average on the right; stationarized times series on the left.
 ```
 
-
 ### Function-based transformation
 
 A function-based transformation of $Y=[Y_1,...,Y_m]^T$ makes a time series $S_t \longleftarrow f(Y_t)$. For example, a log function would downscale the range of variations of the data. This is a nonlinear but *regular* transformation of data, and hence allowed.
@@ -201,7 +200,6 @@ name: least_squares
 ---
 Example of a time series (right graph) with linear and seasonal trend. The residuals (= stationary time series) after applying BLUE are shown on the left.
 ```
-
 
 In the example above, for each observation $Y_m = x_1 \sin{\omega_0t_m} + x_2\cos{\omega_0t_m}+x_3t_m+x_4$, where $x_1$ and $x_2$ denote the seasonality and $x_3$ and $x_4$ the trend. [As explained here,](components#seasonality) $\omega_0$ is found by a Spectral Analysis method. The time series then is:
 

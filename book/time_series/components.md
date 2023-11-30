@@ -29,10 +29,8 @@ where we distinguish the following components:
 1. $tr(t)$ = trend, provides the general behavior and variation of the process
 2. $s(t)$ = seasonality, shows the regular seasonal variations
 3. $o(t)$ = offset, is a discontinuity (or jump) in the data
-4. $b(t)$ = irregularities and outliers (also referred to as biases), due to unexpected reasons. From here on, we will not continue with irregularities.
+4. $b(t)$ = irregularities and outliers (also referred to as biases), due to unexpected reasons. Irregularities will not be considered in this book.
 5. $N(t)$ = noise, can be white or colored noise.
-
-In this book only irregularities will not be considered.
 
 ## Trend
 
@@ -74,7 +72,7 @@ Seasonal variations explain regular fluctuations in a certain period of time (e.
 
 From {numref}`trend` it is also possible to see the seasonal variations: in fact sea levels are higher in summer and lower in winter. The annual warming/cooling cycle is the main contributor to these seasonal variations.
 
-Regular seasonal variations in a time series might be handled by using a sinusoidal model with one or more sinusoids whose frequency may be known or unknown depending on the context. A harmonic model for seasonal variation can be of the following two equivalent forms:
+Regular seasonal variations in a time series might be handled by using a sinusoidal model with one or more sinusoids whose frequency may be known or unknown depending on the context. A harmonic model for seasonal variation can be of the following two equivalent forms (using that $\sin(u+v)= \sin u \cos v + \cos u \sin v$):
 
 $$ 
 \begin{align*}
@@ -83,7 +81,9 @@ Y(t) &= \sum_{k=1} ^p A_k  \sin(k \omega_0  t + \theta_k)  + \epsilon_t\\
 \end{align*}
 $$
 
-where $\omega_0$ is the base (fundamental) frequency of the seasonal variation and is fixed or is determined by Spectral Analysis methods such as {ref}`dft` or FFT. To be more specific, we can use the {ref}`psd` and {ref}`LS-HE` to determine the unknown frequencies. The coefficients $a_k$ and $b_k$ can be determined using the least-squares method. From this the original sinusoids can be obtained using:
+with the coefficients $a_k =A_k\sin\theta_k$ and $b_k=A_k\cos\theta_k$, and where $\omega_0$ is the base (fundamental) frequency of the seasonal variation and is fixed or is determined by Spectral Analysis methods such as {ref}`dft` or FFT. To be more specific, we can use the {ref}`psd` and {ref}`LS-HE` to determine the unknown frequencies. 
+
+The coefficients $a_k $ and $b_k$ can be determined using the least-squares method. From this the original sinusoids can be obtained using:
 
 $$ A_k = \sqrt{a_k^2 + b_k^2}, \hspace{1cm} \theta_k = \arctan(\frac{a_k}{b_k}), \hspace{1cm} k = 1, \ldots{}, p $$
 
@@ -168,7 +168,7 @@ $$
 and 
 
 $$
-\mathbb{D}(Y) =  \Sigma_{yy} = \sigma^2 \left[\begin{array}{ccc} 1 & 0 & \ldots{} & 0 \\ 0 & 1 & \ldots{} & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \ldots{} & 1 \end{array}\right]
+\mathbb{D}(Y) =  \Sigma_{Y} = \sigma^2 \left[\begin{array}{ccc} 1 & 0 & \ldots{} & 0 \\ 0 & 1 & \ldots{} & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \ldots{} & 1 \end{array}\right]
 $$
 
 The noise can be represented with a Gaussian distribution with mean $\mu=0$ and variance $\sigma^2$, that is $\epsilon(t) \sim \textbf{N}(0, \sigma^2)$.

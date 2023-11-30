@@ -66,9 +66,9 @@ We will only focus on static time series from here on!
 
 ## Additional concepts
 
-In the [Signal Processing](SP) the data was just considered to be the signal of interest, whereas here we assume the data is "contaminated" with noise, i.e.
+In [Signal Processing](SP) the data is just considered to be the signal of interest, whereas here we assume the data is "contaminated" with noise, i.e.
 
-$$Y = \text{signal} + \text{noise} = s + N$$
+$$Y = \text{signal} + \text{noise} = S + N$$
 
 Time series analysis means understanding patterns and, hence, extracting the **signal of interest** from the noisy data.
 
@@ -78,7 +78,7 @@ How can we describe both signal and noise?
 
 * **Signal** - the meaningful information that we want to detect: deterministic characteristics by means of mathematical expressions to capture for example trend, seasonality and offsets.
 
-* **Noise** - random and undesired fluctuation that interferes with the signal: stochastic process needed to describe it. Parts of the time-correlated noise is also considered to be 'signal' as they contribute in prediction, see later {ref}`ARMA`. 
+* **Noise** - random and undesired fluctuation that interferes with the signal: stochastic process are needed to describe this. Parts of the time-correlated noise  needs to be accounted for in prediction, see later {ref}`ARMA`. 
 
 The example in {numref}`signal_noise` shows that the *signal* can be described by $\cos(2\pi t f + \phi)$, where frequency $f$ and phase $\phi$ may be the unknown parameters of interest. The stochastic model (assuming independent observations) would be a scaled identity matrix with variance equal to 1 (middle panel) and 3 (bottom panel), respectively. The signal of interest has been entirely hidden in the background noise in the bottom panel. {ref}`psd` and {ref}`LS-HE` can be used to detect the frequency.
 

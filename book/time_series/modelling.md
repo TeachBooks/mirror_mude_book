@@ -7,7 +7,7 @@ The goal is now to:
 * evaluate the confidence intervals of parameters of interest;
 * identify an appropriate model using **hypothesis testing**.
 
-$$\mathcal{H}_0: Y=\mathrm{Ax}+\epsilon \hspace{5px}\text{vs.}\hspace{5px} \mathcal{H}_a: Y=\mathrm{Ax}+Cz+\epsilon$$
+$$\mathcal{H}_0: Y=\mathrm{Ax}+\epsilon \hspace{5px}\text{vs.}\hspace{5px} \mathcal{H}_a: Y=\mathrm{Ax+C}\nabla+\epsilon$$
 
 ## Components of time series
 
@@ -172,8 +172,6 @@ In this case the test statistic simplifies to:
 
 $$T_q = \frac{1}{\sigma^2}Y^T \mathrm{C}(\mathrm{C}^T\mathrm{C})^{-1}\mathrm{C}^TY$$
 
-This, in fact, can be shown to be identical to a scaled version (by a factor 2) of the PSD, as explained in the last subchapter.
-
 :::{card} **Proof**
 
 ```{admonition} MUDE exam information
@@ -202,6 +200,7 @@ T_q&=\hat{\epsilon}^T\Sigma_{Y}^{-1}\mathrm{C}(\mathrm{C}^T\Sigma_{Y}^{-1}\Sigma
 $$
 :::
 
+This, in fact, can be shown to be identical to a scaled version (by a factor 2) of the PSD.
 
 ```{admonition} Optional: proof of equality of PSD and LS-HE
 :class: tip, dropdown
