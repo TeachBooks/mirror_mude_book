@@ -1,3 +1,4 @@
+(modelling_tsa)=
 # Modelling and Estimation
 
 The goal is now to:
@@ -6,7 +7,7 @@ The goal is now to:
 * evaluate the confidence intervals of parameters of interest;
 * identify an appropriate model using **hypothesis testing**.
 
-$$\mathcal{H}_0: Y=\mathrm{Ax}+\epsilon \hspace{5px}\text{vs.}\hspace{5px} \mathcal{H}_a: Y=\mathrm{Ax}+Cz+\epsilon$$
+$$\mathcal{H}_0: Y=\mathrm{Ax}+\epsilon \hspace{5px}\text{vs.}\hspace{5px} \mathcal{H}_a: Y=\mathrm{Ax+C}\nabla+\epsilon$$
 
 ## Components of time series
 
@@ -119,6 +120,7 @@ where $|Y(\omega)|$ is the magnitude at the frequency $\omega$. If a significant
 Left: time series (grey) and estimated linear trend and sine wave with period of 100. Right: estimated PSD.
 ```
 
+(LS-HE)=
 ### Least-Squares Harmonic Estimation (LS-HE)
 
 The second method we will study is BLUE in combination with hypothesis testing, here called **Least Squares Harmonic Estimation** (LS-HE). We make use of the hypothesis testing to test the validity of the linear model and, hence, to improve it.
@@ -146,7 +148,7 @@ $$\begin{align*}
 ![hypotheses](./figs/hypotheses.png "hypotheses")
 :::
 
-The [Generalized Ratio Test](GLRT) statistic is given by
+The [Generalized Likelihood Ratio Test](GLRT) statistic is given by
 
 $$\begin{align*}
 T_q &= \hat{\epsilon}^T\Sigma_Y^{-1}\hat{\epsilon}-\hat{\epsilon}_a^T\Sigma_Y^{-1}\hat{\epsilon}_a \\ &=\hat{\epsilon}^T\Sigma_{Y}^{-1}\mathrm{C}(\mathrm{C}^T\Sigma_{Y}^{-1}\Sigma_{\hat{\epsilon}}\Sigma_{Y}^{-1}\mathrm{C})^{-1}\mathrm{C}^T\Sigma_{Y}^{-1}\hat{\epsilon}
@@ -169,8 +171,6 @@ $$Y=\hat{\epsilon} \quad \Rightarrow \mathbb{E}(Y)=0 \quad \Rightarrow \mathrm{A
 In this case the test statistic simplifies to:
 
 $$T_q = \frac{1}{\sigma^2}Y^T \mathrm{C}(\mathrm{C}^T\mathrm{C})^{-1}\mathrm{C}^TY$$
-
-This, in fact, can be shown to be identical to a scaled version (by a factor 2) of the PSD, as explained in the last subchapter.
 
 :::{card} **Proof**
 
@@ -200,6 +200,7 @@ T_q&=\hat{\epsilon}^T\Sigma_{Y}^{-1}\mathrm{C}(\mathrm{C}^T\Sigma_{Y}^{-1}\Sigma
 $$
 :::
 
+This, in fact, can be shown to be identical to a scaled version (by a factor 2) of the PSD.
 
 ```{admonition} Optional: proof of equality of PSD and LS-HE
 :class: tip, dropdown

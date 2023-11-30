@@ -6,7 +6,7 @@ MMMMM from 231129 word doc from Alireza: move these to the right page, or keep a
 
 :::{card} Exercise 1
 
-A time series exhibits a linear regression model $y(t)=y_0 + rt + e(t)$. The measurements have also been taken at a measurement frequency of 10 Hz, producing epochs of $t=0.1,0.2, \dots,100$ seconds, so $m=1000$. Later an offset was also detected at epoch 260 using statistical hypothesis testing. For the linear model $y=Ax+e$, establish an approprate design matrix that can capture all the above effects.
+A time series exhibits a linear regression model $Y(t)=y_0 + rt + \epsilon(t)$. The measurements have also been taken at a measurement frequency of 10 Hz, producing epochs of $t=0.1,0.2, \dots,100$ seconds, so $m=1000$. Later an offset was also detected at epoch 260 using statistical hypothesis testing. For the linear model $Y=\mathrm{Ax}+\epsilon$, establish an approprate design matrix that can capture all the above effects.
 
 ```{admonition} Solution
 :class: tip, dropdown
@@ -14,7 +14,7 @@ A time series exhibits a linear regression model $y(t)=y_0 + rt + e(t)$. The mea
 Inthe linear regression case, the design matrix consists of two columns, one for the unknown $y_0$ (a column on ones), and the other for $r$ (a column of time, $t$). Due to the presence of an offset, the mathematical model should be modified to:
 
 $$
-y(t) = y_0 =rt +o_k u_k(t) + e(t)
+Y(t) = y_0 =rt +o_k u_k(t) + \epsilon(t)
 $$
 
 where $u_k(t)$ is the Heaviside step function:
@@ -27,10 +27,10 @@ u_k(t) =
 \end{cases}
 $$
 
-and $o_k$ is the magnitude of the offset. This means that we have to add a third column to the design matrix having zeros before the epoch 260, and ones afterwards. Since epoch 260 corresponds to $t=26$ s (noting that we have 10 Hz data), in $A$ we begin to have 1's in that row:
+and $o_k$ is the magnitude of the offset. This means that we have to add a third column to the design matrix having zeros before the epoch 260, and ones afterwards. Since epoch 260 corresponds to $t=26$ s (noting that we have 10 Hz data), in $\mathrm{A}$ we begin to have 1's in that row:
 
 $$
-A = 
+\mathrm{A} = 
 \begin{bmatrix}
 1 & t_1 & 0 \\
 \vdots & \vdots & \vdots\\
@@ -52,25 +52,25 @@ $$
 
 :::{card} Exercise 2
 
-In a zero-mean first order autoregressive process, abbreviated as AR(1), we have $m=3$ observations, $\beta=0.8$, and the generated white noise errors are $e_t = [e_1,\, e_2,\, e_3]=[1,\, 2,\, -1]$. What is the generated AR(1) process $y_t = [y_1,\, y_2,\, y_3]$?
+In a zero-mean first order autoregressive process, abbreviated as AR(1), we have $m=3$ observations, $\beta=0.8$, and the generated white noise errors are $\epsilon_t = [\epsilon_1,\, \epsilon_2,\, \epsilon_3]=[1,\, 2,\, -1]$. What is the generated AR(1) process $Y_t = [Y_1,\, Y_2,\, Y_3]$?
 
-a. $y_t = \begin{bmatrix}1 & 2.8 & 1.24\end{bmatrix}$  
-b. $y_t = \begin{bmatrix} 0 & 2 & 0.6 \end{bmatrix}$  
-c. $y_t = \begin{bmatrix} 1 & 2 & -1 \end{bmatrix}$  
+a. $Y_t = \begin{bmatrix}1 & 2.8 & 1.24\end{bmatrix}$  
+b. $Y_t = \begin{bmatrix} 0 & 2 & 0.6 \end{bmatrix}$  
+c. $Y_t = \begin{bmatrix} 1 & 2 & -1 \end{bmatrix}$  
 
 ```{admonition} Solution
 :class: tip, dropdown
 
-The correct answer is **a**. The AR(1) process can be initialized as $y_1=e_1=1$. The next values can be obtained through:
+The correct answer is **a**. The AR(1) process can be initialized as $Y_1=\epsilon_1=1$. The next values can be obtained through:
 
 $$
-y_t = \beta y_{t-1} + e_t
+Y_t = \beta Y_{t-1} + \epsilon_t
 $$
 
-Giving $y_2=0.8 y_1 + e_2 = 0.8\cdot 1 + 2 = 2.8$ and $y_3=0.8 y_2 + e_3 = 0.8\cdot 2.8 - 1= 1.24$, so we have:
+Giving $Y_2=0.8 Y_1 + \epsilon_2 = 0.8\cdot 1 + 2 = 2.8$ and $Y_3=0.8 Y_2 + \epsilon_3 = 0.8\cdot 2.8 - 1= 1.24$, so we have:
 
 $$
-y_t = 
+Y_t = 
 \begin{bmatrix}1 & 2.8 & 1.24\end{bmatrix} 
 $$
 
@@ -82,10 +82,10 @@ $$
 A zero-mean stationary noise process consists of $m=5$ observations:
 
 $$
-y = \begin{bmatrix} 2 & 1 & 0 & -1 & -2 \end{bmatrix}
+Y = \begin{bmatrix} 2 & 1 & 0 & -1 & -2 \end{bmatrix}
 $$
 
-What is the _least-squares estimate_ of the normalized ACF at $\tau=1$; so compute $\hat{\rho}_{yy}(\tau=1)$?
+What is the _least-squares estimate_ of the normalized ACF at $\tau=1$; so compute $\hat{\rho}_{Y}(\tau=1)$?
 
 ```{admonition} Solution
 :class: tip, dropdown
@@ -93,15 +93,15 @@ What is the _least-squares estimate_ of the normalized ACF at $\tau=1$; so compu
 The normalized auto-covariance function (ACF) can be estimated from the auto-covariance function as:
 
 $$
-\hat{\rho}_{yy}(\tau)=\hat{\rho}_\tau=\frac{\hat{\sigma(\tau)}}{\hat{\sigma}(0)}, \qquad \tau=0, \dots , m-1
+\hat{\rho}_{Y}(\tau)=\hat{\rho}_\tau=\frac{\hat{\sigma(\tau)}}{\hat{\sigma}(0)}, \qquad \tau=0, \dots , m-1
 $$
 
 where the least-squares estimate of auto-covariance function is:
 
 $$
-\hat{Q}_{yy}(\tau)
+\hat{\Sigma}_{Y}(\tau)
 = \hat{\sigma}(\tau)
-= \frac{\sum_{i=1}^{m-\tau}(y_i - \mu_y)(y_{i+\tau} - \mu_y)}{m-\tau},
+= \frac{\sum_{i=1}^{m-\tau}(Y_i - \mu_y)(Y_{i+\tau} - \mu_y)}{m-\tau},
 \qquad \tau=0, \dots , m-1
 $$
 
@@ -109,7 +109,7 @@ For our application we have $\mu_y=0$, as we deal with a zero-mean process. We h
 
 $$
 \hat{\sigma}(0)
-= \frac{\sum_{i=1}^{m} y_i^2}{m-0}
+= \frac{\sum_{i=1}^{m} Y_i^2}{m-0}
 = \frac{10}{5} = 2
 $$
 
@@ -117,7 +117,7 @@ And
 
 $$
 \hat{\sigma}(1)
-= \frac{\sum_{i=1}^{m} y_i y_{i+1}}{m-1}
+= \frac{\sum_{i=1}^{m} Y_i Y_{i+1}}{m-1}
 = \frac{2(1) + 1(0) + 0(-1) + (-1)(-2)}{5 - 1}
 = \frac{2 + 0 + 0 + 2}{4}
 = 1
@@ -126,7 +126,7 @@ $$
 Giving
 
 $$
-\hat{\rho}_{yy}(\tau=1)
+\hat{\rho}_{Y}(\tau=1)
 = \frac{1}{2}
 $$
 
@@ -136,7 +136,7 @@ $$
 
 :::{card} Exercise 4
 
-The linear model of observation equations of a time series measured at $t=\begin{bmatrix}1 & 2 &3 & 4\end{bmatrix}^T$ is as $y(t)=y_0+rt+e(t)$, where the errors $e(t)\sim N(0,1)$ contain independent standard normal errors. The observations are given as $y=\begin{bmatrix}0.1 & 1 2.2& 3\end{bmatrix}^T$. Estimate the rate $r$ and its standard deviation using BLUE. In other words, find $\hat{r}$ and $\sigma_{\hat{r}}$.
+The linear model of observation equations of a time series measured at $t=\begin{bmatrix}1 & 2 &3 & 4\end{bmatrix}^T$ is as $Y(t)=y_0+rt+\epsilon(t)$, where the errors $\epsilon(t)\sim \textbf{N}(0,1)$ contain independent standard normal errors. The observations are given as $Y=\begin{bmatrix}0.1 & 1 2.2& 3\end{bmatrix}^T$. Estimate the rate $r$ and its standard deviation using BLUE. In other words, find $\hat{r}$ and $\sigma_{\hat{r}}$.
 
 ```{admonition} Solution
 :class: tip, dropdown
@@ -144,7 +144,7 @@ The linear model of observation equations of a time series measured at $t=\begin
 Based on the information provided, the design matrix, the unknown parameters and the covariance matrix of observations are as follows:
 
 $$
-A =
+\mathrm{A} =
 \begin{bmatrix}
 1&1\\1&2\\1&3\\1&4\\
 \end{bmatrix},
@@ -154,7 +154,7 @@ x =
 y_0\\r\\
 \end{bmatrix},
 \quad
-Q_{yy} = 
+Q_{Y} = 
 \begin{bmatrix}
 1&0&0&0\\
 0&1&0&0\\
@@ -167,23 +167,23 @@ $$
 This gives the BLUE of $x$ as
 
 $$
-\hat{x} 
-= \bigl(A^T Q_{yy}^{-1} A\bigr)^{-1} A^T Q_{yy}^{-1}y
-= (A^TA)^{-1}A^Ty
+\hat{X} 
+= \bigl(A^T \Sigma_{Y}^{-1} A\bigr)^{-1} A^T \Sigma_{Y}^{-1}Y
+= (A^TA)^{-1}A^TY
 $$
 
 with the variance matrix of 
 
 $$
-Q_{\hat{x}\hat{x}}
-= \bigl(A^T Q_{yy}^{-1} A\bigr)^{-1}
+\Sigma_{\hat{X}}
+= \bigl(A^T \Sigma_{Y}^{-1} A\bigr)^{-1}
 = (A^TA)^{-1}
 $$
 
 Working out the above formulas gives
 
 $$
-Q_{\hat{x}\hat{x}} = (A^TA)^{-1}
+\Sigma_{\hat{X}} = (A^TA)^{-1}
 = \Biggl(
 \begin{bmatrix}
 1&1&1&1\\1&2&3&4
@@ -205,7 +205,7 @@ $$
 And
 
 $$
-\hat{x} = (A^TA)^{-1}A^Ty
+\hat{X} = (A^TA)^{-1}A^TY
 = \frac{1}{10}
 \begin{bmatrix}
 15 & -5 \\ -5 & 2 \\
@@ -221,7 +221,7 @@ $$
 or
 
 $$
-\hat{x} = (A^TA)^{-1}A^Ty
+\hat{X} = (A^TA)^{-1}A^TY
 = \frac{1}{10}
 \begin{bmatrix}
 15 & -5 \\ -5 & 2 \\
@@ -244,7 +244,7 @@ We therefore have
 $$
 \hat{r} = 0.99,
 \quad \textrm{and} \quad
-\sigma_{\hat{r}} = \sqrt{Q_{\hat{x}\hat{x}}(2.2)}=\sqrt{0.2}=0.458
+\sigma_{\hat{r}} = \sqrt{\Sigma_{\hat{X}}(2.2)}=\sqrt{0.2}=0.458
 $$
 
 or
@@ -263,10 +263,10 @@ For the stationary AR(2) process, calculate the ACF at lag 1. In other words, ca
 ```{admonition} Solution
 :class: tip, dropdown
 
-For the AR($p$) process we know that $\mathbb{E}(y_t)=0$, and $\mathrm{D}(y_t)=\sigma^2$. Therefore, for AR(2):
+For the AR($p$) process we know that $\mathbb{E}(Y_t)=0$, and $\mathrm{D}(Y_t)=\sigma^2$. Therefore, for AR(2):
 
 $$
-\mathrm{D}(y_t)=\sigma^2=\sigma^2(\beta_1^2 + \beta_2^2)+\sigma_e^2
+\mathrm{D}(Y_t)=\sigma^2=\sigma^2(\beta_1^2 + \beta_2^2)+\sigma_{\epsilon}^2
 $$
 
 or
@@ -274,16 +274,16 @@ or
 $$
 \sigma^2
 = (1 - \beta_1^2 - \beta_2^2)
-= \sigma_e^2
+= \sigma_{\epsilon}^2
 $$
 
-which is a condition for the AR(2) process to be stationary. To compute the auto-covariance function at lag 1, $\sigma(1)$, we need to compute the covariance between $y_{t-1}$ and $y_t$, which is given as
+which is a condition for the AR(2) process to be stationary. To compute the auto-covariance function at lag 1, $\sigma(1)$, we need to compute the covariance between $Y_{t-1}$ and $Y_t$, which is given as
 
 $$
-\sigma(1) = \mathbb{E}(y_{t-1}y_t)
+\sigma(1) = \mathbb{E}(Y_{t-1}Y_t)
 = \mathbb{E}
-\bigl(y_{t-1}
-(\beta_1 y_{t-1} + \beta_2 y_{t-2} + e_t)
+\bigl(Y_{t-1}
+(\beta_1 Y_{t-1} + \beta_2 Y_{t-2} + \epsilon_t)
 \bigr)
 $$
 
@@ -291,9 +291,9 @@ or
 
 $$
 \sigma(1)
-= \beta_1 \mathbb{E}(y_{t-1}^2)
-+ \beta_2 \mathbb{E}(y_{t-2}y_{t-1})
-+ \mathbb{E}(y_{t-1}e_t)
+= \beta_1 \mathbb{E}(Y_{t-1}^2)
++ \beta_2 \mathbb{E}(Y_{t-2}Y_{t-1})
++ \mathbb{E}(Y_{t-1}\epsilon_t)
 $$
 
 or
@@ -324,7 +324,7 @@ $$
 Consider a random process time series as:
 
 $$
-x_t
+Y_t
 = u \cos (\theta t) + v \sin (\theta t)
 $$
 
@@ -336,21 +336,21 @@ where $u$ and $v$ are two uncorrelated random variables with zero means and unit
 Because $\mathbb{E}(u)=\mathbb{E}(v)=0$, it simply follows that 
 
 $$
-\mathbb{E}(x_t)=0
+\mathbb{E}(Y_t)=0
 $$
 
-For a given $\tau$, the covariance between $x_t$ and $x_{t+\tau}$ is obtained as:
+For a given $\tau$, the covariance between $Y_t$ and $Y_{t+\tau}$ is obtained as:
 
 $$
-\textrm{cov} (x_t, x_{t+\tau})
-= \mathbb{E}(x_t, x_{t+\tau}) - \mathbb{E}(x_t)\mathbb{E}(x_{t+\tau})
-= \mathbb{E}x_t, x_{t+\tau}
+Cov(Y_t, Y_{t+\tau})
+= \mathbb{E}(Y_t, Y_{t+\tau}) - \mathbb{E}(Y_t)\mathbb{E}(Y_{t+\tau})
+= \mathbb{E}(Y_t, Y_{t+\tau})
 $$
 
 or
 
 $$
-\textrm{cov} (x_t, x_{t+\tau})
+Cov(Y_t, Y_{t+\tau})
 = \mathbb{E}
 \biggl(
     \bigl[ u \cos(\theta t) + v \sin(\theta t) \bigr]
@@ -370,7 +370,7 @@ $$
 This, with the previous equations, gives:
 
 $$
-\textrm{cov}(x_t, x_{t+\tau})
+Cov(Y_t, Y_{t+\tau})
 = \cos(\theta t) \cos(\theta t + \theta \tau)
 + \sin(\theta t) \sin(\theta t + \theta \tau)
 $$
@@ -378,12 +378,12 @@ $$
 Using the identity $\cos(a-b)=\cos(a)\cos(b)+\sin(a)\sin(b)$, it follows:
 
 $$
-\textrm{cov}(x_t, x_{t+\tau})
+Cov(Y_t, Y_{t+\tau})
 = \cos(\theta t + \theta \tau - \theta t)
 = \cos(\theta \tau)
 $$
 
-Which is a function of $\tau$ as $\sigma(\tau)$, and not a function of time, $t$. This shows that the random process is stationary.
+Which is a function of $\tau$ as $\sigma(\tau)$, and not a function of time $t$. This shows that the random process is stationary.
 
 ```
 :::

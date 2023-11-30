@@ -1,7 +1,7 @@
 (ARMA)=
 # ARMA process
 
-The main goal is to introduce the Auto-Regressive Moving Average (ARMA) stochastic process, as a widely used stochastic process. 
+The main goal is to introduce the AutoRegressive Moving Average (ARMA) model to describe a **stationary stochastic process**. Hence the ARMA model can be applied on time series where e.g. trend and seasonality are not present / removed, and only noise remains, or after applying other methods [to obtain a stationary time series](stationarize).
 
 ## Process definition
 

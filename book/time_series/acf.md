@@ -1,35 +1,32 @@
+(ACF)=
 # Autocovariance function (ACF)
 
 The goal of this chapter is to introduce the autocovariance function (ACF) for a stationary time series, and describe the relationship between ACF and power spectral density (PSD).
 
-## Autocovariance and utocorrelation
+As in the Chapter on {ref}`OT`, the variance component is often determined based on the precision of an observation (at a given epoch), and the covarience components quantitatively indicate the statistical dependence (or independence) between observations. In this case, dependence is inherently introduced by the phyiscal processes that produce the signal (of which our time series is a sample), and in fact our time series methods seek to (mathematically) account for this.
+
+## Autocovariance and autocorrelation
 
 Let us assume an arbitrary (discrete) time series, $Y=[Y_1,Y_2,...,Y_m]^T$, with mean $\mathbb{E}(Y)=\mu$ and variance $\sigma^2_{i}=\sigma^2$.
 
 The *formal* autocovariance is defined as
-
-% see below MMMMM
 
 $$
 Cov(Y_t, Y_{t-\tau}) = \mathbb{E}((Y_t-\mu)(Y_{t-\tau}-\mu))=\mathbb{E}(Y_tY_{t-\tau})-\mu^2=c_{\tau}
 $$
 
 ```{note}
-The reason to refer to *auto*covariance is that we are considering the covariance of $Y$ with itself (with a certain time lag $\tau$). If the covariance of $Y$ with the time series of another variable, $X$, would be considerd, this is referred to as the *cross*-covariance.
+The reason to refer to *auto*covariance is that we are considering the covariance of $Y$ with itself (with a certain time lag $\tau$). If the covariance of $Y$ with the time series of another variable, $X$, would be considerd, this is referred to as the *cross*-covariance. 
 ```
 
 The *formal* autocorrelation is defined as
 
-% MMMMM "formal autoco..." or "formal definition of autoco..."?
-
 $$
-R_{\tau} = \mathbb{E}(Y_tY_{t-\tau})
+r_{\tau} = \mathbb{E}(Y_tY_{t-\tau})
 $$
-
-% MMMMM should equation above include R_tau or rho_tau? the note below has rho
 
 ```{note}
-When we have a zero-mean time series, $\mu=0$, it follows that $c_{\tau}=\rho_{\tau}$
+When we have a zero-mean time series, $\mu=0$, it follows that $c_{\tau}=r_{\tau}$
 ```
 
 ### Empirical autocovariance
@@ -66,6 +63,10 @@ $$
 $$
 
 ```{note}
+Here we use capitals for $\hat{C}_{\tau}$ and $\hat{R}_{\tau}$ since **estimators** are always a function of the random observables $Y_t$.
+```
+
+```{note}
 Always check which of the estimators a certain software tool uses! 
 % MMMMM Easier said than done? https://www.statsmodels.org/dev/generated/statsmodels.tsa.stattools.acovf.html
 ```
@@ -83,8 +84,6 @@ c_2 & c_1 & \sigma^2 &  \ddots & c_2  \\
 
 There are $m$ (co)variance components - **one** variance component, $\sigma^2 = c_0$, and $m-1$ covariance components, $c_i$.
 
-% MMMMM add this? As in the Chapters on `ref`{OT}, the variance component is often determined based on the precision of an observation (at a given epoch), and the covarience components quantitatively indicate the statistical dependence (or independence) between observations. In this case, depednence is inherently introduced by the phyiscal processes that produce the signal (of which our time series is a sample), and in fact our time series methods seek to (mathematically) reduce this.
-
 ```{note}
 The covariance matrix $\Sigma_{Y}$ has constant values along the top-left to bottom-right diagonal and is called a _Toeplitz matrix._
 ```
@@ -100,13 +99,15 @@ $$
 \mathbb{E}(\hat{C}_{\tau}) =  c_\tau
 $$
 
-* The normalized autocovariance function can directly be obtained from the autocovariance function as
-
-% MMMMM here we have rho_tau again. Maybe also good to points out upper- and lower-case C/c...is it a random variable/realization thing? Seems to be slightly different, since each c corresponds to a RV X_{t_i}, but C and c notation seems to imply that c is a realization of a stochastic variable/process C?
+* The normalized autocovariance estimator can directly be obtained from the autocovariance estimator as
 
 $$
 \hat{\rho}_{\tau} = \frac{\hat{C}_{\tau}}{\hat{C_0}}, \hspace{20px}\tau = 0,...,m-1 \implies \hat{\rho}_0 = 1
 $$
+
+```{note}
+The estimated normalized autocovariance is the same as  the time dependent Pearson correlation coefficient.
+```
 
 * The variance of the normalized ACF can be approximated as
 
@@ -137,7 +138,7 @@ $$
 with $\rho_1$ unknown and
 
 $$
-\sigma^2_{\hat{\rho}_1}=\frac{1}{m-1}+\frac{2\hat{\rho}^2_1}{m-1}=0.0133\implies\sigma_{\hat{\rho}_1}=0.1153
+\sigma^2_{\hat{\rho}_1}=\frac{1}{m-1}+\frac{2\hat{\rho}^2_1}{m}=0.0133\implies\sigma_{\hat{\rho}_1}=0.1153
 $$
 
 We will now apply a test whether the estimated autocorrelation is significant. The null hypothesis assumes there is **no** correlation:
@@ -186,18 +187,18 @@ In signal processing, it is common to write a sampled (discrete) signal as a sma
 
 Conversely, the inverse discrete Fourier transform (IDFT) of the PSD is the ACF, so
 
-$$\text{IDFT}(S_{yy}(k))=\hat{c}_{\tau}, \hspace{35px} \tau = 1,...,m \hspace{5px}\text{and}\hspace{5px} k = 1,...,m$$
+$$\text{IDFT}(S_{Y}(k))=\hat{c}_{\tau}, \hspace{35px} \tau = 1,...,m \hspace{5px}\text{and}\hspace{5px} k = 1,...,m$$
 
 ```{figure} ./figs/ACF_PSD.png
 ---
 height: 300px
 name: ACF_PSD
 ---
-Time series data, auto-covariance and its power spectral density plots of white noise above and colored noise (not purely random) below.
+Time series data, autocovariance and its power spectral density plots of white noise above and colored noise (not purely random) below.
 ```
 
 The PSD explains how the power (variance) of the signal is distributed over different frequencies. The PSD of a pure sine wave is flat except at its constituent frequency.
-Purey random noise (i.e., white noise) has a flat power, indicating that all frequencies have identical contribution in making the variance of the signal.
+Purey random noise (i.e., white noise) has a flat power, indicating that all frequencies have identical contribution in making the variance of the signal. This is however not the case for time-correlated noise because different frequencies have different power values in making the total signal variability.
 
 ## Partial ACF
 
@@ -235,11 +236,9 @@ $$
 
 Hence, the $Y_t$ and $Y_{t+2}$ are correlated, even though according to the expression $Y_t = \beta Y_{t-1}+\epsilon_t$ should just depend on the previous value. This makes sense, since the previous value again depends on its own previous value, et cetera. However, using the partial ACF allows to 'remove' this correlation.
 
-### Worked example
+### Worked example (optional)
 
 Let us now take a look into a worked example on PACF to remove the intervening term, $\beta Y_{t+1}$ between $Y_t$ and $Y_{t+2}$. As we saw before, ACF can be obtained from
-
-% MMMMM Why all of a sudden t+2 instead of t-2?
 
 $$
 \text{COV} = Cov(Y_t, Y_{t+2}) =  \sigma^2\beta^2
@@ -258,7 +257,7 @@ $$
 
 This shows indeed that with the partial ACF the correlation for a time lag of 2 (or higher) becomes zero.
 
-#### Normalized ACF vs Partial ACF
+#### Normalized ACF vs Partial ACF (optional)
 
 The figure shows a simulated example of $Y_t = 0.8Y_{t-1}+\epsilon_t$ having 1000 samples. The spectrum of the normalized ACF clearly shows that there is a (decreasing) correlation up till lag 10, while the spectrum of the partial ACF only shows correlation at lag 1.
 
