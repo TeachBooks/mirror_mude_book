@@ -54,9 +54,9 @@ $$
 
 In a zero-mean first order autoregressive process, abbreviated as AR(1), we have $m=3$ observations, $\beta=0.8$, and the generated white noise errors are $\epsilon_t = [\epsilon_1,\, \epsilon_2,\, \epsilon_3]=[1,\, 2,\, -1]$. What is the generated AR(1) process $Y_t = [Y_1,\, Y_2,\, Y_3]$?
 
-a. $Y_t = \begin{bmatrix}1 & 2.8 & 1.24\end{bmatrix}$  
-b. $Y_t = \begin{bmatrix} 0 & 2 & 0.6 \end{bmatrix}$  
-c. $Y_t = \begin{bmatrix} 1 & 2 & -1 \end{bmatrix}$  
+a. $Y_t = \begin{bmatrix}1 & 2.8 & 1.24\end{bmatrix}^T$  
+b. $Y_t = \begin{bmatrix} 0 & 2 & 0.6 \end{bmatrix}^T$  
+c. $Y_t = \begin{bmatrix} 1 & 2 & -1 \end{bmatrix}^T$  
 
 ```{admonition} Solution
 :class: tip, dropdown
@@ -71,7 +71,7 @@ Giving $Y_2=0.8 Y_1 + \epsilon_2 = 0.8\cdot 1 + 2 = 2.8$ and $Y_3=0.8 Y_2 + \eps
 
 $$
 Y_t = 
-\begin{bmatrix}1 & 2.8 & 1.24\end{bmatrix} 
+\begin{bmatrix}1 & 2.8 & 1.24\end{bmatrix}^T 
 $$
 
 ```
@@ -82,10 +82,10 @@ $$
 A zero-mean stationary noise process consists of $m=5$ observations:
 
 $$
-Y = \begin{bmatrix} 2 & 1 & 0 & -1 & -2 \end{bmatrix}
+Y = \begin{bmatrix} 2 & 1 & 0 & -1 & -2 \end{bmatrix}^T
 $$
 
-What is the _least-squares estimate_ of the normalized ACF at $\tau=1$; so compute $\hat{\rho}_{Y}(\tau=1)$?
+What is the _least-squares estimate_ of the normalized ACF at $\tau=1$; so compute $\hat{\rho}_{1}$?
 
 ```{admonition} Solution
 :class: tip, dropdown
@@ -93,22 +93,21 @@ What is the _least-squares estimate_ of the normalized ACF at $\tau=1$; so compu
 The normalized auto-covariance function (ACF) can be estimated from the auto-covariance function as:
 
 $$
-\hat{\rho}_{Y}(\tau)=\hat{\rho}_\tau=\frac{\hat{\sigma(\tau)}}{\hat{\sigma}(0)}, \qquad \tau=0, \dots , m-1
+\hat{\rho}_\tau=\frac{\hat{C}_\tau}{\hat{C}_0}, \qquad \tau=0, \dots , m-1
 $$
 
 where the least-squares estimate of auto-covariance function is:
 
 $$
-\hat{\Sigma}_{Y}(\tau)
-= \hat{\sigma}(\tau)
-= \frac{\sum_{i=1}^{m-\tau}(Y_i - \mu_y)(Y_{i+\tau} - \mu_y)}{m-\tau},
+\hat{C}_\tau
+= \frac{\sum_{i=1}^{m-\tau}(Y_i - \mu)(Y_{i+\tau} - \mu)}{m-\tau},
 \qquad \tau=0, \dots , m-1
 $$
 
 For our application we have $\mu_y=0$, as we deal with a zero-mean process. We have to compute $\hat{\sigma}(0)$ and $\hat{\sigma}(1)$ given as:
 
 $$
-\hat{\sigma}(0)
+\hat{C}_0
 = \frac{\sum_{i=1}^{m} Y_i^2}{m-0}
 = \frac{10}{5} = 2
 $$
@@ -116,7 +115,7 @@ $$
 And 
 
 $$
-\hat{\sigma}(1)
+\hat{C}_1
 = \frac{\sum_{i=1}^{m} Y_i Y_{i+1}}{m-1}
 = \frac{2(1) + 1(0) + 0(-1) + (-1)(-2)}{5 - 1}
 = \frac{2 + 0 + 0 + 2}{4}
@@ -126,7 +125,7 @@ $$
 Giving
 
 $$
-\hat{\rho}_{Y}(\tau=1)
+\hat{\rho}_1
 = \frac{1}{2}
 $$
 
@@ -154,7 +153,7 @@ x =
 y_0\\r\\
 \end{bmatrix},
 \quad
-Q_{Y} = 
+\Sigma_{Y} = 
 \begin{bmatrix}
 1&0&0&0\\
 0&1&0&0\\

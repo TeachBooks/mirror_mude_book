@@ -176,16 +176,18 @@ parts:
         title: "Time Series components"
       - file: time_series/types
         title: "Types of Time Series"
+      - file: time_series/modelling
+        title: "Time Series modelling and estimation"
       - file: time_series/stationarity
         title: "Stationarity"
       - file: time_series/acf
         title: "Auto-covariance function (ACF)"
       - file: time_series/arma
         title: "Auto-Regressive Moving Average (ARMA) process"
-      - file: time_series/modelling
-        title: "Time Series modelling and estimation"
       - file: time_series/forecasting
         title: "Time Series forecasting"
+      - file: time_series/optional
+        title: "Supplementary material"
       - file: time_series/videos
         title: Supplementary Videos
       - file: time_series/exercises
