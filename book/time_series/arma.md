@@ -100,13 +100,15 @@ $$
 
 **Model structure**
 
-$$\mathbb{E}(Y) = \mathbb{E}\begin{bmatrix}Y_1\\ Y_2\\ ...\\ Y_m\end{bmatrix} = \begin{bmatrix}0\\ 0\\ ...\\ 0\end{bmatrix}, \hspace{15px} \mathbb{D}(Y)=\Sigma_{Y}=\sigma^2 \begin{bmatrix}1&\beta&...&\beta^{m-1}\\ \beta&1&...&\beta^{m-2}\\ ...&...&...&...\\ \beta^{m-1}&\beta^{m-2}&...&1\end{bmatrix}$$
+$$\mathbb{E}(Y) = \mathbb{E}\begin{bmatrix}Y_1\\ Y_2\\ \vdots\\ Y_m\end{bmatrix} = \begin{bmatrix}0\\ 0\\ \vdots\\ 0\end{bmatrix}, \hspace{15px} \mathbb{D}(Y)=\Sigma_{Y}=\sigma^2 \begin{bmatrix}1&\beta&...&\beta^{m-1}\\ \beta&1&...&\beta^{m-2}\\ \vdots&\vdots&\ddots&\vdots\\ \beta^{m-1}&\beta^{m-2}&...&1\end{bmatrix}$$
 
 * Autocovariance function $\implies$ $c_{\tau}=\sigma^2\beta^\tau$
 * Normalized autocovariance function (ACF) $\implies$ $\rho_\tau=c_{\tau}/c_0=\beta^\tau$
 * Larger value of $\beta$ indicates a long-memory random process
 * If $\beta=0$, this is called *purely random process* (white noise)
 * ACF is even, $c_{\tau}=c_{-\tau}=c_{|\tau|}$ and so is $\rho_{\tau}=\rho_{-\tau}=\rho_{|\tau|}$
+
+Recall that $\rho_{\tau}$ can be estimated as explained in the section on [autocovariance](NACF), and from that an estimate $\beta$ can be obtained.
 
 **Simulated example**
 
@@ -191,6 +193,8 @@ In summmary:
 
 * ACF is even, $c_{\tau}=c_{-\tau}=c_{|\tau|}$ and so is $\rho_{\tau}=\rho_{-\tau}=\rho_{|\tau|}$
 
+Recall that $\rho_{\tau}$ can be estimated as explained in the section on [autocovariance](NACF), and from that an estimate $\theta$ can be obtained.
+
 **Simulated example**
 
 A time series has been simulated to have a standard normal distribution, $\epsilon_i \sim \text{N}(0,1)$. This indicates that the entries of $Y$ have $Y_i \sim \text{N}(0,1+\theta^2)$, $i=1,...,m=1000$. The time series is shown in {numref}`ma1ex`. 
@@ -206,6 +210,38 @@ MMMMM should delete the equation in the right panels!
 
 Left: time series for $\beta =0.9$ and $\beta =-0.9$. Right: corresponding normalized autocovariance functions.
 ```
+
+## Worked example - Single Differencing
+
+On this worked example, we will show that [single differencing](SD) induces an MA(1) process. Let us consider
+
+$$Y=\begin{bmatrix}Y_1\\ Y_2\\ \vdots \\ Y_m\end{bmatrix}, \hspace{10px} \Sigma_{Y}=\sigma^2 I_m$$
+
+Having $\Delta Y_1 = Y_1$, then:
+
+$$\begin{cases}\Delta Y_2 = Y_2 - Y_1\\ \Delta Y_3 = Y_3-Y_2\\ \quad\vdots \\ \Delta Y_m = Y_m - Y_{m-1}\end{cases}$$
+
+In matrix notation, this can be written as:
+
+$$\begin{bmatrix}\Delta Y_1\\ \Delta Y_2\\ \vdots \\ \Delta Y_m\end{bmatrix} = \underbrace{\begin{bmatrix}
+    1 & 0 &   & \dots & 0\\
+    -1 & 1 & 0 &   &  \\
+    0 & -1 & 1 & \ddots & \\
+    \vdots & \ddots &\ddots & \ddots & 0 \\
+    0 & \dots & 0 & -1 & 1
+\end{bmatrix}}_{\mathrm{T}}\begin{bmatrix}Y_1\\ Y_2\\ \vdots \\ Y_m\end{bmatrix} \Longleftrightarrow \Delta Y = \mathrm{T}Y$$
+
+Therefore:
+
+$$\Sigma_{\Delta Y}=\mathrm{T}\Sigma_{Y}\mathrm{T}^T = \mathrm{T}\sigma^2I_m\mathrm{T}^T=\sigma^2\mathrm{TT}^T$$
+
+which can simplify to:
+
+$$\Sigma_{\Delta Y} = \sigma^2\mathrm{TT}^T = 2\sigma^2\begin{bmatrix}1&-0.5&0&\dots&0\\ -0.5&1&-0.5& &\\ 0&-0.5&1&\ddots&0\\ \vdots& &\ddots&\ddots&-0.5\\ 0&\dots&0&-0.5&1\end{bmatrix}$$
+
+Now we need to find the value of $\theta$ to get $\Delta Y_t$. Therefore:
+
+$$\begin{cases}\rho_1=-0.5=\frac{\theta}{1+\theta^2}\\ \Delta Y_t = \theta \epsilon_{t-1}+\epsilon_t\end{cases}\implies \theta=-1 \implies \Delta Y_t = \epsilon_t-\epsilon_{t-1}$$
 
 ## Brief Summary
 
@@ -230,35 +266,3 @@ Y_t = \epsilon_t+\sum_{i=1}^q\theta_i\epsilon_{t-1}
 $$
 
 The parameters of these stochastic processes should be estimated.
-
-## Worked example - Single Differencing
-
-On this worked example, we will try to show that [single differencing](SD) induces an MA(1) process. Let us consider
-
-$$Y=\begin{bmatrix}Y_1\\ Y_2\\ \vdots \\ Y_m\end{bmatrix}, \hspace{10px} \Sigma_{Y}=\sigma^2 I_m$$
-
-Having $\Delta Y_1 = Y_1$, then:
-
-$$\begin{cases}\Delta Y_2 = Y_2 - Y_1\\ \Delta Y_3 = Y_3-Y_2\\ \quad\vdots \\ \Delta Y_m = Y_m - Y_{m-1}\end{cases}$$
-
-In matrix notation, this can be written as:
-
-$$\begin{bmatrix}\Delta Y_2\\ \Delta Y_3\\ \vdots \\ \Delta Y_m\end{bmatrix} = \underbrace{\begin{bmatrix}
-    1 & 0 &   & \dots & 0\\
-    -1 & 1 & 0 &   &  \\
-    0 & -1 & 1 & \ddots & \\
-    \vdots & \ddots &\ddots & \ddots & 0 \\
-    0 & \dots & 0 & -1 & 1
-\end{bmatrix}}_{\mathrm{T}}\begin{bmatrix}Y_1\\ Y_2\\ \vdots \\ Y_m\end{bmatrix} \Longleftrightarrow \Delta Y = \mathrm{T}Y$$
-
-Therefore:
-
-$$\Sigma_{\Delta Y}=\mathrm{T}\Sigma_{Y}\mathrm{T}^T = \mathrm{T}\sigma^2I_m\mathrm{T}^T=\sigma^2\mathrm{TT}^T$$
-
-which can simplify to:
-
-$$\Sigma_{\Delta Y} = \sigma^2\mathrm{TT}^T = 2\sigma^2\begin{bmatrix}1&-0.5&0&\dots&0\\ -0.5&1&-0.5& &\\ 0&-0.5&1&\ddots&0\\ \vdots& &\ddots&\ddots&-0.5\\ 0&\dots&0&-0.5&1\end{bmatrix}$$
-
-Now we need to find the value of $\theta$ to get $\Delta Y_t$. Therefore:
-
-$$\begin{cases}\rho_1=-0.5=\frac{\theta}{1+\theta^2}\\ \Delta Y_t = \theta \epsilon_{t-1}+\epsilon_t\end{cases}\implies \theta=-1 \implies \Delta Y_t = \epsilon_t-\epsilon_{t-1}$$
