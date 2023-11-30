@@ -56,9 +56,9 @@ If the objective function has a finite maximum (minimum) there is at least an op
 
 ```
 
-We consider as **basic solutions** any of the red vertices of the yellow region, and any other solution that is inside the highlighted region consists of a **non-basic** solution.
+We consider as **basic solutions** any of the red vertices of the yellow region, and any other solution that is inside the highlighted yellow region consists of a **non-basic** solution.
 
-To find the optimal solution, we can start now by computing the gradient whose direction gives us the direction of growth of the objective function, i.e.:
+To find the optimal solution, we can start now by computing the gradient vector of the objective function whose direction gives us the direction of growth of the objective function, i.e.:
 
 $$\nabla L = \begin{bmatrix}\dfrac{dL}{dx_1}\\\dfrac{dL}{dx_2}\end{bmatrix}=\begin{bmatrix}57\\60\end{bmatrix}$$
 
@@ -66,11 +66,11 @@ $$\nabla L = \begin{bmatrix}\dfrac{dL}{dx_1}\\\dfrac{dL}{dx_2}\end{bmatrix}=\beg
   <img src="./figs/sand_clay.png" style="width: 80%;">
 </div>
 
-With this, we just need to find the first point inside the feasible region that intersects a region with the slope that is shown. That point will be one of the vertices, and we get:
+With this, we just need to find the last point inside the feasible region in the direction of the gradient (maximization) or the first point inside the region (minimization). That point will be one of the vertices (basic solutions), and in this example we get:
 
 $$X=\left(\frac{5}{3},\frac{20}{3}\right)\implies L=485$$
 
-If we do the same for the remaining vertices, for example, we confirm that the obtained the value consists in the one maximizing $L$ and, therefore, obeying our objective function:
+If we calculate the value of the objective function for the remaining vertices we confirm that the one we obtained above consists in the one that maximizes $L$:
 
 * $\mu_1=(0,8)\implies L=480$
 * $\mu_2=\left(\frac{35}{12},\frac{25}{6}\right)\implies L = 416.5$
