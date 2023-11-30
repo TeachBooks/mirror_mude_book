@@ -201,7 +201,7 @@ Recall that $\rho_{\tau}$ can be estimated as explained in the section on [autoc
 
 **Simulated example**
 
-A time series has been simulated to have a standard normal distribution, $\epsilon_i \sim \text{N}(0,1)$. This indicates that the entries of $Y$ have $Y_i \sim \text{N}(0,1+\theta^2)$, $i=1,...,m=1000$, where the variance of the noise process is $\sigma^2 = 1+\theta^2$. The time series is shown in {numref}`ma1ex`. 
+A time series has been simulated to have a standard normal distribution, $\epsilon_i \sim \text{N}(0,1)$. This indicates that the entries of $Y$ have $Y_i \sim \text{N}(0,1+\theta^2)$, $i=1,...,m=1000$, where the variance of the noise process is $\sigma^2 = 1+\theta^2$. In fact, $\sigma_{\epsilon_t}=1$, but not the random process MA(1) in total. The time series is shown in {numref}`ma1ex`. 
 
 The normalized ACF shows the temporal correlation, $\rho_{\tau}=\frac{\theta}{1+\theta^2}$, if $\tau=1$, and $\rho_{\tau}=0$ if $\tau>1$.
 

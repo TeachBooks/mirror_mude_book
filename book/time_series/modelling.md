@@ -206,6 +206,3 @@ This, in fact, can be shown to be identical to a scaled version (by a factor 2) 
 :class: tip, dropdown
 [On the equality of the PSD and the LS-HE T-test statistics](./proof.pdf)
 ```
-
-
-
