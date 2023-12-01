@@ -1,3 +1,4 @@
+(forecast)=
 # Forecasting
 
 ## Best Linear Unbiased Prediction (BLUP)
@@ -29,10 +30,6 @@ $$\Sigma_{\hat{Y_p}}=\mathrm{A}_p\Sigma_{\hat{X}}\mathrm{A}_p^T+\Sigma_{Y_p Y}\S
 * Above it was explained that $\hat{\epsilon}$ has been estimated with BLUE. The time series $\hat{\epsilon}$ can in principle also be obtained from different [transformation methods](stationarize) such as
 **differencing**, **function-based**, or **moving averaging**;
 * For the sake of simplicity, the new time series is again denoted as the zero-mean stationary time series $Y_t = Y(t)$, of which the ‘non-stationarity’ effect has been removed from the data to make it stationary.
-
-
-
-
 
 ## Forecasting using ARMA($p,q$) process
 
