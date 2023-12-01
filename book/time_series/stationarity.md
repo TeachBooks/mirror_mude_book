@@ -34,13 +34,11 @@ In practice, we may in fact be interested in for instance the trend and seasonal
 
 In general, there are five ways to make a non-stationary time series to a stationary one. They are known as transformation methods. An important requirement is that such transformation is regular, or admissible, meaning that a back-transformation is possible. 
 
-These methods are:
+Common methods are:
 
 * Difference transformation of data
 * Moving average of data
-* Function-based transformation of data
-* Least-squares fit (de-trending)
-* Combination of abovementioned methods
+* Least-squares fit (detrending)
 
 ### Single and double differencing
 
@@ -90,7 +88,7 @@ Now we will apply single differencing to the time series:
 
 $$
 \begin{align*}
-\Delta Y_t = Y_t-Y_{t-1} &= y_0+rt+\epsilon_t-(Y_0+r(t-1)+\epsilon_{t-1}) \\
+\Delta Y_t = Y_t-Y_{t-1} &= y_0+rt+\epsilon_t-(y_0+r(t-1)+\epsilon_{t-1}) \\
 &= r+\Delta \epsilon_t
 \end{align*}
 $$
@@ -107,7 +105,7 @@ We again apply single differencing:
 
 $$
 \begin{align*}
-\Delta Y_t = Y_t-Y_{t-1} &= y_0+rt+at^2+\epsilon_t-(Y_0+r(t-1)+a(t-1)^2+\epsilon_{t-1}) \\
+\Delta Y_t = Y_t-Y_{t-1} &= y_0+rt+at^2+\epsilon_t-(y_0+r(t-1)+a(t-1)^2+\epsilon_{t-1}) \\
 &= r-a+2at+\Delta \epsilon_t
 \end{align*}
 $$
@@ -148,10 +146,10 @@ Original time series (second-order polynomial) on the left; double differenced t
 The moving average of $Y = [Y_1, ..., Y_m]^T$ will create a time series $\bar{Y}_t = {\bar{Y}_1,...,\bar{Y}_m}$, with 
 
 $$
-\bar{Y}_t = \frac{1}{k}\sum_{i=1}^{k}Y_{t-i}
+\bar{Y}_t = \frac{1}{p}\sum_{i=-k}^{k}Y_{t-i}
 $$
 
-where the length of the interval over which the average is taken is equal to $k$.
+where the length of the interval over which the average is taken is equal to $p=2k+1$.
 
 The difference between two time series provides a (nearly) stationary time series $\Delta Y_t = Y_t - \bar{Y}_t$.
 
@@ -163,33 +161,21 @@ name: moving_avg
 Original time series and moving average on the right; stationarized times series on the left.
 ```
 
-### Function-based transformation
-
-A function-based transformation of $Y=[Y_1,...,Y_m]^T$ makes a time series $S_t \longleftarrow f(Y_t)$. For example, a log function would downscale the range of variations of the data. This is a nonlinear but *regular* transformation of data, and hence allowed.
-
-```{figure} ./figs/function_transf.png 
----
-height: 300px
-name: function_transf
----
-Original time series on the right; stationarized times series on the left (note log-scale on vertical axis).
-```
-
 ### Least-squares fit
 
 If we can express the time series $Y=[Y_1, ..., Y_m]^T$ with a linear model of observation equations as $Y = \mathrm{Ax} + \epsilon$, we can apply [best linear unbiased estimation](BLUE) (equivalent to weighted least-squares) to estimate the parameters $\mathrm{x}$ that describe e.g. the trend and seasonality:
 
 $$
-\hat{X}=(\mathrm{A}^T\Sigma_{yy}^{-1}\mathrm{A})^{-1}\mathrm{A}^T\Sigma_{yy}^{-1}Y 
+\hat{X}=(\mathrm{A}^T\Sigma_{Y}^{-1}\mathrm{A})^{-1}\mathrm{A}^T\Sigma_{Y}^{-1}Y 
 $$
 
-A "detrended" time series is obtained in the form of the residuals 
+A detrended time series is obtained in the form of the residuals 
 
 $$
 \hat{\epsilon} = Y - \mathrm{A}\hat{X}
 $$ 
 
-The **de-trended $\hat{\epsilon}$ is assumed to be stationary** for further **stochastic processing**. This is also an admissible transformation because $Y$ can uniquely be reconstructed as $Y=\mathrm{A}\hat{X}+\hat{\epsilon}$. 
+The **detrended $\hat{\epsilon}$ is assumed to be stationary** for further **stochastic processing**. This is also an admissible transformation because $Y$ can uniquely be reconstructed as $Y=\mathrm{A}\hat{X}+\hat{\epsilon}$. 
 
 Let us take a look into an example:
 
@@ -201,66 +187,87 @@ name: least_squares
 Example of a time series (right graph) with linear and seasonal trend. The residuals (= stationary time series) after applying BLUE are shown on the left.
 ```
 
-In the example above, for each observation $Y_m = x_1 \sin{\omega_0t_m} + x_2\cos{\omega_0t_m}+x_3t_m+x_4$, where $x_1$ and $x_2$ denote the seasonality and $x_3$ and $x_4$ the trend. [As explained here,](components#seasonality) $\omega_0$ is found by a Spectral Analysis method. The time series then is:
+In the example above, for each observation $Y_i = y_0+ rt_i+a\cos{\omega_0t_i}+b \sin{\omega_0t_i} + +x_3t_i+\epsilon_i$, where $a$ and $b$ describe the seasonality and $y_0$ and $r$ the trend. The time series then is:
 
 $$
 \begin{bmatrix}
     Y_1 \\ Y_2 \\  \vdots \\ Y_m
 \end{bmatrix} = \begin{bmatrix}
-    \sin{\omega_0 t_1} & \cos{\omega_0 t_1} & t_1 & 1\\
-     \sin{\omega_0 t_2} & \cos{\omega_0 t_2} & t_2 & 1 \\
+    1&t_1&\cos{\omega_0 t_1} & \sin{\omega_0 t_1} \\
+     1&t_2&\cos{\omega_0 t_2} & \sin{\omega_0 t_2} \\
        \vdots & \vdots & \vdots & \vdots \\ 
-     \sin{\omega_0 t_m} & \cos{\omega_0 t_m} & t_m & 1
+     1&t_m&\cos{\omega_0 t_m} & \sin{\omega_0 t_m}
 \end{bmatrix}
 \begin{bmatrix}
-x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix} + 
+y_0 \\ r \\ a \\ b \end{bmatrix} + 
 \begin{bmatrix}
     \epsilon_1 \\ \epsilon_2 \\  \vdots \\ \epsilon_m
 \end{bmatrix}
 $$
 
+The time series of residuals (left panel) is indeed a stationary time series.
 
-:::{card} **Testing stationarity (optional)**
+:::{card} Exercise 6
 
-```{admonition} MUDE exam information
+Consider a random process time series as:
+
+$$
+Y_t
+= U \cos (\theta t) + V \sin (\theta t)
+$$
+
+where $U$ and $V$ are two uncorrelated random variables with zero means, and unit variances and $\theta$ is a deterministic value in the interval $\theta \in [-\pi, \pi]$. Show that this noise process is stationary.
+
+```{admonition} Solution
 :class: tip, dropdown
-This part is optional and will not be assessed on the exam.
-```
 
-Different tests can be performed to test whether or not a time series is stationary. One of the commonly used methods is the **Augmented Dickey-Fuller (ADF)** test. **ADF** is also optional material. 
+Because $\mathbb{E}(U)=\mathbb{E}(V)=0$, it simply follows that 
 
-Consider a time series
+$$
+\mathbb{E}(Y_t)=0
+$$
 
-$$Y_t = \beta Y_{t-1}+\epsilon_t$$
-
-where we see that the value at time $t$ depends on the previous value at time $t-1$ plus the noise $\epsilon_t$ (this is an autoregressive process, as we will see later in the section [ARMA process](ARMA)). This implies that if $\beta=1$, the noise is **accumulated** and thus the process is **not stationary**. It is known to be a so-called *random walk noise* process. 
-
-Single differencing gives
+For a given $\tau$, the covariance between $Y_t$ and $Y_{t+\tau}$ is obtained as:
 
 $$
 \begin{align*}
-\Delta Y_t = Y_t - Y_{t-1} &= \beta Y_{t-1}+\epsilon_t-Y_{t-1}\\
-&= (\beta - 1)Y_{t-1}+\epsilon_t \\&= \gamma Y_{t-1} + \epsilon_t
+c_\tau = Cov(Y_t, Y_{t+\tau})
+&= \mathbb{E}(Y_tY_{t+\tau}) - \mathbb{E}(Y_t)\mathbb{E}(Y_{t+\tau})
+= \mathbb{E}(Y_t Y_{t+\tau})\\
+&= \mathbb{E}
+\biggl(
+    \bigl[ U \cos(\theta t) + V \sin(\theta t) \bigr]
+    \bigl[ U \cos(\theta t + \theta \tau)
+         + V \sin(\theta t + \theta \tau) \bigr]
+\biggr)
 \end{align*}
 $$
 
-The parameter $\gamma = \beta-1$ plays an important role to test the stationarity of the time series.
-
-### ADF test
-
-The ADF test is performed using the following two hypotheses:
-
-* **Null Hypothesis ($\mathcal{H}_0$)**: Time series is non-stationary ($\gamma=0\implies\beta=1$)
-* **Alternative Hypothesis ($\mathcal{H}_a$)**: Time series is stationary ($\gamma<0\implies\beta<1$)
-
-The null hypothesis assumes that the time series consists of non-stationary noise, mainly **Random Walk** noise. Under the alternative hypothesis, the Random Walk noise is absent, and therefore the time series is stationary.
-
-The test statistic is (which can be tested in a given confidence level) given by:
+The multiplication consists of four terms in which the terms $U^2$, $V^2$, $UV$ and $VU$ appear. Because the two random variables $U$ and $V$ are uncorrelated with zero means and unit variances, it follows that:
 
 $$
-T_{\text{ADF}}=\frac{\hat{\gamma}}{\sigma_{\hat{\gamma}}}
+\mathbb{E}(U^2) = \mathbb{E}(V^2) = 1
+\quad \mathrm{and} \quad
+\mathbb{E}(UV) = \mathbb{E}(VU) = 0
 $$
 
-The test statistic, $T_{ADF}$ is a **negative number**. The more negative it is, the stronger the rejection of the hypothesis, and hence the more level of confidence that the series is a stationary process.
+This, with the previous equations, gives:
 
+$$
+Cov(Y_t, Y_{t+\tau})
+= \cos(\theta t) \cos(\theta t + \theta \tau)
++ \sin(\theta t) \sin(\theta t + \theta \tau)
+$$
+
+Using the identity $\cos(a-b)=\cos(a)\cos(b)+\sin(a)\sin(b)$, it follows:
+
+$$
+Cov(Y_t, Y_{t+\tau})
+= \cos(\theta t + \theta \tau - \theta t)
+= \cos(\theta \tau)
+$$
+
+Which is a function of $\tau$, but not a function of time $t$. This shows that the random process is stationary.
+
+```
 :::

@@ -60,15 +60,11 @@ On the other hand, the **dynamic mode** can be considered when dynamic least-squ
 We will only focus on static time series from here on!
 ```
 
-### Examples
-
-%MMMMM insert examples from slides (not clear what example - Antonio)
-
 ## Additional concepts
 
 In [Signal Processing](SP) the data is just considered to be the signal of interest, whereas here we assume the data is "contaminated" with noise, i.e.
 
-$$Y = \text{signal} + \text{noise} = S + N$$
+$$Y = \text{signal} + \text{noise} $$
 
 Time series analysis means understanding patterns and, hence, extracting the **signal of interest** from the noisy data.
 

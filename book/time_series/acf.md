@@ -7,9 +7,9 @@ As in the Chapter on {ref}`OT`, the variance component is often determined based
 
 ## Autocovariance and autocorrelation
 
-Let us assume an arbitrary (discrete) time series, $Y=[Y_1,Y_2,...,Y_m]^T$, with mean $\mathbb{E}(Y)=\mu$ and variance $\sigma^2_{i}=\sigma^2$.
+Let us assume an arbitrary (discrete) stationary time series, $Y=[Y_1,Y_2,...,Y_m]^T$, with mean $\mathbb{E}(Y)=\mu$ and variance $Var(Y_{i})=\sigma^2$.
 
-The *formal* autocovariance is defined as
+The *formal* (or: theoretical) autocovariance is defined as
 
 $$
 Cov(Y_t, Y_{t-\tau}) = \mathbb{E}((Y_t-\mu)(Y_{t-\tau}-\mu))=\mathbb{E}(Y_tY_{t-\tau})-\mu^2=c_{\tau}
@@ -33,17 +33,17 @@ When we have a zero-mean time series, $\mu=0$, it follows that $c_{\tau}=r_{\tau
 
 The least-squares method or maximum likelihood method can be used to estimate the empirical autocovariance function of a time series. Let us see how!
 
-**Least-squares estimations**
+**Least-squares estimation**
 
 For a given stationary time series $Y = [Y_1,Y_2,...,Y_m]^T$, the least-squares estimator of the **autocovariance function** is given by
 
 $$\
-\hat{C}_{\tau} = \frac{\sum_{i=1}^{m-\tau}(Y_i-\mu)(Y_{i+\tau}-\mu)}{m-\tau}, \hspace{25px} \tau=0,1,...,m-1$$
+\hat{C}_{\tau} = \frac{1}{m-\tau}\sum_{i=1}^{m-\tau}(Y_i-\mu)(Y_{i+\tau}-\mu), \hspace{25px} \tau=0,1,...,m-1$$
 
 The least-squares estimator of **autocorrelation** (also called empirical autocorrelation function) is then
 
 $$
-\hat{R}_{\tau}=\frac{\sum_{i=1}^{m-\tau}Y_i Y_{i+\tau}}{m-\tau}, \hspace{25px} \tau=0,1,...,m-1
+\hat{R}_{\tau}=\frac{1}{m-\tau}\sum_{i=1}^{m-\tau}Y_i Y_{i+\tau}, \hspace{25px} \tau=0,1,...,m-1
 $$
 
 **Maximum likelihood estimations**
@@ -51,7 +51,7 @@ $$
 The maximum likelihood estimator of **autocovariance** is given by
 
 $$
-\hat{C}_{\tau} = \frac{\sum_{i=1}^{m-\tau}(Y_i-\mu)(Y_{i+\tau}-\mu)}{m}, \hspace{25px} \tau=0,1,...,m-1
+\hat{C}_{\tau} = \frac{1}{m}\sum_{i=1}^{m-\tau}(Y_i-\mu)(Y_{i+\tau}-\mu), \hspace{25px} \tau=0,1,...,m-1
 $$
 
 Note that this is a biased estimator, $\mathbb{E}(\hat{C}_{\tau})\neq c_{\tau}$.
@@ -59,7 +59,7 @@ Note that this is a biased estimator, $\mathbb{E}(\hat{C}_{\tau})\neq c_{\tau}$.
 Similarly, the maximum likelihood estimate of the autocorrelation follows as:
 
 $$
-\hat{R}_{\tau}=\frac{\sum_{i=1}^{m-\tau}Y_i Y_{i+\tau}}{m}, \hspace{25px} \tau=0,1,...,m-1
+\hat{R}_{\tau}=\frac{1}{m}\sum_{i=1}^{m-\tau}Y_i Y_{i+\tau}, \hspace{25px} \tau=0,1,...,m-1
 $$
 
 ```{note}
@@ -67,8 +67,7 @@ Here we use capitals for $\hat{C}_{\tau}$ and $\hat{R}_{\tau}$ since **estimator
 ```
 
 ```{note}
-Always check which of the estimators a certain software tool uses! 
-% MMMMM Easier said than done? https://www.statsmodels.org/dev/generated/statsmodels.tsa.stattools.acovf.html
+Software tools may have implemented one or both methods to choose from, so if possible good to check!
 ```
 
 ### Covariance matrix based on autocovariance
@@ -91,15 +90,15 @@ The covariance matrix $\Sigma_{Y}$ has constant values along the top-left to bot
 (NACF)=
 ## Normalized ACF
 
-The least-squares estimator of the autocovariance function (ACF) has the following properties (derivations are outside the scope of MUDE):
+The least-squares estimator of the autocovariance function (ACF) has some important properties (derivations are outside the scope of MUDE).
 
-* The empirical autocovariance function is an unbiased estimator of the formal autocovariance function
+The empirical autocovariance function is an unbiased estimator of the formal autocovariance function
 
 $$
 \mathbb{E}(\hat{C}_{\tau}) =  c_\tau
 $$
 
-* The normalized autocovariance estimator can directly be obtained from the autocovariance estimator as
+The *normalized* autocovariance estimator can directly be obtained from the autocovariance estimator as
 
 $$
 \hat{\rho}_{\tau} = \frac{\hat{C}_{\tau}}{\hat{C_0}}, \hspace{20px}\tau = 0,...,m-1 \implies \hat{\rho}_0 = 1
@@ -109,13 +108,13 @@ $$
 The estimated normalized autocovariance is the same as  the time dependent Pearson correlation coefficient.
 ```
 
-* The variance of the normalized ACF can be approximated as
+The variance of the normalized ACF can be approximated as
 
 $$
 \sigma_{\hat{\rho}_{\tau}}^2 = \frac{1}{m-\tau}+\frac{2\hat{\rho}^2_{\tau}}{m}
 $$
 
-* If $m$ is sufficiently large, $\hat{\rho}_{\tau}$ is normally distributed as
+If $m$ is sufficiently large, $\hat{\rho}_{\tau}$ is normally distributed:
 
 $$
 \hat{\rho}_{\tau} \sim N(\rho_{\tau},\sigma^2_{\hat{\rho}_{\tau}})
@@ -162,6 +161,60 @@ $$
 
 and hence the null hypothesis is rejected, implying that the autocorrelation is significant.
 
+:::{card} Exercise
+
+A zero-mean stationary noise process consists of $m=5$ observations:
+
+$$
+Y = \begin{bmatrix} 2 & 1 & 0 & -1 & -2 \end{bmatrix}^T
+$$
+
+What is the _least-squares estimate_ of the normalized ACF at $\tau=1$; so compute $\hat{\rho}_{1}$?
+
+```{admonition} Solution
+:class: tip, dropdown
+
+The normalized autocovariance function (ACF) can be estimated from the auto-covariance function as:
+
+$$
+\hat{\rho}_\tau=\frac{\hat{C}_\tau}{\hat{C}_0}, \qquad \tau=0, \dots , m-1
+$$
+
+where the least-squares estimate of auto-covariance function is:
+
+$$
+\hat{C}_\tau
+= \frac{\sum_{i=1}^{m-\tau}(Y_i - \mu)(Y_{i+\tau} - \mu)}{m-\tau},
+\qquad \tau=0, \dots , m-1
+$$
+
+For our application we have $\mu_y=0$, as we deal with a zero-mean process. We have to compute $\hat{\sigma}(0)$ and $\hat{\sigma}(1)$ given as:
+
+$$
+\hat{C}_0
+= \frac{\sum_{i=1}^{m} Y_i^2}{m-0}
+= \frac{10}{5} = 2
+$$
+
+And 
+
+$$
+\hat{C}_1
+= \frac{\sum_{i=1}^{m} Y_i Y_{i+1}}{m-1}
+= \frac{2(1) + 1(0) + 0(-1) + (-1)(-2)}{5 - 1}
+= \frac{2 + 0 + 0 + 2}{4}
+= 1
+$$
+
+Giving
+
+$$
+\hat{\rho}_1
+= \frac{1}{2}
+$$
+
+```
+:::
 
 ## Power spectral density
 
@@ -200,67 +253,3 @@ Time series data, autocovariance and its power spectral density plots of white n
 The PSD explains how the power (variance) of the signal is distributed over different frequencies. The PSD of a pure sine wave is flat except at its constituent frequency.
 Purey random noise (i.e., white noise) has a flat power, indicating that all frequencies have identical contribution in making the variance of the signal. This is however not the case for time-correlated noise because different frequencies have different power values in making the total signal variability.
 
-## Partial ACF
-
-A partial ACF (PACF) is a covariance between an observation in a time series with observations at prior time steps with the relationships of intervening observations removed. We work this out using a simple example.
-
-```{admonition} MUDE exam information
-:class: tip, dropdown
-The concept of PACF and derivation is optional and will not be assessed on the exam.
-```
-
-:::{card} Illustration of PACF
-
-Let us assume that we have an autoregressive noise process
-
-$$Y_t = \beta Y_{t-1}+\epsilon_t, \hspace{30px} 0\leq\beta<1, \hspace{30px} t=2,...,m$$
-
-where $\epsilon_t$ is an i.i.d noise process (e.g. distributed as $\epsilon_t\sim N(0,\sigma^2)$). Multiple applications of the above *autoregressive* formula give
-
-$$\begin{align*}
-Y_t&=Y_t\\ 
-Y_{t+1} &= \beta Y_t + \epsilon_{t+1}\\ 
-Y_{t+2}&=\beta Y_{t+1} + \epsilon_{t+2} = \beta^2 Y_t + \beta \epsilon_{t+1} + \epsilon_{t+2}\\ &\vdots \end{align*}$$
-
-We can show that the covariance between $Y_t$ and $Y_{t+1}$ is
-
-$$
-Cov(Y_t, Y_{t+1})  = \sigma^2\beta
-$$
-
-We can also show that the covariance between $Y_t$ and $Y_{t+2}$ is
-
-$$
-Cov(Y_t, Y_{t+2}) =  \sigma^2\beta^2
-$$
-
-Hence, the $Y_t$ and $Y_{t+2}$ are correlated, even though according to the expression $Y_t = \beta Y_{t-1}+\epsilon_t$ should just depend on the previous value. This makes sense, since the previous value again depends on its own previous value, et cetera. However, using the partial ACF allows to 'remove' this correlation.
-
-### Worked example (optional)
-
-Let us now take a look into a worked example on PACF to remove the intervening term, $\beta Y_{t+1}$ between $Y_t$ and $Y_{t+2}$. As we saw before, ACF can be obtained from
-
-$$
-\text{COV} = Cov(Y_t, Y_{t+2}) =  \sigma^2\beta^2
-$$
-
-Regarding the partial ACF, it is knowns from the autoregression $Y_t = \beta Y_{t-1}$ that $\hat{Y}_t = \hat{Y}_{t+2} = \beta Y_{t+1}$. Therefore:
-
-$$
-\begin{align*}
-\text{PCOV} &= Cov(Y_t-\hat{Y}_t,Y_{t+2}-\hat{Y}_{t+2})\\&=Cov(Y_t-\beta Y_{t+1},Y_{t+2}-\beta Y_{t+1})
-\\ & = \mathbb{E}((Y_t-\beta Y_{t+1})(Y_{t+2}-\beta Y_{t+1}))\\
-& = \mathbb{E}(Y_tY_{t+2}-\beta Y_t Y_{t+1}-\beta Y_{t+1}Y_{t+2} + \beta^2Y_{t+1}^2)\\
-& = \sigma^2\beta^2-\beta\sigma^2\beta-\beta\sigma^2\beta+\sigma^2\beta^2=0
-\end{align*}
-$$
-
-This shows indeed that with the partial ACF the correlation for a time lag of 2 (or higher) becomes zero.
-
-#### Normalized ACF vs Partial ACF (optional)
-
-The figure shows a simulated example of $Y_t = 0.8Y_{t-1}+\epsilon_t$ having 1000 samples. The spectrum of the normalized ACF clearly shows that there is a (decreasing) correlation up till lag 10, while the spectrum of the partial ACF only shows correlation at lag 1.
-
-![acf_pacf](./figs/acf_pacf.png "acf_pacf")
-
-:::
