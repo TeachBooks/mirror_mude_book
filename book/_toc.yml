@@ -204,9 +204,12 @@ parts:
     - file: optimization/airlines
     - file: optimization/performance
     - file: optimization/genetic_algorithm
+<<<<<<< Updated upstream
     - file: optimization/integer_programming
     - file: optimization/sand_and_clay_simplex
     - file: optimization/videos
+=======
+>>>>>>> Stashed changes
 
   - caption: Machine Learning
     numbered: 2
