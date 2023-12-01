@@ -161,6 +161,60 @@ $$
 
 and hence the null hypothesis is rejected, implying that the autocorrelation is significant.
 
+:::{card} Exercise
+
+A zero-mean stationary noise process consists of $m=5$ observations:
+
+$$
+Y = \begin{bmatrix} 2 & 1 & 0 & -1 & -2 \end{bmatrix}^T
+$$
+
+What is the _least-squares estimate_ of the normalized ACF at $\tau=1$; so compute $\hat{\rho}_{1}$?
+
+```{admonition} Solution
+:class: tip, dropdown
+
+The normalized autocovariance function (ACF) can be estimated from the auto-covariance function as:
+
+$$
+\hat{\rho}_\tau=\frac{\hat{C}_\tau}{\hat{C}_0}, \qquad \tau=0, \dots , m-1
+$$
+
+where the least-squares estimate of auto-covariance function is:
+
+$$
+\hat{C}_\tau
+= \frac{\sum_{i=1}^{m-\tau}(Y_i - \mu)(Y_{i+\tau} - \mu)}{m-\tau},
+\qquad \tau=0, \dots , m-1
+$$
+
+For our application we have $\mu_y=0$, as we deal with a zero-mean process. We have to compute $\hat{\sigma}(0)$ and $\hat{\sigma}(1)$ given as:
+
+$$
+\hat{C}_0
+= \frac{\sum_{i=1}^{m} Y_i^2}{m-0}
+= \frac{10}{5} = 2
+$$
+
+And 
+
+$$
+\hat{C}_1
+= \frac{\sum_{i=1}^{m} Y_i Y_{i+1}}{m-1}
+= \frac{2(1) + 1(0) + 0(-1) + (-1)(-2)}{5 - 1}
+= \frac{2 + 0 + 0 + 2}{4}
+= 1
+$$
+
+Giving
+
+$$
+\hat{\rho}_1
+= \frac{1}{2}
+$$
+
+```
+:::
 
 ## Power spectral density
 

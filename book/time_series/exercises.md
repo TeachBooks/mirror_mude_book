@@ -11,7 +11,7 @@ A time series exhibits a linear regression model $Y(t)=y_0 + rt + \epsilon(t)$. 
 ```{admonition} Solution
 :class: tip, dropdown
 
-Inthe linear regression case, the design matrix consists of two columns, one for the unknown $y_0$ (a column on ones), and the other for $r$ (a column of time, $t$). Due to the presence of an offset, the mathematical model should be modified to:
+In the linear regression case, the design matrix consists of two columns, one for the unknown $y_0$ (a column on ones), and the other for $r$ (a column of time, $t$). Due to the presence of an offset, the mathematical model should be modified to:
 
 $$
 Y(t) = y_0 =rt +o_k u_k(t) + \epsilon(t)
@@ -34,6 +34,7 @@ $$
 \begin{bmatrix}
 1 & t_1 & 0 \\
 \vdots & \vdots & \vdots\\
+1 & t_{259} & 1\\
 1 & t_{260} & 1\\
 \vdots & \vdots & \vdots \\
 1 & t_{1000} & 1 \\
@@ -42,6 +43,7 @@ $$
 \begin{bmatrix}
 1 & 0.1 & 0 \\
 \vdots & \vdots & \vdots\\
+1 & 25.9 & 0 \\
 1 & 26 & 1\\
 \vdots & \vdots & \vdots \\
 1 & 100 & 1 \\
@@ -257,62 +259,60 @@ $$
 
 :::{card} Exercise 5
 
-For the stationary AR(2) process, calculate the ACF at lag 1. In other words, calculate $\rho(\tau=1)$.
+For the stationary AR(2) process, calculate the ACF at lag 1. In other words, calculate $\rho_1$.
 
 ```{admonition} Solution
 :class: tip, dropdown
 
-For the AR($p$) process we know that $\mathbb{E}(Y_t)=0$, and $\mathrm{D}(Y_t)=\sigma^2$. Therefore, for AR(2):
+For the AR($p$) process we know that $\mathbb{E}(Y_t)=0$, and $Var(Y_t)=\sigma^2$ ($\forall t$), and
+
+$$Y_t = \beta_1Y_{t-1}+\beta_2Y_{t-2}+\epsilon_t=
+\begin{bmatrix}\beta_1 & \beta_2 & 1\end{bmatrix}\begin{bmatrix}Y_{t-1} \\ Y_{t-2} \\ \epsilon_t\end{bmatrix}$$
+
+Applying the variance propagation law gives:
+
+$$Var(Y_t) = \begin{bmatrix}\beta_1 & \beta_2 & 1\end{bmatrix} \begin{bmatrix} \sigma^2 & 0 & 0 \\ 0 & \sigma^2 & 0\\ 0&0& \sigma_{\epsilon}^2\end{bmatrix}\begin{bmatrix}\beta_1 \\\beta_2 \\ 1\end{bmatrix} = \sigma^2(\beta_1^2 + \beta_2^2)$$
+
+Therefore, for AR(2):
 
 $$
-\mathrm{D}(Y_t)=\sigma^2=\sigma^2(\beta_1^2 + \beta_2^2)+\sigma_{\epsilon}^2
+Var(Y_t)=\sigma^2=\sigma^2(\beta_1^2 + \beta_2^2)+\sigma_{\epsilon}^2
 $$
 
 or
 
 $$
-\sigma^2
-= (1 - \beta_1^2 - \beta_2^2)
+\sigma^2 (1 - \beta_1^2 - \beta_2^2)
 = \sigma_{\epsilon}^2
 $$
 
-which is a condition for the AR(2) process to be stationary. To compute the auto-covariance function at lag 1, $\sigma(1)$, we need to compute the covariance between $Y_{t-1}$ and $Y_t$, which is given as
+which is a condition for the AR(2) process to be stationary. To compute the autocovariance function at lag 1, $c_1$, we need to compute the covariance between $Y_{t-1}$ and $Y_t$, which is given as
 
 $$
-\sigma(1) = \mathbb{E}(Y_{t-1}Y_t)
-= \mathbb{E}
-\bigl(Y_{t-1}
+\begin{align*}
+c_1 &= \mathbb{E}(Y_{t-1}Y_t)
+= \mathbb{E}\left(Y_{t-1}
 (\beta_1 Y_{t-1} + \beta_2 Y_{t-2} + \epsilon_t)
-\bigr)
-$$
-
-or 
-
-$$
-\sigma(1)
-= \beta_1 \mathbb{E}(Y_{t-1}^2)
+\right)
+\\
+&= \beta_1 \mathbb{E}(Y_{t-1}^2)
 + \beta_2 \mathbb{E}(Y_{t-2}Y_{t-1})
-+ \mathbb{E}(Y_{t-1}\epsilon_t)
-$$
++ \mathbb{E}(Y_{t-1}\epsilon_t)\\
+&= \beta_1 \sigma^2
++ \beta_2 c_1
+\end{align*}$$
 
-or
-
-$$
-\sigma(1)
-= \beta_1 \sigma^2
-+ \beta_2 \sigma(1)
-$$
 
 which gives
 
 $$
-\beta_1 \sigma^2 = \sigma(1)(1-\beta_2)
+\beta_1 \sigma^2 = c_1(1-\beta_2)
 $$
 
-or, because $\rho(1)=\sigma(\tau)/\sigma^2$:
+or, because $\rho_1=c_1/\sigma^2$:
 
 $$
-\rho(1)=\frac{\beta_1}{1-\beta_2}
+\rho_1=\frac{\beta_1}{1-\beta_2}
 $$
 
 ```
@@ -324,15 +324,15 @@ Consider a random process time series as:
 
 $$
 Y_t
-= u \cos (\theta t) + v \sin (\theta t)
+= U \cos (\theta t) + V \sin (\theta t)
 $$
 
-where $u$ and $v$ are two uncorrelated random variables with zero means and unit variances and $\theta$ is a deterministic value in the interval $\theta \in [-\pi, \pi]$. Show that this noise process is stationary.
+where $U$ and $V$ are two uncorrelated random variables with zero means, and unit variances and $\theta$ is a deterministic value in the interval $\theta \in [-\pi, \pi]$. Show that this noise process is stationary.
 
 ```{admonition} Solution
 :class: tip, dropdown
 
-Because $\mathbb{E}(u)=\mathbb{E}(v)=0$, it simply follows that 
+Because $\mathbb{E}(U)=\mathbb{E}(V)=0$, it simply follows that 
 
 $$
 \mathbb{E}(Y_t)=0
@@ -341,29 +341,25 @@ $$
 For a given $\tau$, the covariance between $Y_t$ and $Y_{t+\tau}$ is obtained as:
 
 $$
+\begin{align*}
 Cov(Y_t, Y_{t+\tau})
-= \mathbb{E}(Y_t, Y_{t+\tau}) - \mathbb{E}(Y_t)\mathbb{E}(Y_{t+\tau})
-= \mathbb{E}(Y_t, Y_{t+\tau})
-$$
-
-or
-
-$$
-Cov(Y_t, Y_{t+\tau})
-= \mathbb{E}
+&= \mathbb{E}(Y_tY_{t+\tau}) - \mathbb{E}(Y_t)\mathbb{E}(Y_{t+\tau})
+= \mathbb{E}(Y_t Y_{t+\tau})\\
+&= \mathbb{E}
 \biggl(
-    \bigl[ u \cos(\theta t) + v \sin(\theta t) \bigr]
-    \bigl[ u \cos(\theta t + \theta \tau)
-         + v \sin(\theta t + \theta \tau) \bigr]
+    \bigl[ U \cos(\theta t) + V \sin(\theta t) \bigr]
+    \bigl[ U \cos(\theta t + \theta \tau)
+         + V \sin(\theta t + \theta \tau) \bigr]
 \biggr)
+\end{align*}
 $$
 
-The multiplication consists of four terms in which the terms $u^2$, $v^2$, $uv$ and $vu$ appear. Because the two random variables $u$ and $v$ are uncorrelated with zero means and unit variances, it follows that:
+The multiplication consists of four terms in which the terms $U^2$, $V^2$, $UV$ and $VU$ appear. Because the two random variables $U$ and $V$ are uncorrelated with zero means and unit variances, it follows that:
 
 $$
-\mathbb{E}(u^2) = \mathbb{E}(v^2) = 1
+\mathbb{E}(U^2) = \mathbb{E}(V^2) = 1
 \quad \mathrm{and} \quad
-\mathbb{E}(uv) = \mathbb{E}(vu) = 0
+\mathbb{E}(UV) = \mathbb{E}(VU) = 0
 $$
 
 This, with the previous equations, gives:
@@ -382,7 +378,7 @@ Cov(Y_t, Y_{t+\tau})
 = \cos(\theta \tau)
 $$
 
-Which is a function of $\tau$ as $\sigma(\tau)$, and not a function of time $t$. This shows that the random process is stationary.
+Which is a function of $\tau$, but not a function of time $t$. This shows that the random process is stationary.
 
 ```
 :::

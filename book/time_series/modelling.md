@@ -78,6 +78,54 @@ with the $m\times m$ covariance matrix
 $$\Sigma_{Y}=\begin{bmatrix}\sigma_1^2&\sigma_{12}&\dots&\sigma_{1m}\\ \sigma_{21}&\sigma_{2}^2&&\\ \vdots&\vdots&\ddots&\\ 
 \sigma_{m1}&\sigma_{m2}&\dots&\sigma_{m}^2\end{bmatrix}$$
 
+:::{card} Exercise
+
+A time series exhibits a linear regression model $Y(t)=y_0 + rt + \epsilon(t)$. The measurements have also been taken at a measurement frequency of 10 Hz, producing epochs of $t=0.1,0.2, \dots,100$ seconds, so $m=1000$. Later an offset was also detected at epoch 260 using statistical hypothesis testing. For the linear model $Y=\mathrm{Ax}+\epsilon$, establish an approprate design matrix that can capture all the above effects.
+
+```{admonition} Solution
+:class: tip, dropdown
+
+In the linear regression case, the design matrix consists of two columns, one for the unknown $y_0$ (a column on ones), and the other for $r$ (a column of time, $t$). Due to the presence of an offset, the mathematical model should be modified to:
+
+$$
+Y(t) = y_0 +rt +o_k u_k(t) + \epsilon(t)
+$$
+
+where $u_k(t)$ is the Heaviside step function:
+
+$$
+u_k(t) = 
+\begin{cases}
+0, & \textrm{if} & t<t_k=26 \\
+1, & \textrm{if} & t\geq t_k=26
+\end{cases}
+$$
+
+and $o_k$ is the magnitude of the offset. This means that we have to add a third column to the design matrix having zeros before the epoch 260, and ones afterwards. Since epoch 260 corresponds to $t=26$ s (noting that we have 10 Hz data), in $\mathrm{A}$ we begin to have 1's in that row:
+
+$$
+\mathrm{A} = 
+\begin{bmatrix}
+1 & t_1 & 0 \\
+\vdots & \vdots & \vdots\\
+1 & t_{259} & 1\\
+1 & t_{260} & 1\\
+\vdots & \vdots & \vdots \\
+1 & t_{1000} & 1 \\
+\end{bmatrix}
+= 
+\begin{bmatrix}
+1 & 0.1 & 0 \\
+\vdots & \vdots & \vdots\\
+1 & 25.9 & 0 \\
+1 & 26 & 1\\
+\vdots & \vdots & \vdots \\
+1 & 100 & 1 \\
+\end{bmatrix}
+$$
+```
+:::
+
 ### Estimation of parameters
 %MMMMM same as before?
 If we assume the covariance matrix, $\Sigma_{Y}$, is known, we can estimate $\mathrm{x}$ using BLUE:

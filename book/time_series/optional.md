@@ -89,3 +89,43 @@ The tail-off pattern is at ACF. AR has a cut-off at PACF at lag 1. The best mode
 The tail-off pattern is at PACF. MA has a cut-off at ACF at lag 1. The best model is then MA(1) = ARMA($p=0,q=1$)
 
 ![pacf_acf_2](./figs/pacf_acf_2.png "pacf_acf_2")
+
+
+## Testing stationarity
+
+Different tests can be performed to test whether or not a time series is stationary. One of the commonly used methods is the **Augmented Dickey-Fuller (ADF)** test. **ADF** is also optional material. 
+
+Consider a time series
+
+$$Y_t = \beta Y_{t-1}+\epsilon_t$$
+
+where we see that the value at time $t$ depends on the previous value at time $t-1$ plus the noise $\epsilon_t$ (this is an autoregressive process, as we will see later in the section [ARMA process](ARMA)). This implies that if $\beta=1$, the noise is **accumulated** and thus the process is **not stationary**. It is known to be a so-called *random walk noise* process. 
+
+Single differencing gives
+
+$$
+\begin{align*}
+\Delta Y_t = Y_t - Y_{t-1} &= \beta Y_{t-1}+\epsilon_t-Y_{t-1}\\
+&= (\beta - 1)Y_{t-1}+\epsilon_t \\&= \gamma Y_{t-1} + \epsilon_t
+\end{align*}
+$$
+
+The parameter $\gamma = \beta-1$ plays an important role to test the stationarity of the time series.
+
+### ADF test
+
+The ADF test is performed using the following two hypotheses:
+
+* **Null Hypothesis ($\mathcal{H}_0$)**: Time series is non-stationary ($\gamma=0\implies\beta=1$)
+* **Alternative Hypothesis ($\mathcal{H}_a$)**: Time series is stationary ($\gamma<0\implies\beta<1$)
+
+The null hypothesis assumes that the time series consists of non-stationary noise, mainly **Random Walk** noise. Under the alternative hypothesis, the Random Walk noise is absent, and therefore the time series is stationary.
+
+The test statistic is (which can be tested in a given confidence level) given by:
+
+$$
+T_{\text{ADF}}=\frac{\hat{\gamma}}{\sigma_{\hat{\gamma}}}
+$$
+
+The test statistic, $T_{ADF}$ is a **negative number**. The more negative it is, the stronger the rejection of the hypothesis, and hence the more level of confidence that the series is a stationary process.
+
