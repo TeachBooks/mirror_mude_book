@@ -76,6 +76,7 @@ $$X_{sws}(k\Delta f)=\Delta t\sum_{n=0}^{N-1}x_ne^{-j2\pi k\Delta fn\Delta t}=\D
 
 Hence sequence $X_k$ equals $X_{sws}(f)$ at $f=k\Delta f$ for $k=0,1,...,N-1$:
 
+(FFT)=
 $$X_k=\Delta t\sum_{n=0}^{N-1}x_ne^{-j\frac{2\pi}{N}kn}$$
 
 This is the discrete Fourier transform (DFT), typically implemented in software packages as `fft` (in Python, we will use `numpy.fft.fft`).

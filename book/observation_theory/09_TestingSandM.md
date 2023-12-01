@@ -1,3 +1,4 @@
+(hypothesis_testing)=
 ## Hypothesis testing for Sensing and Monitoring
 Statistical hypothesis testing is applied for many applications and in different forms. Here, we will restrict ourselves to applications in observation theory with the following general form for the hypotheses:
 
@@ -105,7 +106,8 @@ $$
 
 where the subscript $_a$ is used to indicate that the solution is different from the one with the null hypothesis. Also, the corresponding weighted squared norm of residuals $\hat{\epsilon}_a^T\Sigma_Y^{-1}\hat{\epsilon}_a$ is to be computed.
 
-#### Step 2: apply test
+(GLRT)=
+#### Step 2: apply Generalized Likelihood Ratio test
 As a test statistic to decide between $\mathcal{H}_0$ and $\mathcal{H}_a$ the difference between the weighted squared norms of residuals is used, which is known to have a Central $\chi^2$-distribution if $\mathcal{H}_0$ is true:
 
 $$
