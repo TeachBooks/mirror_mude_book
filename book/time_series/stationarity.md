@@ -9,18 +9,18 @@ This means that parameters such as *mean* and *(co)variance* should remain const
 
 * Mean of the process is time-independent
 
-$$\mathbb{E}(Y(t))=\mathbb{E}(Y_t)=\mu$$
+$$\mathbb{E}(Y(t))=\mathbb{E}(S_t)=\mu$$
 
 * Covariance of the process is independent of $t$ for each time shift $\tau$ (so only a function of τ  and not t):
 
 $$
-Cov(Y_t,Y_{t-\tau})= Cov(Y_t,Y_{t+\tau}) =\mathbb{E}((Y_t-\mu)(Y_{t-\tau}-\mu))=c_\tau
+Cov(S_t,S_{t-\tau})= Cov(S_t,S_{t+\tau}) =\mathbb{E}((S_t-\mu)(S_{t-\tau}-\mu))=c_\tau
 $$
 
 * The variance (i.e., $\tau=0$) is then also constant with respect to time :
 
 $$
-Var(Y_t)=\mathbb{E}((Y_t-\mu)^2)=c_0=\sigma^2
+Var(S_t)=\mathbb{E}((S_t-\mu)^2)=c_0=\sigma^2
 $$
 
 ## Why stationary time series?
