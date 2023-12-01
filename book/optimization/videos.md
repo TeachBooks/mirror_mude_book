@@ -12,26 +12,13 @@ The story of Optimization is told once again on this page through a series of vi
 
 _In case small errors are present in the videos, please refer to the appropriate book chapter._
 
-**Augmented form of a mathematical program**
+
+** Augmented form of a mathematical program **
 
 ```{eval-rst}
 .. raw:: html
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/-jQKtC2Xvcs?si=nlX_yEmByU7CA8rO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-```
-
-**The sand and clay extraction problem**
-```{eval-rst}
-.. raw:: html
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/0bSIL1k_618" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-```
-
-**Solving the sand and clay extraction problem with the graphical solution method**
-```{eval-rst}
-.. raw:: html
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/OEApSyGRZPI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 
 **Solving with the Simplex method**
@@ -46,13 +33,6 @@ _In case small errors are present in the videos, please refer to the appropriate
 .. raw:: html
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/ViA1X6X3Rhs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-```
-
-**Performance of solving Mathematical programming problems**
-```{eval-rst}
-.. raw:: html
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/0x7bkzHJZ1I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 
 **Interior Point method**

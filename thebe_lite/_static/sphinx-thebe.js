@@ -45,8 +45,7 @@ function setupNewCell(source, output, code) {
 
   // This will crash if we don't have any real cells in our notebook.
   // In the future we can to add a dummy cell during initialization and then remove it
-  const exampleCell = thebe.notebook.lastCell();
-  const newNotebookCell = new exampleCell.constructor(
+  const newNotebookCell = new thebeCore.module.ThebeCodeCell(
     newCellInfo.id, // Cell Id
     thebe.notebook.id, // Notebook ID
     code, // Source code

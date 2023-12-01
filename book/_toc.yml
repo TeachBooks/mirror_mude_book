@@ -181,31 +181,32 @@ parts:
       - file: time_series/stationarity
         title: "Stationarity"
       - file: time_series/acf
-        title: "Auto-covariance function (ACF)"
+        title: "Autocovariance function (ACF)"
       - file: time_series/arma
-        title: "Auto-Regressive Moving Average (ARMA) process"
+        title: "AutoRegressive Moving Average (ARMA) process"
+      - file: time_series/modelling
+        title: "Time Series modelling and estimation"
       - file: time_series/forecasting
         title: "Time Series forecasting"
       - file: time_series/optional
         title: "Supplementary material"
       - file: time_series/notebook
         title: Notebook
-      
-  - caption: Optimization
-    numbered: 2
-    chapters:
     - file: optimization/overview
-      title: Overview
-    - file: optimization/origins
-    - file: optimization/general
-    - file: optimization/taxonomy
-    - file: optimization/sand_and_clay
+      title: Optimization
       sections:
-      - file: optimization/claysand.ipynb
-        title: Implementation in Python
-    - file: optimization/airlines
-    - file: optimization/performance
-    - file: optimization/videos
+      - file: optimization/origins
+      - file: optimization/general
+      - file: optimization/taxonomy
+      - file: optimization/sand_and_clay
+        sections:
+        - file: optimization/claysand.ipynb
+      - file: optimization/performance
+        sections:
+        - file: optimization/airlines.ipynb
+        - file: optimization/airlines_performance.ipynb
+        - file: optimization/performance_generic_LP.ipynb
+      - file: optimization/videos
 
   - caption: Machine Learning
     numbered: 2
