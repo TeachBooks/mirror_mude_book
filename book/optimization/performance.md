@@ -74,7 +74,7 @@ Modelling performance is often platform-specific, but we are going to give a few
 * Using sparse matrices (computations on matrices with many zero elements can be handled efficiently)
 * Parallelization and GPU processing (becoming increasingly available in different platforms)
 
-As an example illustrative of the second tip given in this section, check the graph below that shows the difference of the computation tipes between matrix and loop modeling in Gurobi-Python:
+As an example illustrative of the second tip given in this section, check the graph below that shows the difference of the computation types between matrix and loop modeling in Gurobi-Python:
 
 <div style="display: flex; justify-content: space-between;">
   <img src="./figs/last.png" style="width: 75%;">
