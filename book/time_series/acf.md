@@ -1,28 +1,32 @@
 (ACF)=
 # Autocovariance function (ACF)
 
-The goal of this chapter is to introduce the autocovariance function (ACF) for a stationary time series, and describe the relationship between ACF and power spectral density (PSD).
+Before we can look into the modelling of a stochastic process using an Autoregressive Moving Average (ARMA) model, we first need to introduce the autocovariance function (ACF) for a stationary time series, and describe the relationship between ACF and a power spectral density (PSD).
 
 As in the Chapter on {ref}`OT`, the variance component is often determined based on the precision of an observation (at a given epoch), and the covarience components quantitatively indicate the statistical dependence (or independence) between observations. In this case, dependence is inherently introduced by the phyiscal processes that produce the signal (of which our time series is a sample), and in fact our time series methods seek to (mathematically) account for this.
 
 ## Autocovariance and autocorrelation
 
-Let us assume an arbitrary (discrete) stationary time series, $Y=[Y_1,Y_2,...,Y_m]^T$, with mean $\mathbb{E}(Y)=\mu$ and variance $Var(Y_{i})=\sigma^2$.
+Let us assume an arbitrary (discrete) stationary time series, $S=[S_1,S_2,...,S_m]^T$, with mean $\mathbb{E}(S)=\mu$ and variance $Var(S_{i})=\sigma^2$.
 
 The *formal* (or: theoretical) autocovariance is defined as
 
 $$
-Cov(Y_t, Y_{t-\tau}) = \mathbb{E}((Y_t-\mu)(Y_{t-\tau}-\mu))=\mathbb{E}(Y_tY_{t-\tau})-\mu^2=c_{\tau}
+Cov(S_t, S_{t-\tau}) = \mathbb{E}((S_t-\mu)(S_{t-\tau}-\mu))=\mathbb{E}(S_tS_{t-\tau})-\mu^2
+=c_{\tau}
 $$
 
+We have that $Cov(S_t, S_{t-\tau}) =Cov(S_t, S_{t+\tau})$.
+
+
 ```{note}
-The reason to refer to *auto*covariance is that we are considering the covariance of $Y$ with itself (with a certain time lag $\tau$). If the covariance of $Y$ with the time series of another variable, $X$, would be considerd, this is referred to as the *cross*-covariance. 
+The reason to refer to *auto*covariance is that we are considering the covariance of $S$ with itself (with a certain time lag $\tau$). If the covariance of $S$ with the time series of another variable, $X$, would be considerd, this is referred to as the *cross*-covariance. 
 ```
 
 The *formal* autocorrelation is defined as
 
 $$
-r_{\tau} = \mathbb{E}(Y_tY_{t-\tau})
+r_{\tau} = \mathbb{E}(S_tS_{t-\tau})
 $$
 
 ```{note}
@@ -31,19 +35,19 @@ When we have a zero-mean time series, $\mu=0$, it follows that $c_{\tau}=r_{\tau
 
 ### Empirical autocovariance
 
-The least-squares method or maximum likelihood method can be used to estimate the empirical autocovariance function of a time series. Let us see how!
+The autocovariance function of a time series is not known beforehand, and hence needs to be estimated based on the actual observed values. The least-squares method or maximum likelihood method can be used to estimate this *empirical* autocovariance function of a time series. Let us see how!
 
 **Least-squares estimation**
 
-For a given stationary time series $Y = [Y_1,Y_2,...,Y_m]^T$, the least-squares estimator of the **autocovariance function** is given by
+For a given stationary time series $S = [S_1,S_2,...,S_m]^T$, the least-squares estimator of the **autocovariance function** is given by
 
 $$\
-\hat{C}_{\tau} = \frac{1}{m-\tau}\sum_{i=1}^{m-\tau}(Y_i-\mu)(Y_{i+\tau}-\mu), \hspace{25px} \tau=0,1,...,m-1$$
+\hat{C}_{\tau} = \frac{1}{m-\tau}\sum_{i=1}^{m-\tau}(S_i-\mu)(S_{i+\tau}-\mu), \hspace{25px} \tau=0,1,...,m-1$$
 
 The least-squares estimator of **autocorrelation** (also called empirical autocorrelation function) is then
 
 $$
-\hat{R}_{\tau}=\frac{1}{m-\tau}\sum_{i=1}^{m-\tau}Y_i Y_{i+\tau}, \hspace{25px} \tau=0,1,...,m-1
+\hat{R}_{\tau}=\frac{1}{m-\tau}\sum_{i=1}^{m-\tau}S_i S_{i+\tau}, \hspace{25px} \tau=0,1,...,m-1
 $$
 
 **Maximum likelihood estimations**
@@ -51,7 +55,7 @@ $$
 The maximum likelihood estimator of **autocovariance** is given by
 
 $$
-\hat{C}_{\tau} = \frac{1}{m}\sum_{i=1}^{m-\tau}(Y_i-\mu)(Y_{i+\tau}-\mu), \hspace{25px} \tau=0,1,...,m-1
+\hat{C}_{\tau} = \frac{1}{m}\sum_{i=1}^{m-\tau}(S_i-\mu)(S_{i+\tau}-\mu), \hspace{25px} \tau=0,1,...,m-1
 $$
 
 Note that this is a biased estimator, $\mathbb{E}(\hat{C}_{\tau})\neq c_{\tau}$.
@@ -59,11 +63,11 @@ Note that this is a biased estimator, $\mathbb{E}(\hat{C}_{\tau})\neq c_{\tau}$.
 Similarly, the maximum likelihood estimate of the autocorrelation follows as:
 
 $$
-\hat{R}_{\tau}=\frac{1}{m}\sum_{i=1}^{m-\tau}Y_i Y_{i+\tau}, \hspace{25px} \tau=0,1,...,m-1
+\hat{R}_{\tau}=\frac{1}{m}\sum_{i=1}^{m-\tau}S_i S_{i+\tau}, \hspace{25px} \tau=0,1,...,m-1
 $$
 
 ```{note}
-Here we use capitals for $\hat{C}_{\tau}$ and $\hat{R}_{\tau}$ since **estimators** are always a function of the random observables $Y_t$.
+Here we use capitals for $\hat{C}_{\tau}$ and $\hat{R}_{\tau}$ since **estimators** are always a function of the random observables $S_t$.
 ```
 
 ```{note}
@@ -75,7 +79,7 @@ Software tools may have implemented one or both methods to choose from, so if po
 The structure of a covariance matrix for a stationary time series is purely symmetric and it looks like
 
 $$
-\Sigma_{Y} = \begin{bmatrix} 
+\Sigma_{S} = \begin{bmatrix} 
 \sigma^2 & c_1 & c_2 & \dots & c_{m-1}\\ 
 c_1 & \sigma^2 & c_1 & \ddots  & \vdots \\ 
 c_2 & c_1 & \sigma^2 &  \ddots & c_2  \\ 
@@ -84,7 +88,7 @@ c_2 & c_1 & \sigma^2 &  \ddots & c_2  \\
 There are $m$ (co)variance components - **one** variance component, $\sigma^2 = c_0$, and $m-1$ covariance components, $c_i$.
 
 ```{note}
-The covariance matrix $\Sigma_{Y}$ has constant values along the top-left to bottom-right diagonal and is called a _Toeplitz matrix._
+The covariance matrix $\Sigma_{S}$ has constant values along the top-left to bottom-right diagonal and is called a _Toeplitz matrix._
 ```
 
 (NACF)=
@@ -106,6 +110,8 @@ $$
 
 ```{note}
 The estimated normalized autocovariance is the same as  the time dependent Pearson correlation coefficient.
+
+In literature $\hat{\rho}_{\tau}$ is often referred to as the *autocorrelation function*.
 ```
 
 The variance of the normalized ACF can be approximated as
@@ -166,7 +172,7 @@ and hence the null hypothesis is rejected, implying that the autocorrelation is 
 A zero-mean stationary noise process consists of $m=5$ observations:
 
 $$
-Y = \begin{bmatrix} 2 & 1 & 0 & -1 & -2 \end{bmatrix}^T
+S = \begin{bmatrix} 2 & 1 & 0 & -1 & -2 \end{bmatrix}^T
 $$
 
 What is the _least-squares estimate_ of the normalized ACF at $\tau=1$; so compute $\hat{\rho}_{1}$?
@@ -184,7 +190,7 @@ where the least-squares estimate of auto-covariance function is:
 
 $$
 \hat{C}_\tau
-= \frac{\sum_{i=1}^{m-\tau}(Y_i - \mu)(Y_{i+\tau} - \mu)}{m-\tau},
+= \frac{\sum_{i=1}^{m-\tau}(S_i - \mu)(S_{i+\tau} - \mu)}{m-\tau},
 \qquad \tau=0, \dots , m-1
 $$
 
@@ -192,7 +198,7 @@ For our application we have $\mu_y=0$, as we deal with a zero-mean process. We h
 
 $$
 \hat{C}_0
-= \frac{\sum_{i=1}^{m} Y_i^2}{m-0}
+= \frac{\sum_{i=1}^{m} S_i^2}{m-0}
 = \frac{10}{5} = 2
 $$
 
@@ -200,7 +206,7 @@ And
 
 $$
 \hat{C}_1
-= \frac{\sum_{i=1}^{m} Y_i Y_{i+1}}{m-1}
+= \frac{\sum_{i=1}^{m} S_i S_{i+1}}{m-1}
 = \frac{2(1) + 1(0) + 0(-1) + (-1)(-2)}{5 - 1}
 = \frac{2 + 0 + 0 + 2}{4}
 = 1
@@ -224,23 +230,22 @@ The power spectral density (PSD) explains how the power (variance) of the signal
 
 Knowledge on ACF, in time domain, is mathematically equivalent to knowledge on PSD, in the frequency domain, and vice-versa. And, from here, you might have a clue of where this is taking us... The PSD is the **discrete Fourier transform (DFT)** of the ACF.
 
-$$\text{DFT}(\hat{c}_{\tau})=S_{Y}(k), \hspace{35px} \tau = 1,...,m \hspace{5px}\text{and}\hspace{5px} k = 1,...,m$$
-
-Writing it out, this means
-
-$$\text{DFT}\left(\frac{1}{m}\sum_{i=1}^m y_i y_{i+\tau}\right)=\frac{1}{m\Delta t}Y_s(k) Y_s(k)^*=\frac{1}{m\Delta t}|Y_s(k)|^2$$
+$$
+\begin{align*}
+\text{DFT}(\hat{c}_{\tau})&=\text{DFT}\left(\frac{1}{m}\sum_{i=1}^m s_i s_{i+\tau}\right)\\&=\frac{1}{m\Delta t}F_S(k) F_S(k)^*\\&=\frac{1}{m\Delta t}|F_S(k)|^2
+\end{align*}$$
 
 where the Fourier coefficients (see [DFT section](FFT)) are:
 
-$$Y_s(k)  = \Delta t\sum_{i=1}^my_ie^{-j\frac{2\pi}{m}(k-1)(i-1)}$$
+$$F_S(k)  = \Delta t\sum_{i=1}^my_ie^{-j\frac{2\pi}{m}(k-1)(i-1)}$$
 
 ```{note}
-In signal processing, it is common to write a sampled (discrete) signal as a small letter $y(t_i)=y_i$ and the Fourier coefficients with capitals $Y_k$. Since we also use capitals to indicate that $Y$ is a random variable, we describe the DFT here for a realization $y$ of $Y$, and use the notation $Y_s(k)$ for the Fourier coefficients.
+In signal processing, it is common to write a sampled (discrete) signal as a small letter $s_i$ and the Fourier coefficients with capitals $S_k$. Since we also use capitals to indicate that $S$ is a random variable, we describe the DFT here for a realization $s_i$ of $S_i$, and use the notation $F_S(k)$ for the Fourier coefficients.
 ```
 
 Conversely, the inverse discrete Fourier transform (IDFT) of the PSD is the ACF, so
 
-$$\text{IDFT}(S_{Y}(k))=\hat{c}_{\tau}, \hspace{35px} \tau = 1,...,m \hspace{5px}\text{and}\hspace{5px} k = 1,...,m$$
+$$\text{IDFT}(F_{S}(k))=\hat{c}_{\tau}, \hspace{35px} \tau = 1,...,m \hspace{5px}\text{and}\hspace{5px} k = 1,...,m$$
 
 ```{figure} ./figs/ACF_PSD.png
 ---
