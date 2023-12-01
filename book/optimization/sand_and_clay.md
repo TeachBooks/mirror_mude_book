@@ -1,4 +1,4 @@
-# Worked example - Sand and Clay Extraction Problem
+# Example Linear Programming
 
 ## The problem
 
@@ -80,3 +80,21 @@ If we calculate the value of the objective function for the remaining vertices w
 :::{card} Quiz questions
 <iframe src="https://tudelft.h5p.com/content/1292121213033110307/embed" aria-label="2_3_2_2_graphical_solution_method" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
 :::
+
+## Supplementary Videos
+
+The story is told once again in videos. The videos listed below have a one-to-one correspondence with the chapters in this book. 
+
+### The sand and clay extraction problem
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/0bSIL1k_618" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
+### Solving the sand and clay extraction problem with the graphical solution method
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/OEApSyGRZPI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
