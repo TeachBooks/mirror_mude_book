@@ -203,6 +203,9 @@ parts:
         title: Implementation in Python
     - file: optimization/airlines
     - file: optimization/performance
+    - file: optimization/genetic_algorithm
+    - file: optimization/integer_programming
+    - file: optimization/sand_and_clay_simplex
     - file: optimization/videos
 
   - caption: Machine Learning
