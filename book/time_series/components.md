@@ -87,6 +87,28 @@ The coefficients $a_k $ and $b_k$ can be determined using the least-squares meth
 
 $$ A_k = \sqrt{a_k^2 + b_k^2}, \hspace{1cm} \theta_k = \arctan(\frac{a_k}{b_k}), \hspace{1cm} k = 1, \ldots{}, p $$
 
+:::{card} Worked example - seasonality signal
+
+Show that the time series 
+
+$$Y(t)=A sin(\omega_0 t + \theta)$$ 
+
+with given $\omega_0$, can be rewritten as
+
+$$Y(t)=a cos(\omega_0 t) + b sin(\omega_0 t)$$
+
+and derive the formulation of $A$ and $\theta$.
+
+Hint: you might need to know sine properties $sin(u+v)=sin(u)cos(v)+cos(u)sin(v)$
+
+````{admonition} Solution
+:class: tip, dropdown
+
+[This video](https://youtu.be/8kqQiI4ni68) includes the solution to this exercise. 
+````
+
+:::
+
 (season)=
 :::{card} Example - seasonal variations
 
