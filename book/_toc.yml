@@ -192,22 +192,21 @@ parts:
         title: Exercises
       - file: time_series/notebook
         title: Notebook
-      
-  - caption: Optimization
-    numbered: 2
-    chapters:
     - file: optimization/overview
-      title: Overview
-    - file: optimization/origins
-    - file: optimization/general
-    - file: optimization/taxonomy
-    - file: optimization/sand_and_clay
+      title: Optimization
       sections:
-      - file: optimization/claysand.ipynb
-        title: Implementation in Python
-    - file: optimization/airlines
-    - file: optimization/performance
-    - file: optimization/videos
+      - file: optimization/origins
+      - file: optimization/general
+      - file: optimization/taxonomy
+      - file: optimization/sand_and_clay
+        sections:
+        - file: optimization/claysand.ipynb
+      - file: optimization/performance
+        sections:
+        - file: optimization/airlines.ipynb
+        - file: optimization/airlines_performance.ipynb
+        - file: optimization/performance_generic_LP.ipynb
+      - file: optimization/videos
 
   - caption: Machine Learning
     numbered: 2
