@@ -1,6 +1,4 @@
-# Worked example - Sand and Clay Extraction Problem
-
-test edit 29/11 
+# Example Linear Programming
 
 ## The problem
 
@@ -21,7 +19,7 @@ The company has a work schedule of 40 hours per week for the men but also for th
 * $x_1$ - **thousands of units of sand** to be produced and transported in **one week**
 * $x_2$ - **thousands of units of clay** to be produced and transported in **one week**
 
-Our objective function then will look like (with $L\equiv$$ profit in monetary units in one week):
+Our objective function then will look like (with $L being the profit in monetary units for one week):
 
 $$\text{Max} L = 57x_1+60x_2$$
 
@@ -58,9 +56,9 @@ If the objective function has a finite maximum (minimum) there is at least an op
 
 ```
 
-We consider as **basic solutions** any of the red vertices of the yellow region, and any other solution that is inside the highlighted region consists of a **non-basic** solution.
+We consider as **basic solutions** any of the red vertices of the yellow region, and any other solution that is inside the highlighted yellow region consists of a **non-basic** solution.
 
-To find the optimal solution, we can start now by computing the gradient whose direction gives us the direction of growth of the objective function, i.e.:
+To find the optimal solution, we can start now by computing the gradient vector of the objective function whose direction gives us the direction of growth of the objective function, i.e.:
 
 $$\nabla L = \begin{bmatrix}\dfrac{dL}{dx_1}\\\dfrac{dL}{dx_2}\end{bmatrix}=\begin{bmatrix}57\\60\end{bmatrix}$$
 
@@ -68,11 +66,11 @@ $$\nabla L = \begin{bmatrix}\dfrac{dL}{dx_1}\\\dfrac{dL}{dx_2}\end{bmatrix}=\beg
   <img src="./figs/sand_clay.png" style="width: 80%;">
 </div>
 
-With this, we just need to find the first point inside the feasible region that intersects a region with the slope that is shown. That point will be one of the vertices, and we get:
+With this, we just need to find the last point inside the feasible region in the direction of the gradient (maximization) or the first point inside the region (minimization). That point will be one of the vertices (basic solutions), and in this example we get:
 
 $$X=\left(\frac{5}{3},\frac{20}{3}\right)\implies L=485$$
 
-If we do the same for the remaining vertices, for example, we confirm that the obtained the value consists in the one maximizing $L$ and, therefore, obeying our objective function:
+If we calculate the value of the objective function for the remaining vertices we confirm that the one we obtained above consists in the one that maximizes $L$:
 
 * $\mu_1=(0,8)\implies L=480$
 * $\mu_2=\left(\frac{35}{12},\frac{25}{6}\right)\implies L = 416.5$
@@ -82,3 +80,21 @@ If we do the same for the remaining vertices, for example, we confirm that the o
 :::{card} Quiz questions
 <iframe src="https://tudelft.h5p.com/content/1292121213033110307/embed" aria-label="2_3_2_2_graphical_solution_method" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
 :::
+
+## Supplementary Videos
+
+The story is told once again in videos. The videos listed below have a one-to-one correspondence with the chapters in this book. 
+
+### The sand and clay extraction problem
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/0bSIL1k_618" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
+### Solving the sand and clay extraction problem with the graphical solution method
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/OEApSyGRZPI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```

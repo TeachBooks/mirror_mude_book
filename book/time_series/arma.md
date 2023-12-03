@@ -1,226 +1,362 @@
 (ARMA)=
 # ARMA process
 
-The main goal is to introduce the Auto-Regressive Moving Average (ARMA) stochastic process, as a widely used stochastic process. This includes
-
-* ARMA ($p,q$) process
-* ARMA ($p,0$) = AR($p$) process $\implies$ AR(1)
-* ARMA ($0,q$) = MA($q$) process $\implies$ MA(1)
+The main goal is to introduce the AutoRegressive Moving Average (ARMA) model to describe a **stationary stochastic process**. Hence the ARMA model can be applied on time series where e.g. trend and seasonality are not present / removed, and only noise remains, or after applying other methods [to obtain a stationary time series](stationarize).
 
 ## Process definition
 
 In an ARMA model, we forecast the variable of interest using a linear combination of its past values plus the current and past errors. A zero mean ARMA process of orders $p$ and $q$ can be written as follows:
 
-$$y_t = \overbrace{\beta_1y_{t-1}+...+\beta_py_{t-p}}^{\text{AR process}} + e_t + \overbrace{\theta_1e_{t-1}+...+\theta_qe_{t-q}}^{\text{MA process}}$$ 
+$$S_t = \overbrace{\beta_1S_{t-1}+...+\beta_pS_{t-p}}^{\text{AR process}} + e_t + \overbrace{\theta_1 e_{t-1}+...+\theta_q e_{t-q}}^{\text{MA process}}$$ 
 
 or as
 
-$$y_t = \sum_{i=1}^p \beta_iy_{t-i}+e_t+\sum_{i=1}^q \theta_ie_{t-i}$$
+$$S_t = \sum_{i=1}^p \beta_iS_{t-i}+e_t+\sum_{i=1}^q \theta_i e_{t-i}$$
 
-Each observation is made up of a **random error** at that epoch, a linear combination of **past observations**, and a linear combination of **past errors**. We note the process should still be stationary, satisfying
+Each observation is made up of a **random error** $e_t$ at that epoch, a linear combination of **past observations**, and a linear combination of **past errors**. The errors $e_t$  are uncorrelated purely random noise process, known also as white noise. We note the process should still be stationary, satisfying
 
-$$\mathbb{E}(y_t)=0, \hspace{20px} \mathbb{D}(y_t)=\sigma^2=\text{constant}$$
+$$\mathbb{E}(S_t)=0, \hspace{20px} \mathbb{D}(S_t)=\sigma^2,\quad \forall t$$
 
-To have a better understanding of the process itself, we consider two special cases, $q=0$ and $p=0$.
+This indicates that parts of the total variability of the process come from the signal and noise of past epochs, and only a (small) portion belongs to the noise of that epoch (denoted as $e_t$). To have a better understanding of the process itself, we consider two special cases, $q=0$ and $p=0$.
 
-### Special case 1 - ARMA$(p,0) = $ AR$(p)$
+### Special case 1: ARMA$(p,0) = $ AR$(p)$
 
 The first special case we are going to study considers $q=0$. A zero mean $p$-order autoregressive (AR) random process, abbreviated to ARMA($p,0$) = AR($p$), can be written as follows
 
-$$y_t = \beta_1y_{t-1}+...+\beta_py_{t-p} + e_t$$
+$$S_t = \beta_1S_{t-1}+...+\beta_pS_{t-p} + e_t=S_t = \sum_{i=1}^p \beta_iS_{t-i}+e_t$$
 
-or
+#### First-order AR(1) process
 
-$$y_t = \sum_{i=1}^p \beta_iy_{t-i}+e_t$$
+We will just focus on explaining $p=1$, i.e. the AR(1) process. A **zero-mean first order autoregressive** process can be written as follows
 
-We will just focus on explaining $p=1$, i.e. AR(1). A **zero-mean first order autoregressive** process like this, can be written as follows
+$$S_t = \beta S_{t-1}+e_t, \hspace{20px} -1\leq\beta<1, \hspace{20px} t=2,...,m$$
 
-$$y_t = \beta y_{t-1}+e_t, \hspace{20px} -1\leq\beta<1, \hspace{20px} t=2,...,m$$
+where $e_t$ is an i.i.d. noise process, e.g. distributed as $e_t\sim N(0,\sigma_{e}^2)$. See later the definition of $\sigma_{e}^2$.
 
-where $e_t$ is an i.i.d. noise process, e.g. distributed as $e_t\sim\mathbb{N}(0,\sigma_e^2)$
+:::{card} Exercise
 
-#### First-order AR(1)
+In a zero-mean first order autoregressive process, abbreviated as AR(1), we have $m=3$ observations, $\beta=0.8$, and the generated white noise errors are $e = [e_1,\, e_2,\, e_3]^T=[1,\, 2,\, -1]^T$. What is the generated AR(1) process $S = [S_1,\, S_2,\, S_3]^T$?
+
+a. $S = \begin{bmatrix}1 & 2.8 & 1.24\end{bmatrix}^T$  
+b. $S = \begin{bmatrix} 0 & 2 & 0.6 \end{bmatrix}^T$  
+c. $S = \begin{bmatrix} 1 & 2 & -1 \end{bmatrix}^T$  
+
+```{admonition} Solution
+:class: tip, dropdown
+
+The correct answer is **a**. The AR(1) process can be initialized as $S_1=e_1=1$. The next values can be obtained through:
+
+$$
+S_t = \beta S_{t-1} + e_t
+$$
+
+Giving $S_2=0.8 S_1 + e_2 = 0.8\cdot 1 + 2 = 2.8$ and $S_3=0.8 S_2 + e_3 = 0.8\cdot 2.8 - 1= 1.24$, so we have:
+
+$$
+S = 
+\begin{bmatrix}1 & 2.8 & 1.24\end{bmatrix}^T 
+$$
+
+```
+:::
 
 **Formulation**
 
-Initializing $y_1=e_1$, with $\mathbb{E}(y_1)=\mathbb{E}(e_1)=0$ and $\mathbb{D}(y_1)=\mathbb{D}(e_1)=\sigma^2$. Following this, multiple applications of the above "autoregressive" formula ($y_t = \beta y_{t-1} + e_t$) give:
+Initializing $S_1=e_1$, with $\mathbb{E}(S_1)=\mathbb{E}(e_1)=0$ and $\mathbb{D}(S_1)=\mathbb{D}(e_1)=\sigma^2$. Following this, multiple applications of the above "autoregressive" formula ($S_t = \beta S_{t-1} + e_t$) gives:
 
 $$
 \begin{align*}
-y_1&=e_1\\ 
-y_2&=\beta y_1+e_2\\ 
-y_3 &= \beta y_2+e_3 = \beta^2y_1+\beta e_2+e_3\\ 
+S_1&=e_1\\ 
+S_2&=\beta S_1+e_2\\ 
+S_3 &= \beta S_2+e_3 = \beta^2S_1+\beta e_2+e_3\\ 
 &\vdots\\ 
-y_m &= \beta y_{m-1} + e_m = \beta^{m-1}y_1+\beta^{m-2}e_2+...+\beta e_{m-1}+e_m
+S_m &= \beta S_{m-1} + e_m = \beta^{m-1}S_1+\beta^{m-2}e_2+...+\beta e_{m-1}+e_m
 \end{align*}
 $$
 
-of which we still have (to impose the *stationarity*):
+of which we still have (in order to impose the *stationarity*):
 
-$$\mathbb{E}(y_t)=0 \hspace{5px}\text{and}\hspace{5px} \mathbb{D}(y_t)=\sigma^2, \hspace{10px} t=1,...,m$$
+$$\mathbb{E}(S_t)=0 \hspace{5px}\text{and}\hspace{5px} \mathbb{D}(S_t)=\sigma^2, \hspace{10px} t=1,...,m$$
 
-All the noise components, $e_t$, are uncorrelated as $\mathbb{E}(e_t,e_{t+\tau})=0$ if $\tau = 0$. If $\tau\neq 0$, then $\mathbb{E}(e_t,e_{t+\tau})=\sigma_e^2$.
+All the error components, $e_t$, are uncorrelated such that $Cov(e_t,e_{t+\tau})=0$ if $\tau \neq 0$, and with variance $\sigma_{e}^2$ which still needs to be determined.
 
 **Autocovariance**
 
 The mean of the process is zero and, therefore:
 
-$$\mathbb{E}(y_t) = \mathbb{E}(\beta y_{t-1}+e_t) = \beta\mathbb{E}(y_{t-1})+\mathbb{E}(e_t) = 0$$
+$$\mathbb{E}(S_t) = \mathbb{E}(\beta S_{t-1}+e_t) = \beta\mathbb{E}(S_{t-1})+\mathbb{E}(e_t) = 0$$
 
 The variance of the process should remain constant as:
 
-$$\mathbb{D}(y_t) = \mathbb{D}(\beta y_{t-1}+e_t) = \beta^2\sigma^2+\sigma_e^2=\sigma^2, \hspace{10px} t\geq 2$$
+$$\mathbb{D}(S_t) = \mathbb{D}(\beta S_{t-1} +e_t) \Leftrightarrow \sigma^2=\beta^2\sigma^2+\sigma_{e}^2, \hspace{10px} t\geq 2$$
 
 resulting in
 
-$$\sigma^2 = \frac{\sigma_e^2}{1-\beta^2} \Longleftrightarrow \sigma_e^2 = \sigma^2(1-\beta^2)$$
+$$\sigma_{e}^2 = \sigma^2 (1-\beta^2)$$
 
-The auto-covariance (covariance between $y_t$ and $y_{t+\tau}$) is
+indicating that $\sigma_{e}^2$ is smaller than $\sigma^2$.
 
-$$\Sigma_{yy}(y_t,y_{t+\tau})=\mathbb{E}(y_t,y_{t+\tau})$$
+The autocovariance (covariance between $S_t$ and $S_{t+\tau}$) is
 
-resulting in
+$$
+\begin{align*}
+c_{\tau}&=\mathbb{E}(S_t S_{t+\tau})-\mu^2 =\mathbb{E}(S_t S_{t+\tau})\\
+&= \mathbb{E}(S_t(\beta^\tau S_t + \beta^{\tau-1} e_{t+1}+...)) = \beta^\tau\mathbb{E}(S_t^2)=\sigma^2\beta^\tau
+\end{align*}$$
 
-$$\Sigma_{yy}(y_t,y_{t+\tau}) = \mathbb{E}(y_t, y_{t+\tau}) = \mathbb{E}(y_t(\beta^\tau y_t + ...)) = \beta^\tau\mathbb{E}(y_t^2)=\sigma^2\beta^\tau$$
+In the derivation above we used that:
 
-**Model structure**
+$$
+\begin{align*}
+S_{t+\tau}=\beta^\tau S_t + \beta^{\tau-1} e_{t+1}+...+e_{t+\tau}
+\end{align*}
+$$
 
-$$\mathbb{E}(y) = \mathbb{E}\begin{bmatrix}y_1\\ y_2\\ ...\\ y_m\end{bmatrix} = \begin{bmatrix}0\\ 0\\ ...\\ 0\end{bmatrix}, \hspace{15px} \mathbb{D}(y)=\Sigma_{yy}=\sigma^2\begin{bmatrix}1&\beta&...&\beta^{m-1}\\ \beta&1&...&\beta^{m-2}\\ ...&...&...&...\\ \beta^{m-1}&\beta^{m-2}&...&1\end{bmatrix}$$
+and the fact that $S_t$ and $e_{t+\tau}$ are uncorrelated for $\tau \neq 0$.
 
-* Auto-covariance function $\implies$ $\Sigma_{yy}(\tau)=\sigma_\tau=\sigma^2\beta^\tau$
-* Normalized auto-covariance function (ACF) $\implies$ $\rho_{yy}(\tau)=\rho_\tau=\beta^\tau$
-* Larger value of $\beta$ indicates long-memory random process
+```{admonition} Derivation (optional)
+:class: tip, dropdown
+
+$$
+\begin{align*}
+S_{t+\tau}&= \beta^{t+\tau-1}S_1 + \beta^{t+\tau-2}e_2+...+ \beta^{\tau} e_{t}+ \beta^{\tau-1} e_{t+1}+...+e_{t+\tau}\\
+&= \beta^{\tau} \left(\beta^{t-1}S_1 + \beta^{t-2}e_2+...+  e_{t}\right)+ \beta^{\tau-1} e_{t+1}+...+e_{t+\tau}\\
+&=\beta^\tau S_t + \beta^{\tau-1} e_{t+1}+...+e_{t+\tau}
+\end{align*}
+$$
+
+```
+
+**Model structure of AR(1)**
+
+$$\mathbb{E}(S) = \mathbb{E}\begin{bmatrix}S_1\\ S_2\\ \vdots\\ S_m\end{bmatrix} = \begin{bmatrix}0\\ 0\\ \vdots\\ 0\end{bmatrix}, \hspace{15px} \mathbb{D}(S)=\Sigma_{S}=\sigma^2 \begin{bmatrix}1&\beta&...&\beta^{m-1}\\ \beta&1&...&\beta^{m-2}\\ \vdots&\vdots&\ddots&\vdots\\ \beta^{m-1}&\beta^{m-2}&...&1\end{bmatrix}$$
+
+* Autocovariance function $\implies$ $c_{\tau}=\sigma^2\beta^\tau$
+* Normalized autocovariance function (ACF) $\implies$ $\rho_\tau=c_{\tau}/c_0=\beta^\tau$
+* Larger value of $\beta$ indicates a long-memory random process
 * If $\beta=0$, this is called *purely random process* (white noise)
-* $\Sigma_{yy}(\tau)=\Sigma_{yy}(-\tau)=\Sigma_{yy}(|\tau|)$ and so is $\rho_{yy}(\tau)=\rho_{yy}(-\tau)=\rho_{yy}(|\tau|)$
+* ACF is even, $c_{\tau}=c_{-\tau}=c_{|\tau|}$ and so is $\rho_{\tau}=\rho_{-\tau}=\rho_{|\tau|}$
+
+Later in this section we will see how the coefficient $\beta$ can be estimated.
 
 **Simulated example**
 
-A time series has been simulated to have a standard normal distribution, $y_i \sim \text{N}(0,1)$. This indicates that the first entry is $y_1 \sim \text{N}(0,1)$ and the remaining errors are $e_i \sim \text{N}(0.1-\beta^2)$, $i=2,...,m=1000$. Time correlation is visually seen in data.
+A time series has been simulated to have a standard normal distribution, $S_i \sim N(0,1)$. This indicates that the first entry is $S_1 \sim \text{N}(0,1)$ and the remaining errors are $e_i \sim N(0,1-\beta^2)$, $i=2,...,m=1000$. The time series is shown in {numref}`ar1example`. Time correlation can be visually seen in the data.
 
-Normalized ACF can clearly show the temporal correlation, $\rho_{yy}(\tau)=\beta^\tau$, where $\tau=0,1,2,...,m-1$
+The normalized ACF shows the temporal correlation, $\rho_{\tau}=\beta^{\tau}$, where $\tau=0,1,2,...,m-1$.
 
-![ar1example](./figs/ar1example.png "ar1example")
+```{figure} ./figs/ar1example.png
+:name: ar1example
+:width: 600px
+:align: center
 
-### Special case 2 - ARMA$(0,q) = $ MA$(q)$
+Left: time series for $\beta =0.7$ and $\beta =-0.7$. Right: corresponding normalized autocovariance functions.
+```
+
+### Special case 2: ARMA$(0,q) = $ MA$(q)$
 
 A zero mean $q$-order moving average random process, abbreviated to ARMA(0,q) = MA(q), can be written as follows
 
-$$y_t=\theta_1 e_{t-1}+...+\theta_q e_{t-q}+e_t$$
+$$S_t=\theta_1 e_{t-1}+...+\theta_q e_{t-q}+e_t$$
 
 or
 
-$$y_t=\sum_{i=1}^q \theta_i e_{t-i} + e_t$$
+$$S_t=\sum_{i=1}^q \theta_i e_{t-i} + e_t$$
 
-Here we will just focus on the case $q=1$, i.e. MA(1). A **zero-mean first order moving average process** like this one can be written as:
+#### First-order MA(1) process
 
-$$y_t = \theta e_{t-1} + e_t, \hspace{10px} -1\leq\theta<1 \hspace{10px} t=2,...,m$$
+Here we will just focus on the case $q=1$, i.e. MA(1). A **zero-mean first order moving average process** can be written as:
 
-where $e_t$ is an i.i.d. noise process (white noise), e.g. distributed as $e_t\sim\text{N}(0,\sigma_e^2)$
+$$S_t = \theta e_{t-1} + e_t, \hspace{10px} -1\leq\theta<1 \hspace{10px} t=2,...,m$$
 
-#### First-order MA(1)
+where $e_t$ is an i.i.d. noise process (white noise), e.g. distributed as $e_t\sim N(0,\sigma_{e}^2)$
 
 **Formulation**
 
-Initializing $y_1$ and $e_1$, with $\mathbb{E}(y_1)=\mathbb{E}(e_1)=0$, $\mathbb{D}(y_1)=\sigma^2$ and $\mathbb{D}(e_1)=\sigma_e^2$. Following this, multiple applications of the above "moving average" formula ($y_t = \theta e_{t-1} + e_t$) give:
+Initializing $S_1=e_1$, with $\mathbb{E}(S_1)=\mathbb{E}(e_1)=0$, $Var(S_1)=\sigma^2$ and $Var(e_i)=\sigma_{e}^2$ for $i=2,\dots,m$. Following this, multiple applications of the above "moving average" formula  gives:
 
-$$\begin{align*}y_1=e_1\\ y_2=\theta e_1+e_2\\ y_3 = \theta e_2+e_3\\ ...\\ y_m = \theta e_{m-1} + e_m\end{align*}$$
+$$\begin{align*}S_1&=e_1\\ S_2&=\theta e_1+e_2\\ S_3 &= \theta e_2+e_3\\ &\vdots\\ S_m &= \theta e_{m-1} + e_m\end{align*}$$
 
-of which we still have (to impose the *stationarity*):
+of which we still have (in order to impose the *stationarity*):
 
-$$\mathbb{E}(y_t)=0 \hspace{5px}\text{and}\hspace{5px} \mathbb{D}(y_t)=\sigma^2, \hspace{10px} t=1,...,m$$
+$$\mathbb{E}(S_t)=0 \hspace{5px}\text{and}\hspace{5px} \mathbb{D}(S_t)=\sigma^2, \hspace{10px} t=1,...,m$$
 
-All the noise components, $e_t$, are uncorrelated as $\mathbb{E}(e_t,e_{t+\tau})=\sigma_e^2$ if $\tau = 0$. If $\tau\neq 0$, then $\mathbb{E}(e_t,e_{t+\tau})=0$.
+All the error components, $e_t$, are uncorrelated such that $Cov(e_t,e_{t+\tau})=0$ if $\tau\neq 0$, and the variance is $\sigma_e^2$.
 
-**Auto-covariance**
+**Autocovariance**
 
 The mean of the process is zero and, therefore:
 
-$$\mathbb{E}(y_t) = \mathbb{E}(\theta e_{t-1}+e_t) = \theta\mathbb{E}(e_{t-1})+\mathbb{E}(e_t) = 0$$
+$$\mathbb{E}(S_t) = \mathbb{E}(\theta e_{t-1}+e_t) =\theta\mathbb{E}(e_{t-1})+\mathbb{E}(e_t) = 0$$
 
 The variance of the process should remain constant as:
 
-$$\mathbb{D}(y_t) = \mathbb{D}(\theta e_{t-1}+e_t) = \theta^2\sigma_e^2+\sigma_e^2=\sigma^2, \hspace{10px} t\geq 2$$
+$$\mathbb{D}(S_t) = \mathbb{D}(\theta e_{t-1}+e_t) \Leftrightarrow  \sigma^2=\theta^2\sigma_e^2+\sigma_e^2, \hspace{10px} t\geq 2$$
 
 resulting in
 
-$$\sigma^2 = \frac{\sigma_e^2}{1+\theta^2} \Longleftrightarrow \sigma_e^2 = \frac{\sigma^2}{1+\theta^2}$$
+$$ \sigma_e^2 = \frac{\sigma^2}{1+\theta^2}$$
 
-The auto-covariance (covariance between $y_t$ and $y_{t+\tau}$) is
+indicaating that $\sigma_e^2$ is smaller than $\sigma^2$
 
-$$\Sigma_{yy}(y_t,y_{t+\tau})=\mathbb{E}(y_t,y_{t+\tau}) = 0, \hspace{10px}\text{for}\hspace{5px}\tau\geq 2$$
+The autocovariance is
 
-resulting in
+$$c_1=Cov(S_t, S_{t+1}) = \sigma_e^2\theta\\ c_{-1}=Cov(S_t, S_{t-1}) =  \sigma_e^2\theta$$
 
-$$\Sigma_{yy}(y_t, y_{t+1}) = \mathbb{E}((\theta e_{t-1} + e_t)(\theta e_t + e_{t+1})) = \sigma_e^2\theta\\ \Sigma_{yy}(y_t, y_{t-1}) = \mathbb{E}((\theta e_{t-1} + e_t)(\theta e_{t-2} + e_{t-1})) = \sigma_e^2\theta$$
+and
 
-```{note}
-Only $\Sigma_{yy}(y_t, y_{t\pm 1}) = \mathbb{E}(y_t, y_{t\pm 1})\neq 0$
-```
+$$c_{\tau}=Cov(S_t,S_{t+\tau}) = 0, \hspace{10px}\text{for}\hspace{5px}\tau\geq 2$$
+
+The normalized auto-covariance function (ACF) follows:
+
+$$\rho_{\tau}=\frac{c_{\tau}}{\sigma^2}=\begin{cases}\frac{\theta}{1+\theta^2}, \hspace{5px}&\text{if}\hspace{5px}\tau=1\\ 0, \hspace{5px}&\text{if}\hspace{5px}\tau\neq 1\end{cases}
+$$
 
 **Model structure**
 
-$$\mathbb{E}(y) = \mathbb{E}\begin{bmatrix}y_1\\ y_2\\ ...\\ y_m\end{bmatrix} = \begin{bmatrix}0\\ 0\\ ...\\ 0\end{bmatrix}, \hspace{15px} \mathbb{D}(y)=\Sigma_{yy}=\sigma^2\begin{bmatrix}1&\rho_1&0&...&0\\ \rho_1&1&\rho_1&...&0\\ 0&\rho_1&1&...&...\\ ...&...&...&...&\rho_1\\ 0&0&...&\rho_1&1\end{bmatrix}$$
+$$\mathbb{E}(S) = \mathbb{E}\begin{bmatrix}S_1\\ S_2\\ \vdots\\ S_m\end{bmatrix} = \begin{bmatrix}0\\ 0\\ \vdots\\ 0\end{bmatrix}, \hspace{15px} \mathbb{D}(S)=\Sigma_{S}=\sigma^2\begin{bmatrix}1&\rho_1&0&\dots&0\\ \rho_1&1&\rho_1& &\\ 0&\rho_1&1&\ddots&0\\ \vdots& &\ddots&\ddots&\rho_1\\ 0&\dots&0&\rho_1&1\end{bmatrix}$$
 
-* Auto-covariance function $\implies$ $\Sigma_{yy}(\tau)=\sigma_\tau=\begin{cases}\frac{\sigma^2\theta}{1+\theta^2}, \hspace{5px}\text{if}\hspace{5px}\tau=1\\ 0, \hspace{5px}\text{if}\hspace{5px}\tau>1\end{cases}$
+In summmary: 
 
-* Normalized auto-covariance function (ACF) $\implies$ $\rho_{yy}(\tau)=\rho_\tau=\begin{cases}\frac{\theta}{1+\theta^2}\end{cases}, \hspace{5px}\text{if}\hspace{5px}\tau=1\\ 0, \hspace{5px}\text{if}\hspace{5px}\tau\neq 1$
+* Autocovariance function $\implies$ $c_{\tau}=\begin{cases}\frac{\sigma^2\theta}{1+\theta^2}, \hspace{5px}&\text{if}\hspace{5px}\tau=1\\ 0, \hspace{5px}&\text{if}\hspace{5px}\tau>1\end{cases}$
 
-* ACF is even, $\Sigma_{yy}(\tau)=\Sigma_{yy}(-\tau)=\Sigma_{yy}(|\tau|)$ and so is $\rho_{yy}(\tau)=\rho_{yy}(-\tau)=\rho_{yy}(|\tau|)$
+* Normalized auto-covariance function (ACF) $\implies$ $\rho_\tau=\begin{cases}\frac{\theta}{1+\theta^2}, \hspace{5px}&\text{if}\hspace{5px}\tau=1\\ 0, \hspace{5px}&\text{if}\hspace{5px}\tau\neq 1\end{cases}$
+
+* ACF is even, $c_{\tau}=c_{-\tau}=c_{|\tau|}$ and so is $\rho_{\tau}=\rho_{-\tau}=\rho_{|\tau|}$
 
 **Simulated example**
 
-A time series has been simulated to have a standard normal distribution, $e_i \sim \text{N}(0,1)$. This indicates that the entries of $y$ have $y_i \sim \text{N}(0.1+\theta^2)$, $i=1,...,m=1000$.
+A time series has been simulated to have a standard normal distribution, $e_i \sim \text{N}(0,1)$. This indicates that the entries of $S$ have $S_i \sim \text{N}(0,1+\theta^2)$, $i=1,...,m=1000$, where the variance of the noise process is $\sigma^2 = 1+\theta^2$. In fact, $\sigma_{e_t}=1$, but not the random process MA(1) in total. The time series is shown in {numref}`ma1ex`. 
 
-Normalized ACF can clearly show the temporal correlation, $\rho_{yy}(\tau)=\frac{\theta}{1+\theta^2}$, if $\tau=1$, and $\rho_{yy}(\tau)=0$ if $\tau>1$
+The normalized ACF shows the temporal correlation, $\rho_{\tau}=\frac{\theta}{1+\theta^2}$, if $\tau=1$, and $\rho_{\tau}=0$ if $\tau>1$.
 
-![ma1ex](./figs/ma1ex.png "ma1ex")
+MMMMM should delete the equation in the right panels!
 
-## Brief Summary
+```{figure} ./figs/ma1ex.png
+:name: ma1ex
+:width: 600px
+:align: center
 
-The random processes (noise processes) explained are:
+Left: time series for $\beta =0.9$ and $\beta =-0.9$. Right: corresponding normalized autocovariance functions.
+```
 
-* ARMA(p,q) process
+## Estimation of coefficients of ARMA process
 
-$$
-y_t = \sum_{i=1}^p \beta_iy_{t-i}+e_t+\sum_{i=1}^q\theta_ie_{t-1}
-$$
+If the values of $p$ and $q$ of the ARMA($p,q$) process are known, the question is: **how can we estimate the coefficients $\beta_1,...,\beta_p$ and $\theta_1,...,\theta_q$?**
 
-* AR(p) process
+Here, we only elaborate on AR(2) = ARMA(2,0) using best linear unbiased estimation (BLUE) to estimate $\beta_1$ and $\beta_2$. The method can be generalized to estimate the parameters of an ARMA($p,q$) process.
 
-$$
-y_t = \sum_{i=1}^p \beta_iy_{t-i}+e_t
-$$
+**Example: Parameter estimation of AR(2)**
 
-* MA(q) process
+The AR(2) process is of the form
 
-$$
-y_t = e_t+\sum_{i=1}^q\theta_ie_{t-1}
-$$
+$$S_t=\beta_1 S_{t-1}+\beta_2 S_{t-2}+e_t$$
 
-* The parameters of these stochastic processes should be estimated (e.g. by LSE or MLE)
+In order to esitimate the $\beta_i$ we can set up the following linear model of observation equations (starting from $t=3$):
+
+$$\begin{bmatrix}S_3 \\ S_4 \\ \vdots \\ S_m \end{bmatrix} = \begin{bmatrix}S_2 & S_1 \\S_3 & S_2\\ \vdots & \vdots\\ S_{m-1}&S_{m-2} \end{bmatrix}\begin{bmatrix}\beta_1 \\ \beta_2\end{bmatrix} + \begin{bmatrix}e_{3} \\ e_{4}\\ \vdots \\ e_{m} \end{bmatrix}$$
+
+The BLUE estimator of $\beta=[\beta_1,\beta_2]^T$ is
+
+$$\hat{\beta}=(\mathrm{A}^T\mathrm{A})^{-1}\mathrm{A}^TS$$
+
 
 ## Worked example - Single Differencing
 
-On this worked example, we will try to show that single differencing induces an MA(1). Let us consider
+On this worked example, we will show that [single differencing](SD) induces an MA(1) process. The original time series is given as:
 
-$$y=\begin{bmatrix}y_1\\ y_2\\ ...\\ y_m\end{bmatrix}, \hspace{10px} \Sigma_{yy}=\sigma_\omega^2\begin{bmatrix}1&0&...&0\\ 0&1&...&0\\ ...&...&...&...\\ 0&0&...&1\end{bmatrix}=\sigma^2_\omega I_m$$
+$$Y=\begin{bmatrix}Y_1\\ Y_2\\ \vdots \\ Y_m\end{bmatrix}, \hspace{10px} \Sigma_{Y}=\sigma^2 I_m$$
 
-Having $\Delta y_1 = y_1$, then:
+We apply single differencing which in this case results in a purely random process:
 
-$$\begin{cases}\Delta y_2 = y_2 - y_1\\ \Delta y_3 = y_3-y_2\\ ...\\ \Delta y_m = y_m - y_{m-1}\end{cases}$$
+$$\begin{cases}S_1 = \Delta Y_1 = Y_1\\ S_2=\Delta Y_2 = Y_2 - Y_1\\ S_3=\Delta Y_3 = Y_3-Y_2\\ \quad\vdots \\ S_m= \Delta Y_m = Y_m - Y_{m-1}\end{cases}$$
 
 In matrix notation, this can be written as:
 
-$$\begin{bmatrix}\Delta y_2\\ \Delta y_3\\ ...\\ \Delta y_m\end{bmatrix} = \begin{bmatrix}-1&1&0&...&0&0\\ 0&-1&1&...&0&0\\ ...&...&...&...&...\\ 0&0&0&...&-1&1\end{bmatrix}\begin{bmatrix}y_1\\ y_2\\ ...\\ y_m\end{bmatrix} \Longleftrightarrow \Delta Y = TY$$
+$$\begin{bmatrix} S_1\\  S_2\\ \vdots \\  S_m\end{bmatrix} = \underbrace{\begin{bmatrix}
+    1 & 0 &   & \dots & 0\\
+    -1 & 1 & 0 &   &  \\
+    0 & -1 & 1 & \ddots & \\
+    \vdots & \ddots &\ddots & \ddots & 0 \\
+    0 & \dots & 0 & -1 & 1
+\end{bmatrix}}_{\mathrm{T}}\begin{bmatrix}Y_1\\ Y_2\\ \vdots \\ Y_m\end{bmatrix} \Longleftrightarrow S = \mathrm{T}Y$$
 
-Therefore:
+We apply the [variance propagation law](01_LinearProp):
 
-$$\Sigma_{\Delta y\Delta y}=T\Sigma_{yy}T^T = T\sigma_\omega^2I_mT^T=\sigma_\omega^2TT^T$$
+$$\Sigma_{ S}=\mathrm{T}\Sigma_{Y}\mathrm{T}^T = \mathrm{T}\sigma^2I_m\mathrm{T}^T=\sigma^2\mathrm{TT}^T$$
 
-which can simplify to:
+such that we obtain:
 
-$$\Sigma_{\Delta y\Delta y} = \sigma_\omega^2TT^T = 2\sigma_\omega^2\begin{bmatrix}1&-0.5&0&...&0\\ -0.5&1&-0.5&...&0\\ 0&-0.5&1&...&0\\ ...&...&...&...&...\\ 0&0&0&...&1\end{bmatrix}$$
+$$\Sigma_{S} = \sigma^2\mathrm{TT}^T = 2\sigma^2\begin{bmatrix}1&-0.5&0&\dots&0\\ -0.5&1&-0.5& &\\ 0&-0.5&1&\ddots&0\\ \vdots& &\ddots&\ddots&-0.5\\ 0&\dots&0&-0.5&1\end{bmatrix}$$
 
-Now we need to find the value of $\theta$ to get $\Delta y_t$. Therefore:
+We can see that the structure indeed corresponds with the covariance matrix of an AR(1) process, from which we see that $\rho_1=-0.5$. Now we can find the value of $\theta$: 
 
-$$\begin{cases}\rho_1=-0.5=\frac{\theta}{1+\theta^2}\\ \Delta y_t = \theta e_{t-1}+e_t\end{cases}\implies \theta=-1 \implies \Delta y_t = e_t-e_{t-1}$$
+$$\begin{cases}\rho_1=-0.5=\frac{\theta}{1+\theta^2}\\  S_t = \theta e_{t-1}+e_t\end{cases}\implies \theta=-1 \implies S_t = e_t-e_{t-1}$$
+
+:::{card} Exercise
+
+For the stationary AR(2) process, calculate the ACF at lag 1. In other words, calculate $\rho_1$.
+
+```{admonition} Solution
+:class: tip, dropdown
+
+For the AR($p$) process we know that $\mathbb{E}(S_t)=0$, and $Var(S_t)=\sigma^2$ ($\forall t$), and
+
+$$S_t = \beta_1S_{t-1}+\beta_2S_{t-2}+e_t=
+\begin{bmatrix}\beta_1 & \beta_2 & 1\end{bmatrix}\begin{bmatrix}S_{t-1} \\ S_{t-2} \\ e_t\end{bmatrix}$$
+
+To compute the autocovariance function at lag 1, $c_1$, we need to compute the covariance between $S_{t-1}$ and $S_t$, which is given as
+
+$$
+\begin{align*}
+c_1 &= \mathbb{E}(S_{t-1}S_t)
+= \mathbb{E}\left(S_{t-1}
+(\beta_1 S_{t-1} + \beta_2 S_{t-2} + e_t)
+\right)
+\\
+&= \beta_1 \mathbb{E}(S_{t-1}^2)
++ \beta_2 \mathbb{E}(S_{t-2}S_{t-1})
++ \mathbb{E}(S_{t-1}e_t)\\
+&= \beta_1 \sigma^2
++ \beta_2 c_1
+\end{align*}$$
+
+
+which gives
+
+$$
+\beta_1 \sigma^2 = c_1(1-\beta_2)
+$$
+
+or, because $\rho_1=c_1/\sigma^2$:
+
+$$
+\rho_1=\frac{\beta_1}{1-\beta_2}
+$$
+
+```
+:::
+
+## Brief Summary
+
+The random processes (noise processes) considered here are:
+
+* ARMA($p,q$) process
+
+$$
+S_t = \sum_{i=1}^p \beta_iS_{t-i}+e_t+\sum_{i=1}^q\theta_ie_{t-1}
+$$
+
+* AR($p$) process
+
+$$
+S_t = \sum_{i=1}^p \beta_iS_{t-i}+e_t
+$$
+
+* MA($q$) process
+
+$$
+S_t = e_t+\sum_{i=1}^q\theta_ie_{t-1}
+$$
+
+The parameters of these stochastic processes can be estimated using the least-squares method. This allows then to predict the stochastic process, needed for [forecasting](forecast).

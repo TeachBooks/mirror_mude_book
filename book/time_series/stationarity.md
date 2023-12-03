@@ -9,18 +9,18 @@ This means that parameters such as *mean* and *(co)variance* should remain const
 
 * Mean of the process is time-independent
 
-$$\mathbb{E}(Y(t))=\mathbb{E}(Y_t)=\mu$$
+$$\mathbb{E}(Y(t))=\mathbb{E}(S_t)=\mu$$
 
-* Covariance of the process is independent of $t$ for each time shift $\tau$:
+* Covariance of the process is independent of $t$ for each time shift $\tau$ (so only a function of τ  and not t):
 
 $$
-Cov(Y_t,Y_{t-\tau})=\mathbb{E}((Y_t-\mu)(Y_{t-\tau}-\mu))=c_\tau
+Cov(S_t,S_{t-\tau})= Cov(S_t,S_{t+\tau}) =\mathbb{E}((S_t-\mu)(S_{t-\tau}-\mu))=c_\tau
 $$
 
 * The variance (i.e., $\tau=0$) is then also constant with respect to time :
 
 $$
-Var(Y_t)=\mathbb{E}((Y_t-\mu)^2)=c_0=\sigma^2
+Var(S_t)=\mathbb{E}((S_t-\mu)^2)=c_0=\sigma^2
 $$
 
 ## Why stationary time series?
@@ -29,26 +29,25 @@ Stationarity is important if we want to use a time series for forecasting (predi
 
 In practice, we may in fact be interested in for instance the trend and seasonality of a time series. Also, many real-world time series are of course non-stationary. Therefore the approach is to first "stationarize" the time series (e.g., remove the trend), use this stationary time series to predict future states based on the statistical properties (stochastic process), and then apply a back-transformation to account for the non-stationarity (e.g., add back the trend).
 
-
+(stationarize)=
 ## How to "stationarize" a time series?
 
-In general, there are five ways to make a non-stationary time series to a stationary one. They are known as transformation methods. An important requirement is that such transformation in regular, or admissible, meaning that a back-transformation is possible. 
+In general, there are five ways to make a non-stationary time series to a stationary one. They are known as transformation methods. An important requirement is that such transformation is regular, or admissible, meaning that a back-transformation is possible. 
 
-These methods are:
+Common methods are:
 
 * Difference transformation of data
 * Moving average of data
-* Function-based transformation of data
-* Least-squares fit (de-trending)
-* Combination of abovementioned methods
+* Least-squares fit (detrending)
 
 ### Single and double differencing
 
 Single differencing of $Y=[Y_1,...,Y_m]^T$ makes a time series $\Delta Y_t=Y_t - Y_{t-1},\; t\geq 2$ with starting value of $\Delta Y_1 = Y_1$. This is a **regular transformation** of data, and hence allowed, as shown in the equation below.
 
+(SD)=
 $$
 \begin{bmatrix}
-    \Delta Y_1 \\ \Delta Y_2 \\ \Delta Y_3 \\ ... \\ \Delta Y_m
+    \Delta Y_1 \\ \Delta Y_2 \\ \Delta Y_3 \\ \vdots \\ \Delta Y_m
 \end{bmatrix} = 
 \begin{bmatrix}
     1 & 0 &   & \dots & 0\\
@@ -89,7 +88,7 @@ Now we will apply single differencing to the time series:
 
 $$
 \begin{align*}
-\Delta Y_t = Y_t-Y_{t-1} &= y_0+rt+\epsilon_t-(Y_0+r(t-1)+\epsilon_{t-1}) \\
+\Delta Y_t = Y_t-Y_{t-1} &= y_0+rt+\epsilon_t-(y_0+r(t-1)+\epsilon_{t-1}) \\
 &= r+\Delta \epsilon_t
 \end{align*}
 $$
@@ -106,7 +105,7 @@ We again apply single differencing:
 
 $$
 \begin{align*}
-\Delta Y_t = Y_t-Y_{t-1} &= y_0+rt+at^2+\epsilon_t-(Y_0+r(t-1)+a(t-1)^2+\epsilon_{t-1}) \\
+\Delta Y_t = Y_t-Y_{t-1} &= y_0+rt+at^2+\epsilon_t-(y_0+r(t-1)+a(t-1)^2+\epsilon_{t-1}) \\
 &= r-a+2at+\Delta \epsilon_t
 \end{align*}
 $$
@@ -121,7 +120,7 @@ $$
 
 Show for yourself that applying double differencing to the time series $Y_t = y_0+rt+at^2+\epsilon_t$ results in a stationary time series $\Delta^2 Y_t$.
 
-```{admonition} Solution
+````{admonition} Solution
 :class: tip, dropdown
 
 $$
@@ -131,7 +130,6 @@ $$
 $$
 
 with $\mathbb{E}(\Delta^2 Y_t)=2a$.
-```
 
 ```{figure} ./figs/doubledifference.png 
 ---
@@ -140,6 +138,7 @@ name: doubledifference
 ---
 Original time series (second-order polynomial) on the left; double differenced time series on the right.
 ```
+````
 :::
 
 ### Moving average
@@ -147,10 +146,10 @@ Original time series (second-order polynomial) on the left; double differenced t
 The moving average of $Y = [Y_1, ..., Y_m]^T$ will create a time series $\bar{Y}_t = {\bar{Y}_1,...,\bar{Y}_m}$, with 
 
 $$
-\bar{Y}_t = \frac{1}{k}\sum_{i=-m}^{m}Y_{t-i}
+\bar{Y}_t = \frac{1}{k}\sum_{i=1}^{k}Y_{t-i}
 $$
 
-where the length of the interval over which the average is taken is equal to $k=2m+1$.
+where the length of the interval over which the average is taken is equal to $k$ (hence, the moving average only uses past values up till $k-1$ epochs ago).
 
 The difference between two time series provides a (nearly) stationary time series $\Delta Y_t = Y_t - \bar{Y}_t$.
 
@@ -161,35 +160,86 @@ name: moving_avg
 ---
 Original time series and moving average on the right; stationarized times series on the left.
 ```
+:::{card} Exercise
 
+Consider a random process time series as:
 
-### Function-based transformation
+$$
+Y_t
+= U \cos (\theta t) + V \sin (\theta t)
+$$
 
-A function-based transformation of $Y=[Y_1,...,Y_m]^T$ makes a time series $S_t \longleftarrow f(Y_t)$. For example, a log function would downscale the range of variations of the data. This is a nonlinear but *regular* transformation of data, and hence allowed.
+where $U$ and $V$ are two uncorrelated random variables with zero means, and unit variances and $\theta$ is a deterministic value in the interval $\theta \in [-\pi, \pi]$. Show that this noise process is stationary.
 
-```{figure} ./figs/function_transf.png 
----
-height: 300px
-name: function_transf
----
-Original time series on the right; stationarized times series on the left (not log-scale on vertical axis).
+```{admonition} Solution
+:class: tip, dropdown
+
+Because $\mathbb{E}(U)=\mathbb{E}(V)=0$, it simply follows that 
+
+$$
+\mathbb{E}(Y_t)=0
+$$
+
+For a given $\tau$, the covariance between $Y_t$ and $Y_{t+\tau}$ is obtained as:
+
+$$
+\begin{align*}
+c_\tau = Cov(Y_t, Y_{t+\tau})
+&= \mathbb{E}(Y_tY_{t+\tau}) - \mathbb{E}(Y_t)\mathbb{E}(Y_{t+\tau})
+= \mathbb{E}(Y_t Y_{t+\tau})\\
+&= \mathbb{E}
+\biggl(
+    \bigl[ U \cos(\theta t) + V \sin(\theta t) \bigr]
+    \bigl[ U \cos(\theta t + \theta \tau)
+         + V \sin(\theta t + \theta \tau) \bigr]
+\biggr)
+\end{align*}
+$$
+
+The multiplication consists of four terms in which the terms $U^2$, $V^2$, $UV$ and $VU$ appear. Because the two random variables $U$ and $V$ are uncorrelated with zero means and unit variances, it follows that:
+
+$$
+\mathbb{E}(U^2) = \mathbb{E}(V^2) = 1
+\quad \mathrm{and} \quad
+\mathbb{E}(UV) = \mathbb{E}(VU) = 0
+$$
+
+This, with the previous equations, gives:
+
+$$
+Cov(Y_t, Y_{t+\tau})
+= \cos(\theta t) \cos(\theta t + \theta \tau)
++ \sin(\theta t) \sin(\theta t + \theta \tau)
+$$
+
+Using the identity $\cos(a-b)=\cos(a)\cos(b)+\sin(a)\sin(b)$, it follows:
+
+$$
+Cov(Y_t, Y_{t+\tau})
+= \cos(\theta t + \theta \tau - \theta t)
+= \cos(\theta \tau)
+$$
+
+Which is a function of $\tau$, but not a function of time $t$. This shows that the random process is stationary.
+
 ```
+:::
 
 ### Least-squares fit
 
 If we can express the time series $Y=[Y_1, ..., Y_m]^T$ with a linear model of observation equations as $Y = \mathrm{Ax} + \epsilon$, we can apply [best linear unbiased estimation](BLUE) (equivalent to weighted least-squares) to estimate the parameters $\mathrm{x}$ that describe e.g. the trend and seasonality:
 
 $$
-\hat{X}=\mathrm{A}(\mathrm{A}^T\Sigma_{yy}^{-1}\mathrm{A})^{-1}\mathrm{A}^T\Sigma_{yy}^{-1}Y 
+\hat{X}=(\mathrm{A}^T\Sigma_{Y}^{-1}\mathrm{A})^{-1}\mathrm{A}^T\Sigma_{Y}^{-1}Y 
 $$
 
-A "detrended" time series is obtained in the form of the residuals 
+A detrended time series is obtained in the form of the residuals 
 
 $$
 \hat{\epsilon} = Y - \mathrm{A}\hat{X}
 $$ 
 
-The **de-trended $\hat{\epsilon}$ is assumed to be stationary** for further **stochastic processing**. This is also an admissible transformation because $Y$ can uniquely be reconstructed as $Y=\mathrm{A}\hat{X}+\hat{\epsilon}$. 
+The **detrended $\hat{\epsilon}$ is assumed to be stationary** for further **stochastic processing**. This is also an admissible transformation because $Y$ can uniquely be reconstructed as $Y=\mathrm{A}\hat{X}+\hat{\epsilon}$. 
 
 Let us take a look into an example:
 
@@ -201,50 +251,36 @@ name: least_squares
 Example of a time series (right graph) with linear and seasonal trend. The residuals (= stationary time series) after applying BLUE are shown on the left.
 ```
 
-MMMMM include the model (equations) as well!!
-
-
-:::{card} **Testing stationarity**
-
-```{admonition} MUDE exam information
-:class: tip, dropdown
-This part is optional and will not be assessed on the exam.
-```
-
-Different tests can be performed to test whether or not a time series is stationary. One of the commonly used methods is the **Augmented Dickey-Fuller (ADF)** test. 
-
-Consider a time series
-
-$$Y_t = \beta Y_{t-1}+\epsilon_t$$
-
-where we see that the value at time $t$ depends on the previous value at time $t-1$ plus the noise $\epsilon_t$ (this is an autoregressive process, as we will see later in the section [ARMA process](ARMA)). This implies that if $\beta=1$, the noise is **accumulated** and thus the process is **not stationary**. It is known to be a so-called *random walk noise* process. 
-
-Single differencing gives
+In the example above, for each observation $Y_i = y_0+ rt_i+a\cos{\omega_0t_i}+b \sin{\omega_0t_i} + +x_3t_i+\epsilon_i$, where $a$ and $b$ describe the seasonality and $y_0$ and $r$ the trend. The time series then is:
 
 $$
-\begin{align*}
-\Delta Y_t = Y_t - Y_{t-1} &= \beta Y_{t-1}+\epsilon_t-Y_{t-1}\\
-&= (\beta - 1)Y_{t-1}+\epsilon_t \\&= \gamma Y_{t-1} + \epsilon_t
-\end{align*}
+\begin{bmatrix}
+    Y_1 \\ Y_2 \\  \vdots \\ Y_m
+\end{bmatrix} = \begin{bmatrix}
+    1&t_1&\cos{\omega_0 t_1} & \sin{\omega_0 t_1} \\
+     1&t_2&\cos{\omega_0 t_2} & \sin{\omega_0 t_2} \\
+       \vdots & \vdots & \vdots & \vdots \\ 
+     1&t_m&\cos{\omega_0 t_m} & \sin{\omega_0 t_m}
+\end{bmatrix}
+\begin{bmatrix}
+y_0 \\ r \\ a \\ b \end{bmatrix} + 
+\begin{bmatrix}
+    \epsilon_1 \\ \epsilon_2 \\  \vdots \\ \epsilon_m
+\end{bmatrix}
 $$
 
-The parameter $\gamma = \beta-1$ plays an important role to test the stationarity of the time series.
+The time series of residuals (left panel) is indeed a stationary time series.
 
-### ADF test
+## ... and then what?
 
-The ADF test is performed using the following two hypotheses:
+We have seen different ways of obtaining a stationary time series from the original time series. The reason is that in order to make predictions (forecasting future values) we need to account for both the **signal-of-interest** and the **noise**. [Estimating the signal-of-interest](modelling_tsa) was covered in the previous section. In the next sections we will show how the noise can be modelled as a stochastic process. Given a time series $Y=\mathrm{Ax}+\epsilon$, the workflow is as follows:
 
-* **Null Hypothesis ($\mathcal{H}_0$)**: Time series is non-stationary ($\gamma=0\implies\beta=1$)
-* **Alternative Hypothesis ($\mathcal{H}_a$)**: Time series is stationary ($\gamma<0\implies\beta<1$)
+1. Estimate the signal-of-interest $\hat{X}=\mathrm{A}^T\Sigma_{Y}^{-1}\mathrm{A})^{-1}\mathrm{A}^T\Sigma_{Y}^{-1}Y$ (Section [Modelling and estimation](modelling_tsa)).
 
-The null hypothesis assumes that the time series consists of non-stationary noise, mainly **Random Walk** noise. Under the alternative hypothesis, the Random Walk noise is absent, and therefore the time series is stationary.
+2. Model the noise using the Autoregressive Moving Average (ARMA) model, using the stationary time series $S:=\hat{\epsilon}=Y-\mathrm{A}\hat{X}$ (Section [ARMA](ARMA)).
 
-The test statistic is (which can be tested in a given confidence level) given by:
+3. Predict the signal-of-interest: $\hat{Y}_{signal}=\mathrm{A}_p\hat{X}$, where $\mathrm{A}_p$ is the design matrix describing the functional relationship between the future values $Y_p$ and $\mathrm{x}$ (Section [Forecasting](forecast)).
 
-$$
-T_{\text{ADF}}=\frac{\hat{\gamma}}{\sigma_{\hat{\gamma}}}
-$$
+4. Predict the noise $\hat{\epsilon}_p$ based on the ARMA model.
 
-The test statistic, $T_{ADF}$ is a **negative number**. The more negative it is, the stronger the rejection of the hypothesis, and hence the more level of confidence that the series is a stationary process.
-
-:::
+5. Predict future values of the time series: $\hat{Y}_p=\mathrm{A}_p\hat{X}+\hat{\epsilon}_p$ (Section [Forecasting](forecast)).

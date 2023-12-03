@@ -168,48 +168,52 @@ parts:
         title: Spectral Estimation
       - file: signal/videos
         title: Supplementary Videos
-  # START REMOVE-FROM-PUBLISH
     - file: time_series/intro.md
       title: Time Series Analysis
       sections:
       - file: time_series/components
         title: "Time Series components"
+        sections:
+        - file: time_series/exercise1.ipynb
       - file: time_series/types
         title: "Types of Time Series"
-      - file: time_series/stationarity
-        title: "Stationarity"
-      - file: time_series/acf
-        title: "Auto-covariance function (ACF)"
-      - file: time_series/arma
-        title: "Auto-Regressive Moving Average (ARMA) process"
       - file: time_series/modelling
         title: "Time Series modelling and estimation"
+        sections:
+        - file: time_series/exercise3.ipynb
+      - file: time_series/stationarity
+        title: "Stationarity"
+        sections:
+        - file: time_series/exercise2.ipynb
+      - file: time_series/acf
+        title: "Autocovariance function (ACF)"
+    # START REMOVE-FROM-PUBLISH
+      - file: time_series/arma
+        title: "AutoRegressive Moving Average (ARMA) process"
       - file: time_series/forecasting
         title: "Time Series forecasting"
-      - file: time_series/videos
-        title: Supplementary Videos
-      
-  - caption: Optimization
-    numbered: 2
-    chapters:
+      - file: time_series/optional
+        title: "Supplementary material"
+      - file: time_series/notebook
+        title: Notebook
     - file: optimization/overview
-      title: Overview
-    - file: optimization/origins
-    - file: optimization/general
-    - file: optimization/taxonomy
-    - file: optimization/sand_and_clay
+      title: Optimization
       sections:
-      - file: optimization/claysand.ipynb
-        title: Implementation in Python
-    - file: optimization/airlines
-    - file: optimization/performance
-    - file: optimization/genetic_algorithm
-<<<<<<< Updated upstream
-    - file: optimization/integer_programming
-    - file: optimization/sand_and_clay_simplex
-    - file: optimization/videos
-=======
->>>>>>> Stashed changes
+      - file: optimization/origins
+      - file: optimization/general
+      - file: optimization/taxonomy
+      - file: optimization/sand_and_clay
+        sections:
+        - file: optimization/claysand.ipynb
+      - file: optimization/performance
+        sections:
+        - file: optimization/airlines.ipynb
+        - file: optimization/airlines_performance.ipynb
+        - file: optimization/performance_generic_LP.ipynb
+      - file: optimization/genetic_algorithm
+      - file: optimization/integer_programming
+      - file: optimization/sand_and_clay_simplex
+      - file: optimization/videos
 
   - caption: Machine Learning
     numbered: 2
