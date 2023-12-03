@@ -1,4 +1,4 @@
-# Genetic Algorithms
+# Genetic Algorithm
 
 ## Recap - Optimization Models & Exact optimization approaches
 

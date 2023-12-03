@@ -1,4 +1,4 @@
-# SIMPLEX method to solve the sand and clay problem
+# SIMPLEX method
 
 The SIMPLEX method has been created to automate this search process in a mathematical way. Consider the following optimization problem:
 
@@ -133,3 +133,17 @@ Now we just need to check if the solution we have just obtained is optimal and, 
 The SIMPLEX method can be simplified and the whole workflow behind it is shown in the scheme below:
 
 ![sand_clay_14](./figs/sand_clay_14.png)
+
+:::{card} Quiz questions
+<iframe src="https://tudelft.h5p.com/content/1292123849460777397/embed" aria-label="2_3_3_1_simplex_method" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+:::
+
+## Supplementary Video
+
+The story is told once again in a video. The video listed below has a one-to-one correspondence with the chapters in this book
+
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/S_8MsOXu60I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
