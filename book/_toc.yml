@@ -189,11 +189,11 @@ parts:
         title: "Autocovariance function (ACF)"
       - file: time_series/arma
         title: "AutoRegressive Moving Average (ARMA) process"
-    # START REMOVE-FROM-PUBLISH
       - file: time_series/forecasting
         title: "Time Series forecasting"
       - file: time_series/optional
         title: "Supplementary material"
+      # START REMOVE-FROM-PUBLISH
       - file: time_series/notebook
         title: Notebook
     - file: optimization/overview
