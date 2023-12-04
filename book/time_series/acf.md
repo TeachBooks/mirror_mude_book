@@ -7,7 +7,7 @@ As in the Chapter on {ref}`OT`, the variance component is often determined based
 
 A preliminary motivation and explanation for why autocovariance is needed is provided nicely in this lecture, beginning at time 1:22:32 (and ending around 1:34:00).
 
-<p><iframe width="680" height="480" marginwidth="0" marginheight="0" src="https://collegerama.tudelft.nl/Mediasite/Play/1d74f018b9b54e918179570c75f6cd0c1d?playFrom=4952000&autostart=True"></iframe></p>
+<p><iframe width="680" height="480" marginwidth="0" marginheight="0" src="https://collegerama.tudelft.nl/Mediasite/Play/1d74f018b9b54e918179570c75f6cd0c1d?playFrom=4952000&autostart=False"></iframe></p>
 
 ## Autocovariance and autocorrelation
 
