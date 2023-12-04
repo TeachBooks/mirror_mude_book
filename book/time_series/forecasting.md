@@ -1,46 +1,36 @@
 (forecast)=
 # Forecasting
 
-## Best Linear Unbiased Prediction (BLUP)
+Time series analysis is about analyzing time series of data points of a variable, with the goal to extract meaningful characteristics and statistics of the data, e.g., to study the trend and seasonality. Very often we do so in order to be able to predict future values based on the previously observed ones, which is referred to as **forecasting**.
 
-Consider the (augmented) linear model of observation equations as
+In this chapter, you first learned about the different types of time series ([Section 4.2](timetypes)) as well as the components that can be distinguished ([Section 4.1](components)). Some of the components may relate to the *signal-of-interest*. However, another important component that we have to deal with is the noise.
 
-$$\begin{bmatrix}Y \\ Y_p\end{bmatrix}=\begin{bmatrix}\mathrm{A} \\ \mathrm{A}_p \end{bmatrix}x+\begin{bmatrix}\epsilon \\ \epsilon_p \end{bmatrix}, \hspace{10px}\mathbb{D}\left(\begin{array}{c}Y\\ Y_p\end{array}\right)=\begin{bmatrix}\Sigma_{Y} & \Sigma_{YY_p} \\\Sigma_{Y_p Y} & \Sigma_{Y_p} \end{bmatrix}$$
+Modelling and estimating the signal-of-interest ([Section 4.3](modelling_tsa)) using the concepts of observation theory.
 
-The best linear unbiased estimation, **BLUE**, of $x$ is:
+The remainder of this chapter focused on the noise modelling. In order to do so, we need to work with *stationary*, i.e., time series of which the statistical properties do not depend on the time of observation ([Section 4.4](stationary)). An example of a stationary time series are the residuals after best linear unbiased estimation. Using these residuals as the input for noise modelling makes sense, since in fact the residuals are estimates of the noise. 
 
-$$\hat{X}=(\mathrm{A}^T\Sigma_{Y}^{-1}\mathrm{A})^{-1}\mathrm{A}^T\Sigma_{Y}^{-1}Y,\hspace{10px}\Sigma_{\hat{X}}=(\mathrm{A}^T\Sigma_{Y}^{-1}\mathrm{A})^{-1}$$
+note: other methods to 'extract' a stationary time series from the original time series, such as differencing or taking a moving average, were discussed as well.
 
-Without derivation, we now give the best linear unbiased prediction, **BLUP**, of $Y_p$:
+A 'problem' with the noise process of a time series is that often there is time-correlation: in contrast to a white noise signal, the observations with different time lags depend on each other - this is referred to as colored noise. The dependency can be modelled by the autocovariance function ([Section 4.5](ACF)). With that, the noise process can be modelled using the Autoregressive Moving Average model ([Section 4.6](ARMA)).
 
-$$\hat{Y_p}=\mathrm{A}_p\hat{X}+\Sigma_{Y_p Y}\Sigma_{Y}^{-1}\hat{\epsilon}= \hat{Y}_F + \hat{Y}_N$$
+Now that we are able to model both signal-of-interest and the noise process, we can start forecasting.
 
-with the covariance matrix
+In summary:
 
-$$\Sigma_{\hat{Y_p}}=\mathrm{A}_p\Sigma_{\hat{X}}\mathrm{A}_p^T+\Sigma_{Y_p Y}\Sigma_{Y}^{-1}\Sigma_{\hat{\epsilon}}\Sigma_{Y}^{-1}\Sigma_{YY_p}$$
+Given a time series $Y=\mathrm{Ax}+\epsilon$, the workflow is as follows:
 
-*Two processes play a role in prediction:*
-* $\hat{Y}_F = \mathrm{A}_p\hat{X}$ is the deterministic part modelling the functional effects (such as trend and seasonality).
-* $\hat{Y}_N= \Sigma_{Y_p Y}\Sigma_{Y}^{-1}\hat{\epsilon}$ is the stochastic part (stochastic process).
+1. Estimate the signal-of-interest $\hat{X}=(\mathrm{A}^T\Sigma_{Y}^{-1}\mathrm{A})^{-1}\mathrm{A}^T\Sigma_{Y}^{-1}Y$.
 
-### Important remarks:
+2. Model the noise using the Autoregressive Moving Average (ARMA) model, using the stationary time series $S:=\hat{\epsilon}=Y-\mathrm{A}\hat{X}$.
 
-* For a purely random process (white noise), we have $\Sigma_{Y_p Y}=0$ and, therefore, the stochastic process/part cannot affect the prediction;
-* We focus on the ARMA random process to forecast future values. How to determine orders $p$ and $q$ of an ARMA($p,q$) processs is in the [optional material](optional);
-* Above it was explained that $\hat{\epsilon}$ has been estimated with BLUE. The time series $\hat{\epsilon}$ can in principle also be obtained from different [transformation methods](stationarize) such as
-**differencing**, **function-based**, or **moving averaging**;
-* For the sake of simplicity, the new time series is again denoted as the zero-mean stationary time series $Y_t = Y(t)$, of which the ‘non-stationarity’ effect has been removed from the data to make it stationary.
+3. Predict the signal-of-interest: $\hat{Y}_{signal}=\mathrm{A}_p\hat{X}$, where $\mathrm{A}_p$ is the design matrix describing the functional relationship between the future values $Y_p$ and $\mathrm{x}$.
 
-## Forecasting using ARMA($p,q$) process
+4. Predict the noise $\hat{\epsilon}_p$ based on the ARMA model.
 
-After estimating the ARMA process parameters $\hat{\beta}_i,i=1,...,p$ and $\hat{\theta}_i,i=1,...,q$ they can be used to predict future values. The following expression on a zero-mean ARMA can then be used:
+5. Predict future values of the time series: $\hat{Y}_p=\mathrm{A}_p\hat{X}+\hat{\epsilon}_p$.
 
-%MMMMM Needs clarification! Should it be $\hat{\epsilon}$?? And is $\hat{Y}_{t|t-1}= \hat{Y}_N$?
+```{note}
+Interested readers can find a brief introduction on how to predict signals that are partially deterministic and stochastic using Best Linear Unbiased Prediction (BLUP) in the section on [Supplementary Material](BLUP).
+```
 
-%MMMMM The $\epsilon$ here is not the same as the $\epsilon$ in the model at start of chapter (here it is only random errors, above it includes stochastic process)
 
-$$\hat{Y}_{t|t-1}=\hat{\beta}_1Y_{t-1}+...+\hat{\beta}_pY_{t-p}+\hat{\theta}_1\epsilon_{t-1}+...+\hat{\theta}_q\epsilon_{t-q}$$
-
-%The above formulation is in conjunction with the Best Linear Unbiased Predictor (BLUP) for $Y_t$ in a given stochastic process. Further elaboration is beyond the scope of this week. The general form of BLUP is
-
-%$$\hat{Y}_p=\mathrm{A}_p\hat{X}+\Sigma_{Y_p Y}\Sigma_{Y}^{-1}\hat{\epsilon}$$

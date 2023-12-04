@@ -1,3 +1,4 @@
+(timetypes)=
 # Types of time series
 
 Time series can be classified based on different properties. Thus, let us start by distinguishing the different types of time series we can find.
