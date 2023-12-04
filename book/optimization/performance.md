@@ -1,4 +1,9 @@
-# Optional: Performance considerations in LP
+# Performance considerations in LP
+
+```{admonition} MUDE Exam Information
+:class: tip, dropdown
+The material in this section is provided to give you extra insight into the performance of optimization algorithms.. This material is not part of the exam.
+```
 
 When working with linear programming, we should give particular attention to the performance of the model being developed. To do so, we need to consider that in three different stages:
 
