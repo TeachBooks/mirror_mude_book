@@ -205,12 +205,15 @@ parts:
       - file: optimization/sand_and_clay
         sections:
         - file: optimization/claysand.ipynb
+      - file: optimization/augmented_form
+      - file: optimization/sand_and_clay_simplex
+      - file: optimization/integer_programming
+      - file: optimization/genetic_algorithm
       - file: optimization/performance
         sections:
         - file: optimization/airlines.ipynb
         - file: optimization/airlines_performance.ipynb
         - file: optimization/performance_generic_LP.ipynb
-      - file: optimization/videos
 
   - caption: Machine Learning
     numbered: 2
