@@ -1,23 +1,24 @@
 (forecast)=
 # Forecasting
 
+```{admonition} MUDE Exam Information
+:class: tip, dropdown
+The material on this page is provided to give you extra insight into time series analysis and how it is used in practice. This material is not part of the exam.
+```
+
 Time series analysis is about analyzing time series of data points of a variable, with the goal to extract meaningful characteristics and statistics of the data, e.g., to study the trend and seasonality. Very often we do so in order to be able to predict future values based on the previously observed ones, which is referred to as **forecasting**.
 
-In this chapter, you first learned about the different types of time series ([Section 4.2](timetypes)) as well as the components that can be distinguished ([Section 4.1](components)). Some of the components may relate to the *signal-of-interest*. However, another important component that we have to deal with is the noise.
+In this part of the book, you first learned about the different types of time series ([Chapter 4.2](timetypes)) as well as the components that can be distinguished ([Chapter 4.1](components)). Some of the components may relate to the *signal-of-interest*. However, another important component that we have to deal with is the noise.
 
-Modelling and estimating the signal-of-interest ([Section 4.3](modelling_tsa)) using the concepts of observation theory.
+Modelling and estimating the signal-of-interest ([Chapter 4.3](modelling_tsa)) using the concepts of observation theory. The remainder of this chapter focused on the noise modelling. In order to do so, we need to work with *stationary*, i.e., time series of which the statistical properties do not depend on the time of observation ([Chapter 4.4](stationary)). An example of a stationary time series are the residuals after best linear unbiased estimation. Using these residuals as the input for noise modelling makes sense, since in fact the residuals are estimates of the noise. 
 
-The remainder of this chapter focused on the noise modelling. In order to do so, we need to work with *stationary*, i.e., time series of which the statistical properties do not depend on the time of observation ([Section 4.4](stationary)). An example of a stationary time series are the residuals after best linear unbiased estimation. Using these residuals as the input for noise modelling makes sense, since in fact the residuals are estimates of the noise. 
+Note: other methods to "extract" a stationary time series from the original time series, such as differencing or taking a moving average, were discussed as well.
 
-note: other methods to 'extract' a stationary time series from the original time series, such as differencing or taking a moving average, were discussed as well.
-
-A 'problem' with the noise process of a time series is that often there is time-correlation: in contrast to a white noise signal, the observations with different time lags depend on each other - this is referred to as colored noise. The dependency can be modelled by the autocovariance function ([Section 4.5](ACF)). With that, the noise process can be modelled using the Autoregressive Moving Average model ([Section 4.6](ARMA)).
+A problem with the noise process of a time series is that often there is time-correlation: in contrast to a white noise signal, the observations with different time lags depend on each other - this is referred to as colored noise. The dependency can be modelled by the autocovariance function ([Chapter 4.5](ACF)). With that, the noise process can be modelled using the Autoregressive Moving Average model ([Chapter 4.6](ARMA)).
 
 Now that we are able to model both signal-of-interest and the noise process, we can start forecasting.
 
-In summary:
-
-Given a time series $Y=\mathrm{Ax}+\epsilon$, the workflow is as follows:
+In summary, given a time series $Y=\mathrm{Ax}+\epsilon$, the workflow is as follows:
 
 1. Estimate the signal-of-interest $\hat{X}=(\mathrm{A}^T\Sigma_{Y}^{-1}\mathrm{A})^{-1}\mathrm{A}^T\Sigma_{Y}^{-1}Y$.
 

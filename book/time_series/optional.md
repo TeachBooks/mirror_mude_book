@@ -1,8 +1,9 @@
 (optional)=
 # Supplementary material
 
-```{note}
-This section presents extra material which is optional to study.
+```{admonition} MUDE Exam Information
+:class: tip, dropdown
+The material on this page is provided to give you extra insight into time series analysis and how it is used in practice. This material is not part of the exam.
 ```
 
 ## Partial ACF
