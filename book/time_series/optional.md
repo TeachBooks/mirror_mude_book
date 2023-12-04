@@ -1,8 +1,9 @@
 (optional)=
 # Supplementary material
 
-```{note}
-This section presents extra material which is optional to study.
+```{admonition} MUDE Exam Information
+:class: tip, dropdown
+The material on this page is provided to give you extra insight into time series analysis and how it is used in practice. This material is not part of the exam.
 ```
 
 ## Partial ACF
@@ -144,7 +145,7 @@ $$\hat{X}=(\mathrm{A}^T\Sigma_{Y}^{-1}\mathrm{A})^{-1}\mathrm{A}^T\Sigma_{Y}^{-1
 
 Without derivation, we now give the best linear unbiased prediction, **BLUP**, of $Y_p$:
 
-$$\hat{Y_p}=\mathrm{A}_p\hat{X}+\Sigma_{Y_p Y}\Sigma_{Y}^{-1}\hat{\epsilon}= \hat{Y}_F + \hat{Y}_N$$
+$$\hat{Y_p}=\mathrm{A}_p\hat{X}+\Sigma_{Y_p Y}\Sigma_{Y}^{-1}\hat{\epsilon}= \hat{Y}_F + \hat{S}$$
 
 with the covariance matrix
 
@@ -152,7 +153,7 @@ $$\Sigma_{\hat{Y_p}}=\mathrm{A}_p\Sigma_{\hat{X}}\mathrm{A}_p^T+\Sigma_{Y_p Y}\S
 
 *Two processes play a role in prediction:*
 * $\hat{Y}_F = \mathrm{A}_p\hat{X}$ is the deterministic part modelling the functional effects (such as trend and seasonality).
-* $\hat{Y}_N= \Sigma_{Y_p Y}\Sigma_{Y}^{-1}\hat{\epsilon}$ is the stochastic part (stochastic process).
+* $\hat{S}= \Sigma_{Y_p Y}\Sigma_{Y}^{-1}\hat{\epsilon}$ is the stochastic part (stochastic process).
 
 
 ```{note}

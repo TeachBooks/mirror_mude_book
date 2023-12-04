@@ -1,6 +1,6 @@
 # SIMPLEX method
 
-The SIMPLEX method has been created to automate this search process in a mathematical way. Consider the following optimization problem:
+The SIMPLEX method has been created to automate solving the augmented form in a mathematical way. Consider the following optimization problem:
 
 $$\text{Max }L=57x_1+60x_2$$
 
@@ -33,9 +33,7 @@ Graphically:
 
 The problem is that even though this is a vertex, it is not a feasible solution - note that $s_1$ is negative!
 
-## How many basic solutions are there?
-
-We have **5 variables**, that divide into three basic variables ($x_1$, $x_2, and $s_1$) and two non-basic ($s_2$ and $s_3$). The number of basic variables is always equal to the total number of equations (not including the domain constraints - $x_1>0$ - or the objective function). Therefore, the number of feasible and unfeasible basic solutions is given by:
+How many basic solutions are there? We have **5 variables**, that divide into three basic variables ($x_1$, $x_2$, and $s_1$) and two non-basic ($s_2$ and $s_3$). The number of basic variables is always equal to the total number of equations (not including the domain constraints - $x_1>0$ - or the objective function). Therefore, the number of feasible and unfeasible basic solutions is given by:
 
 $$C_n^m=\frac{n!}{m!(n-m)!}$$
 
@@ -47,7 +45,7 @@ We need a systematic method (algorithm) that applies changes to the system of eq
 
 ---
 
-### Augmented form
+## Augmented form
 
 We start with the augmented form, given (as seen before) by:
 
@@ -63,13 +61,13 @@ The objective function must be put in the form of an equation with all the varia
 
 ```
 
-### Setting up the first table
+## Setting up the first table
 
 ![sand_clay_4](./figs/sand_clay_4.png)
 
 Our current solution right now sets the basic variables $[s_1,s_2,s_3]=[40,40,200]$, and the non-basic variables $[x_1,x_2]=[0,0]$. The value of the objective function in this case is $L=0$.
 
-### Optimality condition of the SIMPLEX method
+## Optimality condition of the SIMPLEX method
 
 The **optimality condition** assures that it is not possible to find a better solution.
 
@@ -128,15 +126,15 @@ Now we just need to check if the solution we have just obtained is optimal and, 
 
 ![sand_clay_13](./figs/sand_clay_13.png)
 
+:::{card} Quiz questions
+<iframe src="https://tudelft.h5p.com/content/1292123849460777397/embed" aria-label="2_3_3_1_simplex_method" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+:::
+
 ## Summary
 
 The SIMPLEX method can be simplified and the whole workflow behind it is shown in the scheme below:
 
 ![sand_clay_14](./figs/sand_clay_14.png)
-
-:::{card} Quiz questions
-<iframe src="https://tudelft.h5p.com/content/1292123849460777397/embed" aria-label="2_3_3_1_simplex_method" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
-:::
 
 ## Supplementary Video
 
