@@ -20,7 +20,7 @@ We have that $Cov(S_t, S_{t-\tau}) =Cov(S_t, S_{t+\tau})$.
 
 
 ```{note}
-The reason to refer to *auto*covariance is that we are considering the covariance of $S$ with itself (with a certain time lag $\tau$). If the covariance of $S$ with the time series of another variable, $X$, would be considerd, this is referred to as the *cross*-covariance. 
+The reason to refer to *auto*covariance is that we are considering the covariance of $S$ with itself (with a certain time lag $\tau$). If the covariance of $S$ with the time series of another variable, $X$, would be considered, this is referred to as the *cross*-covariance. 
 ```
 
 The *formal* autocorrelation is defined as

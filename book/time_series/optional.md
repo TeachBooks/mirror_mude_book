@@ -129,3 +129,32 @@ $$
 
 The test statistic, $T_{ADF}$ is a **negative number**. The more negative it is, the stronger the rejection of the hypothesis, and hence the more level of confidence that the series is a stationary process.
 
+(BLUP)=
+## Best Linear Unbiased Prediction (BLUP)
+
+Best Linear Unbiased Prediction (BLUP) is the equivalent of Best Linear Unbiased Estimation (BLUE). BLUE can be applied to estimate *deterministic* values, while BLUP is applied in case some of the parameters are of a *random* nature. In case of forecasting, this is indeed the case if the underlying noise process is not white noise.
+
+Consider the (augmented) linear model of observation equations as
+
+$$\begin{bmatrix}Y \\ Y_p\end{bmatrix}=\begin{bmatrix}\mathrm{A} \\ \mathrm{A}_p \end{bmatrix}x+\begin{bmatrix}\epsilon \\ \epsilon_p \end{bmatrix}, \hspace{10px}\mathbb{D}\left(\begin{array}{c}Y\\ Y_p\end{array}\right)=\begin{bmatrix}\Sigma_{Y} & \Sigma_{YY_p} \\\Sigma_{Y_p Y} & \Sigma_{Y_p} \end{bmatrix}$$
+
+The best linear unbiased estimation, **BLUE**, of $x$ is:
+
+$$\hat{X}=(\mathrm{A}^T\Sigma_{Y}^{-1}\mathrm{A})^{-1}\mathrm{A}^T\Sigma_{Y}^{-1}Y,\hspace{10px}\Sigma_{\hat{X}}=(\mathrm{A}^T\Sigma_{Y}^{-1}\mathrm{A})^{-1}$$
+
+Without derivation, we now give the best linear unbiased prediction, **BLUP**, of $Y_p$:
+
+$$\hat{Y_p}=\mathrm{A}_p\hat{X}+\Sigma_{Y_p Y}\Sigma_{Y}^{-1}\hat{\epsilon}= \hat{Y}_F + \hat{Y}_N$$
+
+with the covariance matrix
+
+$$\Sigma_{\hat{Y_p}}=\mathrm{A}_p\Sigma_{\hat{X}}\mathrm{A}_p^T+\Sigma_{Y_p Y}\Sigma_{Y}^{-1}\Sigma_{\hat{\epsilon}}\Sigma_{Y}^{-1}\Sigma_{YY_p}$$
+
+*Two processes play a role in prediction:*
+* $\hat{Y}_F = \mathrm{A}_p\hat{X}$ is the deterministic part modelling the functional effects (such as trend and seasonality).
+* $\hat{Y}_N= \Sigma_{Y_p Y}\Sigma_{Y}^{-1}\hat{\epsilon}$ is the stochastic part (stochastic process).
+
+
+```{note}
+For a purely random process (white noise), we have $\Sigma_{Y_p Y}=0$ and, therefore, the stochastic process/part will affect the prediction.
+```
