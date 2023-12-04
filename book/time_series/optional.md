@@ -13,44 +13,44 @@ A partial ACF (PACF) is a covariance between an observation in a time series wit
 
 Let us assume that we have an autoregressive noise process
 
-$$Y_t = \beta Y_{t-1}+\epsilon_t, \hspace{30px} 0\leq\beta<1, \hspace{30px} t=2,...,m$$
+$$S_t = \beta S_{t-1}+\epsilon_t, \hspace{30px} 0\leq\beta<1, \hspace{30px} t=2,...,m$$
 
 where $\epsilon_t$ is an i.i.d noise process (e.g. distributed as $\epsilon_t\sim N(0,\sigma^2)$). Multiple applications of the above *autoregressive* formula give
 
 $$\begin{align*}
-Y_t&=Y_t\\ 
-Y_{t+1} &= \beta Y_t + \epsilon_{t+1}\\ 
-Y_{t+2}&=\beta Y_{t+1} + \epsilon_{t+2} = \beta^2 Y_t + \beta \epsilon_{t+1} + \epsilon_{t+2}\\ &\vdots \end{align*}$$
+S_t&=S_t\\ 
+S_{t+1} &= \beta S_t + \epsilon_{t+1}\\ 
+S_{t+2}&=\beta S_{t+1} + \epsilon_{t+2} = \beta^2 S_t + \beta \epsilon_{t+1} + \epsilon_{t+2}\\ &\vdots \end{align*}$$
 
-We can show that the covariance between $Y_t$ and $Y_{t+1}$ is
-
-$$
-Cov(Y_t, Y_{t+1})  = \sigma^2\beta
-$$
-
-We can also show that the covariance between $Y_t$ and $Y_{t+2}$ is
+We can show that the covariance between $S_t$ and $S_{t+1}$ is
 
 $$
-Cov(Y_t, Y_{t+2}) =  \sigma^2\beta^2
+Cov(S_t, S_{t+1})  = \sigma^2\beta
 $$
 
-Hence, the $Y_t$ and $Y_{t+2}$ are correlated, even though according to the expression $Y_t = \beta Y_{t-1}+\epsilon_t$ should just depend on the previous value. This makes sense, since the previous value again depends on its own previous value, et cetera. However, using the partial ACF allows to 'remove' this correlation.
+We can also show that the covariance between $S_t$ and $S_{t+2}$ is
+
+$$
+Cov(S_t, S_{t+2}) =  \sigma^2\beta^2
+$$
+
+Hence, the $S_t$ and $S_{t+2}$ are correlated, even though according to the expression $S_t = \beta S_{t-1}+\epsilon_t$ should just depend on the previous value. This makes sense, since the previous value again depends on its own previous value, et cetera. However, using the partial ACF allows to 'remove' this correlation.
 
 ### Worked example (optional)
 
-Let us now take a look into a worked example on PACF to remove the intervening term, $\beta Y_{t+1}$ between $Y_t$ and $Y_{t+2}$. As we saw before, ACF can be obtained from
+Let us now take a look into a worked example on PACF to remove the intervening term, $\beta S_{t+1}$ between $S_t$ and $S_{t+2}$. As we saw before, ACF can be obtained from
 
 $$
-\text{COV} = Cov(Y_t, Y_{t+2}) =  \sigma^2\beta^2
+\text{COV} = Cov(S_t, S_{t+2}) =  \sigma^2\beta^2
 $$
 
-Regarding the partial ACF, it is knowns from the autoregression $Y_t = \beta Y_{t-1}$ that $\hat{Y}_t = \hat{Y}_{t+2} = \beta Y_{t+1}$. Therefore:
+Regarding the partial ACF, it is knowns from the autoregression $S_t = \beta S_{t-1}$ that $\hat{S}_t = \hat{S}_{t+2} = \beta S_{t+1}$. Therefore:
 
 $$
 \begin{align*}
-\text{PCOV} &= Cov(Y_t-\hat{Y}_t,Y_{t+2}-\hat{Y}_{t+2})\\&=Cov(Y_t-\beta Y_{t+1},Y_{t+2}-\beta Y_{t+1})
-\\ & = \mathbb{E}((Y_t-\beta Y_{t+1})(Y_{t+2}-\beta Y_{t+1}))\\
-& = \mathbb{E}(Y_tY_{t+2}-\beta Y_t Y_{t+1}-\beta Y_{t+1}Y_{t+2} + \beta^2Y_{t+1}^2)\\
+\text{PCOV} &= Cov(S_t-\hat{S}_t,S_{t+2}-\hat{S}_{t+2})\\&=Cov(S_t-\beta S_{t+1},S_{t+2}-\beta S_{t+1})
+\\ & = \mathbb{E}((S_t-\beta S_{t+1})(S_{t+2}-\beta S_{t+1}))\\
+& = \mathbb{E}(S_tS_{t+2}-\beta S_t S_{t+1}-\beta S_{t+1}S_{t+2} + \beta^2S_{t+1}^2)\\
 & = \sigma^2\beta^2-\beta\sigma^2\beta-\beta\sigma^2\beta+\sigma^2\beta^2=0
 \end{align*}
 $$
@@ -59,7 +59,7 @@ This shows indeed that with the partial ACF the correlation for a time lag of 2 
 
 #### Normalized ACF vs Partial ACF (optional)
 
-The figure shows a simulated example of $Y_t = 0.8Y_{t-1}+\epsilon_t$ having 1000 samples. The spectrum of the normalized ACF clearly shows that there is a (decreasing) correlation up till lag 10, while the spectrum of the partial ACF only shows correlation at lag 1.
+The figure shows a simulated example of $S_t = 0.8S_{t-1}+\epsilon_t$ having 1000 samples. The spectrum of the normalized ACF clearly shows that there is a (decreasing) correlation up till lag 10, while the spectrum of the partial ACF only shows correlation at lag 1.
 
 ![acf_pacf](./figs/acf_pacf.png "acf_pacf")
 
@@ -97,7 +97,7 @@ Different tests can be performed to test whether or not a time series is station
 
 Consider a time series
 
-$$Y_t = \beta Y_{t-1}+\epsilon_t$$
+$$S_t = \beta S_{t-1}+\epsilon_t$$
 
 where we see that the value at time $t$ depends on the previous value at time $t-1$ plus the noise $\epsilon_t$ (this is an autoregressive process, as we will see later in the section [ARMA process](ARMA)). This implies that if $\beta=1$, the noise is **accumulated** and thus the process is **not stationary**. It is known to be a so-called *random walk noise* process. 
 
@@ -105,8 +105,8 @@ Single differencing gives
 
 $$
 \begin{align*}
-\Delta Y_t = Y_t - Y_{t-1} &= \beta Y_{t-1}+\epsilon_t-Y_{t-1}\\
-&= (\beta - 1)Y_{t-1}+\epsilon_t \\&= \gamma Y_{t-1} + \epsilon_t
+\Delta S_t = S_t - S_{t-1} &= \beta S_{t-1}+\epsilon_t-S_{t-1}\\
+&= (\beta - 1)S_{t-1}+\epsilon_t \\&= \gamma S_{t-1} + \epsilon_t
 \end{align*}
 $$
 
@@ -136,25 +136,25 @@ Best Linear Unbiased Prediction (BLUP) is the equivalent of Best Linear Unbiased
 
 Consider the (augmented) linear model of observation equations as
 
-$$\begin{bmatrix}Y \\ Y_p\end{bmatrix}=\begin{bmatrix}\mathrm{A} \\ \mathrm{A}_p \end{bmatrix}x+\begin{bmatrix}\epsilon \\ \epsilon_p \end{bmatrix}, \hspace{10px}\mathbb{D}\left(\begin{array}{c}Y\\ Y_p\end{array}\right)=\begin{bmatrix}\Sigma_{Y} & \Sigma_{YY_p} \\\Sigma_{Y_p Y} & \Sigma_{Y_p} \end{bmatrix}$$
+$$\begin{bmatrix}S \\ S_p\end{bmatrix}=\begin{bmatrix}\mathrm{A} \\ \mathrm{A}_p \end{bmatrix}x+\begin{bmatrix}\epsilon \\ \epsilon_p \end{bmatrix}, \hspace{10px}\mathbb{D}\left(\begin{array}{c}S\\ S_p\end{array}\right)=\begin{bmatrix}\Sigma_{S} & \Sigma_{SS_p} \\\Sigma_{S_p S} & \Sigma_{S_p} \end{bmatrix}$$
 
 The best linear unbiased estimation, **BLUE**, of $x$ is:
 
-$$\hat{X}=(\mathrm{A}^T\Sigma_{Y}^{-1}\mathrm{A})^{-1}\mathrm{A}^T\Sigma_{Y}^{-1}Y,\hspace{10px}\Sigma_{\hat{X}}=(\mathrm{A}^T\Sigma_{Y}^{-1}\mathrm{A})^{-1}$$
+$$\hat{X}=(\mathrm{A}^T\Sigma_{S}^{-1}\mathrm{A})^{-1}\mathrm{A}^T\Sigma_{S}^{-1}S,\hspace{10px}\Sigma_{\hat{X}}=(\mathrm{A}^T\Sigma_{S}^{-1}\mathrm{A})^{-1}$$
 
-Without derivation, we now give the best linear unbiased prediction, **BLUP**, of $Y_p$:
+Without derivation, we now give the best linear unbiased prediction, **BLUP**, of $S_p$:
 
-$$\hat{Y_p}=\mathrm{A}_p\hat{X}+\Sigma_{Y_p Y}\Sigma_{Y}^{-1}\hat{\epsilon}= \hat{Y}_F + \hat{Y}_N$$
+$$\hat{S_p}=\mathrm{A}_p\hat{X}+\Sigma_{S_p S}\Sigma_{S}^{-1}\hat{\epsilon}= \hat{S}_F + \hat{S}_N$$
 
 with the covariance matrix
 
-$$\Sigma_{\hat{Y_p}}=\mathrm{A}_p\Sigma_{\hat{X}}\mathrm{A}_p^T+\Sigma_{Y_p Y}\Sigma_{Y}^{-1}\Sigma_{\hat{\epsilon}}\Sigma_{Y}^{-1}\Sigma_{YY_p}$$
+$$\Sigma_{\hat{S_p}}=\mathrm{A}_p\Sigma_{\hat{X}}\mathrm{A}_p^T+\Sigma_{S_p S}\Sigma_{S}^{-1}\Sigma_{\hat{\epsilon}}\Sigma_{S}^{-1}\Sigma_{SS_p}$$
 
 *Two processes play a role in prediction:*
-* $\hat{Y}_F = \mathrm{A}_p\hat{X}$ is the deterministic part modelling the functional effects (such as trend and seasonality).
-* $\hat{Y}_N= \Sigma_{Y_p Y}\Sigma_{Y}^{-1}\hat{\epsilon}$ is the stochastic part (stochastic process).
+* $\hat{S}_F = \mathrm{A}_p\hat{X}$ is the deterministic part modelling the functional effects (such as trend and seasonality).
+* $\hat{S}_N= \Sigma_{S_p S}\Sigma_{S}^{-1}\hat{\epsilon}$ is the stochastic part (stochastic process).
 
 
 ```{note}
-For a purely random process (white noise), we have $\Sigma_{Y_p Y}=0$ and, therefore, the stochastic process/part will affect the prediction.
+For a purely random process (white noise), we have $\Sigma_{S_p S}=0$ and, therefore, the stochastic process/part will affect the prediction.
 ```
