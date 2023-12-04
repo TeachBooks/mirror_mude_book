@@ -5,6 +5,10 @@ Before we can look into the modelling of a stochastic process using an Autoregre
 
 As in the Chapter on {ref}`OT`, the variance component is often determined based on the precision of an observation (at a given epoch), and the covarience components quantitatively indicate the statistical dependence (or independence) between observations. In this case, dependence is inherently introduced by the phyiscal processes that produce the signal (of which our time series is a sample), and in fact our time series methods seek to (mathematically) account for this.
 
+A preliminary motivation and explanation for why autocovariance is needed is provided nicely in this lecture, beginning at time 1:22:32 (and ending around 1:34:00).
+
+<p><iframe width="680" height="480" marginwidth="0" marginheight="0" src="https://collegerama.tudelft.nl/Mediasite/Play/1d74f018b9b54e918179570c75f6cd0c1d?playFrom=4952000&autostart=False"></iframe></p>
+
 ## Autocovariance and autocorrelation
 
 Let us assume an arbitrary (discrete) stationary time series, $S=[S_1,S_2,...,S_m]^T$, with mean $\mathbb{E}(S)=\mu$ and variance $Var(S_{i})=\sigma^2$.
@@ -20,7 +24,7 @@ We have that $Cov(S_t, S_{t-\tau}) =Cov(S_t, S_{t+\tau})$.
 
 
 ```{note}
-The reason to refer to *auto*covariance is that we are considering the covariance of $S$ with itself (with a certain time lag $\tau$). If the covariance of $S$ with the time series of another variable, $X$, would be considerd, this is referred to as the *cross*-covariance. 
+The reason to refer to *auto*covariance is that we are considering the covariance of $S$ with itself (with a certain time lag $\tau$). If the covariance of $S$ with the time series of another variable, $X$, would be considered, this is referred to as the *cross*-covariance. 
 ```
 
 The *formal* autocorrelation is defined as
