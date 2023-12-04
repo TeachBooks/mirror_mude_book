@@ -191,6 +191,8 @@ parts:
         - file: time_series/exercise4.ipynb
       - file: time_series/arma
         title: "AutoRegressive Moving Average (ARMA) process"
+        sections:
+        - file: time_series/exercise5.ipynb
       - file: time_series/forecasting
         title: "Time Series forecasting"
       - file: time_series/optional
