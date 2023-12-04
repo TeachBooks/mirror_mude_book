@@ -35,9 +35,9 @@ $$\Sigma_{\hat{Y_p}}=\mathrm{A}_p\Sigma_{\hat{X}}\mathrm{A}_p^T+\Sigma_{Y_p Y}\S
 
 After estimating the ARMA process parameters $\hat{\beta}_i,i=1,...,p$ and $\hat{\theta}_i,i=1,...,q$ they can be used to predict future values. The following expression on a zero-mean ARMA can then be used:
 
-MMMMM Needs clarification! Should it be $\hat{\epsilon}$?? And is $\hat{Y}_{t|t-1}= \hat{Y}_N$?
+%MMMMM Needs clarification! Should it be $\hat{\epsilon}$?? And is $\hat{Y}_{t|t-1}= \hat{Y}_N$?
 
-MMMMM The $\epsilon$ here is not the same as the $\epsilon$ in the model at start of chapter (here it is only random errors, above it includes stochastic process)
+%MMMMM The $\epsilon$ here is not the same as the $\epsilon$ in the model at start of chapter (here it is only random errors, above it includes stochastic process)
 
 $$\hat{Y}_{t|t-1}=\hat{\beta}_1Y_{t-1}+...+\hat{\beta}_pY_{t-p}+\hat{\theta}_1\epsilon_{t-1}+...+\hat{\theta}_q\epsilon_{t-q}$$
 

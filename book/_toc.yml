@@ -187,9 +187,9 @@ parts:
         - file: time_series/exercise2.ipynb
       - file: time_series/acf
         title: "Autocovariance function (ACF)"
-    # START REMOVE-FROM-PUBLISH
       - file: time_series/arma
         title: "AutoRegressive Moving Average (ARMA) process"
+    # START REMOVE-FROM-PUBLISH
       - file: time_series/forecasting
         title: "Time Series forecasting"
       - file: time_series/optional
