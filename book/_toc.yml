@@ -179,17 +179,17 @@ parts:
         title: "Types of Time Series"
       - file: time_series/modelling
         title: "Time Series modelling and estimation"
+        sections:
+        - file: time_series/exercise3.ipynb
       - file: time_series/stationarity
         title: "Stationarity"
         sections:
         - file: time_series/exercise2.ipynb
       - file: time_series/acf
         title: "Autocovariance function (ACF)"
-    # START REMOVE-FROM-PUBLISH
       - file: time_series/arma
         title: "AutoRegressive Moving Average (ARMA) process"
-        sections:
-        - file: time_series/exercise3.ipynb
+    # START REMOVE-FROM-PUBLISH
       - file: time_series/forecasting
         title: "Time Series forecasting"
       - file: time_series/optional
