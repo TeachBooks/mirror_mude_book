@@ -1,3 +1,4 @@
+(Bernoulli)=
 # Bernoulli and Binomial
 
 > Bernoulli processes and the Binomial distribution: do I need to study for my probability exam?
