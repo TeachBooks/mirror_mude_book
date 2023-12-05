@@ -197,6 +197,7 @@ parts:
         title: "Time Series forecasting"
       - file: time_series/optional
         title: "Supplementary material"
+  
       # START REMOVE-FROM-PUBLISH
       - file: time_series/notebook
         title: Notebook
@@ -220,6 +221,48 @@ parts:
         - file: optimization/airlines.ipynb
         - file: optimization/airlines_performance.ipynb
         - file: optimization/performance_generic_LP.ipynb
+        - file: eva_7/intro.md
+      
+      title: Extreme Value Analysis
+      sections:
+      - file: eva_7/extreme.md
+        title: Concept of Extreme
+        sections:
+        - file: eva_7/RT.md
+          title: Return period
+        - file: eva_7/sampling.md
+          title: Sampling extremes
+      - file: eva_7/BM_GEV.md
+        title: Block Maxima & GEV
+        sections:
+        - file: eva_7/BM.md
+          title: Block Maxima
+        - file: eva_7/Asymptotic.md
+          title: Asymptotic theorem
+        - file: eva_7/GEV.md
+          title: GEV distribution
+        - file: eva_7/RP_binomial.md
+          title: RT & Design Life
+      - file: eva_7/POT_GPD.md
+        title: POT & GPD
+        sections:
+        - file: eva_7/POT.md
+          title: Peak Over Threshold
+        - file: eva_7/Threshold.md
+          title: Parameters selection
+        - file: eva_7/GPD.md
+          title: Intro to GPD
+        - file: eva_7/GPD2.md
+          title: Practicalities for GPD
+        - file: eva_7/RP_Poisson.md
+          title: Revisiting RT
+      - file: extra.md
+        title: Extra material
+        sections:
+        - file: Bernoulli.md
+        - file: Poisson.md
+        - file: videos.md
+          title: EVA videos 
 
   - caption: Machine Learning
     numbered: 2
