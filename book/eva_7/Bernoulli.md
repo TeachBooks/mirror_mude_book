@@ -35,7 +35,7 @@ The student loved the probability course and she doesn't mind retaking it, but s
 
 The student knows that needs the probability of success, $p$, since she remembers from the probability lectures that it is a Bernoulli process. Thus, she performs a survey to other students from previous courses. 50 students admitted not studying for a probability exam and 2 of them passed it. Then, she determines the success probability as $p = 2/50  = 0.04$.
 
-<p><span style="color:rgb(100, 149, 237)"><b>And now?</b></span></p>
+**And now?**
 
 Let's go step by step. Considering that the outcomes (passing each exam) are independent, the probability of having two successes and a failure is $p^2(1-p)$. However, there are three different sequences which may lead to that situation and have the same joint probability: passing the first two exams, passing the first and the third exam or passing the last two exams. Hence, the probability of two successes and one failure in three trials can be obtained from the addition rule[^addition] as follows:
 
