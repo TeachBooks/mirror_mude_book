@@ -221,8 +221,8 @@ parts:
         - file: optimization/airlines.ipynb
         - file: optimization/airlines_performance.ipynb
         - file: optimization/performance_generic_LP.ipynb
-        - file: eva_7/intro.md
       
+    - file: eva_7/intro.md
       title: Extreme Value Analysis
       sections:
       - file: eva_7/extreme.md
