@@ -256,7 +256,7 @@ parts:
           title: Practicalities for GPD
         - file: eva_7/RP_Poisson.md
           title: Revisiting RT
-      - file: extra.md
+      - file: eva_7/extra.md
         title: Extra material
         sections:
         - file: Bernoulli.md
