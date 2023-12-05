@@ -1,6 +1,6 @@
 # SIMPLEX method
 
-The SIMPLEX method has been created to automate solving the augmented form in a mathematical way. Consider the following optimization problem:
+The SIMPLEX method has been created to automate the solving of the augmented form of a linear programing problem with continuous variables. Consider the following optimization problem:
 
 $$\text{Max }L=57x_1+60x_2$$
 
@@ -16,7 +16,7 @@ The feasible solution space of the problem is defined by all the constraints. We
 
 A basic solution to this problem will have three variables different from zero (named basic variables), one for each constraint (ignore the domain constraints for this), and two that must be non-zero (non-basic). You will see how these match the vertices of the feasible region polygon.
 
-From the three equations, one obvious apparent basic solution is $s_1=40$, $s_2=40$, $s_3=200$, with $x_1=0$ and $x_2=0$. A basic variable can be recognized in its contraint because it has a positive unitary coefficient in its constraint and it does not appear (has 0 coefficient) in the other constraints.
+From the three equations, one obvious apparent basic solution is $s_1=40$, $s_2=40$, $s_3=200$, with $x_1=0$ and $x_2=0$. A basic variable can be recognized in its contraint because it has a positive unitary coefficient in its constraint (+1) and it does not appear (has 0 coefficient) in the other constraints.
 
 ![sand_clay_1](./figs/sand_clay_1.png)
 
@@ -84,14 +84,14 @@ Therefore, in our problem it will be $x_2$.
 
 **And how to choose the variable to leave the basis?**
 
-The variable to leave the basis is the one whose quotient between the independent coefficient of the constraint (meaning the same line) under the variable that will enter in the basis is the lowest positive number including zero (this does not depend on being a maximization or minimization problem).
+The variable to leave the basis is the one whose quotient between the independent coefficient of the constraint (meaning the same line) under the variable that will enter in the basis is the lowest positive number including zero (this does not depend on being a maximization or minimization problem at all).
 
 ```{note}
 
-There are, however, two special cases:
+Two special cases exist often:
 
-* if the coefficient of the entering basic variable is zero: enter *no limit* in the minimum ratio test column
-* if the coefficient of the entering basic variable is negative: enter *no limit* in the minimum ratio test column
+* if the coefficient of the entering basic variable is zero: enter *no limit* in the minimum ratio test column. That is not a candidate.
+* if the coefficient of the entering basic variable is negative: enter *no limit* in the minimum ratio test column. This is not a candidate.
 
 ```
 ![sand_clay_6](./figs/sand_clay_6.png)
@@ -132,7 +132,7 @@ Now we just need to check if the solution we have just obtained is optimal and, 
 
 ## Summary
 
-The SIMPLEX method can be simplified and the whole workflow behind it is shown in the scheme below:
+The SIMPLEX workflow is shown in the scheme below:
 
 ![sand_clay_14](./figs/sand_clay_14.png)
 
