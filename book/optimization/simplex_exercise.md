@@ -8,6 +8,8 @@ such that
 
 $$\begin{cases}2{x_1} + {x_2} \le 4 \\{x_1} + 2{x_2} \le 4 \\{x_1} + {x_2} \le 5 \\{x_1},{x_2} \ge 0 \end{cases}$$ 
 
+## Task 1
+
 Transform the problem into the augmented form
 
 ```{admonition} Solution
@@ -21,8 +23,11 @@ $$\begin{cases}2{x_1} + {x_2} + s_1 = 4\\{x_1} + 2{x_2} + s_2 = 4 \\{x_1} + {x_2
 
 ```
 
+## Task 2
+
 <iframe src="https://tudelft.h5p.com/content/1292131432784432037/embed" aria-label="Simplex exercise" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
 
+## Task 3
 Why is your final table the optimal solution?
 
 ```{admonition} Solution
@@ -31,7 +36,7 @@ Why is your final table the optimal solution?
 This is the optimal solution because all the coefficients are positive in the row of the objective function and this is a maximization problem.
 
 ```
-
+## Task 4
 Find the graphical solution of this problem. Does it give the same solution as using the Simplex method?
 
 ````{admonition} Solution
