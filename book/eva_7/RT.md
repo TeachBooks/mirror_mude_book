@@ -1,6 +1,8 @@
 
 # Return Period
 
+> But how extreme do I need to be my design conditions to be? 
+
 The Return Period ($RT$) is a widely used concept in guidelines and recommendations in the Engineering and Geosciences field to parameterize the safety level that a given structure or intervention needs to fulfill. Structures are designed to withstand external loadings (e.g.: floods or wave storms) whose distribution function is quantified using Extreme Value Analysis. The magnitude of the extreme event that the structure needs to withstand is then determined according to a given $RT$.
 
 ## Concept of return period
