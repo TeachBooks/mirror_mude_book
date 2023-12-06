@@ -1,4 +1,4 @@
-# Exercise 2: cargo airplane
+# Exercise 2: Cargo airplane
 
 ## Original problem
 A cargo airplane has three compartments for storing freight: Front, central and rear. Each one of those compartments has the following limitations in weight and space:
