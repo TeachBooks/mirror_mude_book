@@ -48,12 +48,12 @@ Histograms of the random samples and their maxima.
 ## In pseudo code
 If you want to repeat that analysis yourself, you can do it implementing the following pseudo code.
 
-    mu = 6
-    sd = 1
+    mean = 6
+    standard deviation = 1
     N = 30
     for i in range(100):
-        x[:,i] = normal.random(mu, sd, N)
-        x_max[i] = max(x[:,i])
+        x[i] = N normal samples with mean and standard deviation
+        x_max[i] = maximum in x[i]
     end
 
     plot histogram(x), histogram(x_max)
