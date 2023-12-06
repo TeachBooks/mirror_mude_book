@@ -1,4 +1,4 @@
-# Exercise
+# Exercise 1
 
 Consider the following problem:
 
