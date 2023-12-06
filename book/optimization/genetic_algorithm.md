@@ -169,7 +169,13 @@ The algorithm stops after it has used a certain amount of computational resource
 Each individual’s probability of being selected is proportional to its fitness, such that
 
 $$
-⁍
+p_i = \cfrac{f_i}{\sum\limits_{j = 1}^N {{f_j}}}
+$$
+
+with
+
+$$
+f = 3x_1+4x_2+3x_3+x_4+5x_5+2x_6
 $$
 
 In the example shown above, we would have:
