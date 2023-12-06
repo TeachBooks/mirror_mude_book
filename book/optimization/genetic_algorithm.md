@@ -113,7 +113,8 @@ In genetic algorithms, potential solutions to problems are encoded as a series o
 
 In genetic algorithms, a **chromosome** represents a potential solution. It is a specific instance of encoding!
 
-```{note} Example:
+```{admonition} Example
+:class: tip
 
 Suppose we have an optimization problem given by
 
@@ -129,6 +130,8 @@ Assuming a potential solution given by $\{x_1,x_2,x_3,x_4,x_5,x_6\}=\{1,1,0,0,0,
 
 **Random generation**
 
+Random generation of four chromosomes for our example problem might give:
+
 | 0 | 1 | 1 | 0 | 1 | 0 |
 
 | 1 | 1 | 0 | 1 | 0 | 0 |
@@ -136,6 +139,8 @@ Assuming a potential solution given by $\{x_1,x_2,x_3,x_4,x_5,x_6\}=\{1,1,0,0,0,
 | 1 | 0 | 0 | 1 | 0 | 0 |
 
 | 0 | 1 | 1 | 0 | 0 | 0 |
+
+showing the values for $\{x_1,x_2,x_3,x_4,x_5,x_6\}$
 
 ### Fitness assessment
 
