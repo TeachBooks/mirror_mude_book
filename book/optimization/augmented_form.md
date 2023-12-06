@@ -2,7 +2,7 @@
 
 In the augmented form of a mathematical program:
 
-* All the constraints must be equations
+* All the constraints must be equations (equality sign)
 * The independent term must always be positive
 * All the variables must be positive defined
 * The objective function can be of type maximization or minimization
@@ -29,7 +29,7 @@ and with $x_j\geq 0$ $(j=1,2,...,n)$ and $b_i\geq 0$ $(i=1,2,...,m)$. $n$ here i
 
 ### But what if you have an inequality as a constraint?
 
-To solve those kind of situations you introduce a **slack variable**, let us say $s_1$, that will convert your constraint in an equality:
+To solve those kind of situations you introduce a **slack variable**, let us say $s_1$, that will convert your constraint into an equality:
 
 $$a_{11}x_1+a_{12}x_2+...+a_{1n}x_n\leq b_1 \to \underbrace{a_{11}x_1+a_{12}x_2+...+a_{1n}x_n}_{\text{consumption of a resource}}+\overbrace{s_1}^{\text{available resources which were not consumed}}=\underbrace{b_1}_{\text{available resources}}$$
 
@@ -37,13 +37,13 @@ If, on the other hand, instead of $\leq$ we have an inequality dictated by $\geq
 
 $$a_{11}x_1+a_{12}x_2+...+a_{1n}x_n\geq b_1 \to \underbrace{a_{11}x_1+a_{12}x_2+...+a_{1n}x_n}_{\text{expression of consumption}}-\overbrace{s_1}^{\text{resources consumed above the minimum limit (surplus variable)}}=\underbrace{b_1}_{\text{minimum number to consume}}$$
 
-### But what if we have negative independent coefficients?
+### But what if we have a negative independent coefficients?
 
 Transform the negative independent coefficients into positive ones:
 
 $$a_{11}x_1+a_{12}x_2+...+a_{1n}x_n=-b_1 \to -a_{11}x_1-a_{12}x_2-...-a_{1n}x_n=b_1$$
 
-### And what if we have negative variables?
+### And what if we have variables that can take negative values?
 
 $$x_2\leq 0 \to x_2=-x'_2 (x_2'\geq 0)$$
 

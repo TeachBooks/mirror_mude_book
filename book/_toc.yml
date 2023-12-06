@@ -213,7 +213,11 @@ parts:
       - file: optimization/sand_and_clay_simplex
         sections:
         - file: optimization/simplex_exercise
+        - file: optimization/airplane_exercise
+          sections:
+          - file: optimization/airplane_original.ipynb
       - file: optimization/integer_programming
+      - file: optimization/some_constraints
       - file: optimization/genetic_algorithm
       - file: optimization/performance
         sections:
