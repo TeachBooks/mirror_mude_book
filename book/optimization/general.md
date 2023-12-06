@@ -67,6 +67,8 @@ In this section, you can find a few examples of optimization problems with their
 <div style="display: block; justify-content: space-between;">
   <img src="./figs/ex_norway.png" style="width: 95%;">
 </div>
+
+This example is taken from CME4500 Engineering Systems Optimization, final project by Justus Aulbers, Ola Åsbø & Illias Timori  ​
 ```
 
 ```{admonition} Example 2 - Optimizing the renewable energy configuration for a completely self-sustaining energy system in the Ijsselmeer area in 2050
@@ -77,6 +79,8 @@ In this section, you can find a few examples of optimization problems with their
 <div style="display: block; justify-content: space-between;">
   <img src="./figs/ex_2.png" style="width: 75%;">
 </div>
+
+This example is taken from CME4500 Engineering Systems Optimization, final project​ by Max Driessen & Himanshu Patel ​
 ```
 
 ```{admonition} Example 3 - Optimization of electric vehicles charging station locations
@@ -87,6 +91,8 @@ In this section, you can find a few examples of optimization problems with their
 <div style="display: block; justify-content: space-between;">
   <img src="./figs/ex_3.png" style="width: 75%;">
 </div>
+
+This example is taken from CME4500 Engineering Systems Optimization, final project by Tomas Raaphorst & Vitali van Elk ​​
 ```
 
 ```{admonition} Example 4 - Optimizing the location of new electric vehicle charging stations
@@ -98,6 +104,7 @@ In this section, you can find a few examples of optimization problems with their
   <img src="./figs/ex_4_1.png" style="width: 55%;">
   <img src="./figs/ex_4_2.png" style="width: 40%;">
 </div>
+This example is taken from the MSc Thesis of Dawei Fu​.
 ```
 
 ```{admonition} Example 5 - Optimizing monocoque FRP bridges
@@ -108,6 +115,7 @@ In this section, you can find a few examples of optimization problems with their
 <div style="display: block; justify-content: space-between;">
   <img src="./figs/ex_5.png" style="width: 85%;">
 </div>
+This example is taken from the MSc Thesis of Ola Åsbø
 ```
 
 ```{admonition} Example 6 - Optimal component level construction schedule
@@ -118,6 +126,7 @@ In this section, you can find a few examples of optimization problems with their
 <div style="display: block; justify-content: space-between;">
   <img src="./figs/ex_6.png" style="width: 75%;">
 </div>
+This example is taken from the MSc Thesis of Xinzhi Jiang ​
 ```
 
 ```{admonition} Example 7 - Optimizing the location of shared mobility hubs
@@ -128,6 +137,7 @@ In this section, you can find a few examples of optimization problems with their
 <div style="display: block; justify-content: space-between;">
   <img src="./figs/ex_7.png" style="width: 75%;">
 </div>
+This example is taken from the MSc thesis ​of Stavros Xanthopoulos
 ```
 
 ```{admonition} Example 8 - Designing road networks for automated vehicles
@@ -139,7 +149,7 @@ In this section, you can find a few examples of optimization problems with their
   <img src="./figs/ex_8.png" style="width: 95%;">
   <img src="./figs/ex_8_2.png" style="width: 95%;">
 </div>
-
+This example is taken from the PhD thesis ​of Bahman Madadi​
 ```
 
 ### What is included under the concept of optimization?
