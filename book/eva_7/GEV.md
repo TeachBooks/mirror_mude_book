@@ -15,7 +15,7 @@ $
 G(x) = exp{-[1+\xi \frac{x-\mu}{\sigma}]^{-1/\xi}}  \hspace{1cm} (1+\xi \frac{x-\mu}{\sigma})>0
 $
 
-where $-\infty < \mu < \infty$ is the location parameter, $\sigma > 0$ is the scale parameter, and $-\infty < \xi < \infty$ is the shape parameter. Let's see the effect of these parameters the distribution function.
+where $-\infty < \mu < \infty$ is the location parameter, $\sigma > 0$ is the scale parameter, and $-\infty < \xi < \infty$ is the shape parameter. Let's see the effect of these parameters on the distribution function.
 
 In the figure below, you can see the effect of the location parameter, $\mu$. A higher value of $\mu$ leads to a shift towards the right.
 
@@ -61,12 +61,17 @@ Tail behavior of GEV distribution.
 
 We said that we can prove that for large $n$ the cumulative distribution function of the values sampled using Block Maxima tend to the Generalized Extreme Value (GEV) family of distributions, regardless the distribution of the $X$ (parent ditribution). However, we can identify domains of attraction between the parent distributions and the type of GEV or asymptotic type.
 
-```{figure} ../figures/EVA/GEV_parent.png
+```{list-table}
+:header-rows: 1
 
----
-
----
-Domains of attraction for GEV.
+* - Parent Distribution
+  - Asymptotic type maximum 
+* - Normal, Exponential, Gamma, Lognormal, Weibull
+  - Gumbel
+* - Pareto, Cauchy, Student-t (fat tail)
+  - Fréchet
+* - Uniform, Beta (short tail)
+  - Reverse Weibull
 ```
 
 ## Let's apply it!
@@ -75,18 +80,18 @@ Now that you are familiar with the GEV, we can perform the whole EVA process usi
 
     read observations 
 
-    for each year i:
-        obs_max[i] = max(observations in year i) 
+    for each year:
+        max observations = maximum observation in year 
     end
 
-    fit GEV(obs_max)
+    fit GEV(max observations)
 
     check fit (e.g., QQ-plot or Kolmogorov-Smirnov test)
 
     inverse GEV to determine the design event
 
 
-Let's see it now step by step applied to our data. First, we fit a GEV using MLE to our 20 sampled extremes using Yearly Maxima.
+Let's see it now step by step applied to our data. First, we fit a GEV using Maximum Loglikelihood Estimator to our 20 sampled extremes using Yearly Maxima.
 
 ```{figure} ../figures/EVA/GEV_fit.png
 
