@@ -7,25 +7,25 @@
 
 ![Untitled](./figs/Untitled.png)
 
-Exact optimization approaches basically **guarantees to find the optimal solution** to a problem!
+Exact optimization approaches basically guarantees to find the optimal solution to a problem!
 
 ### Computation complexity
 
-These methods can be **time-consuming and computationally expensive**, especially for large, complex problems. Many exact algorithms have exponential time complexity.
+These methods can be time-consuming and computationally expensive, especially for large, complex problems. Many exact algorithms have exponential time complexity.
 
 ![Untitled](./figs/Untitled_1.png)
 
-A large number of real-life optimization problems in science, engineering, economics, and business are complex and difficult to solve. They cannot be solved in **an exact manner** within a **reasonable amount** of time. 
+A large number of real-life optimization problems in science, engineering, economics, and business are complex and difficult to solve. They cannot be solved in an exact manner within a reasonable amount of time. 
 
-Using approximate algorithms is the main alternative to solve this class of problems.
+Consequently, the use of meta-heuristic algorithms, a form of approximate techniques, serves as the main alternative for solving such complex optimization problems.
 
 ## (Meta-)Heuristic optimization approach
 
-A (meta-)heuristic approach is a procedure that determines **near-optimal** solutions to an optimization problem.
+A (meta-)heuristic approach is a procedure that determines near-optimal solutions to an optimization problem.
 
 ![Untitled](./figs/Untitled_2.png)
 
-Metaheuristics represents a family of approximate optimization techniques. They provide “acceptable” solutions in a reasonable time for solving hard and complex problems in science and engineering.
+Metaheuristics represents a family of approximate optimization techniques. They provide “acceptable” solutions in a reasonable time for solving hard and complex problems in science and engineering. Generally, metaheuristics can be classified into Single-solution based meta-heuristics and Population based meta-heuristics. Evolutionary algorithm is a kind of population based meta-heuristics.
 
 ![Untitled](./figs/Untitled_3.png)
 
@@ -69,7 +69,7 @@ $$
 
 **Reproduction - crossover**
 
-Next we apply the crossover process, where we choose the two $x$ values with the best fitness function and we produce an **offspring**:
+Next we apply the crossover process, where we choose the two $x$ values with the best fitness function and we produce an offspring:
 
 $$
 \begin{cases}x_2=-1.5\\x_5=2.2\end{cases}\implies x=\frac{x_2+x_5}{2}=0.35
@@ -111,7 +111,7 @@ In genetic algorithms, potential solutions to problems are encoded as a series o
 
 **Chromosome**
 
-In genetic algorithms, a **chromosome** represents a potential solution. It is a specific instance of encoding!
+In genetic algorithms, a chromosome represents a potential solution. It is a specific instance of encoding!
 
 ```{admonition} Example
 :class: tip
@@ -124,7 +124,7 @@ such that
 
 $\begin{cases}x_1+x_2+x_3\leq 2\\x_4+x_5+x_6\leq 1\\x_1,x_2,x_3,x_4,x_5,x_6=\{0,1\}\end{cases}$
 
-Assuming a potential solution given by $\{x_1,x_2,x_3,x_4,x_5,x_6\}=\{1,1,0,0,0,1\}$ and encoding it also represents a specific chromosome.
+Assuming a potential solution given by $\{x_1,x_2,x_3,x_4,x_5,x_6\}=\{1,1,0,0,0,1\}$. Encoding here is: | 1 | 1 | 0 | 0 | 0 | 1 |. This also represents a specific chromosome.
 
 ```
 
