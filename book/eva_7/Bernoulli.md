@@ -1,11 +1,11 @@
 (Bernoulli)=
 # Bernoulli and Binomial
 
-> Bernoulli processes and the Binomial distribution: do I need to study for my probability exam?
+> Bernoulli processes and the Binomial distribution: why is this relevant?
 
 Extreme value analysis and the study of extremes has a foundational basis in the theory of Bernoulli processes and the Bernoulli and Binomial distributions.
 
-## Bernoulli trials and Bernoulli process
+## Bernoulli trials and Bernoulli process: do I need to study for my probability exam?
 
 One student wants to know if she will pass her favourite course (of course, probability) without studying. Thus, she has the simplest possible experiment: one trial with two possible outcomes, pass (success!) and not pass (usually called failure). Note that they are mutually exclusive (if you pass, you haven't failed) and collectively exhaustive (there's no third possible outcome from the experiment). The results from such a trial are a two-sided Bernoulli random variable and, thus, the distribution of probabilities of the two outcomes is a Bernoulli distribution. The **Bernoulli distribution** is a discrete distribution function whose probability mass function (pmf) is given by
 
@@ -16,9 +16,9 @@ $
 p_X(x) = P[X=x|p] = 0       \hspace{2.7cm}          otherwise
 $
 
-where $p$ is the probability of success ($x = 1$), and $x = 0 \ and \ 1$ are the possible outcomes.
+where $p$ is the probability of success ($x = 1$), and $x = 0 \ and \ 1$ are the possible outcomes. This is, $p(success)=p$.
 
-Imagine that the student is not studying and wants to leave it to chance. She would have to take the course several times (several trials) and since she's not studying between trials, each trial would be independent (she's not learning from previous experiences). This will constitute what it's called a **Bernoulli process**.
+Imagine that the student is not studying and wants to leave it to chance. She would have to take the course several times (several trials) and since she is not studying between trials, each trial would be independent (she is not learning from previous experiences). This will constitute what it's called a **Bernoulli process**.
 
 ```{admonition} Bernoulli process criteria
 :class: tip
@@ -31,40 +31,40 @@ The governing criteria for a Bernoulli process are:
 
 ## Binomial distribution
 
-The student loved the probability course and she doesn't mind retaking it, but since she doesn't want to delay her graduation, she needs to pass the course in the current year. In the course, there are three exams and needs to pass at least two of them. Therefore, she is interested in determining the probability of passing two exams without studying in 3 trials.
+The student loved the probability course and she doesn't mind retaking it, but since she doesn't want to delay her graduation, she needs to pass the course in the current year. In the course, there are three exams and needs to pass at least two of them. Therefore, she is interested in determining the probability of passing two exams out of the three without studying.
 
-The student knows that needs the probability of success, $p$, since she remembers from the probability lectures that it is a Bernoulli process. Thus, she performs a survey to other students from previous courses. 50 students admitted not studying for a probability exam and 2 of them passed it. Then, she determines the success probability as $p = 2/50  = 0.04$.
+The student knows that needs to know the probability of success, $p$, since she remembers from the probability lectures that it is a Bernoulli process. Thus, she performs a survey to other students from previous courses. 50 students admitted not studying for a probability exam and 2 of them passed it. Then, she determines the success probability as $p = 2/50  = 0.04$.
 
 **And now?**
 
-Let's go step by step. Considering that the outcomes (passing each exam) are independent, the probability of having two successes and a failure is $p^2(1-p)$. However, there are three different sequences which may lead to that situation and have the same joint probability: passing the first two exams, passing the first and the third exam or passing the last two exams. Hence, the probability of two successes and one failure in three trials can be obtained from the addition rule[^addition] as follows:
+Let's go step by step. Considering that the exam's outcomes (failure/success) are independent, the probability of having two successes and one failure is $p^2(1-p)$ (remember that events are independent!). However, there are three different sequences which may lead to that situation: passing the first two exams, passing the first and the third exam or passing the last two exams. Hence, the probability of two successes and one failure in three trials can be obtained from the addition rule[^addition] as follows:
 
 $
-p_X(2)=P[X=2|3, p]=\binom{3}{2}p^2(1-p)^{3-2}=\frac{3!}{2!(3-2)!}p^2(1-p)=3p^2(1-p)
+p_Y(2)=P[Y=2|3, p]=\binom{3}{2}p^2(1-p)^{3-2}=\frac{3!}{2!(3-2)!}p^2(1-p)=3p^2(1-p)
 $
 
 which is the pmf of the **Binomial distribution**. Thus, we went from the **Bernoulli** distribution to the **Binomial** distribution. The pmf of the Binomial distribution is then defined as
 
 $
-p_X(x) = P[X=x|n, p] = \binom{n}{x}p^x(1-p)^{n-x}  \hspace{1cm}  for \ x = 0, 1, ..., n; \ p \in [0,1]$
+p_Y(y) = P[Y=y|n, p] = \binom{n}{x}p^x(1-p)^{n-x}  \hspace{1cm}  for \ y = 0, 1, ..., n; \ p \in [0,1]$
 
 $
-p_X(x) = P[X=x|n, p] = 0       \hspace{3.3cm}          otherwise
+p_Y(y) = P[Y=y|n, p] = 0       \hspace{3.3cm}          otherwise
 $
 
 where
 
 $
-\binom{n}{x} = \frac{n!}{x!(n-x)!}
+\binom{n}{y} = \frac{n!}{x!(n-y)!}
 $
 
-which is the total number of possible combinations when selecting x successes from n trials. Thus, in our example, the random variable X represents the number of successes in n trials follows a Binomial distribution with parameters $p$ (probability of success) and $n$ (number of trials). The cumulative distribution function (cdf) of a Binomial distribution is given by
+which is the total number of possible combinations when selecting y successes from n trials. Thus, in our example, the random variable Y represents the number of successes in n trials and follows a Binomial distribution with parameters $p$ (probability of success) and $n$ (number of trials). The cumulative distribution function (cdf) of a Binomial distribution is given by
 
 $
-F_X(x) = \sum_{k=0}^x\binom{n}{x}p^k(1-p)^{n-k}
+F_Y(y) = \sum_{k=0}^x\binom{n}{y}p^k(1-p)^{n-k}
 $
 
-Note that the maximum value of the cdf is reached for $X = n$.
+Note that the maximum value of the cdf is reached for $Y = n$.
 
 ```{admonition} Binomial-distributed variable
 :class: tip
@@ -79,7 +79,7 @@ The conditions for a random variable to follow a Binomial distribution are:
 
 Finally, **let's answer the student questions**. Applying the Binomial distribution: 
 $
-p_X(x) = P[X=2|3, 0.04] = \binom{3}{2}p^2(1-p)^{3-2} \approx 0.005
+p_Y(y) = P[Y=2|3, 0.04] = \binom{3}{2}p^2(1-p)^{3-2} \approx 0.005
 $
 
 Sadly, there is a very low chance that the student can make it without studying! However, now she knows Bernoulli processes and Binomial distribution and that for sure increases the chances of passing!
