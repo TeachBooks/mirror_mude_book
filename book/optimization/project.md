@@ -56,39 +56,39 @@ The first is the number of total cars passing on that road, and the second is th
 
 Therefore, mathematically we define the domain of the variables as follows:
 
-\begin{align}
+$$\begin{align}
   & y_{ij} \in \{0, 1\} \quad \forall (i,j) \in A \\
   & x_{ij} \geq 0 \quad \forall (i,j) \in A \\
   & x_{ijs} \geq 0 \quad \forall (i,j) \in A, \forall s \in D \\
-\end{align}
+\end{align}$$
 
 ### Objective function
 
 The objective function of the problem (in its simplest form), is the minimization of the total travel time on the network, that means that you multiply the flow of vehicles in each link by the corresponding travel time and sum over all links (A is the collection of all links to simplify the notation):
 
-$Z = \sum_{(i,j) \in A}{ x_{ij} . t_{ij}} $
+$$Z = \sum_{(i,j) \in A}{ x_{ij} . t_{ij}} $$
 
 The travel time $t_{ij}$ is a function of the flow on a link and can be expressed as follows (where beta is a parameter):
 
-$ t_{ij} = t^0_{ij} . ( 1 + \beta (x_{ij}/c_{ij}))  \quad \forall (i,j) \in A  $
+$$ t_{ij} = t^0_{ij} . ( 1 + \beta (x_{ij}/c_{ij}))  \quad \forall (i,j) \in A  $$
 
 (Note that the commonly used travel time function based on the Bureau of Public Roads (BPR) is as follows:
 
-$ t_{ij} = t^0_{ij} . ( 1 + \alpha (x_{ij}/c_{ij})^\beta)  \quad \forall (i,j) \in A  $
+$$ t_{ij} = t^0_{ij} . ( 1 + \alpha (x_{ij}/c_{ij})^\beta)  \quad \forall (i,j) \in A  $$
 
 Where $\beta$ usually assumes the value of $4$ making this function (and the problem) non-linear. Therefore, we use the linear function mentioned before to make the problem manageable using what we have learned so far.)
 
 The following constraint yields the capacity of each link based on which ones are selected for expansion, when y is 1 there is added capacity as you can see:
 
-$ c_{ij} = (1 - y_{ij}) . c^0_{ij} +  y_{ij} . c^1_{ij}  \quad \forall (i,j) \in A   $
+$$ c_{ij} = (1 - y_{ij}) . c^0_{ij} +  y_{ij} . c^1_{ij}  \quad \forall (i,j) \in A   $$
 
 This allows us to represent $t_{ij}$ as:
 
-$ t_{ij} = t^0_{ij} . ( 1 + \beta (x_{ij} * ((1 - y_{ij})/c^0_{ij} +  y_{ij}/c^1_{ij} )))  \quad \forall (i,j) \in A  $
+$$ t_{ij} = t^0_{ij} . ( 1 + \beta (x_{ij} * ((1 - y_{ij})/c^0_{ij} +  y_{ij}/c^1_{ij} )))  \quad \forall (i,j) \in A  $$
 
 Which leads to the following extended objective funtion:
 
-$ Z = \sum_{(i,j) \in A}{ x_{ij} . (t^0_{ij} . ( 1 + \beta (x_{ij} * ((1 - y_{ij})/c^0_{ij} +  y_{ij}/c^1_{ij} ))))} $
+$$ Z = \sum_{(i,j) \in A}{ x_{ij} . (t^0_{ij} . ( 1 + \beta (x_{ij} * ((1 - y_{ij})/c^0_{ij} +  y_{ij}/c^1_{ij} ))))} $$
 
 Now, for gurobi (and other solvers as well), we have to keep binary variables and quadratic terms clean and separate so that it can perform the required transformations to linearize the problem. Therefore, the equation below, despite being very big, would be the most solver-friendly formulation of our objective function:
 
@@ -105,16 +105,17 @@ We have four sets of constraints for this problem. Let's go through them one by 
 #### 1. Budget constraint
 We can only extend the capacity of certain number of links based on the available budget. So first, we have to make sure to limit the number of extended links to the max number that can be expanded:
 
-$ \sum_{(i,j) \in A}{ y_{ij}} = B $
+$$ \sum_{(i,j) \in A}{ y_{ij}} = B $$
 
 #### 2. Link flow conservation constraints
 We have two sets of decision variables representing link flows; $x_{ij}$, representing flow on link $(i,j)$, and $x_{ijs}$, representing flow on link $(i,j)$ going to destination $s$. So we have to make sure that the sum of the flows over all destinations equals the flow on each link.
-$ \sum_{s \in D}{x_{ijs}} = x_{ij} \quad \forall (i,j) \in A $
+
+$$ \sum_{s \in D}{x_{ijs}} = x_{ij} \quad \forall (i,j) \in A $$
 
 #### 3. Node flow conservation constraints
 The basic idea of this constraint set is to make sure that the incoming and outgoing flow to and from each node is the same (hence flow conservation) with the exception for origin and destination nodes of the trips where there will be extra outgoing flow (origins) or incoming flow (destinations). Think about a traffic intersection, vehicles enter and leave the intersetion when they are moving in the network. This assures the continuity of the vehicle paths.
 
-$ \sum_{j \in N; (i,j) \in A}{ x_{ijs}} - \sum_{j \in N; (j,i) \in A}{ x_{jis}} = d_{is} \quad \forall i \in N, \forall s \in D $
+$$ \sum_{j \in N; (i,j) \in A}{ x_{ijs}} - \sum_{j \in N; (j,i) \in A}{ x_{jis}} = d_{is} \quad \forall i \in N, \forall s \in D $$
 
 #### 4. Quadratic variable constraints (you do not need to fully understand this)
 These are basically dummy equations to help gurobi model quadratic terms (that we defined as dummy variables earlier). So essentially instead of using $x^2_{ij}$ in the model, we define a new set of decision variables and define a set of constrains to set their value to $x^2_{ij}$. This let's Gurobi know these are quadratic terms and helps gurobi to replace it with variables and constraints required to keep the problem linear. This is not part of your learning goals! 
