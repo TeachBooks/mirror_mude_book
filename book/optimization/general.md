@@ -5,7 +5,7 @@ In general you have the following linear (simplest) structure for a mathematial 
 
 $$\underbrace{\text{Max (Min) }Z}_{\text{objective function}}=\underbrace{c_1x_1+c_2x_2+...+c_nx_n}_{\text{objective function coefficients}}$$
 
-this ojective function is subject to a set of constraints given by:
+this objective function is subject to a set of constraints given by:
 
 $$\begin{cases}a_{11}x_1+a_{12}x_2+...+a_{1n}x_n(\leq,=,\geq)b_1\\a_{21}x_1+a_{22}x_2+...+a_{2n}x_n(\leq,=,\geq)b_2\\...\\ a_{m1}x_1+a_{m2}x_2+...+a_{mn}x_n(\leq,=,\geq)b_m\end{cases}$$
 
