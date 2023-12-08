@@ -197,7 +197,6 @@ parts:
         title: "Time Series forecasting"
       - file: time_series/optional
         title: "Supplementary material"
-      # START REMOVE-FROM-PUBLISH
       - file: time_series/notebook
         title: Notebook
     - file: optimization/overview
@@ -228,7 +227,8 @@ parts:
         - file: optimization/airlines.ipynb
         - file: optimization/airlines_performance.ipynb
         - file: optimization/performance_generic_LP.ipynb
-
+  
+  # START REMOVE-FROM-PUBLISH
   - caption: Machine Learning
     numbered: 2
     chapters:
