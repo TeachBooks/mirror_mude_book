@@ -81,7 +81,7 @@ In a maximization problem, the current basic feasible solution is optimal if all
 
 | Basic Variables | $L$ | $x_1$ |$x_2$ | $s_1$ | $s_2$ | $s_3$ | $b$ |
 | :--- | ---- |---| ---| ---| ---| ---| ---: |
-| $L$ | $1$ | $\bold{-57}$ | $\bold{-60}$ | $0$ | $0$ | $0$ | $0$ |
+| $L$ | $1$ | $-57$ (negative) | $-60$ (negative) | $0$ | $0$ | $0$ | $0$ |
 | | || || | |  |
 | $s_1$ | $0$ | $8$ | $4$ | $1$ | $0$ | $0$ | $40$ |
 | $s_2$ | $0$ | $4$ | $5$ | $0$ | $1$ | $0$ | $40$ |
@@ -109,15 +109,13 @@ Two special cases exist often:
 
 ```
 
-| Basic Variables | $L$ | $x_1$ |$\bold{x_2}$ | $s_1$ | $s_2$ | $s_3$ | $b$ || $\Delta$|
+| Basic Variables | $L$ | $x_1$ |$x_2$ (variable to enter) | $s_1$ | $s_2$ | $s_3$ | $b$ || $\Delta$|
 | :--- | ---- |---| ---| ---| ---| ---|---|---| ---: |
-| $L$ | $1$ | $-57$ | $-60$ | $0$ | $0$ | $0$ | $0$ |||
+| $L$ | $1$ | $-57$ | $-60$ (most negative coefficient) | $0$ | $0$ | $0$ | $0$ |||
 | | || || | |  |||
 | $s_1$ | $0$ | $8$ | $4$ | $1$ | $0$ | $0$ | $40$ ||$10$|
-| $\bold{s_2}$ | $0$ | $4$ | $\bold{5}$ | $0$ | $1$ | $0$ | $40$ ||$8$|
-| $s_3$ | $0$ | $50$ | $13$ | $0$ | $0$ | $1$ | $200$ ||$200$|
-
-So $x_2$ is the variable to enter and $s_2$ the variable to leave.
+| $s_2$ (variable to leave) | $0$ | $4$ | $5$ (pivot) | $0$ | $1$ | $0$ | $40$ ||$8$ (lowest positive number)|
+| $s_3$ | $0$ | $50$ | $13$ | $0$ | $0$ | $1$ | $200$ ||$15.4$|
 
 
 Changing the system, our table will start looking like:
@@ -127,7 +125,7 @@ Changing the system, our table will start looking like:
 | $L$ | $1$ | $-9$ | $0$ | $0$ | $12$ | $0$ | $480$ |
 | | | | | | | | |
 | $s_1$ | $0$ | $4.8$ | $0$ | $1$ | $-0.8$ | $0$ | $8$ |
-| $x_2$ | $0$ | $0.8$ | $\bold{1}$ | $0$ | $0.2$ | $0$ | $8$ |
+| $x_2$ | $0$ | $0.8$ | $1$ (pivot) | $0$ | $0.2$ | $0$ | $8$ |
 | $s_3$ | $0$ | $39.6$ | $0$ | $0$ | $-2.6$ | $1$ | $96$ |
 
 And our current solution has $[s_1,x_2,s_3]=[8,8,96]$ as basic variables and $[x_1,s_2]=[0,0]$ as non-basic variables. With this scenario, the objective function is now $L=480$. Graphically speaking:
@@ -140,7 +138,7 @@ The next step will be to check if the solution obtained is the optimal solution 
 
 | Basic Variables | $L$ | $x_1$ |$x_2$ | $s_1$ | $s_2$ | $s_3$ | $b$ |
 | :--- | ---- |---| ---| ---| ---| ---| ---: |
-| $L$ | $1$ | $\bold{-9}$ | $0$ | $0$ | $12$ | $0$ | $480$ |
+| $L$ | $1$ | $-9$ (negative) | $0$ | $0$ | $12$ | $0$ | $480$ |
 | | | | | | | | |
 | $s_1$ | $0$ | $4.8$ | $0$ | $1$ | $-0.8$ | $0$ | $8$ |
 | $x_2$ | $0$ | $0.8$ | $1$ | $0$ | $0.2$ | $0$ | $8$ |
@@ -150,11 +148,11 @@ So it's not optimal
 
 Repeating the same procedure again to identify the variables to enter and to leave:
 
-| Basic Variables | $L$ | $\bold{x_1}$ |$x_2$ | $s_1$ | $s_2$ | $s_3$ | $b$ || $\Delta$|
+| Basic Variables | $L$ | $x_1$ (variable to enter) |$x_2$ | $s_1$ | $s_2$ | $s_3$ | $b$ || $\Delta$|
 | :--- | ---- |---| ---| ---| ---| ---|---|---| ---: |
-| $L$ | $1$ | $-9$ | $0$ | $0$ | $12$ | $0$ | $480$ |||
+| $L$ | $1$ | $-9$ (most negative coefficient) | $0$ | $0$ | $12$ | $0$ | $480$ |||
 | | | | | | | | |||
-| $\bold{s_1}$ | $0$ | $\bold{4.8}$ | $0$ | $1$ | $-0.8$ | $0$ | $8$ ||1.67|
+| $s_1$ (variable to leave) | $0$ | $4.8$ (pivot) | $0$ | $1$ | $-0.8$ | $0$ | $8$ ||1.67 (lowest positive number)|
 | $x_2$ | $0$ | $0.8$ | $1$ | $0$ | $0.2$ | $0$ | $8$ ||10|
 | $s_3$ | $0$ | $39.6$ | $0$ | $0$ | $-2.6$ | $1$ | $96$ ||2.42|
 
@@ -166,7 +164,7 @@ Transforming the table again, we will obtain:
 | :--- | ---- |---| ---| ---| ---| ---| ---: |
 | $L$ | $1$ | $0$ | $0$ | $1.87$ | $10.5$ | $0$ | $495$ |
 | | | | | | | | |
-| $x_1$ | $0$ | $\bold{1}$ | $0$ | $0.21$ | $-0.17$ | $0$ | $1.67$ |
+| $x_1$ | $0$ | $1$ (pivot) | $0$ | $0.21$ | $-0.17$ | $0$ | $1.67$ |
 | $x_2$ | $0$ | $0$ | $1$ | $-0.17$ | $0.33$ | $0$ | $6.67$ |
 | $s_3$ | $0$ | $0$ | $0$ | $-8.25$ | $4$ | $1$ | $30$ |
 
@@ -178,9 +176,9 @@ Now we just need to check if the solution we have just obtained is optimal and, 
 
 | Basic Variables | $L$ | $x_1$ |$x_2$ | $s_1$ | $s_2$ | $s_3$ | $b$ |
 | :--- | ---- |---| ---| ---| ---| ---| ---: |
-| $L$ | $1$ | $\bold{0}$ | $\bold{0}$ | $\bold{1.87}$ | $\bold{10.5}$ | $\bold{0}$ | $495$ |
+| $L$ | $1$ | $0$ (positive) | $0$ (positive) | $1.87$ (positive)| $10.5$ (positive) | $0$ (positive) | $495$ |
 | | | | | | | | |
-| $x_1$ | $0$ | $\bold{1}$ | $0$ | $0.21$ | $-0.17$ | $0$ | $1.67$ |
+| $x_1$ | $0$ | $1$ | $0$ | $0.21$ | $-0.17$ | $0$ | $1.67$ |
 | $x_2$ | $0$ | $0$ | $1$ | $-0.17$ | $0.33$ | $0$ | $6.67$ |
 | $s_3$ | $0$ | $0$ | $0$ | $-8.25$ | $4$ | $1$ | $30$ |
 
@@ -196,9 +194,9 @@ The SIMPLEX workflow is shown in the scheme below:
 
 ![sand_clay_14](./figs/sand_clay_14.png)
 
-## Supplementary Video
+## Supplementary video
 
-The story is told once again in a video. The video listed below has a one-to-one correspondence with the chapters in this book
+The story is told once again in a video. The video below has a one-to-one correspondence with this book
 
 ```{eval-rst}
 .. raw:: html
