@@ -120,9 +120,9 @@ If we see another example, now with $n>>m$ and 40% non-zero elements in matrix A
 
 When it comes to the problem type, the first thing that we immediately think is, of course, about the objective function and the constraints we will have to deal in each case. However, for LP problems this **does not matter**. What does matter is the type of the decision variables that we are talking about (discrete, continuous, mixed), as we have seen in the last example!
 
-## Supplementary Videos
+## Supplementary video
 
-The story is told once again in a video. The video listed below has a one-to-one correspondence with the chapters in this book. 
+The story is told once again in a video. The video below has a one-to-one correspondence with this book
 
 ### Performance of solving Mathematical programming problems
 ```{eval-rst}

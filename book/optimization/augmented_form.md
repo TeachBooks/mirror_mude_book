@@ -91,9 +91,9 @@ $$\begin{cases}3x_1-4x'_2+12x_3-s_1\geq 300\\ 8x_1-6x'_2-x_4+s_2\leq 220\\ 6x_1-
 
 And the problem is transformed in its augmented form and ready to be used in the SIMPLEX method!
 
-## Supplementary Video
+## Supplementary video
 
-The story is told once again in a video. The video listed below has a one-to-one correspondence with the chapters in this book
+The story is told once again in a video. The video below has a one-to-one correspondence with this book
 
 ```{eval-rst}
 .. raw:: html

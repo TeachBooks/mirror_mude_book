@@ -97,9 +97,9 @@ Let us take a look into the solving process using the branch-and-bound method:
 <iframe src="https://tudelft.h5p.com/content/1292123858535891397/embed" aria-label="2_3_4_1_branch_and_bound" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
 :::
 
-## Supplementary Video
+## Supplementary video
 
-The story is told once again in a video. The video listed below has a one-to-one correspondence with the chapters in this book
+The story is told once again in a video. The video below has a one-to-one correspondence with this book
 
 ```{eval-rst}
 .. raw:: html
