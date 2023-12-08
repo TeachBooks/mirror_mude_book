@@ -200,8 +200,11 @@ $$\begin{align}
   & x_{ijs} \geq 0 \quad \forall (i,j) \in A, \forall s \in D \\
 \end{align}$$
 
-
 Where the values of $y_{ij}$ are constant and are defined by GA.
+
+:::{card} Test yourself
+<iframe src="https://tudelft.h5p.com/content/1292134765794693407/embed" aria-label="Project question 4" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+:::
 
 #### Summarizing
 
