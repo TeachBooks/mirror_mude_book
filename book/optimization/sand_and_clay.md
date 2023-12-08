@@ -2,9 +2,9 @@
 
 ## The problem
 
-A company extracts sand and clay from a site which when sold gives a profit of 57 and 60 monetary units per thousand units of product, respectively. For this extraction, **sand** needs a manpower of **50 men x hours** to extract **1000 units of product** whilst **clay** needs **13 men x hours for 1000 units**.
+A company extracts sand and clay from a site which when sold gives a profit of 57 and 60 monetary units per thousand units of product, respectively. For this extraction, sand needs a manpower of 50 men x hours to extract 1000 units of product whilst clay needs 13 men x hours for 1000 units.
 
-**4 hours of backhoe** are needed to extract **one thousand units of sand** and **5 hours of backhoe work** per **thousand units of clay**. The number of hours needed of **truck transport** is 8h and 4h, respectively for sand and clay for each 1000 units of product transported.
+4 hours of backhoe are needed to extract one thousand units of sand and 5 hours of backhoe work per thousand units of clay. The number of hours needed of truck transport is 8h and 4h, respectively for sand and clay for each 1000 units of product transported.
 
 The company has a work schedule of 40 hours per week for the men but also for the equipment (truck and backhoe). There are 5 men who can be used interchangeably between the transport of the two products. There is only one truck and one backhoe.
 
@@ -16,10 +16,10 @@ The company has a work schedule of 40 hours per week for the men but also for th
 
 ### LP formulation of the problem
 
-* $x_1$ - **thousands of units of sand** to be produced and transported in **one week**
-* $x_2$ - **thousands of units of clay** to be produced and transported in **one week**
+* $x_1$ - thousands of units of sand to be produced and transported in one week
+* $x_2$ - thousands of units of clay to be produced and transported in one week
 
-Our objective function then will look like (with $L being the profit in monetary units for one week):
+Our objective function then will look like (with $L$ being the profit in monetary units for one week):
 
 $$\text{Max} L = 57x_1+60x_2$$
 
@@ -36,13 +36,13 @@ subject to:
 
 ### Solution
 
-The abovementioned constraints define the **feasible region** of the solution space. The feasible region is represented by the yellow polygon on the graph below
+The abovementioned constraints define the feasible region of the solution space. The feasible region is represented by the yellow polygon on the graph below
 
 <div style="display: block; justify-content: space-between;">
   <img src="./figs/output.png" style="width: 70%;">
 </div>
 
-The regions at green, blue, and red correspond to the first three constraints defined in the previous subsection, in the same order. The yellow region is a result of the super position of these three regions alongside $x_1\geq 0$ and $x_2\geq 0$. All the points inside and in the border of the yellow region are **solutions** for our problem!
+The regions at green, blue, and red correspond to the first three constraints defined in the previous subsection, in the same order. The yellow region is a result of the super position of these three regions alongside $x_1\geq 0$ and $x_2\geq 0$. All the points inside and in the border of the yellow region are solutions for our problem!
 
 **How can we find the optimal solution now?**
 
