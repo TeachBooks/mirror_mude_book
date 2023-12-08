@@ -37,7 +37,7 @@ If, on the other hand, instead of $\leq$ we have an inequality dictated by $\geq
 
 $$a_{11}x_1+a_{12}x_2+...+a_{1n}x_n\geq b_1 \to \underbrace{a_{11}x_1+a_{12}x_2+...+a_{1n}x_n}_{\text{expression of consumption}}-\overbrace{s_1}^{\text{resources consumed above the minimum limit (surplus variable)}}=\underbrace{b_1}_{\text{minimum number to consume}}$$
 
-### But what if we have a negative independent coefficients?
+### But what if we have negative independent coefficients?
 
 Transform the negative independent coefficients into positive ones:
 
@@ -91,9 +91,9 @@ $$\begin{cases}3x_1-4x'_2+12x_3-s_1\geq 300\\ 8x_1-6x'_2-x_4+s_2\leq 220\\ 6x_1-
 
 And the problem is transformed in its augmented form and ready to be used in the SIMPLEX method!
 
-## Supplementary Video
+## Supplementary video
 
-The story is told once again in a video. The video listed below has a one-to-one correspondence with the chapters in this book
+The story is told once again in a video. The video below has a one-to-one correspondence with this book
 
 ```{eval-rst}
 .. raw:: html

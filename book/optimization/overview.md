@@ -5,5 +5,5 @@ In this chapter you will learn all the basics of optimization. The chapter cover
 - Formulate a mathematical program
 - Solve a linear program (LP) through the graphical solution method
 - Solve a linear program through the SIMPLEX method
-- Solve an integer programing problem with the branch and bound method
-- Solve an integer programing problem with a genetic algorithm (meta-heuristic method)
+- Solve an integer programming problem with the branch and bound method
+- Solve an integer programming problem with a genetic algorithm (meta-heuristic method)

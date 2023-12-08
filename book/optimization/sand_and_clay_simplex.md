@@ -63,7 +63,13 @@ The objective function must be put in the form of an equation with all the varia
 
 ## Setting up the first table
 
-![sand_clay_4](./figs/sand_clay_4.png)
+| Basic Variables | $L$ | $x_1$ |$x_2$ | $s_1$ | $s_2$ | $s_3$ | $b$ |
+| :--- | ---- |---| ---| ---| ---| ---| ---: |
+| $L$ | $1$ | $-57$ | $-60$ | $0$ | $0$ | $0$ | $0$ |
+| | || || | |  |
+| $s_1$ | $0$ | $8$ | $4$ | $1$ | $0$ | $0$ | $40$ |
+| $s_2$ | $0$ | $4$ | $5$ | $0$ | $1$ | $0$ | $40$ |
+| $s_3$ | $0$ | $50$ | $13$ | $0$ | $0$ | $1$ | $200$ |
 
 Our current solution right now sets the basic variables $[s_1,s_2,s_3]=[40,40,200]$, and the non-basic variables $[x_1,x_2]=[0,0]$. The value of the objective function in this case is $L=0$.
 
@@ -73,7 +79,15 @@ The **optimality condition** assures that it is not possible to find a better so
 
 In a maximization problem, the current basic feasible solution is optimal if all the coefficients of the objective functions are positive. On the other hand, in a minimization problem, the current solution is optimal if all the coefficients of the objective function are negative.
 
-![sand_clay_5](./figs/sand_clay_5.png)
+| Basic Variables | $L$ | $x_1$ |$x_2$ | $s_1$ | $s_2$ | $s_3$ | $b$ |
+| :--- | ---- |---| ---| ---| ---| ---| ---: |
+| $L$ | $1$ | $-57$ (negative) | $-60$ (negative) | $0$ | $0$ | $0$ | $0$ |
+| | || || | |  |
+| $s_1$ | $0$ | $8$ | $4$ | $1$ | $0$ | $0$ | $40$ |
+| $s_2$ | $0$ | $4$ | $5$ | $0$ | $1$ | $0$ | $40$ |
+| $s_3$ | $0$ | $50$ | $13$ | $0$ | $0$ | $1$ | $200$ |
+
+So it's not optimal
 
 **How to go to the next table of the SIMPLEX method?**
 
@@ -84,7 +98,7 @@ Therefore, in our problem it will be $x_2$.
 
 **And how to choose the variable to leave the basis?**
 
-The variable to leave the basis is the one whose quotient between the independent coefficient of the constraint (meaning the same line) under the variable that will enter in the basis is the lowest positive number including zero (this does not depend on being a maximization or minimization problem at all).
+The variable to leave the basis is the one whose quotient between the independent coefficient of the constraint (meaning the same line) under the variable that will enter the basis is the lowest positive number including zero (this does not depend on being a maximization or minimization problem at all).
 
 ```{note}
 
@@ -94,11 +108,25 @@ Two special cases exist often:
 * if the coefficient of the entering basic variable is negative: enter *no limit* in the minimum ratio test column. This is not a candidate.
 
 ```
-![sand_clay_6](./figs/sand_clay_6.png)
+
+| Basic Variables | $L$ | $x_1$ |$x_2$ (variable to enter) | $s_1$ | $s_2$ | $s_3$ | $b$ || $\Delta$|
+| :--- | ---- |---| ---| ---| ---| ---|---|---| ---: |
+| $L$ | $1$ | $-57$ | $-60$ (most negative coefficient) | $0$ | $0$ | $0$ | $0$ |||
+| | || || | |  |||
+| $s_1$ | $0$ | $8$ | $4$ | $1$ | $0$ | $0$ | $40$ ||$10$|
+| $s_2$ (variable to leave) | $0$ | $4$ | $5$ (pivot) | $0$ | $1$ | $0$ | $40$ ||$8$ (lowest positive number)|
+| $s_3$ | $0$ | $50$ | $13$ | $0$ | $0$ | $1$ | $200$ ||$15.4$|
+
 
 Changing the system, our table will start looking like:
 
-![sand_clay_7](./figs/sand_clay_7.png)
+| Basic Variables | $L$ | $x_1$ |$x_2$ | $s_1$ | $s_2$ | $s_3$ | $b$ |
+| :--- | ---- |---| ---| ---| ---| ---| ---: |
+| $L$ | $1$ | $-9$ | $0$ | $0$ | $12$ | $0$ | $480$ |
+| | | | | | | | |
+| $s_1$ | $0$ | $4.8$ | $0$ | $1$ | $-0.8$ | $0$ | $8$ |
+| $x_2$ | $0$ | $0.8$ | $1$ (pivot) | $0$ | $0.2$ | $0$ | $8$ |
+| $s_3$ | $0$ | $39.6$ | $0$ | $0$ | $-2.6$ | $1$ | $96$ |
 
 And our current solution has $[s_1,x_2,s_3]=[8,8,96]$ as basic variables and $[x_1,s_2]=[0,0]$ as non-basic variables. With this scenario, the objective function is now $L=480$. Graphically speaking:
 
@@ -108,15 +136,37 @@ And our current solution has $[s_1,x_2,s_3]=[8,8,96]$ as basic variables and $[x
 
 The next step will be to check if the solution obtained is the optimal solution and move to the next basic solution if it is not:
 
-![sand_clay_9](./figs/sand_clay_9.png)
+| Basic Variables | $L$ | $x_1$ |$x_2$ | $s_1$ | $s_2$ | $s_3$ | $b$ |
+| :--- | ---- |---| ---| ---| ---| ---| ---: |
+| $L$ | $1$ | $-9$ (negative) | $0$ | $0$ | $12$ | $0$ | $480$ |
+| | | | | | | | |
+| $s_1$ | $0$ | $4.8$ | $0$ | $1$ | $-0.8$ | $0$ | $8$ |
+| $x_2$ | $0$ | $0.8$ | $1$ | $0$ | $0.2$ | $0$ | $8$ |
+| $s_3$ | $0$ | $39.6$ | $0$ | $0$ | $-2.6$ | $1$ | $96$ |
+
+So it's not optimal
 
 Repeating the same procedure again to identify the variables to enter and to leave:
 
-![sand_clay_10](./figs/sand_clay_10.png)
+| Basic Variables | $L$ | $x_1$ (variable to enter) |$x_2$ | $s_1$ | $s_2$ | $s_3$ | $b$ || $\Delta$|
+| :--- | ---- |---| ---| ---| ---| ---|---|---| ---: |
+| $L$ | $1$ | $-9$ (most negative coefficient) | $0$ | $0$ | $12$ | $0$ | $480$ |||
+| | | | | | | | |||
+| $s_1$ (variable to leave) | $0$ | $4.8$ (pivot) | $0$ | $1$ | $-0.8$ | $0$ | $8$ ||1.67 (lowest positive number)|
+| $x_2$ | $0$ | $0.8$ | $1$ | $0$ | $0.2$ | $0$ | $8$ ||10|
+| $s_3$ | $0$ | $39.6$ | $0$ | $0$ | $-2.6$ | $1$ | $96$ ||2.42|
+
+So $x_1$ is the variable to enter and $s_1$ the variable to leave.
 
 Transforming the table again, we will obtain:
 
-![sand_clay_11](./figs/sand_clay_11.png)
+| Basic Variables | $L$ | $x_1$ |$x_2$ | $s_1$ | $s_2$ | $s_3$ | $b$ |
+| :--- | ---- |---| ---| ---| ---| ---| ---: |
+| $L$ | $1$ | $0$ | $0$ | $1.87$ | $10.5$ | $0$ | $495$ |
+| | | | | | | | |
+| $x_1$ | $0$ | $1$ (pivot) | $0$ | $0.21$ | $-0.17$ | $0$ | $1.67$ |
+| $x_2$ | $0$ | $0$ | $1$ | $-0.17$ | $0.33$ | $0$ | $6.67$ |
+| $s_3$ | $0$ | $0$ | $0$ | $-8.25$ | $4$ | $1$ | $30$ |
 
 The current solution is now given by $L=495$, which results from having $[x_1,x_2,s_3]=[1.67,6.67,30]$ as basic variables and $[s_1,s_2]=[0,0]$ as non-basic variables. Graphically speaking:
 
@@ -124,7 +174,15 @@ The current solution is now given by $L=495$, which results from having $[x_1,x_
 
 Now we just need to check if the solution we have just obtained is optimal and, in this case, it is!
 
-![sand_clay_13](./figs/sand_clay_13.png)
+| Basic Variables | $L$ | $x_1$ |$x_2$ | $s_1$ | $s_2$ | $s_3$ | $b$ |
+| :--- | ---- |---| ---| ---| ---| ---| ---: |
+| $L$ | $1$ | $0$ (positive) | $0$ (positive) | $1.87$ (positive)| $10.5$ (positive) | $0$ (positive) | $495$ |
+| | | | | | | | |
+| $x_1$ | $0$ | $1$ | $0$ | $0.21$ | $-0.17$ | $0$ | $1.67$ |
+| $x_2$ | $0$ | $0$ | $1$ | $-0.17$ | $0.33$ | $0$ | $6.67$ |
+| $s_3$ | $0$ | $0$ | $0$ | $-8.25$ | $4$ | $1$ | $30$ |
+
+So, this is the optimal solution
 
 :::{card} Quiz questions
 <iframe src="https://tudelft.h5p.com/content/1292123849460777397/embed" aria-label="2_3_3_1_simplex_method" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
@@ -136,9 +194,9 @@ The SIMPLEX workflow is shown in the scheme below:
 
 ![sand_clay_14](./figs/sand_clay_14.png)
 
-## Supplementary Video
+## Supplementary video
 
-The story is told once again in a video. The video listed below has a one-to-one correspondence with the chapters in this book
+The story is told once again in a video. The video below has a one-to-one correspondence with this book
 
 ```{eval-rst}
 .. raw:: html
