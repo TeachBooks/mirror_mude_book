@@ -82,6 +82,10 @@ $$\begin{align}
 
 As you will see in the code implementation, we have one extra set of variables called x2 (x square). This is to help Gurobi isolate quadratic terms and perform required transformations based on MCE to keep the problem linear. This is not part of your learning goals.
 
+:::{card} Test yourself
+<iframe src="https://tudelft.h5p.com/content/1292134752207172387/embed" aria-label="Project question 1" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+:::
+
 ### Objective function
 
 The objective function of the problem (in its simplest form), is the minimization of the total travel time on the network, that means that you multiply the flow of vehicles in each link by the corresponding travel time and sum over all links (A is the collection of all links to simplify the notation):
@@ -127,6 +131,10 @@ We can only extend the capacity of certain number of links based on the availabl
 
 $$ \sum_{(i,j) \in A}{ y_{ij}} = B $$
 
+:::{card} Test yourself
+<iframe src="https://tudelft.h5p.com/content/1292134755759187477/embed" aria-label="Project question 2" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+:::
+
 #### 2. Link flow conservation constraints
 We have two sets of decision variables representing link flows; $x_{ij}$, representing flow on link $(i,j)$, and $x_{ijs}$, representing flow on link $(i,j)$ going to destination $s$. So we have to make sure that the sum of the flows over all destinations equals the flow on each link.
 
@@ -136,6 +144,10 @@ $$ \sum_{s \in D}{x_{ijs}} = x_{ij} \quad \forall (i,j) \in A $$
 The basic idea of this constraint set is to make sure that the incoming and outgoing flow to and from each node is the same (hence flow conservation) with the exception for origin and destination nodes of the trips where there will be extra outgoing flow (origins) or incoming flow (destinations). Think about a traffic intersection, vehicles enter and leave the intersection when they are moving in the network. This assures the continuity of the vehicle paths.
 
 $$ \sum_{j \in N; (i,j) \in A}{ x_{ijs}} - \sum_{j \in N; (j,i) \in A}{ x_{jis}} = d_{is} \quad \forall i \in N, \forall s \in D $$
+
+:::{card} Test yourself
+<iframe src="https://tudelft.h5p.com/content/1292134759192865717/embed" aria-label="Project question 3" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+:::
 
 #### 4. Quadratic variable constraints (you do not need to fully understand this)
 These are basically dummy equations to help gurobi model quadratic terms (that we defined as dummy variables earlier). So essentially instead of using $x^2_{ij}$ in the model, we define a new set of decision variables and define a set of constrains to set their value to $x^2_{ij}$. This let's Gurobi know these are quadratic terms and helps gurobi to replace it with variables and constraints required to keep the problem linear. This is not part of your learning goals! 
