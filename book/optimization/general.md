@@ -33,9 +33,9 @@ The variables involved are the bus fleet size, $b$, and the number of stops in t
 
 Therefore, we have to test a total of $b\cdot s=231$ combinations, which is still a manageable number of combinations to simulate.
 
-**But what if** we are talking about a route line that was not designed yet? Then, for each combination of fleet and number of stops you would have to test the factorial of the number of stops (all the combinations of stops that form a path), $\frac{(n-1)!}{2}$.
+But what if we are talking about a route line that was not designed yet? Then, for each combination of fleet and number of stops you would have to test the factorial of the number of stops (all the combinations of stops that form a path), $\frac{(n-1)!}{2}$.
 
-**This leads to an impractical number of scenarios to test in simulation!** This problem would be better studied using **optimization** techniques in the so-called network design problems which can be solved, to a certain extent, with mathematical programming as well.
+This leads to an impractical number of scenarios to test in simulation! This problem would be better studied using optimization techniques in the so-called network design problems which can be solved, to a certain extent, with mathematical programming as well.
 
 ## Optimization: why and how?
 
