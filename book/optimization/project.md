@@ -22,9 +22,25 @@ In this assignment, the goal is to minimize the total travel time on the network
 ### 1. Link travel time function
 Travel time on a stretch of road (i.e., a link) depends on the flow (vehicles/hour) on that link and the capacity of the link (maximum of vehicles/hour). The most common function to calculate travel time on a link is the so-called Bureau of Public Roads (BPR) function, which is a polynomial (degree 4) function. That function, if used in the assignment, would make the problem non-linear and therefore very hard to solve. So we use a simplified linear function where travel time grows linearly with the flow of vehicles on a road link. More details are provided within the formulation section.
 
+```{figure} ./figs/link_travel_time_function.png
+---
+height: 500px
+---
+```
+
+${t_{ij}} = t_{ij}^0\left( {1 + \alpha {{\left( {\cfrac{x_{ij}}{c_{ij}}} \right)}^\beta }} \right) \quad \left( {i,j} \right) \in A$
+
+Where $t_{ij}$ is the current travel time on the link, $t_{ij}^0$ is the travel time without congestion (free flow), $x_{ij}$ is the flow of cars, and $_c{ij}$ the capacity in maximum flow of cars. $\alpha$ and $\beta$ are 
+
 ### 2. Route choice behavior
-In order to assess the quality of the road capacity expansion problem one must know what the effect of the added capacity in on travel time. For that it is not sufficient to model the travel time-flow function, you must know where the vehicles are going to drive on the road. The route choice behavior of drivers within congested networks often follows the so-called User Equilibrium (UE) principle where each traveller tries to minimize their own individual generalized travel time. The UE states that for each origin and destination pair, all used routes between those nodes have equal and minimal travel time. That is, no driver can improve his/her travel time by choosing another path, therefore an equilibrium is reached.
+In order to assess the quality of the road capacity expansion problem, one must know what the effect of the added capacity is on travel time. For that, it is not sufficient to model the travel time-flow function, you must know where the vehicles are going to drive on the road. The route choice behavior of drivers within congested networks often follows the so-called User Equilibrium (UE) principle where each traveller tries to minimize their own individual generalized travel time.The UE states that for each origin and destination pair, all used routes between those nodes have equal and minimal travel time. That is, no driver can improve his/her travel time by choosing another path, therefore an equilibrium is reached.
 However, calculating the UE requires advanced methods which are not covered in the MUDE. Therefore, here we assume the route choice behaviour follows the so-called System Optimal (SO) principle, which implies that route choices are made in such a way that the total travel time is minimized (summed over all the drivers). That means that some cars will drive longer routes so that other cars can save time. This is also called social equilibrium. This type of equilibrium is easier to compute. But just have in mind that in our road networks you can hardly obtain a system optimal traffic distribution. You can't tell where drivers have to do.
+
+```{figure} ./figs/sketchoptimization.png
+---
+height: 500px
+---
+```
 
 ### 3. Quadratic terms
 As you will see in the formulation below, even after making the above-mentioned assumptions, our formulation of the Road NDP will include a quadratic term, you must multiply the flow (which is a variable) by the tavel time (which is also a variable). This is therefore not linear. 
@@ -33,7 +49,7 @@ Fortunately there are different methods to transform quadratic terms to linear v
 * [Gurobi webinar presentation on quadratic optimization](https://cdn.gurobi.com/wp-content/uploads/2020-01-14_Non-Convex-Quadratic-Optimization-in-Gurobi-9.0-Webinar.pdf?x93374)
 * [Full video of the webinar](https://www.gurobi.com/events/non-convex-quadratic-optimization/)
 
-We will move forward with a quadratic term in the objective function then because with the simplifications and assumptions referred to above we can formulate an NDP and solve it using the branch and bound method that you have studied before.
+We will move forward with a quadratic term in the objective function then because with the simplifcations and assumptions referred to above we can formulate an NDP and solve it using the branch and bound method that you have studied before.
 
 We are using the SiouxFalls network which is one of the [most used networks in transportation research](https://github.com/bstabler/TransportationNetworks/blob/master/SiouxFalls/Sioux-Falls-Network.pdf)
 
@@ -62,6 +78,8 @@ $$\begin{align}
   & x_{ijs} \geq 0 \quad \forall (i,j) \in A, \forall s \in D \\
 \end{align}$$
 
+As you will see in the code implementation, we have one extra set of variables called x2 (x square). This is to help Gurobi isolate quadratic terms and perform required transformations based on MCE to keep the problem linear. This is not part of your learning goals.
+
 ### Objective function
 
 The objective function of the problem (in its simplest form), is the minimization of the total travel time on the network, that means that you multiply the flow of vehicles in each link by the corresponding travel time and sum over all links (A is the collection of all links to simplify the notation):
@@ -72,11 +90,11 @@ The travel time $t_{ij}$ is a function of the flow on a link and can be expresse
 
 $$ t_{ij} = t^0_{ij} . ( 1 + \beta (x_{ij}/c_{ij}))  \quad \forall (i,j) \in A  $$
 
-(Note that the commonly used travel time function based on the Bureau of Public Roads (BPR) is as follows:
-
-$$ t_{ij} = t^0_{ij} . ( 1 + \alpha (x_{ij}/c_{ij})^\beta)  \quad \forall (i,j) \in A  $$
-
-Where $\beta$ usually assumes the value of $4$ making this function (and the problem) non-linear. Therefore, we use the linear function mentioned before to make the problem manageable using what we have learned so far.)
+> Note that the commonly used travel time function based on the Bureau of Public Roads (BPR) is as follows:
+> 
+> $$ t_{ij} = t^0_{ij} . ( 1 + \alpha (x_{ij}/c_{ij})^\beta)  \quad \forall (i,j) \in A  $$
+> 
+> Where $\beta$ usually assumes the value of $4$ making this function (and the problem) non-linear. Therefore, we use the linear function mentioned before to make the problem manageable using what we have learned so far.
 
 The following constraint yields the capacity of each link based on which ones are selected for expansion, when y is 1 there is added capacity as you can see:
 
@@ -113,7 +131,7 @@ We have two sets of decision variables representing link flows; $x_{ij}$, repres
 $$ \sum_{s \in D}{x_{ijs}} = x_{ij} \quad \forall (i,j) \in A $$
 
 #### 3. Node flow conservation constraints
-The basic idea of this constraint set is to make sure that the incoming and outgoing flow to and from each node is the same (hence flow conservation) with the exception for origin and destination nodes of the trips where there will be extra outgoing flow (origins) or incoming flow (destinations). Think about a traffic intersection, vehicles enter and leave the intersetion when they are moving in the network. This assures the continuity of the vehicle paths.
+The basic idea of this constraint set is to make sure that the incoming and outgoing flow to and from each node is the same (hence flow conservation) with the exception for origin and destination nodes of the trips where there will be extra outgoing flow (origins) or incoming flow (destinations). Think about a traffic intersection, vehicles enter and leave the intersection when they are moving in the network. This assures the continuity of the vehicle paths.
 
 $$ \sum_{j \in N; (i,j) \in A}{ x_{ijs}} - \sum_{j \in N; (j,i) \in A}{ x_{jis}} = d_{is} \quad \forall i \in N, \forall s \in D $$
 
@@ -170,6 +188,16 @@ $$\begin{align}
 
 
 Where the values of $y_{ij}$ are constant and are defined by GA.
+
+#### Summarizing
+
+The following is a diagram that shows what you are finally doing to solve the same problem but with a meta-heuristic approach:
+
+```{figure} ./figs/GAdiagram.png
+---
+height: 500px
+---
+```
 
 ### PyMOO
 
