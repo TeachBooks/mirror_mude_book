@@ -31,7 +31,7 @@ Consider the example presented below of the optimal WT farm. If you define the o
 * maximize the annual production ($\text{Max}_{n,d} P_{\text{unit}}$)
 * minimize the annual maintenance cost ($\text{Min}_{n,d}nC_m$)
 
-these are single objective problems. However, if we consider both objectives at once, we are talking of a multi-objective problem!
+These are single objective problems. However, if we consider both objectives at once, we are talking of a multi-objective problem!
 
 ## Constrained vs Unconstrained problems
 

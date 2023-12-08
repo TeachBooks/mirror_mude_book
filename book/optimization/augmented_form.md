@@ -37,7 +37,7 @@ If, on the other hand, instead of $\leq$ we have an inequality dictated by $\geq
 
 $$a_{11}x_1+a_{12}x_2+...+a_{1n}x_n\geq b_1 \to \underbrace{a_{11}x_1+a_{12}x_2+...+a_{1n}x_n}_{\text{expression of consumption}}-\overbrace{s_1}^{\text{resources consumed above the minimum limit (surplus variable)}}=\underbrace{b_1}_{\text{minimum number to consume}}$$
 
-### But what if we have a negative independent coefficients?
+### But what if we have negative independent coefficients?
 
 Transform the negative independent coefficients into positive ones:
 

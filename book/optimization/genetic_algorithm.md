@@ -15,7 +15,7 @@ These methods can be time-consuming and computationally expensive, especially fo
 
 ![Untitled](./figs/Untitled_1.png)
 
-A large number of real-life optimization problems in science, engineering, economics, and business are complex and difficult to solve. They cannot be solved in an exact manner within a reasonable amount of time. 
+Numerous real-life optimization problems in science, engineering, economics, and business are complex and difficult to solve. They cannot be solved in an exact manner within a reasonable amount of time. 
 
 Consequently, the use of meta-heuristic algorithms, a form of approximate techniques, serves as the main alternative for solving such complex optimization problems.
 
@@ -241,7 +241,7 @@ And now, let us study different crossover methods:
 
 * Uniform crossover
     1. Select two parents for mating (we will choose the same as shown in the previous examples)
-    2. At each bit position of the parents , toss a coin (T=1 will mean to swap the bits and T=0 to not swap them)
+    2. At each bit position of the parents, toss a coin (T=1 will mean to swap the bits and T=0 to not swap them)
     3. Getting [1,0,0,1,1,0] as the final result for the coin tossing, then the offsprings for this method are:
         
         | 1 | 1 | 1 | 1 | 0 | 0 |

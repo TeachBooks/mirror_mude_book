@@ -98,7 +98,7 @@ Therefore, in our problem it will be $x_2$.
 
 **And how to choose the variable to leave the basis?**
 
-The variable to leave the basis is the one whose quotient between the independent coefficient of the constraint (meaning the same line) under the variable that will enter in the basis is the lowest positive number including zero (this does not depend on being a maximization or minimization problem at all).
+The variable to leave the basis is the one whose quotient between the independent coefficient of the constraint (meaning the same line) under the variable that will enter the basis is the lowest positive number including zero (this does not depend on being a maximization or minimization problem at all).
 
 ```{note}
 

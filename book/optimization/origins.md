@@ -43,7 +43,7 @@ $$
 
 In this example a simple economy is described through three main products/activities, Coal, Electricity, and Steel. It’s easy to produce linear equations where the interdependencies between these products are apparent once you have the production factors (how much you need from each one of those to produce the other).
 
-Using the right data and this logic it’s possible to describe the functioning of many systems and their corresponding “products". This is what has inspired Dantzig for his mathematical structure of an optimization problem, he economy structure generates the constraints of what is possible to produce (the solution space).
+Using the right data and this logic it’s possible to describe the functioning of many systems and their corresponding “products". This is what has inspired Dantzig for his mathematical structure of an optimization problem, the economy structure generates the constraints of what is possible to produce (the solution space).
 
 ## Adding an objective to the problem
 

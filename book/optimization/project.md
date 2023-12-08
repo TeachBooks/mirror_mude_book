@@ -20,28 +20,30 @@ There are a variety of approaches to dealing with the road network design proble
 In this assignment, the goal is to minimize the total travel time on the network by selecting a predefined number of links for capacity expansion (subject to the available budget). The following (main) assumptions and simplifications are made to make the problem solvable using methods and algorithms that you have learned so far.
 
 ### 1. Link travel time function
-Travel time on a stretch of road (i.e., a link) depends on the flow (vehicles/hour) on that link and the capacity of the link (maximum of vehicles/hour). The most common function to calculate travel time on a link is the so-called Bureau of Public Roads (BPR) function, which is a polynomial (degree 4) function. That function, if used in the assignment, would make the problem non-linear and therefore very hard to solve. So we use a simplified linear function where travel time grows linearly with the flow of vehicles on a road link. More details are provided within the formulation section.
+The travel time on a stretch of road (i.e., a link) depends on the flow (vehicles/hour) on that link and the capacity of the link (maximum of vehicles/hour). The most common function to calculate travel time on a link is the so-called Bureau of Public Roads (BPR) function, which is a polynomial (degree 4) function. That function, if used in the assignment, would make the problem non-linear and therefore very hard to solve. So we use a simplified linear function where travel time grows linearly with the flow of vehicles on a road link. More details are provided within the formulation section.
 
 ```{figure} ./figs/link_travel_time_function.png
 ---
 height: 250px
 ---
-Lin ktravel time function
+Link travel time function
 ```
 
 ${t_{ij}} = t_{ij}^0\left( {1 + \alpha {{\left( {\cfrac{x_{ij}}{c_{ij}}} \right)}^\beta }} \right) \quad \left( {i,j} \right) \in A$
 
-Where $t_{ij}$ is the current travel time on the link, $t_{ij}^0$ is the travel time without congestion (free flow), $x_{ij}$ is the flow of cars, and $_c{ij}$ the capacity in maximum flow of cars. $\alpha$ and $\beta$ are 
+Where $t_{ij}$ is the current travel time on the link, $t_{ij}^0$ is the travel time without congestion (free flow), $x_{ij}$ is the flow of cars, and $c_{ij}$ the capacity in maximum flow of cars. $\alpha$ and $\beta$ are calibration parameters that should be adapted to the reality of the region in which the model is being run. However, typically alfa is $1$, and beta is $4$.
 
 ### 2. Route choice behavior
-In order to assess the quality of the road capacity expansion problem, one must know what the effect of the added capacity is on travel time. For that, it is not sufficient to model the travel time-flow function, you must know where the vehicles are going to drive on the road. The route choice behavior of drivers within congested networks often follows the so-called User Equilibrium (UE) principle where each traveller tries to minimize their own individual generalized travel time.The UE states that for each origin and destination pair, all used routes between those nodes have equal and minimal travel time. That is, no driver can improve his/her travel time by choosing another path, therefore an equilibrium is reached.
-However, calculating the UE requires advanced methods which are not covered in the MUDE. Therefore, here we assume the route choice behaviour follows the so-called System Optimal (SO) principle, which implies that route choices are made in such a way that the total travel time is minimized (summed over all the drivers). That means that some cars will drive longer routes so that other cars can save time. This is also called social equilibrium. This type of equilibrium is easier to compute. But just have in mind that in our road networks you can hardly obtain a system optimal traffic distribution. You can't tell where drivers have to do.
+In order to assess the quality of the road capacity expansion problem, one must know what the effect of the added capacity is on travel time. For that, it is not sufficient to model the travel time-flow function, you must know where the vehicles are going to drive on the road. The route choice behavior of drivers within congested networks often follows the so-called User Equilibrium (UE) principle where each traveler tries to minimize their own individual generalized travel time. The UE states that for each origin and destination pair, all used routes between those nodes have equal and minimal travel time. That is, no driver can improve his/her travel time by choosing another path, therefore an equilibrium is reached.
+However, calculating the UE requires advanced methods which are not covered in the MUDE. Therefore, here we assume the route choice behavior follows the so-called System Optimal (SO) principle, which implies that route choices are made in such a way that the total travel time is minimized (summed over all the drivers). That means that some cars will drive longer routes so that other cars can save time. This is also called social equilibrium. This type of equilibrium is easier to compute. But just have in mind that in our road networks you can hardly obtain a system optimal traffic distribution. You can't tell where drivers should do.
+
+Example of a perfect user equilibrium in a very simple road:
 
 ```{figure} ./figs/sketchoptimization.png
 ---
 height: 500px
 ---
-Route choice behavior
+Rote choice behavior according to the user equilibrium (UE) principle
 ```
 
 ### 3. Quadratic terms
@@ -51,7 +53,7 @@ Fortunately there are different methods to transform quadratic terms to linear v
 * [Gurobi webinar presentation on quadratic optimization](https://cdn.gurobi.com/wp-content/uploads/2020-01-14_Non-Convex-Quadratic-Optimization-in-Gurobi-9.0-Webinar.pdf?x93374)
 * [Full video of the webinar](https://www.gurobi.com/events/non-convex-quadratic-optimization/)
 
-We will move forward with a quadratic term in the objective function then because with the simplifcations and assumptions referred to above we can formulate an NDP and solve it using the branch and bound method that you have studied before.
+We will move forward with a quadratic term in the objective function then because with the simplifications and assumptions referred to above we can formulate an NDP and solve it using the branch and bound method that you have studied before.
 
 We are using the SiouxFalls network which is one of the [most used networks in transportation research](https://github.com/bstabler/TransportationNetworks/blob/master/SiouxFalls/Sioux-Falls-Network.pdf)
 
@@ -59,7 +61,7 @@ We are using the SiouxFalls network which is one of the [most used networks in t
 ---
 height: 500px
 ---
-SioiuxFalls map
+SiouxFalls map
 ```
 
 ## Mathematical description
@@ -110,7 +112,7 @@ This allows us to represent $t_{ij}$ as:
 
 $$ t_{ij} = t^0_{ij} . ( 1 + \beta (x_{ij} * ((1 - y_{ij})/c^0_{ij} +  y_{ij}/c^1_{ij} )))  \quad \forall (i,j) \in A  $$
 
-Which leads to the following extended objective funtion:
+Which leads to the following extended objective function:
 
 $$ Z = \sum_{(i,j) \in A}{ x_{ij} . (t^0_{ij} . ( 1 + \beta (x_{ij} * ((1 - y_{ij})/c^0_{ij} +  y_{ij}/c^1_{ij} ))))} $$
 
@@ -167,16 +169,16 @@ $$\begin{align}
   & x_{ijs} \geq 0 \quad \forall (i,j) \in A, \forall s \in D \\
 \end{align}$$
 
-### Adaption for GA
+## Adaption for GA
 
 To be able to use GA, we need to define the problem slightly differently. Essentially, we break down the problem into two sub-problems: 1) the traffic assignment (TA) problem: the route choices of the drivers, and the 2) the road network design problem (NDP): where we select which links should be upgraded. We solve the problem by iteratively going between the Traffic assignment and the Design Problem. The idea is for the GA to move to better networks as generations pass which are evaluated by the traffic assignment process that you have learned.
 We use Gurobi to solve the Traffic Assignment sub-problems, which provide us with the objective function (or fitness function within the context of GA) value of the decision problem (which will be dealt with using GA). This is usually referred to as the iterative-optimization-assignment method since we iteratively improve the objective function value of the NDP using the assignment problem.
 
 So let's see how that works.
 
-#### The network design sub-problem
+### The network design sub-problem
 
-The network desing is where we use the genetic algorithm. As explained before, GA uses a population of solutions and iteratively improves this population to evolve to new generations of populations with a better objective function value (being that minimization or maximization). In this problem, the decision variables are links for capacity expansion and the objective function value is the total system travel time that we want to minimize.
+The network design is where we use the genetic algorithm. As explained before, GA uses a population of solutions and iteratively improves this population to evolve to new generations of populations with a better objective function value (being that minimization or maximization). In this problem, the decision variables are links for capacity expansion and the objective function value is the total system travel time that we want to minimize.
 
 $$\begin{align}
   min  \quad  & \sum_{(i,j) \in A}{t^0_{ij} . x_{ij}} + \sum_{(i,j) \in A}{(t^0_{ij}.\beta /c^0_{ij}) . x^2_{ij}} - \sum_{(i,j) \in A}{(t^0_{ij}.\beta /c^0_{ij}) . x^2_{ij} . y_{ij}} + \sum_{(i,j) \in A}{t^0_{ij}.(\beta /c^1_{ij}) . x^2_{ij} . y_{ij}}  \\
@@ -187,7 +189,7 @@ $$\begin{align}
 
 Where the values of $x_{ij}$ are not decision variables anymore, they will be obtained from solving the Traffic Assignment problem with Gurobi which evaluates the travel times on the network.
 
-#### The traffic assignment sub-problem
+### The traffic assignment sub-problem
 
 This is just part of the original NDP that assigns traffic to the network based on a set of given capacity values, which are defined based on the values of the DP decision variables (links selected for capacity expansion). The main difference (and the advantage) here is that by separating the binary decision variables, instead of a mixed integer programming problem, which are hard to solve, here we have a quadratic programming problem with continuous decision variables, which will be transformed to a linear problem that Gurobi can solve very fast.
 
@@ -206,7 +208,7 @@ Where the values of $y_{ij}$ are constant and are defined by GA.
 <iframe src="https://tudelft.h5p.com/content/1292134765794693407/embed" aria-label="Project question 4" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
 :::
 
-#### Summarizing
+### Summarizing
 
 The following is a diagram that shows what you are finally doing to solve the same problem but with a meta-heuristic approach:
 
@@ -217,9 +219,9 @@ height: 500px
 Summary meta-heurstic approach
 ```
 
-### PyMOO
+## PyMOO
 
-PyMOO is a Python library that provides a comprehensive and easy-to-use framework for multi-objective optimization (MOO). For this case, we are going to deal with only one objective; nevertheless, this is an useful tool if you have more objectives. In addition, PyMOO easily allows us to define our optimization problem by specifying the objectives, constraints, and decision variables.
+PyMOO is a Python library that provides a comprehensive and easy-to-use framework for multi-objective optimization (MOO). For this case, we are going to deal with only one objective; nevertheless, this is a useful tool if you have more objectives. In addition, PyMOO easily allows us to define our optimization problem by specifying the objectives, constraints, and decision variables.
 
 ## Implementation in Python
 The implementation in Python is shown in the notebooks for [MILP](./Project_MILP.ipynb) and [GA](./Project_GA.ipynb). The full notebooks including source data are provided [here](https://surfdrive.surf.nl/files/index.php/s/8DNGkJs54KzEnLB)

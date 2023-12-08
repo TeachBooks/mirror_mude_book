@@ -25,7 +25,10 @@ $$\begin{cases}2{x_1} + {x_2} + s_1 = 4\\{x_1} + 2{x_2} + s_2 = 4 \\{x_1} + {x_2
 
 ## Task 2
 
+```{div} full-width
 <iframe src="https://tudelft.h5p.com/content/1292131432784432037/embed" aria-label="Simplex exercise" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+```
+
 
 ## Task 3
 Why is your final table the optimal solution?
