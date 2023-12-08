@@ -23,7 +23,23 @@ Dantzig formulated the planning problem, typically a problem of assigning resour
 
 ## Leontief's work: The Input Output matrix
 
-![leontief](./figs/leontief.png "leontief")
+Input/output matrix in a simple economie:
+| Production / Consumption | Coal ($p_C$) | Electricity ($p_E)$ | Steel $(p_S)$ |
+| :--- | ---- |---| ---: |
+| Coal    | $0 \%$ | $40 \%$ | $ 60\%$ |
+| Electricity | $60 \%$   | $ 10 \%$ | $20 \%$ |
+| Steel  | $40 \%$   | $50 \%$ | $20 \%$ |
+|  ||| |
+| | $100 \% $   | $100 \%$ | $100 \%$ |
+
+$$
+\begin{align*}
+\\ p_C = 0.4 p_E + 0.6 p_S
+\\ p_E = 0.6p_C + 0.1p_E+0.2p_S
+\\p_S = 0.4p_C+0.5p_E+0.2p_S
+\end{align*}
+$$
+
 
 In this example a simple economy is described through three main products/activities, Coal, Electricity, and Steel. It’s easy to produce linear equations where the interdependencies between these products are apparent once you have the production factors (how much you need from each one of those to produce the other).
 
