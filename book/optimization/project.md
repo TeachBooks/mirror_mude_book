@@ -24,8 +24,9 @@ Travel time on a stretch of road (i.e., a link) depends on the flow (vehicles/ho
 
 ```{figure} ./figs/link_travel_time_function.png
 ---
-height: 500px
+height: 250px
 ---
+Lin ktravel time function
 ```
 
 ${t_{ij}} = t_{ij}^0\left( {1 + \alpha {{\left( {\cfrac{x_{ij}}{c_{ij}}} \right)}^\beta }} \right) \quad \left( {i,j} \right) \in A$
@@ -40,6 +41,7 @@ However, calculating the UE requires advanced methods which are not covered in t
 ---
 height: 500px
 ---
+Route choice behavior
 ```
 
 ### 3. Quadratic terms
@@ -197,6 +199,7 @@ The following is a diagram that shows what you are finally doing to solve the sa
 ---
 height: 500px
 ---
+SUmmary meta-heurstic approach
 ```
 
 ### PyMOO
