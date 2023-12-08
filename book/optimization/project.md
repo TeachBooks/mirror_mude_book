@@ -199,7 +199,7 @@ The following is a diagram that shows what you are finally doing to solve the sa
 ---
 height: 500px
 ---
-SUmmary meta-heurstic approach
+Summary meta-heurstic approach
 ```
 
 ### PyMOO
