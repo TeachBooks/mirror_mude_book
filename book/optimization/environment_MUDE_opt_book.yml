@@ -1,0 +1,14 @@
+name: mude-opt-book
+dependencies:
+  - python=3.11
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - seaborn
+  - networkx
+  - pip
+  - autograd
+  - conda-forge::pymoo
+  - conda-forge::jupyterlab
+  - gurobi::gurobi
