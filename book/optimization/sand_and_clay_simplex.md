@@ -1,5 +1,14 @@
 # SIMPLEX method
 
+The story is told in a video. The video below has a one-to-one correspondence with this book
+
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/S_8MsOXu60I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
+
 The SIMPLEX method has been created to automate the solving of the augmented form of a linear programing problem with continuous variables. Consider the following optimization problem:
 
 $$\text{Max }L=57x_1+60x_2$$
@@ -193,13 +202,3 @@ So, this is the optimal solution
 The SIMPLEX workflow is shown in the scheme below:
 
 ![sand_clay_14](./figs/sand_clay_14.png)
-
-## Supplementary video
-
-The story is told once again in a video. The video below has a one-to-one correspondence with this book
-
-```{eval-rst}
-.. raw:: html
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/S_8MsOXu60I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-```

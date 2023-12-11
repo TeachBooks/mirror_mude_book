@@ -11,6 +11,17 @@ When working with linear programming, we should give particular attention to the
 * Modelling
 * Solving
 
+## Video
+
+The story is told in a video. The video has a one-to-one correspondence with this book
+
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/0x7bkzHJZ1I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
+
 ## Data pre-processing
 
 There are multiple ways to improve the performance of a certain model when it comes do data pre-processing. Some of the most common steps involve:
@@ -119,14 +130,3 @@ If we see another example, now with $n>>m$ and 40% non-zero elements in matrix A
 ## Problem type
 
 When it comes to the problem type, the first thing that we immediately think is, of course, about the objective function and the constraints we will have to deal in each case. However, for LP problems this **does not matter**. What does matter is the type of the decision variables that we are talking about (discrete, continuous, mixed), as we have seen in the last example!
-
-## Supplementary video
-
-The story is told once again in a video. The video below has a one-to-one correspondence with this book
-
-### Performance of solving Mathematical programming problems
-```{eval-rst}
-.. raw:: html
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/0x7bkzHJZ1I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-```
