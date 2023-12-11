@@ -33,6 +33,8 @@ Consider the example presented below of the optimal WT farm. If you define the o
 
 These are single objective problems. However, if we consider both objectives at once, we are talking of a multi-objective problem!
 
+$$\text{Min}_{n,d} \{-P_{\text{unit}}; nC_m\}$$
+
 ## Constrained vs Unconstrained problems
 
 **Constrained problems:** the solution space is bounded:
