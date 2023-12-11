@@ -1,5 +1,15 @@
 # Genetic Algorithm
 
+## Video
+
+The story is told once in a video. The video below has a one-to-one correspondence with this book
+
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/iDxEgEyjRYE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
 ## Recap - Optimization Models & Exact optimization approaches
 
 * Linear programming problems and integer programming problems
@@ -309,13 +319,3 @@ After this, we apply the **single-point crossover** to get:
 Finally, using complete replacement our new population is given by:
 
 ![Untitled](./figs/Untitled_9.png)
-
-## Supplementary video
-
-The story is told once again in a video. The video below has a one-to-one correspondence with this book
-
-```{eval-rst}
-.. raw:: html
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/iDxEgEyjRYE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-```

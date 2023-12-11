@@ -9,6 +9,16 @@ There are many linear programming problems in which all or some of the variables
 
 These problems are called integer programming problems (IP) or mixed integer programming problems (MIP), if there are some continuous variables. Obtaining a solution for these problems can be quite difficult as the simplex method is not prepared for integer variables.
 
+## Video
+
+The story is told  in a video. The video has a one-to-one correspondence with this book
+
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ViA1X6X3Rhs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
 ## Integer or binary variables definition
 
 $\mathbb{N}_0$ is the set of natural numbers meaning the integer ones and it includes in this case the zero. You can have:
@@ -96,14 +106,3 @@ Let us take a look into the solving process using the branch-and-bound method:
 :::{card} Quiz questions
 <iframe src="https://tudelft.h5p.com/content/1292123858535891397/embed" aria-label="2_3_4_1_branch_and_bound" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
 :::
-
-## Supplementary video
-
-The story is told once again in a video. The video below has a one-to-one correspondence with this book
-
-```{eval-rst}
-.. raw:: html
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/ViA1X6X3Rhs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-```
-

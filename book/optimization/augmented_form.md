@@ -7,6 +7,16 @@ In the augmented form of a mathematical program:
 * All the variables must be positive defined
 * The objective function can be of type maximization or minimization
 
+## Video
+
+The story is told in a video. The video has a one-to-one correspondence with this book.
+
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/-jQKtC2Xvcs?si=nlX_yEmByU7CA8rO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+```
+
 ## Augmented form of a LP problem
 
 Let us take a look, considering an objective function given by:
@@ -90,13 +100,3 @@ with
 $$\begin{cases}3x_1-4x'_2+12x_3-s_1\geq 300\\ 8x_1-6x'_2-x_4+s_2\leq 220\\ 6x_1-5x'_2+3x_3+s_3\leq 150\\ x_1,x'_2,x_3,x_4\geq 0\\ s_1,s_2,s_3\geq 0\end{cases}$$
 
 And the problem is transformed in its augmented form and ready to be used in the SIMPLEX method!
-
-## Supplementary video
-
-The story is told once again in a video. The video below has a one-to-one correspondence with this book
-
-```{eval-rst}
-.. raw:: html
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/-jQKtC2Xvcs?si=nlX_yEmByU7CA8rO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-```
