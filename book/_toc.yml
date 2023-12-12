@@ -227,13 +227,16 @@ parts:
         sections:
         - file: optimization/airlines_performance.ipynb
         - file: optimization/performance_generic_LP.ipynb
-  
-  # START REMOVE-FROM-PUBLISH
-  - caption: Machine Learning
-    numbered: 2
-    chapters:
+
     - file: ml/overview
-      title: Overview
+      title: Machine Learning
+      sections:
+      - file: ml/knn_interactive
+      - file: ml/decision_theory_interactive
+      - file: ml/linear_models_interactive
+      - file: ml/ridge_sgd_interactive
+      - file: ml/nn_interactive
+      - file: ml/review
 
   - caption: Extreme Value Analysis
     numbered: 2
