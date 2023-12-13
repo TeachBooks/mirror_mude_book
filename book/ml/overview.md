@@ -20,7 +20,7 @@ The field of _machine learning_ is multidisciplinary, which means it comes with 
 - As the optimization of model parameters can computationally expensive for large data sets, incorporating iterative cycles during the _training_ process can significantly improve the model and modelling process. This is referred to as _tuning_ the model.
 - It is common practice to create a _third_ partition of the original data that can be used during the _tuning_ process; this is referred to as the _test_ set.
 
-## Contents
+**Contents**
 
 The story in this set of chapters is told through videos, along with interactive pages to work with the methods directly.
 
@@ -35,11 +35,3 @@ By the end of this series, you will be able to:
 - Understand and compare different approaches for regression modeling
 - Construct parsimonious regression models for general applications
 - Critically assess model performance from a probabilistic standpoint
-
-## Notebooks
-
-- {doc}`knn_interactive`
-- {doc}`decision_theory_interactive`
-- {doc}`linear_models_interactive`
-- {doc}`ridge_sgd_interactive`
-- {doc}`nn_interactive`
