@@ -90,7 +90,7 @@ As you will see in the code implementation, we have one extra set of variables c
 
 ### Objective function
 
-The objective function of the problem (in its simplest form), is the minimization of the total travel time on the network, that means that you multiply the flow of vehicles in each link by the corresponding travel time and sum over all links (A is the collection of all links to simplify the notation):
+The objective function of the problem (in its simplest form), is the minimization of the total travel time on the network, that means that you multiply the flow of vehicles in each link by the corresponding travel time and sum over all links ($A$ is the collection of all links to simplify the notation):
 
 $$Z = \sum_{(i,j) \in A}{ x_{ij} . t_{ij}} $$
 
