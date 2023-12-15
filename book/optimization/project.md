@@ -143,7 +143,19 @@ We have two sets of decision variables representing link flows; $x_{ij}$, repres
 $$ \sum_{s \in D}{x_{ijs}} = x_{ij} \quad \forall (i,j) \in A $$
 
 #### 3. Node flow conservation constraints
-The basic idea of this constraint set is to make sure that the incoming and outgoing flow to and from each node is the same (hence flow conservation) with the exception for origin and destination nodes of the trips where there will be extra outgoing flow (origins) or incoming flow (destinations). Think about a traffic intersection, vehicles enter and leave the intersection when they are moving in the network. This assures the continuity of the vehicle paths.
+
+The basic idea of this constraint set is to make sure that the incoming and outgoing flow to and from each node is the same (hence flow conservation) with the exception for origin and destination nodes of the trips where there will be extra outgoing flow (origins) or incoming flow (destinations). Think about a traffic intersection, vehicles enter and leave the intersection when they are moving in the network. This assures the continuity of the vehicle paths. $d_is$ here is the number of travelers from node $i$ to node $s$ with the exception of $d_ss$, which is all the demand that arrives at node $s$.
+
+$ \sum_{j \in N; (i,j) \in A}{ x_{ijs}} - \sum_{j \in N; (j,i) \in A}{ x_{jis}} = d_{is} \quad \forall i \in N, \forall s \in D $
+
+The figure gives an example:
+
+```{figure} ./figs/equil.png
+---
+width: 80%
+---
+Constraint example
+```
 
 $$ \sum_{j \in N; (i,j) \in A}{ x_{ijs}} - \sum_{j \in N; (j,i) \in A}{ x_{jis}} = d_{is} \quad \forall i \in N, \forall s \in D $$
 
