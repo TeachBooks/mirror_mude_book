@@ -230,7 +230,6 @@ parts:
         sections:
         - file: optimization/airlines_performance.ipynb
         - file: optimization/performance_generic_LP.ipynb
-# START REMOVE-FROM-PUBLISH
     - file: ml/overview
       title: Machine Learning
       sections:
@@ -240,6 +239,8 @@ parts:
       - file: ml/ridge_sgd_interactive
       - file: ml/nn_interactive
       - file: ml/review
+
+# START REMOVE-FROM-PUBLISH
 
   - caption: Extreme Value Analysis
     numbered: 2
