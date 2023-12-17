@@ -374,14 +374,15 @@ function setupSpecialTaggedElements() {
   for (const taggedElement of window.specialTaggedElements) {
     switch (taggedElement.tag) {
       case "thebe-remove-input-init": {
-       // taggedElement.element.querySelector(".cell_input").remove();
         taggedElement.element.style.display = "block";
         
         const cell_input_div = taggedElement.element.querySelector(".cell_input");
         cell_input_div.classList.remove("cell_input");
-        cell_input_div.querySelector(".highlight").classList.remove("highlight");
-        cell_input_div.querySelector(".thebe-input").remove();
-        cell_input_div.querySelector(".thebe-controls").style.display = "none";
+        cell_input_div.querySelector(".highlight")?.classList.remove("highlight");
+        cell_input_div.querySelector(".thebe-input")?.remove();
+
+        const cell_controls = cell_input_div.querySelector(".thebe-controls");
+        if (cell_controls) { cell_controls.style.display = "none"; }
       
         break;
       }
