@@ -374,21 +374,15 @@ function setupSpecialTaggedElements() {
   for (const taggedElement of window.specialTaggedElements) {
     switch (taggedElement.tag) {
       case "thebe-remove-input-init": {
-        const { newCellInfo, newNotebookCell } = setupNewCell(
-          undefined,
-          undefined,
-          taggedElement.code
-        );
-
-        // The 4 following lines are an ugly hack to make sure we preserve init order
-        // Maybe improving runInitCells could circumvent this
+       // taggedElement.element.querySelector(".cell_input").remove();
+        taggedElement.element.style.display = "block";
         
-        newNotebookCell.area.node.setAttribute("data-thebe-id", newNotebookCell.id);
-        
-        newNotebookCell.attachToDOM(taggedElement.placeholder);
-        taggedElement.placeholder.classList.add("tag_thebe-init", "cell", "container", ...taggedElement.tags);
-        taggedElement.placeholder.style.display = "block";
-
+        const cell_input_div = taggedElement.element.querySelector(".cell_input");
+        cell_input_div.classList.remove("cell_input");
+        cell_input_div.querySelector(".highlight").classList.remove("highlight");
+        cell_input_div.querySelector(".thebe-input").remove();
+        cell_input_div.querySelector(".thebe-controls").style.display = "none";
+      
         break;
       }
       default: {
@@ -493,18 +487,14 @@ var detectLanguage = (language) => {
 };
 
 function handleThebeRemoveInputTag(element) {
-  // Prevent cell from being run
-  element.classList.remove("cell")
-  element.style.display = "none"
+  element.style.display = "none";
 
   window.specialTaggedElements.push({
     tag: "thebe-remove-input-init",
-    placeholder: element,
-    tags: Array.from(element.classList).filter(cls => cls.startsWith("tag_")),
-    code: element.querySelector("pre").textContent?.trim() ?? "",
+    element: element
   });
 
-  element.querySelector(".cell_input").remove()
+  element.classList.add("tag_thebe-init");
 }
 
 function handleDisableExecutionTag(element) {
