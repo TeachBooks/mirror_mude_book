@@ -386,7 +386,7 @@ function setupSpecialTaggedElements() {
         newNotebookCell.area.node.setAttribute("data-thebe-id", newNotebookCell.id);
         
         newNotebookCell.attachToDOM(taggedElement.placeholder);
-        taggedElement.placeholder.classList.add("tag_thebe-init");
+        taggedElement.placeholder.classList.add("tag_thebe-init", "cell", "container", ...taggedElement.tags);
         taggedElement.placeholder.style.display = "block";
 
         break;
@@ -446,10 +446,11 @@ var initThebe = async () => {
   // 3. Eval the string og the override_pyodide_lookup function in JS, this brings it into scope
   // 4. Execute the override_pyodide_lookup function in JS, and bake in the relative path from root in the book (the home)
   // NOTE: All functions used in override_pyodide_lookup should be nested inside it, since the web worker cannot access functions in this script
+
   thebelab.session.kernel.requestExecute({
-    code: `import js; import pyodide_js; js.fs = pyodide_js.FS; js.eval("""${override_pyodide_lookup.toString()}"""); js.eval(f"override_pyodide_lookup(fs, '${
-      location.pathname.split("/").slice(0, -1).join("/") + "/"
-    }')")`,
+   code: `import js; import pyodide_js; js.fs = pyodide_js.FS; js.eval("""${override_pyodide_lookup.toString()}"""); js.eval(f"override_pyodide_lookup(fs, '${
+     location.pathname.split("/").slice(0, -1).join("/") + "/"
+   }')")`,
   });
 
   const request = new XMLHttpRequest();
@@ -492,21 +493,18 @@ var detectLanguage = (language) => {
 };
 
 function handleThebeRemoveInputTag(element) {
-  const placeholder = document.createElement("div");
-  placeholder.style.display = "none";
+  // Prevent cell from being run
+  element.classList.remove("cell")
+  element.style.display = "none"
 
   window.specialTaggedElements.push({
     tag: "thebe-remove-input-init",
-    placeholder: placeholder,
+    placeholder: element,
+    tags: Array.from(element.classList).filter(cls => cls.startsWith("tag_")),
     code: element.querySelector("pre").textContent?.trim() ?? "",
   });
 
-  element.before(placeholder);
-  const placeholderOutput = element.querySelector(".cell_output");
-  if (placeholderOutput !== null) {
-    element.after(placeholderOutput);
-  }
-  element.remove();
+  element.querySelector(".cell_input").remove()
 }
 
 function handleDisableExecutionTag(element) {
