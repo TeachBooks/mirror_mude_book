@@ -374,21 +374,16 @@ function setupSpecialTaggedElements() {
   for (const taggedElement of window.specialTaggedElements) {
     switch (taggedElement.tag) {
       case "thebe-remove-input-init": {
-        const { newCellInfo, newNotebookCell } = setupNewCell(
-          undefined,
-          undefined,
-          taggedElement.code
-        );
-
-        // The 4 following lines are an ugly hack to make sure we preserve init order
-        // Maybe improving runInitCells could circumvent this
+        taggedElement.element.style.display = "block";
         
-        newNotebookCell.area.node.setAttribute("data-thebe-id", newNotebookCell.id);
-        
-        newNotebookCell.attachToDOM(taggedElement.placeholder);
-        taggedElement.placeholder.classList.add("tag_thebe-init");
-        taggedElement.placeholder.style.display = "block";
+        const cell_input_div = taggedElement.element.querySelector(".cell_input");
+        cell_input_div.classList.remove("cell_input");
+        cell_input_div.querySelector(".highlight")?.classList.remove("highlight");
+        cell_input_div.querySelector(".thebe-input")?.remove();
 
+        const cell_controls = cell_input_div.querySelector(".thebe-controls");
+        if (cell_controls) { cell_controls.style.display = "none"; }
+      
         break;
       }
       default: {
@@ -446,10 +441,11 @@ var initThebe = async () => {
   // 3. Eval the string og the override_pyodide_lookup function in JS, this brings it into scope
   // 4. Execute the override_pyodide_lookup function in JS, and bake in the relative path from root in the book (the home)
   // NOTE: All functions used in override_pyodide_lookup should be nested inside it, since the web worker cannot access functions in this script
+
   thebelab.session.kernel.requestExecute({
-    code: `import js; import pyodide_js; js.fs = pyodide_js.FS; js.eval("""${override_pyodide_lookup.toString()}"""); js.eval(f"override_pyodide_lookup(fs, '${
-      location.pathname.split("/").slice(0, -1).join("/") + "/"
-    }')")`,
+   code: `import js; import pyodide_js; js.fs = pyodide_js.FS; js.eval("""${override_pyodide_lookup.toString()}"""); js.eval(f"override_pyodide_lookup(fs, '${
+     location.pathname.split("/").slice(0, -1).join("/") + "/"
+   }')")`,
   });
 
   const request = new XMLHttpRequest();
@@ -492,21 +488,14 @@ var detectLanguage = (language) => {
 };
 
 function handleThebeRemoveInputTag(element) {
-  const placeholder = document.createElement("div");
-  placeholder.style.display = "none";
+  element.style.display = "none";
 
   window.specialTaggedElements.push({
     tag: "thebe-remove-input-init",
-    placeholder: placeholder,
-    code: element.querySelector("pre").textContent?.trim() ?? "",
+    element: element
   });
 
-  element.before(placeholder);
-  const placeholderOutput = element.querySelector(".cell_output");
-  if (placeholderOutput !== null) {
-    element.after(placeholderOutput);
-  }
-  element.remove();
+  element.classList.add("tag_thebe-init");
 }
 
 function handleDisableExecutionTag(element) {
