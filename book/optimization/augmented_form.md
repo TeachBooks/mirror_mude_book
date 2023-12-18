@@ -73,7 +73,7 @@ $$x_2\in\mathbb{R}\to x_2=(x_2'-x_2'')$$
 
 and, in this case, both $x_2'$ and $x_2''$ will be $\geq 0$. Replacing in our equation would give:
 
-$$a_{11}x_1+a_{12}x_2+...+a_{1n}x_n\leq b_1 \to a_{11}x_1+a_{12}x'_2-a_{12}x_2'+...+a_{1n}x_n\leq b_1$$
+$$a_{11}x_1+a_{12}x_2+...+a_{1n}x_n\leq b_1 \to a_{11}x_1+a_{12}x'_2-a_{12}x_2''+...+a_{1n}x_n\leq b_1$$
 
 ```{note}
 
