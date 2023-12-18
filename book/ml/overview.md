@@ -19,6 +19,8 @@ The field of _machine learning_ is multidisciplinary, which means it comes with 
 - When the data is partitioned into two sets for model validation, the set used to find the model parameters is referred to as the _training_ set, whereas the remainder is the _validation_ set.
 - As the optimization of model parameters can computationally expensive for large data sets, incorporating iterative cycles during the _training_ process can significantly improve the model and modelling process. This is referred to as _tuning_ the model.
 - It is common practice to create a _third_ partition of the original data that can be used during the _tuning_ process; this is referred to as the _test_ set.
+- Parameters that are used to control the model _training_ process, and related characteristics of the model, are called _hyperparameters._ For example, the $k$ in the k-Nearest neighbors approach. These parameters are often what is adjusted during the _tuning_ process.
+- _Loss_ is a term used for quantitative measures of model error.
 
 **Contents**
 
