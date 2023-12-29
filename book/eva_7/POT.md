@@ -80,6 +80,8 @@ As the scientist has a short timeseries for characterizing extremes (only 10 yea
 
 Another option would be to apply BM with a time block of a **smaller size** sampling then, for instance, the monthly maxima. Note that then the fitted GEV will provide the **monthly** non-exceedance probabilities.
 
+To choose between these two options, we should consider criteria related to the physical process we are studying, such as whether the phenomenon presents seasonality or cycles along time.
+
 ```
 
 
