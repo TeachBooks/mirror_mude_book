@@ -1,9 +1,9 @@
 
 # Return Period
 
-> But how extreme do I need to be my design conditions to be? 
+> But how extreme do I need my design conditions to be? 
 
-The Return Period ($RT$) is a widely used concept in guidelines and recommendations in the Engineering and Geosciences field to parameterize the safety level that a given structure or intervention needs to fulfill. Structures are designed to withstand external loadings (e.g.: floods or wave storms) whose distribution function is quantified using Extreme Value Analysis. The magnitude of the extreme event that the structure needs to withstand is then determined according to a given $RT$.
+The Return Period ($RT$)[^ref] is a widely used concept in guidelines and recommendations in the Engineering and Geosciences field to parameterize the safety level that a given structure or intervention needs to fulfill. Structures are designed to withstand external loadings (e.g.: floods or wave storms) whose distribution function is quantified using Extreme Value Analysis. The magnitude of the extreme event that the structure needs to withstand is then determined according to a given $RT$.
 
 ## Concept of return period
 
@@ -30,3 +30,23 @@ $
 So we have to wait 1/p times before the next occurrence of the extreme event.
 
 
+## Let's practice!
+
+An engineer wants to design a water treatment plant. Within that design process, the engineer needs to determine the maximum design concentration of nitrogen. According to regulations, a return period $RT = 25$ years has to be considered.
+
+What is the yearly non-exceedance probability associated to that design return period?
+
+```{admonition} Answer
+:class: tip, dropdown
+
+The yearly exceedance probability is the inverse of the return period so
+
+$P[X > x] = 1/25 = 0.04$
+
+Thus, the yearly non-exceedance probability is
+
+$P[X \leq x] = 1 - P[X > x] = 1 - 0.04 = 0.96$
+
+```
+
+[^ref]: For a more formal definition of the concept of return period, you can refer to [Serinaldi (2015)](https://link.springer.com/article/10.1007/s00477-014-0916-1) 
