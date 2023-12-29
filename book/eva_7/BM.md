@@ -38,7 +38,8 @@ In order to exemplify how to actually implement Block Maxima,pseudo code is pres
 ### Pseudo code
 
     read observations
+
     for each year i:
-        obs_max[i] = max(observations in year i) 
+        obs_max[i] = maximum observations in year i
     end
 
