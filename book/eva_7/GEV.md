@@ -12,7 +12,7 @@ $
 Generalized Extreme Value distribution is defined as
 
 $
-G(x) = exp{-[1+\xi \frac{x-\mu}{\sigma}]^{-1/\xi}}  \hspace{1cm} (1+\xi \frac{x-\mu}{\sigma})>0
+G(x) = exp{\left(-[1+\xi \frac{x-\mu}{\sigma}]^{-1/\xi}\right)}  \hspace{1cm} (1+\xi \frac{x-\mu}{\sigma})>0
 $
 
 where $-\infty < \mu < \infty$ is the location parameter, $\sigma > 0$ is the scale parameter, and $-\infty < \xi < \infty$ is the shape parameter. Let's see the effect of these parameters on the distribution function.
@@ -122,4 +122,38 @@ Which leads to $H_{s, RT=100 \ years} \approx  4.5 m$. **Congratulations! You ha
 
 ---
 Return level using GEV.
+```
+
+## Let's practice!
+
+An scientist is assessing the concentrations of atmospheric $CO_2$ in a city to see if they fulfill the tolerability limits for the citizens. According to previous studies, a concentration of 40,000 ppm of $CO_2$ is inmediatly harmful for humans. Thus, the scientist wants to assess the probability of exceeding this concentration.
+
+Based on existing studies, the scientist knows that the distribution of yearly maxima of concentration of $CO_2$ follows a Generalized Extreme Value distribution with $\mu=5,000$, $\sigma=250$, and $\xi=5$.
+
+What is the probability of exceeding 40,000 ppm of $CO_2$?
+
+```{admonition} Answer
+:class: tip, dropdown
+
+Applying the CDF of the GEV, we can compute the non-exceedance probability as
+
+$P[X \leq 40,000] = exp{\left(-[1+\xi \frac{x-\mu}{\sigma}]^{-1/\xi}\right)} = exp{\left(-[1+5 \frac{40,000-5,000}{250}]^{-1/5}\right)} \approx 0.76$
+
+Thus, the exceedance probability is
+
+$P[X > 40,000] = 1 - P[X \leq 40,000] = 1 - 0.76 = 0.24$
+
+```
+
+What is the the return period of 40,000 ppm of $CO_2$?
+
+```{admonition} Answer
+:class: tip, dropdown
+
+The return period is the inverse of the yearly exceedance probability so
+
+$RT = 1/P[X > 40,000] = 1/0.24 = 4.23 years$
+
+Thus, the concentration of 40,000 ppm of $CO_2$ is exceeded in average every 4.23 years.
+
 ```
