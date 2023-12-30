@@ -1,7 +1,7 @@
 
 # Threshold & Declustering
 
-In the previous chapter, we saw the Peak Over Threshold (POT) technique to sample extremes and we applied it to our time seres. We used a threshold $th = 2.5m$ and a declustering time $dl = 48h$, obtaining the figure below. However, no justification was given for those parameters. In this section, we will start giving insight on how to select $th$ and $dl$, which is inherently a verification and validation process for our chosen distribution.
+In the previous chapter, we saw the Peak Over Threshold (POT) technique to sample extremes and we applied it to our time series. We used a threshold $th = 2.5m$ and a declustering time $dl = 48h$, obtaining the figure below. However, no justification was given for those parameters. In this section, we will start giving insight on how to select $th$ and $dl$, which is inherently a verification and validation process for our chosen distribution.
 
 ```{figure} ../figures/EVA/POT.png
 
@@ -29,7 +29,7 @@ Empirical pmf and cdf for number of excesses per year.
 
 Now, we can fit a Poisson distribution to that empirical distribution and check whether the Poisson distribution is a reasonable model for our number of excesses per year.
 
-We can fit such distribution using *L-moments* method, which consists of estimating the parameters of the distribution based on the moments calculated from the data (mean, standard deviation...). Applying the properties of the Poisson distribution, $E[X]=Var[X]=\lambda$, being $\lambda$ the distribution parameter. Based on that, we can conclude:
+We can fit such distribution using [Moments method](prob_moments), which consists of estimating the parameters of the distribution based on the moments calculated from the data (mean, standard deviation...). Applying the properties of the Poisson distribution, $E[X]=Var[X]=\lambda$, being $\lambda$ the distribution parameter. Based on that, we can conclude:
 - Using my observations, $E[X]=2.84$ and $Var[X]= 1.92$. Thus, $E[X]=Var[X]$ is not true for our observations, but we can assume $E[X]\approx Var[X]$.
 - We can assume a fitted Poisson with $\lambda = E[X]= 2.84$ for the subsequent analysis.
 
