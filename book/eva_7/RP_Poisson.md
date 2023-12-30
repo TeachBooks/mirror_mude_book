@@ -1,6 +1,6 @@
 
 # Return Period & Design Life
-In the previous sections, we have covered the process of how to perform EVA using POT sampling technique and GPD distribution. Also, Poisson distribution functions and its relationship with EVA was introduced. Here, $RT$ will be again extended to cover the concepts related to the design life in the context of POT sampling technique and Poisson process.
+In the previous sections, we have covered the process of how to perform EVA using POT sampling technique and GPD distribution. Also, Poisson distribution function and its relationship with EVA was introduced. Here, $RT$ will be again extended to cover the concepts related to the design life in the context of POT sampling technique and Poisson process.
 
 As previously introduced, there are four key concepts to parameterize safety in the design phase:
 - Probability of failure in one year ($p_{f,y}$).
@@ -40,3 +40,38 @@ RT = \frac{-DL}{ln(1-p_{f,DL})}
 $
 
 And now you can compute the design $RT$ based on the $DL$ and $p_{f,DL}$ recommended in design guidelines!
+
+## Let's practice!
+
+An scientist is designing a *thingamajig*. According to the recommendations, any *thingamajig* should be designed for a lifespan of 25 years with a probability of failure along the design life of $p_{f,DL}=0.05$.
+
+What is the design return period using the [Binomial model](Bernoulli)?
+
+```{admonition} Answer
+:class: tip, dropdown
+
+Applying the expression for the return period derived applying a Binomial distribution
+
+$RT = 1/p_{f,y} = \frac{1}{1 - (1 - p_{f,DL})^{1/DL}} = \frac{1}{1 - (1 - 0.05)^{1/25}} \approx 487.7$ years
+
+```
+
+What is the design return period using the Poisson model?
+
+```{admonition} Answer
+:class: tip, dropdown
+
+Applying the expression for the return period derived applying a Poisson distribution
+
+$RT = 1/p_{f,y} = \frac{-DL}{ln(1-p_{f,DL})} = \frac{-25}{ln(1-0.05)} \approx 487.4$ years
+
+```
+
+Is there a significant difference between both approaches?
+
+```{admonition} Answer
+:class: tip, dropdown
+
+In terms of the computed return periods ($RT$), there is not a significant difference. Although Poisson model is formally more correct since it assumes an infinite number of trials, both models can be applied.
+
+```
