@@ -1,3 +1,4 @@
+(prob_moments)=
 
 # Method of moments
 
