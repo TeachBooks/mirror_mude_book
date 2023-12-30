@@ -241,7 +241,7 @@ parts:
           title: Asymptotic theorem
         - file: eva_7/GEV.md
           title: GEV distribution
-        - file: eva_7/RP_binomial.md
+        - file: eva_7/RP_Binomial.md
           title: RT & Design Life
       - file: eva_7/POT_GPD.md
         title: POT & GPD
