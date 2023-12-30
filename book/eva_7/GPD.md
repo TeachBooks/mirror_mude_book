@@ -1,7 +1,7 @@
 
 # GPD: Introduction
 
-After sampling the extreme observations in our time series using POT (we'll talk more about it later), we have a sequence of independent and identically distributed excesses. Now, we want to model their statistical behavior.
+After sampling the extreme observations in our time series using POT, we have a sequence of independent and identically distributed excesses. Now, we want to model their statistical behavior.
 
 Let $F_{th}$ be the distribution function of the excesses over a threshold, $th$,
 

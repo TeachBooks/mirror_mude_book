@@ -42,7 +42,7 @@ $
 **$x_m$ is called the $m$-observations return level.**
 ## From $m$-observations to $N$-years
 
-In Civil Engineering field, we typically work with $N$-year return levels. Then, we need to account for the number of observations per year, $n_y$, being $m=N \times n_y$. Applying this in the previously derived equations, we can compute the $N$-year return level as
+In Engineering and Geosciences, we typically work with $N$-year return levels (what we defined as the Return Period). Then, we need to account for the number of observations per year, $n_y$, being $m=N \times n_y$. Applying this in the previously derived equations, we can compute the $N$-year return level as
 
 $
 x_N = \left\{
@@ -57,11 +57,7 @@ Therefore, if we want to calculate the return level associated with a return per
 
 **But how can we compute the probability of being above the threshold and, thus, observing an excess, $P[X>th] = \zeta_{th}$?**
 
-We'll see it after an intermezzo!
-
-GPD: *N* Return Levels
-
-Now you know a bit more about the Poisson distribution and how it helps us modelling the number of excesses over a threshold when performing POT. Here, we will see how we can use this distribution to compute the probability of being above the threshold $P[X>th] = \zeta_{th}$ and, thus, the return levels based on a GPD distribution.
+You have already seen how the [Poisson distribution](Poisson) helps us modelling the number of excesses over a threshold when performing POT. Here, we will use this distribution to compute the probability of being above the threshold $P[X>th] = \zeta_{th}$ and, thus, the return levels based on a GPD distribution.
 
 ## Computing $N$-years return levels
 
@@ -117,7 +113,7 @@ $
 
 Moving back to our example, we were interested in estimating $H_s$ with a $RT = 100\ years$. We had 20 years of hourly recordings in our buoy and, using $th = 2.5m$ and $dt = 48h$, we sampled 54 excesses.
 
-First, we fit the parameters of our distribution using the sampled excesses, $\sigma_{th}$ and $\xi$ using Maximum Loglikelihood Estimator. We obtain $\sigma_{th}=0.69$ and $\xi=-0.27$. 
+First, we fit the parameters of our distribution using the sampled **excesses** (not the actual value of the random variable), $\sigma_{th}$ and $\xi$ using Maximum Loglikelihood Estimator. We obtain $\sigma_{th}=0.69$ and $\xi=-0.27$.
 
 Once we have fitted the parameters, we check the goodness of fit of such fitting. Below, the QQplot and the exceedance probability plot in logarithmic scale are presented.
 
