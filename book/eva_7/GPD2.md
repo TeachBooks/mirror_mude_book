@@ -134,4 +134,53 @@ $
 
 Thus, the design wave height with a $RT=100 \ years$ is 4.49m based on our Extreme Value Analysis. **Congratulations! You have performed your first Extreme Value Analysis using POT and GPD!**
 
+## Let's practice!
+
+A colleague is performing EVA to determine the maximum design wind loading in a building. The engineer retrieved a timeseries of wind speeds of 17 years and used POT to sample the extremes within the timeseries. The engineer obtained 68 extreme excesses.
+
+What is the average number of exceedances per year?
+
+```{admonition} Answer
+:class: tip, dropdown
+
+The number of years is $M = 17$ and the total number of exceedances is $n_{th}=68$. Thus, we can compute the average number of exceedances per year as
+
+$
+\hat{\lambda} = \frac{n_{th}}{M} = 68/17 = 4
+$
+
+```
+
+Our colleague has fitted a GPD on the obtained excesses using a threshold $th=40$km/h. The fitted parameters are $\sigma_{th} = 4.1$ and $\xi = 0.3$. What is the 25 years-return level?
+
+```{admonition} Answer
+:class: tip, dropdown
+
+
+$
+x_{25 \ years} = th + \frac{\sigma_{th}}{\xi}[(\lambda N)^{\xi}-1] = 40 + \frac{4.1}{0.3}[(4 \times 25)^{0.3}-1] = 80.7 \ km/h
+$
+
+```
+
+Finally, our colleague has decided to apply monthly maxima and, thus, fit a GEV to the selected observations. Since 17 years of data are available, 204 extreme observations are obtained. The fitted parameters of the GEV are $\mu=37$, $\sigma=5$, and $\xi=0.3$.
+
+```{admonition} Answer
+:class: tip, dropdown
+
+Considering that the GEV has been fitted using monthly extremes, this distribution will provide the monthly non-exceedance probabilities. Then, we need to calculate what is the monthly non-exceedance probability that corresponds to a return period of 25 years. Since we are working with the monthly extremes, we know that $\lambda = 12$, as we have 12 observations per year. Thus, the monthly exceedance probability ($p_{f, m}$) can be computed as
+
+$
+p_{f,y} = \lambda p_{f,m} \to p_{f,m} = \frac{p_{f,y}}{\lambda} = \frac{1/25}{12} =  0.0033
+$
+
+After that, we can apply the CDF of the GEV distribution as
+
+$
+x_{25 \ years} = \mu - \frac{\sigma}{\xi}[1-\{-log(1 - p_{f, m})\}^{-\xi}] = 37 - \frac{5}{0.3}[1-\{-log(1-0.0033)\}^{-0.3}] = 112.5 \ km/h
+$
+
+```
+
+
 [^hat]: Note that in mathematics, $\hat{\lambda}$ denotes the estimation of $\lambda$.
