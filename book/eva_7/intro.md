@@ -1,6 +1,6 @@
 # Extreme Value Analysis
 
-When studying continuous distribution functions, observations are modelled using parametric distribution functions, such as the Gaussian or Exponential distributions. These parametric distributions ease the computation of probabilities and allow the inference of values of the modelled random variable that are not within the available observations. There, a key concept arises: the **tail of the distribution**. When extrapolating out of the set of observations, the fitting of the parametric distribution to the tail of the distribution was crutial to guarantee an accurate extrapolation. Do you remember the following plot from one of the workshops?
+When studying continuous distribution functions, observations are modelled using parametric distribution functions, such as the Gaussian or Exponential distributions. These parametric distributions ease the computation of probabilities and allow the inference of values of the modelled random variable that are not within the available observations. There, a key concept arises: the **tail of the distribution**. When extrapolating out of the set of observations, the fitting of the parametric distribution to the tail of the distribution was crucial to guarantee an accurate extrapolation. Do you remember the following plot from one of the workshops?
 
 ```{figure} ../figures/EVA/previous_work.png
 
