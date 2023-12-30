@@ -1,14 +1,6 @@
 # Supplementary material: videos
 
-```{eval-rst}
-.. raw:: html
-
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/LcNWohcT6nc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-```
-Slides from the video above can be found in the following PDF:
-```{eval-rst}
-:download:`Goodness Of Fit (GOF) <./3-MUDE_GOF.pdf>`
-```
+In this section, some videos from previous courses are gathered. Note that there may not be a perfect overlap between the content in the chapters of the book and the videos. In case of doubt, always refer to the written contents of the book.
 
 ```{eval-rst}
 .. raw:: html
@@ -102,7 +94,9 @@ Slides from the video above can be found in the following PDF:
    <iframe width="560" height="315" src="https://www.youtube.com/embed/UcKGEnIc3K8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 
-**6. Peak Over Threshold and Generalized Pareto distribution**: Threshold and declustering time selection
+**6. Peak Over Threshold and Generalized Pareto distribution**: Threshold and declustering time selection.
+
+Only the first three minutes of this video are within the scope of this course.
 
 ```{eval-rst}
 .. raw:: html
