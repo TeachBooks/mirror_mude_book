@@ -177,7 +177,11 @@ $
 After that, we can apply the CDF of the GEV distribution as
 
 $
-x_{25 \ years} = \mu - \frac{\sigma}{\xi}[1-\{-log(1 - p_{f, m})\}^{-\xi}] = 37 - \frac{5}{0.3}[1-\{-log(1-0.0033)\}^{-0.3}] = 112.5 \ km/h
+x_{25 \ years} = \mu - \frac{\sigma}{\xi}[1-\{-log(1 - p_{f, m})\}^{-\xi}]
+$
+
+$
+x_{25 \ years} = 37 - \frac{5}{0.3}[1-\{-log(1-0.0033)\}^{-0.3}] = 112.5 \ km/h
 $
 
 ```
