@@ -9,6 +9,16 @@ There are many linear programming problems in which all or some of the variables
 
 These problems are called integer programming problems (IP) or mixed integer programming problems (MIP), if there are some continuous variables. Obtaining a solution for these problems can be quite difficult as the simplex method is not prepared for integer variables.
 
+## Video
+
+The story is told  in a video. The video has a one-to-one correspondence with this book
+
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ViA1X6X3Rhs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
 ## Integer or binary variables definition
 
 $\mathbb{N}_0$ is the set of natural numbers meaning the integer ones and it includes in this case the zero. You can have:
@@ -93,73 +103,6 @@ Let us take a look into the solving process using the branch-and-bound method:
 
 * Unfortunately, there is no general procedure that allows determining the variable that allows this search to go faster
 
-## Some constraints that take advantage of integer/binary variables
-
-At most two of the projects 1, 2, 3, 4 and 5 can be done:
-
-$$x_1+x_2+x_3+x_4+x_5\leq 2$$
-
-If project 1 is done then also project 2 is done:
-
-$$x_2\geq x_1$$
-
-Restrict the variable $x_i$ to have just one of a given set of integers {2,3,5,7} $\to$ let $y_1$,$y_2$,$y_3$,$y_4$ be binary, and add the constraints:
-
-$$\begin{cases}x_i=2y_1+3y_2+5y_3+7y_4\\ y_1+y_2+y_3+y_4=1\end{cases}$$
-
-### Either-or constraints
-
-Satisfy only one of these two constraints depending on something else in the model:
-
-$$\begin{cases}3x_1+5x_2\leq 7\\ 2x_1+2x_2\leq 4\end{cases}$$
-
-Replace with the following two constraints:
-
-$$3x_1+5x_2\leq 7+My\\ 2x_1+2x_2\leq 4+M(1-y)$$
-
-where $y$ is a binary variable and M is sufficiently large. When $y$ is 1 the second constraint is active and the first is relaxed ($\leq$ big number), when $y$ is 0, the inverse happens.
-
-If $x_1$ happens (it has the value 1) then $x_2$ cannot happen and vice-versa. Both can be zero as well meaning both will not happen, as $x_1+x_2\leq 1$.
-
-### Discontinuous variables
-
-If you want to impose that in some situations $x$ can only be defined as:
-
-$$x=0\text{ or } l\leq x\leq u$$
-
-Introduce the binary variable $y$ and add the following constraints:
-
-$$\begin{gather*}x\leq uy\\ x\geq ly\end{gather*}$$
-
-In this way when $y$ is 0, $x$ is zero, and when it is 1 then $x$ is between $u$ and $l$.
-
-### The product of two binary variables
-
-As you know, in linear programming you cannot multiply two variables but this does not mean that you cannot use some constraints to produce that product. The product $x_1x_2$ of two binary variables $x_1$ and $x_2$ can be replaced by additional binary variable $y$ by adding the following constraints:
-
-$$\begin{gather*}y\leq x_1\\ y\leq x_2\\ y\geq x_2-M(1-x_1)\end{gather*}$$
-
-with $M$ sufficiently large. The $y$ variable will be the result of multiplying $x_1$ for $x_2$.
-
-### The product of a binary and a continuous variable
-
-The product $x_1x_2$ of the binary variable $x_1$ and the continuous variable $x_2$ with $0\leq x_2\leq u$ can be replaced by an additional continuous variable $y$ by adding the following constraints:
-
-$$\begin{cases}y\leq ux_1\\ y\leq x_2\\ y\geq x_2-u(1-x_1)\\ y\geq 0\end{cases}$$
-
-$y$ is obviously the continuous variable you want to get.
-
 :::{card} Quiz questions
 <iframe src="https://tudelft.h5p.com/content/1292123858535891397/embed" aria-label="2_3_4_1_branch_and_bound" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
 :::
-
-## Supplementary Video
-
-The story is told once again in a video. The video listed below has a one-to-one correspondence with the chapters in this book
-
-```{eval-rst}
-.. raw:: html
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/ViA1X6X3Rhs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-```
-

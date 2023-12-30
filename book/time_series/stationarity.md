@@ -9,7 +9,7 @@ This means that parameters such as *mean* and *(co)variance* should remain const
 
 * Mean of the process is time-independent
 
-$$\mathbb{E}(Y(t))=\mathbb{E}(S_t)=\mu$$
+$$\mathbb{E}(S(t))=\mathbb{E}(S_t)=\mu$$
 
 * Covariance of the process is independent of $t$ for each time shift $\tau$ (so only a function of τ  and not t):
 
@@ -251,7 +251,7 @@ name: least_squares
 Example of a time series (right graph) with linear and seasonal trend. The residuals (= stationary time series) after applying BLUE are shown on the left.
 ```
 
-In the example above, for each observation $Y_i = y_0+ rt_i+a\cos{\omega_0t_i}+b \sin{\omega_0t_i} + +x_3t_i+\epsilon_i$, where $a$ and $b$ describe the seasonality and $y_0$ and $r$ the trend. The time series then is:
+In the example above, for each observation $Y_i = y_0+ rt_i+a\cos{\omega_0t_i}+b \sin{\omega_0t_i} +\epsilon_i$, where $a$ and $b$ describe the seasonality and $y_0$ and $r$ the trend. The time series then is:
 
 $$
 \begin{bmatrix}

@@ -2,10 +2,20 @@
 
 In the augmented form of a mathematical program:
 
-* All the constraints must be equations
+* All the constraints must be equations (equality sign)
 * The independent term must always be positive
 * All the variables must be positive defined
 * The objective function can be of type maximization or minimization
+
+## Video
+
+The story is told in a video. The video has a one-to-one correspondence with this book.
+
+```{eval-rst}
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/-jQKtC2Xvcs?si=nlX_yEmByU7CA8rO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+```
 
 ## Augmented form of a LP problem
 
@@ -29,7 +39,7 @@ and with $x_j\geq 0$ $(j=1,2,...,n)$ and $b_i\geq 0$ $(i=1,2,...,m)$. $n$ here i
 
 ### But what if you have an inequality as a constraint?
 
-To solve those kind of situations you introduce a **slack variable**, let us say $s_1$, that will convert your constraint in an equality:
+To solve those kind of situations you introduce a **slack variable**, let us say $s_1$, that will convert your constraint into an equality:
 
 $$a_{11}x_1+a_{12}x_2+...+a_{1n}x_n\leq b_1 \to \underbrace{a_{11}x_1+a_{12}x_2+...+a_{1n}x_n}_{\text{consumption of a resource}}+\overbrace{s_1}^{\text{available resources which were not consumed}}=\underbrace{b_1}_{\text{available resources}}$$
 
@@ -43,7 +53,7 @@ Transform the negative independent coefficients into positive ones:
 
 $$a_{11}x_1+a_{12}x_2+...+a_{1n}x_n=-b_1 \to -a_{11}x_1-a_{12}x_2-...-a_{1n}x_n=b_1$$
 
-### And what if we have negative variables?
+### And what if we have variables that can take negative values?
 
 $$x_2\leq 0 \to x_2=-x'_2 (x_2'\geq 0)$$
 
@@ -63,7 +73,7 @@ $$x_2\in\mathbb{R}\to x_2=(x_2'-x_2'')$$
 
 and, in this case, both $x_2'$ and $x_2''$ will be $\geq 0$. Replacing in our equation would give:
 
-$$a_{11}x_1+a_{12}x_2+...+a_{1n}x_n\leq b_1 \to a_{11}x_1+a_{12}x'_2-a_{12}x_2'+...+a_{1n}x_n\leq b_1$$
+$$a_{11}x_1+a_{12}x_2+...+a_{1n}x_n\leq b_1 \to a_{11}x_1+a_{12}x'_2-a_{12}x_2''+...+a_{1n}x_n\leq b_1$$
 
 ```{note}
 
@@ -87,16 +97,6 @@ $$\text{Max }Z=2x_1-6x'_2+13x_3+7x_4$$
 
 with
 
-$$\begin{cases}3x_1-4x'_2+12x_3-s_1\geq 300\\ 8x_1-6x'_2-x_4+s_2\leq 220\\ 6x_1-5x'_2+3x_3+s_3\leq 150\\ x_1,x'_2,x_3,x_4\geq 0\\ s_1,s_2,s_3\geq 0\end{cases}$$
+$$\begin{cases}3x_1-4x'_2+12x_3-s_1 = 300\\ 8x_1-6x'_2-x_4+s_2 = 220\\ 6x_1-5x'_2+3x_3+s_3 = 150\\ x_1,x'_2,x_3,x_4\geq 0\\ s_1,s_2,s_3\geq 0\end{cases}$$
 
 And the problem is transformed in its augmented form and ready to be used in the SIMPLEX method!
-
-## Supplementary Video
-
-The story is told once again in a video. The video listed below has a one-to-one correspondence with the chapters in this book
-
-```{eval-rst}
-.. raw:: html
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/-jQKtC2Xvcs?si=nlX_yEmByU7CA8rO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-```
