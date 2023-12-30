@@ -1,7 +1,8 @@
 
+(Poisson)=
 # Intermezzo: Poisson
 
-In previous sections, the Binomial distribution was introduced. This distribution models the probability of $x$ successes in $n$ Bernoulli trials with a probability of success in each trial, $p$. When $n$ is large and $p$ is small, the Binomial distribution can be approximated by a Poisson distribution. Thus, the Poisson distribution is also based on the assumption of independence and identical distribution. 
+As you already know, the [Binomial distribution](Bernoulli) models the probability of $x$ successes in $n$ Bernoulli trials with a probability of success in each trial, $p$. When $n$ is large and $p$ is small, the Binomial distribution can be approximated by a Poisson distribution. Thus, the Poisson distribution is also based on the assumption of independence and identical distribution. 
 
 ## Deriving the Distribution
 Let's start with the pmf of a Binomial random variable.

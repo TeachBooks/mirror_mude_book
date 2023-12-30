@@ -248,6 +248,7 @@ parts:
         sections:
         - file: eva_7/POT.md
           title: Peak Over Threshold
+        - file: eva_7/Poisson.md
         - file: eva_7/Threshold.md
           title: Parameters selection
         - file: eva_7/GPD.md
@@ -260,7 +261,6 @@ parts:
         title: Extra material
         sections:
         - file: eva_7/Bernoulli.md
-        - file: eva_7/Poisson.md
         - file: eva_7/videos.md
           title: EVA videos 
 
