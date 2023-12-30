@@ -123,7 +123,7 @@ Once we have fitted the parameters, we check the goodness of fit of such fitting
 ---
 
 ---
-Influence of shape parameter on pareto distribution.
+Goodness of fit for Poisson distribution.
 ```
 
 The fitting is reasonable, so we can use the fitted distribution to determine the return level associated to a $RT = 100 \ years$. We have $M=20 \ years$ of observations and $n_{th} = 54 \ events$. Thus, $\hat{\lambda} = 54/20 = 2.7$. Applying the previous expression for $\xi \neq 0$

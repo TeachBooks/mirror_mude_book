@@ -38,3 +38,33 @@ RT = 1/p_{f,y} = \frac{1}{1 - (1 - p_{f,DL})^{1/DL}}
 $
 
 And now you can compute the design $RT$ based on the $DL$ and $p_{f,DL}$ recommended in design guidelines!
+
+## Let's practice!
+
+An scientist is designing a *thingamajig*. According to the recommendations, any *thingamajig* should be designed for a lifespan of 25 years with a probability of failure along the design life of $p_{f,DL}=0.05$.
+
+What is the design return period?
+
+```{admonition} Answer
+:class: tip, dropdown
+
+Applying the expression previously derived
+
+$RT = 1/p_{f,y} = \frac{1}{1 - (1 - p_{f,DL})^{1/DL}} = \frac{1}{1 - (1 - 0.05)^{1/25}} \approx 488$ years
+
+```
+
+What is the design non-exceedance yearly probability?
+
+```{admonition} Answer
+:class: tip, dropdown
+
+If $RT \approx 488$ years, applying the definition of return period
+
+$RT = 1/p_{f,y} \to p_{f,y} = 1/488 = 0.002$
+
+Thus, the non-exceedance probability is
+
+$P[X \leq x] = 1-0.002 = 0.998$
+
+```
