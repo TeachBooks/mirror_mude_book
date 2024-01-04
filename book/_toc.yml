@@ -275,7 +275,7 @@ parts:
         - file: eva/RP_Poisson.md
           title: Revisiting RT
       - file: eva/extra.md
-        title: Extra material
+        title: Supplementary Material
         sections:
         - file: eva/Bernoulli.md
         - file: eva/videos.md
