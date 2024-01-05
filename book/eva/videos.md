@@ -47,7 +47,7 @@ On this page videos related to extreme value analysis are collected together. No
 
 ```
 
-_The following videos were used in another course and give more depth on some topics, but are included here because there is a lot of overlay with the EVA content of MUDE._ 
+_The following videos were used in another course and give more depth on some topics, but are included here because there is a lot of overlap with the EVA content of MUDE._ 
 
 **1. Introduction to EVA and overview**
 
