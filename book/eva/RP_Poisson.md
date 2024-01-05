@@ -10,6 +10,13 @@ As previously introduced, there are four key concepts to parameterize safety in 
 
 We saw that the number of excesses per time block (typically a year) follows a Poisson distribution and can be used together with the GPD distribution to determine the yearly exceedance probabilities. However, **how can we obtain the exceedance probability along the design life?**
 
+```{admonition} MUDE exam information
+:class: tip
+
+In this section, the derivation of the formula which relates the above mentioned parameters is presented based on the Poisson model. You are not required to know the derivation, it is shown as background information so you know the assumptions which are done in the process. You need to understand the concepts of yearly probability of failure, return period, design life and the probability of failure in the design life. Also, you need to be able to apply the derived equation.
+
+```
+
 ## Deriving the probability of failure along the design life
 We already saw that extremes could be assimilated as a Bernoulli process: for each year (trial), we check if the observed value exceeds our design value (success) or not (failure). Thus, the number of exceedances over a design value (successes) in an infinite number of years (trials) will follow the Poisson distribution if each trial is independent and the probability of success (exceeding the threshold) is very small.
 
