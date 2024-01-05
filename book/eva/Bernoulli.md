@@ -5,6 +5,13 @@
 
 Extreme value analysis and the study of extremes has a foundational basis in the theory of Bernoulli processes and the Bernoulli and Binomial distributions.
 
+```{admonition} MUDE exam information
+:class: tip
+
+In this section, a refresher about Bernoulli processes and Binomial distribution is provided. You will not have questions in the exam about them and you don't need to know the presented derivations. You need to know how Bernoulli processes and Binomial distribution are applied to model extremes and the assumptions which are made for that.
+
+```
+
 ## Bernoulli trials and Bernoulli process: do I need to study for my probability exam?
 
 One student wants to know if she will pass her favourite course (of course, probability) without studying. Thus, she has the simplest possible experiment: one trial with two possible outcomes, pass (success!) and not pass (usually called failure). Note that they are mutually exclusive (if you pass, you haven't failed) and collectively exhaustive (there's no third possible outcome from the experiment). The results from such a trial are a two-sided Bernoulli random variable and, thus, the distribution of probabilities of the two outcomes is a Bernoulli distribution. The **Bernoulli distribution** is a discrete distribution function whose probability mass function (pmf) is given by
