@@ -1,6 +1,6 @@
 # Supplementary material: videos
 
-In this section, some videos from previous courses are gathered. Note that there may not be a perfect overlap between the content in the chapters of the book and the videos. In case of doubt, always refer to the written contents of the book.
+On this page videos related to extreme value analysis are collected together. Note that there may not be a perfect overlap between the content in the chapters of the book and the videos; use the video titles to find relevant content. In case of doubt, always refer to the written contents of the book.
 
 ```{eval-rst}
 .. raw:: html
@@ -26,12 +26,7 @@ In this section, some videos from previous courses are gathered. Note that there
    <iframe width="560" height="315" src="https://www.youtube.com/embed/szVrnWuVkVQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ```
-
-```{eval-rst}
-.. raw:: html
-
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/XsLVR2rtpq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-```
+% MMMMM https://www.youtube.com/embed/XsLVR2rtpq0 old Part 2 intro video, not needed
 
 ```{eval-rst}
 .. raw:: html
@@ -52,7 +47,7 @@ In this section, some videos from previous courses are gathered. Note that there
 
 ```
 
-
+_The following videos were used in another course and give more depth on some topics, but are included here because there is a lot of overlay with the EVA content of MUDE._ 
 
 **1. Introduction to EVA and overview**
 
