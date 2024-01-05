@@ -3,6 +3,14 @@
 
 Now you know a bit more about the GPD distribution. Here, we will see some considerations to keep in mind when applying it to model extremes.
 
+
+```{admonition} MUDE exam information
+:class: tip
+
+In this section, the derivation to go from m-observations return levels to N-years return levels is provided based on the Poisson model for extremes. You are not required to know the derivation for the exam, it is shown as background information so you know where it is coming from. You need to know how to compute return levels from a Generalized Pareto distribution, as shown in the section "Let's apply it".
+
+```
+
 We already saw that we are interested in evaluating the return level of the studied variable: the $N$-year return level $x_N$, which is expected to be exceeded once every $N$ years. **How can we do that?**
 
 Imagine that we have already fitted a GPD with $\xi \neq 0$, so the exceedance probabilities can be computed as

@@ -11,6 +11,14 @@ If we go to guidelines and recommendations, there are four key concepts to param
 
 We have already seen $RT$ and $p_{f,y}$. Using Block Maxima with a time block = 1 year (called Yearly Maxima), we can fit a GEV distribution and obtain the non-exceedance yearly probabilities of the desired return levels. However, **how can we obtain the exceedance probability along the design life?**
 
+
+```{admonition} MUDE exam information
+:class: tip
+
+In this section, the derivation of the formula which relates the above mentioned parameters is presented based on the Binomial model. You are not required to know the derivation, it is shown as background information so you know the assumptions which are done in the process. You need to understand the concepts of yearly probability of failure, return period, design life and the probability of failure in the design life. Also, you need to be able to apply the derived equation.
+
+```
+
 ## Deriving the probability of failure along the design life
 We already saw that extremes could be assimilated as a Bernoulli process: for each year (trial), we check if the observed value exceeds our design value (success) or not (failure). Thus, the number of exceedances over a design value (successes) in a given number of years (trials) will follow the Binomial distribution if each trial is independent.
 
