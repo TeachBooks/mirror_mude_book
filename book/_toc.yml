@@ -239,52 +239,93 @@ parts:
       - file: ml/ridge_sgd_interactive
       - file: ml/nn_interactive
       - file: ml/review
+    - file: eva/intro.md
+      title: Extreme Value Analysis
+      sections:
+      - file: eva/extreme.md
+        title: Concept of Extreme
+        sections:
+        - file: eva/RT.md
+          title: Return period
+        - file: eva/sampling.md
+          title: Sampling extremes
+      - file: eva/BM_GEV.md
+        title: Block Maxima & GEV
+        sections:
+        - file: eva/BM.md
+          title: Block Maxima
+        - file: eva/Asymptotic.md
+          title: Asymptotic theorem
+        - file: eva/GEV.md
+          title: GEV distribution
+        - file: eva/RP_Binomial.md
+          title: RT & Design Life
+      - file: eva/POT_GPD.md
+        title: POT & GPD
+        sections:
+        - file: eva/POT.md
+          title: Peak Over Threshold
+        - file: eva/Poisson.md
+        - file: eva/Threshold.md
+          title: Parameters selection
+        - file: eva/GPD.md
+          title: Intro to GPD
+        - file: eva/GPD2.md
+          title: Practicalities for GPD
+        - file: eva/RP_Poisson.md
+          title: Revisiting RT
+      - file: eva/extra.md
+        title: Supplementary Material
+        sections:
+        - file: eva/Bernoulli.md
+        - file: eva/videos.md
+          title: EVA videos 
 
 # START REMOVE-FROM-PUBLISH
 
   - caption: Extreme Value Analysis
     numbered: 2
     chapters:
-    - file: EVA/00_00_EVA
-    - file: EVA/01_00_Extreme
+    - file: EVA_old/00_00_EVA
+    - file: EVA_old/01_00_Extreme
       title: Extremes
       sections:
-      - file: EVA/01_01_Bernoulli
-      - file: EVA/01_02_RT
-      - file: EVA/01_03_Sampling
-    - file: EVA/02_00_BM_GEV
+      - file: EVA_old/01_01_Bernoulli
+      - file: EVA_old/01_02_RT
+      - file: EVA_old/01_03_Sampling
+    - file: EVA_old/02_00_BM_GEV
       sections:
-      - file: EVA/02_01_BM
-      - file: EVA/02_02_Asymptotic
-      - file: EVA/02_03_GEV
-      - file: EVA/02_04_RP_Binomial
-    - file: EVA/03_00_POT_GPD
+      - file: EVA_old/02_01_BM
+      - file: EVA_old/02_02_Asymptotic
+      - file: EVA_old/02_03_GEV
+      - file: EVA_old/02_04_RP_Binomial
+    - file: EVA_old/03_00_POT_GPD
       sections:
-      - file: EVA/03_01_POT
-      - file: EVA/03_02_GPD
-      - file: EVA/03_03_GPD2
-      - file: EVA/03_04_Poisson
-      - file: EVA/03_05_GPD3
-      - file: EVA/03_06_RP_Poisson
+      - file: EVA_old/03_01_POT
+      - file: EVA_old/03_02_GPD
+      - file: EVA_old/03_03_GPD2
+      - file: EVA_old/03_04_Poisson
+      - file: EVA_old/03_05_GPD3
+      - file: EVA_old/03_06_RP_Poisson
         title: Return Period
-    - file: EVA/04_00_Threshold
+    - file: EVA_old/04_00_Threshold
       sections:
-      - file: EVA/04_01_Threshold_Poisson
-      - file: EVA/04_02_Threshold_MRL
-      - file: EVA/04_03_Threshold_stability
-      - file: EVA/04_04_Threshold_DI
-    - file: EVA/MUDE/01_00_MUDE
+      - file: EVA_old/04_01_Threshold_Poisson
+      - file: EVA_old/04_02_Threshold_MRL
+      - file: EVA_old/04_03_Threshold_stability
+      - file: EVA_old/04_04_Threshold_DI
+    - file: EVA_old/MUDE/01_00_MUDE
       title: MUDE Materials
       sections:
-      - file: EVA/MUDE/01_01_EVA_1
-      - file: EVA/MUDE/01_02_3-1-Extreme_Value_notebook.ipynb
+      - file: EVA_old/MUDE/01_01_EVA_1
+      - file: EVA_old/MUDE/01_02_3-1-Extreme_Value_notebook.ipynb
         title: Assignment 1
-      - file: EVA/MUDE/01_03_3-1-Extreme_Value_notebook_solved.ipynb
+      - file: EVA_old/MUDE/01_03_3-1-Extreme_Value_notebook_solved.ipynb
         title: Solution 1
-      - file: EVA/MUDE/01_04_EVA_2
-      - file: EVA/MUDE/01_05_4-1-EVA2_student.ipynb
+      - file: EVA_old/MUDE/01_04_EVA_2
+      - file: EVA_old/MUDE/01_05_4-1-EVA2_student.ipynb
         title: Assignment 2
-      - file: EVA/MUDE/01_06_4-1-EVA2_teacher.ipynb
+      - file: EVA_old/MUDE/01_06_4-1-EVA2_teacher.ipynb
         title: Solution 2
 
   - caption: Risk and Reliability

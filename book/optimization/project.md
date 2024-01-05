@@ -3,7 +3,7 @@ During Friday's project, you'll work on a road network design problem (NDP) and 
 
 ```{admonition} MUDE Exam Information
 :class: tip, dropdown
-The road network design problem serves as an example for solving a complex optimization problem. You're not expected to be know the problem's details.
+The road network design problem serves as an example for solving a complex optimization problem. You're not expected to understand the problem details for the exam.
 ```
 
 ## Problem description
