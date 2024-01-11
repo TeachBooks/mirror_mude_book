@@ -2,25 +2,26 @@
 
 A pre-fabricated bridge design is being considered for river crossings in a remote region of the world, as shown in Figure 1. Cities 1, 2 and 3 are labelled C1, C2 and C3, with bridges labelled B1-B4.
 
-```{figure} ../../figures/pd/simple-city.png
+```{figure} ../figures/simple-city.png
 ---
 width: 600px
 name: exercise-simple-city
 ---
 ```
 
+**Question 1:** If the probability of failure for an individual bridge is 0.1 per year, compute the probability that you cannot drive from City 1 to City 2
 
 
+```{admonition} Answer
+:class: tip, dropdown
 
-::::{grasple}
-:url: https://embed.grasple.com/exercises/767782d5-023a-4b49-a1f3-874fca626c8e?id=79907
-:label: grasple_exercise_1
-:dropdown:
-:description: Example of exercise which goes along
-
-::::
-
-
+$$
+    P_{f_{C1-C2}} = P_{f_{B1}} * P_{f_{B4-B3-B2}} = P_{f_{B1}} * (1 - (1 - P_{f_{B4}})(1 - P_{f_{B3}}*P_{f_{B2}}))
+$$
+$$
+    P_{f_{C1 - C2}} = 0.1 * (1 - (1 - 0.1)(1 - 0.1 * 0.1)) = 0.0109
+$$
+```
 
 **Question 2:** If the probability of failure for an individual bridge is 0.1 per year, compute the probability that you cannot drive from City 2 to City 3.
 
