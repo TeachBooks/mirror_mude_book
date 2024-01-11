@@ -197,8 +197,10 @@ parts:
         title: "Time Series forecasting"
       - file: time_series/optional
         title: "Supplementary material"
+      # START REMOVE-FROM-PUBLISH
       - file: time_series/notebook
         title: Notebook
+      # END REMOVE-FROM-PUBLISH
     - file: optimization/overview
       title: Optimization
       sections:

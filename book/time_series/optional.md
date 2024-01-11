@@ -157,5 +157,5 @@ $$\Sigma_{\hat{Y_p}}=\mathrm{A}_p\Sigma_{\hat{X}}\mathrm{A}_p^T+\Sigma_{Y_p Y}\S
 
 
 ```{note}
-For a purely random process (white noise), we have $\Sigma_{Y_p Y}=0$ and, therefore, the stochastic process/part will affect the prediction.
+For a purely random process (white noise), we have $\Sigma_{Y_p Y}=0$ and, therefore, the stochastic process/part will NOT affect the prediction.
 ```
