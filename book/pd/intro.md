@@ -1,5 +1,5 @@
-(intro_pd)=
-# Introduction
+(intro)=
+# Introduction 
 
 Welcome to the lecture notes for weeks 2.7 and 2.8 which provides an introduction to risk and reliability.
 
@@ -55,6 +55,8 @@ Risk and reliability concepts have been organized into five primary chapters to 
 - **Risk evaluation** provides simple quantitative tools and a framework for establishing risk-based safety standards and economic risk criteria. This is a key step in the risk analysis process.
 
 Additional chapters are provided to put these concepts into context, explain industry-specific characteristics or indicate possibilities of additional study for the student.
+
+<!--
 ### MUDE Module Information
 
 This book is prepared for CEGM1000: Modeling, Uncertainty and Data for Engineers (MUDE), a first year MSc module in the Civil Engineering and Geosciences faculty at TU Delft. During the 2022-23 academic year it is only used for two weeks (2.7-2.8) for topics of risk and reliability.
@@ -87,7 +89,9 @@ The following concepts or methods are used in this book to illustrate key subjec
 - By now this list should give you a good enough idea of what to (not) expect...
 
 Exam questions are also designed such that specialized knowledge is not needed to solve them; however, you should be able to recognize loads and resistances and series and parallel systems for any simple civil engineering and geoscience application provided on the exam.
-```
+``` 
+-->
+
 ### Additional Resources
 
 If you are in need of a quick refresher on fundamental probability and statistics topics, you may find the online course [Probability and Statistics Applications for MUDE](https://tudelft-citg.github.io/learn-probability/) helpful. This course was created for incoming students to the MSc program. If you have no background in proability and statistics you will need to take a more thorough course: begninning in Summer 2023 two online courses, one on probability the other on statistics, will be available on EdX from the TU Delft Mathematics Department.

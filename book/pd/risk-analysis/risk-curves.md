@@ -28,7 +28,7 @@ Add Dike Ring 14 and nuclear (with EQ?) case.
 
 A risk curve is often useful because it can convey a large amount of complex information in an easily recognizable format. University lectures and conference presentations around the world which focus on risk, especially for civil engineering applications, will often begin with a casual reminder that 'risk is probability times consequences' and show some version of a risk curve. {numref}`risk-curve-baecher-2` is the most famous risk curve, having been shared widely over the last decades, perhaps because it so nicely compares a wide range of engineering projects. 
 
-```{figure} ../../figures/pd/risk-curve-baecher.PNG
+```{figure} ../figures/risk-curve-baecher.PNG
 ---
 height: 400px
 name: risk-curve-baecher-2
@@ -59,12 +59,12 @@ $$E(N) = P_{1}N_{1} + P_{2}N_{2} = 0.2\quad \textsf{(fatalities per year)}$$
 
 <!-- ````{toggle}
 ```{eval-rst}
-.. literalinclude:: ../../code/pd/ex_FN_curve_step_01.py
+.. literalinclude:: ../code/ex_FN_curve_step_01.py
    :language: python
 ```
 ```` -->
  
-```{figure} ../../figures/pd/ex_FN_curve_step_01_py.svg
+```{figure} ../figures/ex_FN_curve_step_01_py.svg
 ---
 width: 400
 name: ex_FN_curve_step_01
@@ -74,12 +74,12 @@ Probability mass function (PMF), $f_N(N)$.
 
 <!-- ````{toggle}
 ```{eval-rst}
-.. literalinclude:: ../../code/pd/ex_FN_curve_step_02.py
+.. literalinclude:: ../code/ex_FN_curve_step_02.py
    :language: python
 ```
 ```` -->
 
-```{figure} ../../figures/pd/ex_FN_curve_step_02_py.svg
+```{figure} ../figures/ex_FN_curve_step_02_py.svg
 ---
 width: 400
 name: ex_FN_curve_step_02
@@ -89,12 +89,12 @@ Cumulative distribution function (CDF), $F_N(n)$.
 
 <!-- ````{toggle}
 ```{eval-rst}
-.. literalinclude:: ../../code/pd/ex_FN_curve_step_03.py
+.. literalinclude:: ../code/ex_FN_curve_step_03.py
    :language: python
 ```
 ```` -->
  
-```{figure} ../../figures/pd/ex_FN_curve_step_03_py.svg
+```{figure} ../figures/ex_FN_curve_step_03_py.svg
 ---
 width: 400
 name: ex_FN_curve_step_03
