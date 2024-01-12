@@ -21,18 +21,18 @@ Example of a utility function for monetary benefits.
 
  ```{admonition} Example: a bet
 
-The utility functions can be applied to a simple example. Assume that a student has the chance to receive a guranteed payout of €400. Alternatively, a bet can be organized with a $p$ =  0.5 chance of a payout of € 800, and a (1-$p$) = 0.5 chance of no payout. A risk neutral decision maker would be indifferent between both choices, as they have the same expected outcome – i.e. €400 gain – and a utility value of $u$(€400) = $\p\cdot u$(\unicode{0x20AC}800)+(1-$\textit p$)$\textit u$(€0)= 0.4.  
+The utility functions can be applied to a simple example. Assume that a student has the chance to receive a guranteed payout of €400. Alternatively, a bet can be organized with a $p$ =  0.5 chance of a payout of € 800, and a (1-$p$) = 0.5 chance of no payout. A risk neutral decision maker would be indifferent between both choices, as they have the same expected outcome – i.e. €400 gain – and a utility value of $u$(€400) = $\p\cdot u$(€800)+(1-$\textit p$)$\textit u$(€0)= 0.4.  
 
 We now apply the two other utility functions. For the risk averse function  we find the following:
 
-The expected utility of the direct payout equals $u_{R A}( \unicode{0x20AC} 400 )=0.75$
+The expected utility of the direct payout equals $u_{R A}( € 400 )=0.75$
 
-The expected utility of the bet becomes: $0.5 u_{R A}(\unicode{0x20AC} 800)+0.5 u_{R A}(\unicode{0x20AC} 0)=0.5 \cdot 0.97+0.5 \cdot 0=0.485$  
+The expected utility of the bet becomes: $0.5 u_{R A}(€ 800)+0.5 u_{R A}(€ 0)=0.5 \cdot 0.97+0.5 \cdot 0=0.485$  
 
 In this case the expected utility of the direct payout is higher and this is the preferred decision of the risk averse decision maker. For the risk seeking function  we find the following:
 
-The expected utility of the direct payout equals $u_{R A}( \unicode{0x20AC} 400 )$  = 0.1 .  
-The expected utility of the bet becomes: $0.5 u_{R S}(\unicode{0x20AC} 800)+0.5 u_{R S}(\unicode{0x20AC} 0)=0.5 \cdot 0.57+0.5 \cdot 0=0.285$   
+The expected utility of the direct payout equals $u_{R A}( € 400 )$  = 0.1 .  
+The expected utility of the bet becomes: $0.5 u_{R S}(€ 800)+0.5 u_{R S}(€ 0)=0.5 \cdot 0.57+0.5 \cdot 0=0.285$   
 In this case the expected utility of the bet is higher. The preferred decision of the risk seeking decision maker is the bet.
 
 So for the example of the bet, the risk neutral decision maker is indifferent between the bet and the direct payout. The risk averse decision maker would accept a lower payout, rather than taking the bet. The risk seeking decision maker accepts the bet, even if the guaranteed payout is higher than the expected outcomes of the bet. The same concept can also be applied to losses, a decision-maker can be risk averse against events with large consequences. For example, a civil engineering company could be risk averse in making decisions about bidding for projects with financial risks that could threaten the financial stability of the company. On the other hand, a government with a large portfolio of projects may actask  more risk neutral. The various risk attitudes can also play a role in making investment decisions (see also 3.4.2). A risk averse investor would prefer investments (such as bonds or guaranteed loans with relatively low expected returns) over investments in stocks that have higher expected returns, but also a higher chance of losing money. The principle of risk aversion is also related to decisions about insurances. For example, most people are risk averse against losing their belongings in a large house fire. They are willing to pay an annual premium that is higher than the expected losses due to the fire. Finally, a further discussion of a related risk aversion concept regarding  s accidents with large numbers of fatalities is included in section 3.5.

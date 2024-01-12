@@ -1,3 +1,4 @@
+(rr_intro)=
 # An Introduction to Risk and Reliability
 
 _This chapter provides a brief introduction to risk and reliability, a topic that will be revisited in later chapters of this book._
