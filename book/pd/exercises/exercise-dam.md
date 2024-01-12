@@ -1,11 +1,12 @@
 # Dam and River
 
+<!--
 ```{admonition} MUDE Exam Information
 :class: tip, dropdown
 Questions 1, 3 and 4 are representative for the Q2 MUDE exam. Question 2 is related.
 ```
 
-You are tasked to analyse the safety of a dam and the downstream river system. Downstream of the dam there is a dike ring protected by two main dike sections which must be able to contain water released from the reservoir. The dike sections are connected to each other and form a continuous boundary along the same side of the river. Let $P(F_1)=0.01$ and $P(F_2)=0.01$ denote failure probability of dike section 1 and section 2 respectively. There appears to be a correlation between failures of both sections, $\rho_{1,2}=0.9$, and the figure below shows the effect of the correlation coefficient on the joint failure of the two sections.
+You are tasked to analyse the safety of a dam and the downstream river system. Downstream of the dam there is a dike ring protected by two main dike sections which must be able to contain water released from the reservoir. The dike sections are connected to each other and form a continuous boundary along the same side of the river. Let $P(F_1)=0.01$ and $P(F_2)=0.01$ denote failure probability of dike section 1 and section 2 respectively. There appears to be a correlation between failures of both sections, $\rho_{1,2}=0.9$, and the figure below shows the effect of the correlation coefficient on the joint failure of the two sections. -->
 
 
 % commented paragraphs were used for an exam question with a fault tree
@@ -16,7 +17,7 @@ You are tasked to analyse the safety of a dam and the downstream river system. D
 
 %Downstream of the dam there is an area protected by two main dike sections which must be able to contain water released from the reservoir. A dike section fails if the river discharge exceeds a critical discharge $Q_c$ with a probability of exceedance of 1/100 per year, which leads to flooding of the area. There appears to be a correlation between failures of both sections, $\rho_{1,2}=0.9$, and the figure below shows the effect of the correlation coefficient on the joint failure of the two sections.
 
-```{figure} ../../figures/pd/system-corr-coeff.PNG
+```{figure} ../figures/system-corr-coeff.PNG
 ---
 width: 400px
 name: corr-coeff-or
@@ -43,10 +44,11 @@ $$
 $$
 ```
 
+<!--
 ```{admonition} MUDE Exam Information
 :class: tip, dropdown
 This question illustrates how we will give you everything you need if you are asked about system reliability and dependence, but you need to recognize if something is a series or parallel system, and recognize the quantitative influence of dependence.
-```
+``` -->
 
 ## Dam repair: probabilistic planning
 
@@ -69,7 +71,7 @@ $T = T1 + T2$ is also normally distributed, where
 
 $$
 \mu_T &= \mu_1 + \mu_2 \\
-\sigma_T &= \sqrt{\sigma_1^2 + \sigma_2^2} = \sqrt{5} = 2.236
+\sigma_T &= \sqrt{\sigma_1^2 + \sigma_2^2} = \sqrt{5} = 2.326
 $$
 
 The probability of project duration greater than 12 months can be found with the complementary standard normal CDF, and should be a maximum of 0.1:
@@ -122,7 +124,7 @@ We know that mortality in case of dam failure is $F_{d|f} = 0.1$ and that the po
 ````{admonition} Answer
 :class: tip, dropdown
 
-```{figure} ../../figures/pd/exercise-dam-fn-limit-line.png
+```{figure} ../figures/exercise-dam-fn-limit-line.png
 ---
 width: 500px
 ---

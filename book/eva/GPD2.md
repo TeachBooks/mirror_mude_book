@@ -80,7 +80,7 @@ x_N = \left\{
 \right.
 $
 
-where $x_N$ is the $N$-years return level, $th$ the threshold, $\sigma_{th}$ and $\xi$ are the fitted parameters of the GPD, $n_y$ is the average number of exceedances per year and $\zeta_{th}$ is the probability of observing an exceedance.
+where $x_N$ is the $N$-years return level, $th$ the threshold, $\sigma_{th}$ and $\xi$ are the fitted parameters of the GPD, $n_y$ is the average number of observations per year and $\zeta_{th}$ is the probability of observing an exceedance.
 
 We saw that we can model the number of exceedances per year using a Poisson distribution and that this distribution is characterized by a parameter $\lambda$ equal to the mean and standard deviation of the random variable. Thus, we can calculate $\zeta_{th}$ [^hat] as
 
@@ -88,7 +88,7 @@ $
 \hat{\zeta}_{th} = \frac{\hat{\lambda}}{n_y} 
 $
 
-where $\hat{\lambda}$ can me estimated as the average number of exceedances per year as
+where $\hat{\lambda}$ can be estimated as the average number of exceedances per year as
 
 $
 \hat{\lambda} = \frac{n_{th}}{M} 
@@ -123,7 +123,7 @@ Moving back to our example, we were interested in estimating $H_s$ with a $RT = 
 
 First, we fit the parameters of our distribution using the sampled **excesses** (not the actual value of the random variable), $\sigma_{th}$ and $\xi$ using Maximum Loglikelihood Estimator. We obtain $\sigma_{th}=0.69$ and $\xi=-0.27$.
 
-Once we have fitted the parameters, we check the goodness of fit of such fitting. Below, the QQplot and the exceedance probability plot in logarithmic scale are presented.
+Once we have fitted the parameters, we check the goodness of fit of such fitting. Below, the QQ-plot and the exceedance probability plot in logarithmic scale are presented.
 
 
 ```{figure} ../figures/EVA/GOF_GPD.png

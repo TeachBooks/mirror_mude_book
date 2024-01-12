@@ -10,14 +10,14 @@ Construct a decision tree to evaluate the different options for steel preparatio
 
 %**Question 6:**	Upload a photo/scan of your decision tree. Make sure the values and parameters for each branch are clear.
 
-````{admonition} Decision Tree (not part of MUDE exam)
+````{admonition} Decision Tree
 :class: tip, dropdown
 
 This problem can be visualized using a decision tree as shown below. However, it results in a different interpretation of the problem than that shown in the solution. For example, consider the top branch at the far right, where 'No rust spot' is assigned a probability of 0.998. This is consistent with the formulation of a decision tree, but not consistent with the problem statement, which implies that the €60 cost associated with cleaning and painting is always done when replacing the paint system (thus a probability of 1.0). This is why the values in the decision tree are slightly different than those in Question 3, for example.
 
 Although the decision tree is not part of the exam, this illustrates an important lesson: it is very easy to accidentally make probability calculations that are inconsistent with the situation you are trying to evaluate!
 
-```{figure} ../../figures/pd/exercise-decision-tree.png
+```{figure} ../figures/exercise-decision-tree.png
 ---
 width: 600px
 name: decision-tree
@@ -60,7 +60,7 @@ $$P_{f,10y} = 1 - (1 - p_{f,1y})^{10}$$
 :class: tip, dropdown 
 
 $$
-40 + 20 + 0.002 \cdot (500 + 40 + 20) = \unicode{0x20AC}61.12 /\mathrm{m^2}
+40 + 20 + 0.002 \cdot (500 + 40 + 20) = \euro{} 61.12 /\mathrm{m^2}
 $$
 ```
 
@@ -161,7 +161,7 @@ Which results in a maximum of 17 inspections per year.
 
 As shown in the figure, the optimum is 3 per year.
 
-```{figure} ../../figures/pd/exercise-optimization.png
+```{figure} ../figures/exercise-optimization.png
 ---
 width: 600px
 name: optimization-curve

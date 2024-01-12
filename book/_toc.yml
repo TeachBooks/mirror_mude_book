@@ -282,95 +282,97 @@ parts:
         - file: eva/Bernoulli.md
         - file: eva/videos.md
           title: EVA videos 
+    - file: pd/intro.md
+      title: Risk and Reliability, Part 2
+      # Already in Q1:
+      # - file: pd/prob-design/overview.md
+      #   sections:
+      #   - file: pd/prob-design/01-one-random-variable.md
+      #   - file: pd/prob-design/02-two-random-variables.md
+      #   - file: pd/prob-design/example-river-system.md
+      sections:
+      - file: pd/risk-analysis/overview.md
+        sections:
+        - file: pd/risk-analysis/definition.md
+        - file: pd/risk-analysis/steps.md
+        - file: pd/risk-analysis/risk-curves.md
+      - file: pd/reliability-component/overview.md
+        # sections:
+        # - file: reliability-component/case-two-loads.md
+        # - file: reliability-component/case-r-s.md
+      - file: pd/reliability-system/overview.md
+        sections:
+        # - file: reliability-system/system-series.md
+        # - file: reliability-system/system-parallel.md
+        - file: pd/reliability-system/exercise-simple-city.md
+      - file: pd/risk-evaluation/overview.md
+        sections:
+        - file: pd/risk-evaluation/decision.md
+        - file: pd/risk-evaluation/cost-benefit.md
+        - file: pd/risk-evaluation/econ-optimization.md
+        - file: pd/risk-evaluation/example-dike-height.md
+        - file: pd/risk-evaluation/safety-standards.md
+      - file: pd/exercises/overview.md
+        sections:
+        - file: pd/exercises/exercise-fn-curve.md
+        - file: pd/exercises/exercise-paint.md
+        - file: pd/exercises/exercise-dam.md
+        - file: pd/exercises/exercise-sample-exam.md
+      # - file: pd/notebooks/overview.md
+      #   sections:
+      #   - file: pd/notebooks/flood-risk/Exercise_Flood_Risk_Render.ipynb
+      #   - file: pd/notebooks/contamination/Exercise_Contamination_Render.ipynb
+      #   - file: pd/notebooks/traffic/Exercise_Traffic_Render.ipynb
 
 # START REMOVE-FROM-PUBLISH
+# REMOVED FROM DRAFT BOOK 1/12/2023 AS NEW EVA CHAPTERS ARE THERE
+  # - caption: Extreme Value Analysis
+  #   numbered: 2
+  #   chapters:
+  #   - file: EVA_old/00_00_EVA
+  #   - file: EVA_old/01_00_Extreme
+  #     title: Extremes
+  #     sections:
+  #     - file: EVA_old/01_01_Bernoulli
+  #     - file: EVA_old/01_02_RT
+  #     - file: EVA_old/01_03_Sampling
+  #   - file: EVA_old/02_00_BM_GEV
+  #     sections:
+  #     - file: EVA_old/02_01_BM
+  #     - file: EVA_old/02_02_Asymptotic
+  #     - file: EVA_old/02_03_GEV
+  #     - file: EVA_old/02_04_RP_Binomial
+  #   - file: EVA_old/03_00_POT_GPD
+  #     sections:
+  #     - file: EVA_old/03_01_POT
+  #     - file: EVA_old/03_02_GPD
+  #     - file: EVA_old/03_03_GPD2
+  #     - file: EVA_old/03_04_Poisson
+  #     - file: EVA_old/03_05_GPD3
+  #     - file: EVA_old/03_06_RP_Poisson
+  #       title: Return Period
+  #   - file: EVA_old/04_00_Threshold
+  #     sections:
+  #     - file: EVA_old/04_01_Threshold_Poisson
+  #     - file: EVA_old/04_02_Threshold_MRL
+  #     - file: EVA_old/04_03_Threshold_stability
+  #     - file: EVA_old/04_04_Threshold_DI
+  #   - file: EVA_old/MUDE/01_00_MUDE
+  #     title: MUDE Materials
+  #     sections:
+  #     - file: EVA_old/MUDE/01_01_EVA_1
+  #     - file: EVA_old/MUDE/01_02_3-1-Extreme_Value_notebook.ipynb
+  #       title: Assignment 1
+  #     - file: EVA_old/MUDE/01_03_3-1-Extreme_Value_notebook_solved.ipynb
+  #       title: Solution 1
+  #     - file: EVA_old/MUDE/01_04_EVA_2
+  #     - file: EVA_old/MUDE/01_05_4-1-EVA2_student.ipynb
+  #       title: Assignment 2
+  #     - file: EVA_old/MUDE/01_06_4-1-EVA2_teacher.ipynb
+  #       title: Solution 2
 
-  - caption: Extreme Value Analysis
-    numbered: 2
-    chapters:
-    - file: EVA_old/00_00_EVA
-    - file: EVA_old/01_00_Extreme
-      title: Extremes
-      sections:
-      - file: EVA_old/01_01_Bernoulli
-      - file: EVA_old/01_02_RT
-      - file: EVA_old/01_03_Sampling
-    - file: EVA_old/02_00_BM_GEV
-      sections:
-      - file: EVA_old/02_01_BM
-      - file: EVA_old/02_02_Asymptotic
-      - file: EVA_old/02_03_GEV
-      - file: EVA_old/02_04_RP_Binomial
-    - file: EVA_old/03_00_POT_GPD
-      sections:
-      - file: EVA_old/03_01_POT
-      - file: EVA_old/03_02_GPD
-      - file: EVA_old/03_03_GPD2
-      - file: EVA_old/03_04_Poisson
-      - file: EVA_old/03_05_GPD3
-      - file: EVA_old/03_06_RP_Poisson
-        title: Return Period
-    - file: EVA_old/04_00_Threshold
-      sections:
-      - file: EVA_old/04_01_Threshold_Poisson
-      - file: EVA_old/04_02_Threshold_MRL
-      - file: EVA_old/04_03_Threshold_stability
-      - file: EVA_old/04_04_Threshold_DI
-    - file: EVA_old/MUDE/01_00_MUDE
-      title: MUDE Materials
-      sections:
-      - file: EVA_old/MUDE/01_01_EVA_1
-      - file: EVA_old/MUDE/01_02_3-1-Extreme_Value_notebook.ipynb
-        title: Assignment 1
-      - file: EVA_old/MUDE/01_03_3-1-Extreme_Value_notebook_solved.ipynb
-        title: Solution 1
-      - file: EVA_old/MUDE/01_04_EVA_2
-      - file: EVA_old/MUDE/01_05_4-1-EVA2_student.ipynb
-        title: Assignment 2
-      - file: EVA_old/MUDE/01_06_4-1-EVA2_teacher.ipynb
-        title: Solution 2
 
-  - caption: Risk and Reliability
-    numbered: 2
-    chapters:
-    # - file: pd/intro
-    # - file: pd/prob-design/overview.md
-    #   sections:
-    #   - file: pd/prob-design/01-one-random-variable.md
-    #   - file: pd/prob-design/02-two-random-variables.md
-    #   - file: pd/prob-design/example-river-system.md
-    - file: pd/risk-analysis/overview.md
-      sections:
-      - file: pd/risk-analysis/definition.md
-      - file: pd/risk-analysis/steps.md
-      - file: pd/risk-analysis/risk-curves.md
-    - file: pd/reliability-component/overview.md
-      # sections:
-      # - file: pd/reliability-component/case-two-loads.md
-      # - file: pd/reliability-component/case-r-s.md
-    - file: pd/reliability-system/overview.md
-      sections:
-      # - file: pd/reliability-system/system-series.md
-      # - file: pd/reliability-system/system-parallel.md
-      - file: pd/reliability-system/exercise-simple-city.md
-    - file: pd/risk-evaluation/overview.md
-      sections:
-      - file: pd/risk-evaluation/decision.md
-      - file: pd/risk-evaluation/cost-benefit.md
-      - file: pd/risk-evaluation/econ-optimization.md
-      - file: pd/risk-evaluation/example-dike-height.md
-      - file: pd/risk-evaluation/safety-standards.md
-    - file: pd/exercises/overview.md
-      sections:
-      - file: pd/exercises/exercise-fn-curve.md
-      - file: pd/exercises/exercise-paint.md
-      - file: pd/exercises/exercise-dam.md
-      - file: pd/exercises/exercise-sample-exam.md
-    - file: pd/notebooks/overview.md
-      sections:
-      - file: pd/notebooks/flood-risk/Exercise_Flood_Risk_Render.ipynb
-      - file: pd/notebooks/contamination/Exercise_Contamination_Render.ipynb
-      - file: pd/notebooks/traffic/Exercise_Traffic_Render.ipynb
+    
   # END REMOVE-FROM-PUBLISH
 
   - caption: Programming
@@ -467,20 +469,6 @@ parts:
     - file: fundamentals/eemc-stuff
 
   # START REMOVE-FROM-PUBLISH
-  - caption: Sandbox
-    chapters:
-    - file: sandbox/blank
-    - file: sandbox/dist_fit_example/overview
-      title: Distribution Fitting Examples
-      sections:
-        - file: sandbox/dist_fit_example/00_case_study.ipynb
-        - file: sandbox/dist_fit_example/01_importdata.ipynb
-        - file: sandbox/dist_fit_example/02_distributionfitting.ipynb
-    - file: sandbox/multivariate/overview
-      title: Multivariate
-      sections:
-      - file: sandbox/multivariate/Multivariate.ipynb
-      - file: sandbox/multivariate/Vessels.ipynb
 
   
   - caption: MUDE Cookbook
@@ -544,4 +532,20 @@ parts:
         - file: old/coding/2-2/1_2.ipynb
       - file: old/coding/2-2/1-part-2.md
       - file: old/coding/2-2/1-part-3.md
+
+      
+  - caption: Sandbox
+    chapters:
+    - file: sandbox/blank
+    - file: sandbox/dist_fit_example/overview
+      title: Distribution Fitting Examples
+      sections:
+        - file: sandbox/dist_fit_example/00_case_study.ipynb
+        - file: sandbox/dist_fit_example/01_importdata.ipynb
+        - file: sandbox/dist_fit_example/02_distributionfitting.ipynb
+    - file: sandbox/multivariate/overview
+      title: Multivariate
+      sections:
+      - file: sandbox/multivariate/Multivariate.ipynb
+      - file: sandbox/multivariate/Vessels.ipynb
 # END REMOVE-FROM-PUBLISH
