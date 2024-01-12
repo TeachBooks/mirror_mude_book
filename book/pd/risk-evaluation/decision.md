@@ -178,12 +178,12 @@ The previous analysis has shown that the probability of flooding of the excavati
 Without drainage, the risk, defined as the expected value of the loss, is
 
 $$
-\textrm{risk, without drainage = }0.12 \cdot \euro{} 5,000,000 = € 600,000
+\textrm{risk, without drainage = }0.12 \cdot \euro{} 5,000,000 = \euro{} 600,000
 $$
 With drainage the risk is:
 
 $$
-\textrm{risk, with drainage = }0.04 · \euro{} 5,000,000 = € 200,000
+\textrm{risk, with drainage = }0.04 · \euro{} 5,000,000 = \euro{} 200,000
 $$
 Costs and probabilities can also be shown in the decision tree (see Figure {numref}`example-river-excavation-3`). The expected values of the costs can be calculated for the different actions by adding the present values of the cost of actions and risk:
 - $\textit a_{1}$ : expected value (additional) costs = risk =€ 600,000
