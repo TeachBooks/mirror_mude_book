@@ -299,7 +299,7 @@ parts:
       - file: pd/reliability-component/overview.md
 # START REMOVE-FROM-PUBLISH
         sections:
-        - file: pd/notebooks/reliability-component/contamination.ipynb
+        - file: pd/reliability-component/contamination.ipynb
         # - file: reliability-component/case-two-loads.md
         # - file: reliability-component/case-r-s.md
 # END REMOVE-FROM-PUBLISH
