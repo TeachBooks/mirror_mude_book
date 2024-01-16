@@ -297,9 +297,12 @@ parts:
         - file: pd/risk-analysis/steps.md
         - file: pd/risk-analysis/risk-curves.md
       - file: pd/reliability-component/overview.md
-        # sections:
+# START REMOVE-FROM-PUBLISH
+        sections:
+        - file: pd/reliability-component/contamination.ipynb
         # - file: reliability-component/case-two-loads.md
         # - file: reliability-component/case-r-s.md
+# END REMOVE-FROM-PUBLISH
       - file: pd/reliability-system/overview.md
         sections:
         # - file: reliability-system/system-series.md
