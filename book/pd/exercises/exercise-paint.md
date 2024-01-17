@@ -74,9 +74,9 @@ $$C_{paint} + C_{cleaning} + P_{f,1y} \cdot (C_{paint} + C_{cleaning} + C_{repai
 | Paint            | Cleaning   | Expected cost [€/yr] |
 |-------           |---         | ---                |
 |   High-Quality   | Stripping  | 61.12         	 |
-|   High-Quality   | Sanding    | 61.0               |
-|   Low-Quality    | Stripping  | **45.4**           |
-|   Low-Quality    | Sanding    | 83.0               |
+|   High-Quality   | Sanding    | 55.90              |
+|   Low-Quality    | Stripping  | **45.40**          |
+|   Low-Quality    | Sanding    | 77.50              |
 
 Low Quality Paint + High Quality Cleaning
 ```
@@ -96,6 +96,8 @@ $$C_{paint} + C_{cleaning} + P_{f,10y} \cdot (C_{paint} + C_{cleaning} + C_{repa
 |   Low-Quality    | Sanding    | 375.2                |
 
 High Quality Paint + High Quality Cleaning
+
+**NOTE:** If you're getting slightly different results, don't panic! Most likely you have approximated the probabilities computed above in question 2.
 ```
 
 Assume the owner has decided to use the cheap paint system, and is simply going to sand it off (i.e. the cheap cleaning method) and re-apply the same system every year (i.e., for these problems consider a 1-year reference period). You have been asked to assess whether it is worthwhile to use a quick sonic test system to prevent failures during the year, and if it is, the number of tests that should be performed per year. Each test costs about €3 per m2, and if a weak spot is found, a new layer of paint can be easily applied, lowering the failure probability by a factor of 0.50.
