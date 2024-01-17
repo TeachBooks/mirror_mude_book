@@ -319,6 +319,7 @@ parts:
         - file: pd/exercises/exercise-paint.md
         - file: pd/exercises/exercise-dam.md
         - file: pd/exercises/exercise-sample-exam.md
+      - file: pd/videos.md
       # - file: pd/notebooks/overview.md
       #   sections:
       #   - file: pd/notebooks/flood-risk/Exercise_Flood_Risk_Render.ipynb
