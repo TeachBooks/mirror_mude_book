@@ -25,7 +25,7 @@ name: corr-coeff-or
 Effect of correlation coefficient joint failure, $P(A \cap B)$ (assume that $P(A \cap B)=0.003$ at $\rho=+0.9$, where the arrow is located).
 ```
 
-**Question 1:** Estimate the probability of flooding of the area protected by the two dike sections.
+**Question 1:** Estimate the probability of flooding of the area protected by the two dike sections. Assume that the failure probability of each mechanism is 0.01, and they are _not_ independent; however, you can use the figure above to quantify this.
 
 ```{admonition} Answer
 :class: tip, dropdown
