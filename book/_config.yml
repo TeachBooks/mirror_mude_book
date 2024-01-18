@@ -2,9 +2,12 @@ title: MUDE
 author: MUDE Teachers and the Student Army
 copyright: "2023"
 logo: _static/MUDE_Logo-small.png
+
 execute:
   execute_notebooks: "off"
+
 only_build_toc_files: true
+
 sphinx:
   config:
     # Bibliography style
@@ -22,11 +25,14 @@ sphinx:
     - sphinx.ext.imgconverter
     - download_link_replacer
     - jupyterbook_patches
+
 bibtex_bibfiles:
   - _bibliography/references_pd.bib
+
 launch_buttons:
   thebe: true
+
 draft_banner: '⚠️This is a draft website. The most recent published version can be found <a href="https://mude.citg.tudelft.nl/book/intro.html">here</a>.⚠️'
+
 html:
   use_multitoc_numbering: false
-  announcement: '⚠️This is a draft website. The most recent published version can be found <a href="https://mude.citg.tudelft.nl/book/intro.html">here</a>.⚠️'
