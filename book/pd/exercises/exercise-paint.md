@@ -90,10 +90,10 @@ $$C_{paint} + C_{cleaning} + P_{f,10y} \cdot (C_{paint} + C_{cleaning} + C_{repa
 
 | Paint            | Cleaning   | Expected cost [€/10 yr] |
 |-------           |---         | ---                  |
-|   High-Quality   | Stripping  | **71.1**        	   |
-|   High-Quality   | Sanding    | 150.6                |
-|   Low-Quality    | Stripping  | 91.6                 |
-|   Low-Quality    | Sanding    | 375.2                |
+|   High-Quality   | Stripping  | **71.10**            |
+|   High-Quality   | Sanding    | 144.70               |
+|   Low-Quality    | Stripping  | 91.63                |
+|   Low-Quality    | Sanding    | 366.94               |
 
 High Quality Paint + High Quality Cleaning
 
