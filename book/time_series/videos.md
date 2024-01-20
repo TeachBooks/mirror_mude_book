@@ -19,7 +19,7 @@ _Codes for the videos:_
 
 The story of this chapter is told once more in this section with a series of videos. 
 
-```{admonotion} MUDE exam information 
+```{admonition} MUDE exam information 
 :class: tip, dropdown
 These videos overlap to some extent with the theory presented in the book, and are meant to provide additional perspective on the same topic. Additional material that is presented in these videos is _not_ part of the exam; in other words, the exam scope is limited  to contents that appear in the previous pages.
 ```

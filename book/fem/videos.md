@@ -2,7 +2,7 @@
 
 The story of the derivation of the finite element method is told once more in this section with a series of videos. 
 
-```{admonotion} MUDE exam information 
+```{admonition} MUDE exam information 
 :class: tip, dropdown
 These videos overlap to some extent with the theory presented in the book. You do not need to be able to reproduce the 2D derivation from the third video. The fourth and fifth video complete the story of the finite element formulation for Poisson problems but go beyond what you will be expected to know at the exam.
 ```
