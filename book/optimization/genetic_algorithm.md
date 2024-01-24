@@ -50,7 +50,7 @@ $$
 such that:
 
 $$
-\begin{cases}x_1+x_2\geq 2\\ -2x_1+2x_2\geq 1\\ x_1,x_2=0\text{ or }1 \end{cases}
+\begin{cases}x_1+2x_2\geq 2\\ -2x_1+2x_2\geq 1\\ x_1,x_2=0\text{ or }1 \end{cases}
 $$
 
 The evolutionary algorithm to solve an optimization problem like the one described above is described by the following scheme:

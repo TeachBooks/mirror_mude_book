@@ -23,7 +23,7 @@ The story is told  in a video. The video has a one-to-one correspondence with th
 
 $\mathbb{N}_0$ is the set of natural numbers meaning the integer ones and it includes in this case the zero. You can have:
 
-$$\begin{gather*}\mathbb{N}^0=\mathbb{N}_0=\{1,2,...\}\\ \mathbb{N}^*=\mathbb{N}^+=\mathbb{N}_1=\mathbb{N}_{>0}=\{1,2,...\}\end{gather*}$$
+$$\begin{gather*}\mathbb{N}^0=\mathbb{N}_0=\{0,1,2,...\}\\ \mathbb{N}^*=\mathbb{N}^+=\mathbb{N}_1=\mathbb{N}_{>0}=\{1,2,...\}\end{gather*}$$
 
 Defining the variable:
 

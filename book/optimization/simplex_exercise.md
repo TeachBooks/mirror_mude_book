@@ -46,7 +46,9 @@ Find the graphical solution of this problem. Does it give the same solution as u
 :class: tip, dropdown
 
 ```{figure} ./figs/Graphical_solution.png
-height: 300px
+:height: 300px
 ```
 
 ````
+
+**Note:** in this problem and solution the intersection between the gradient and the constraints is not important (see figure), but rather the _direction_ that is important! It is a coincidence that the intersection is the optimal solution.
