@@ -56,7 +56,7 @@ $$
 P(h_w>h_{dike}) = 0.5 \cdot P(h_w>h_{dike}|\mathrm{wet}) + 0.5 \cdot P(h_w>h_{dike}|\mathrm{dry})
 $$
 
-Thus, if the risk analysis were only focusing on floods during the wet season, the probability of flooding would be overestimated by a factor of 2.
+Thus, if the risk analysis were only focusing on floods during the wet season, the probability of flooding would be overestimated by a factor on the order of 2 (assuming the probability is roughly equal in dry and wet seasons).
 
 ### Consequences
 
