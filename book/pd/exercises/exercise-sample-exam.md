@@ -91,6 +91,8 @@ $$
 
 First create an FN curve for the risk assessment
 
+**NOTE:** _the figure below is slightly incorrect; the horizontal lines should be to the right of the "dots;" in other words, the 1E-05 value should be above N=100. This makes it more obvious why the system does not meet the safety criteria._
+
 ```{figure} ../figures/exercise-sample-exam-limit-line.png
 ---
 width: 400px
