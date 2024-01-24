@@ -34,7 +34,7 @@ name: flood-protection
 **Question 1:** from the perspective of flooding in the city, the function of the dam and dike together is best described as a (choose one):
 a. series system
 b. parallel system
-c. component system
+c. a single component
 d. none of the above
 
 ```{admonition} Answer
