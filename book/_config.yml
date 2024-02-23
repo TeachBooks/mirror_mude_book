@@ -33,3 +33,5 @@ draft_banner: '⚠️This is a draft website. The most recent published version 
 
 html:
   use_multitoc_numbering: false
+  comments:
+    hypothesis: true
