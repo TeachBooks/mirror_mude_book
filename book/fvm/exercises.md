@@ -11,7 +11,7 @@ Finite volume discretization for 2D advection exercise.
 ```
 
 Assume that the $x$ and $y$ components of the velocity field are both equal to $c$. Formulate the FVM for the 2D case by finding the following:
-1. Equation for $\phi_i^{n+1}$ for finite volume $i$, discretized with central difference (space) and forward Euler (time) schemes.
+1. Equation for $\phi_i^{n+1}$ for finite volume $i$, discretized with central difference (space) and forward Euler (time) schemes (note that rather than apply central difference directly, you should apply an averaging scheme for determining values at the face(s), which will automatically result in the central difference over neighboring volumes, for this geometry).
 2. Define the system of equations for all 12 volumes by writing out the matrix and vector terms.
 
 ```{admonition} Solution

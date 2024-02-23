@@ -15,10 +15,7 @@ sphinx:
     html_js_files:
       - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
     patch_config:
-      enabled-patches:
-        - scroll
-        - darkmode
-        - layout
+      disabled-patches: []
   extra_extensions:
     - sphinx_inline_tabs
     - sphinx_grasple
@@ -36,3 +33,5 @@ draft_banner: '⚠️This is a draft website. The most recent published version 
 
 html:
   use_multitoc_numbering: false
+  comments:
+    hypothesis: true

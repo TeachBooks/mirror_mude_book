@@ -34,7 +34,7 @@ name: flood-protection
 **Question 1:** from the perspective of flooding in the city, the function of the dam and dike together is best described as a (choose one):
 a. series system
 b. parallel system
-c. component system
+c. a single component
 d. none of the above
 
 ```{admonition} Answer
@@ -90,6 +90,8 @@ $$
 :class: tip, dropdown
 
 First create an FN curve for the risk assessment
+
+**NOTE:** _the figure below is slightly incorrect; the horizontal lines should be to the right of the "dots;" in other words, the 1E-05 value should be above N=100. This makes it more obvious why the system does not meet the safety criteria._
 
 ```{figure} ../figures/exercise-sample-exam-limit-line.png
 ---

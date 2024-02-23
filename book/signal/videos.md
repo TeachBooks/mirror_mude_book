@@ -13,7 +13,7 @@ The story of Signal Processing is told once again on this page through a series 
 
 _In case small errors are present in the videos, please refer to the appropriate book chapter._
 
-```{admonotion} MUDE exam information 
+```{admonition} MUDE exam information 
 :class: tip, dropdown
 These videos overlap to some extent with the theory presented in the book, and are meant to provide additional perspective on the same topic. Additional material that is presented in these videos is _not_ part of the exam; in other words, the exam scope is limited  to contents that appear in the previous pages.
 ```
