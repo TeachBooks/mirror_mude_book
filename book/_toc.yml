@@ -498,6 +498,7 @@ parts:
         - file: cookbook/benchmarks/benchmark_tags.ipynb
         - file: cookbook/benchmarks/benchmark_load.ipynb
         - file: cookbook/benchmarks/benchmark_noexec.ipynb
+        - file: cookbook/benchmarks/benchmark_figures.ipynb
 
  # Coding
   - caption: Coding (Last Year)
