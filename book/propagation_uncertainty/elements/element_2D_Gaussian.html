@@ -14,7 +14,9 @@
     </svg>
     
     <input type="range" min="-100" max="100" value="70" class="slider" id="slider_correlation">
+    <input type="range" min="-200" max="200" value="0" class="slidermu" id="slider_mu1">
     <input type="range" min="0" max="150" value="100" class="slidersd" id="slider_sd1">
+    <input type="range" min="-200" max="200" value="0" class="slidermu" id="slider_mu2">
     <input type="range" min="0" max="150" value="100" class="slidersd" id="slider_sd2">
     
   </div>
@@ -41,6 +43,10 @@
       }
       .slider {
         position: absolute;
+      }
+      .slidermu {
+        position: absolute;
+        accent-color: #3f9b0b
       }
       .slidersd {
         position: absolute;
@@ -216,15 +222,17 @@
       // ======================================================
       
 			// Place the slider
+      var height_offset = height*0.05
+      
       svg.append("text")
-        .attr("transform", "translate(" + (width * 0.825).toString() + "," + (height * 0.2).toString() + ")")
+        .attr("transform", "translate(" + (width * 0.825).toString() + "," + (height_offset+height*0.025).toString() + ")")
         .style("text-anchor", "middle")
         .text("correlation")
         .style("font-size", (12 * width / 600).toString() + "px")
       document.getElementById('slider_correlation').style.left = (width*0.675).toString()+"px";
-      document.getElementById('slider_correlation').style.top = (height*0.225).toString()+"px";
+      document.getElementById('slider_correlation').style.top = (height_offset + height*0.025).toString()+"px";
       document.getElementById('slider_correlation').style.width = (width*0.3).toString()+"px";
-      document.getElementById('slider_correlation').style.height = (height*0.075).toString()+"px";
+      document.getElementById('slider_correlation').style.height = (height*0.05).toString()+"px";
       document.getElementById('slider_correlation').style.fontSize = (16*width/600).toString()+"px";
       const slider = document.getElementById("slider_correlation");
       slider.addEventListener("input", function() {
@@ -233,12 +241,12 @@
       });
       
       svg.append("text")
-        .attr("transform", "translate(" + (width * 0.675).toString() + "," + (height * 0.35).toString() + ")")
+        .attr("transform", "translate(" + (width * 0.675).toString() + "," + (height * 0.15 + height_offset).toString() + ")")
         .style("text-anchor", "left")
         .text("-1")
         .style("font-size", (12 * width / 600).toString() + "px")
       svg.append("text")
-        .attr("transform", "translate(" + (width * 0.955).toString() + "," + (height * 0.35).toString() + ")")
+        .attr("transform", "translate(" + (width * 0.955).toString() + "," + (height * 0.15 + height_offset).toString() + ")")
         .style("text-anchor", "right")
         .text("+1")
         .style("font-size", (12 * width / 600).toString() + "px")
@@ -246,15 +254,48 @@
       
       
 			// Place the slider
+      var height_offset = height*0.25
       svg.append("text")
-        .attr("transform", "translate(" + (width * 0.825).toString() + "," + (height * 0.5).toString() + ")")
+        .attr("transform", "translate(" + (width * 0.825).toString() + "," + (height_offset+height*0.025).toString() + ")")
+        .style("text-anchor", "middle")
+        .text("mean of X1")
+        .style("font-size", (12 * width / 600).toString() + "px")
+      document.getElementById('slider_mu1').style.left = (width*0.675).toString()+"px";
+      document.getElementById('slider_mu1').style.top = (height_offset + height*0.025).toString()+"px";
+      document.getElementById('slider_mu1').style.width = (width*0.3).toString()+"px";
+      document.getElementById('slider_mu1').style.height = (height*0.05).toString()+"px";
+      document.getElementById('slider_mu1').style.fontSize = (16*width/600).toString()+"px";
+      const slidermu1 = document.getElementById("slider_mu1");
+      slidermu1.addEventListener("input", function() {
+      	mu[0] = parseInt(this.value)/100;
+        update()
+      });
+      
+      svg.append("text")
+        .attr("transform", "translate(" + (width * 0.675).toString() + "," + (height * 0.15 + height_offset).toString() + ")")
+        .style("text-anchor", "left")
+        .text("-2")
+        .style("font-size", (12 * width / 600).toString() + "px")
+      svg.append("text")
+        .attr("transform", "translate(" + (width * 0.955).toString() + "," + (height * 0.15 + height_offset).toString() + ")")
+        .style("text-anchor", "right")
+        .text("+2")
+        .style("font-size", (12 * width / 600).toString() + "px")
+      
+      
+      
+
+			// Place the slider
+      var height_offset = height*0.45
+      svg.append("text")
+        .attr("transform", "translate(" + (width * 0.825).toString() + "," + (height_offset+height*0.025).toString() + ")")
         .style("text-anchor", "middle")
         .text("standard deviation of X1")
         .style("font-size", (12 * width / 600).toString() + "px")
       document.getElementById('slider_sd1').style.left = (width*0.675).toString()+"px";
-      document.getElementById('slider_sd1').style.top = (height*0.525).toString()+"px";
+      document.getElementById('slider_sd1').style.top = (height_offset + height*0.025).toString()+"px";
       document.getElementById('slider_sd1').style.width = (width*0.3).toString()+"px";
-      document.getElementById('slider_sd1').style.height = (height*0.075).toString()+"px";
+      document.getElementById('slider_sd1').style.height = (height*0.05).toString()+"px";
       document.getElementById('slider_sd1').style.fontSize = (16*width/600).toString()+"px";
       const slider2 = document.getElementById("slider_sd1");
       slider2.addEventListener("input", function() {
@@ -263,27 +304,62 @@
       });
       
       svg.append("text")
-        .attr("transform", "translate(" + (width * 0.675).toString() + "," + (height * 0.65).toString() + ")")
+        .attr("transform", "translate(" + (width * 0.675).toString() + "," + (height * 0.15 + height_offset).toString() + ")")
         .style("text-anchor", "left")
         .text("0")
         .style("font-size", (12 * width / 600).toString() + "px")
       svg.append("text")
-        .attr("transform", "translate(" + (width * 0.8675).toString() + "," + (height * 0.65).toString() + ")")
+        .attr("transform", "translate(" + (width * 0.8675).toString() + "," + (height * 0.15 + height_offset).toString() + ")")
         .style("text-anchor", "right")
         .text("1")
         .style("font-size", (12 * width / 600).toString() + "px")
       
       
 			// Place the slider
+      var height_offset = height*0.65
       svg.append("text")
-        .attr("transform", "translate(" + (width * 0.825).toString() + "," + (height * 0.8).toString() + ")")
+        .attr("transform", "translate(" + (width * 0.825).toString() + "," + (height_offset+height*0.025).toString() + ")")
+        .style("text-anchor", "middle")
+        .text("mean of X2")
+        .style("font-size", (12 * width / 600).toString() + "px")
+      document.getElementById('slider_mu2').style.left = (width*0.675).toString()+"px";
+      document.getElementById('slider_mu2').style.top = (height_offset + height*0.025).toString()+"px";
+      document.getElementById('slider_mu2').style.width = (width*0.3).toString()+"px";
+      document.getElementById('slider_mu2').style.height = (height*0.05).toString()+"px";
+      document.getElementById('slider_mu2').style.fontSize = (16*width/600).toString()+"px";
+      const slidermu2 = document.getElementById("slider_mu2");
+      slidermu2.addEventListener("input", function() {
+      	mu[1] = parseInt(this.value)/100;
+        update()
+      });
+      
+      svg.append("text")
+        .attr("transform", "translate(" + (width * 0.675).toString() + "," + (height * 0.15 + height_offset).toString() + ")")
+        .style("text-anchor", "left")
+        .text("-2")
+        .style("font-size", (12 * width / 600).toString() + "px")
+      svg.append("text")
+        .attr("transform", "translate(" + (width * 0.955).toString() + "," + (height * 0.15 + height_offset).toString() + ")")
+        .style("text-anchor", "right")
+        .text("+2")
+        .style("font-size", (12 * width / 600).toString() + "px")
+      
+      
+      
+      
+      
+      
+      			// Place the slider
+      var height_offset = height*0.85
+      svg.append("text")
+        .attr("transform", "translate(" + (width * 0.825).toString() + "," + (height_offset+height*0.025).toString() + ")")
         .style("text-anchor", "middle")
         .text("standard deviation of X2")
         .style("font-size", (12 * width / 600).toString() + "px")
       document.getElementById('slider_sd2').style.left = (width*0.675).toString()+"px";
-      document.getElementById('slider_sd2').style.top = (height*0.825).toString()+"px";
+      document.getElementById('slider_sd2').style.top = (height_offset + height*0.025).toString()+"px";
       document.getElementById('slider_sd2').style.width = (width*0.3).toString()+"px";
-      document.getElementById('slider_sd2').style.height = (height*0.075).toString()+"px";
+      document.getElementById('slider_sd2').style.height = (height*0.05).toString()+"px";
       document.getElementById('slider_sd2').style.fontSize = (16*width/600).toString()+"px";
       const slider3 = document.getElementById("slider_sd2");
       slider3.addEventListener("input", function() {
@@ -292,12 +368,12 @@
       });
       
       svg.append("text")
-        .attr("transform", "translate(" + (width * 0.675).toString() + "," + (height * 0.95).toString() + ")")
+        .attr("transform", "translate(" + (width * 0.675).toString() + "," + (height * 0.15 + height_offset).toString() + ")")
         .style("text-anchor", "left")
         .text("0")
         .style("font-size", (12 * width / 600).toString() + "px")
       svg.append("text")
-        .attr("transform", "translate(" + (width * 0.8675).toString() + "," + (height * 0.95).toString() + ")")
+        .attr("transform", "translate(" + (width * 0.8675).toString() + "," + (height * 0.15 + height_offset).toString() + ")")
         .style("text-anchor", "right")
         .text("1")
         .style("font-size", (12 * width / 600).toString() + "px")
@@ -322,8 +398,8 @@
           for (i = 0; i < 250; i++) {
           
             d3.select("#scatter"+i.toString())
-              .attr("cx",xScale_right(samples_transformed[i][0]))
-              .attr("cy",yScale_right(samples_transformed[i][1]))
+              .attr("cx",xScale_right(samples_transformed[i][0] + mu[0]))
+              .attr("cy",yScale_right(samples_transformed[i][1] + mu[1]))
 
           }
         

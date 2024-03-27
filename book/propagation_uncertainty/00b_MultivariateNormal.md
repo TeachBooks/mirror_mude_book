@@ -8,6 +8,6 @@ An example of the bivariate normal PDF is shown below; in this example $ \sigma_
 
 ### Tool to play with bivariate normal PDF
 
-In this small demo you can create plots of the bivariate normal PDF, including a scatter plot of generated realizations, where you can play with the values of standard deviations and correlation coefficient. Adjust the values in the sliders to the right and see how the results changes.
+In this small demo you can create plots of the bivariate normal PDF, including a scatter plot of generated realizations, where you can play with the values of the means, standard deviations and correlation coefficient. Adjust the values in the sliders to the right and observe how the results changes. 
 
 <iframe src="elements/element_2D_Gaussian.html" width="900" height="300" frameborder="0"></iframe>
