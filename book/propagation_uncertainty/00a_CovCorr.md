@@ -57,7 +57,7 @@ Scatterplots of outcomes of ($X_1,X_2$) with different correlation coefficients.
 
 The interactive element below allows you to play around with the correlation value yourself. Observe how the distribution's density contours, or the scattered data, changes when you adapt the correlation value.
 
-<iframe src="elements/element_correlation.html" width="600" height="400" frameborder="0"></iframe>
+<iframe src="./elements/element_correlation.html" width="600" height="400" frameborder="0"></iframe>
 
 ### Covariance matrix
 
