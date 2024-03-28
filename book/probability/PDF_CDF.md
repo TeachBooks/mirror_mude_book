@@ -21,6 +21,10 @@ $
 The definition of the CDF includes an integral that begins at negative infinity and continues to a specific value, $x$, which defines the interval over which the probability is computing. In other words, **the CDF gives the probability that the random variable 
 $X$ has a value less than $x$**.
 
+Below, you find an interactive element that illustrates the relationship between the integral of the pdf and the cdf value. They grey-shaded area in the left subplot corresponds to the integral from $-\infty$ to $x$. Move your mouse over either the subplots and try to develop an intuition for how both distributions relate to each other. When is the cdf steep, when is it flat?
+
+<iframe src="../_static/elements/element_pdf_and_cdf.html" width="800" height="400" frameborder="0"></iframe>
+
 It should be easy to see from the definition of the CDF that the probability of observing an exact value of a continuous random variable is exactly zero. This is an important observation, and also an important characteristic that separates continuous and discrete random variables.
 
 ## PDF and CDF of Gaussian distribution
@@ -47,6 +51,10 @@ name: gaussian distr
 ---
 Gaussian distribution function: PDF and CDF.
 ```
+
+Below, you will find an interactive element that allows you to explore the influence of different means and standard deviations on the pdf and cdf. Experiment with both options and observe how it affects the shape of both distributions.
+
+<iframe src="../_static/elements/element_Gaussian_cdf_moments.html" width="800" height="445" frameborder="0"></iframe>
 
 ## Probability of other intervals
 
