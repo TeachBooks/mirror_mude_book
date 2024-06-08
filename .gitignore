@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# MacOS directory information
+.DS_Store
+
 # C extensions
 *.so
 
@@ -130,3 +133,5 @@ dmypy.json
 
 # Jupyter Book
 _build/
+
+book/_config.yml.bak
