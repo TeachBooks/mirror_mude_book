@@ -29,173 +29,426 @@ parts:
       - file: propagation_uncertainty/uncertainty
       - file: propagation_uncertainty/01_ErrorPropagation.md
       - file: propagation_uncertainty/02_LinearPropagation.md
-    # START REMOVE-FROM-PUBLISH
-    - file: observation_theory/overview
-      title: Observation Theory
-    - file: numerical_analysis/overview
-      title: Numerical Analysis
-    - file: probability/overview
-      title: Probability
-    # END REMOVE-FROM-PUBLISH
-      
-  # START REMOVE-FROM-PUBLISH
+    - file: observation_theory/overview.md
+      sections:
+      - file: observation_theory/01_Introduction.md
+      - file: observation_theory/02_LeastSquares.md  
+        sections:
+        - file: observation_theory/02_LeastSquares_NB.ipynb  
+      - file: observation_theory/03_WeightedLSQ.md
+        sections:
+        - file: observation_theory/03_Notebook_WLS.ipynb 
+      - file: observation_theory/04_BLUE.md
+      - file: observation_theory/05_Precision.md
+        sections:
+        - file: observation_theory/05_Notebook_ConfInt.ipynb 
+      - file: observation_theory/06_MLE.md
+      - file: observation_theory/07_NLSQ.md
+        sections:
+        - file: observation_theory/07_Notebook_NLSQ.ipynb
+      - file: observation_theory/08_Testing.md
+      - file: observation_theory/09_TestingSandM.md
+        sections:
+        - file: observation_theory/09_Notebook_Testing.ipynb
+        - file: observation_theory/09_Notebook_OMT.ipynb
+      - file: observation_theory/99_NotationFormulas
+    
+    - file: numerical_methods/overview
+      title: Numerical Modelling
+      sections:
+        - file: numerical_methods/1-numerical-solns.ipynb
+        - file: numerical_methods/2-numerical-interp.ipynb
+        - file: numerical_methods/3-taylor-series.ipynb
+          sections:
+          - file: numerical_methods/3-taylor-series-exercise.ipynb
+        - file: numerical_methods/4-FDM-intro.ipynb
+        - file: numerical_methods/5-numerical_derivatives.ipynb
+        - file: numerical_methods/6-simple_solvers_ODE.ipynb
+        - file: numerical_methods/7-solver_2nd_order.ipynb
+        - file: numerical_methods/8-solvers_non-linear.ipynb
+        - file: numerical_methods/9-exercise.ipynb
+        - file: numerical_methods/10-advanced_solvers.ipynb
+    - file: probability/Reminder_intro.md
+      title: Continuous Distributions
+      sections:
+      - file: probability/PDF_CDF
+      - file: probability/empirical
+      - file: probability/Param_distr.md
+        title: Parametric distributions
+        sections: 
+        - file: probability/Gaussian.md
+        - file: probability/other_distr.md
+        - file: probability/Uniform.md
+        - file: probability/Exponential.md
+        - file: probability/Gumbel.md
+        - file: probability/Lognormal.md
+        - file: probability/summary.md
+      - file: probability/fitting.md
+        title: Fitting parametric distributions
+        sections: 
+        - file: probability/moments.md
+        - file: probability/MLE_1.ipynb
+        - file: probability/GOF
+      - file: probability/Loc-scale.ipynb
+    - file: rr/prob-design/overview
+      title: Risk and Reliability Intro
+      sections:
+      - file: rr/prob-design/one-random-variable
+      - file: rr/prob-design/two-random-variables
+      - file: rr/prob-design/exercise
+        sections:
+        - file: rr/prob-design/exercise_solutions
+
   - caption: Q2 Topics
-    numbered: false
+    numbered: 2
+    # START REMOVE-FROM-PUBLISH
     chapters:
     - file: Q2_overview
       title: Overview of Q2
-
-  - caption: Finite Volume Method
-    numbered: 2
-    chapters:
-    - file: fvm/overview
-      title: Overview
-
-  - caption: Finite Element Method
-    numbered: 2
-    chapters:
-    - file: fem/overview
-      title: Overview
-
-  - caption: Signal Processing
-    numbered: 2
-    chapters:
-    - file: signal/overview
-      title: Overview
-
-  - caption: Time Series Analysis
-    numbered: 2
-    chapters:
-    - file: time_series/overview
-      title: Overview
-      
-  - caption: Optimization
-    numbered: 2
-    chapters:
+    # END REMOVE-FROM-PUBLISH
+    chapters: 
+    - file: fvm/intro.md
+      title: Finite Volume Method
+      sections:
+      # - file: fvm/overview
+      #   title: Overview
+      #   sections:
+      - file: fvm/getting_started.md
+        title: Getting Started
+      - file: fvm/intro_2.md
+      - file: fvm/gauss.md
+        title: Gauss's Theorem
+      - file: fvm/frames.md
+        title: Reference Frames
+      - file: fvm/advection.md
+        title: Advection
+      # - file: boundaries.md
+      #   title: Boundary Conditions
+      - file: fvm/stability.md
+        title: Stability
+      - file: fvm/exercises.md
+        title: Exercises
+      # - file: fvm/conservation.md
+      #   title: Conservation Laws
+      # - file: fvm/navier.md
+      #   title: Discretization    
+    - file: fem/intro.md
+      title: Finite Element Method
+      sections:
+      - file: fem/strong.md
+        title: Strong form of the problem
+      - file: fem/weak.md
+        title: Weak form
+      - file: fem/discrete.ipynb
+        title: Discrete form
+      - file: fem/matrix.ipynb
+        title: Finite element implementation
+      - file: fem/shape.md
+        title: Elements and shape functions
+      - file: fem/videos.md
+        title: Videos (summary and additional material)
+   
+    - file: signal/intro.md
+      title: Signal Processing
+      sections:
+      - file: signal/fourier_real
+        title: Fourier Series
+        sections:
+        - file: signal/fourier_nb
+          title: Square Wave Example
+      - file: signal/fourier_complex
+        title: Complex Fourier Series
+      - file: signal/fourier_transf
+        title: Fourier Transform
+      - file: signal/sampling
+        title: Sampling
+      - file: signal/dft
+        title: Discrete Fourier Transform
+      - file: signal/spectral_est
+        title: Spectral Estimation
+      - file: signal/videos
+        title: Supplementary Videos
+    - file: time_series/intro.md
+      title: Time Series Analysis
+      sections:
+      - file: time_series/components
+        title: "Time Series components"
+        sections:
+        - file: time_series/exercise1.ipynb
+      - file: time_series/types
+        title: "Types of Time Series"
+      - file: time_series/modelling
+        title: "Time Series modelling and estimation"
+        sections:
+        - file: time_series/exercise3.ipynb
+      - file: time_series/stationarity
+        title: "Stationarity"
+        sections:
+        - file: time_series/exercise2.ipynb
+      - file: time_series/acf
+        title: "Autocovariance function (ACF)"
+        sections:
+        - file: time_series/exercise4.ipynb
+      - file: time_series/arma
+        title: "AutoRegressive Moving Average (ARMA) process"
+        sections:
+        - file: time_series/exercise5.ipynb
+      - file: time_series/forecasting
+        title: "Time Series forecasting"
+      - file: time_series/optional
+        title: "Supplementary material"
+      # START REMOVE-FROM-PUBLISH
+      - file: time_series/notebook
+        title: Notebook
+      # END REMOVE-FROM-PUBLISH
     - file: optimization/overview
-      title: Overview
-
-  - caption: Machine Learning
-    numbered: 2
-    chapters:
+      title: Optimization
+      sections:
+      - file: optimization/origins
+      - file: optimization/general
+      - file: optimization/taxonomy
+      - file: optimization/sand_and_clay
+        sections:
+        - file: optimization/claysand.ipynb
+      - file: optimization/augmented_form
+      - file: optimization/sand_and_clay_simplex
+        sections:
+        - file: optimization/simplex_exercise
+        - file: optimization/airplane_exercise
+          sections:
+          - file: optimization/airplane_original.ipynb
+      - file: optimization/integer_programming
+      - file: optimization/some_constraints
+      - file: optimization/genetic_algorithm
+      - file: optimization/airlines.ipynb
+        title: Airline Exercise (Optional)
+      - file: optimization/project
+        title: Road Network Design Problem (Project 9)
+        sections:
+        - file: optimization/Project_MILP.ipynb
+        - file: optimization/Project_GA.ipynb
+      - file: optimization/performance
+        title: Performance Considerations in LP (Optional)
+        sections:
+        - file: optimization/airlines_performance.ipynb
+        - file: optimization/performance_generic_LP.ipynb
     - file: ml/overview
-      title: Overview
+      title: Machine Learning
+      sections:
+      - file: ml/knn_interactive
+      - file: ml/decision_theory_interactive
+      - file: ml/linear_models_interactive
+      - file: ml/ridge_sgd_interactive
+      - file: ml/nn_interactive
+      - file: ml/review
+    - file: eva/intro.md
+      title: Extreme Value Analysis
+      sections:
+      - file: eva/extreme.md
+        title: Concept of Extreme
+        sections:
+        - file: eva/RT.md
+          title: Return period
+        - file: eva/sampling.md
+          title: Sampling extremes
+      - file: eva/BM_GEV.md
+        title: Block Maxima & GEV
+        sections:
+        - file: eva/BM.md
+          title: Block Maxima
+        - file: eva/Asymptotic.md
+          title: Asymptotic theorem
+        - file: eva/GEV.md
+          title: GEV distribution
+        - file: eva/RP_Binomial.md
+          title: RT & Design Life
+      - file: eva/POT_GPD.md
+        title: POT & GPD
+        sections:
+        - file: eva/POT.md
+          title: Peak Over Threshold
+        - file: eva/Poisson.md
+        - file: eva/Threshold.md
+          title: Parameters selection
+        - file: eva/GPD.md
+          title: Intro to GPD
+        - file: eva/GPD2.md
+          title: Practicalities for GPD
+        - file: eva/RP_Poisson.md
+          title: Revisiting RT
+      - file: eva/extra.md
+        title: Supplementary Material
+        sections:
+        - file: eva/Bernoulli.md
+        - file: eva/videos.md
+          title: EVA videos 
+    - file: pd/intro.md
+      title: Risk and Reliability, Part 2
+      # Already in Q1:
+      # - file: pd/prob-design/overview.md
+      #   sections:
+      #   - file: pd/prob-design/01-one-random-variable.md
+      #   - file: pd/prob-design/02-two-random-variables.md
+      #   - file: pd/prob-design/example-river-system.md
+      sections:
+      - file: pd/risk-analysis/overview.md
+        sections:
+        - file: pd/risk-analysis/definition.md
+        - file: pd/risk-analysis/steps.md
+        - file: pd/risk-analysis/risk-curves.md
+      - file: pd/reliability-component/overview.md
+        sections:
+        - file: pd/reliability-component/contamination.ipynb
+        # - file: reliability-component/case-two-loads.md
+        # - file: reliability-component/case-r-s.md
+      - file: pd/reliability-system/overview.md
+        sections:
+        # - file: reliability-system/system-series.md
+        # - file: reliability-system/system-parallel.md
+        - file: pd/reliability-system/exercise-simple-city.md
+      - file: pd/risk-evaluation/overview.md
+        sections:
+        - file: pd/risk-evaluation/decision.md
+        - file: pd/risk-evaluation/cost-benefit.md
+        - file: pd/risk-evaluation/econ-optimization.md
+        - file: pd/risk-evaluation/example-dike-height.md
+        - file: pd/risk-evaluation/safety-standards.md
+      - file: pd/exercises/overview.md
+        sections:
+        - file: pd/exercises/exercise-fn-curve.md
+        - file: pd/exercises/exercise-paint.md
+        - file: pd/exercises/exercise-dam.md
+        - file: pd/exercises/exercise-sample-exam.md
+      - file: pd/videos.md
+      # - file: pd/notebooks/overview.md
+      #   sections:
+      #   - file: pd/notebooks/flood-risk/Exercise_Flood_Risk_Render.ipynb
+      #   - file: pd/notebooks/contamination/Exercise_Contamination_Render.ipynb
+      #   - file: pd/notebooks/traffic/Exercise_Traffic_Render.ipynb
 
-  - caption: Extreme Value Analysis
-    numbered: 2
-    chapters:
-    - file: EVA/00_00_EVA
-    - file: EVA/01_00_Extreme
-      title: Extremes
-      sections:
-      - file: EVA/01_01_Bernoulli
-      - file: EVA/01_02_RT
-      - file: EVA/01_03_Sampling
-    - file: EVA/02_00_BM_GEV
-      sections:
-      - file: EVA/02_01_BM
-      - file: EVA/02_02_Asymptotic
-      - file: EVA/02_03_GEV
-      - file: EVA/02_04_RP_Binomial
-    - file: EVA/03_00_POT_GPD
-      sections:
-      - file: EVA/03_01_POT
-      - file: EVA/03_02_GPD
-      - file: EVA/03_03_GPD2
-      - file: EVA/03_04_Poisson
-      - file: EVA/03_05_GPD3
-      - file: EVA/03_06_RP_Poisson
-        title: Return Period
-    - file: EVA/04_00_Threshold
-      sections:
-      - file: EVA/04_01_Threshold_Poisson
-      - file: EVA/04_02_Threshold_MRL
-      - file: EVA/04_03_Threshold_stability
-      - file: EVA/04_04_Threshold_DI
-    - file: EVA/MUDE/01_00_MUDE
-      title: MUDE Materials
-      sections:
-      - file: EVA/MUDE/01_01_EVA_1
-      - file: EVA/MUDE/01_02_3-1-Extreme_Value_notebook.ipynb
-        title: Assignment 1
-      - file: EVA/MUDE/01_03_3-1-Extreme_Value_notebook_solved.ipynb
-        title: Solution 1
-      - file: EVA/MUDE/01_04_EVA_2
-      - file: EVA/MUDE/01_05_4-1-EVA2_student.ipynb
-        title: Assignment 2
-      - file: EVA/MUDE/01_06_4-1-EVA2_teacher.ipynb
-        title: Solution 2
+# START REMOVE-FROM-PUBLISH
+# REMOVED FROM DRAFT BOOK 1/12/2023 AS NEW EVA CHAPTERS ARE THERE
+  # - caption: Extreme Value Analysis
+  #   numbered: 2
+  #   chapters:
+  #   - file: EVA_old/00_00_EVA
+  #   - file: EVA_old/01_00_Extreme
+  #     title: Extremes
+  #     sections:
+  #     - file: EVA_old/01_01_Bernoulli
+  #     - file: EVA_old/01_02_RT
+  #     - file: EVA_old/01_03_Sampling
+  #   - file: EVA_old/02_00_BM_GEV
+  #     sections:
+  #     - file: EVA_old/02_01_BM
+  #     - file: EVA_old/02_02_Asymptotic
+  #     - file: EVA_old/02_03_GEV
+  #     - file: EVA_old/02_04_RP_Binomial
+  #   - file: EVA_old/03_00_POT_GPD
+  #     sections:
+  #     - file: EVA_old/03_01_POT
+  #     - file: EVA_old/03_02_GPD
+  #     - file: EVA_old/03_03_GPD2
+  #     - file: EVA_old/03_04_Poisson
+  #     - file: EVA_old/03_05_GPD3
+  #     - file: EVA_old/03_06_RP_Poisson
+  #       title: Return Period
+  #   - file: EVA_old/04_00_Threshold
+  #     sections:
+  #     - file: EVA_old/04_01_Threshold_Poisson
+  #     - file: EVA_old/04_02_Threshold_MRL
+  #     - file: EVA_old/04_03_Threshold_stability
+  #     - file: EVA_old/04_04_Threshold_DI
+  #   - file: EVA_old/MUDE/01_00_MUDE
+  #     title: MUDE Materials
+  #     sections:
+  #     - file: EVA_old/MUDE/01_01_EVA_1
+  #     - file: EVA_old/MUDE/01_02_3-1-Extreme_Value_notebook.ipynb
+  #       title: Assignment 1
+  #     - file: EVA_old/MUDE/01_03_3-1-Extreme_Value_notebook_solved.ipynb
+  #       title: Solution 1
+  #     - file: EVA_old/MUDE/01_04_EVA_2
+  #     - file: EVA_old/MUDE/01_05_4-1-EVA2_student.ipynb
+  #       title: Assignment 2
+  #     - file: EVA_old/MUDE/01_06_4-1-EVA2_teacher.ipynb
+  #       title: Solution 2
 
-  - caption: Risk and Reliability
-    numbered: 2
-    chapters:
-    # - file: pd/intro
-    - file: pd/prob-design/overview.md
-      sections:
-      - file: pd/prob-design/01-one-random-variable.md
-      - file: pd/prob-design/02-two-random-variables.md
-      - file: pd/prob-design/example-river-system.md
-    - file: pd/risk-analysis/overview.md
-      sections:
-      - file: pd/risk-analysis/definition.md
-      - file: pd/risk-analysis/steps.md
-      - file: pd/risk-analysis/risk-curves.md
-    - file: pd/reliability-component/overview.md
-      # sections:
-      # - file: pd/reliability-component/case-two-loads.md
-      # - file: pd/reliability-component/case-r-s.md
-    - file: pd/reliability-system/overview.md
-      sections:
-      # - file: pd/reliability-system/system-series.md
-      # - file: pd/reliability-system/system-parallel.md
-      - file: pd/reliability-system/exercise-simple-city.md
-    - file: pd/risk-evaluation/overview.md
-      sections:
-      - file: pd/risk-evaluation/decision.md
-      - file: pd/risk-evaluation/cost-benefit.md
-      - file: pd/risk-evaluation/econ-optimization.md
-      - file: pd/risk-evaluation/example-dike-height.md
-      - file: pd/risk-evaluation/safety-standards.md
-    - file: pd/exercises/overview.md
-      sections:
-      - file: pd/exercises/exercise-fn-curve.md
-      - file: pd/exercises/exercise-paint.md
-      - file: pd/exercises/exercise-dam.md
-      - file: pd/exercises/exercise-sample-exam.md
-    - file: pd/notebooks/overview.md
-      sections:
-      - file: pd/notebooks/flood-risk/Exercise_Flood_Risk_Render.ipynb
-      - file: pd/notebooks/contamination/Exercise_Contamination_Render.ipynb
-      - file: pd/notebooks/traffic/Exercise_Traffic_Render.ipynb
-    - file: references.md
+
+    
   # END REMOVE-FROM-PUBLISH
 
   - caption: Programming
-    numbered: 4
+    numbered: 3
     chapters:
     - file: programming/overview
       title: Overview
     - file: programming/golden_rules.ipynb
       title: The Golden Rules
-    - file: programming/code/overview
-      title: Computers & Code
-      sections:
-      - file: programming/code/numpy_0
-        title: Numpy
-        sections:
-        - file: programming/code/numpy_1
-          title: Using `ndarray`
-        - file: programming/code/numpy_2
-          title: Doing math
-# START REMOVE-FROM-PUBLISH
-      # - file: programming/code/packages
-      # - file: programming/code/environments
     - file: programming/programs/overview
       title: Programs
-    - file: programming/communication/overview
-      title: Communication
       sections:
-      - file: programming/communication/visualization
+      - file: programming/programs/git/version_control
+      - file: programming/programs/git/gui/overview
+        title: git and GitLab (GUI)
+        sections:
+        - file: programming/programs/git/gui/cloning
+          title: Cloning
+        - file: programming/programs/git/gui/commits_local
+          title: Local Commits
+        - file: programming/programs/git/gui/commits_remote
+          title: Remote Commits
+        - file: programming/programs/git/gui/fetch_pull
+          title: Fetch and Pull
+        - file: programming/programs/git/gui/pushing_problems
+          title: Pushing Problems
+      - file: programming/programs/git/cli/overview
+        title: git and GitLab (CLI)
+        sections:
+        - file: programming/programs/git/cli/getting_started
+          title: Getting Started
+        - file: programming/programs/git/cli/remote
+          title: Remote Repositories
+# START REMOVE-FROM-PUBLISH
+        - file: programming/programs/git/cli/branch_merge
+        - file: programming/programs/git/cli/merge_conflicts
+        - file: programming/programs/git/cli/git_the_rest
+          title: The Rest
+# END REMOVE-FROM-PUBLISH
+      - file: programming/programs/debugging/overview
+        title: Debugging and Testing
+        sections:
+        - file: programming/programs/debugging/errors
+          title: Error Types
+        - file: programming/programs/debugging/traceback
+          title: Traceback
+# START REMOVE-FROM-PUBLISH
+        - file: programming/programs/debugging/errors_raise_handle
+        - file: programming/programs/debugging/assertions
+        - file: programming/programs/debugging/logging
+        - file: programming/programs/debugging/exercises
+# END REMOVE-FROM-PUBLISH
+    # Python Topics ADDED OCTOBER 2023 (REVISE FOR 2024)
+    - file: programming/python_topics/overview
+      sections:
+      - file: programming/python_topics/classes
+        title: Classes
+      - file: programming/python_topics/visualization
+        title: Advanced Visualization
+      - file: programming/sympy/sympy.ipynb
+# START REMOVE-FROM-PUBLISH
+      - file: programming/python_topics/modules
+        title: Modules
+      # TO BE ADDED LATER: NUMPY ADVANCED, PANDAS, PYTHONIC, ETC.
+    # REMOVED OCTOBER 2023 TO REORGGANIZE IN "Python Topics"
+    # - file: programming/communication/overview
+    #   title: Communication
+    #   sections:
+    #   - file: programming/communication/visualization
+    # - file: programming/code/overview
+    #   title: Computers & Code
+    #   sections:
+    #   - file: programming/code/packages
+    #   - file: programming/code/environments
 # END REMOVE-FROM-PUBLISH
   - caption: Fundamental Concepts
     numbered: 2
@@ -208,95 +461,16 @@ parts:
     - file: fundamentals/prob-background.md   
     - file: fundamentals/prob-rv.md
     - file: fundamentals/00_04_MeanVar
+    - file: fundamentals/prob_tables/overview
+      title: Probability Tables
+      sections:
+      - file: fundamentals/prob_tables/normal
+        title: Normal
+      - file: fundamentals/prob_tables/chi2
+        title: Chi-Squared
     - file: fundamentals/eemc-stuff
 
   # START REMOVE-FROM-PUBLISH
-  - caption: Sandbox
-    chapters:
-    - file: sandbox/blank
-    - file: sandbox/robert
-    - file: sandbox/prob/prob-intro
-      title: Probability
-      sections:
-      - file: sandbox/prob/prob-discrete
-      - file: sandbox/prob/prob-notation
-        title: Notation
-    - file: sandbox/continuous/Reminder_intro.md
-      sections:
-      - file: sandbox/continuous/PDF_CDF
-      - file: sandbox/continuous/empirical
-      - file: sandbox/continuous/Param_distr.md
-      - file: sandbox/continuous/other_distr.md
-      - file: sandbox/continuous/Uniform.md
-      - file: sandbox/continuous/Exponential.md
-      - file: sandbox/continuous/Exponential_quiz.md
-      - file: sandbox/continuous/Gumbel.md
-      - file: sandbox/continuous/Gumbel_quiz.md
-      - file: sandbox/continuous/Lognormal.md
-      - file: sandbox/continuous/Lognormal_quiz.md
-      - file: sandbox/continuous/Parameterization.md
-      - file: sandbox/continuous/fitting.md
-      - file: sandbox/continuous/moments.md
-      - file: sandbox/continuous/moments_quiz.md
-      - file: sandbox/continuous/MLE_1.ipynb
-      - file: sandbox/continuous/GOF
-      - file: sandbox/continuous/GOF_quiz.md
-    - file: sandbox/SanPart/ObservationTheory/01_Introduction.md
-      title: Sensing and Observation Theory
-      sections:
-      - file: sandbox/SanPart/ObservationTheory/02_LeastSquares.md    
-      - file: sandbox/SanPart/ObservationTheory/03_WeightedLSQ.md
-      - file: sandbox/SanPart/ObservationTheory/04_BLUE.md
-      - file: sandbox/SanPart/ObservationTheory/05_Precision.md
-      - file: sandbox/SanPart/ObservationTheory/06_MLE.md
-      - file: sandbox/SanPart/ObservationTheory/07_NLSQ.md
-      - file: sandbox/SanPart/ObservationTheory/08_Testing.md
-      - file: sandbox/SanPart/ObservationTheory/09_TestingSandM.md
-      - file: sandbox/SanPart/ObservationTheory/99_NotationFormulas.md
-    - file: sandbox/dist_fit_example/overview
-      title: Distribution Fitting Examples
-      sections:
-        - file: sandbox/dist_fit_example/00_case_study.ipynb
-        - file: sandbox/dist_fit_example/01_importdata.ipynb
-        - file: sandbox/dist_fit_example/02_distributionfitting.ipynb
-    - file: sandbox/multivariate/overview
-      title: Multivariate
-      sections:
-      - file: sandbox/multivariate/Multivariate.ipynb
-      - file: sandbox/multivariate/Vessels.ipynb
-
-  - caption: Numerical Modelling
-    chapters:
-    - file: sandbox/1-5-NumericalMethods/1-numerical-solns.ipynb
-    - file: sandbox/1-5-NumericalMethods/2-numerical-interp.ipynb
-    - file: sandbox/1-5-NumericalMethods/3-taylor-series.ipynb
-
-  - caption: Introduction to Finite Difference
-    chapters:
-    - file: sandbox/1-5-NumericalMethods/1-numerical-derivatives.ipynb
-    - file: sandbox/1-5-NumericalMethods/2-simple-ODE-solver.ipynb
-    - file: sandbox/1-5-NumericalMethods/3-second-order-ODE-solver.ipynb
-    - file: sandbox/1-5-NumericalMethods/1-general-solvers.ipynb
-    - file: sandbox/1-5-NumericalMethods/2-implicit-ode-solver.ipynb
-  
-
-  - caption: MUDE Cookbook
-    chapters:
-    - file: cookbook/blank
-    - file: cookbook/interactive_element
-    - file: cookbook/live_code
-      sections:
-      - file: cookbook/benchmarks/benchmark_aux.ipynb
-      - file: cookbook/benchmarks/benchmark_tags.ipynb
-      - file: cookbook/benchmarks/benchmark_load.ipynb
-    - file: cookbook/widgets.ipynb
-    - file: cookbook/exercise_checking.ipynb
-    - file: cookbook/interactive_templates
-      sections:
-      - file: cookbook/example_gumbel.ipynb
-      - file: cookbook/example_quiz_interactive.ipynb
-      - file: cookbook/coding_theory_widgets.ipynb
-      - file: cookbook/theory_questions
 
  # Coding
   - caption: Coding (Last Year)
@@ -308,12 +482,8 @@ parts:
       - file: old/coding/1-1/1-1-solution.ipynb
       - file: old/coding/1-1/1-2-student.ipynb
       - file: old/coding/1-1/1-2-solution.ipynb
-    - file: old/coding/1-2-Golden_Rules.ipynb
-    - file: old/coding/1-3-git
     - file: old/coding/1-4/1-overview.md
       sections:
-      - file: old/coding/1-4/1-1-testing-student
-      - file: old/coding/1-4/1-1-testing-solution
       - file: old/coding/1-4/1-2-oop-student
       - file: old/coding/1-4/1-2-oop-solution
       - file: old/coding/1-4/1-3-modules-student
@@ -337,4 +507,20 @@ parts:
         - file: old/coding/2-2/1_2.ipynb
       - file: old/coding/2-2/1-part-2.md
       - file: old/coding/2-2/1-part-3.md
+
+      
+  - caption: Sandbox
+    chapters:
+    - file: sandbox/blank
+    - file: sandbox/dist_fit_example/overview
+      title: Distribution Fitting Examples
+      sections:
+        - file: sandbox/dist_fit_example/00_case_study.ipynb
+        - file: sandbox/dist_fit_example/01_importdata.ipynb
+        - file: sandbox/dist_fit_example/02_distributionfitting.ipynb
+    - file: sandbox/multivariate/overview
+      title: Multivariate
+      sections:
+      - file: sandbox/multivariate/Multivariate.ipynb
+      - file: sandbox/multivariate/Vessels.ipynb
 # END REMOVE-FROM-PUBLISH

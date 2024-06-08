@@ -45,8 +45,7 @@ function setupNewCell(source, output, code) {
 
   // This will crash if we don't have any real cells in our notebook.
   // In the future we can to add a dummy cell during initialization and then remove it
-  const exampleCell = thebe.notebook.lastCell();
-  const newNotebookCell = new exampleCell.constructor(
+  const newNotebookCell = new thebeCore.module.ThebeCodeCell(
     newCellInfo.id, // Cell Id
     thebe.notebook.id, // Notebook ID
     code, // Source code
@@ -66,6 +65,7 @@ function setupNewCell(source, output, code) {
 
 function addToThebeControls(cell, element) {
   const controls = cell.querySelector(".thebe-controls");
+  if (controls == null) return; // Cell input likely removed
   controls.insertBefore(element, controls.lastChild);
 }
 
@@ -175,8 +175,8 @@ var configureThebe = () => {
 
     updateThebeButtonStatus(
       `<span class='launch_msg'>Launching Pyodide kernel: </span><span class='status'>` +
-      data.status +
-      "</span>"
+        data.status +
+        "</span>"
     );
 
     if (data.status === "attached") {
@@ -194,10 +194,20 @@ var modifyDOMForThebe = () => {
   // We remove all pre-existing cell output because they play poorly with Thebe
   // This also means we need special tracking for cells with removed input because no HTML is generated for their input
   // Hopefully we can achieve this with minimal changes and a special new tag
-  const outputDivs = document.querySelectorAll(".cell_output");
-  outputDivs.forEach((div, _) => div.remove());
-
   // Find all code cells, replace with Thebe interactive code cells
+
+  document.querySelectorAll(".keep").forEach((kept, _) => {
+    kept.previousClasses = { ...kept.classList };
+    kept.classList.remove(...removedSelectorClasses);
+  });
+
+  const cellOutputs = document.querySelectorAll(".cell_output");
+  cellOutputs.forEach((output, index) => {
+    if (output) {
+      output.remove();
+    }
+  });
+
   const codeCells = document.querySelectorAll(thebe_selector);
   codeCells.forEach((codeCell, index) => {
     const codeCellId = (index) => `codecell${index}`;
@@ -212,12 +222,6 @@ var modifyDOMForThebe = () => {
     if (codeCellText) {
       codeCellText.setAttribute("data-language", dataLanguage);
       codeCellText.setAttribute("data-executable", "true");
-
-      // If we had an output, insert it just after the `pre` cell
-      if (codeCellOutput) {
-        $(codeCellOutput).attr("data-output", "");
-        $(codeCellOutput).insertAfter(codeCellText);
-      }
     }
 
     // Remove sphinx-copybutton blocks, which are common in Sphinx
@@ -301,7 +305,7 @@ function override_pyodide_lookup(fs, server_path) {
       currentDirectory += directory + "/";
       try {
         fs.mkdir(currentDirectory);
-      } catch { }
+      } catch {}
     }
   }
 
@@ -370,20 +374,25 @@ function setupSpecialTaggedElements() {
   for (const taggedElement of window.specialTaggedElements) {
     switch (taggedElement.tag) {
       case "thebe-remove-input-init": {
-        const { newCellInfo, newNotebookCell } = setupNewCell(
-          undefined,
-          undefined,
-          taggedElement.code
-        );
+        taggedElement.element.style.display = "block";
+        
+        const cell_input_div = taggedElement.element.querySelector(".cell_input");
+        cell_input_div.classList.remove("cell_input");
+        cell_input_div.querySelector(".highlight")?.classList.remove("highlight");
+        cell_input_div.querySelector(".thebe-input")?.remove();
 
-        const wrappedOutput = wrapNakedOutput(newNotebookCell.area.node);
-        // The 4 following lines are an ugly hack to make sure we preserve init order
-        // Maybe improving runInitCells could circumvent this
-        wrappedOutput.classList.add("tag_thebe-init");
-        const idDiv = document.createElement("div");
-        idDiv.setAttribute("data-thebe-id", newNotebookCell.id);
-        wrappedOutput.appendChild(idDiv);
-        taggedElement.placeholder.before(wrappedOutput);
+        const cell_controls = cell_input_div.querySelector(".thebe-controls");
+        if (cell_controls) { cell_controls.style.display = "none"; }
+      
+        break;
+      }
+      case "read-only": {
+        const codemirror = taggedElement.element.querySelector(".CodeMirror");
+        codemirror.style.filter = "brightness(90%)";
+        
+        const textarea = taggedElement.element.querySelector("textarea");
+        textarea.setAttribute("disabled", "true");
+
         break;
       }
       default: {
@@ -405,7 +414,12 @@ function moveHideInputOutput() {
 
 var initThebe = async () => {
   // Remove Rocket now that we're initializing
-  document.querySelector(".dropdown-launch-buttons").remove();
+  $(".dropdown-launch-buttons").remove();
+
+  // Add the launch info to the top bar
+  $(".header-article-items__end .header-article-item").prepend(
+    $(".thebe-launch-button")
+  );
 
   console.log("[sphinx-thebe]: Loading thebe...");
   $(".thebe-launch-button ").text("Loading thebe...");
@@ -419,6 +433,15 @@ var initThebe = async () => {
   modifyDOMForThebe();
   await thebelab.bootstrap(thebeLiteConfig);
 
+  setupSpecialTaggedElements();
+
+  document.querySelectorAll(".keep").forEach((kept, _) => {
+    //console.log(Object.valueskept.previousClasses);
+    Object.values(kept.previousClasses).forEach((clas, _) =>
+      kept.classList.add(clas)
+    );
+  });
+
   finalizeCodeCells(document.querySelectorAll(thebe_selector));
 
   // Runs override_pyodide_lookup on the web worker
@@ -429,9 +452,11 @@ var initThebe = async () => {
   // 3. Eval the string og the override_pyodide_lookup function in JS, this brings it into scope
   // 4. Execute the override_pyodide_lookup function in JS, and bake in the relative path from root in the book (the home)
   // NOTE: All functions used in override_pyodide_lookup should be nested inside it, since the web worker cannot access functions in this script
+
   thebelab.session.kernel.requestExecute({
-    code: `import js; import pyodide_js; js.fs = pyodide_js.FS; js.eval("""${override_pyodide_lookup.toString()}"""); js.eval(f"override_pyodide_lookup(fs, '${location.pathname.split("/").slice(0, -1).join("/") + "/"
-      }')")`,
+   code: `import js; import pyodide_js; js.fs = pyodide_js.FS; js.eval("""${override_pyodide_lookup.toString()}"""); js.eval(f"override_pyodide_lookup(fs, '${
+     location.pathname.split("/").slice(0, -1).join("/") + "/"
+   }')")`,
   });
 
   const request = new XMLHttpRequest();
@@ -448,13 +473,12 @@ var initThebe = async () => {
   thebelab.session.kernel.requestExecute({
     code: fetchImportHookCode,
   });
-
+  
   // Fix for issues with ipywidgets in Thebe
   await thebelab.session.kernel.requestExecute({
-    code: `import ipykernel; ipykernel.version_info = (0,0)`,
+    code: `import ipykernel; ipykernel.version_info = (0,0); import micropip; await micropip.install("ipywidgets")`,
   }).done;
   updateThebeButtonStatus("Running pre-intialized cells...");
-  setupSpecialTaggedElements();
 
   await runInitCells();
 
@@ -474,28 +498,71 @@ var detectLanguage = (language) => {
 };
 
 function handleThebeRemoveInputTag(element) {
-  const placeholder = document.createElement("pre");
-  placeholder.style.display = "none";
+  element.style.display = "none";
 
   window.specialTaggedElements.push({
     tag: "thebe-remove-input-init",
-    placeholder: placeholder,
-    code: element.querySelector("pre").textContent?.trim() ?? "",
+    element: element
   });
 
-  element.before(placeholder);
-  const placeholderOutput = element.querySelector(".cell_output");
-  if (placeholderOutput !== null) {
-    element.after(placeholderOutput);
+  element.classList.add("tag_thebe-init");
+}
+
+function handleReadOnlyTag(element) {
+  window.specialTaggedElements.push({
+    tag: "read-only",
+    element: element
+  });
+}
+
+function handleDisableExecutionTag(element) {
+  $(".dropdown-launch-buttons").remove();
+}
+
+function handleDisableDownloadTag(element) {
+  $(".dropdown-download-buttons").remove();
+}
+
+function handleAutoExecuteTag(element) {
+  $(".dropdown-launch-buttons button").click();
+}
+
+// Adapted from: https://stackoverflow.com/questions/66381462/javascript-getcomputedstyle-copy-object-without-reference
+function copyNodeStyle(sourceNode, targetNode) {
+  // 👇️ Get computed styles of original element
+  const styles = window.getComputedStyle(sourceNode);
+
+  let cssText = styles.cssText;
+
+  if (!cssText) {
+    cssText = Array.from(styles).reduce((str, property) => {
+      return `${str}${property}:${styles.getPropertyValue(property)};`;
+    }, "");
   }
-  element.remove();
+
+  // 👇️ Assign CSS styles to the element
+  targetNode.style.cssText = cssText;
+}
+
+const removedSelectorClasses = ["cell", "cell_output", "cell_input"];
+function handleDisableExecutionCellTag(element) {
+  element.classList.add("keep");
+  removedSelectorClasses.forEach((removedClass, _) => {
+    const affected = Array.from(element.getElementsByClassName(removedClass));
+    affected.forEach((child, _) => handleDisableExecutionCellTag(child));
+  });
 }
 
 // Deal with custom-defined tags to properly prepare Thebe and DOM
 // Current special tags: thebe-remove-input-init
 function consumeSpecialTags() {
   const specialTagsInfo = [
+    { tag: "disable-execution-page", handler: handleDisableExecutionTag },
+    { tag: "disable-download-page", handler: handleDisableDownloadTag },
+    { tag: "auto-execute-page", handler: handleAutoExecuteTag },
+    { tag: "disable-execution-cell", handler: handleDisableExecutionCellTag },
     { tag: "thebe-remove-input-init", handler: handleThebeRemoveInputTag },
+    { tag: "read-only", handler: handleReadOnlyTag }
   ];
 
   window.specialTaggedElements = [];
@@ -508,14 +575,19 @@ function consumeSpecialTags() {
   }
 }
 
-// Check whether DOM is already loaded, or add an event listener for the event
-if (document.readyState !== "loading") {
-  consumeSpecialTags();
-} else {
-  document.addEventListener("DOMContentLoaded", function () {
-    consumeSpecialTags();
-  });
-}
+const styleLoading = [
+  loadStyleAsync(`${PAGE_ROOT}thebe.css`),
+  loadStyleAsync(`${PAGE_ROOT}_static/code.css`),
+];
 
-loadStyleAsync(`${PAGE_ROOT}thebe.css`);
-loadStyleAsync(`${PAGE_ROOT}_static/code.css`);
+Promise.all(styleLoading).then(() => {
+  // Check whether DOM is already loaded, or add an event listener for the event
+  if (document.readyState !== "loading") {
+    consumeSpecialTags();
+  } else {
+    document.addEventListener("DOMContentLoaded", function () {
+      consumeSpecialTags();
+    });
+  }
+});
+  

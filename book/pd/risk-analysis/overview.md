@@ -2,10 +2,11 @@
 
 This book splits risk into two parts: risk *analysis* and risk *evaluation.* This chapter considers the analysis of risks from a broad perspective, beginning with definitions and key steps of a risk analysis, illustrated quantitatively through an FN curve. The next two chapters explore quantitative analyses (component and system reliability) before returning to risk evaluation concepts of decision theory, cost benefit analysis and safety standards, where the principal focus is on making decisions and answering the question 'how safe is safe enough?'
 
+<!--
 ```{admonition} MUDE exam information
 :class: tip, dropdown
 You should understand the definition of risk and recognize the steps in a risk analysis (no need to memorize the details of every step). It is very important that you are able to construct a risk curve, given a set of scenarios (typically not more than 3 on the exam).
-```
+``` -->
 
 % The relationship between safety standards and engineering design is indicated in section 3.6...may be useful to add
 

@@ -18,13 +18,13 @@
 
 In this textbook the programming part is a collection of pages that cover key concepts of programming and computer science without diving too far into the details. As a pre-requeisite, it is assumed you have had a BSc-level introductory course in computer programming. It is not required that it used the Python language. Over the course of the semester, content will be added to this part of the textbook and organized under the five loosely defined Chapters below:
 
-1. This Overview page.
-2. The Golden Rules: key tips and guidelines for good Documentation and Communication; we will refer to these often. THe intention is that they help you form good programming habits that you will continue to use for the rest of your life.
-3. Computers & Code: this may grow to include background information about computers (e.g., how they store data) as well as information specific to the Python language (e.g., environments and package management).
-4. Programs: essentials for scientific computing (e.g., modular programming; object-oriented programming, version control, Debugging and error handling 
-5. Communication (and documentation): visualization, version control, sharing your work
+<!-- 1. This Overview page. -->
+<!-- 2. The Golden Rules: key tips and guidelines for good Documentation and Communication; we will refer to these often. THe intention is that they help you form good programming habits that you will continue to use for the rest of your life. -->
+<!-- 3. Computers & Code: this may grow to include background information about computers (e.g., how they store data) as well as information specific to the Python language (e.g., environments and package management). -->
+<!-- 4. Programs: essentials for scientific computing (e.g., modular programming; object-oriented programming, version control, Debugging and error handling  -->
+<!-- 5. Communication (and documentation): visualization, version control, sharing your work -->
 
-Software is also considered part of the programming learning line, but that will be covered exclusively on the module website, including instructions for installation and typical workflows.
+Software is also considered part of the programming learning line; theoretical aspects will be covered in this book, whereas issues related to installation are covered on the [software page](https://mude.citg.tudelft.nl/software/overview/) of the module website for information related to installation.
 
 
 ## What can computers do for us?

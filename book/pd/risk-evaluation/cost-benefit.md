@@ -106,12 +106,12 @@ The contribution of costs in a certain year to the net present value depend on t
 
 ````{toggle}
 ```{eval-rst}
-.. literalinclude:: ../../../code/pd/present_value.py
+.. literalinclude:: ../code/present_value.py
    :language: python
 ```
 ````
  
-```{figure} ../../figures/pd/present_value_py.svg
+```{figure} ../figures/present_value_py.svg
 ---
 width: 400
 name: present-value
@@ -123,9 +123,9 @@ Normalized present value of a cost or benefit in year $t$ for different discount
 
 The previous paragraphs have focussed on the evaluation of economic costs and benefits of risk reduction interventions. Many of these interventions also directly focus on reducing injuries and fatalities. Examples are regulations and investments in traffic safety which have introduced measures such as airbags and seat belts. 
 
-In literature on risk management the economic valuation of human life is often depicted as a difficult problem as it raises numerous moral questions. Some claim it is unethical to put a price on human life because life is priceless. The actual expenditures on risk reducing prospects show however that the investment in the reduction of risks to humans is always finite. Different approaches are available for evaluating the costs of interventions in relation to the reduction of risk to human life, see ⚠️(Vrijling and van Gelder, (2000); Jongejan et al., (2005 ) for a further discussion of the various approaches. One of the options is to add the economic value  of  human fatalities to the economic damages, i.e. $D+N \cdot d$. The value of the number of lives lost can be determined with different approaches. 
+In literature on risk management the economic valuation of human life is often depicted as a difficult problem as it raises numerous moral questions. Some claim it is unethical to put a price on human life because life is priceless. The actual expenditures on risk reducing prospects show however that the investment in the reduction of risks to humans is always finite. Different approaches are available for evaluating the costs of interventions in relation to the reduction of risk to human life, see {cite:t}`vrijling2000`; {cite:t}`jongejan2005` for a further discussion of the various approaches. One of the options is to add the economic value  of  human fatalities to the economic damages, i.e. $D+N \cdot d$. The value of the number of lives lost can be determined with different approaches. 
 
-Several approaches are based on so-called stated preferences.  A survey can reveal how much people are willing to pay, e.g. for safety measures. In these cases the value of statistical life (VoSL) is obtained from the willingness to pay expressed by respondents in surveys. For example, in the cost benefit analysis for the flood defences in the Netherlands a value of a statistical life of €6.7 million per fatality is used ⚠️(Deltares, 2013). The Value of a Statistical life lost in traffic accidents is estimated at €2.6 million ⚠️(SWOV, 2012).
+Several approaches are based on so-called stated preferences.  A survey can reveal how much people are willing to pay, e.g. for safety measures. In these cases the value of statistical life (VoSL) is obtained from the willingness to pay expressed by respondents in surveys. For example, in the cost benefit analysis for the flood defences in the Netherlands a value of a statistical life of €6.7 million per fatality is used {cite:p}`jeuken2013`. The Value of a Statistical life lost in traffic accidents is estimated at €2.6 million {cite:p}`SWOV2012`.
 
 One alternative approach is based on so-called revealed preferences. The costs of saving and extra (statistical) life ($CSX$) for actual life-saving interventions that have been taken in the past can be determined. 
 
@@ -138,7 +138,7 @@ where:
 - $CSX$ the costs of saving an extra life [€/life year]
 - $\Delta E(N)$ the reduction of the expected number of fatalities per year
 
-An extensive study on  values in various sectors, see ⚠️Tengs et al. (1995) showed that these vary widely across sectors and even within sectors. The highest $CSX$ values are found for risks for small probability – large consequence events, for example in the nuclear domain. For such cases the expected number of fatalities is already small and investments in incremental safety are large.
+An extensive study on  values in various sectors, see {cite:t}`tengs1995` showed that these vary widely across sectors and even within sectors. The highest $CSX$ values are found for risks for small probability – large consequence events, for example in the nuclear domain. For such cases the expected number of fatalities is already small and investments in incremental safety are large.
 
 One other approach is to base the value of a human life on macro-economic indicators. Several metrics have been proposed that relate this value to a person’s economic production.
 Given the difficulties associated with economic valuation of human life and the associated risk reduction, it is decided in some domains to develop separate criteria for considering the risk to life. This topic is further elaborated in ⚠️section 3.5.

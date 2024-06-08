@@ -18,6 +18,10 @@
     color: var(--pst-color-text-base);
 }
 
+.thebe-launch-button {
+    height: 80% !important;
+} 
+
 .cell_output .jp-OutputArea-output pre {
     border: var(--mystnb-source-border-width) var(--mystnb-source-border-color) solid;
 }

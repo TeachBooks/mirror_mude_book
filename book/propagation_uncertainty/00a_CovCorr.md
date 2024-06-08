@@ -1,4 +1,3 @@
-
 ## Random vectors, covariance and correlation
 
 When dealing with multiple random variables we need to consider that these may not be independent. Instead of considering the individual random variables, we will then need to work with a random vector $X= [\begin{array}{llll} X_1 & X_2 & \ldots &X_m \end{array}]^T$, which has a *multivariate* (or: joint) distribution. We will first introduce the covariance and correlation coefficient of two random variables, and then introduce the multivariate normal distribution.
@@ -18,7 +17,7 @@ where $\mathop{{}\mathbb{E}}(X_1)$ is the expected value of the first random var
 Recall: the [expected value](meanvar) of a random variable $X$ is 
 
 $$ 
-\mathbb{E}(X)=\mu_Y = \int_{-\infty}^{\infty} x f_X (x)dx
+\mathbb{E}(X)=\mu_X = \int_{-\infty}^{\infty} x f_X (x)dx
 $$ 
 
 where $f_X(x)$ is the probability density function of $X$.

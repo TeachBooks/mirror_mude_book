@@ -1,7 +1,7 @@
 (decision)=
 # Decision Analysis
 
-Decision analysis, or decision-making under uncertain conditions is part of everyday life: when choosing to buy a lottery ticket or choosing to take an umbrella during cloudy weather. In contrast to the rather intuitive decision making in everyday matters, a structured analysis of different alternatives with associated risks, costs and benefits is very useful for decisions in (civil) engineering. This chapter offers a very basic introduction into the decision theory with applications to decision problems in the civil engineering domain. Further reference is made to the work by other scholars for more rigorous and detailed treatment of this topic. See, for example Raiffa and Schlaifer, (1961); Benjamin and Cornell, (1970).
+Decision analysis, or decision-making under uncertain conditions is part of everyday life: when choosing to buy a lottery ticket or choosing to take an umbrella during cloudy weather. In contrast to the rather intuitive decision making in everyday matters, a structured analysis of different alternatives with associated risks, costs and benefits is very useful for decisions in (civil) engineering. This chapter offers a very basic introduction into the decision theory with applications to decision problems in the civil engineering domain. Further reference is made to the work by other scholars for more rigorous and detailed treatment of this topic. See, for example {cite:t}`raiffa1961`; {cite:t}`benjamin1970`.
 
 ## Introduction
 
@@ -21,9 +21,9 @@ Within a decision problem the following characteristics can be distinguished:
   - the set of all (natural) circumstances, $\theta$ that influence the outcomes*
   - the  set of the set of all possible results, $\omega$, which are functions of the actions and circumstances: $\omega = f(a,\theta)$.
 
-The actions, natural circumstances and the outcomes can be shown in a so-called decision tree (Figure {numref}`decision-tree-blank`}).
+The actions, natural circumstances and the outcomes can be shown in a so-called decision tree (Figure {numref}`decision-tree-blank`).
 
-```{figure} ../../figures/pd/decision-tree-blank.png
+```{figure} ../figures/decision-tree-blank.png
 ---
 height: 300px
 name: decision-tree-blank
@@ -92,7 +92,7 @@ Note that for the bonds the net outcome always yields $\omega_{2}$  =1% (i.e. 3%
   - 1 %
 ```
 
-```{figure} ../../figures/pd/decision-tree-example.png
+```{figure} ../figures/decision-tree-example.png
 ---
 height: 300px
 name: decision-tree-example
@@ -117,9 +117,9 @@ In taking decisions with uncertainties, it appears that probabilistic calculatio
 
 In a river polder a basement has to be built in an excavated construction site. The construction site is made of sheet piling and the bottom is sealed off with a clay layer with a thickness of approximately 2.5 m. The thickness is not known exactly but measurements indicate that a normal distribution can be used with mean $\mu_d$= 2.5 m and a standard deviation of $\sigma_{d}$ = 0.2 m.
 
-The river cuts through the clay layer and the underlying sand layer is fed by the river, which causes high uplift pressures on the clay which is exposed in the excavation (see Figure {numref}`example-river-excavation`}). If the pressure becomes too high the excavation base will push upward and water will enter the excavation in an uncontrolled way, damaging property and perhaps risking human life.
+The river cuts through the clay layer and the underlying sand layer is fed by the river, which causes high uplift pressures on the clay which is exposed in the excavation (see Figure {numref}`example-river-excavation`). If the pressure becomes too high the excavation base will push upward and water will enter the excavation in an uncontrolled way, damaging property and perhaps risking human life.
 
-```{figure} ../../figures/pd/example-river-excavation.png
+```{figure} ../figures/example-river-excavation.png
 ---
 height: 300px
 name: example-river-excavation
@@ -149,7 +149,7 @@ $$
 p_f=P(Z<0)=\Phi\left(-\mu_z / \sigma_z\right)=\Phi(-1.17)=0.12
 $$
 
-```{figure} ../../figures/pd/example-river-excavation-2.png
+```{figure} ../figures/example-river-excavation-2.png
 ---
 height: 300px
 name: example-river-excavation-2
@@ -178,21 +178,21 @@ The previous analysis has shown that the probability of flooding of the excavati
 Without drainage, the risk, defined as the expected value of the loss, is
 
 $$
-\textrm{risk, without drainage = }0.12 \cdot \unicode{0x20AC} 5,000,000 = \unicode{0x20AC} 600,000
+\textrm{risk, without drainage = }0.12 \cdot \euro{} 5,000,000 = \euro{} 600,000
 $$
 With drainage the risk is:
 
 $$
-\textrm{risk, with drainage = }0.04 · \unicode{0x20AC} 5,000,000 = \unicode{0x20AC} 200,000
+\textrm{risk, with drainage = }0.04 · \euro{} 5,000,000 = \euro{} 200,000
 $$
-Costs and probabilities can also be shown in the decision tree (see Figure {numref}`example-river-excavation-3`}). The expected values of the costs can be calculated for the different actions by adding the present values of the cost of actions and risk:
+Costs and probabilities can also be shown in the decision tree (see Figure {numref}`example-river-excavation-3`). The expected values of the costs can be calculated for the different actions by adding the present values of the cost of actions and risk:
 - $\textit a_{1}$ : expected value (additional) costs = risk =€ 600,000
 - $\textit a_{2}$ : expected value (additional) costs 
 = extra costs + risk = € 150,000 + € 200,000 = € 350,000
 
 This implies that the construction of the drainage system is rationally speaking the best decision for a risk neutral decision maker.
  
-```{figure} ../../figures/pd/example-river-excavation-3.PNG
+```{figure} ../figures/example-river-excavation-3.PNG
 ---
 height: 300px
 name: example-river-excavation-3
