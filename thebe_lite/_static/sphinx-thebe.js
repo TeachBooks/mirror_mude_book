@@ -386,6 +386,15 @@ function setupSpecialTaggedElements() {
       
         break;
       }
+      case "read-only": {
+        const codemirror = taggedElement.element.querySelector(".CodeMirror");
+        codemirror.style.filter = "brightness(90%)";
+        
+        const textarea = taggedElement.element.querySelector("textarea");
+        textarea.setAttribute("disabled", "true");
+
+        break;
+      }
       default: {
         console.error(`Unrecognized special tag: ${taggedElement.tag}`);
       }
@@ -423,6 +432,8 @@ var initThebe = async () => {
   configureThebe();
   modifyDOMForThebe();
   await thebelab.bootstrap(thebeLiteConfig);
+
+  setupSpecialTaggedElements();
 
   document.querySelectorAll(".keep").forEach((kept, _) => {
     //console.log(Object.valueskept.previousClasses);
@@ -468,7 +479,6 @@ var initThebe = async () => {
     code: `import ipykernel; ipykernel.version_info = (0,0); import micropip; await micropip.install("ipywidgets")`,
   }).done;
   updateThebeButtonStatus("Running pre-intialized cells...");
-  setupSpecialTaggedElements();
 
   await runInitCells();
 
@@ -496,6 +506,13 @@ function handleThebeRemoveInputTag(element) {
   });
 
   element.classList.add("tag_thebe-init");
+}
+
+function handleReadOnlyTag(element) {
+  window.specialTaggedElements.push({
+    tag: "read-only",
+    element: element
+  });
 }
 
 function handleDisableExecutionTag(element) {
@@ -545,6 +562,7 @@ function consumeSpecialTags() {
     { tag: "auto-execute-page", handler: handleAutoExecuteTag },
     { tag: "disable-execution-cell", handler: handleDisableExecutionCellTag },
     { tag: "thebe-remove-input-init", handler: handleThebeRemoveInputTag },
+    { tag: "read-only", handler: handleReadOnlyTag }
   ];
 
   window.specialTaggedElements = [];
@@ -572,3 +590,4 @@ Promise.all(styleLoading).then(() => {
     });
   }
 });
+  
