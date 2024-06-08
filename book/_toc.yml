@@ -432,12 +432,19 @@ parts:
       sections:
       - file: programming/python_topics/classes
         title: Classes
+# START REMOVE-FROM-PUBLISH
+      - file: programming/python_topics/classes_solution
+        title: Classes Solution
+# END REMOVE-FROM-PUBLISH
       - file: programming/python_topics/visualization
         title: Advanced Visualization
       - file: programming/sympy/sympy.ipynb
 # START REMOVE-FROM-PUBLISH
       - file: programming/python_topics/modules
         title: Modules
+      - file: programming/python_topics/modules_solution
+        title: Modules Solution
+# END REMOVE-FROM-PUBLISH
 
 # THIS SECTION WAS DRAFTED BUT NEVER RELEASED FROM OLD BRANCH
     - file: programming/code/overview
@@ -463,7 +470,6 @@ parts:
     #   sections:
     #   - file: programming/code/packages
     #   - file: programming/code/environments
-# END REMOVE-FROM-PUBLISH
   - caption: Fundamental Concepts
     numbered: 2
     chapters: 
