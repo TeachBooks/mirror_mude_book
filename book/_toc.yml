@@ -438,7 +438,21 @@ parts:
 # START REMOVE-FROM-PUBLISH
       - file: programming/python_topics/modules
         title: Modules
-      # TO BE ADDED LATER: NUMPY ADVANCED, PANDAS, PYTHONIC, ETC.
+
+# THIS SECTION WAS DRAFTED BUT NEVER RELEASED FROM OLD BRANCH
+    - file: programming/code/overview
+      title: Computers & Code
+      sections:
+      - file: programming/code/numpy_0
+        title: Numpy
+        sections:
+        - file: programming/code/numpy_1
+          title: Using `ndarray`
+        - file: programming/code/numpy_2
+          title: Doing math
+# END PART FROM OLD BRANCH
+
+# TO BE ADDED LATER: NUMPY ADVANCED, PANDAS, PYTHONIC, ETC.
     # REMOVED OCTOBER 2023 TO REORGGANIZE IN "Python Topics"
     # - file: programming/communication/overview
     #   title: Communication
