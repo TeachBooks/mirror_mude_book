@@ -4,8 +4,6 @@ Refer to the [TeachBooks Manual](https://teachbooks.tudelft.nl/jupyter-book-manu
 
 Use 5 M's (`MMMMM`) anywhere in MUDE repositories to mark to-do's for teachers and TA's. The idea is that you will use text search in VS Code or another platform to find them. Feel free to add your own letters or initials afterwards to make it easier to find certain things yourself or with a sub-team (e.g., `MMMMM-RL` for Robert).
 
-**Don't push to `main` branch!**
-
 ## Where to put stuff
 
 ### Where to put your content (in the book ToC)
