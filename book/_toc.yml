@@ -372,84 +372,7 @@ parts:
   #       title: Assignment 2
   #     - file: EVA_old/MUDE/01_06_4-1-EVA2_teacher.ipynb
   #       title: Solution 2
-
-
-    
   # END REMOVE-FROM-PUBLISH
-
-  - caption: Programming
-    numbered: 3
-    chapters:
-    - file: programming/overview
-      title: Overview
-    - file: programming/golden_rules.ipynb
-      title: The Golden Rules
-    - file: programming/programs/overview
-      title: Programs
-      sections:
-      - file: programming/programs/git/version_control
-      - file: programming/programs/git/gui/overview
-        title: git and GitLab (GUI)
-        sections:
-        - file: programming/programs/git/gui/cloning
-          title: Cloning
-        - file: programming/programs/git/gui/commits_local
-          title: Local Commits
-        - file: programming/programs/git/gui/commits_remote
-          title: Remote Commits
-        - file: programming/programs/git/gui/fetch_pull
-          title: Fetch and Pull
-        - file: programming/programs/git/gui/pushing_problems
-          title: Pushing Problems
-      - file: programming/programs/git/cli/overview
-        title: git and GitLab (CLI)
-        sections:
-        - file: programming/programs/git/cli/getting_started
-          title: Getting Started
-        - file: programming/programs/git/cli/remote
-          title: Remote Repositories
-# START REMOVE-FROM-PUBLISH
-        - file: programming/programs/git/cli/branch_merge
-        - file: programming/programs/git/cli/merge_conflicts
-        - file: programming/programs/git/cli/git_the_rest
-          title: The Rest
-# END REMOVE-FROM-PUBLISH
-      - file: programming/programs/debugging/overview
-        title: Debugging and Testing
-        sections:
-        - file: programming/programs/debugging/errors
-          title: Error Types
-        - file: programming/programs/debugging/traceback
-          title: Traceback
-# START REMOVE-FROM-PUBLISH
-        - file: programming/programs/debugging/errors_raise_handle
-        - file: programming/programs/debugging/assertions
-        - file: programming/programs/debugging/logging
-        - file: programming/programs/debugging/exercises
-# END REMOVE-FROM-PUBLISH
-    # Python Topics ADDED OCTOBER 2023 (REVISE FOR 2024)
-    - file: programming/python_topics/overview
-      sections:
-      - file: programming/python_topics/classes
-        title: Classes
-      - file: programming/python_topics/visualization
-        title: Advanced Visualization
-      - file: programming/sympy/sympy.ipynb
-# START REMOVE-FROM-PUBLISH
-      - file: programming/python_topics/modules
-        title: Modules
-      # TO BE ADDED LATER: NUMPY ADVANCED, PANDAS, PYTHONIC, ETC.
-    # REMOVED OCTOBER 2023 TO REORGGANIZE IN "Python Topics"
-    # - file: programming/communication/overview
-    #   title: Communication
-    #   sections:
-    #   - file: programming/communication/visualization
-    # - file: programming/code/overview
-    #   title: Computers & Code
-    #   sections:
-    #   - file: programming/code/packages
-    #   - file: programming/code/environments
-# END REMOVE-FROM-PUBLISH
   - caption: Fundamental Concepts
     numbered: 2
     chapters: 
@@ -471,44 +394,10 @@ parts:
     - file: fundamentals/eemc-stuff
 
   # START REMOVE-FROM-PUBLISH
-
- # Coding
-  - caption: Coding (Last Year)
+  - caption: Programming
     chapters:
-    - file: old/coding/overview.md
-    - file: old/coding/1-1/1-overview.md
-      sections:
-      - file: old/coding/1-1/1-1-student.ipynb
-      - file: old/coding/1-1/1-1-solution.ipynb
-      - file: old/coding/1-1/1-2-student.ipynb
-      - file: old/coding/1-1/1-2-solution.ipynb
-    - file: old/coding/1-4/1-overview.md
-      sections:
-      - file: old/coding/1-4/1-2-oop-student
-      - file: old/coding/1-4/1-2-oop-solution
-      - file: old/coding/1-4/1-3-modules-student
-      - file: old/coding/1-4/1-3-modules-solution
-    - file: old/coding/1-6/1-overview.md
-      sections:
-      - file: old/coding/1-6/1_1_Introduction_student.ipynb
-      - file: old/coding/1-6/1_2_Points_student.ipynb
-      - file: old/coding/1-6/1_3_Lines_student.ipynb
-      - file: old/coding/1-6/1_6_Lines_teacher.ipynb
-      - file: old/coding/1-6/1_4_Polygons_student.ipynb
-      - file: old/coding/1-6/1_7_Polygons_teacher.ipynb
-      - file: old/coding/1-6/1_5_Rasters_student.ipynb
-      - file: old/coding/1-6/1_8_Rasters_teacher.ipynb
-    - file: old/coding/2-2/1-overview.md
-      sections:
-      - file: old/coding/2-2/1-software.md
-      - file: old/coding/2-2/1-part-1.md
-        sections:
-        - file: old/coding/2-2/1_1.ipynb
-        - file: old/coding/2-2/1_2.ipynb
-      - file: old/coding/2-2/1-part-2.md
-      - file: old/coding/2-2/1-part-3.md
-
-      
+    - file: programming.md
+      title: REMOVED
   - caption: Sandbox
     chapters:
     - file: sandbox/blank
