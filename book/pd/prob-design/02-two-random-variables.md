@@ -1,15 +1,17 @@
 (prob_design_2_rv)=
 # Two Random Variables
 
-The previous section illustrated the how a decision for dike height, $h_{dike}$, can take into account uncertainty in river discharge. We used a maximum allowable probability of flooding to derive the specific value of discharge, $q_{design}$, that should be used to choose $h_{dike}$. This was necessary because there was otherwise no way of establishing what the maximum discharge should be. The only variable considered to be random was the maximum river discharge that occurs each year. This section considers how the design process becomes more complicated when *two* random variables are considered (two load variables).
+The previous section illustrated how a decision for dike height, $h_{dike}$, can take into account uncertainty in river discharge. We used a maximum allowable probability of flooding to derive the specific value of discharge, $q_{design}$, that should be used to choose $h_{dike}$. This was necessary because there was otherwise no way of establishing what the maximum discharge should be. The only variable considered to be random was the maximum river discharge that occurs each year. This section considers how the design process becomes more complicated when *two* random variables are considered (two load variables).
 
 ````{admonition} Distribution for $q_1$ and $q_2$
 :class: dropdown
 On this page all calculations assume the same lognormal distribution for random variables $q_1$ and $q_1$, where the first and second moments of the distribution are:
 
 $$
-\mu &= 100\\
-\sigma &= 20
+\begin{align*}
+E[X] &= \exp\left(\mu + \frac{\sigma^2}{2}\right) = 100\\
+VAR[X] &= \left( \exp(\sigma^2)-1 \right)\exp(2\mu + \sigma^2)= 400
+\end{align*}
 $$
 The shape, location and scale parameters and usage for the `lognorm` method in `scipy.stats`are:
 ```python
@@ -33,7 +35,7 @@ where the same rating curve applies, giving $h_w$ as a function of $q$. As befor
 
 *Compared to the previous example, now there are two distributions---how do we find the design discharge and dike height?*
 
-Before presenting the correct approach, 3 common mistakes are illustrated.
+Before presenting the correct approach, three common mistakes are illustrated.
 
 ### Incorrect Approach 1
 
@@ -47,7 +49,7 @@ $$
 
 It considers the simultaneous occurrence of *both* rivers exceeding a design discharge with probability 0.01. This is a joint probability of occurrence, $P(Q_1>q_{1,design},Q_2>q_{2,design})$, which can be evaluated with a multivariate probability distribution (or the marginal distributions in the independent case). The scenario is equivalent to observing two sixes after tossing two dice simultaneously: if the dice are fair, the probability is $1/36$. Thus, for this incorrect case the probability $P(Q_1>q_{1,design},Q_2>q_{2,design})$ is not 0.01, it's actualy 0.01$^2$=0.0001, illustrated in the figure below.
 
-```{figure} ../../figures/pd/design_2_rv_error_1.svg
+```{figure} ../figures/design_2_rv_error_1.svg
 ---
 height: 400px
 name: design_2_rv_error_1
@@ -67,7 +69,7 @@ $$
 q_{1,\mathrm{design}}=q_{2,\mathrm{design}}=F_{Q}^{-1}(1-0.1)=126\:\text{m}^3\text{/s} \;\rightarrow\; q_{design}=252\:\text{m}^3\text{/s} 
 $$
 
-```{figure} ../../figures/pd/design_2_rv_error_2a.svg
+```{figure} ../figures/design_2_rv_error_2a.svg
 ---
 height: 400px
 name: design_2_rv_error_2a
@@ -87,7 +89,7 @@ $$
 
 which results in a totally different dike height.
 
-```{figure} ../../figures/pd/design_2_rv_error_2b.svg
+```{figure} ../figures/design_2_rv_error_2b.svg
 ---
 height: 400px
 name: design_2_rv_error_2b
@@ -117,7 +119,7 @@ $$
 q_{1,\mathrm{design}}=q_{2,\mathrm{design}}=F_{Q}^{-1}(0.995)=163\:\text{m}^3\text{/s} \;\rightarrow\; q_{design}=326\:\text{m}^3\text{/s} 
 $$
 
-```{figure} ../../figures/pd/design_2_rv_error_3.svg
+```{figure} ../figures/design_2_rv_error_3.svg
 ---
 height: 400px
 name: design_2_rv_error_3
@@ -139,7 +141,7 @@ $$
 
 This is equivalent to integrating the joint probability distribution of $q_1$ and $q_2$ over the region $\Omega$ where $q>275\:\text{m}^3\text{/s}$, illustrated in the figure below, along with the contours of joint probability density.
 
-```{figure} ../../figures/pd/design_2_rv_correct.svg
+```{figure} ../figures/design_2_rv_correct.svg
 ---
 height: 400px
 name: design_2_rv_correct
@@ -176,19 +178,19 @@ All four design values of $Q$ are collected in the table below, along with the r
 % Dependence considered in componenet reliability part (and system!)
 % Design point consideration NOT included here, and probably not in this book!!!
 
-We need to be explicit in what we are trying to evaluate. In this case, it is the distribution of a function of random variables, $Q_{dike}$.
+We need to be explicit in what we are trying to evaluate. In this case, it is the distribution of a function of random variables, $Q$.
 
-Sometimes we can't get the distribution of the function of random variables analyticaly. There are two main reasons: 1) non-Gaussian distributions, and 2) non-linear function of random variables. Fortunately it is easy to find it numerically through sampling techniques. This will be discussed elsewhere.
+For non-Gaussian distributions and for non-linear functions of random variables it is often not possible to get the distribution of the function of random variables analytically. Fortunately it is easy to find it numerically through sampling techniques. This will be discussed elsewhere.
 
 The 'and' and 'or' approaches (intersection and union) are simple, but really only limited to discrete cases. As illustrated above, they cannot be used in the case of continuous random variables, or with functions of random variables because one must integrate across all possible scenarios leading to failure. Nonetheless, these approaches are extremely useful for many situations, and are the basis of *system reliability* problems.
 
 The situation illustrated here is often referred to as a *component reliability* problem, where the 'component' is defined by a function of random variables.
  Although nothing more than a function of random variables,is nothing more than an integration over a specific region of a multivariate probability density function. Often this region describes failure of a component, which we will try to keep below an acceptable level.
 
-```{admonition} MUDE exam information
+<!--```{admonition} MUDE exam information
 :class: tip, dropdown
 Given a specific scenario, you should be able to identify the design condition and an appropriate method for calculating a probability of interest (as illustrated here). Functions of random variables are illustrated more thoroughly in the **Component Reliability** chapter.
-```
+```-->
 
 <!-- ```{admonition} MUDE exam information
 :class: tip, dropdown

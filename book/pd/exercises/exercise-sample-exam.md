@@ -24,7 +24,7 @@ Options 3 and 4 are true.
 
 A flood protection system for an area at a bay consists of a first line of defence (a dam on the coast) and a second line (a dike around the bay) to protect the city against a storm surge that can cause a high water level in the bay. The design team considers two strategies: 1) a single dike around the bay, or 2) a dike around the bay plus a dam (see figure). 
 
-```{figure} ../../figures/pd/exercise-sample-exam-bay.png
+```{figure} ../figures/exercise-sample-exam-bay.png
 ---
 width: 400px
 name: flood-protection
@@ -34,7 +34,7 @@ name: flood-protection
 **Question 1:** from the perspective of flooding in the city, the function of the dam and dike together is best described as a (choose one):
 a. series system
 b. parallel system
-c. component system
+c. a single component
 d. none of the above
 
 ```{admonition} Answer
@@ -91,7 +91,9 @@ $$
 
 First create an FN curve for the risk assessment
 
-```{figure} ../../figures/pd/exercise-sample-exam-limit-line.png
+**NOTE:** _the figure below is slightly incorrect; the horizontal lines should be to the right of the "dots;" in other words, the 1E-05 value should be above N=100. This makes it more obvious why the system does not meet the safety criteria._
+
+```{figure} ../figures/exercise-sample-exam-limit-line.png
 ---
 width: 400px
 name: limit-line
@@ -144,7 +146,7 @@ Strategy B is best.
 
 Various costs (NPV value) are calculated in the table below, and Strategy B is the lowest total cost we well as highest risk reduction.
 
-```{figure} ../../figures/pd/exercise_sample_opt.png
+```{figure} ../figures/exercise_sample_opt.png
 ---
 width: 500px
 ---
@@ -155,7 +157,7 @@ Consider the individual risk in two areas of the city by the bay, above. The acc
 
 **Question 7:** what should be the maximum allowable failure probability of the dike on the bay, $P_{\text{flooding}}$, to meet the standard for individual risk, $IR$?
 
-```{figure} ../../figures/pd/exercise-sample-exam-mortality.png
+```{figure} ../figures/exercise-sample-exam-mortality.png
 ---
 width: 400px
 ---
@@ -172,7 +174,7 @@ $$
 
 where the values for the conditional term can be found using the mortality figure, and solve for $P_{\text{flooding}}$.
 
-```{figure} ../../figures/pd/exercise_sample_IR.png
+```{figure} ../figures/exercise_sample_IR.png
 ---
 width: 500px
 ---
@@ -192,7 +194,7 @@ $$
 
 Where $x$ and $y$ are random variables and $f(x,y)$ is the joint PDF.
 
-```{figure} ../../figures/pd/exercise-sample-exam-failure-domain.png
+```{figure} ../figures/exercise-sample-exam-failure-domain.png
 ---
 width: 400px
 name: failure-domain

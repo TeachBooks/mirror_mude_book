@@ -11,7 +11,7 @@ The techniques introduced in this chapter essential for carrying out step 3 in a
 
 In reliability analysis two types of basic systems can be distinguished: series and parallel (see {numref}`sys-series-parallel`).
 
-```{figure} ../../figures/pd/system_series_parallel.png
+```{figure} ../figures/system_series_parallel.png
 ---
 height: 400px
 name: sys-series-parallel
@@ -20,7 +20,7 @@ Series (top row) and parallel (bottom row) systems: the building blocks of syste
 ```
 Within a series system, failure of a single component will always lead to the failure of the entire system. An example is a chain, which breaks if any individual link fails. In our flood management example, a dike ring protecting a single area that is made up of multiple segments is also a series system. Within a parallel system, failure of one component can be compensated by the performance of another  component; it represents the concept of redundancy. Drawing on the chain example, it would imply using more than one chain capable of holding the maximum load. An example from flood management would be to build a second dike ring inside the first dike ring. In practice, a complex system can generally be represented by means of a combination of parallel and series subsystems, just as the parallel system of multiple chains (or dikes) is a parallel system of series systems of links (or dike segments).
 
-```{figure} ../../figures/pd/system_series_parallel_ex.png
+```{figure} ../figures/system_series_parallel_ex.png
 ---
 height: 400px
 name: sys-series-parallel-ex
@@ -30,7 +30,7 @@ Example of series (top row) and parallel (bottom row) systems, illustrated with 
 
 Systems are often schematized using a system diagram, as in {numref}`sys-series-parallel`. This also illustrates the function of a system as an input-output diagram, where one can considers the ability to travel from left to right on the figure. It is analagous to many scenarios involving flow: electricity ({numref}`sys-lightbulbs`), water in pipes or transportation routes.
 
-```{figure} ../../figures/pd/system_lightbulbs.png
+```{figure} ../figures/system_lightbulbs.png
 ---
 width: 400px
 name: sys-lightbulbs
@@ -44,7 +44,7 @@ Whereas in component reliability problems we defined failure using a function of
 
 ## Reliability Calculations
 
-Equations for computing parallel and series system reliability are described here with the notation $F_i$ and $\bar{F_i}$ to denote failure and non-failure of component $i$, respectively. A system is made up of $i=1,...,n$ components where the probability of failure of component $i$ is $P(F_i)$. Note that as a concept, "system reliability" is almost always going to be quantified using the failure probability of the system, $p_{f,sys}$. This is sometimes misleading or confusing because the mathematical definition of reliability is the complement of failure probability, $1-p_{f,sys}$.
+Equations for computing parallel and series system reliability are described here with the notation $F_i$ and $\bar{F_i}$ to denote failure and non-failure of component $i$, respectively. A system is made up of $i=1,...,n$ components where the probability of failure of component $i$ is $P(F_i)$. Note that as a concept, "system reliability" is almost always going to be quantified using the failure probability of the system, $p_{f,sys}$. This is sometimes misleading or confusing because the mathematical definition of reliability is the complement of reliability, $1-p_{f,sys}$.
 ### Parallel System
 
 A parallel system is often described as redundant since *all* components must fail to cause system failure. This is also simple to calculate as it can be described mathematically as the joint failure probability, or intersection, of all components:
@@ -96,7 +96,7 @@ The influence of dependence on a series system is most easily understood through
 {numref}`sys_dependence` quantifies the effect of dependence on the join probability of failure of two components. The joint failure probability is calculated using the multivariate normal distribution which has a linear dependence measure, the correlation coefficient, $\rho$. The blue line shows the series system failure probability, equivalent to {eq}`sys_p_series`. The figure allows one to evaluate the quantitative effect of dependence on series and parallel systems, and even illustrates the bound of $p_{f,sys}=P(F_1)$ for the case of $\rho=+1$.
 
 
-```{figure} ../../figures/pd/system-corr-coeff.PNG
+```{figure} ../figures/system-corr-coeff.PNG
 ---
 width: 400px
 name: sys_dependence
@@ -122,10 +122,11 @@ which means the correct statement is that dependence quantifies how the "*probab
 
 This page contains a brief introduction to the computation of failure probability for series and parallel systems, and describes the role of dependence. The following section illustrates these concepts with a simple exercise.
 
+<!--
 ```{admonition} MUDE Exam Information
 :class: tip, dropdown
 For the exam, you should be able to recognize and solve simple series and parallel systems, as well as describe the influence that dependence between components may have on the calculated probability of interest. You will not need to draw or evaluate a system more complex than those illustrated on this page.
-```
+``` -->
 % THIS IS REMOVED FOR 2022-23 SINCE THE SEPARATE PAGES WITH SERIES/PARALLEL ILLUSTRATING DEPENDENCE WERE NOT COMPLETED
 <!-- This chapter contains a brief introduction to the computation of failure probability for series and parallel systems, and illustrates the role of dependence. The final section illustrates these concepts with a simple exercise.
 
