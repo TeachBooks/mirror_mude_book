@@ -8,5 +8,5 @@ This online textbook has a number of pages that are set up to be used interactiv
 
 Sometimes the interactivity will involve completing an exercise, wheras on other pages it might simply provide the opportunity to edit the contents of code cells and execute it to explore the page contents interactively. Other pages may provide interactive figures (e.g., widgets).
 
-This is feature that is supported by [TeachBooks](http://teachbooks.tudelft.nl/).
+This feature is supported by [TeachBooks](http://teachbooks.tudelft.nl/).
 ````
