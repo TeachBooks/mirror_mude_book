@@ -394,6 +394,10 @@ parts:
     - file: fundamentals/eemc-stuff
 
   # START REMOVE-FROM-PUBLISH
+  - caption: Programming
+    chapters:
+    - file: programming.md
+      title: REMOVED
   - caption: Sandbox
     chapters:
     - file: sandbox/blank
