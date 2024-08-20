@@ -29,9 +29,5 @@ bibtex_bibfiles:
 launch_buttons:
   thebe: true
 
-draft_banner: '⚠️This is a draft website. The most recent published version can be found <a href="https://mude.citg.tudelft.nl/book/intro.html">here</a>.⚠️'
-
 html:
   use_multitoc_numbering: false
-  comments:
-    hypothesis: true
