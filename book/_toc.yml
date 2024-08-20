@@ -392,24 +392,73 @@ parts:
       - file: fundamentals/prob_tables/chi2
         title: Chi-Squared
     - file: fundamentals/eemc-stuff
-
-  # START REMOVE-FROM-PUBLISH
   - caption: Programming
+    numbered: 3
     chapters:
-    - file: programming.md
-      title: REMOVED
-  - caption: Sandbox
-    chapters:
-    - file: sandbox/blank
-    - file: sandbox/dist_fit_example/overview
-      title: Distribution Fitting Examples
+    - file: external/learn-programming/book/year2/overview
+      title: Overview
+    - file: external/learn-programming/book/year2/golden_rules.ipynb
+      title: The Golden Rules
+    - file: external/learn-programming/book/year2/programs/overview
+      title: Programs
       sections:
-        - file: sandbox/dist_fit_example/00_case_study.ipynb
-        - file: sandbox/dist_fit_example/01_importdata.ipynb
-        - file: sandbox/dist_fit_example/02_distributionfitting.ipynb
-    - file: sandbox/multivariate/overview
-      title: Multivariate
+      - file: external/learn-programming/book/year2/programs/git/version_control
+      - file: external/learn-programming/book/year2/programs/git/gui/overview
+        title: git and GitLab (GUI)
+        sections:
+        - file: external/learn-programming/book/year2/programs/git/gui/cloning
+          title: Cloning
+        - file: external/learn-programming/book/year2/programs/git/gui/commits_local
+          title: Local Commits
+        - file: external/learn-programming/book/year2/programs/git/gui/commits_remote
+          title: Remote Commits
+        - file: external/learn-programming/book/year2/programs/git/gui/fetch_pull
+          title: Fetch and Pull
+        - file: external/learn-programming/book/year2/programs/git/gui/pushing_problems
+          title: Pushing Problems
+      - file: external/learn-programming/book/year2/programs/git/cli/overview
+        title: git and GitLab (CLI)
+        sections:
+        - file: external/learn-programming/book/year2/programs/git/cli/getting_started
+          title: Getting Started
+        - file: external/learn-programming/book/year2/programs/git/cli/remote
+          title: Remote Repositories
+        - file: external/learn-programming/book/year2/programs/git/cli/branch_merge
+        - file: external/learn-programming/book/year2/programs/git/cli/merge_conflicts
+        - file: external/learn-programming/book/year2/programs/git/cli/git_the_rest
+          title: The Rest
+      - file: external/learn-programming/book/year2/programs/debugging/overview
+        title: Debugging and Testing
+        sections:
+        - file: external/learn-programming/book/year2/programs/debugging/errors
+          title: Error Types
+        - file: external/learn-programming/book/year2/programs/debugging/traceback
+          title: Traceback
+# START REMOVE-FROM-PUBLISH
+        - file: external/learn-programming/book/year2/programs/debugging/errors_raise_handle
+        - file: external/learn-programming/book/year2/programs/debugging/assertions
+        - file: external/learn-programming/book/year2/programs/debugging/logging
+        - file: external/learn-programming/book/year2/programs/debugging/exercises
+# END REMOVE-FROM-PUBLISH
+    - file: external/learn-python/other_python_stuff/year2/python_topics/overview
       sections:
-      - file: sandbox/multivariate/Multivariate.ipynb
-      - file: sandbox/multivariate/Vessels.ipynb
+      - file: external/learn-python/other_python_stuff/year2/python_topics/classes
+        title: Classes
+      - file: external/learn-python/other_python_stuff/year2/python_topics/visualization
+        title: Advanced Visualization
+      - file: external/learn-python/other_python_stuff/year2/sympy/sympy.ipynb
+# START REMOVE-FROM-PUBLISH
+      - file: external/learn-python/other_python_stuff/year2/python_topics/modules
+        title: Modules
+      # TO BE ADDED LATER: NUMPY ADVANCED, PANDAS, PYTHONIC, ETC.
+    # REMOVED OCTOBER 2023 TO REORGGANIZE IN "Python Topics"
+    # - file: programming/communication/overview
+    #   title: Communication
+    #   sections:
+    #   - file: programming/communication/visualization
+    # - file: programming/code/overview
+    #   title: Computers & Code
+    #   sections:
+    #   - file: programming/code/packages
+    #   - file: programming/code/environments
 # END REMOVE-FROM-PUBLISH
