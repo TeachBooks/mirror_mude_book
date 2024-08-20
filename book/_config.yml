@@ -16,12 +16,14 @@ sphinx:
       - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
     patch_config:
       disabled-patches: []
+    html_last_updated_fmt: '%B %-d, %Y'
   extra_extensions:
     - sphinx_inline_tabs
     - sphinx_grasple
     - sphinx.ext.imgconverter
     - download_link_replacer
     - jupyterbook_patches
+    - sphinx.ext.extlinks
 
 bibtex_bibfiles:
   - _bibliography/references_pd.bib
