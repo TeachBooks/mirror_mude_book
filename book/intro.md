@@ -11,6 +11,7 @@ Material from last year is also available, but note that this should be used for
 - For more information, visit the [MUDE Archive](https://mude.citg.tudelft.nl/archive/).
 ````
 
+
 %Welcome to the MUDE textbook for the 2023-24 academic year. This is where assigned reading is located, along with interactive %exercises to practice and study the module material.
 %
 %````{admonition} Interactive Pages---Use Python in your Browser!
