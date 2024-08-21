@@ -33,5 +33,7 @@ launch_buttons:
   thebe: true
 
 html:
-  use_multitoc_numbering: false
   announcement: "This book is archived from the 2023-24 academic year. The most recent version can be found at <a href='https://mude.citg.tudelft.nl/book'>mude.citg.tudelft.nl/book</a>; additional information is available in the <a href="https://mude.citg.tudelft.nl/archive" target="_blank">MUDE Archive</a>."
+  use_multitoc_numbering: false
+  comments:
+    hypothesis: true
