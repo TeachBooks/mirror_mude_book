@@ -12,7 +12,17 @@ If you want to add something to the book but are not sure where to put it, use t
 
 There are still some older parts from the year 1 to 2 transition that need to be cleaned up.
 
-## Build notes
+## Build notes (2024-25)
+
+## Draft banner
+
+Now using the default Jupyter Book banner. For reference, the previous version (set up by R Stular) used a script and custom tag in the `yml`:
+
+```
+draft_banner: '⚠️This is a draft website. The most recent published version can be found <a href="https://mude.citg.tudelft.nl/book/intro.html">here</a>.⚠️'
+```
+
+## Build notes (2023-24)
 
 **A few notes that will be removed after 2024 structure is finalized.**
 
@@ -27,7 +37,7 @@ There are several directories:
 - `unused/`: files that were removed from the book (and didn't want to see warnings for unused files in toc). Might be better to hide these in a branch
   unused/pd/
 
-### Conversion of old book from GH to new repo
+### Conversion of old book from GH to new repo (2023-24)
 
 Mostly Robert copied files, but also:
 
