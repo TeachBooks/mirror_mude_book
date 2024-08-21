@@ -33,9 +33,8 @@ launch_buttons:
   thebe: true
 
 html:
-  announcement: "This book is archived from the 2023-24 academic year. The most recent version is at [mude.citg.tudelft.nl/book](https://mude.citg.tudelft.nl/book); find out more at the [MUDE Archive](https://mude.citg.tudelft.nl/archive) contains."
+  announcement: "<p>This book is archived from the 2023-24 academic year. The most recent version is at <a href='https://mude.citg.tudelft.nl/book'>mude.citg.tudelft.nl/book</a>; find out more at the <a href="https://mude.citg.tudelft.nl/archive" target="_blank">MUDE Archive</a>.</p>"
   use_multitoc_numbering: false
   comments:
     hypothesis: true
-
-# "<p This book is archived from the 2023-24 academic year. The most recent version can be found at <a href='https://mude.citg.tudelft.nl/book'>mude.citg.tudelft.nl/book</a>; additional information is available in the <a href="https://mude.citg.tudelft.nl/archive" target="_blank">MUDE Archive</a>."
+# Note about Jupyter Book announcements: must be a complete HTML tag, not Markdown with HTML inside. Markdown links do not work either!
