@@ -9,7 +9,6 @@ For now, you can read the course description [here](https://www.studiegids.tudel
 Material from last year is also available, but note that this should be used for general information only as **the material can change significantly!**
 - Use these links to visit the [book](https://mude.citg.tudelft.nl/2023/) and [website](https://mude.citg.tudelft.nl/2023/book) from last year.
 - For more information, visit the [MUDE Archive](https://mude.citg.tudelft.nl/archive/).
-
 ````
 
 
