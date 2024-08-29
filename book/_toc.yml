@@ -53,7 +53,7 @@ parts:
         - file: observation_theory/09_Notebook_OMT.ipynb
       - file: observation_theory/99_NotationFormulas
     
-    
+
     - file: numerical_methods/overview
       title: Numerical Modelling
       sections:
@@ -428,17 +428,17 @@ parts:
         - file: external/learn-programming/book/year2/programs/git/cli/merge_conflicts
         - file: external/learn-programming/book/year2/programs/git/cli/git_the_rest
           title: The Rest
-      - file: external/learn-python/book/year2/programs/debugging/overview
+      - file: external/learn-python/other_python_stuff/year2/programs/debugging/overview
         title: Debugging and Testing
         sections:
-        - file: external/learn-python/book/year2/programs/debugging/errors
+        - file: external/learn-python/other_python_stuff/year2/programs/debugging/errors
           title: Error Types
-        - file: external/learn-python/book/year2/programs/debugging/traceback
+        - file: external/learn-python/other_python_stuff/year2/programs/debugging/traceback
           title: Traceback
 # START REMOVE-FROM-PUBLISH
-        - file: external/learn-python/book/year2/programs/debugging/errors_raise_handle
-        - file: external/learn-python/book/year2/programs/debugging/assertions
-        - file: external/learn-python/book/year2/programs/debugging/logging
+        - file: external/learn-python/other_python_stuff/year2/programs/debugging/errors_raise_handle
+        - file: external/learn-python/other_python_stuff/year2/programs/debugging/assertions
+        - file: external/learn-python/other_python_stuff/year2/programs/debugging/logging
         - file: external/learn-python/book/year2/programs/debugging/exercises
 # END REMOVE-FROM-PUBLISH
     - file: external/learn-python/other_python_stuff/year2/python_topics/overview
