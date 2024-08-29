@@ -199,8 +199,8 @@ parts:
       - file: time_series/optional
         title: "Supplementary material"
       # START REMOVE-FROM-PUBLISH
-      - file: time_series/notebook
-        title: Notebook
+      # - file: time_series/notebook
+      #   title: Notebook
       # END REMOVE-FROM-PUBLISH
     - file: optimization/overview
       title: Optimization
@@ -436,10 +436,10 @@ parts:
         - file: external/learn-python/other_python_stuff/year2/programs/debugging/traceback
           title: Traceback
 # START REMOVE-FROM-PUBLISH
-        - file: external/learn-python/other_python_stuff/year2/programs/debugging/errors_raise_handle
-        - file: external/learn-python/other_python_stuff/year2/programs/debugging/assertions
-        - file: external/learn-python/other_python_stuff/year2/programs/debugging/logging
-        - file: external/learn-python/book/year2/programs/debugging/exercises
+        # - file: external/learn-python/other_python_stuff/year2/programs/debugging/errors_raise_handle
+        # - file: external/learn-python/other_python_stuff/year2/programs/debugging/assertions
+        # - file: external/learn-python/other_python_stuff/year2/programs/debugging/logging
+        # - file: external/learn-python/book/year2/programs/debugging/exercises
 # END REMOVE-FROM-PUBLISH
     - file: external/learn-python/other_python_stuff/year2/python_topics/overview
       sections:
@@ -449,8 +449,8 @@ parts:
         title: Advanced Visualization
       - file: external/learn-python/other_python_stuff/year2/sympy/sympy.ipynb
 # START REMOVE-FROM-PUBLISH
-      - file: external/learn-python/other_python_stuff/year2/python_topics/modules
-        title: Modules
+      # - file: external/learn-python/other_python_stuff/year2/python_topics/modules
+      #   title: Modules
       # TO BE ADDED LATER: NUMPY ADVANCED, PANDAS, PYTHONIC, ETC.
     # REMOVED OCTOBER 2023 TO REORGGANIZE IN "Python Topics"
     # - file: programming/communication/overview
