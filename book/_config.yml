@@ -18,7 +18,7 @@ sphinx:
       use_thebe_lite: true
       exclude_patterns: ["**/_*.yml", "**/*.md", "**/*.ipynb"]
     html_theme_options:
-      repository_url: "https://github.com/TeachBooks/template" #add your own repo URL here
+      repository_url: "https://gitlab.tudelft.nl/mude/book" #add your own repo URL here
       use_repository_button: true
       use_issues_button : true
       launch_buttons:
@@ -34,9 +34,6 @@ sphinx:
 
 bibtex_bibfiles:
   - _bibliography/references_pd.bib
-
-launch_buttons:
-  thebe: true
 
 html:
   announcement: "<p>This book is archived from the 2023-24 academic year. The most recent version is at <a href='https://mude.citg.tudelft.nl/book' style='color: cyan;'>mude.citg.tudelft.nl/book</a>; find out more at the <a href='https://mude.citg.tudelft.nl/archive' target='_blank' style='color: cyan;'>MUDE Archive</a>.</p>"
