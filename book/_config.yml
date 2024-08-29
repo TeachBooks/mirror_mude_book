@@ -14,16 +14,22 @@ sphinx:
     bibtex_reference_style: author_year
     html_js_files:
       - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
-    patch_config:
-      disabled-patches: []
+    thebe_config:
+      use_thebe_lite: true
+      exclude_patterns: ["**/_*.yml", "**/*.md", "**/*.ipynb"]
+    html_theme_options:
+      repository_url: "https://github.com/TeachBooks/template" #add your own repo URL here
+      use_repository_button: true
+      use_issues_button : true
+      launch_buttons:
+        thebe: true
     html_show_copyright: false
     html_last_updated_fmt: '%B %-d, %Y'
   extra_extensions:
-    - sphinx_inline_tabs
-    - sphinx_grasple
     - sphinx.ext.imgconverter
-    - download_link_replacer
     - jupyterbook_patches
+    - sphinx_inline_tabs
+    - download_link_replacer
     - sphinx.ext.extlinks
 
 bibtex_bibfiles:
