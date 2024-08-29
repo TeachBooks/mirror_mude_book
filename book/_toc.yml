@@ -17,8 +17,8 @@ parts:
       - file: modelling/gof
         title: Goodness of Fit
     # START REMOVE-FROM-PUBLISH
-      - file: modelling/sensitivity
-        title: Sensitivity Analysis
+      # - file: modelling/sensitivity
+      #   title: Sensitivity Analysis
     # END REMOVE-FROM-PUBLISH
 
 
