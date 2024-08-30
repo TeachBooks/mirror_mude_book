@@ -49,8 +49,10 @@ deploy-draft:
     - |
       echo "Fetching job information..."
       API_RESPONSE=$(curl -s -H "PRIVATE-TOKEN: $CI_JOB_TOKEN" "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/pipelines/${CI_PIPELINE_ID}/jobs?scope[]=success")
+      echo "API Response:"
+      echo "$API_RESPONSE"
       echo "Parsing build job ID..."
-      BUILD_JOB_ID=$(echo "$API_RESPONSE" | jq '.[] | select(.name=="build-book") | .id')
+      BUILD_JOB_ID=$(echo "$API_RESPONSE" | jq -r '.[] | select(.name=="build-book") | .id')
       if [ -z "$BUILD_JOB_ID" ]; then
         echo "Failed to find build-book job ID. Using current job ID as fallback."
         BUILD_JOB_ID=$CI_JOB_ID
@@ -80,8 +82,10 @@ deploy-production:
     - |
       echo "Fetching job information..."
       API_RESPONSE=$(curl -s -H "PRIVATE-TOKEN: $CI_JOB_TOKEN" "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/pipelines/${CI_PIPELINE_ID}/jobs?scope[]=success")
+      echo "API Response:"
+      echo "$API_RESPONSE"
       echo "Parsing build job ID..."
-      BUILD_JOB_ID=$(echo "$API_RESPONSE" | jq '.[] | select(.name=="build-book") | .id')
+      BUILD_JOB_ID=$(echo "$API_RESPONSE" | jq -r '.[] | select(.name=="build-book") | .id')
       if [ -z "$BUILD_JOB_ID" ]; then
         echo "Failed to find build-book job ID. Using current job ID as fallback."
         BUILD_JOB_ID=$CI_JOB_ID
