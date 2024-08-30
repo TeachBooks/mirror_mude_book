@@ -19,39 +19,30 @@ before_script:
   - source venv/bin/activate
   - pip install -r requirements.txt
 
-build-draft:
+build-book:
   stage: build
   script:
-    - echo "Building draft version"
-    - teachbooks build book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
+    - |
+      if [ "$CI_COMMIT_BRANCH" == "publish" ]; then
+        echo "Building production version"
+        teachbooks build --publish book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
+      else
+        echo "Building draft version"
+        teachbooks build book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
+      fi
   artifacts:
     paths:
       - book/_build/html
       - stdout.log
       - stderr.log
   rules:
-    - if: $CI_COMMIT_BRANCH == "main"
-    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"
-      when: always
-
-build-production:
-  stage: build
-  script:
-    - echo "Building production version"
-    - teachbooks build --publish book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
-  artifacts:
-    paths:
-      - book/_build/html
-      - stdout.log
-      - stderr.log
-  rules:
-    - if: $CI_COMMIT_BRANCH == "publish"
-    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "publish"
+    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "publish"
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "publish"
       when: always
 
 deploy-draft:
   stage: deploy
-  needs: ["build-draft"]
+  needs: ["build-book"]
   script:
     - |
       curl -X POST https://mude.citg.tudelft.nl/hooks/book-deploy-draft \
@@ -69,12 +60,10 @@ deploy-draft:
     url: https://mude.citg.tudelft.nl/2024/book/draft
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
-    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"
-      when: always
 
 deploy-production:
   stage: deploy
-  needs: ["build-production"]
+  needs: ["build-book"]
   script:
     - |
       curl -X POST https://mude.citg.tudelft.nl/hooks/book-deploy \
@@ -92,5 +81,3 @@ deploy-production:
     url: https://mude.citg.tudelft.nl/2024/book
   rules:
     - if: $CI_COMMIT_BRANCH == "publish"
-    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "publish"
-      when: always
