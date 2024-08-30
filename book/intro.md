@@ -2,7 +2,7 @@
 
 ````{admonition} Textbook Website Under Construction
 :class: warning
-This website is the home of the MUDE Textbook, which will be published at the beginning of Q1. test2
+This website is the home of the MUDE Textbook, which will be published at the beginning of Q1.
 
 For now, you can read the course description [here](https://www.studiegids.tudelft.nl/a101_displayCourse.do?course_id=69347).
 
