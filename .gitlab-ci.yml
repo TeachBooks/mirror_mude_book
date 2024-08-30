@@ -42,22 +42,58 @@ build-book:
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "publish"
       when: always
 
+image: python:3.10-bullseye
+
+stages:
+  - build
+  - deploy
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+    - venv/
+
+before_script:
+  - python -V
+  - pip install virtualenv
+  - virtualenv venv
+  - source venv/bin/activate
+  - pip install -r requirements.txt
+
+build-book:
+  stage: build
+  script:
+    - |
+      if [ "$CI_COMMIT_BRANCH" == "publish" ]; then
+        echo "Building production version"
+        teachbooks build --publish book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
+      else
+        echo "Building draft version"
+        teachbooks build book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
+      fi
+    - echo $CI_JOB_ID > build_job_id.txt
+  artifacts:
+    paths:
+      - book/_build/html
+      - stdout.log
+      - stderr.log
+      - build_job_id.txt
+    expire_in: 1 week
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "publish"
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "publish"
+      when: always
+
 deploy-draft:
   stage: deploy
   needs: ["build-book"]
   script:
+    - BUILD_JOB_ID=$(cat build_job_id.txt)
+    - echo "Build Job ID: $BUILD_JOB_ID"
     - |
-      echo "Fetching job information..."
-      API_RESPONSE=$(curl -s -H "PRIVATE-TOKEN: $CI_JOB_TOKEN" "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/pipelines/${CI_PIPELINE_ID}/jobs?scope[]=success")
-      echo "API Response:"
-      echo "$API_RESPONSE"
-      echo "Parsing build job ID..."
-      BUILD_JOB_ID=$(echo "$API_RESPONSE" | jq -r '.[] | select(.name=="build-book") | .id')
-      if [ -z "$BUILD_JOB_ID" ]; then
-        echo "Failed to find build-book job ID. Using current job ID as fallback."
-        BUILD_JOB_ID=$CI_JOB_ID
-      fi
-      echo "Build Job ID: $BUILD_JOB_ID"
       curl -X POST https://mude.citg.tudelft.nl/hooks/book-deploy-draft \
         -H "Content-Type: application/json" \
         -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
@@ -79,18 +115,9 @@ deploy-production:
   stage: deploy
   needs: ["build-book"]
   script:
+    - BUILD_JOB_ID=$(cat build_job_id.txt)
+    - echo "Build Job ID: $BUILD_JOB_ID"
     - |
-      echo "Fetching job information..."
-      API_RESPONSE=$(curl -s -H "PRIVATE-TOKEN: $CI_JOB_TOKEN" "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/pipelines/${CI_PIPELINE_ID}/jobs?scope[]=success")
-      echo "API Response:"
-      echo "$API_RESPONSE"
-      echo "Parsing build job ID..."
-      BUILD_JOB_ID=$(echo "$API_RESPONSE" | jq -r '.[] | select(.name=="build-book") | .id')
-      if [ -z "$BUILD_JOB_ID" ]; then
-        echo "Failed to find build-book job ID. Using current job ID as fallback."
-        BUILD_JOB_ID=$CI_JOB_ID
-      fi
-      echo "Build Job ID: $BUILD_JOB_ID"
       curl -X POST https://mude.citg.tudelft.nl/hooks/book-deploy-production \
         -H "Content-Type: application/json" \
         -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
