@@ -55,8 +55,7 @@ deploy-draft:
             "status": "success",
             "ref": "main"
           },
-          "build_id": "'$CI_JOB_ID'",
-          "build_status": "success"
+          "build_job_id": "'$CI_JOB_ID'"
         }'
   environment:
     name: draft
@@ -69,7 +68,7 @@ deploy-production:
   needs: ["build-book"]
   script:
     - |
-      curl -X POST https://mude.citg.tudelft.nl/hooks/book-deploy \
+      curl -X POST https://mude.citg.tudelft.nl/hooks/book-deploy-production \
         -H "Content-Type: application/json" \
         -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
         -d '{
@@ -78,8 +77,7 @@ deploy-production:
             "status": "success",
             "ref": "publish"
           },
-          "build_id": "'$CI_JOB_ID'",
-          "build_status": "success"
+          "build_job_id": "'$CI_JOB_ID'"
         }'
   environment:
     name: production
