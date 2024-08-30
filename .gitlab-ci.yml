@@ -17,50 +17,6 @@ before_script:
   - pip install virtualenv
   - virtualenv venv
   - source venv/bin/activate
-  - if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-  - apt-get update && apt-get install -y jq
-
-build-book:
-  stage: build
-  script:
-    - |
-      if [ "$CI_COMMIT_BRANCH" == "publish" ]; then
-        echo "Building production version"
-        teachbooks build --publish book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
-      else
-        echo "Building draft version"
-        teachbooks build book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
-      fi
-  artifacts:
-    paths:
-      - book/_build/html
-      - stdout.log
-      - stderr.log
-    expire_in: 1 week
-  rules:
-    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "publish"
-    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "publish"
-      when: always
-
-image: python:3.10-bullseye
-
-stages:
-  - build
-  - deploy
-
-variables:
-  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
-
-cache:
-  paths:
-    - .cache/pip
-    - venv/
-
-before_script:
-  - python -V
-  - pip install virtualenv
-  - virtualenv venv
-  - source venv/bin/activate
   - pip install -r requirements.txt
 
 build-book:
@@ -92,19 +48,11 @@ deploy-draft:
   needs: ["build-book"]
   script:
     - BUILD_JOB_ID=$(cat build_job_id.txt)
-    - echo "Build Job ID: $BUILD_JOB_ID"
     - |
       curl -X POST https://mude.citg.tudelft.nl/hooks/book-deploy-draft \
-        -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
-        -d '{
-          "object_kind": "pipeline",
-          "object_attributes": {
-            "status": "success",
-            "ref": "main"
-          },
-          "build_job_id": '"$BUILD_JOB_ID"'
-        }'
+      -H "Content-Type: application/json" \
+      -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
+      -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"main\"},\"build_job_id\":$BUILD_JOB_ID}"
   environment:
     name: draft
     url: https://mude.citg.tudelft.nl/2024/book/draft
@@ -116,19 +64,11 @@ deploy-production:
   needs: ["build-book"]
   script:
     - BUILD_JOB_ID=$(cat build_job_id.txt)
-    - echo "Build Job ID: $BUILD_JOB_ID"
     - |
       curl -X POST https://mude.citg.tudelft.nl/hooks/book-deploy-production \
-        -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
-        -d '{
-          "object_kind": "pipeline",
-          "object_attributes": {
-            "status": "success",
-            "ref": "publish"
-          },
-          "build_job_id": '"$BUILD_JOB_ID"'
-        }'
+      -H "Content-Type: application/json" \
+      -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
+      -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"publish\"},\"build_job_id\":$BUILD_JOB_ID}"
   environment:
     name: production
     url: https://mude.citg.tudelft.nl/2024/book
