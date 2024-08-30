@@ -46,6 +46,7 @@ deploy-draft:
   needs: ["build-book"]
   script:
     - |
+      BUILD_JOB_ID=$(curl -s -H "PRIVATE-TOKEN: $CI_JOB_TOKEN" "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/pipelines/${CI_PIPELINE_ID}/jobs?scope[]=success" | jq '.[] | select(.name=="build-book") | .id')
       curl -X POST https://mude.citg.tudelft.nl/hooks/book-deploy-draft \
         -H "Content-Type: application/json" \
         -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
@@ -55,7 +56,7 @@ deploy-draft:
             "status": "success",
             "ref": "main"
           },
-          "build_job_id": "'$CI_JOB_ID'"
+          "build_job_id": "'$BUILD_JOB_ID'"
         }'
   environment:
     name: draft
@@ -68,6 +69,7 @@ deploy-production:
   needs: ["build-book"]
   script:
     - |
+      BUILD_JOB_ID=$(curl -s -H "PRIVATE-TOKEN: $CI_JOB_TOKEN" "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/pipelines/${CI_PIPELINE_ID}/jobs?scope[]=success" | jq '.[] | select(.name=="build-book") | .id')
       curl -X POST https://mude.citg.tudelft.nl/hooks/book-deploy-production \
         -H "Content-Type: application/json" \
         -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
@@ -77,7 +79,7 @@ deploy-production:
             "status": "success",
             "ref": "publish"
           },
-          "build_job_id": "'$CI_JOB_ID'"
+          "build_job_id": "'$BUILD_JOB_ID'"
         }'
   environment:
     name: production
