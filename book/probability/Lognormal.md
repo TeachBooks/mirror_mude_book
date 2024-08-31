@@ -38,9 +38,6 @@ $
 where $\Phi$ is the cumulative distribution function of of the standard Normal distribution function ($N(0,1)$). The CDF of the Lognormal distribution is displayed in the figure below.
 
 ```{figure} /sandbox/continuous/figures/logn_cdf.png
-
----
-
 CDF of Lognormal distribution: (left) influence of parameter $\mu$, and (right) influence of parameter $\sigma$.
 ```
 

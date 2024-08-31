@@ -30,9 +30,6 @@ $
 which is displayed in the figure below.
 
 ```{figure} /sandbox/continuous/figures/gumbel_cdf.png
-
----
-
 Gumbel distribution function: CDF.
 ```
 
@@ -81,18 +78,12 @@ $
 which is displayed in the figure below. Note how the difference in a symbol switches the distribution.
 
 ```{figure} /sandbox/continuous/figures/left_gumbel_cdf.png
-
----
-
 Left-tailed Gumbel distribution function: CDF.
 ```
 
 Actually, if we compare the PDF of a right-tailed and left-tailed Gumbel distributions with the same parameters ($\mu$=0 and  $\beta$=1 in the figure below), the mode of the distribution is the same in both distributions and one PDF is the symmetrical of the other.
 
 ```{figure} /sandbox/continuous/figures/left_right_gumbel_pdf.png
-
----
-
 Comparison between the left-tailed and right-tailed Gumbel distribution.
 ```
 
