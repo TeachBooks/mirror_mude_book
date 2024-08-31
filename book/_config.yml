@@ -12,12 +12,18 @@ sphinx:
   config:
     # Bibliography style
     bibtex_reference_style: author_year
-    html_js_files:
-      - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
     patch_config:
       disabled-patches: []
     html_show_copyright: false
     html_last_updated_fmt: '%B %-d, %Y'
+    html_js_files:
+    - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
+    thebe_config:
+      use_thebe_lite: true
+      exclude_patterns: ["**/_*.yml", "**/*.md", "**/*.ipynb"]
+    html_theme_options:
+      launch_buttons:
+        thebe: true
   extra_extensions:
     - sphinx_inline_tabs
     - sphinx_grasple
@@ -29,10 +35,8 @@ sphinx:
 bibtex_bibfiles:
   - _bibliography/references_pd.bib
 
-launch_buttons:
-  thebe: true
-
 html:
+  # announcement: "Content in this book will be released one week at a time, beginning Sep 3."
   # announcement: "<p>This book is archived from the 2023-24 academic year. The most recent version is at <a href='https://mude.citg.tudelft.nl/book' style='color: cyan;'>mude.citg.tudelft.nl/book</a>; find out more at the <a href='https://mude.citg.tudelft.nl/archive' target='_blank' style='color: cyan;'>MUDE Archive</a>.</p>"
   use_multitoc_numbering: false
   # comments:
