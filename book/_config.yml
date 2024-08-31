@@ -22,7 +22,9 @@ sphinx:
       use_thebe_lite: true
       exclude_patterns: ["**/_*.yml", "**/*.md", "**/*.ipynb"]
     html_theme_options:
-      announcement: "Content in this book will be released one week at a time, beginning Sep 3."
+      # START REMOVE-FROM-PUBLISH
+      announcement: "<p>This is the draft book. The published version is at <a href='https://mude.citg.tudelft.nl/book' style='color: cyan;'>mude.citg.tudelft.nl/book</a></p>"
+      # END REMOVE-FROM-PUBLISH
       launch_buttons:
         thebe: true
   extra_extensions:
