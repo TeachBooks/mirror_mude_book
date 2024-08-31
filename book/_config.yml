@@ -36,6 +36,7 @@ bibtex_bibfiles:
   - _bibliography/references_pd.bib
 
 html:
+  # announcement: "Content in this book will be released one week at a time, beginning Sep 3."
   # announcement: "<p>This book is archived from the 2023-24 academic year. The most recent version is at <a href='https://mude.citg.tudelft.nl/book' style='color: cyan;'>mude.citg.tudelft.nl/book</a>; find out more at the <a href='https://mude.citg.tudelft.nl/archive' target='_blank' style='color: cyan;'>MUDE Archive</a>.</p>"
   use_multitoc_numbering: false
   # comments:
