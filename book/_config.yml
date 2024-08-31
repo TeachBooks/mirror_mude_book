@@ -22,6 +22,7 @@ sphinx:
       use_thebe_lite: true
       exclude_patterns: ["**/_*.yml", "**/*.md", "**/*.ipynb"]
     html_theme_options:
+      announcement: "Content in this book will be released one week at a time, beginning Sep 3."
       launch_buttons:
         thebe: true
   extra_extensions:
@@ -36,9 +37,4 @@ bibtex_bibfiles:
   - _bibliography/references_pd.bib
 
 html:
-  # announcement: "Content in this book will be released one week at a time, beginning Sep 3."
-  # announcement: "<p>This book is archived from the 2023-24 academic year. The most recent version is at <a href='https://mude.citg.tudelft.nl/book' style='color: cyan;'>mude.citg.tudelft.nl/book</a>; find out more at the <a href='https://mude.citg.tudelft.nl/archive' target='_blank' style='color: cyan;'>MUDE Archive</a>.</p>"
   use_multitoc_numbering: false
-  # comments:
-  #   hypothesis: true
-# Note about Jupyter Book announcements: must be a complete HTML tag (make sure to use single quotes, not double in the HTML!), not Markdown with HTML inside. Markdown links do not work either!
