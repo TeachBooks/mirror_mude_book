@@ -21,16 +21,16 @@ parts:
         title: Sensitivity Analysis
     # END REMOVE-FROM-PUBLISH
 
-- caption: Programming
-    numbered: 3
-    chapters:
-    - file: programming/overview
-      title: Overview of Topics
-      sections:
-      - file: programming/week_1_1
-        title: Week 1.1
-        # sections:
-        # - file: external/learn-programming/book/computer
+  - caption: Programming
+      numbered: 3
+      chapters:
+      - file: programming/overview
+        title: Overview of Topics
+        sections:
+        - file: programming/week_1_1
+          title: Week 1.1
+          # sections:
+          # - file: external/learn-programming/book/computer
 
 #     - file: propagation_uncertainty/overview
 #       sections:
