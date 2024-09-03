@@ -1,17 +1,6 @@
 (week_1_1_programming)=
-# Programming, Week 1.1
+# Programming, Week 1.1: Getting Started!
 
-The purpose of this week is to get software installed and be prepared to work with Python code and Jupyter Notebooks.
+The purpose of this week is to get software installed and be prepared to work with Python code and Jupyter Notebooks. This includes some programming "theory" to help you understand what you are doing with the MUDE software stack, and why we use particular tools. A brief introduction to [Computers and Computing Environments](week_1_1/environments.md) is provided before the [software installation instructions](week_1_1/install.md). Once the software is ready, you are able to read and implement the information in: the [File System](week_1_1/files.md) and [Python Warmup](week_1_1/warmup.ipynb) sections:
 
-Programming Concepts:
-- Computers and Computing Environments
-- The files system: explanation and practice for setting up a MUDE working directory
-- Dictionaries: a fundamental Python data type that is _extremely_ useful, but you probably don't remember from prior courses
-
-Software installation:
-- Miniconda: `conda` environment manager, which includes Python (we will use version 3.12)
-- Our IDE of choice is VS Code
-- Jupyter Notebooks (via a `conda` environment)
-
-
-Nite: if you are not familiar with Jupyter notebooks you should spend some time getting comfortable; hopefully you have a patient group member that is willing to show you a few tricks. Even for those who have used them before, if you are unfamiliar with VS Code you will need a few minutes to get used to the slightly different interface.
+% This chapter relies heavily on material proved in the [Learn programming book](https://teachbooks.github.io/learn-programming)

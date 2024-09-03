@@ -21,36 +21,43 @@ parts:
         title: Sensitivity Analysis
     # END REMOVE-FROM-PUBLISH
   - caption: Programming
-    numbered: 3
+    numbered: false
     chapters:
-    - file: programming/overview
-      title: Overview of Topics
     - file: programming/week_1_1
-      title: Week 1.1
+      title: "Week 1.1: Getting Started!"
       sections:
-      - file: external/learn-programming/book/computers
-        title: Computers
-      - file: external/learn-programming/book/environments
-        title: Computing Environments
-      - file: external/learn-programming/book/install/python/miniconda
-        title: Install Miniconda
-      - file: programming/week_1_1/common
-        title: Common Topics
+      - file: programming/week_1_1/environments
+        title: Computers and Environments
         sections:
-        - file: external/learn-programming/book/install/common/hidden
-          title: Hidden Files
-        - file: external/learn-programming/book/install/common/cli
-          title: Command Line Interface (CLI)
-        - file: external/learn-programming/book/install/common/env_vars_windows
-          title: Environment Variables (Windows)
-      - file: external/learn-programming/book/install/ide/vsc
-        title: Visual Studio 
+        - file: external/learn-programming/book/computers
+          title: Computers
+        - file: external/learn-programming/book/environments
+          title: Computing Environments
+      - file: programming/week_1_1/install
+        title: Software Installation
         sections:
-        - file: external/learn-programming/book/install/ide/vsc/extensions
-          title: Extensions
-        - file: external/learn-programming/book/install/ide/vsc/git
-          title: Git Integration
-
+        - file: external/learn-programming/book/install/python/miniconda
+          title: Install Miniconda
+          sections:
+          - file: external/learn-programming/book/install/common/hidden
+            title: Hidden Files
+          - file: external/learn-programming/book/install/common/cli
+            title: Command Line Interface (CLI)
+          - file: external/learn-programming/book/install/common/env_vars_windows
+            title: Environment Variables (Windows)
+        - file: external/learn-programming/book/install/ide/vsc
+          title: Visual Studio 
+          sections:
+          - file: external/learn-programming/book/install/ide/vsc/extensions
+            title: Extensions
+      - file: programming/week_1_1/files
+        title: Files and Folders
+      - file: programming/week_1_1/warmup
+        title: Python Warmup
+  # - caption: Miscellaneous
+  #   numbered: false
+  #   chapters:
+  #   - file: references
 #     - file: propagation_uncertainty/overview
 #       sections:
 #       - file: propagation_uncertainty/00a_CovCorr.md
