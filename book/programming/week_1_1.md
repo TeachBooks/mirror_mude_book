@@ -1,5 +1,5 @@
 (week_1_1_programming)=
-# Programming, Week 1.1
+# Programming, Week 1.1: Getting Started!
 
 The purpose of this week is to get software installed and be prepared to work with Python code and Jupyter Notebooks.
 

@@ -26,7 +26,7 @@ parts:
     - file: programming/overview
       title: Overview of Topics
     - file: programming/week_1_1
-      title: Week 1.1
+      title: "Week 1.1: Getting Started!"
       sections:
       - file: programming/week_1_1/environments
         title: Computers and Environments
@@ -56,8 +56,8 @@ parts:
             title: Git Integration
       - file: programming/week_1_1/files
         title: Files and Folders
-      - file: programming/week_1_1/warmup
-        title: Python Warmup
+      # - file: programming/week_1_1/warmup
+      #   title: Python Warmup
 #     - file: propagation_uncertainty/overview
 #       sections:
 #       - file: propagation_uncertainty/00a_CovCorr.md
