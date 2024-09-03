@@ -56,8 +56,8 @@ parts:
             title: Git Integration
       - file: programming/week_1_1/files
         title: Files and Folders
-      # - file: programming/week_1_1/warmup
-      #   title: Python Warmup
+      - file: programming/week_1_1/warmup
+        title: Python Warmup
 #     - file: propagation_uncertainty/overview
 #       sections:
 #       - file: propagation_uncertainty/00a_CovCorr.md

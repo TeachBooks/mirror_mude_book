@@ -22,6 +22,8 @@ sphinx:
       use_thebe_lite: true
       exclude_patterns: ["**/**"]
     html_theme_options:
+      repository_url: "https://gitlab.tudelft.nl/mude/book"
+      use_issues_button : true
       # START REMOVE-FROM-PUBLISH
       announcement: "<p>This is the draft book. The published version is at <a href='https://mude.citg.tudelft.nl/book' style='color: cyan;'>mude.citg.tudelft.nl/book</a></p>"
       # END REMOVE-FROM-PUBLISH
