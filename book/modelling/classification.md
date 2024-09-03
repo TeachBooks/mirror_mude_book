@@ -54,7 +54,7 @@ $$e(t) = av(t)+b$$
 
 where
 * $e(t)$ is the emitted amount of $\text{CO}_2$.
-* TODO: add others
+% MMMMM * TODO: add others
 
 Then, we can combine the two models obtaining:
 
@@ -81,7 +81,7 @@ In the case of both these examples, it is advisable to build the model in a diff
 
 ![tradeoff](./figs/modelling/tradeoff.png "tradeoff")
 
-## Classifying Models - Under construction
+## Classifying Models
 
 Models can be classified in different ways. Here, we are going to introduce the classification according to their nature. There are four categories:
 
