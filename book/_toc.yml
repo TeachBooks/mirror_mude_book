@@ -23,8 +23,6 @@ parts:
   - caption: Programming
     numbered: false
     chapters:
-    - file: programming/overview
-      title: Overview of Topics
     - file: programming/week_1_1
       title: "Week 1.1: Getting Started!"
       sections:
