@@ -1,5 +1,7 @@
 # Files and Folders
 
+On this page we'll give an explanation and practice for setting up a MUDE working directory.
+
 ## Your Local File System
 
 You will be working with a _lot_ of different files and file types in MUDE: `csv`, `pdf`, `ipynb`, `txt`, `md` just to name a few. Remember, there are 16 weeks of class in MUDE---it is good practice to get in the habit of storing files in an organized way, not to mention make it easier to study for the exams. We recommended creating a folder `MUDE` to collect all files associated with the module, then set up a new folder for each week and each project as your **working directory** for each of those activities. This is where you will download files and edit them when working on them. 
