@@ -46,7 +46,9 @@ Let us now consider a different scenario: we want to predict how much $\text{CO}
 
 For the first, let us take a car dynamics model where the velocity over time is constant. 
 
-$v(t) = \bar{v}$
+$$
+v(t) = \bar{v}
+$$
 
 For the latter, let us take the simplest model to predict the car emissions: the faster you drive, the more $\text{CO}_2$ you emit", which can be formulated as:
 
