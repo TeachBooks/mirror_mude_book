@@ -1,9 +1,7 @@
 (week_1_1_programming)=
 # Programming, Week 1.1: Getting Started!
 
-The purpose of this week is to get software installed and be prepared to work with Python code and Jupyter Notebooks.
-
-There are also some programming "theory" pages to help you understand what you are doing with the MUDE software stack, and why we use particular tools. A brief introduction to Computers and Computing Environments is provided before the software installation instructions. Once the software is ready, you are able to read and implement the information in the File System and Pyhton Warmup sections:
+The purpose of this week is to get software installed and be prepared to work with Python code and Jupyter Notebooks. There are also some programming "theory" pages to help you understand what you are doing with the MUDE software stack, and why we use particular tools. A brief introduction to Computers and Computing Environments is provided before the software installation instructions. Once the software is ready, you are able to read and implement the information in the File System and Pyhton Warmup sections:
 
 - Files System: an explanation and practice for setting up a MUDE working directory
 - Python Warmup: in this section we use a Jupyter Notebook to briefly review and practice with dictionaries, a fundamental Python data type that is _extremely_ useful, but you probably don't remember from prior courses.
@@ -27,3 +25,5 @@ Don't forget to look at the subpages of the {ref}`Install Miniconda <install-min
 ```{note}
 If you are not familiar with Jupyter notebooks you should spend some time getting comfortable; hopefully you have a patient group member that is willing to show you a few tricks. Even for those who have used them before, if you are unfamiliar with VS Code you will need a few minutes to get used to the slightly different interface.
 ```
+
+This chapter relies heavily on material proved in the [Learn programming book](https://teachbooks.github.io/learn-programming)

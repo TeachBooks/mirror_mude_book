@@ -58,6 +58,10 @@ parts:
         title: Files and Folders
       - file: programming/week_1_1/warmup
         title: Python Warmup
+  - caption: Miscellaneous
+    numbered: false
+    chapters:
+    - file: references
 #     - file: propagation_uncertainty/overview
 #       sections:
 #       - file: propagation_uncertainty/00a_CovCorr.md
