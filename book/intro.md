@@ -16,7 +16,7 @@ This feature is supported by [TeachBooks](http://teachbooks.tudelft.nl/).
 If you spot a mistake, you can click on {fa}`lightbulb`, login with your NetID and report your issue. It'll be solved soon!
 
 ## Have a question / answer?
-If you've a question regarding any content, look at [https://answers.citg.tudelft.nl/]() to see if it's already there. If not, ask a new question! Your teachers and TAs will look into it soon! If you've an answer to on of the question posted there, you're welcome to answer questions yourself! More info on the answers platform can be found [here](https://mude.citg.tudelft.nl/2024/info/#answers-platform)
+If you've a question regarding any content, look at [https://answers.citg.tudelft.nl/](https://answers.citg.tudelft.nl/) to see if it's already there. If not, ask a new question! Your teachers and TAs will look into it soon! If you've an answer to on of the question posted there, you're welcome to answer questions yourself! More info on the answers platform can be found [here](https://mude.citg.tudelft.nl/2024/info/#answers-platform)
 
 ## Confused?
 That can happen, let us know how we can make it work for you! Send an email to [MUDE-CEG@tudelft.nl](mailto:MUDE-CEG@tudelft.nl)
