@@ -1,6 +1,6 @@
-[submodule "book/external/learn-programming"]
-	path = book/external/learn-programming
-	url = git@github.com:TeachBooks/learn-programming.git
 [submodule "book/external/learn-python"]
 	path = book/external/learn-python
 	url = https://github.com/TeachBooks/learn-python.git
+[submodule "book/external/learn-programming"]
+	path = book/external/learn-programming
+	url = https://github.com/TeachBooks/learn-programming.git
