@@ -7,6 +7,10 @@ Remember that the scope of the programming assignmentes defines what will be tes
 
 Summary of weekly topics:
 
-- Week 1.1: Computers, Environments, Installation, File Structure, Dictionaries and Jupyter Notebooks
+- Week 1.1:
+  - Computers and (Computing) Environments
+  - Software Installation 
+  - Files and Folders
+  - Python Warmup
 
 <!-- [github.com/learn-programming](https://github.com/TeachBooks/learn-programming/) -->
