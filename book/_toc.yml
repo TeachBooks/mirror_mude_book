@@ -23,8 +23,6 @@ parts:
   - caption: Programming
     numbered: false
     chapters:
-    - file: programming/overview
-      title: Overview of Topics
     - file: programming/week_1_1
       title: "Week 1.1: Getting Started!"
       sections:
@@ -52,12 +50,14 @@ parts:
           sections:
           - file: external/learn-programming/book/install/ide/vsc/extensions
             title: Extensions
-          - file: external/learn-programming/book/install/ide/vsc/git
-            title: Git Integration
       - file: programming/week_1_1/files
         title: Files and Folders
       - file: programming/week_1_1/warmup
         title: Python Warmup
+  - caption: Miscellaneous
+    numbered: false
+    chapters:
+    - file: references
 #     - file: propagation_uncertainty/overview
 #       sections:
 #       - file: propagation_uncertainty/00a_CovCorr.md
