@@ -52,8 +52,6 @@ parts:
           sections:
           - file: external/learn-programming/book/install/ide/vsc/extensions
             title: Extensions
-          - file: external/learn-programming/book/install/ide/vsc/git
-            title: Git Integration
       - file: programming/week_1_1/files
         title: Files and Folders
       - file: programming/week_1_1/warmup
