@@ -1,51 +1,77 @@
 image: python:3.10-bullseye
 
 stages:
-  - test
   - build
   - deploy
 
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  GIT_SUBMODULE_STRATEGY: recursive
 
 cache:
   paths:
     - .cache/pip
     - venv/
 
-# Before running other jobs, setup Python
 before_script:
   - python -V
   - pip install virtualenv
   - virtualenv venv
   - source venv/bin/activate
+  - pip install -r requirements.txt
 
-# This job tests if the book compiles gracefully after a new addition
-test-build:
-  stage: test
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-    - if: $CI_COMMIT_BRANCH == "main" && $CI_PIPELINE_SOURCE == "push"
-    - if: $CI_COMMIT_BRANCH == "publish" && $CI_PIPELINE_SOURCE == "push"
+build-book:
+  stage: build
   script:
-    - pip install -r requirements.txt
-    - jupyter-book clean book/
-    - jupyter-book build book/
+    - |
+      if [ "$CI_COMMIT_BRANCH" == "publish" ]; then
+        echo "Building production version"
+        teachbooks build --publish book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
+      else
+        echo "Building draft version"
+        teachbooks build book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
+      fi
+    - echo $CI_JOB_ID > build_job_id.txt
+  artifacts:
+    paths:
+      - book/_build/html
+      - stdout.log
+      - stderr.log
+      - build_job_id.txt
+    expire_in: 1 week
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "publish"
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "publish"
+      when: always
 
-# This job commits the built HTML to the publish-html branch
-# push-html:
-#   stage: deploy
-#   only:
-#     - publish
-#   before_script:
-#     - apt-get update -y
-#     - apt-get install rsync -y
-#     - git config --global user.name "$GITLAB_USER_NAME"
-#     - git config --global user.email "$GITLAB_USER_EMAIL"
-#     - git fetch origin publish-html
-#     - git checkout publish-html
-#   script:
-#     - rsync -av --delete-after --exclude=".git/" --exclude=".cache/" --exclude="venv/" ./book/_build/html/ .
-#     - git add --all -- ':!.cache/*'
-#     - git commit --allow-empty -m "$CI_COMMIT_MESSAGE"
-#     - git push https://gitlab-ci-token:$ACCESS_TOKEN@gitlab.tudelft.nl/$CI_PROJECT_PATH.git publish-html
+deploy-draft:
+  stage: deploy
+  needs: ["build-book"]
+  script:
+    - BUILD_JOB_ID=$(cat build_job_id.txt)
+    - |
+      curl -X POST https://mude.citg.tudelft.nl/hooks/book-deploy-draft \
+      -H "Content-Type: application/json" \
+      -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
+      -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"main\"},\"build_job_id\":$BUILD_JOB_ID}"
+  environment:
+    name: draft
+    url: https://mude.citg.tudelft.nl/2024/book/draft
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+
+deploy-production:
+  stage: deploy
+  needs: ["build-book"]
+  script:
+    - BUILD_JOB_ID=$(cat build_job_id.txt)
+    - |
+      curl -X POST https://mude.citg.tudelft.nl/hooks/book-deploy-production \
+      -H "Content-Type: application/json" \
+      -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
+      -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"publish\"},\"build_job_id\":$BUILD_JOB_ID}"
+  environment:
+    name: production
+    url: https://mude.citg.tudelft.nl/2024/book
+  rules:
+    - if: $CI_COMMIT_BRANCH == "publish"
