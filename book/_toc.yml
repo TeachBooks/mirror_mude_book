@@ -63,7 +63,6 @@ parts:
         title: Python Warmup
     # START REMOVE-FROM-PUBLISH
     - file: programming/week_1_3
-      title: "Week 1.3: Boosting Productivity!"
       sections:
       - file: external/learn-programming/book/install/ide/vsc/vs_live_share
     # END REMOVE-FROM-PUBLISH
