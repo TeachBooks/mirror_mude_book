@@ -61,6 +61,12 @@ parts:
         title: Files and Folders
       - file: programming/week_1_1/warmup
         title: Python Warmup
+    # START REMOVE-FROM-PUBLISH
+    - file: programming/week_1_3
+      sections:
+      - file: external/learn-programming/book/install/ide/vsc/vs_live_share
+    # END REMOVE-FROM-PUBLISH
+
   # - caption: Miscellaneous
   #   numbered: false
   #   chapters:
@@ -410,22 +416,22 @@ parts:
 #   #     - file: EVA_old/MUDE/01_06_4-1-EVA2_teacher.ipynb
 #   #       title: Solution 2
 #   # END REMOVE-FROM-PUBLISH
-#   - caption: Fundamental Concepts
-#     numbered: 2
-#     chapters: 
-#     - file: fundamentals/00_01a_PreMath
-#     - file: fundamentals/00_01b_PreMath
-#     - file: fundamentals/00_01c_PreMath
-#     - file: fundamentals/00_02_PreMath
-#     - file: fundamentals/00_03_PreMath
-#     - file: fundamentals/prob-background.md   
-#     - file: fundamentals/prob-rv.md
-#     - file: fundamentals/00_04_MeanVar
-#     - file: fundamentals/prob_tables/overview
-#       title: Probability Tables
-#       sections:
-#       - file: fundamentals/prob_tables/normal
-#         title: Normal
-#       - file: fundamentals/prob_tables/chi2
-#         title: Chi-Squared
-#     - file: fundamentals/eemc-stuff
+  - caption: Fundamental Concepts
+    numbered: 2
+    chapters: 
+    - file: fundamentals/00_01a_PreMath
+    - file: fundamentals/00_01b_PreMath
+    - file: fundamentals/00_01c_PreMath
+    - file: fundamentals/00_02_PreMath
+    - file: fundamentals/00_03_PreMath
+    - file: fundamentals/prob-background.md   
+    - file: fundamentals/prob-rv.md
+    - file: fundamentals/00_04_MeanVar
+    - file: fundamentals/prob_tables/overview
+      title: Probability Tables
+      sections:
+      - file: fundamentals/prob_tables/normal
+        title: Normal
+      - file: fundamentals/prob_tables/chi2
+        title: Chi-Squared
+    - file: fundamentals/eemc-stuff
