@@ -61,6 +61,12 @@ parts:
         title: Files and Folders
       - file: programming/week_1_1/warmup
         title: Python Warmup
+    # START REMOVE-FROM-PUBLISH
+    - file: programming/week_1_3
+      sections:
+      - file: external/learn-programming/book/install/ide/vsc/vs_live_share
+    # END REMOVE-FROM-PUBLISH
+
   # - caption: Miscellaneous
   #   numbered: false
   #   chapters:
