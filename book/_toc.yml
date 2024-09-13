@@ -27,74 +27,31 @@ parts:
       - file: propagation_uncertainty/uncertainty
       - file: propagation_uncertainty/01_ErrorPropagation.md
       - file: propagation_uncertainty/02_LinearPropagation.md
-  - caption: Programming
-    numbered: false
-    chapters:
-    - file: programming/week_1_1
-      title: "Week 1.1: Getting Started!"
-      sections:
-      - file: programming/week_1_1/environments
-        title: Computers and Environments
-        sections:
-        - file: external/learn-programming/book/computers
-          title: Computers
-        - file: external/learn-programming/book/environments
-          title: Computing Environments
-      - file: programming/week_1_1/install
-        title: Software Installation
-        sections:
-        - file: external/learn-programming/book/install/python/miniconda
-          title: Install Miniconda
-          sections:
-          - file: external/learn-programming/book/install/common/hidden
-            title: Hidden Files
-          - file: external/learn-programming/book/install/common/cli
-            title: Command Line Interface (CLI)
-          - file: external/learn-programming/book/install/common/env_vars_windows
-            title: Environment Variables (Windows)
-        - file: external/learn-programming/book/install/ide/vsc
-          title: Visual Studio 
-          sections:
-          - file: external/learn-programming/book/install/ide/vsc/extensions
-            title: Extensions
-      - file: programming/week_1_1/files
-        title: Files and Folders
-      - file: programming/week_1_1/warmup
-        title: Python Warmup
-    # START REMOVE-FROM-PUBLISH
-    - file: programming/week_1_3
-      sections:
-      - file: external/learn-programming/book/install/ide/vsc/vs_live_share
-    # END REMOVE-FROM-PUBLISH
+  
 
-  # - caption: Miscellaneous
-  #   numbered: false
-  #   chapters:
-  #   - file: references
-
-#     - file: observation_theory/overview.md
-#       sections:
-#       - file: observation_theory/01_Introduction.md
-#       - file: observation_theory/02_LeastSquares.md  
-#         sections:
-#         - file: observation_theory/02_LeastSquares_NB.ipynb  
-#       - file: observation_theory/03_WeightedLSQ.md
-#         sections:
-#         - file: observation_theory/03_Notebook_WLS.ipynb 
-#       - file: observation_theory/04_BLUE.md
-#       - file: observation_theory/05_Precision.md
-#         sections:
-#         - file: observation_theory/05_Notebook_ConfInt.ipynb 
-#       - file: observation_theory/06_MLE.md
-#       - file: observation_theory/07_NLSQ.md
-#         sections:
-#         - file: observation_theory/07_Notebook_NLSQ.ipynb
-#       - file: observation_theory/08_Testing.md
-#       - file: observation_theory/09_TestingSandM.md
-#         sections:
-#         - file: observation_theory/09_Notebook_Testing.ipynb
-#         - file: observation_theory/09_Notebook_OMT.ipynb
-#       - file: observation_theory/99_NotationFormulas
+    - file: observation_theory/overview.md
+      sections:
+      - file: observation_theory/01_Introduction.md
+      - file: observation_theory/02_LeastSquares.md  
+        sections:
+        - file: observation_theory/02_LeastSquares_NB.ipynb  
+      - file: observation_theory/03_WeightedLSQ.md
+        sections:
+        - file: observation_theory/03_Notebook_WLS.ipynb 
+      - file: observation_theory/04_BLUE.md
+      - file: observation_theory/05_Precision.md
+        sections:
+        - file: observation_theory/05_Notebook_ConfInt.ipynb 
+      - file: observation_theory/06_MLE.md
+      - file: observation_theory/07_NLSQ.md
+        sections:
+        - file: observation_theory/07_Notebook_NLSQ.ipynb
+      - file: observation_theory/08_Testing.md
+      - file: observation_theory/09_TestingSandM.md
+        sections:
+        - file: observation_theory/09_Notebook_Testing.ipynb
+        - file: observation_theory/09_Notebook_OMT.ipynb
+      - file: observation_theory/99_NotationFormulas
     
 #     - file: numerical_methods/overview
 #       title: Numerical Modelling
@@ -416,6 +373,44 @@ parts:
 #   #     - file: EVA_old/MUDE/01_06_4-1-EVA2_teacher.ipynb
 #   #       title: Solution 2
 #   # END REMOVE-FROM-PUBLISH
+  - caption: Programming
+    numbered: false
+    chapters:
+    - file: programming/week_1_1
+      title: "Week 1.1: Getting Started!"
+      sections:
+      - file: programming/week_1_1/environments
+        title: Computers and Environments
+        sections:
+        - file: external/learn-programming/book/computers
+          title: Computers
+        - file: external/learn-programming/book/environments
+          title: Computing Environments
+      - file: programming/week_1_1/install
+        title: Software Installation
+        sections:
+        - file: external/learn-programming/book/install/python/miniconda
+          title: Install Miniconda
+          sections:
+          - file: external/learn-programming/book/install/common/hidden
+            title: Hidden Files
+          - file: external/learn-programming/book/install/common/cli
+            title: Command Line Interface (CLI)
+          - file: external/learn-programming/book/install/common/env_vars_windows
+            title: Environment Variables (Windows)
+        - file: external/learn-programming/book/install/ide/vsc
+          title: Visual Studio 
+          sections:
+          - file: external/learn-programming/book/install/ide/vsc/extensions
+            title: Extensions
+      - file: programming/week_1_1/files
+        title: Files and Folders
+      - file: programming/week_1_1/warmup
+        title: Python Warmup
+    - file: programming/week_1_3
+      sections:
+      - file: external/learn-programming/book/install/ide/vsc/vs_live_share
+    
   - caption: Fundamental Concepts
     numbered: 2
     chapters: 
@@ -435,3 +430,10 @@ parts:
       - file: fundamentals/prob_tables/chi2
         title: Chi-Squared
     - file: fundamentals/eemc-stuff
+
+  
+
+  # - caption: Miscellaneous
+  #   numbered: false
+  #   chapters:
+  #   - file: references
