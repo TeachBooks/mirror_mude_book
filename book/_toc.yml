@@ -430,10 +430,7 @@ parts:
       - file: fundamentals/prob_tables/chi2
         title: Chi-Squared
     - file: fundamentals/eemc-stuff
-
-  
-
-  # - caption: Miscellaneous
-  #   numbered: false
-  #   chapters:
-  #   - file: references
+  - caption: Miscellaneous
+    numbered: false
+    chapters:
+    - file: references
