@@ -140,3 +140,41 @@ Not immediately clear from the expression is that also the redundancy ($=m-n$) i
 <iframe src="https://tudelft.h5p.com/content/1292062157562749767/embed" aria-label="quiz_uniform_motion" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
 
 :::
+
+:::{card} Exercise volcano height
+Once per month the height of a fixed benchmark site on a volcano is determined using GNSS. The
+volcanologist uses as a null hypothesis that the height is constant. After 6 months (i.e., using 6
+observations), she wants to test her hypothesis with the overall model test and a probability of false
+alarm of 0.025.
+
+<iframe src="https://tudelft.h5p.com/content/1292377999209297357/embed" aria-label="What would be the threshold value she needs to use?" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+
+Assume the null hypothesis is rejected. The volcanologist now wants to test whether a sudden
+height change occurred at a certain time tc after the first observation at $t_0$ (i.e., height is constant
+before $t_c$, then changes at tc and after that remains constant again). Specify the hypotheses and
+describe a testing procedure which allows to identify whether such deformation occurred and at
+which time it did. No need to do any calculations
+
+```{admonition} Solution
+:class: tip, dropdown
+
+$$
+\mathcal{H}_0: \mathbb{E} = (\begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \\ 1 \\ 1 \end{bmatrix}) h_0
+$$
+
+Assuming the deformation to have occured between $t_(i-1)$ and $t_i$ with corresponding
+
+$$
+\mathcal{H}_i: \mathbb{E} = (\begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \\ 1 \\ 1 \end{bmatrix}) h_0 + C_i * d
+$$
+
+with
+
+$$
+C_1 = (\begin{bmatrix} 0 \\ 1 \\ 1 \\ 1 \\ 1 \\ 1 \end{bmatrix}) , C_2 = (\begin{bmatrix} 0 \\ 0 \\ 1 \\ 1 \\ 1 \\ 1 \end{bmatrix}) ..., C_5 = (\begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \end{bmatrix})
+$$
+
+Recursive w-test: calculate absolute value of $w$-test statistic with each $C_i$, the alternative hypothesis with maximum value is accepted IF it exceeds the threshold value.
+```
+
+:::
