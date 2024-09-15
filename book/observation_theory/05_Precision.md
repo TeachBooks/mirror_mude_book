@@ -174,7 +174,7 @@ $$
 C_1 = (\begin{bmatrix} 0 \\ 1 \\ 1 \\ 1 \\ 1 \\ 1 \end{bmatrix}) , C_2 = (\begin{bmatrix} 0 \\ 0 \\ 1 \\ 1 \\ 1 \\ 1 \end{bmatrix}) ..., C_5 = (\begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \end{bmatrix})
 $$
 
-Recursive w-test: calculate absolute value of $w$-test statistic with each $C_i$, the alternative hypothesis with maximum value is accepted IF it exceeds the threshold value.
-```
+Recursive $w$-test: calculate absolute value of $w$-test statistic with each $C_i$, the alternative hypothesis with maximum value is accepted IF it exceeds the threshold value.
 
+```
 :::
