@@ -141,7 +141,7 @@ Not immediately clear from the expression is that also the redundancy ($=m-n$) i
 
 :::
 
-::{card} Exercise confidence intervals
+:::{card} Exercise confidence intervals
 <iframe src="https://tudelft.h5p.com/content/1292378434448356117/embed" aria-label="Exercise CO2 instrument precision" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://tudelft.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
 
-::
+:::
