@@ -413,13 +413,13 @@ parts:
     - file: programming/week_1_4
       sections:
       - file: external/learn-programming/book/version_control/version_control
-      - file: external/learn-programming/book/install/git/intro
-      - file: external/learn-programming/book/workflows/git/intro
-        sections:
-        - file: external/learn-programming/book/workflows/git/commits_remote
-        - file: external/learn-programming/book/workflows/git/cloning
-        - file: external/learn-programming/book/workflows/git/commits_remote
-        - file: external/learn-programming/book/workflows/git/fetch_pull
+#      - file: external/learn-programming/book/install/git/intro
+#      - file: external/learn-programming/book/workflows/git/intro
+#        sections:
+#        - file: external/learn-programming/book/workflows/git/commits_remote
+#        - file: external/learn-programming/book/workflows/git/cloning
+#        - file: external/learn-programming/book/workflows/git/commits_remote
+#        - file: external/learn-programming/book/workflows/git/fetch_pull
     
   - caption: Fundamental Concepts
     numbered: 2
