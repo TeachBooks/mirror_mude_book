@@ -416,10 +416,14 @@ parts:
       - file: external/learn-programming/book/install/git/intro
       - file: external/learn-programming/book/workflows/git/intro
         sections:
-        - file: external/learn-programming/book/workflows/git/commits_remote
-        - file: external/learn-programming/book/workflows/git/cloning
-        - file: external/learn-programming/book/workflows/git/commits_local
-        - file: external/learn-programming/book/workflows/git/fetch_pull
+        - file: external/learn-programming/book/workflows/git/github
+          sections:
+          - file: external/learn-programming/book/workflows/git/commits_remote
+        - file: external/learn-programming/book/workflows/git/vscode
+          sections:
+          - file: external/learn-programming/book/workflows/git/cloning
+          - file: external/learn-programming/book/workflows/git/commits_local
+          - file: external/learn-programming/book/workflows/git/fetch_pull
     
   - caption: Fundamental Concepts
     numbered: 2
