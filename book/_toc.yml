@@ -415,6 +415,7 @@ parts:
       - file: external/learn-programming/book/version_control/version_control
       - file: external/learn-programming/book/install/git/intro
       - file: external/learn-programming/book/workflows/git/intro
+        title: Git workflow
         sections:
         - file: external/learn-programming/book/workflows/git/github
           sections:
