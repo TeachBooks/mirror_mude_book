@@ -410,6 +410,21 @@ parts:
     - file: programming/week_1_3
       sections:
       - file: external/learn-programming/book/install/ide/vsc/vs_live_share
+    - file: programming/week_1_4
+      sections:
+      - file: external/learn-programming/book/version_control/version_control
+      - file: external/learn-programming/book/install/git/intro
+      - file: external/learn-programming/book/workflows/git/intro
+        title: Git workflow
+        sections:
+        - file: external/learn-programming/book/workflows/git/github
+          sections:
+          - file: external/learn-programming/book/workflows/git/commits_remote
+        - file: external/learn-programming/book/workflows/git/vscode
+          sections:
+          - file: external/learn-programming/book/workflows/git/cloning
+          - file: external/learn-programming/book/workflows/git/commits_local
+          - file: external/learn-programming/book/workflows/git/fetch_pull
     
   - caption: Fundamental Concepts
     numbered: 2
