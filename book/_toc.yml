@@ -56,12 +56,12 @@ parts:
     - file: numerical_methods/overview
       title: Numerical Modelling
       sections:
-        - file: numerical_methods/1-revision-of-concepts.ipynb
-        - file: numerical_methods/2-derivative.ipynb
-        - file: numerical_methods/3-taylor-series-expansion.ipynb
-          sections:
+      - file: numerical_methods/1-revision-of-concepts.ipynb
+      - file: numerical_methods/2-derivative.ipynb
+      - file: numerical_methods/3-taylor-series-expansion.ipynb
+        sections:
           - file: numerical_methods/93-taylor-series-exercise.ipynb
-        - file: numerical_methods/4-numerical-integration.ipynb
+      - file: numerical_methods/4-numerical-integration.ipynb
         # - file: numerical_methods/5-numerical_derivatives.ipynb
         # - file: numerical_methods/6-simple_solvers_ODE.ipynb
         # - file: numerical_methods/7-solver_2nd_order.ipynb
