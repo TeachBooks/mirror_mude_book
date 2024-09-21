@@ -53,21 +53,21 @@ parts:
         - file: observation_theory/09_Notebook_OMT.ipynb
       - file: observation_theory/99_NotationFormulas
     
-#     - file: numerical_methods/overview
-#       title: Numerical Modelling
-#       sections:
-#         - file: numerical_methods/1-numerical-solns.ipynb
-#         - file: numerical_methods/2-numerical-interp.ipynb
-#         - file: numerical_methods/3-taylor-series.ipynb
-#           sections:
-#           - file: numerical_methods/3-taylor-series-exercise.ipynb
-#         - file: numerical_methods/4-FDM-intro.ipynb
-#         - file: numerical_methods/5-numerical_derivatives.ipynb
-#         - file: numerical_methods/6-simple_solvers_ODE.ipynb
-#         - file: numerical_methods/7-solver_2nd_order.ipynb
-#         - file: numerical_methods/8-solvers_non-linear.ipynb
-#         - file: numerical_methods/9-exercise.ipynb
-#         - file: numerical_methods/10-advanced_solvers.ipynb
+    - file: numerical_methods/overview
+      title: Numerical Modelling
+      sections:
+        - file: numerical_methods/1-revision-of-concepts.ipynb
+        - file: numerical_methods/2-derivative.ipynb
+        - file: book/numerical_methods/3-taylor-series-expansion.ipynb
+          sections:
+          - file: numerical_methods/93-taylor-series-exercise.ipynb
+        - file: numerical_methods/4-numerical-integration.ipynb
+        # - file: numerical_methods/5-numerical_derivatives.ipynb
+        # - file: numerical_methods/6-simple_solvers_ODE.ipynb
+        # - file: numerical_methods/7-solver_2nd_order.ipynb
+        # - file: numerical_methods/8-solvers_non-linear.ipynb
+        # - file: numerical_methods/9-exercise.ipynb
+        # - file: numerical_methods/10-advanced_solvers.ipynb
 #     - file: probability/Reminder_intro.md
 #       title: Continuous Distributions
 #       sections:
