@@ -61,7 +61,6 @@ parts:
       - file: numerical_methods/3-taylor-series-expansion.ipynb
         sections:
         - file: numerical_methods/taylor-series-exercise.ipynb
-        title: Taylor series expansion exercises
       - file: numerical_methods/4-numerical-integration.ipynb
         # - file: numerical_methods/5-numerical_derivatives.ipynb
         # - file: numerical_methods/6-simple_solvers_ODE.ipynb
