@@ -425,6 +425,11 @@ parts:
           - file: external/learn-programming/book/workflows/git/cloning
           - file: external/learn-programming/book/workflows/git/commits_local
           - file: external/learn-programming/book/workflows/git/fetch_pull
+    - file: programming/week_1_5
+      sections:
+      - file: external/learn-programming/book/workflows/git/branch_merge
+      - file: external/learn-programming/book/workflows/git/forking
+      - file: external/learn-programming/book/workflows/git/merge_conflicts
     
   - caption: Fundamental Concepts
     numbered: 2
