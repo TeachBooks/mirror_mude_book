@@ -4,6 +4,13 @@ The Finite Difference Method (FDM) is a fundamental numerical approach used to s
 
 In this Chapter, the fundamentals of numerical modelling and basic numerical methods are treated. More advanced techniques are also revised. The main focus is on Ordinary Differential Equations of varying orders. 
 
+```{figure} figs/NumericalMethodsRiver.gif
+:name: NumericalMethodsRiver
+
+Cool numerical model of the Yamuna river from Deltares
+``
+
+
 ## Relevance to your master's program/track/discipline
 
 We have prepared this list to emphasize the relevance of the FDM to your program at TU Delft. You may encounter some (or all) of these as this list is not exhaustive.
@@ -17,8 +24,3 @@ We have prepared this list to emphasize the relevance of the FDM to your program
 - Sanitary engineering and urban water infrastructure: designing wastewater treatment plants, sewer system layout, water quality analysis, demand forecasting.
 
 
-```{figure} figs/NumericalMethodsRiver.gif
-:name: NumericalMethodsRiver
-
-Numerical model from Deltares
-``
