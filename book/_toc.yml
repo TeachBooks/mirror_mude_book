@@ -53,21 +53,22 @@ parts:
         - file: observation_theory/09_Notebook_OMT.ipynb
       - file: observation_theory/99_NotationFormulas
     
-#     - file: numerical_methods/overview
-#       title: Numerical Modelling
-#       sections:
-#         - file: numerical_methods/1-numerical-solns.ipynb
-#         - file: numerical_methods/2-numerical-interp.ipynb
-#         - file: numerical_methods/3-taylor-series.ipynb
-#           sections:
-#           - file: numerical_methods/3-taylor-series-exercise.ipynb
-#         - file: numerical_methods/4-FDM-intro.ipynb
-#         - file: numerical_methods/5-numerical_derivatives.ipynb
-#         - file: numerical_methods/6-simple_solvers_ODE.ipynb
-#         - file: numerical_methods/7-solver_2nd_order.ipynb
-#         - file: numerical_methods/8-solvers_non-linear.ipynb
-#         - file: numerical_methods/9-exercise.ipynb
-#         - file: numerical_methods/10-advanced_solvers.ipynb
+    - file: numerical_methods/overview
+      title: Numerical Modelling
+      sections:
+      - file: numerical_methods/1-revision-of-concepts.ipynb
+      - file: numerical_methods/2-derivative.ipynb
+      - file: numerical_methods/3-fdm-introduction.ipynb
+      - file: numerical_methods/4-taylor-series-expansion.ipynb
+        sections:
+        - file: numerical_methods/taylor-series-exercise.ipynb
+      - file: numerical_methods/5-numerical-integration.ipynb
+      # - file: numerical_methods/6-initial-value-problem-singlestep.ipynb
+        # - file: numerical_methods/6-simple_solvers_ODE.ipynb
+        # - file: numerical_methods/7-solver_2nd_order.ipynb
+        # - file: numerical_methods/8-solvers_non-linear.ipynb
+        # - file: numerical_methods/9-exercise.ipynb
+        # - file: numerical_methods/10-advanced_solvers.ipynb
 #     - file: probability/Reminder_intro.md
 #       title: Continuous Distributions
 #       sections:
@@ -414,6 +415,7 @@ parts:
       sections:
       - file: external/learn-programming/book/version_control/version_control
       - file: external/learn-programming/book/install/git/intro
+        title: Install git
       - file: external/learn-programming/book/workflows/git/intro
         title: Git workflow
         sections:
@@ -425,6 +427,11 @@ parts:
           - file: external/learn-programming/book/workflows/git/cloning
           - file: external/learn-programming/book/workflows/git/commits_local
           - file: external/learn-programming/book/workflows/git/fetch_pull
+    - file: programming/week_1_5
+      sections:
+      - file: external/learn-programming/book/workflows/git/branch_merge
+      - file: external/learn-programming/book/workflows/git/forking
+      - file: external/learn-programming/book/workflows/git/merge_conflicts
     
   - caption: Fundamental Concepts
     numbered: 2
