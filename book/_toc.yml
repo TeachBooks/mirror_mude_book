@@ -60,8 +60,10 @@ parts:
       - file: numerical_methods/2-derivative.ipynb
       - file: numerical_methods/3-fdm-introduction.ipynb
       - file: numerical_methods/4-taylor-series-expansion.ipynb
+      # START REMOVE-FROM-PUBLISH
         sections:
         - file: numerical_methods/taylor-series-exercise.ipynb
+      # END REMOVE-FROM-PUBLISH
       - file: numerical_methods/5-numerical-integration.ipynb
       # - file: numerical_methods/6-initial-value-problem-singlestep.ipynb
         # - file: numerical_methods/6-simple_solvers_ODE.ipynb
