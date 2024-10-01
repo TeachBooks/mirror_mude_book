@@ -432,6 +432,11 @@ parts:
       - file: external/learn-programming/book/workflows/git/branch_merge
       - file: external/learn-programming/book/workflows/git/forking
       - file: external/learn-programming/book/workflows/git/merge_conflicts
+    - file: programming/week_1_6
+      sections:
+      - file: external/learn-python/book/08/theory.ipynb
+        sections:
+        - file: external/learn-python/book/08/exercises.ipynb
     
   - caption: Fundamental Concepts
     numbered: 2
