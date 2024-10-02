@@ -24,7 +24,7 @@ build-book:
   stage: build
   script:
     - |
-      if [ "$CI_COMMIT_BRANCH" == "publish" ]; then
+      if [ "$CI_COMMIT_BRANCH" == "release" ]; then
         echo "Building production version"
         teachbooks build --publish book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
       else
@@ -40,8 +40,8 @@ build-book:
       - build_job_id.txt
     expire_in: 1 week
   rules:
-    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "publish"
-    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "publish"
+    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "release"
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "release"
       when: always
 
 deploy-draft:
@@ -69,9 +69,9 @@ deploy-production:
       curl -X POST https://mude.citg.tudelft.nl/hooks/book-deploy-production \
       -H "Content-Type: application/json" \
       -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
-      -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"publish\"},\"build_job_id\":$BUILD_JOB_ID}"
+      -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"release\"},\"build_job_id\":$BUILD_JOB_ID}"
   environment:
     name: production
     url: https://mude.citg.tudelft.nl/2024/book
   rules:
-    - if: $CI_COMMIT_BRANCH == "publish"
+    - if: $CI_COMMIT_BRANCH == "release"
