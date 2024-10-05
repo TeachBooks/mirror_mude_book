@@ -63,11 +63,9 @@ parts:
         sections:
         - file: numerical_methods/taylor-series-exercise.ipynb
       - file: numerical_methods/5-numerical-integration.ipynb
-      # START REMOVE-FROM-PUBLISH
       - file: numerical_methods/6-initial-value-problem-singlestep.ipynb
       - file: numerical_methods/7-multistep_and_multistage_methods.ipynb
       - file: numerical_methods/8-boundary-value-problem.ipynb
-      # END REMOVE-FROM-PUBLISH
         # - file: numerical_methods/8-solvers_non-linear.ipynb
         # - file: numerical_methods/9-exercise.ipynb
         # - file: numerical_methods/10-advanced_solvers.ipynb
