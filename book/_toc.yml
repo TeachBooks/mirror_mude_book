@@ -66,9 +66,8 @@ parts:
       - file: numerical_methods/6-initial-value-problem-singlestep.ipynb
       - file: numerical_methods/7-multistep_and_multistage_methods.ipynb
       - file: numerical_methods/8-boundary-value-problem.ipynb
-        # - file: numerical_methods/8-solvers_non-linear.ipynb
-        # - file: numerical_methods/9-exercise.ipynb
-        # - file: numerical_methods/10-advanced_solvers.ipynb
+      - file: numerical_methods/9-starting_with_PDEs.ipynb
+
 #     - file: probability/Reminder_intro.md
 #       title: Continuous Distributions
 #       sections:
@@ -443,7 +442,7 @@ parts:
       - file: external/learn-python/book/08/handling_errors.ipynb
         title: Handling Errors
       - file: external/learn-python/book/08/asserts.ipynb
-
+    
   - caption: Fundamental Concepts
     numbered: 2
     chapters: 
