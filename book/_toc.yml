@@ -407,6 +407,7 @@ parts:
         title: Files and Folders
       - file: programming/week_1_1/warmup
         title: Python Warmup
+    - file: programming/week_1_2
     - file: programming/week_1_3
       sections:
       - file: external/learn-programming/book/install/ide/vsc/vs_live_share
@@ -431,6 +432,16 @@ parts:
       - file: external/learn-programming/book/workflows/git/branch_merge
       - file: external/learn-programming/book/workflows/git/forking
       - file: external/learn-programming/book/workflows/git/merge_conflicts
+    - file: programming/week_1_6
+      sections:
+      - file: external/learn-python/book/08/intro.md
+        title: Introduction
+      - file: external/learn-python/book/08/error_types.ipynb
+      - file: external/learn-python/book/08/traceback.ipynb
+      - file: external/learn-python/book/08/raise_errors.ipynb
+      - file: external/learn-python/book/08/handling_errors.ipynb
+        title: Handling Errors
+      - file: external/learn-python/book/08/asserts.ipynb
     
   - caption: Fundamental Concepts
     numbered: 2
