@@ -408,6 +408,7 @@ parts:
         title: Files and Folders
       - file: programming/week_1_1/warmup
         title: Python Warmup
+    - file: programming/week_1_2
     - file: programming/week_1_3
       sections:
       - file: external/learn-programming/book/install/ide/vsc/vs_live_share
