@@ -51,6 +51,8 @@ $
 
 Finally, note that Lognormal distribution is not symmetric and presents positive skewness. This is, it presents a tail towards positive values.
 
+Also, the **Lognormal distiribution is bounded in 0**. This is, the random variable modelled with the Lognormal distribution cannot take negative values.
+
 # Let's practice
 
 ````{card} Exercises
