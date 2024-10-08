@@ -7,20 +7,8 @@ In this Chapter, the fundamentals of numerical modelling and basic numerical met
 ```{figure} figs/NumericalMethodsRiver.gif
 :name: NumericalMethodsRiver
 
-Cool numerical model of the Yamuna river from Deltares
+Cool numerical model of the Yamuna river. Thanks to Amgad Omer (Deltares).
 ``
 
-
-## Relevance to your master's program/track/discipline
-
-We have prepared this list to emphasize the relevance of the FDM to your program at TU Delft. You may encounter some (or all) of these as this list is not exhaustive.
-
-- Applied earth sciences: groundwater flow modelling, geothermal modelling, seismic wave propagation, atmosphere and climate modelling.
-- Structural engineering: stress-strain estimation in structures, heat conduction, vibration analysis.
-- Hydraulic engineering: simulating coastal and river hydrodynamics, sediment transport, erosion.
-- Transport engineering: simulating traffic flow, congestion patterns, optimizing traffic signals, public transport planning, pedestrian/bicycle flow.
-- Environmental engineering: dispersion of air pollutants in air and water, groundwater flow modelling, gas generation in landfills, environmental contamination, forecasting weather and extreme events, studying climate change and its impact.
-- Offshore engineering: wave and wind loading and often combined with the finite volume method (FVM) for more detailed fluid analysis, FEM for detailed structural analysis, and many times, a combination of FVM and FEM for fluid-structure interaction (FSI).
-- Sanitary engineering and urban water infrastructure: designing wastewater treatment plants, sewer system layout, water quality analysis, demand forecasting.
 
 
