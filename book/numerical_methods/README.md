@@ -12,7 +12,7 @@ Dhruv: For the coding assignment for week 1.6, I believe the students should be 
 ###Wed Tutorial
 
 1.5
-
+test2
 1.6
 Last year's archive is FD: 1D & 2D Diffusion using FD in python. Everything is provided and they can run and see the results. It's a read & understand assignment. 
 
