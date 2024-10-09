@@ -46,7 +46,7 @@ The influence of the parameter $\lambda$ can also be observed in the CDF. The hi
 The mean of the exponential distribution can be obtained integrating by parts as
 
 $
-E[X] = \int_o^{\infty}{x e^{-\lambda x}dx} = [-xe^{-\lambda x}]_0^{\infty} + \int_0^{\infty}{e^{-\lambda x}dx}= 1/ \lambda
+E[X] = \int_o^{\infty}{x \lambda e^{-\lambda x}dx} = [-xe^{-\lambda x}]_0^{\infty} + \int_0^{\infty}{e^{-\lambda x}dx}= 1/ \lambda
 $
 
 As previously mentioned, the Exponential distribution models the waiting time between events (e.g.: floods or earthquakes) of a Poisson process. For the Poisson process, $\lambda$ is the rate at which the events occur. Therefore, $1/\lambda$ is the average time between those events, since it is the expectation of the associated Exponential distribution. In reliability analysis, it can be called *mean life time* or *time to failure*.
