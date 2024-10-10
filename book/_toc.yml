@@ -68,34 +68,35 @@ parts:
       - file: numerical_methods/8-boundary-value-problem.ipynb
       - file: numerical_methods/9-starting_with_PDEs.ipynb
 
-#     - file: probability/Reminder_intro.md
-#       title: Continuous Distributions
-#       sections:
-#       - file: probability/PDF_CDF
-#       - file: probability/empirical
-#       - file: probability/Param_distr.md
-#         title: Parametric distributions
-#         sections: 
-#         - file: probability/Gaussian.md
-#         - file: probability/other_distr.md
-#         - file: probability/Uniform.md
-#         - file: probability/Exponential.md
-#         - file: probability/Gumbel.md
-#         - file: probability/Lognormal.md
-#         - file: probability/summary.md
-#       - file: probability/fitting.md
-#         title: Fitting parametric distributions
-#         sections: 
-#         - file: probability/moments.md
-#         - file: probability/MLE_1.ipynb
-#         - file: probability/GOF
-#       - file: probability/Loc-scale.ipynb
-     - file: multivariate/Introduction.md
-        title: Multivariate distributions
-        sections:
-        - file: multivariate/AND_OR.md
-        - file: multivariate/Multi_gaussian.md
-        - file: multivariate/Other_multi.md
+    - file: probability/Reminder_intro.md
+      title: Univariate Continuous Distributions
+      sections:
+      - file: probability/PDF_CDF
+      - file: probability/empirical
+      - file: probability/Param_distr.md
+        title: Parametric distributions
+        sections: 
+        - file: probability/Gaussian.md
+        - file: probability/other_distr.md
+        - file: probability/Uniform.md
+        - file: probability/Exponential.md
+        - file: probability/Gumbel.md
+        - file: probability/Lognormal.md
+        - file: probability/summary.md
+      - file: probability/fitting.md
+        title: Fitting parametric distributions
+        sections: 
+        - file: probability/moments.md
+        - file: probability/MLE_1.ipynb
+        - file: probability/GOF
+      - file: probability/Loc-scale.ipynb
+
+    - file: multivariate/Introduction.md
+      title: Multivariate distributions
+      sections:
+      - file: multivariate/AND_OR.md
+      - file: multivariate/Multi_gaussian.md
+      - file: multivariate/Other_multi.md
 
 #   - caption: Q2 Topics
 #     numbered: 2
