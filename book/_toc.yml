@@ -90,14 +90,12 @@ parts:
 #         - file: probability/MLE_1.ipynb
 #         - file: probability/GOF
 #       - file: probability/Loc-scale.ipynb
-#     - file: rr/prob-design/overview
-#       title: Risk and Reliability Intro
-#       sections:
-#       - file: rr/prob-design/one-random-variable
-#       - file: rr/prob-design/two-random-variables
-#       - file: rr/prob-design/exercise
-#         sections:
-#         - file: rr/prob-design/exercise_solutions
+     - file: multivariate/Introduction.md
+        title: Multivariate distributions
+        sections:
+        - file: multivariate/AND_OR.md
+        - file: multivariate/Multi_gaussian.md
+        - file: multivariate/Other_multi.md
 
 #   - caption: Q2 Topics
 #     numbered: 2
