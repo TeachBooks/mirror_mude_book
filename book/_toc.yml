@@ -68,7 +68,7 @@ parts:
       - file: numerical_methods/8-boundary-value-problem.ipynb
       - file: numerical_methods/9-starting_with_PDEs.ipynb
 
-    - file: probability/Reminder_intro.md
+    - file: probability/Reminder_intro
       title: Univariate Continuous Distributions
       sections:
       - file: probability/PDF_CDF
@@ -91,7 +91,7 @@ parts:
         - file: probability/GOF
       - file: probability/Loc-scale.ipynb
 
-    - file: multivariate/Introduction.md
+    - file: multivariate/Introduction
       title: Multivariate distributions
       sections:
       - file: multivariate/AND_OR.md
