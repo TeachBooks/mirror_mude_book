@@ -83,13 +83,13 @@ parts:
         - file: probability/Gumbel.md
         - file: probability/Lognormal.md
         - file: probability/summary.md
-      - file: probability/fitting.md
-        title: Fitting parametric distributions
-        sections: 
-        - file: probability/moments.md
-        - file: probability/MLE_1.ipynb
-        - file: probability/GOF
-      - file: probability/Loc-scale.ipynb
+        - file: probability/fitting.md
+          title: Fitting parametric distributions
+          sections: 
+          - file: probability/moments.md
+          - file: probability/MLE_1.ipynb
+          - file: probability/GOF
+        - file: probability/Loc-scale.ipynb
 
     - file: multivariate/Introduction
       title: Multivariate distributions
