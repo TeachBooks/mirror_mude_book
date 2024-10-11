@@ -5,9 +5,9 @@ Before going further into continuous multivariate distributions, we will start w
 
 If you also need further practice or to revisit other concepts such as mutually exclusive events or collectively exhaustive, you can go [here](https://teachbooks.github.io/learn-probability/section_01/Must_know_%20probability_concepts.html).
 
-## AND and OR probabilities
+## AND and OR probabilities: Venn diagrams
 
-Let's move back to discrete events to explain what AND and OR probabilities are. Imagine two events, A and B. These can be, for instance, the fact that it rains today (A) and the fact that the temperature is below 10 degrees (B).
+Let's move back to discrete events to explain what AND and OR probabilities are. Imagine two events, A and B. These can be, for instance, the fact that it rains today (A) and the fact that the temperature is below 10 degrees (B). Each of these events will have a probability of ocurring, denoted here as $P(A)$ and $P(B)$, respectively.
 
 
 ```{figure} ../events.pdf
@@ -17,6 +17,28 @@ Let's move back to discrete events to explain what AND and OR probabilities are.
 ---
 Venn diagram of the events A and B.
 ```
+
+The AND probility or intersection of the events A and B, $P(A \cap B)$, is defined as the probability that both events happen at the same time and, thus, it would be represented in our diagram as shown in the figure below.
+
+```{figure} ../intersection.pdf
+
+---
+
+---
+Venn diagram of the events A and B, and AND probability.
+```
+
+The OR probability or union of the events A and B, $P(A \cup B)$, is defined as the probability that either one of the two events happen or both of them. This probability can be computed as 
+
+$$
+P(A \cup B) = P(A) + P(B) - P(A \cap B)
+$$
+
+This is, we add the probabilities of occurrence of the event A and B and we deduct the intersection of them, to avoid counting them twice.
+
+## AND and OR probabilities from samples
+
+
 
 ## Independence
 
