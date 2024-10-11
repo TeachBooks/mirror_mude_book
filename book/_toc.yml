@@ -444,8 +444,8 @@ parts:
       - file: external/learn-python/book/08/asserts.ipynb
     - file: programming/week_1_7
       sections:
-      - file: external/learn-programming/book/year2/classes
-      - file: external/learn-programming/book/year2/classes_solution
+      - file: external/learn-programming/book/python/oop/classes
+
 
   - caption: Fundamental Concepts
     numbered: 2
