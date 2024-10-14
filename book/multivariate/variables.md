@@ -27,6 +27,26 @@ Samples of the discharges of two rivers ($q_1$ and $q_2$): (a) paired observatio
 
 In panel (b) in the figure above, we have highlighted the number of events where $q_1>100 m^3/s$. We could compute $P(q_1>100 m^3/s) = 11/(35+1) \approx 0.31$ [^note].
 
+We can apply a similar approach to compute the joint probabilities of $q_1$ and $q_2$. As you an see in the figure below, you can see highlighted the region of the samples where $q_1 \leq 100 m^3/s$ and $q_2 \leq 75 m^3/s$. Thus, we can compute the joint probability $F(q_1 \leq 100, q_2 \leq 75)$ by counting the number of observations in that region so $F(q_1 \leq 100, q_2 \leq 75) = 21/(35+1) = 0.6$
+
+```{figure} ../figures/and.png
+
+---
+
+---
+Samples of the discharges of two rivers ($q_1$ and $q_2$) highlighting those where $q_1 \leq 100 m^3/s$ and $q_2 \leq 75 m^3/s$.
+```
+
+Moving now to the OR case, 
+
+```{figure} ../figures/or.png
+
+---
+
+---
+Samples of the discharges of two rivers ($q_1$ and $q_2$): (a) highlighting those where $q_1 \leq 100 m^3/s$, (b)  highlighting where $q_2 \leq 75 m^3/s$, and (c) highlighting those where $q_1 \leq 100 m^3/s \cup q_2 \leq 75 m^3/s$.
+```
+
 ## Independent continuous random variables
 
 When two random variables, X and Y, are independent, the value of one variable does not influence the value of the other variable. And, formally, X and Y are considered independent **if and only if** the joint probability function (or cumulative distribution function) can be factorized into the product of their marginal probability functions (or cumulative distribution functions). This is, 
