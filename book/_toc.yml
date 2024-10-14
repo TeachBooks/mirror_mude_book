@@ -91,12 +91,13 @@ parts:
         - file: probability/GOF
       - file: probability/Loc-scale.ipynb
 
-    - file: multivariate/Introduction
-      title: Multivariate distributions
+    - file: multivariate/overview
+      title: Multivariate Distributions
       sections:
-      - file: multivariate/AND_OR.md
-      - file: multivariate/Multi_gaussian.md
-      - file: multivariate/Other_multi.md
+      - file: multivariate/events
+      - file: multivariate/variables
+      - file: multivariate/gaussian
+      - file: multivariate/nongaussian
 
 #   - caption: Q2 Topics
 #     numbered: 2

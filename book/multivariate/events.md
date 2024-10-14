@@ -10,7 +10,7 @@ If you also need further practice or to revisit other concepts such as mutually 
 Let's move back to discrete events to explain what AND and OR probabilities are. Imagine two events, A and B. These can be, for instance, the fact that it rains today (A) and the fact that the temperature is below 10 degrees (B). Each of these events will have a probability of ocurring, denoted here as $P(A)$ and $P(B)$, respectively.
 
 
-```{figure} ../events.png
+```{figure} ../venn-events.png
 
 ---
 
@@ -20,7 +20,7 @@ Venn diagram of the events A and B.
 
 The AND probility or intersection of the events A and B, $P(A \cap B)$, is defined as the probability that both events happen at the same time and, thus, it would be represented in our diagram as shown in the figure below.
 
-```{figure} ../intersection.png
+```{figure} ../venn-intersection.png
 
 ---
 
