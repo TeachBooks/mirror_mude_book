@@ -91,12 +91,25 @@ parts:
         - file: probability/GOF
       - file: probability/Loc-scale.ipynb
 
-    - file: multivariate/Introduction
-      title: Multivariate distributions
+    - file: multivariate/overview
+      title: Multivariate Distributions
       sections:
-      - file: multivariate/AND_OR.md
-      - file: multivariate/Multi_gaussian.md
-      - file: multivariate/Other_multi.md
+      - file: multivariate/events
+        title: Dependent Events
+      - file: multivariate/variables
+        title: Continuous Variables
+      - file: multivariate/gaussian
+        title: Multivariate Gaussian
+      - file: multivariate/nongaussian
+        title: Non-Gaussian Distributions
+      - file: multivariate/functions
+        title: Functions of Random Variables
+        sections:
+        - file: rr/prob-design/one-random-variable
+        - file: rr/prob-design/two-random-variables
+        - file: rr/prob-design/exercise
+          sections:
+          - file: rr/prob-design/exercise_solutions
 
 #   - caption: Q2 Topics
 #     numbered: 2
@@ -441,7 +454,11 @@ parts:
       - file: external/learn-python/book/08/handling_errors.ipynb
         title: Handling Errors
       - file: external/learn-python/book/08/asserts.ipynb
-    
+    - file: programming/week_1_7
+      sections:
+      - file: external/learn-programming/book/python/oop/classes
+
+
   - caption: Fundamental Concepts
     numbered: 2
     chapters: 
