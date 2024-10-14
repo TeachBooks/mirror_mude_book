@@ -32,7 +32,7 @@ Each of these events will have a probability of ocurring, denoted here as $P(A)$
 Venn diagram of the events A and B.
 ```
 
-The AND probability or intersection of the events A and B, $P(A \cap B)$, is defined as the probability that both events happen at the same time and, thus, it would be represented in our diagram as shown in the figure below.
+The AND probability or intersection of the events A and B, $P(A \cap B)$, is defined as the probability that both events happen at the same time and, thus, it would be represented in our diagram as shown in the figure below. Going back to our example, it represents the probability that both rivers get flooded at the same time.
 
 ```{figure} ./figures/venn-intersection.png
 
@@ -44,7 +44,7 @@ Venn diagram of the events A and B, and AND probability.
 
 ### 
 
-The OR probability or union of the events A and B, $P(A \cup B)$, is defined as the probability that either one of the two events happen or both of them. This probability can be computed as 
+The OR probability or union of the events A and B, $P(A \cup B)$, is defined as the probability that either one of the two events happen or both of them. In our example, it would represent the probability that at least one of the rivers is flooded (or both!). This probability can be computed as 
 
 $$
 P(A \cup B) = P(A) + P(B) - P(A \cap B)
