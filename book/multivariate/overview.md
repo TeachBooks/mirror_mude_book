@@ -16,8 +16,24 @@ $$
 \rho(X_1,X_2)=\frac{Cov(X_1,X_2)}{\sigma_{X_1} \sigma_{X_2}} 
 $$ 
 
-where $X_1$ and $X_2$ are random variables, $Cov(X_1,X_2)$ is their covariance, and $\sigma_{X_1}$ and $\sigma_{X_2}$ are the standard deviations of $X_1$ and $X_2$. $-1 \leq \rho(X_1,X_2) \leq 1$, being $\rho(X_1,X_2)=-1$ a perfect negative linear correlation, and $\rho(X_1,X_2)=1$ a perfect positive linear correlation. If $\rho(X_1,X_2) \to 0$, we say that $X_1$ and $X_2$ are independent[^note]. This is, that having information about $X_1$ does not provide us with information about $X_2$. The interactive element below allows you to play around with the correlation value yourself. Observe how the distribution's density contours, or the scattered data, changes when you adapt the correlation value.
+where $X_1$ and $X_2$ are random variables, $Cov(X_1,X_2)$ is their covariance, and $\sigma_{X_1}$ and $\sigma_{X_2}$ are the standard deviations of $X_1$ and $X_2$. $-1 \leq \rho(X_1,X_2) \leq 1$, being $\rho(X_1,X_2)=-1$ a perfect negative linear correlation, and $\rho(X_1,X_2)=1$ a perfect positive linear correlation. If $\rho(X_1,X_2) \to 0$, we say that $X_1$ and $X_2$ are independent[^note]. This is, that having information about $X_1$ does not provide us with information about $X_2$. The interactive element below allows you to play around with the correlation value yourself. Observe how the distribution's _density_ contours, or a scatter plot of _samples,_ change when you adjust the correlation.
 
 <iframe src="../_static/elements/element_correlation.html" width="600" height="400" frameborder="0"></iframe>
+
+**Overview of this Chapter**
+
+Our ultimate goal is to construct and validate a model to quantify probability for combinations of more than one random variable of interest (i.e., to quantify various types of uncertainty). Specifically, 
+
+$$
+f_X(x) \;\; \textrm{and} \;\; F_X(x)
+$$
+
+where $X$ is a vector of continuous random variables and $f$ and $F$ are the multivariate probability density function (PDF) and cumulative distribution functions (CDF), respectively. Often we will use _bivariate_ situations (two random variables) to illustrate key concepts, for example:
+
+$$
+f_{X_1,X_2}(x_1,x_2) \;\; \textrm{and} \;\; F_{X_1,X_2}(x_1,x_2)
+$$
+
+This chapter begins with a refresher on some fundamental aspects of probability theory that are typically covered in BSc courses on the subject, for example, dependence/independence, probability of binary events and conditional probability. Using the _bivariate_ paradigm, we will build a foundation on which to apply the multivariate Gaussian distribution (introduced in earlier chapters), as well as introduce alternative _multivariate distributions._ The chapter ends with a brief introduction to _copulas_ as a straightforward approach for evaluating two random variables that are dependent _and_ described by non-Gaussian marginal distributions (the previous chapter).
 
 [^note]: That is an intuitive definition of independence. For a more formal definition of independence, visit the next page of the chapter.
