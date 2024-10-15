@@ -95,21 +95,21 @@ parts:
       title: Multivariate Distributions
       sections:
       - file: multivariate/events
-        title: Dependent Events
+        title: Discrete Events
       - file: multivariate/variables
         title: Continuous Variables
       - file: multivariate/gaussian
         title: Multivariate Gaussian
       - file: multivariate/nongaussian
         title: Non-Gaussian Distributions
-      - file: multivariate/functions
-        title: Functions of Random Variables
+      - file: multivariate/design
+        title: Practical Applications
         sections:
-        - file: rr/prob-design/one-random-variable
-        - file: rr/prob-design/two-random-variables
-        - file: rr/prob-design/exercise
+        - file: multivariate/design/one-random-variable
+        - file: multivariate/design/two-random-variables
+        - file: multivariate/design/exercise
           sections:
-          - file: rr/prob-design/exercise_solutions
+          - file: multivariate/design/exercise_solutions
 
 #   - caption: Q2 Topics
 #     numbered: 2
