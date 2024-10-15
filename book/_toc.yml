@@ -112,6 +112,7 @@ parts:
           - file: rr/prob-design/exercise_solutions
       # START REMOVE-FROM-PUBLISH
       - file: multivariate/test_pyvinecopulib
+      - file: multivariate/test_bivariate
       # END REMOVE-FROM-PUBLISH
 
 #   - caption: Q2 Topics
