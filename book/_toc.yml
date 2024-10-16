@@ -16,10 +16,6 @@ parts:
         title: Calibration, Validation & Verification
       - file: modelling/gof
         title: Goodness of Fit
-    # START REMOVE-FROM-PUBLISH
-      - file: modelling/sensitivity
-        title: Sensitivity Analysis
-    # END REMOVE-FROM-PUBLISH
     - file: propagation_uncertainty/overview
       sections:
       - file: propagation_uncertainty/00a_CovCorr.md
