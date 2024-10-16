@@ -10,7 +10,7 @@ Relationship between Lognormal and Normal distribution[^ref].
  It is widely used in engineering, since it models variables which only take positive real values.  The PDF of the Lognormal distribution is given by 
 
 $
-f(x) = \frac{1}{x \sigma \sqrt{2 \pi}}e^{\left( -\frac{(ln(x)-\mu)^2}{2\sigma^2}\right)}
+f(x) = \cfrac{1}{x \sigma \sqrt{2 \pi}}e^{\left( \normalsize-\cfrac{(ln(x)-\mu)^2}{2\sigma^2}\right)}
 $
 
 where $\mu$ and $\sigma$ are the mean and standard deviation of the variable's natural logarithm. Note that they are not the mean and standard deviation of the variable $X$ itself.
@@ -24,7 +24,7 @@ PDF of Lognormal distribution: (left) influence of parameter $\mu$, and (right) 
 Integrating the PDF, the following expression of the CDF is derived
 
 $
-F(x) = \Phi\left( \frac{ln(x)-\mu}{\sigma} \right) = \frac{1}{2}\left[ 1+erf\left( \frac{ln(x)-\mu}{\sigma \sqrt{2}}\right)\right]
+F(x) = \Phi\left( \cfrac{ln(x)-\mu}{\sigma} \right) = \cfrac{1}{2}\left[ 1+erf\left( \cfrac{ln(x)-\mu}{\sigma \sqrt{2}}\right)\right]
 $
 
 where $\Phi$ is the cumulative distribution function of of the standard Normal distribution function ($N(0,1)$). The CDF of the Lognormal distribution is displayed in the figure below.
@@ -40,13 +40,13 @@ In the left pannel, the influence of the parameter $\mu$ is shown. The lower the
 The mean of the Lognormal distribution can be computed as
 
 $
-E[X]=e^{\mu + \frac{\sigma^2}{2}}
+E[X]=e^{\normalsize \mu + \cfrac{\sigma^2}{2}}
 $
 
 The variance is given by
 
 $
-Var[X] = \left( e^{\sigma^2}-1 \right)e^{2\mu + \sigma^2}
+Var[X] = \left( e^{\normalsize\sigma^2}-1 \right)e^{\normalsize2\mu + \sigma^2}
 $
 
 Finally, note that Lognormal distribution is not symmetric and presents positive skewness. This is, it presents a tail towards positive values.

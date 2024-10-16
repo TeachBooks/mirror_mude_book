@@ -62,7 +62,7 @@ It should be noted that the coefficient of variation $CV = \sqrt{Var[X]}/E[X] = 
 If you remember the Poisson process is characterized by independent events. Thus, the time of the next occurrence modelled by the Exponential distribution is independent of the present and past occurrences. This is called the *memoryless property of the exponential distribution*. We can show it calculating the probability of the waiting time until the next ocurrence $X$ being higher than the sum of the two previous ones $X>x_1+x_2$, given that it is already bigger than one of them $X>x_1$ (conditional probability) as follows
 
 $
-P[X>x_1+x_2|X>x_1]=\frac{P[X>x_1+x_2]}{P[X>x_1]}=\frac{e^{\lambda (x_1+x_2)}}{e^{\lambda x_1}}=e^{\lambda x_2}=P[X>x_2]
+P[X>x_1+x_2|X>x_1]=\cfrac{P[X>x_1+x_2]}{P[X>x_1]}=\cfrac{e^{\normalsize{\lambda (x_1+x_2)}}}{e^{\normalsize{\lambda x_1}}}=e^{\normalsize{\lambda x_2}}=P[X>x_2]
 $
 
 If the waiting time $X$ is exponential-distributed, you can see that the probability of the waiting time of one occurence ($x_2$) does not depend on the previous one ($x_1$).
