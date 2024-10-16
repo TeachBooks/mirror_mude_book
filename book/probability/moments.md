@@ -32,7 +32,7 @@ An engineer is studying the intensity of earthquakes in Rome (Italy). To this en
 Remember that the CDF of the Gumbel distribution is given by 
 
 $
-F(x) = e^{-e^{-\frac{x-\mu}{\beta}}}
+F(x) = e^{\normalsize-e^{\normalsize-\cfrac{x-\mu}{\beta}}}
 $
 
 Therefore, the value of $\mu$ and $\beta$ needs to be determined based on the observations to fit the distribution.
@@ -40,11 +40,11 @@ Therefore, the value of $\mu$ and $\beta$ needs to be determined based on the ob
 The first thing the engineer needs to do is to calculate the moments of the observations in the Table. The empirical mean ($\overline{X}$) and empirical variance ($\sigma^2$) are calculated as:
 
 $
-\overline{X} = \frac{2 \cdot 113 + 3 \cdot 132 + 4 \cdot 56 + 5 \cdot 22 + 6 \cdot 4 + 7 \cdot 2}{113+132+56+22+4+2} \approx 3.02
+\overline{X} = \cfrac{2 \cdot 113 + 3 \cdot 132 + 4 \cdot 56 + 5 \cdot 22 + 6 \cdot 4 + 7 \cdot 2}{113+132+56+22+4+2} \approx 3.02
 $
 
 $
-\sigma^2 = \frac{\sum{fx^2}}{\sum{f}}-\left( \frac{\sum{fx}}{\sum{f}}\right)^2 \approx 0.99
+\sigma^2 = \cfrac{\sum{fx^2}}{\sum{f}}-\left( \cfrac{\sum{fx}}{\sum{f}}\right)^2 \approx 0.99
 $
 
 where $x$ is the value of the intensity and $f$ is the frequency of the value $x$.
@@ -56,7 +56,7 @@ E[X]=\mu + \gamma \beta
 $
 
 $
-Var[X] = \frac{\pi^2}{6}\beta^2
+Var[X] = \cfrac{\pi^2}{6}\beta^2
 $
 
 where $\gamma \approx 0.577$ is the Euler-Mascheroni constant.
@@ -68,7 +68,7 @@ $
 $
 
 $
-0.99 = \frac{\pi^2}{6}\beta^2
+0.99 = \cfrac{\pi^2}{6}\beta^2
 $
 
 Thus, $\mu \approx 2.57$ and $\beta \approx 0.77$. 
@@ -84,7 +84,7 @@ F(x) = 0   \hspace{1cm}   for \ x<a
 $
 
 $
-F(x) = \frac{x-a}{b-a}   \hspace{1cm}   for \ a\leq x \leq b
+F(x) = \cfrac{x-a}{b-a}   \hspace{1cm}   for \ a\leq x \leq b
 $
 
 $
