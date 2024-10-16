@@ -34,6 +34,8 @@ $$
 
 Note that when talking about the Gaussian distribution instead of using $F_{X_1,X_2}(x_1,x_2)$, we use $\Phi_{X_1,X_2}(x_1,x_2)$, but it means the same!
 
+In the figure below, you have the PDF and CDF of a bivariate Gaussian distribution for a correlation coefficient $\rho=0.77$. 
+
 ```{figure} ./figures/bivariate_gaussian.png
 
 ---
@@ -42,13 +44,51 @@ Note that when talking about the Gaussian distribution instead of using $F_{X_1,
 Bivariate Gaussian distribution: (left) probability density function, and (right) cumulative distribution function.
 ```
 
-In the figure below, you have the PDF and CDF of a bivariate Gaussian distribution for a correlation coefficient $\rho=0.77$. Also, you can plan with the interactive element below changing the correlation value yourself. Observe how the distribution's _density_ contours, or a scatter plot of _samples,_ change when you adjust the correlation.
+Also, you can plan with the interactive element below changing the correlation value yourself. Observe how the distribution's _density_ contours, or a scatter plot of _samples,_ change when you adjust the correlation.
 
 <iframe src="../_static/elements/element_correlation.html" width="600" height="400" frameborder="0"></iframe>
 
 ## Conditionalizing a bivariate Gaussian distribution
 
-aa
+Multivariate Gaussian distributions are useful because we can derive results analytically. Here, we are going to conditionalize a bivariate Gaussian distribution to exemplify it.
+
+Given that we are modelling the joint probability distribution of $X_1$ and $X_2$ using a bivariate Gaussian distribution and we know $x_2=a$, what is the expected distribution for $X_1$?
+
+An important property of the multivariate Gaussian distribution is that if two sets of variables are jointly Gaussian, then the conditional distribution of one set conditioned on the other is again Gaussian. Thus, the conditional distribution of $Q_1$ given the value of $Q_2$ will be a Gaussian distribution whose mean value ($\hat{\mu}$) and standard deviation ($\hat{\Sigma}$) we need to estimate. This is, we want to compute $(x_1|x_2=a)\sim N(\hat{\mu}, \hat{\Sigma})$. We can do it using the following expressions
+
+$$
+\hat{\mu}=\mu_1+\Sigma_{12}\Sigma_{22}^{-1}(a-\mu_2)
+$$
+
+$$
+\hat{\Sigma}=\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}
+$$
+
+where $a$ is the known value of $X_2$ (here, $Q_2$) and $\boldsymbol{\Sigma}=\begin{pmatrix} \Sigma_{11} \ \Sigma_{12} \\ \Sigma_{21} \ \Sigma_{22} \end{pmatrix}$.
+
+Let's go now back to the example of the discharges of two neighboring rivers, $Q_1$ and $Q_2$. We have historical measurements for both discharges and we want to apply a bivariate Gaussian distribution to model their joint distribution. Using the historical dataset, we can compute their mean values, $\mu_1=94 m^3/s$ and $\mu_2=78 m^3/s$, their standard deviations, $\sigma_1= 41 m^3/s$ and $\sigma_2=35 m^3/s$, and the covariance between them, $Cov(Q_1, Q_2)=1000 (m^3/s)^2$. We know that $q_2=100 m^3/s$. What is then the expected distribution for $Q_1$? This is, we want to compute $(q_1|q_2=100m^3/s)\sim N(\hat{\mu}, \hat{\Sigma})$.
+
+Using the above expressions to our examples, we obtain
+
+$$
+\hat{\mu} = 94 + 1000 \times (35^2)^{-1} \times (100-78) \approx 112.0
+$$
+
+$$
+\hat{\Sigma} = 41^2 - 1000 \times (35^2)^{-1} \times 1000 \approx 864.7 \to \sigma_{x_1|x_2=a}=29.4
+$$
+
+The figure below displays the difference between the univariate distribution of $Q_1$ and the conditional distribution of $Q_1$ given $q_2 = 100 m^3/s$.
+
+```{figure} ./figures/cond_gauss.png
+
+---
+
+---
+Bivariate Gaussian distribution: (left) probability density function, and (right) cumulative distribution function.
+```
+
+
 
 ## From 2D to 3D: multivariate margins
 
