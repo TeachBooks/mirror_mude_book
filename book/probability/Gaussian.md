@@ -4,19 +4,19 @@
 You have already used Gaussian or Normal distribution during your BSc and this course since it is widely used in Observation Theory or to model errors in measurements. The PDF of the Normal distribution is given by
 
 $
-f(x) = \frac{1}{\sigma \sqrt{2 \pi}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}
+f(x) = \cfrac{1}{\sigma \sqrt{2 \pi}} \ e^{-\cfrac{1}{2}\left(\cfrac{x-\mu}{\sigma}\right)^2}
 $
 
 where $x$ is the value of the random variable and $\mu$ and $\sigma$ are the two parameters of the distribution. These parameters, $\mu$ and $\sigma$, correspond to the mean and standard deviation of the random variable.
 
 If we integrate it, we obtain the CDF (non-exceedance probabilities). In the case of the Normal distribution, there is no closed form of the CDF (the integral), but it can be expressed as
 
-$F(x) = \frac{1}{2}\left(1+\text{erf}\left(\frac{x-\mu}{\sigma\sqrt{2}}\right)\right)$
+$F(x) = \cfrac{1}{2}\left(1+\text{erf}\left(\cfrac{x-\mu}{\sigma\sqrt{2}}\right)\right)$
 
 where $\text{erf}$ denotes the error function given by
 
 $
-\text{erf}(x) = \frac{2}{\sqrt{\pi}}\int_0^x{e^{-t^2}dt}
+\text{erf}(x) = \cfrac{2}{\sqrt{\pi}}\int_0^x{e^{-t^2}dt}
 $
 
 Let's see how the distribution looks.
