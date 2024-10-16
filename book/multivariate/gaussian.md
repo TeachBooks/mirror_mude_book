@@ -96,4 +96,14 @@ Analytical conditionalization of the 3D Gaussian: 2D margin!
 
 **case study**: return to the river flooding case and illustrate the effect of dependence. figure and table.
 
+## Extra material: a video
+
+If you need to refresh the concept of covariance and correlation and want to see a short video on the multivariate Gaussian distribution, you have here a video!
+
+```{eval-rst}
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://youtube.com/embed/zyXp_oysuW4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
 [^note]: You already studied covariance matrices [here](correl).
