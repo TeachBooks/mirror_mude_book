@@ -26,11 +26,31 @@ $$
 
 where $\boldsymbol{x}$ is the vector of values of the random variable, $\boldsymbol{\mu}$ is the vector of means, and $\boldsymbol{\Sigma}$ is the covariance matrix[^note].
 
-The interactive element below allows you to play around with the correlation value yourself. Observe how the distribution's _density_ contours, or a scatter plot of _samples,_ change when you adjust the correlation.
+The cumulative distribution function of the bivariate Gaussian distribution would then be defined as
+
+$$
+\Phi_{X_1,X_2}(x_1,x_2)=P(X_1 \leq x_1, X_2 \leq x_2)=\int_{-\infty}^{x_1}{\int_{-\infty}^{x_2}{\phi_{\rho}(s_1, s_2)ds_1ds_2}}
+$$
+
+Note that when talking about the Gaussian distribution instead of using $F_{X_1,X_2}(x_1,x_2)$, we use $\Phi_{X_1,X_2}(x_1,x_2)$, but it means the same!
+
+```{figure} ./figures/bivariate_gaussian.png
+
+---
+
+---
+Bivariate Gaussian distribution: (left) probability density function, and (right) cumulative distribution function.
+```
+
+In the figure below, you have the PDF and CDF of a bivariate Gaussian distribution for a correlation coefficient $\rho=0.77$. Also, you can plan with the interactive element below changing the correlation value yourself. Observe how the distribution's _density_ contours, or a scatter plot of _samples,_ change when you adjust the correlation.
 
 <iframe src="../_static/elements/element_correlation.html" width="600" height="400" frameborder="0"></iframe>
 
-## From 2D to 3D
+## Conditionalizing a bivariate Gaussian distribution
+
+aa
+
+## From 2D to 3D: multivariate margins
 
 Analytical conditionalization of the 3D Gaussian: 2D margin!
 
