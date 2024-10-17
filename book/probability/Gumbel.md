@@ -3,9 +3,9 @@
 
 Gumbel distribution is widely used to model maximum and minimum values of natural phenomena, such as wave storms or floods. You will learn more about this application in the Extreme Value Analysis section. The PDF of the Gumbel distribution is given by 
 
-$
+$$
 f(x) = \cfrac{1}{\beta} \ e^{-\left( \cfrac{x-\mu}{\beta} \normalsize{+ e} ^{-\left( \cfrac{x-\mu}{\beta} \right)}\right)}
-$
+$$
 
 where $\mu$ is the location parameter and $\beta>0$ is the scale parameter. In the figure below the influence of these parameters is presented.
 
@@ -19,9 +19,9 @@ Gumbel distribution function: (left) random samples, and (right) PDF.
 
 Integrating the PDF, the following expression of the CDF is derived
 
-$
+$$
 F(x) = e^{\normalsize-e^{\normalsize-\cfrac{x-\mu}{\beta}}}
-$
+$$
 
 which is displayed in the figure below.
 
@@ -35,15 +35,15 @@ The influence of the parameters can also be observed in the CDF. The continuous 
 
 The mean of the Gumbel distribution can be computed as
 
-$
+$$
 E[X]=\mu + \gamma \beta
-$
+$$
 
 where $\gamma \approx 0.577$ is the Euler-Mascheroni constant. The variance is given by
 
-$
+$$
 Var[X] = \cfrac{\pi^2}{6}\beta^2
-$
+$$
 
 Finally, note that Gumbel distribution is not symmetric and presents positive skewness. This is, it presents a tail towards positive values. Actually, the skewness of this distribution can be analytically computed and it is approximately 1.14.
 
@@ -51,9 +51,9 @@ Finally, note that Gumbel distribution is not symmetric and presents positive sk
 
 Although less common, we can also find a variation of the Gumbel distribution with a left tail. The PDF of the left-tailed Gumbel distribution is given by 
 
-$
+$$
 f(x) = \cfrac{1}{\beta}e^{\left( \cfrac{x-\mu}{\beta} \normalsize- e^{\left( \cfrac{x-\mu}{\beta} \right)}\right)}
-$
+$$
 
 where $\mu$ is the location parameter and $\beta>0$ is the scale parameter. In the figure below the influence of these parameters is presented. Parameter interpretation is equivalent to that for the parameters of the right-tailed one.
 
@@ -63,9 +63,9 @@ Left-tailed Gumbel distribution function: (left) random samples, and (right) PDF
 
 Integrating the PDF, the following expression of the CDF is derived
 
-$
+$$
 F(x) = e^{\normalsize-e^{\cfrac{x-\mu}{\beta}}}
-$
+$$
 
 which is displayed in the figure below. Note how the difference in a symbol switches the distribution.
 

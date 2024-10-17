@@ -86,15 +86,15 @@ This graphical technique consists on adapting the axis of the plot of the cdf ac
 
 Let's see it with the example of the Exponential distribution. Its cdf is given by
 
-$
+$$
 F(x) = 1 - exp(-\lambda[x-\mu])
-$
+$$
 
 where $\lambda$ is the scale parameter and $\mu$ is the location parameter. A transformation is performed on the cdf so a linear relationship is established between the value of the random variable X and the non-exceedance probabilities. In the case of the Exponential distribution, it is just a matter of calculating logarithms to both sides of the equation as
 
-$
+$$
 ln[1-F(x)] = -\lambda[x-\mu]
-$
+$$
 
 In this manner, there is a linear relationship between $ln[1-F(x)]$ and $x$. Note that in the case of the Exponential distribution, the probability plot is the same as the log-scale! Therefore, the Exponential distribution was shown as a straight line in the previous plot, while the Gaussian distribution was not.
 
@@ -104,15 +104,17 @@ Kolmogorov-Smirnov (KS) test is one of the most popular nonparametric formal hyp
 
 This test is based on the KS statistic, which is (roughly) the maximum distance between the empirical cumulative distribution and the parametric distribution fitted to those observations. This statistic is mathematically defined as
 
-$
+$$
 D_n = sup_x|\hat{F}(x)-F(x)|
-$
+$$
 
 where $D_n$ is the KS statistic, $sup_x$ is the supremum of the set distances (intuitively, the largest absolute difference between the two distribution functions across all the values of the random variable $X$), $\hat{F}(x)$ is the empirical cumulative distribution and $F(x)$ the fitted parametric cumulative distribution.
 
 Once $D_n$ is computed, a formal hypothesis test is performed. The null hypothesis corresponds to $\hat{F}$ having the same distribution as $F$. In mathematical terms:
 
-$H_0: \hat{F} \sim F$
+$$
+H_0: \hat{F} \sim F
+$$
 
 The distribution of $D_n$ has been already calculated and included in different statistic packages, since it depends on the considered parametric distribution. These distributions can be used to calculate the probability of the null hypothesis being true (called $p-value$). A significance level needs to be selected (typically, $\alpha=0.05$) as a threshold to determine whether the null hypothesis is rejected or accepted. This is, if the probability of $H_0$ being true ($p-value$) is below $\alpha$, $H_0$ is rejected, so the empirical cumulative distribution is not coming from the fitted parametric cumulative distribution.
 
