@@ -94,7 +94,7 @@ The figure below displays the difference between the univariate distribution of 
 ---
 
 ---
-Bivariate Gaussian distribution: (left) probability density function, and (right) cumulative distribution function.
+Distribution of $Q_1$ and conditional distribution of $Q_1$ given $Q_2$. .
 ```
 ## From 2D to 3D: multivariate margins
 
@@ -131,7 +131,23 @@ $$
 
 We can see that the means of the random variables $Q_1$ and $Q_2$ have increased while $Cov(Q_1, Q_2)$ has been reduced from 1000 to 661.2. The figure below displays the difference between the univariate distributions of $Q_1$ and $Q_2$ without and with conditionalizing.
 
-We can also compare the bivariate Gaussian distribution of $Q_1$ and $Q_2$ without and with the conditionalization, as shown in the Figure below.
+```{figure} ./figures/mult_univ_comp.png
+
+---
+
+---
+Unconditional and conditional Gaussian distributions given $P$: (left) $Q_1$, and (right) $Q_2$.
+```
+
+We can also compare the bivariate Gaussian distribution of $Q_1$ and $Q_2$ without and with the conditionalization, as shown in the Figure below. You can see how the mode of the distribution (point of maximum density) has moved towards the upper right side of the plot and become slightly narrower  when conditionalizing.
+
+```{figure} ./figures/mult_cond_bi.png
+
+---
+
+---
+Unconditional and conditional bivariate Gaussian distributions for $Q_1$ and $Q_2$. Same density contours are plotted for both distributions.
+```
 
 ## Extra material: a video
 
