@@ -157,7 +157,7 @@ Computing the AND probability is not as straightforward as the non-exceedance pr
 
 Here, we will illustrate the concepts of AND (and later OR) probabilities using a bivariate case of the discharges of two rivers located close to each other, $q_1$ and $q_2$, respectively. We will assume that we have 34 observations each of the discharges (taken at the same time). In the figure below (panel (a)), you can see the observations.
 
-```{figure} ./figures/samples_marginal.png
+```{figure} ./figures/samples_marginal.svg
 
 ---
 
@@ -173,7 +173,7 @@ $$
 P[q_1 \leq 100, q_2 \leq 75] = 21/34 \approx 0.62
 $$
 
-```{figure} ./figures/and.png
+```{figure} ./figures/and.svg
 ---
 width: 60%
 ---
@@ -182,7 +182,7 @@ Samples of the discharges of two rivers ($q_1$ and $q_2$) highlighting the non-e
 
 Moving now to the OR case, in the panel (c) of the figure below, the area where $q_1 \leq 100 m^3/s \cup q_2 \leq 75 m^3/s$ is highlighted. Thus, we could count the samples in that area and compute $P(q_1 \leq 100 m^3/s \cup q_2 \leq 75 m^3/s)$ the same way as for the joint probability before: $P(q_1 \leq 100 m^3/s \cup q_2 \leq 75 m^3/s)=24/34 \approx 0.71$
 
-```{figure} ./figures/or.png
+```{figure} ./figures/or.svg
 
 ---
 
@@ -201,7 +201,7 @@ $$
 
 As previously mentioned, when evaluating a multivariate (here bivariate) cumulative distribution function, we obtain joint probabilities ($F(x, y)= F(X \leq x, Y \leq y)$). However, when designing or assessing a system, it is usually interesting to evaluate $F(X > x, Y > y)$. **Note that $F(X > x, Y > y) \neq 1 - F(X \leq x, Y \leq y)$.** In the figure below, we illustrate the process of how to compute $F(X > x, Y > y)$.
 
-```{figure} ./figures/and_exceed.png
+```{figure} ./figures/and_exceed.svg
 
 ---
 
@@ -235,7 +235,7 @@ Opposite to the definition of independence, X and Y are considered dependent whe
 
 Let's now go back to the above example of computing the joint probabilities of $q_1$ and $q_2$. We computed ir from the samples as $F(q_1 \leq 100, q_2 \leq 75) = 21/34 \approx 0.62$.
 
-```{figure} ./figures/and.png
+```{figure} ./figures/and.svg
 
 ---
 
@@ -287,7 +287,7 @@ $$
 P(q_2 > 150 m^3/s|q_1 > 130m^3/s)=2/6 \approx 0.33
 $$
 
-```{figure} ./figures/conditional.png
+```{figure} ./figures/conditional.svg
 
 ---
 
