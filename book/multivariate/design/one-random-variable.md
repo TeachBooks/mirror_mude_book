@@ -3,14 +3,14 @@
 
 % MMMMM: this page is from 2023 book and has been modified for the 2024 book. Sometime in between this page was also added to the risk and reliability book, which has _not_ been kept in sync.
 
-Consider a river that is protected by dikes: earthen embankments with the purpose of keeping water in the river channel and preventing flooding of the hinterland. The dikes should be designed and built such that the height allows the river to safely pass the maximum discharge every year, measured in m$^3$/s. A rating curve ({numref}`rating_curve`) gives us the relationship between discharge and water depth, $h_w$, so if we know what the maximum discharge is, we can build our dikes to the critical height, $h_{dike}\geq h_w$. But there is a problem---what is the maximum discharge in the river each year? How would we even go about determining this value? One way is to make observations and find the highest recorded data point.
+Consider a river that is protected by dikes: earthen embankments with the purpose of keeping water in the river channel and preventing flooding of the hinterland. The dikes should be designed and built such that the height allows the river to safely pass the maximum discharge every year, measured in m$^3$/s. A rating curve ({numref}`rating_curve`) gives us the relationship between discharge and water depth, $H_w$, so if we know what the maximum discharge is, we can build our dikes to the critical height, $h_{dike}\geq H_w$. But there is a problem---what is the maximum discharge in the river each year? How would we even go about determining this value? One way is to make observations and find the highest recorded data point.
 
 ```{figure} ../../figures/pd/rating_curve.svg
 ---
 height: 400px
 name: rating_curve
 ---
-Rating curve for hypothetical river. Relationship is $q=C \cdot h_w^\beta$ where $\beta$=2.0 and $C$=4.0.
+Rating curve for hypothetical river. Relationship is $Q=C \cdot H_w^\beta$ where $\beta$=2.0 and $C$=4.0.
 ```
 
 ````{admonition} Rhine River Example
@@ -76,9 +76,9 @@ We also took for granted that a simple relationship between river discharge and 
 Fortunately there is also extra conservatism built into this approach. For example, duration of high water plays a role: if discharge exceeds the capacity of the dike system, but only lasts for a short time (minutes or a couple hours), perhaps the dikes can withstand the overflow without eroding and causing flooding. This can be conceptualized by considering the joint probability of a high discharge *and* degradation of the dike leading to flooding:
 
 $$
-P(\text{flooding},h_w>h_{dike})=P(\text{flooding}|h_w>h_{dike})\cdot P(h_w>h_{dike})
+P[\text{flooding},h_w>h_{dike}]=P[\text{flooding}|h_w>h_{dike}]\cdot P[h_w>h_{dike}]
 $$
 
-where the conditional term represents the probability that the dike erodes (fails) given that the water depth exceeds the height. Assuming failure when the critical water depth is exceeded is conservative because it implies $P(\text{flooding}|h_w>h_{dike})=1.0$, whereas in reality this is not the case, and the 'true' flooding probability is less than that computed in the equation above.
+where the conditional term represents the probability that the dike erodes (fails) given that the water depth exceeds the height. Assuming failure when the critical water depth is exceeded is conservative because it implies $P[\text{flooding}|h_w>h_{dike}]=1.0$, whereas in reality this is not the case, and the 'true' flooding probability is less than that computed in the equation above.
 
 Later chapters of this book will introduce methods for taking these realities into account in the design and decision-making process. For now, we will see how our probabilistic design changes when more than one random variable must be considered.
