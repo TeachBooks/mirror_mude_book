@@ -92,7 +92,23 @@ $$
 \end{cases}
 $$
 
-For now we will consider only the case where the multivariate region $\Omega$ consists of intervals defined for each of the random variables individually, as in the equation above. In a later section we will describe $\Omega$ as a _function of random variables._ In addition, to easily distinguish the individual random variables, we introduce the term _marginal_:
+We can generalize these statements to define the _region of interest_ over which we would like to integrate the multivariate probability density function to obtain the probability associated with that region.
+
+```{admonition} Region of Interest as a Set of Intervals
+:class: tip
+
+For a multivariate distribution composed of $n$ random variables $X={X_1,X_2, \ldots , X_n}$, the set $\Omega$ is defined:
+
+$$
+\Omega = \big\{\Omega_1, \Omega_2, \ldots, \Omega_n \big\}
+$$
+
+where $\Omega_i$ is the interval over which the probability density function is integrated, for each random variable $i$.
+```
+
+Although it is difficult to construct the multivariate distribution and completely define $\Omega$ in practice (especially for dimension $n>2$), the theoretical framework introduced in this chapter applies for all multivariate probability distributions, regardless of the model or approach used.
+
+For now we will consider only the case where the multivariate region $\Omega$ consists of sub-intervals defined for each of the random variables individually, as in the definition above. In a later section we will describe $\Omega$ as a _function of random variables._ In addition, to easily distinguish the individual random variables, we introduce the term _marginal_:
 
 :::{card} Definition
 A **marginal** distribution is the univariate distribution associated with a single random variable that is part of a multivariate distribution.
@@ -112,7 +128,7 @@ $$
 A commonly used interval is $\Omega_{ne}$, the non-exceedance interval described above:
 
 $$
-\Omega=\Omega_{ne}
+\Omega=\big\{\Omega_{ne}\big\}
 \;\; \rightarrow \;\;
 P[\Omega_{ne}]
 = P[X \leq x^*]
@@ -133,8 +149,7 @@ $$
 P[\Omega_{ne}] = P[X \leq x^*] = F_X(x^*)
 $$
 
-where $x^*$ and $y^*$ are values of interest for each random variable. 
-
+where $x^*$ and $y^*$ are values of interest for each random variable.
 :::
 
 ### Two Random Variables
@@ -151,12 +166,15 @@ $$
 The equation above is the the multivariate CDF and also illustrates a specific combination of two intervals (a region in the $X,Y$ plane), described here with $x^*$ and $y^*$ as arbitrary values of interest:
 
 $$
-\Omega = 
+\Omega = \big\{\Omega_{x,ne}, \Omega_{y,ne} \big\} = 
 \begin{cases} 
    x \in \mathbb{R}: & -\infty \leq x \leq x^*   \\
    y \in \mathbb{R}: & -\infty \leq y \leq y^*
 \end{cases}
 $$
+
+(empirical_non_exceedance)=
+### Empirical Computation
 
 Let us now apply this equation to compute a probability: returning to our case study with two rivers, consider the situation where we are interested in _low_ river discharges (e.g., a dry condition that impacts water supply). Assume the values of interest are when $q_1 = 100 \;\textrm{m}^3\textrm{/s}$ and $q_2 = 75 \;\textrm{m}^3\textrm{/s}$ ($x^*$ and $y^*$, respectively). Noting that there are 21 points this region (see figure below), the probability of these conditions is computed as follows:
 
@@ -173,18 +191,70 @@ width: 60%
 Samples of the discharges of two rivers ($Q_1$ and $Q_2$),highlighting the region, $q_1 \leq 100 m^3/s$ and $q_2 \leq 75 m^3/s$, which contains 21 observations (34 total).
 ```
 
-The probability computed above is the direct evaluation of the multivariate CDF and is called the _joint non-exceedance_ of $X$ and $Y$. The term _joint_ arises from the need to describe more than one variable in a multivariate context. 
+### Joint Probability
+
+The probability computed above is the direct evaluation of the multivariate CDF and is called the _joint non-exceedance_ of $X$ and $Y$. The term _joint_ arises from the need to describe more than one variable in a multivariate context. This leads to additional definitions:
 
 :::{card} Definition
-The distribution of more than one random variable described in the same probability space is a **joint distribution**. For the bivariate case the **joint probability density function** is $f_{X,Y}(x,y)$. A **joint probability**, $P[\Omega]$, is that found by integrating the joint PDF sub-region of the probability space:
+The distribution of more than one random variable described in the same probability space is a **joint distribution**. For the bivariate case the **joint probability density function** (PDF) is $f_{X,Y}(x,y)$. A **joint probability**, $P[\Omega]$, is that found by integrating the joint PDF over the region of interest:
 
 $$
 P[\Omega] = \int_\Omega f_{X,Y}(x,y) \;\textrm{d}x\;\textrm{d}y
 $$
 
+where $\Omega$ is the set:
+
+$$
+\Omega = \big\{\Omega_{1}, \Omega_{2}, \ldots, \Omega_{i}\big\}.
+$$
+
 :::
 
-The definition above generalizes probability computations and illustrates the connection between the multivariate distribution and a region in the random variable space. It also indicates three essential ingredients required to find the joint probability:
+We can now extend the univariate non-exceedance probability for the bivariate case:
+
+:::{card} Definition
+The **joint non-exceedance probability**, $P[\Omega_{ne}]$, is:
+
+$$
+P[\Omega_{e}] = P[X \leq x^*, Y \leq y^*] = F_{X,Y}(x^*, y^*)
+$$
+
+where
+
+$$
+\Omega=\big\{\Omega_{x,ne}, \Omega_{y,ne}\big\}
+$$
+
+and $x^*$ and $y^*$ are values of interest for each random variable.
+
+This definition can be generalized for more than two random variables and implies that the density functions of _all_ random variables are jointly integrated in the ****lower** tails ($\Omega_{ne}$).
+
+:::
+
+Similarly, for the exceedance case:
+
+:::{card} Definition
+The **joint exceedance probability**, $P[\Omega_{e}]$, is:
+
+$$
+P[\Omega_{e}] = P[X > x^*, Y > y^*]
+$$
+
+where
+
+$$
+\Omega=\big\{\Omega_{x,e}, \Omega_{y,e}\big\}
+$$
+
+and $x^*$ and $y^*$ are values of interest for each random variable.
+
+This definition can be generalized for more than two random variables and implies that the density functions of _all_ random variables are jointly integrated in the **upper** tails ($\Omega_{e}$).
+
+_Note that the calculation of the probability $P[\Omega_{e}]$ is left as an exercise for the reader at the end of this section, as it requires applying concepts introduced below._
+
+:::
+
+The definitions above generalize probability computations and illustrates the connection between the multivariate distribution and a region in the random variable space. It also indicates three essential ingredients required to find the joint probability:
 
 1. The joint distribution (e.g., the bivariate case $f_{X, Y}(x,y)$).
 2. The region of interest $\Omega$.
@@ -196,60 +266,111 @@ On this page, the region $\Omega$ over which the _joint probability_ is calculat
 
 ## Intersection: AND
 
-As in the case of discrete events, the AND case for continuous random variables is when both "situations" occur together. Applying the definitions from above provides the following definition:
-
-$$
-P[X \leq x, Y \leq y] = F_{X,Y}(x, y)
-$$
+As in the case of discrete events, _intersection_ is the probability that a specific set of events occur together, although now we consider a set of intervals on the number line for each random variable, $\Omega_i$, for all $i$. This is directly analogous to the overlapping areas of the Venn diagrams; however, in this case the overlapping area is described in the real number plane (when dealing with two random variables). It is the region where _all_ sub-regions are overlapped.
 
 :::{card} Definition
-The **AND probability** is the _intersection_ of two events $P[X \subseteq \Omega_{x,e}, X \subseteq \Omega_{y,e}]$.
+The **AND probability** is the _intersection_ of a set of events:
+
+$$
+\Omega_{AND}
+= \big\{\Omega_1 \cap \Omega_2 \cap ... \cap \Omega_n\big\}
+$$
+
+**If and only if** the random variables are statistically independent, the probability can be evaluated as a product of the marginal probabilities:
+
+$$
+P\big[\Omega_{AND}\big] = \prod_{i=1}^n P\big[\Omega_i\big]
+$$
+
+When the assumption of statistical independence is not valid, the probability $p_{AND}$ must be computed by other methods.
+
 :::
 
-
-However, note that we can evaluate joint probabilities that are defined by any combination of intervals of the marginal distributions. between other "events". For example, joint exceedance, as described above, or joint non-exceedance. It is conventionally associated with the _joint exceedance_ case to distinguish from the joint non-exceedance case, which is simply evaluated with the _joint CDF._
+Within many engineering and science applications the AND probability is often conventionally associated with the _joint exceedance_ case to distinguish from the joint non-exceedance case.
 
 ```{tip}
 The term _AND probability_ can be assumed to mean _joint exceedance_, unless explicitly stated otherwise.
 ```
 
-Computing the AND probability is not as straightforward as the non-exceedance probability: it requires the use of conditional probability. However, it _is_ possible to compute the AND probability emperically, so let's try it!
+Computing the AND probability is not as straightforward as the non-exceedance probability: it requires the use of conditional probability. However, it _is_ possible to compute the AND probability empirically, so let's try it!
 
-### AND: Empirical Computation
+### Empirical Computation
 
-
-
-We can apply a similar approach to compute the joint probabilities of $q_1$ and $q_2$. As you an see in the figure below, the region of the samples where $q_1 \leq 100 m^3/s$ and $q_2 \leq 75 m^3/s$ is highlighted. Thus, we can compute the joint probability of non-exceedance $P[q_1 \leq 100, q_2 \leq 75]$ by counting the number of observations in that region. This results in:
+To compute the AND probability for _joint exceedance_ we can apply a similar approach as done for {ref}`non-exceedance probability above<empirical_non_exceedance>`, except now we consider the case where $q_1 > 100 m^3/s$ and $q_2 \leq 75 m^3/s$ is highlighted. Thus, we can compute the joint probability of non-exceedance $P[q_1 \leq 100, q_2 > 120]$. Counting the number of observations in that region results in:
 
 $$
-P[q_1 \leq 100, q_2 \leq 75] = 21/34 \approx 0.62
+P[q_1 > 100, q_2 > 120] = 3/34 \approx 0.09
 $$
 
-```{figure} ./figures/and.svg
+```{figure} ./figures/and_exceed.svg
 ---
 width: 60%
 ---
-Samples of the discharges of two rivers ($q_1$ and $q_2$) highlighting the non-exceedance region, $q_1 \leq 100 m^3/s$ and $q_2 \leq 75 m^3/s$.
+Samples of the discharges of two rivers ($Q_1$ and $Q_2$), highlighting the _joint exceedance_ region, $\Omega_e$, where $q_1 > 100 \;\textrm{m}^3\textrm{/s}$ and $q_2 > 120 \;\textrm{m}^3\textrm{/s}$.
 ```
 
-Moving now to the OR case, in the panel (c) of the figure below, the area where $q_1 \leq 100 m^3/s \cup q_2 \leq 75 m^3/s$ is highlighted. Thus, we could count the samples in that area and compute $P(q_1 \leq 100 m^3/s \cup q_2 \leq 75 m^3/s)$ the same way as for the joint probability before: $P(q_1 \leq 100 m^3/s \cup q_2 \leq 75 m^3/s)=24/34 \approx 0.71$
+## Union: OR
+
+As with _intersection, the _union_ of events can be adapted from the discrete event case. For continuous random variables the region of interest becomes the total area of the real number space covered by _any_ of the sub-regions of interest for each random variable.
+
+
+:::{card} Definition
+The **OR probability** is the _union_ of a set of events:
+
+$$
+\Omega_{OR}
+= \big\{\Omega_1 \cup \Omega_2 \cup ... \cup \Omega_n\big\}
+$$
+
+**If and only if** the random variables are statistically independent, the probability can be evaluated as the _complement_ of the probability that _none_ of the marginal sub-regions overlap:
+
+$$
+P\big[\Omega_{OR}\big] = 1 - \prod_{i=1}^n \bigg(1-P\big[\Omega_i\big]\bigg)
+$$
+
+where the 
+
+**FILL ME IN???**
+
+When the assumption of statistical independence is not valid, the probability $p_{AND}$ must be computed by other methods.
+
+:::
+
+### Empirical Computation
+
+Moving now to the OR case, we wish to compute the probability:
+
+$$
+P\big[\Omega_{OR}\big] = P\big[\Omega_{q_1,ne},\Omega_{q_2,ne}\big]
+= P[q_1 \leq 100 \;\textrm{m}^3\textrm{/s} \;\cup\; q_2 \leq 75 \;\textrm{m}^3\textrm{/s}]
+$$
+
+The region $\Omega_{OR}$ is illustrated in panel (c) of the figure below, the area where $$ is highlighted. We could count the samples in that area and compute $P(q_1 \leq 100 m^3/s \cup q_2 \leq 75 m^3/s)$ the same way as for the joint probability before:
+
+$$
+P(q_1 \leq 100 m^3/s \cup q_2 \leq 75 m^3/s)=24/34 \approx 0.71
+$$
 
 ```{figure} ./figures/or.svg
 
 ---
 
 ---
-Samples of the discharges of two rivers ($q_1$ and $q_2$): (a) highlighting those where $q_1 \leq 100 m^3/s$, (b)  highlighting where $q_2 \leq 75 m^3/s$, and (c) highlighting those where $q_1 \leq 100 m^3/s \cup q_2 \leq 75 m^3/s$.
+Samples of the discharges of two rivers ($Q_1$ and $Q_2$): (a) highlighting $\Omega_{q_1,ne}$, where $q_1 \leq 100 m^3/s$, (b) highlighting $\Omega_{q_2,ne}$, where $q_2 \leq 75 \;\textrm{m}^3\textrm{/s}$, and (c) highlighting $\Omega_{OR}=\big\{\Omega_{q_1,ne},\Omega_{q_2,ne}\big\}$, where $q_1 \leq 100 \;\textrm{m}^3\textrm{/s} \cup q_2 \leq 75 \;\textrm{m}^3\textrm{/s}$.
 ```
 
-Moreover, similar to discrete events, it is also possible to compute the OR probability as the sum of the marginal probabilities (panels (a) and (b) in the figure above) minus the joint probability, as we would be counting it twice
+A graphical approach can be applied that is directly analogous to the approach with discrete events (i.e., a Venn diagram): the sum of the marginal probabilities (panels (a) and (b) in the figure above) minus the joint non-exceedance probability, which must be removed as otherwise we would be counting it twice.
 
 $$
-P(q_1 \leq 100 m^3/s \cup q_2 \leq 75 m^3/s) = \\
-
-= P(q_1 \leq 100 m^3/s) + P(q_2 \leq 75 m^3/s) - P(q_1 \leq 100 m^3/s \cap q_2 \leq 75 m^3/s)=\\
-= (23+22-21)/34 = 24/34 \approx 0.71
+\begin{align*}
+P\big[q_1 \leq 100 m^3/s \cup q_2 \leq 75 m^3/s\big] &= \\
+&= P\big[q_1 \leq 100 m^3/s\big] + P\big[q_2 \leq 75 m^3/s\big] \quad \ldots \\
+& \quad- P\big[q_1 \leq 100 m^3/s \cap q_2 \leq 75 m^3/s\big] \\
+&= (23+22-21)/34 = 24/34 \approx 0.71
+\end{align*}
 $$
+
+## Joint Exceedance
 
 As previously mentioned, when evaluating a multivariate (here bivariate) cumulative distribution function, we obtain joint probabilities ($F(x, y)= F(X \leq x, Y \leq y)$). However, when designing or assessing a system, it is usually interesting to evaluate $F(X > x, Y > y)$. **Note that $F(X > x, Y > y) \neq 1 - F(X \leq x, Y \leq y)$.** In the figure below, we illustrate the process of how to compute $F(X > x, Y > y)$.
 
@@ -350,3 +471,13 @@ Samples of the discharges of two rivers ($q_1$ and $q_2$): (a) highlighting thos
 Note that if we would assume independence, we would obtain $P(q_2 > 150 m^3/s|q_1 > 130m^3/s)=P(q_2 > 150 m^3/s)=2/34 \approx 0.06$. The large difference between both probabilities, illustrates the role of dependence.
 
 **So now we need a way to describe dependence!** 
+
+## Exercises
+
+```{admonition} Exercise
+Compute the probability:
+
+$$
+P[\Omega_{e}] = P[X > x^*, Y > y^*]
+$$
+```

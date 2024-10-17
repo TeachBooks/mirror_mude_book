@@ -44,7 +44,7 @@ Venn diagram of arbitrary events $A$ and $B$.
 
 ## Intersection: AND
 
-The _intersection_ of the events $$ and $B$, denoted $P(A \cap B)$, is defined as the probability that both events happen at the same time and, thus, it would be represented in our diagram as shown in the figure below. Going back to our example, it represents the probability that both rivers get flooded at the same time.
+The _intersection_ of the events $A$ and $B$, denoted $P(A \cap B)$, is defined as the probability that both events occur together; thus, it would be represented in our diagram as shown in the figure below. Going back to our example, it represents the probability that both rivers get flooded at the same time.
 
 :::{card} Definition
 The **AND probability** is the _intersection_ of two events $P(A \cap B)$.
