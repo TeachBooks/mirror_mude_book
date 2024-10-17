@@ -100,16 +100,38 @@ Bivariate Gaussian distribution: (left) probability density function, and (right
 
 Often in the fields of Civil Engineering and Geosciences, we want to model more than two variables. Sometimes even tens or hundreds of variables. Thus, we need to find flexible models that account for the probabilistic dependence between them the best way possible. One option is to extend the bivariate Gaussian distribution to a multivariate Gaussian distribution with the desired number of random variables. Note that this implies that all the random variables are Gaussian-distributed.
 
-Let's see an example with three dimensions. Imagine that we want to model the dependence between the precipitation, $P$, and the discharges of the two rivers, $Q_1$ and $Q_2$. From a raingauge station, we could obtain the needed statistics of $P$ to model it using a Gaussian distribution, $\mu_P=12mm/h$ and $\sigma_P=27mm/h$, as well as the covariance with $Q_1$ and $Q_2$, $Cov(P, Q_1)=475$ and $Cov(P, Q_2)=520$. Assuming that we model the joint distribution of $P$, $Q_1$ and $Q_2$ using a multivariate Gaussian distribution, its parameters are
+We can extend the analytical equation to conditionalize the bivariate Gaussian distribution to the 3D multivariate Gaussian distribution to compute $(x_1, x_2|x_3=a)\sim N(\hat{\mu}, \hat{\Sigma})$ as
 
 $$
-\boldsymbol{\mu} = \begin{pmatrix} 12 \\ 94 \\ 78\end{pmatrix}
+\hat{\mu} = \begin{pmatrix} \mu_1 \\ \mu_2 \end{pmatrix} + \begin{pmatrix} \Sigma_{13} \\ \Sigma_{23} \end{pmatrix} \Sigma_{33}^{-1} (a - \mu_3)
 $$
 
 $$
-\boldsymbol{\Sigma} = \begin{pmatrix} 41^2 \ 475 \ 520 \\ 475 \ 35^2 \ 1000\\ 520 \ 1000 \ 27^2\end{pmatrix}$$
+\hat{\Sigma} = \begin{pmatrix} \Sigma_{11} \Sigma_{12} \\ \Sigma_{21} \Sigma_{22} \end{pmatrix} - \begin{pmatrix} \Sigma_{13} \\ \Sigma_{23} \end{pmatrix} \Sigma_{33}^{-1} \begin{pmatrix} \Sigma_{13} \ \Sigma_{23}\end{pmatrix}
+$$
 
-Analytical conditionalization of the 3D Gaussian: 2D margin!
+Let's see an example with three dimensions. Imagine that we want to model the dependence between the precipitation, $P$, and the discharges of the two rivers, $Q_1$ and $Q_2$. From a raingauge station, we could obtain the needed statistics of $P$ to model it using a Gaussian distribution, $\mu_P=12mm/h$ and $\sigma_P=27mm/h$, as well as the covariance with $Q_1$ and $Q_2$, $Cov(P, Q_1)=475$ and $Cov(P, Q_2)=520$. Assuming that we model the joint distribution of $P$, $Q_1$ and $Q_2$ using a multivariate Gaussian distribution, its parameters would be
+
+$$
+\boldsymbol{\mu} = \begin{pmatrix}  94 \\ 78 \\ 12 \end{pmatrix}
+$$
+
+$$
+\boldsymbol{\Sigma} = \begin{pmatrix} 41^2 \ 1000 \ 475 \\ 1000 \ 35^2 \ 520\\ 475 \ 520 \ 27^2\end{pmatrix}$$
+
+Now we want to make use of the multivariate Gaussian distribution to see what is the distribution of the discharges in the river if today is raining $p = 22mm/h$. This is, we are going to conditionalize the 3D multivariate Gaussian on one variable, $P$, to obtain a conditional bivariate Gaussian distribution of $Q_1$ and $Q_2$. In mathematical terms, $(q_1, q_2|p=22mm/h)\sim N(\hat{\mu}, \hat{\Sigma})$. We would do it as
+
+$$
+\hat{\mu} = \begin{pmatrix} 94 \\ 78 \end{pmatrix} + \begin{pmatrix} 475 \\ 520 \end{pmatrix} (27^2)^{-1} (22 - 12) = \begin{pmatrix} 100.5 \\ 85.1 \end{pmatrix} 
+$$
+
+$$
+\hat{\Sigma} = \begin{pmatrix} 41^2 \ 1000 \\ 1000 \ 35^2 \end{pmatrix} - \begin{pmatrix} 475 \\ 520 \end{pmatrix} (27^2)^{-1} \begin{pmatrix} 475 \ 520\end{pmatrix} = \begin{pmatrix} 41^2 \ 1000 \\ 1000 \ 35^2 \end{pmatrix} - \begin{pmatrix} 309.5 \ 338.8 \\ 338.8 \ 370.9 \end{pmatrix} = \begin{pmatrix} 1372.5 \ 661.2 \\ 661.2 \  854.1 \end{pmatrix}
+$$
+
+We can see that the means of the random variables $Q_1$ and $Q_2$ have increased while $Cov(Q_1, Q_2)$ has been reduced from 1000 to 661.2. The figure below displays the difference between the univariate distributions of $Q_1$ and $Q_2$ without and with conditionalizing.
+
+We can also compare the bivariate Gaussian distribution of $Q_1$ and $Q_2$ without and with the conditionalization, as shown in the Figure below.
 
 ## Extra material: a video
 
