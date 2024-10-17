@@ -54,7 +54,7 @@ Multivariate Gaussian distributions are useful because we can derive results ana
 
 Given that we are modelling the joint probability distribution of $X_1$ and $X_2$ using a bivariate Gaussian distribution and we know $x_2=a$, what is the expected distribution for $X_1$?
 
-An important property of the multivariate Gaussian distribution is that if two sets of variables are jointly Gaussian, then the conditional distribution of one set conditioned on the other is again Gaussian. Thus, the conditional distribution of $Q_1$ given the value of $Q_2$ will be a Gaussian distribution whose mean value ($\hat{\mu}$) and standard deviation ($\hat{\Sigma}$) we need to estimate. This is, we want to compute $(x_1|x_2=a)\sim N(\hat{\mu}, \hat{\Sigma})$. We can do it using the following expressions
+An important property of the multivariate Gaussian distribution is that if two sets of variables are jointly Gaussian, then the conditional distribution of one set conditioned on the other is again Gaussian. Thus, the conditional distribution of $Q_1$ given the value of $Q_2$ will be a Gaussian distribution whose mean value ($\hat{\mu}$) and standard deviation ($\hat{\Sigma}$) we need to estimate. This is, we want to compute $(x_1|x_2=a)\sim N(\hat{\mu}, \hat{\Sigma})$. We can derive expressions for $\hat{\mu}$ and $\hat{\Sigma}$ applying the definition of conditional density $\phi(x_1|x_2=a)=\frac{f_{Y_1,Y_2}(y_1, a)}{f_{Y_2}(a)}$ knowing that $f_{Y_1,Y_2}$ is a bivariate Gaussian distribution and $f_{Y_2}$ is a univariate Gaussian distribution, replacing $x_2$ by $a$ and doing the (unpleasant) algebra. By doing so, we would reach the following expressions
 
 $$
 \hat{\mu}=\mu_1+\Sigma_{12}\Sigma_{22}^{-1}(a-\mu_2)
@@ -67,6 +67,15 @@ $$
 where $a$ is the known value of $X_2$ (here, $Q_2$) and $\boldsymbol{\Sigma}=\begin{pmatrix} \Sigma_{11} \ \Sigma_{12} \\ \Sigma_{21} \ \Sigma_{22} \end{pmatrix}$.
 
 Let's go now back to the example of the discharges of two neighboring rivers, $Q_1$ and $Q_2$. We have historical measurements for both discharges and we want to apply a bivariate Gaussian distribution to model their joint distribution. Using the historical dataset, we can compute their mean values, $\mu_1=94 m^3/s$ and $\mu_2=78 m^3/s$, their standard deviations, $\sigma_1= 41 m^3/s$ and $\sigma_2=35 m^3/s$, and the covariance between them, $Cov(Q_1, Q_2)=1000 (m^3/s)^2$. We know that $q_2=100 m^3/s$. What is then the expected distribution for $Q_1$? This is, we want to compute $(q_1|q_2=100m^3/s)\sim N(\hat{\mu}, \hat{\Sigma})$.
+
+We can summarize the above information as
+
+$$
+\boldsymbol{\mu} = \begin{pmatrix} 94 \\ 78\end{pmatrix}
+$$
+
+$$
+\boldsymbol{\Sigma} = \begin{pmatrix} 41^2 \ 1000 \\ 1000 \ 35^2\end{pmatrix}$$
 
 Using the above expressions to our examples, we obtain
 
@@ -87,18 +96,24 @@ The figure below displays the difference between the univariate distribution of 
 ---
 Bivariate Gaussian distribution: (left) probability density function, and (right) cumulative distribution function.
 ```
-
-
-
 ## From 2D to 3D: multivariate margins
+
+Often in the fields of Civil Engineering and Geosciences, we want to model more than two variables. Sometimes even tens or hundreds of variables. Thus, we need to find flexible models that account for the probabilistic dependence between them the best way possible. One option is to extend the bivariate Gaussian distribution to a multivariate Gaussian distribution with the desired number of random variables. Note that this implies that all the random variables are Gaussian-distributed.
+
+Let's see an example with three dimensions. Imagine that we want to model the dependence between the precipitation, $P$, and the discharges of the two rivers, $Q_1$ and $Q_2$. From a raingauge station, we could obtain the needed statistics of $P$ to model it using a Gaussian distribution, $\mu_P=12mm/h$ and $\sigma_P=27mm/h$, as well as the covariance with $Q_1$ and $Q_2$, $Cov(P, Q_1)=475$ and $Cov(P, Q_2)=520$. Assuming that we model the joint distribution of $P$, $Q_1$ and $Q_2$ using a multivariate Gaussian distribution, its parameters are
+
+$$
+\boldsymbol{\mu} = \begin{pmatrix} 12 \\ 94 \\ 78\end{pmatrix}
+$$
+
+$$
+\boldsymbol{\Sigma} = \begin{pmatrix} 41^2 \ 475 \ 520 \\ 475 \ 35^2 \ 1000\\ 520 \ 1000 \ 27^2\end{pmatrix}$$
 
 Analytical conditionalization of the 3D Gaussian: 2D margin!
 
-**case study**: return to the river flooding case and illustrate the effect of dependence. figure and table.
-
 ## Extra material: a video
 
-If you need to refresh the concept of covariance and correlation and want to see a short video on the multivariate Gaussian distribution, you have here a video!
+If you need to refresh the concept of covariance and correlation and want to see a short video on the multivariate Gaussian distribution, you have one here!
 
 ```{eval-rst}
 .. raw:: html
