@@ -3,6 +3,31 @@
 
 This page covers fundamental concepts for _continuous random variables._ As we are interested in considering more than one variable simultaneously, the term _multivariate_ is used. We will start by translating the concepts covered on the previous page from _discrete events_, allowing us to arrive at a clear understanding of the concept of probabilistic _dependence_ for multivariate continuous random variables.
 
+(multivar_case_intro)=
+## Case Study: Two Rivers
+
+Here we will illustrate probability computations using a bivariate case. Consider the discharge of two rivers that are located in the same watershed, $Q_1$ and $Q_2$. There are 34 observations each of the discharges that were taken at the same time (this is important for multivariate distributions!). The observations are illustrated in the figure below (panel (a)).
+
+```{figure} ./figures/samples_marginal.svg
+
+---
+width:90%
+---
+Samples of the discharges of two rivers ($Q_1$ and $Q_2$): (a) paired observations, and (b) paired observations highlighting data for the case $q_1>100 \;\textrm{m}^3\textrm{/s}$.
+```
+
+Panel (b) in the figure above highlights the number of events where $q_1>100 \;\textrm{m}^3\textrm{/s}. We can thus compute the empirical probability:
+
+$$
+P[q_1>100 \;\textrm{m}^3\textrm{/s}] = 11/34 = 0.32
+$$
+
+As covered in the univariate continuous distribution chapter, this is equivalent to evaluating the empirical distribution $F_{Q_1}(q_1)$.
+
+```{tip}
+The theory presented below applies to univariate and multivariate distributions in general (i.e., $f_X(x)$, $F_X(x)$). However, this page keeps things simple by limiting probability computations to _empirical_ bivariate distributions (i.e., scatter plots of the river discharge data, as above). Following pages introduce theoretical continuous multivariate distributions.
+```
+
 ## From Discrete to Continuous
 
 Although the previous page considered _discrete events_ $A$ and $B$, the interpretation of probabilistic concepts are directly analogous to the case of _continuous random variables._
@@ -73,6 +98,8 @@ For now we will consider only the case where the multivariate region $\Omega$ co
 A **marginal** distribution is the univariate distribution associated with a single random variable that is part of a multivariate distribution.
 :::
 
+The probability $q_1>100$ m$^3$/s computed in the {ref}`Case Study Introduction section <multivar_case_intro>` is a marginal probability.
+
 ### One Random Variable
 
 The distribution of $X$ is described with a probability _density_ function (PDF), $f_X(x)$. Integration of the _density_ function over a specific interval $\Omega$ gives the _probability_ of the random variable $X$ taking a value $x$ within that interval, for example:
@@ -96,7 +123,7 @@ $$
 where $F_X(x^*)$ is the cumulative _distribution_ function (CDF), which by definition evaluates interval $\Omega_{ne}$.
 
 :::{card} Definitions
-The **exceedance probability**, $P[\Omega_{e}]$, and **non-exceedance probability**, $P[\Omega_{ne}]$ are analogous to the intervals defined above:
+The **exceedance probability**, $P[\Omega_{e}]$, and **non-exceedance probability**, $P[\Omega_{ne}]$ are:
 
 $$
 P[\Omega_{e}] = P[X > x^*] = 1 - F_X(x^*)
@@ -105,6 +132,8 @@ $$
 $$
 P[\Omega_{ne}] = P[X \leq x^*] = F_X(x^*)
 $$
+
+where $x^*$ and $y^*$ are values of interest for each random variable. 
 
 :::
 
@@ -119,20 +148,53 @@ P[X\leq x,Y\leq y]
   f_{X,Y}(x, y)\,\textrm{d}x\,\textrm{d}y
 $$
 
-The equation above arises from the definition of the multivariate CDF, and is also illustrates a specific combination of two intervals: the _joint non-exceedance_ of $X$ and $Y$. The term _joint_ arises from the need to describe more than one variable in a multivariate context. 
+The equation above is the the multivariate CDF and also illustrates a specific combination of two intervals (a region in the $X,Y$ plane), described here with $x^*$ and $y^*$ as arbitrary values of interest:
+
+$$
+\Omega = 
+\begin{cases} 
+   x \in \mathbb{R}: & -\infty \leq x \leq x^*   \\
+   y \in \mathbb{R}: & -\infty \leq y \leq y^*
+\end{cases}
+$$
+
+Let us now apply this equation to compute a probability: returning to our case study with two rivers, consider the situation where we are interested in _low_ river discharges (e.g., a dry condition that impacts water supply). Assume the values of interest are when $q_1 = 100 \;\textrm{m}^3\textrm{/s}$ and $q_2 = 75 \;\textrm{m}^3\textrm{/s}$ ($x^*$ and $y^*$, respectively). Noting that there are 21 points this region (see figure below), the probability of these conditions is computed as follows:
+
+$$
+P[Q_1 \leq q_1, Q_2 \leq q_2]
+= F_{Q_1,Q_2}(\;\textrm{m}^3\textrm{/s}, \;\textrm{m}^3\textrm{/s})
+= 21/34 = 0.62
+$$
+
+```{figure} ./figures/and.svg
+---
+width: 60%
+---
+Samples of the discharges of two rivers ($Q_1$ and $Q_2$),highlighting the region, $q_1 \leq 100 m^3/s$ and $q_2 \leq 75 m^3/s$, which contains 21 observations (34 total).
+```
+
+The probability computed above is the direct evaluation of the multivariate CDF and is called the _joint non-exceedance_ of $X$ and $Y$. The term _joint_ arises from the need to describe more than one variable in a multivariate context. 
 
 :::{card} Definition
-The distribution of more than one random variable described in the same probability space is a **joint distribution.** For the bivariate case the **joint probability density function** is $f_{X,Y}(x,y)$. A **joint probability**, $P[\Omega]$, is that found by integrating the joint PDF  sub-region of the probability space:
+The distribution of more than one random variable described in the same probability space is a **joint distribution**. For the bivariate case the **joint probability density function** is $f_{X,Y}(x,y)$. A **joint probability**, $P[\Omega]$, is that found by integrating the joint PDF sub-region of the probability space:
 
 $$
 P[\Omega] = \int_\Omega f_{X,Y}(x,y) \;\textrm{d}x\;\textrm{d}y
 $$
 
-where $\Omega$ can be defined as a combination of each
-
 :::
 
-## Intersection: AND, Joint
+The definition above generalizes probability computations and illustrates the connection between the multivariate distribution and a region in the random variable space. It also indicates three essential ingredients required to find the joint probability:
+
+1. The joint distribution (e.g., the bivariate case $f_{X, Y}(x,y)$).
+2. The region of interest $\Omega$.
+3. Integration of the density function over the region of interest.
+
+The integral of the joint PDF is directly analogous to integrating a univariate _density_ function (PDF) to obtain the cumulative distribution function (CDF), and thus a _probability._ However, whereas in 1D the integration region is simply an interval on the number line that can be explicitly defined with two values of $x$, in higher dimensions the region can be more difficult to define. 
+
+On this page, the region $\Omega$ over which the _joint probability_ is calculated is found by combining the regions $\Omega_x$ and $\Omega_y$ as a union or intersection. In other words, working with a combination of the four rectangular subregions portions of the 2D variable space. However, for many practical applications more complex regions must be considered; for example, a parametric equations that define a specific subregion (or multiple subregions) of the multivariate sample space. For example, evaluating the discharge of a river, $Q$, that is formed by the joining of the two rivers in our example: $Q = Q_1 + Q_2$. Later in this chapter we will consider this _function of random variables._ For now, we will continue with the rectangular subregions by revisiting the AND and OR probabilities from the discrete event case.
+
+## Intersection: AND
 
 As in the case of discrete events, the AND case for continuous random variables is when both "situations" occur together. Applying the definitions from above provides the following definition:
 
@@ -155,17 +217,7 @@ Computing the AND probability is not as straightforward as the non-exceedance pr
 
 ### AND: Empirical Computation
 
-Here, we will illustrate the concepts of AND (and later OR) probabilities using a bivariate case of the discharges of two rivers located close to each other, $q_1$ and $q_2$, respectively. We will assume that we have 34 observations each of the discharges (taken at the same time). In the figure below (panel (a)), you can see the observations.
 
-```{figure} ./figures/samples_marginal.svg
-
----
-
----
-Samples of the discharges of two rivers ($q_1$ and $q_2$): (a) paired observations, and (b) paired observations highlighting data for the marginal case $q_1>100 m^3/s$.
-```
-
-In panel (b) in the figure above, we have highlighted the number of events where $q_1>100 m^3/s$. We can thus compute $P(q_1>100 m^3/s) = 11/34 \approx 0.32$ (the marginal parobability of $q_1$).
 
 We can apply a similar approach to compute the joint probabilities of $q_1$ and $q_2$. As you an see in the figure below, the region of the samples where $q_1 \leq 100 m^3/s$ and $q_2 \leq 75 m^3/s$ is highlighted. Thus, we can compute the joint probability of non-exceedance $P[q_1 \leq 100, q_2 \leq 75]$ by counting the number of observations in that region. This results in:
 
@@ -235,7 +287,7 @@ Opposite to the definition of independence, X and Y are considered dependent whe
 
 Let's now go back to the above example of computing the joint probabilities of $q_1$ and $q_2$. We computed ir from the samples as $F(q_1 \leq 100, q_2 \leq 75) = 21/34 \approx 0.62$.
 
-```{figure} ./figures/and.svg
+```{figure} ./figures/and_computation.svg
 
 ---
 
