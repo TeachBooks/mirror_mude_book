@@ -103,10 +103,10 @@ parts:
         sections:
         - file: multivariate/design/one-random-variable
         - file: multivariate/design/two-random-variables
+      # START REMOVE-FROM-PUBLISH
         - file: multivariate/design/exercise
           sections:
           - file: multivariate/design/exercise_solutions
-      # START REMOVE-FROM-PUBLISH
       - file: multivariate/test_pyvinecopulib
       - file: multivariate/test_bivariate
       # END REMOVE-FROM-PUBLISH
