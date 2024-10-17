@@ -106,6 +106,10 @@ parts:
         - file: multivariate/design/exercise
           sections:
           - file: multivariate/design/exercise_solutions
+      # START REMOVE-FROM-PUBLISH
+      - file: multivariate/test_pyvinecopulib
+      - file: multivariate/test_bivariate
+      # END REMOVE-FROM-PUBLISH
 
 #   - caption: Q2 Topics
 #     numbered: 2
