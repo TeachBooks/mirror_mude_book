@@ -97,13 +97,13 @@ We can generalize these statements to define the _region of interest_ over which
 ```{admonition} Region of Interest as a Set of Intervals
 :class: tip
 
-For a multivariate distribution composed of $n$ random variables $X={X_1,X_2, \ldots , X_n}$, the set $\Omega$ is defined:
+Consider a multivariate distribution that describes a vector random variables $X={X_1,X_2, \ldots , X_n}$, composed of $n$ random variables $X_i$. The region of interest $\Omega$ is defined as the set:
 
 $$
 \Omega = \big\{\Omega_1, \Omega_2, \ldots, \Omega_n \big\}
 $$
 
-where $\Omega_i$ is the interval over which the probability density function is integrated, for each random variable $i$.
+where $\Omega_i$ is the interval over which the probability density function is integrated, for each random variable $X_i$.
 ```
 
 Although it is difficult to construct the multivariate distribution and completely define $\Omega$ in practice (especially for dimension $n>2$), the theoretical framework introduced in this chapter applies for all multivariate probability distributions, regardless of the model or approach used.
@@ -196,7 +196,7 @@ Samples of the discharges of two rivers ($Q_1$ and $Q_2$),highlighting the regio
 The probability computed above is the direct evaluation of the multivariate CDF and is called the _joint non-exceedance_ of $X$ and $Y$. The term _joint_ arises from the need to describe more than one variable in a multivariate context. This leads to additional definitions:
 
 :::{card} Definition
-The distribution of more than one random variable described in the same probability space is a **joint distribution**. For the bivariate case the **joint probability density function** (PDF) is $f_{X,Y}(x,y)$. A **joint probability**, $P[\Omega]$, is that found by integrating the joint PDF over the region of interest:
+The distribution of more than one random variable described in the same probability space is a **joint distribution**. For the bivariate case the **joint probability density function** (PDF) is $f_{X,Y}(x,y)$. A **joint probability**, $P[\Omega]$, is the probability found by integrating the joint PDF over the region of interest:
 
 $$
 P[\Omega] = \int_\Omega f_{X,Y}(x,y) \;\textrm{d}x\;\textrm{d}y
@@ -205,8 +205,10 @@ $$
 where $\Omega$ is the set:
 
 $$
-\Omega = \big\{\Omega_{1}, \Omega_{2}, \ldots, \Omega_{i}\big\}.
+\Omega = \big\{\Omega_{1}, \Omega_{2}}.
 $$
+
+This is shown for $n=2$ random variables here, but the concept can easily be extended to higher dimensions.
 
 :::
 
@@ -269,11 +271,11 @@ On this page, the region $\Omega$ over which the _joint probability_ is calculat
 As in the case of discrete events, _intersection_ is the probability that a specific set of events occur together, although now we consider a set of intervals on the number line for each random variable, $\Omega_i$, for all $i$. This is directly analogous to the overlapping areas of the Venn diagrams; however, in this case the overlapping area is described in the real number plane (when dealing with two random variables). It is the region where _all_ sub-regions are overlapped.
 
 :::{card} Definition
-The **AND probability** is the _intersection_ of a set of events:
+The **AND probability** is the _intersection_ of a set of $n$ events $\Omega_i$ is:
 
 $$
 \Omega_{AND}
-= \big\{\Omega_1 \cap \Omega_2 \cap ... \cap \Omega_n\big\}
+= \big\{\Omega_1 \;\cap\; \Omega_2 \;\cap\; ... \;\cap\; \Omega_n\big\}
 $$
 
 **If and only if** the random variables are statistically independent, the probability can be evaluated as a product of the marginal probabilities:
@@ -315,24 +317,58 @@ As with _intersection, the _union_ of events can be adapted from the discrete ev
 
 
 :::{card} Definition
-The **OR probability** is the _union_ of a set of events:
+The **OR probability** is the _union_ of a set of $n$ events $\Omega_i$ is
 
 $$
 \Omega_{OR}
-= \big\{\Omega_1 \cup \Omega_2 \cup ... \cup \Omega_n\big\}
+= \big\{\Omega_1 \;\cup\; \Omega_2 \;\cup\; ... \;\cup\; \Omega_n\big\}
 $$
 
-**If and only if** the random variables are statistically independent, the probability can be evaluated as the _complement_ of the probability that _none_ of the marginal sub-regions overlap:
+For computing probability, it is easier to express the set with _intersections._ Using $\overline{\Omega}$ to denote the complement of $\overline{\Omega}$, De Morgan's laws allow us to rewrite the _union_ as
 
 $$
-P\big[\Omega_{OR}\big] = 1 - \prod_{i=1}^n \bigg(1-P\big[\Omega_i\big]\bigg)
+\begin{align*}
+P\big[\Omega_{OR}] &= \\
+&= 1 - P\big[\;\overline{\Omega_1 \;\cup\;
+                 \Omega_2 \;\cup\; ... \;\cup\; 
+                 \Omega_n}\;\big] \\
+&= 1 - P\big[\;\overline{\Omega_1}\;] \;\cap\; 
+       P\big[\;\overline{\Omega_2}\;] \;\cap\; ... \;\cap\; 
+       P\big[\;\overline{\Omega_n}\;] \\
+&= 1 - \Big(1-P\big[\;\Omega_1\;]\Big)
+       \Big(1-P\big[\;\Omega_2\;]\Big) ... 
+       \Big(1-P\big[\;\Omega_n\;]\Big) \\
+&= 1 - \prod_{i=1}^n \bigg(1-P\big[\Omega_i\big]\bigg)
+\end{align*}
+$$
+
+In other words, the _complement_ of the probability associated with a region $\overline{\Omega}$ that overlaps with _none_ of the sub-regions.
+
+For the bivariate case, this simplifies to:
+result above
+$$
+P\big[\Omega_{OR}]
+= P\big[\Omega_x\big]
++ P\big[\Omega_y\big]
+- P\big[\Omega_x\;\cap\;\Omega_y\big]
+$$
+
+**If and only if** the random variables are statistically independent, the bivariate probability can thus be evaluated as:
+
+$$
+P\big[\Omega_{OR}]
+= P\big[\Omega_x\big]
++ P\big[\Omega_y\big]
+- P\big[\Omega_x\big]P\big[\Omega_y\big]
 $$
 
 where the 
 
-**FILL ME IN???**
+$$
+\prod_{i=1}^n \bigg(1-P\big[\Omega_i\big]\bigg) = \prod_{i=1}^n \bigg(P\big[\overline{\Omega_i}\big]\bigg)
+$$
 
-When the assumption of statistical independence is not valid, the probability $p_{AND}$ must be computed by other methods.
+When the assumption of statistical independence is not valid, the probability $p_{OR}$ must be computed by other methods.
 
 :::
 

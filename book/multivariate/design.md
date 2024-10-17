@@ -56,6 +56,6 @@ The following pages work through an example related to flooding on a river to il
 
 1. Consider a univariate design case for the discharge capacity of a flood protection system on a river.
 2. Consider a bivariate design case where two rivers contribute to flooding and make the distinction between AND and OR perspectives explicit.
-3. Illustrate the effect of various marginal distributions and dependence models on the results through examples and exercises.
+%3. Illustrate the effect of various marginal distributions and dependence models on the results through examples and exercises.
 
 [^conundrum]: a confusing and difficult problem or question (source: Oxford Languages, via Google).

@@ -103,7 +103,7 @@ $$
  
 where $P(A|B)$ is the probability of the event $A$ given that event $B$ is known to have occurred. Note that when reading the equation the vertical bar $|$ is read out loud as "given," and identifies the combination of events $A|B$ as "$A$ conditioned on $B$."
 
-A formal definition and proof of conditional probability is outside the scope of this book, but the concept can be illustrated graphically by recognizing that once $B$ is known to have occurred, it's probability is now 1.0 and the task at hand is to determine the probability of $A$. Using the figure above, this is equivalent to taking the area of the circle $B$ as the new sample space and noting the probability $P(A)$ is given by the fraction of the circle where $A$ is overlapped: the _intersection_, $P(A \cap B)$. As the probability of $B$ is now 1.0, we must scale $P(A \cap B)$ proportionally (normalizing by $P(B)$), thus arriving at the equation above: simple!
+The concept can be illustrated graphically by recognizing that once $B$ is known to have occurred, it's probability is now 1.0 and the task at hand is to determine the probability of $A$. Using the figure above, this is equivalent to taking the area of the circle $B$ as the new sample space and noting the probability $P(A)$ is given by the fraction of the circle where $A$ is overlapped: the _intersection_, $P(A \cap B)$. As the probability of $B$ is now 1.0, we must scale $P(A \cap B)$ proportionally (normalizing by $P(B)$), thus arriving at the equation above: simple!
 
 ### Conditional Probability of Independent Events
 
