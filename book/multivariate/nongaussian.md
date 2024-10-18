@@ -15,7 +15,12 @@ In this chapter we will focus on the use of a Copula, which provides a simple, y
 
 ## Bivariate copulas
 
-Bivariate copulas, or just copulas, are joint distributions with uniform marginal distributions in [0, 1]. According to Sklar theorem, any multivariate joint distribution of continuous variables can be described as a copula that models the dependence between the variables and a set of univariate marginal distributions. The definition of copula for the bivariate case is given by
+Bivariate copulas, or just copulas, are joint distributions with uniform marginal distributions in [0, 1]. According to Sklar theorem, any multivariate joint distribution of continuous variables can be described as a copula that models the dependence between the variables and a set of univariate marginal distributions. 
+
+```{admonition} Definition of bivariate copula
+:class: tip
+
+The definition of copula for the bivariate case is given by
 
 $$
 H_{X_1,X_2}(x_1, x_2)=C \{F_{X_1}(x_1), G_{X_2}(x_2)\}
@@ -23,15 +28,32 @@ $$
 
 where $H_{X_1,X_2}(x_1, x_2)$ for $(x_1, x_2) \in \mathbb{R}^2$ is a joint distribution with marginals $F_{X_1}(x_1)$ and $G_{X_2}(x_2)$ in [0, 1] and a copula in the unit square $I^2=([0,1] \times [0,1])$, being this equation satisfied for all $(x_1, x_2) \in \mathbb{R}^2$.
 
+Therefore, the joint density is given as the product of the density of the copula and the densities of the marginals as
+
+$$
+f_{X_1,X_2}(x_1, x_2) = f_{X_1}(x_1)f_{X_2}(x_2)c(F_{X_1}(x_1), F_{X_2}(x_2))
+$$
+
+```
+
 **But what does that mean?**
 
-When using copulas, we are going to model the univariate distributions for each variable and the dependence with different models. That gives us a lot of flexibility. 
+When using copulas, we are going to model the univariate distributions for each variable and the dependence between them with different models. To do so, we select and fit a univariate distributions for each variable as seen in the previous chapter. That characterizes the univariate distribution of each variable or what call *marginal distributions*. To deal with the dependence between the random variables using copulas, we transform the observations to what we call *unity space*, *uniform space* or *pseudo observations* by means of the cumulative distribution function. This is, we will model the dependence between the non-exceedance probabilities of variables and not between the values of the random variables. We can perform this transformation using either the empirical cumulative distribution function or the parametric distribution functions we have fitted. 
 
-Sklar theorem
+In the figure below, in panel (a), you have observations of discharges of two rivers, $Q_1$ and $Q_2$. In panel (b) you see how we have transformed the observations to uniform space. Note that the marginal distributions in panel (b) are uniform and defined in [0,1].
 
-Advantages: decoupling of the margins
 
-F(x,y) = C(u,v)f(x)f(y)
+```{figure} ./figures/copula_samples_together.png
 
-u, v = F(x), F(y)
+---
 
+---
+Scatter plot and histograms of the observations of $Q_1$ and $Q_2$: (a) in variable space, and (b) in uniform space.
+```
+
+Something about fitting parametric copulas. Different families. Here, focused on Gaussian. More: go to Cross Over.
+
+This approach has several advantages when modelling joint multivariate distributions:
+
+- It improves the flexibility of the model, as we can choose different marginal distributions for each random variable, and also different to the model for the dependence.
+- It helps in visualizing the dependence between the variable without the influence of the marginal distributions. This is, if you go back to the figure above and compare the shape of the scatter plot between $Q_1$ and $Q_2$, and $F_{Q_1}(q_1)$ and $F_{Q_2}(q_2)$, you can see significant differences. In panel (b), you can see how the high values of $F_{Q_1}(q_1)$ and $F_{Q_2}(q_2)$ are more correlated (the scatter is narrower) than the lower values (larger scatter). That is difficult to observe in panel (a).
