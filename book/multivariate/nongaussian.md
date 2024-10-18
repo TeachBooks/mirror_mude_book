@@ -1,7 +1,7 @@
 
 # Non-Gaussian Multivariate Distributions
 
-The multivariate Gaussian distribution $\Phi_X(x)$ is a simple, effective and widely used approach for capturing dependence in multivariate situations. However, for continuous random variables, it has limitations due to it's inability to capture:
+The multivariate Gaussian distribution $\Phi_X(x)$ is a simple, effective and widely used approach for capturing dependence in multivariate situations. However, for continuous random variables, it has limitations due to its inability to capture:
 
 - non-Gaussian marginal distributions
 - non-linear dependence
@@ -51,9 +51,21 @@ In the figure below, in panel (a), you have observations of discharges of two ri
 Scatter plot and histograms of the observations of $Q_1$ and $Q_2$: (a) in variable space, and (b) in uniform space.
 ```
 
-Something about fitting parametric copulas. Different families. Here, focused on Gaussian. More: go to Cross Over.
-
 This approach has several advantages when modelling joint multivariate distributions:
 
 - It improves the flexibility of the model, as we can choose different marginal distributions for each random variable, and also different to the model for the dependence.
 - It helps in visualizing the dependence between the variable without the influence of the marginal distributions. This is, if you go back to the figure above and compare the shape of the scatter plot between $Q_1$ and $Q_2$, and $F_{Q_1}(q_1)$ and $F_{Q_2}(q_2)$, you can see significant differences. In panel (b), you can see how the high values of $F_{Q_1}(q_1)$ and $F_{Q_2}(q_2)$ are more correlated (the scatter is narrower) than the lower values (larger scatter). That is difficult to observe in panel (a).
+
+
+When we were studying univariate distributions, we fitted parametric univariate distributions (e.g. Gaussian or Gumbel) to the empirical distribution (the observations). Here, we can do the same with copulas: we can fit a parametric copula to the observations. There are different copula families such as Gaussian, Clayton, or Gumbel, with different shapes. For instance, Gaussian copula is symmetric, while Clayton copula is not. As you can see in the Figure below, the lower values are more correlated than the higher values in Clayton copula. During the course, you will only use Gaussian copula, and you should only understand the concept of copula. 
+
+
+```{figure} ./figures/examples_copulas.png
+
+---
+
+---
+Scatter plot and histograms of the observations of $Q_1$ and $Q_2$: (a) in variable space, and (b) in uniform space.
+```
+
+Something about fitting parametric copulas. Different families. Here, focused on Gaussian. More: go to Cross Over.
