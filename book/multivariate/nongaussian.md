@@ -23,10 +23,10 @@ Bivariate copulas, or just copulas, are joint distributions with uniform margina
 The definition of copula for the bivariate case is given by
 
 $$
-H_{X_1,X_2}(x_1, x_2)=C \{F_{X_1}(x_1), G_{X_2}(x_2)\}
+F_{X_1,X_2}(x_1, x_2)=C \{F_{X_1}(x_1), F_{X_2}(x_2)\}
 $$
 
-where $H_{X_1,X_2}(x_1, x_2)$ for $(x_1, x_2) \in \mathbb{R}^2$ is a joint distribution with marginals $F_{X_1}(x_1)$ and $G_{X_2}(x_2)$ in [0, 1] and a copula in the unit square $I^2=([0,1] \times [0,1])$, being this equation satisfied for all $(x_1, x_2) \in \mathbb{R}^2$.
+where $F_{X_1,X_2}(x_1, x_2)$ for $(x_1, x_2) \in \mathbb{R}^2$ is a joint distribution with marginals $F_{X_1}(x_1)$ and $F_{X_2}(x_2)$ in [0, 1] and a copula in the unit square $I^2=([0,1] \times [0,1])$, being this equation satisfied for all $(x_1, x_2) \in \mathbb{R}^2$.
 
 Therefore, the joint density is given as the product of the density of the copula and the densities of the marginals as
 
@@ -74,7 +74,7 @@ Scatter plot and histograms of the observations of $Q_1$ and $Q_2$: (a) in varia
 ```{admonition} Exam tip
 :class: tip
 
-The goal of this course is just to give you a first brief introduction to copulas. Thus, you just need to understand the concept of copula, how to compute the joint density and how to go from variable space to uniform space.
+The goal of this course is just to give you a first brief introduction to copulas. Thus, you just need to understand the concept of copula and how to compute the joint density.
 
 If you want to learn more about bivariate copulas and other multivariate joint distributions in higher dimensions, you can study them in the Cross Over "MORE: Probabilistic Modelling of real-world phenomena through ObseRvations and Elicitation".
 
