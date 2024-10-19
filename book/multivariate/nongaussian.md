@@ -15,7 +15,7 @@ In this chapter we will focus on the use of a Copula, which provides a simple, y
 
 ## Bivariate copulas
 
-Bivariate copulas, or just copulas, are joint distributions with uniform marginal distributions in [0, 1]. According to Sklar theorem, any multivariate joint distribution of continuous variables can be described as a copula that models the dependence between the variables and a set of univariate marginal distributions. 
+Bivariate copulas, or just copulas, are joint distributions with uniform marginal distributions in [0, 1]. According to Sklar theorem (not provided here), any multivariate joint distribution of continuous random variables can be described as a copula, $C$, that models the dependence between the variables, where the variables are defined by univariate marginal distributions. 
 
 ```{admonition} Definition of bivariate copula
 :class: tip
@@ -23,12 +23,12 @@ Bivariate copulas, or just copulas, are joint distributions with uniform margina
 The definition of copula for the bivariate case is given by
 
 $$
-F_{X_1,X_2}(x_1, x_2)=C \{F_{X_1}(x_1), F_{X_2}(x_2)\}
+F_{X_1,X_2}(x_1, x_2)=C \big[F_{X_1}(x_1), F_{X_2}(x_2)\big]
 $$
 
-where $F_{X_1,X_2}(x_1, x_2)$ for $(x_1, x_2) \in \mathbb{R}^2$ is a joint distribution with marginals $F_{X_1}(x_1)$ and $F_{X_2}(x_2)$ in [0, 1] and a copula in the unit square $I^2=([0,1] \times [0,1])$, being this equation satisfied for all $(x_1, x_2) \in \mathbb{R}^2$.
+where $F_{X_1,X_2}(x_1, x_2)$ for $(x_1, x_2) \in \mathbb{R}^2$ is a joint distribution with marginals $F_{X_1}(x_1)$ and $F_{X_2}(x_2)$ in [0, 1] and $C$ is a copula in the unit square $I^2=([0,1] \times [0,1])$, being this equation satisfied for all $(x_1, x_2) \in \mathbb{R}^2$.
 
-Therefore, the joint density is given as the product of the density of the copula and the densities of the marginals as
+Therefore, the joint density is given as the product of the density of the copula, $c$, and the densities of the marginals as
 
 $$
 f_{X_1,X_2}(x_1, x_2) = f_{X_1}(x_1)f_{X_2}(x_2)c(F_{X_1}(x_1), F_{X_2}(x_2))
@@ -75,6 +75,8 @@ Scatter plot and histograms of the observations of $Q_1$ and $Q_2$: (a) in varia
 :class: tip
 
 The goal of this course is just to give you a first brief introduction to copulas. Thus, you just need to understand the concept of copula and how to compute the joint density.
+
+You will be provided Python code to evaluate multivariate distributions constructed using Copulas.
 
 If you want to learn more about bivariate copulas and other multivariate joint distributions in higher dimensions, you can study them in the Cross Over "MORE: Probabilistic Modelling of real-world phenomena through ObseRvations and Elicitation".
 
