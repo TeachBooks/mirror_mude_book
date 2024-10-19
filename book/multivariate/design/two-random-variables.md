@@ -1,11 +1,13 @@
 (prob_design_2_rv)=
 # Two Random Variables
 
+% MMMMM: this page is from 2023 book and has been modified for the 2024 book. Sometime in between this page was also added to the risk and reliability book, which has _not_ been kept in sync.
+
 The previous section illustrated how a decision for dike height, $h_{dike}$, can take into account uncertainty in river discharge. We used a maximum allowable probability of flooding to derive the specific value of discharge, $q_{design}$, that should be used to choose $h_{dike}$. This was necessary because there was otherwise no way of establishing what the maximum discharge should be. The only variable considered to be random was the maximum river discharge that occurs each year. This section considers how the design process becomes more complicated when *two* random variables are considered (two load variables).
 
-````{admonition} Distribution for $q_1$ and $q_2$
+````{admonition} Distribution for $Q_1$ and $Q_2$
 :class: dropdown
-On this page all calculations assume the same lognormal distribution for random variables $q_1$ and $q_1$, where the first and second moments of the distribution are:
+On this page all calculations assume the same lognormal distribution for random variables $Q_1$ and Q_1$, where the first and second moments of the distribution are:
 
 $$
 \begin{align*}
@@ -31,10 +33,10 @@ q_2 = stats.lognorm(s=s, loc=loc, scale=scale)
 In this scenario our objective for choosing $h_{dike}$ is still the same, except now we recognize that our location on the river is downstream of a confluence of two smaller rivers. The discharge at the location of our dike is thus the sum of the dicharge from Rivers 1 and 2:
 
 $$
-q=q_1+q_2
+Q=Q_1+Q_2
 $$
 
-where the same rating curve applies, giving $h_w$ as a function of $q$. As before, acknowledging that the maximum discharge per year in each river is a random variable, we can approach the design problem in the same way: choose $h_{dike}$ such that it retains water when $q$ takes a value with probability of exceedance 0.01. For now, we can assume the distribution for River 1 and River 2 are the same as in the previous Section, and that they are independent.
+where the same rating curve applies, giving $H_w$ as a function of $Q$. As before, acknowledging that the maximum discharge per year in each river is a random variable, we can approach the design problem in the same way: choose $h_{dike}$ such that it retains water when $Q$ takes a value with probability of exceedance 0.01. For now, we can assume the distribution for River 1 and River 2 are the same as in the previous Section, and that they are independent.
 
 *Compared to the previous example, now there are two distributions---how do we find the design discharge and dike height?*
 
@@ -42,7 +44,7 @@ Before presenting the correct approach, three common mistakes are illustrated.
 
 ### Incorrect Approach 1
 
-Find the discharge in each river, $q_1$ and $q_2$, such that the probability of exceeding each discharge is 0.01. As in the previous section,
+Find the discharge in each river, $Q_1$ and $q_2$, such that the probability of exceeding each discharge is 0.01. As in the previous section,
 
 $$
 q_{1,\mathrm{design}}=q_{2,\mathrm{design}}=F_{Q}^{-1}(1-0.01)=155\:\text{m}^3\text{/s} \;\rightarrow\; q_{design}=310\:\text{m}^3\text{/s} 
@@ -50,7 +52,7 @@ $$
 
 *Why is this approach incorrect?*
 
-It considers the simultaneous occurrence of *both* rivers exceeding a design discharge with probability 0.01. This is a joint probability of occurrence, $P(Q_1>q_{1,design},Q_2>q_{2,design})$, which can be evaluated with a multivariate probability distribution (or the marginal distributions in the independent case). The scenario is equivalent to observing two sixes after tossing two dice simultaneously: if the dice are fair, the probability is $1/36$. Thus, for this incorrect case the probability $P(Q_1>q_{1,design},Q_2>q_{2,design})$ is not 0.01, it's actualy 0.01$^2$=0.0001, illustrated in the figure below.
+It considers the simultaneous occurrence of *both* rivers exceeding a design discharge with probability 0.01. This is a joint probability of occurrence, $P[Q_1>q_{1,design},Q_2>q_{2,design}]$, which can be evaluated with a multivariate probability distribution (or the marginal distributions in the independent case). The scenario is equivalent to observing two sixes after tossing two dice simultaneously: if the dice are fair, the probability is $1/36$. Thus, for this incorrect case the probability $P[Q_1>q_{1,design},Q_2>q_{2,design}]$ is not 0.01, it's actualy 0.01$^2$=0.0001, illustrated in the figure below.
 
 ```{figure} ../../figures/pd/design_2_rv_error_1.svg
 ---
@@ -107,16 +109,16 @@ Since the 'and' case didn't work we can use the 'or' probability, or union! In o
 The union probability can be found as follows:
 
 $$
-P(Q_1>q_1 \cup Q_2>q_2)=1-P(Q_1<q_1,Q_2<q_2)
+P[Q_1>q_1 \cup Q_2>q_2]=1-P[Q_1<q_1,Q_2<q_2]
 $$
 
 given the assumtion of independence, the union probability is:
 
 $$
-P(Q_1>q_1 \cup Q_2>q_2)=1-P(Q_1<q_1)\cdot P(Q_2<q_2)
+P[Q_1>q_1 \cup Q_2>q_2]=1-P[Q_1<q_1]\cdot P[Q_2<q_2]
 $$
 
-Solving for the case where $P(Q_1>q_1 \cup Q_2>q_2)=0.01$ implies the exceedance probability for each river discharge is $\sqrt{1-0.01}=\sqrt{0.99}=0.995$, thus:
+Solving for the case where $P[Q_1>q_1 \cup Q_2>q_2]=0.01$ implies the exceedance probability for each river discharge is $\sqrt{1-0.01}=\sqrt{0.99}=0.995$, thus:
 
 $$
 q_{1,\mathrm{design}}=q_{2,\mathrm{design}}=F_{Q}^{-1}(0.995)=163\:\text{m}^3\text{/s} \;\rightarrow\; q_{design}=326\:\text{m}^3\text{/s} 
@@ -136,20 +138,20 @@ As with the first two incorrect approaches, it also only considers one specific 
 
 ### Correct Approach
 
-The discharge in the main river is the sum of the discharge of its tributaries, thus it is a function of random variables which has a distribution $f_Q(q)$. Thus we can use the distribution of $Q$ to find the design value $q_{design}$ directly. Unfortunately, although $q$ is a linear combination of $q_1$ and $q_2$, because they are lognormally distributed we cannot find a simple analytic expression for the distribution of $q$. However, using Monte Carlo sampling from the distributions of $q_1$ and $q_2$ gives:
+The discharge in the main river is the sum of the discharge of its tributaries, thus it is a function of random variables which has a distribution $f_Q(q)$. Thus we can use the distribution of $Q$ to find the design value $q_{design}$ directly. Unfortunately, although $q$ is a linear combination of $q_1$ and $q_2$, because they are lognormally distributed we cannot find a simple analytic expression for the distribution of $q$. However, using Monte Carlo sampling from the distributions of $Q_1$ and $Q_2$ gives:
 
 $$
 q_{design}=F_Q^{-1}(1-0.01)=275\:\text{m}^3\text{/s}
 $$
 
-This is equivalent to integrating the joint probability distribution of $q_1$ and $q_2$ over the region $\Omega$ where $q>275\:\text{m}^3\text{/s}$, illustrated in the figure below, along with the contours of joint probability density.
+This is equivalent to integrating the joint probability distribution of $Q_1$ and $Q_2$ over the region $\Omega$ where $q>275\:\text{m}^3\text{/s}$, illustrated in the figure below, along with the contours of joint probability density.
 
 ```{figure} ../../figures/pd/design_2_rv_correct.svg
 ---
 height: 400px
 name: design_2_rv_correct
 ---
-Correct approach: $P(Q>275\:\text{m}^3\text{/s})=0.01$. Also illustrated is the region $\Omega$ where $q>275\:\text{m}^3\text{/s}$ and contours of joint probability density.
+Correct approach: $P(q>275\:\text{m}^3\text{/s})=0.01$. Also illustrated is the region $\Omega$ where $q>275\:\text{m}^3\text{/s}$ and contours of joint probability density.
 ```
 ### Comparison of Approaches
 
