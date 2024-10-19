@@ -188,7 +188,7 @@ $$
 ---
 width: 60%
 ---
-Samples of the discharges of two rivers ($Q_1$ and $Q_2$),highlighting the region, $q_1 \leq 100 m^3/s$ and $q_2 \leq 75 m^3/s$, which contains 21 observations (34 total).
+Samples of the discharges of two rivers ($Q_1$ and $Q_2$),highlighting the region, $q_1 \leq 100  \;\textrm{m}^3\textrm{/s}$ and $q_2 \leq 75  \;\textrm{m}^3\textrm{/s}$, which contains 21 observations (34 total).
 ```
 
 ### Joint Probability
@@ -205,7 +205,7 @@ $$
 where $\Omega$ is the set:
 
 $$
-\Omega = \big\{\Omega_{1}, \Omega_{2}}.
+\Omega = \big\{\Omega_{1}, \Omega_{2}\}.
 $$
 
 This is shown for $n=2$ random variables here, but the concept can easily be extended to higher dimensions.
@@ -266,9 +266,10 @@ The integral of the joint PDF is directly analogous to integrating a univariate 
 
 On this page, the region $\Omega$ over which the _joint probability_ is calculated is found by combining the regions $\Omega_x$ and $\Omega_y$ as a union or intersection. In other words, working with a combination of the four rectangular subregions portions of the 2D variable space. However, for many practical applications more complex regions must be considered; for example, a parametric equations that define a specific subregion (or multiple subregions) of the multivariate sample space. For example, evaluating the discharge of a river, $Q$, that is formed by the joining of the two rivers in our example: $Q = Q_1 + Q_2$. Later in this chapter we will consider this _function of random variables._ For now, we will continue with the rectangular subregions by revisiting the AND and OR probabilities from the discrete event case.
 
+(AND)=
 ## Intersection: AND
 
-As in the case of discrete events, _intersection_ is the probability that a specific set of events occur together, although now we consider a set of intervals on the number line for each random variable, $\Omega_i$, for all $i$. This is directly analogous to the overlapping areas of the Venn diagrams; however, in this case the overlapping area is described in the real number plane (when dealing with two random variables). It is the region where _all_ sub-regions are overlapped.
+As in the case of {ref}`discrete events<AND_events>`, _intersection_ is the probability that a specific set of events occur together, although now we consider a set of intervals on the number line for each random variable, $\Omega_i$, for all $i$. This is directly analogous to the overlapping areas of the Venn diagrams; however, in this case the overlapping area is described in the real number plane (when dealing with two random variables). It is the region where _all_ sub-regions are overlapped.
 
 :::{card} Definition
 The **AND probability** is the _intersection_ of a set of $n$ events $\Omega_i$ is:
@@ -298,7 +299,7 @@ Computing the AND probability is not as straightforward as the non-exceedance pr
 
 ### Empirical Computation
 
-To compute the AND probability for _joint exceedance_ we can apply a similar approach as done for {ref}`non-exceedance probability above<empirical_non_exceedance>`, except now we consider the case where $q_1 > 100 m^3/s$ and $q_2 \leq 75 m^3/s$ is highlighted. Thus, we can compute the joint probability of non-exceedance $P[q_1 \leq 100, q_2 > 120]$. Counting the number of observations in that region results in:
+To compute the AND probability for _joint exceedance_ we can apply a similar approach as done for {ref}`non-exceedance probability above<empirical_non_exceedance>`, except now we consider the case where $q_1 > 100  \;\textrm{m}^3\textrm{/s}$ and $q_2 > 120  \;\textrm{m}^3\textrm{/s}$ is highlighted. Thus, we can compute the joint probability of non-exceedance $P[q_1 > 100, q_2 > 120]$. Counting the number of observations in that region results in:
 
 $$
 P[q_1 > 100, q_2 > 120] = 3/34 \approx 0.09
@@ -308,12 +309,13 @@ $$
 ---
 width: 60%
 ---
-Samples of the discharges of two rivers ($Q_1$ and $Q_2$), highlighting the _joint exceedance_ region, $\Omega_e$, where $q_1 > 100 \;\textrm{m}^3\textrm{/s}$ and $q_2 > 120 \;\textrm{m}^3\textrm{/s}$.
+Samples of the discharges of two rivers ($Q_1$ and $Q_2$), highlighting the _joint exceedance_ region, $\Omega_e$, where $q_1 > 100 \;\textrm{m}^3\textrm{/s}$ and $q_2 > 120 \;\textrm{m}^3\textrm{/s}$. Note $P[\Omega_e]$ is _not_ found by the complement of the joint CDF, $P[\Omega_e] \neq 1-F_{Q_1,Q_2}(q_1,q_2)$ (explained {ref}`below<joint_exceedance_calc>`).
 ```
 
+(OR)=
 ## Union: OR
 
-As with _intersection, the _union_ of events can be adapted from the discrete event case. For continuous random variables the region of interest becomes the total area of the real number space covered by _any_ of the sub-regions of interest for each random variable.
+As with _intersection, the _union_ of events can be adapted from the {ref}`discrete event case<OR_events>`. For continuous random variables the region of interest becomes the total area of the real number space covered by _any_ of the sub-regions of interest for each random variable.
 
 
 :::{card} Definition
@@ -324,7 +326,7 @@ $$
 = \big\{\Omega_1 \;\cup\; \Omega_2 \;\cup\; ... \;\cup\; \Omega_n\big\}
 $$
 
-For computing probability, it is easier to express the set with _intersections._ Using $\overline{\Omega}$ to denote the complement of $\overline{\Omega}$, De Morgan's laws allow us to rewrite the _union_ as
+For computing probability, it is easier to express the set as a combination of _intersections._ Using $\overline{\Omega}$ to denote the complement of $\overline{\Omega}$, De Morgan's laws allow us to rewrite the _union_ as
 
 $$
 \begin{align*}
@@ -339,33 +341,26 @@ P\big[\Omega_{OR}] &= \\
        \Big(1-P\big[\;\Omega_2\;]\Big) ... 
        \Big(1-P\big[\;\Omega_n\;]\Big) \\
 &= 1 - \prod_{i=1}^n \bigg(1-P\big[\Omega_i\big]\bigg)
+ = 1 - \prod_{i=1}^n \bigg(P\big[\overline{\Omega_i}\big]\bigg)
 \end{align*}
 $$
 
-In other words, the _complement_ of the probability associated with a region $\overline{\Omega}$ that overlaps with _none_ of the sub-regions.
+In other words, the OR probability is the _complement_ of the probability associated with a region $\overline{\Omega}$ that overlaps with _none_ of the sub-regions. For the bivariate case, this simplifies to:
 
-For the bivariate case, this simplifies to:
-result above
 $$
-P\big[\Omega_{OR}]
+P\big[\Omega_{OR}\big]
 = P\big[\Omega_x\big]
 + P\big[\Omega_y\big]
 - P\big[\Omega_x\;\cap\;\Omega_y\big]
 $$
 
-**If and only if** the random variables are statistically independent, the bivariate probability can thus be evaluated as:
+**If and only if** the random variables are statistically independent, the bivariate OR probability can thus be evaluated as:
 
 $$
 P\big[\Omega_{OR}]
 = P\big[\Omega_x\big]
 + P\big[\Omega_y\big]
 - P\big[\Omega_x\big]P\big[\Omega_y\big]
-$$
-
-where the 
-
-$$
-\prod_{i=1}^n \bigg(1-P\big[\Omega_i\big]\bigg) = \prod_{i=1}^n \bigg(P\big[\overline{\Omega_i}\big]\bigg)
 $$
 
 When the assumption of statistical independence is not valid, the probability $p_{OR}$ must be computed by other methods.
@@ -378,122 +373,258 @@ Moving now to the OR case, we wish to compute the probability:
 
 $$
 P\big[\Omega_{OR}\big] = P\big[\Omega_{q_1,ne},\Omega_{q_2,ne}\big]
-= P[q_1 \leq 100 \;\textrm{m}^3\textrm{/s} \;\cup\; q_2 \leq 75 \;\textrm{m}^3\textrm{/s}]
+= P(q_1 \leq 100 \;\textrm{m}^3\textrm{/s} \;\cup\; q_2 \leq 75 \;\textrm{m}^3\textrm{/s}]
 $$
 
-The region $\Omega_{OR}$ is illustrated in panel (c) of the figure below, the area where $$ is highlighted. We could count the samples in that area and compute $P(q_1 \leq 100 m^3/s \cup q_2 \leq 75 m^3/s)$ the same way as for the joint probability before:
+The region $\Omega_{OR}$ is illustrated in panel (c) of the figure below, the area where is highlighted. We could count the samples in that area and compute the probability as before:
 
 $$
-P(q_1 \leq 100 m^3/s \cup q_2 \leq 75 m^3/s)=24/34 \approx 0.71
+P[q_1 \leq 100  \;\textrm{m}^3\textrm{/s} \;\cup\; q_2 \leq 75  \;\textrm{m}^3\textrm{/s}]=24/34 = 0.71
 $$
 
 ```{figure} ./figures/or.svg
 
 ---
-
+name: or_empirical
 ---
-Samples of the discharges of two rivers ($Q_1$ and $Q_2$): (a) highlighting $\Omega_{q_1,ne}$, where $q_1 \leq 100 m^3/s$, (b) highlighting $\Omega_{q_2,ne}$, where $q_2 \leq 75 \;\textrm{m}^3\textrm{/s}$, and (c) highlighting $\Omega_{OR}=\big\{\Omega_{q_1,ne},\Omega_{q_2,ne}\big\}$, where $q_1 \leq 100 \;\textrm{m}^3\textrm{/s} \cup q_2 \leq 75 \;\textrm{m}^3\textrm{/s}$.
+Samples of the discharges of two rivers ($Q_1$ and $Q_2$): (a) highlighting $\Omega_{q_1,ne}$, where $q_1 \leq 100 \;\textrm{m}^3\textrm{/s}$, (b) highlighting $\Omega_{q_2,ne}$, where $q_2 \leq 75 \;\textrm{m}^3\textrm{/s}$, and (c) highlighting $\Omega_{OR}=\big\{\Omega_{q_1,ne},\Omega_{q_2,ne}\big\}$, where $q_1 \leq 100 \;\textrm{m}^3\textrm{/s} \;\cup\; q_2 \leq 75 \;\textrm{m}^3\textrm{/s}$.
 ```
 
-A graphical approach can be applied that is directly analogous to the approach with discrete events (i.e., a Venn diagram): the sum of the marginal probabilities (panels (a) and (b) in the figure above) minus the joint non-exceedance probability, which must be removed as otherwise we would be counting it twice.
+A graphical approach can be applied that is directly analogous to the approach with discrete events (i.e., a Venn diagram): the sum of the marginal probabilities (panels (a) and (b) in the figure above) minus the joint non-exceedance probability (already computed in {ref}`this section<empirical_non_exceedance>` above), which must be removed as otherwise we would be counting it twice.
 
 $$
 \begin{align*}
-P\big[q_1 \leq 100 m^3/s \cup q_2 \leq 75 m^3/s\big] &= \\
-&= P\big[q_1 \leq 100 m^3/s\big] + P\big[q_2 \leq 75 m^3/s\big] \quad \ldots \\
-& \quad- P\big[q_1 \leq 100 m^3/s \cap q_2 \leq 75 m^3/s\big] \\
-&= (23+22-21)/34 = 24/34 \approx 0.71
+P\big[q_1 &\leq 100  \;\textrm{m}^3\textrm{/s} \;\cup\; q_2 \leq 75  \;\textrm{m}^3\textrm{/s}\big] = \\
+&= P\big[q_1 \leq 100  \;\textrm{m}^3\textrm{/s}\big] + P\big[q_2 \leq 75  \;\textrm{m}^3\textrm{/s}\big]
+- P\big[q_1 \leq 100  \;\textrm{m}^3\textrm{/s} \;\cap\;  q_2 \leq 75  \;\textrm{m}^3\textrm{/s}\big] \\
+&= (23+22-21)/34 = 24/34 = 0.71
 \end{align*}
 $$
 
+(joint_exceedance_calc)=
 ## Joint Exceedance
 
-As previously mentioned, when evaluating a multivariate (here bivariate) cumulative distribution function, we obtain joint probabilities ($F(x, y)= F(X \leq x, Y \leq y)$). However, when designing or assessing a system, it is usually interesting to evaluate $F(X > x, Y > y)$. **Note that $F(X > x, Y > y) \neq 1 - F(X \leq x, Y \leq y)$.** In the figure below, we illustrate the process of how to compute $F(X > x, Y > y)$.
+As previously mentioned, when evaluating a multivariate (here bivariate) cumulative distribution function, we obtain joint probabilities, $F_{X,Y}(X \leq x, Y \leq y)=P[X\leq x,Y\leq y]$, also called the joint non-exceedance $P[\Omega_{ne}]$. However, we are often interested $F_{X,Y}(X > x, Y > y)=P[X> x,Y> y]$, the joint exceedance $P[\Omega_e]$. In particular, one should recognize the following:
 
-```{figure} ./figures/and_exceed.svg
+$$
+F(X > x, Y > y) = P[X> x,Y> y]  \neq 1 - F(X \leq x, Y \leq y)
+$$
 
+Assuming that the complement of the multivariate CDF is equal to the joint exceedance probability is a common misconception.
+
+````{admonition} Exercise
+
+Using only empirical probabilities for the marginal random variables and the joint CDF, apply the graphical approach illustrated in the preceding section to find the joint exceedance probability $p=P[q_1 > 100  \;\textrm{m}^3\textrm{/s} \;\cap\;  q_2 > 120  \;\textrm{m}^3\textrm{/s}]$, the area illustrated here:
+
+```{figure} ./figures/and_exceed_exercise.svg
 ---
-
+width: 40%
 ---
-Samples of the discharges of two rivers ($q_1$ and $q_2$): (a) highlighting those where $q_1 \leq 100 m^3/s$, (b)  highlighting where $q_2 \leq 75 m^3/s$, and (c) highlighting those where $q_1 > 100 m^3/s \cap q_2 > 75 m^3/s$.
+Illustration of the probability to be computed in the exercise: $p=P[q_1 > 100  \;\textrm{m}^3\textrm{/s} \;\cap\;  q_2 > 75  \;\textrm{m}^3\textrm{/s}]$.
 ```
 
-We can calculate $P(q_1 > 100 m^3/s \cap q_2 > 75 m^3/s)$ making use of the property that $\int_{-\infty}^{+\infty}f_X(x)dx =1$. This is, we deduct from 1 the marginal probabilities of being below or equal 100 and 75 $m^3/s$, respectively, and we add the joint probability of both being below 100 and 75 $m^3/s$, respectively, at the same time to prevent removing the same area twice. Thus, we can compute $P(q_1 > 100 m^3/s \cap q_2 > 75 m^3/s)$ as
+```{admonition} Solution
+:class: dropdown
+
+Observe that the bivariate region is divided into four rectangular sub-regions in the figure, and that our goal is to compute the probability associated with the upper-right sub-region. However, we can only compute the probability of the lower-left sub-region (using the joint CDF) and the marginal probabilities, each of which makes up a combination of two adjacent horizontal or vertical sub-regions (i.e., there are four possible combinations).
+
+To compute the upper-right region, our only option is to recognize that it is the _complement_ of everything else. This is actually the complement of the OR probability computed in the previous section, so we know the answer is:
 
 $$
-P(q_1 > 100 m^3/s \cap q_2 > 75 m^3/s) = \\
-
-= 1 - P(q_1 \leq 100 m^3/s) - P(q_2 \leq 75 m^3/s) + P(q_1 \leq 100 m^3/s \cap q_2 \leq 75 m^3/s)=\\
-= 1-(23+22-21)/34 = 24/34 \approx 0.29
+p = 1 - 0.71 = 0.29
 $$
 
-We can confirm that calculating by counting the samples highlighted in panel (c) in the figure above.
+The analytic expression is thus:
 
+$$
+\begin{align*}
+p &= 1 - P[q_1 \leq 100  \;\textrm{m}^3\textrm{/s}] - P[q_2 \leq 75  \;\textrm{m}^3\textrm{/s}] \\
+&\quad\quad+ P[q_1 \leq 100  \;\textrm{m}^3\textrm{/s} \;\cap\;  q_2 \leq 75  \;\textrm{m}^3\textrm{/s}] \\
+&= 1-(23+22-21)/34 = 24/34 \\
+&= 0.29
+\end{align*}
+$$
 
-## Independent continuous random variables
+Where the probabilities are calculated empirically, as above. Note that we can confirm our result is correct by counting the samples in the region of interest:
 
-When two random variables, X and Y, are independent, the value of one variable does not influence the value of the other variable. And, formally, X and Y are considered independent **if and only if** the joint probability function (or cumulative distribution function) can be factorized into the product of their marginal probability functions (or cumulative distribution functions). This is, 
+$$
+p = 10/34 = 0.29
+$$
 
-$F(x, y) = P(x<X \bigcap y<Y ) = P(x<X)P(y<Y) = F(x)F(y)$
-
-The relationship above highlights the connection between the joint cumulative distribution function (CDF) and the marginal CDFs of two independent random variables, X and Y.
-
-### Is dependence relevant?
-
-Opposite to the definition of independence, X and Y are considered dependent when the value of one variable influences the value of the other variable and, thus, we cannot make use of the above simplification.
-
-Let's now go back to the above example of computing the joint probabilities of $q_1$ and $q_2$. We computed ir from the samples as $F(q_1 \leq 100, q_2 \leq 75) = 21/34 \approx 0.62$.
-
-```{figure} ./figures/and_computation.svg
-
----
-
----
-Samples of the discharges of two rivers ($q_1$ and $q_2$) highlighting those where $q_1 \leq 100 m^3/s$ and $q_2 \leq 75 m^3/s$.
 ```
+````
 
-If we would have compute $F(q_1 \leq 100, q_2 \leq 75)$ assuming independence, we would obtain
+## Definition of Independence
+
+When two random variables, $X$ and $Y$, are independent, the value of one variable does not influence the value of the other variable. 
+
+:::{card} Definition
+
+**Independence**: $X$ and $Y$ are considered independent **if and only if** the joint probability function (or cumulative distribution function) can be factorized into the product of their marginal probability functions (or cumulative distribution functions). That is, if: 
 
 $$
-F(q_1 \leq 100, q_2 \leq 75) = F(q_1 \leq 100)F(q_2 \leq 75) = 23/34 \times 22/34 \approx 0.44
+F_{X,Y}(x, y) = F_X(x)F_Y(y)
+
+$$
+Or, alternatively:
+
+$$
+P\big[X<x \;\cap\; Y<y\big] = P\big[ X<x \big]P\big[ Y<y \big]
+$$
+:::
+
+The relationship above highlights the connection between the joint cumulative distribution function (CDF) and the marginal CDFs of two independent random variables, $X$ and $Y$.
+
+## Definition of Dependence
+
+In contrast to the definition of independence, $X$ and $Y$ are considered dependent when the probability associated with one marginal variable influences the probability associated with the state of another marginal random variable and, thus, we cannot make use of the above simplification. This can be formally stated using conditional probability:
+
+:::{card} Definition
+
+**Dependence**: random variables $X$ is dependent on $Y$ if
+
+$$
+P\big[X|Y\big] \neq P\big[X\big]
+$$
+:::
+
+### Empirical Computation
+
+The effect of dependence can be readily seen by returning to our case study of two rivers and considering the difference between our empirical approach (i.e., an approximation of the "true" probability), and an approach where one assumes the two random variables are _independent._
+
+Recall from the top of this page that the non-exceedance probability $P[\Omega_{ne}]$ was computed empirically (as well as graphically):
+
+$$
+P[q_1 \leq 100  \;\textrm{m}^3\textrm{/s} \;\cap\; q_2 \leq 75  \;\textrm{m}^3\textrm{/s}] = 21/34 = 0.62
 $$
 
-There is a significant difference between both approaches (0.62 vs. 0.44), illustrating the relevance of dependence.
+If we would have computed the same probability using the definition of AND probability, we would obtain:
 
-## Conditional probability of continuous variables
+$$
+\begin{align*}
+P[q_1 \leq 100  \;\textrm{m}^3\textrm{/s} &\;\cap\; q_2 \leq 75  \;\textrm{m}^3\textrm{/s}] = \\
+&= P[q_1 \leq 100  \;\textrm{m}^3\textrm{/s} ]P[ q_2 \leq 75  \;\textrm{m}^3\textrm{/s}] \\
+&= (23/34)(22/34)\\
+&= 0.68 \cdot 0.65 = 0.44
+\end{align*}
+$$
+
+The difference between 0.62 and 0.44 is significant! Why does this difference occur? Because there is _dependence_ between $Q_1$ and $Q_2$. Following the definition, we can see that the probability of observing a specific interval of $Q_1$ is influenced by the state of $Q_2$: for low values of $Q_2$, the observations of $Q_1$ are small; the converse is also true.
+
+Another way of thinking would be to consider the probability calculated using the assumption on independence, 0.11. If this assumption were true, for the 34 samples in the case study, we would expect around 15 of them to be in the region $\Omega_e=\{Q_1>q_1,Q_2>q_2\}$, as $0.44\cdot34\approx15$. However, there are 21 observations in that region, implying dependence between $Q_1$ and $Q_2$ (e.g., positive correlation).
+
+````{admonition} Exercise
+
+Assuming $Q_1$ and $Q_2$ are independent, compute the following probability and compare it to the empirical value:
+
+$$
+P[q_1 > 100  \;\textrm{m}^3\textrm{/s} \;\cap\; q_2 > 75  \;\textrm{m}^3\textrm{/s}]
+$$
+
+```{admonition} Solution
+:class: dropdown
+
+Recall from the previous example that the following AND probability was computed empirically (as well as graphically):
+
+$$
+P[q_1 > 100  \;\textrm{m}^3\textrm{/s} \;\cap\; q_2 > 75  \;\textrm{m}^3\textrm{/s}]= 10/34 = 0.29
+$$
+
+If we would have computed the same probability using the expression from the AND probability definition, we would obtain:
+
+$$
+\begin{align*}
+P[q_1 > 100  \;\textrm{m}^3\textrm{/s} \;&\cap\; q_2 > 75  \;\textrm{m}^3\textrm{/s}] \\
+&= P[q_1 > 100  \;\textrm{m}^3\textrm{/s} ]P[ q_2 > 75  \;\textrm{m}^3\textrm{/s}] \\
+&= (11/34)(12/34)\\
+&= 0.32 \cdot 0.35 = 0.11
+\end{align*}
+$$
+
+There is a significant difference between both approaches (0.29 vs. 0.11), illustrating the importance of dependence.
+```
+````
+
+````{admonition} Exercise
+
+This is an OR probability. Assuming $Q_1$ and $Q_2$ are independent, compute the following probability and compare it to the empirical value found above:
+
+$$
+P[q_1 \leq 100  \;\textrm{m}^3\textrm{/s} \;\cup\; q_2 \leq 75  \;\textrm{m}^3\textrm{/s}]
+$$
+
+```{admonition} Solution
+:class: dropdown
+
+First, recall the empirical result:
+
+$$
+P[q_1 \leq 100  \;\textrm{m}^3\textrm{/s} \;\cup\; q_2 \leq 75  \;\textrm{m}^3\textrm{/s}]=24/34 = 0.71
+$$
+
+If we would have computed the same probability using the expression from the OR probability definition, we would obtain:
+
+$$
+\begin{align*}
+P[q_1 &\leq 100  \;\textrm{m}^3\textrm{/s} \;\cup\; q_2 \leq 75  \;\textrm{m}^3\textrm{/s}] \\
+&= P[q_1 > 100  \;\textrm{m}^3\textrm{/s} ] + P[ q_2 > 75  \;\textrm{m}^3\textrm{/s}]
+- P[q_1 > 100  \;\textrm{m}^3\textrm{/s} ]P[ q_2 > 75  \;\textrm{m}^3\textrm{/s}] \\
+&= (23/34) + (22/34) - (23/34)(22/34)\\
+&= 0.68 + 0.65 - 0.68 \cdot 0.65 = 0.89
+\end{align*}
+$$
+
+There is a significant difference between both approaches (0.71 vs. 0.89), illustrating the importance of dependence.
+```
+````
+
+## Conditional Probability
 
 A conditional probability is a measure of the probability of an event occurring given that another event has already occurred.  The following relationship holds for events X and Y:
 
-$P(x<X \vert y<Y) = \frac {P(x<X \bigcap y<Y )}{P(y<Y)} = \frac{F(x, y)}{F(y)}$
+$$
+P[X<x \vert Y<y>] = \frac {P[X<x \;\cap\; Y<y ]}{P[Y<y]} = \frac{F_{X,Y}(x, y)}{F_Y(y)}$$
 
-$ F(x, y) = F(x \vert y)F(y) = F(y \vert x)F(x) $
+$$
+F_{X,Y}(x, y) = F_{X|Y}(x \vert y)F_Y(y) = F_{Y\vert X}(y \vert x)F_X(x)
+$$
 
 Where:
 
-1. $P(x<X \vert y<Y)$ represents the conditional probability that event X is less than a certain value x, given that event Y is less than a certain value y.
+1. $P[x<X \vert Y<y]$ represents the conditional probability that $X$ is less than a certain value $x$, given that event $Y$ is less than a certain value $y$.
 
-2. $P(x<X \bigcap y<Y)$ represents the joint probability that both X is less than x and Y is less than y.
+2. $P[X<x \;\cap\; Y<y]$ represents the joint probability that both $X$ is less than $x$ and $Y$ is less than $y$.
 
-3. $F(x, y)$ represents the joint cumulative distribution function (CDF) of X and Y, which gives the probability that both X and Y are less than or equal to their respective values x and y.
+3. $F_{X,Y}(x, y)$ represents the joint cumulative distribution function (CDF) of $X$ and $Y$, which gives the probability that both $X$ and $Y$ are less than or equal to their respective values $x$ and $y$.
 
-4. $F(x)$ represents the marginal cumulative distribution function (CDF) of X, which gives the probability that X is less than or equal to x.
+4. $F_X(x)$ represents the marginal cumulative distribution function (CDF) of $X$, which gives the probability that $X$ is less than or equal to $x$.
 
-5. $F(y)$ represents the marginal cumulative distribution function (CDF) of Y, which gives the probability that Y is less than or equal to y.
+5. $F_Y(y)$ represents the marginal cumulative distribution function (CDF) of $Y$, which gives the probability that $Y$ is less than or equal to $y$.
 
-### Let's go back to our example!
-
-Imagine that we have a rudimentary measurement device of the discharges in river one, so we know that $q_1 > x$. If $q_2$ is **independent** from $q_1$, knowing the value of $q_1$ does not provide us with any information so 
+Imagine that we have a rudimentary measurement device of the discharges in one river, so we know that $q_1 > x$. If $Q_2$ is **independent** of $Q_1$, knowing the value of $Q_1$ does not provide us with any information so 
 
 $$
-P(q_2 > y| q_1 > x) = \frac{P(q_2 > y \cap q_1 > x)}{P(q_1 > x)} = \frac{P(q_2 > y)\cancel{P( q_1 > x)}}{\cancel{P(q_1 > x)}} = P(q_2 > y)
+P[q_2 > y| q_1 > x]
+= \frac{P[q_2 > y \;\cap\;  q_1 > x]}{P[q_1 > x]}
+= \frac{P[q_2 > y]\cancel{P[q_1 > x]}}{\cancel{P[q_1 > x]}} = P[q_2 > y]
 $$
 
-However, since these rivers are located close to each other, it is likely that they belong to the same system and their discharges are the result of similar drivers. Therefore, knowing information about one discharge gives us information about the discharge of the other river and, thus, $q_1$ and $q_2$ are expected to be correlated and are **dependent** on each other. We could compute $P(q_2 > y| q_1 > x)$ by using the joint probability distribution of $q_1$ and $q_2$ to evaluate $P(q_2 > y \cap q_1 > x)$ accounting for the dependence.
+However, since these rivers are located close to each other, it is likely that they belong to the same system and their discharges are the result of similar drivers (e.g., rain). Therefore, knowing information about one discharge gives us information about the discharge of the other river and, thus, $Q_1$ and $Q_2$ are expected to be **dependent** on each other. We could compute $P[q_2 > y| q_1 > x]$ using the joint probability distribution of $Q_1$ and $Q_2$ to evaluate $P[q_2 > y \;\cap\;  q_1 > x]$ accounting for the dependence.
 
-Let's see if we can also calculate conditional probabilities from our observations. Imagine that we want to know what is the probability of $q_2 > 150 m^3/s$ given that we know that $q_1 > 130m^3/s$, so $P(q_2 > 150 m^3/s|q_1 > 130m^3/s)$. As you can see in panel (a) in the Figure below, there are 6 samples where $q_1 > 130m^3/s$. That is now the 'space' where we are, that is our 'reality' now. In panel (b), we can see that two of those samples fulfill that $q_2 > 150 m^3/s$. Therefore, we can compute the aforementioned conditional probability as
+### Empirical Computation
+
+Imagine that we know $q_1 > 130 \;\textrm{m}^3\textrm{/s}$ and want to know the probability of $q_2 > 150  \;\textrm{m}^3\textrm{/s}$. Thus, our goal is to compute
 
 $$
-P(q_2 > 150 m^3/s|q_1 > 130m^3/s)=2/6 \approx 0.33
+P[q_2 > 150  \;\textrm{m}^3\textrm{/s}\;|\;q_1 > 130 \;\textrm{m}^3\textrm{/s}]
+$$
+
+As shown in panel (a) in the figure below, there are 6 samples where $q_1 > 130 \;\textrm{m}^3\textrm{/s}$. This sub-region of ${Q_1,Q_2}$ becomes the new sample space within which we are now evaluating the probability $q_2 > 150  \;\textrm{m}^3\textrm{/s}$. This is the effect of "conditionalizing" on $Q_1$: normalizing the probability space. It is directly analogous to the {ref}`discrete event case<conditional_events>`.
+
+In panel (b), we can see that two of those samples fulfill that $q_2 > 150  \;\textrm{m}^3\textrm{/s}$. Therefore, we can compute the aforementioned conditional probability as
+
+$$
+P[q_2 > 150  \;\textrm{m}^3\textrm{/s}|q_1 > 130 \;\textrm{m}^3\textrm{/s}]=2/6 = 0.33
 $$
 
 ```{figure} ./figures/conditional.svg
@@ -501,19 +632,19 @@ $$
 ---
 
 ---
-Samples of the discharges of two rivers ($q_1$ and $q_2$): (a) highlighting those where $q_1 > 130 m^3/s$, (b)  highlighting where $q_1 > 130 m^3/s$, and $q_2 > 150 m^3/s$.
+Samples of the discharges of two rivers ($Q_1$ and $Q_2$): (a) highlighting those where $q_1 > 130  \;\textrm{m}^3\textrm{/s}$, (b)  highlighting where $q_1 > 130  \;\textrm{m}^3\textrm{/s}$, and $q_2 > 150  \;\textrm{m}^3\textrm{/s}$.
 ```
 
-Note that if we would assume independence, we would obtain $P(q_2 > 150 m^3/s|q_1 > 130m^3/s)=P(q_2 > 150 m^3/s)=2/34 \approx 0.06$. The large difference between both probabilities, illustrates the role of dependence.
-
-**So now we need a way to describe dependence!** 
-
-## Exercises
-
-```{admonition} Exercise
-Compute the probability:
+Note that if we would assume $Q_1$ and $Q_2$ are independent, we would obtain
 
 $$
-P[\Omega_{e}] = P[X > x^*, Y > y^*]
+P[q_2 > 150  \;\textrm{m}^3\textrm{/s}|q_1 > 130 \;\textrm{m}^3\textrm{/s}]=P[q_2 > 150  \;\textrm{m}^3\textrm{/s}]=2/34 = 0.06
 $$
-```
+
+The large difference between both probabilities, illustrates the role of dependence for conditional probability.
+
+## Summary
+
+As we have seen in the preceding examples, dependence can have a significant role in the computation of probabilities. In particular, the examples illustrate very clearly that we should no longer be satisfied with the simplifying assumption of independence, and that for many problems $P(A\;\cap\;B)\neq P(A)P(B)$. But how can we compute it?
+
+The following pages will explore methods to describe dependence quantitatively for continuous random variables.

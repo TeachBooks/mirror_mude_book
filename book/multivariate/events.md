@@ -41,7 +41,7 @@ width: 60%
 ---
 Venn diagram of arbitrary events $A$ and $B$.
 ```
-
+(AND_events)=
 ## Intersection: AND
 
 The _intersection_ of the events $A$ and $B$, denoted $P(A \cap B)$, is defined as the probability that both events occur; thus, it would be represented in our diagram as shown in the figure below. Going back to our example, it represents the probability that both rivers get flooded at the same time.
@@ -57,7 +57,7 @@ width: 60%
 ---
 Venn diagram of the events $A$ and $B$, and AND probability.
 ```
-
+(OR_events)=
 ## Union: OR
 
 The _union_ of events $A$ and $B$, $P(A \cup B)$, is defined as the probability that either either event occurs, or both. In our example, it would represent the probability that either river floods, or both. This probability can be computed as 
@@ -72,6 +72,7 @@ This is, we add the probabilities of occurrence of the event $A$ and $B$ and we 
 The **OR probability** is the union of two events $P(A \cup B)$.
 :::
 
+(independence_events)=
 ## Definition of Independence
 
 When two events, $A$ and $B$ are independent, it means that the occurrence of one does not influence the occurrence of the other. Formally, $A$ and $B$ are considered independent **if and only if** the AND probability ($P(A \cap B)$) can be factorized into the product of their probabilities. That is:
@@ -105,6 +106,7 @@ where $P(A|B)$ is the probability of the event $A$ given that event $B$ is known
 
 The concept can be illustrated graphically by recognizing that once $B$ is known to have occurred, it's probability is now 1.0 and the task at hand is to determine the probability of $A$. Using the figure above, this is equivalent to taking the area of the circle $B$ as the new sample space and noting the probability $P(A)$ is given by the fraction of the circle where $A$ is overlapped: the _intersection_, $P(A \cap B)$. As the probability of $B$ is now 1.0, we must scale $P(A \cap B)$ proportionally (normalizing by $P(B)$), thus arriving at the equation above: simple!
 
+(conditional_events)=
 ### Conditional Probability of Independent Events
 
 What happens to the conditional probability if the events are _independent?_
