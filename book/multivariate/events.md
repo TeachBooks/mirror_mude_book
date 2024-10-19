@@ -28,10 +28,10 @@ Imagine two events, $A$ and $B$, where:
 
 Each of these events will have a probability of occurring, denoted here as $P(A)$ and $P(B)$, respectively, and illustrated in the figure below in the Venn diagram. Recall that the axioms of probability imply that the area of the box represents probability 1.0 (the sample space, $S$), and that the shapes in the sample space correspond to probabilities of various events. Based on your understanding of the Venn diagram and probability theory, we can make the following observations from the figure (each statement is provided in layperson terms followed by probability terminology):
 
-- _Both rivers could be flooded at the same time:_ the probability that $A$ and $B$ occur together is not zero (the overlapped area of the circles).
-- _Either river could be flooded:_ the probability is the combined area of both circles.
-- _Both rivers could be not flooded:_ the probability outside (both) circles is not zero
-- _One river could be flooded and the other not flooded:_ the probability is 1 minus the are of either circle, respectively.
+- _Both rivers are flooded at the same time:_ the probability that $A$ and $B$ occur together is not zero (the overlapped area of the circles).
+- _Either river A or B or both rivers are flooded:_ the probability is the combined area of both circles.
+- _Neither A nor B are flooded:_ the probability outside (both) circles is not zero
+- _One river is flooded while the other is not:_ the probability is 1 minus the are of either circle, respectively (i.e., two probabilities, depending on the river, which are not necessarily equal).
 
 These observations and concepts are defined in more detail below.
 
@@ -44,7 +44,7 @@ Venn diagram of arbitrary events $A$ and $B$.
 
 ## Intersection: AND
 
-The _intersection_ of the events $A$ and $B$, denoted $P(A \cap B)$, is defined as the probability that both events occur together; thus, it would be represented in our diagram as shown in the figure below. Going back to our example, it represents the probability that both rivers get flooded at the same time.
+The _intersection_ of the events $A$ and $B$, denoted $P(A \cap B)$, is defined as the probability that both events occur; thus, it would be represented in our diagram as shown in the figure below. Going back to our example, it represents the probability that both rivers get flooded at the same time.
 
 :::{card} Definition
 The **AND probability** is the _intersection_ of two events $P(A \cap B)$.
@@ -60,7 +60,7 @@ Venn diagram of the events $A$ and $B$, and AND probability.
 
 ## Union: OR
 
-The _union_ of events $A$ and $B$, $P(A \cup B)$, is defined as the probability that either one of the two events happen or both of them. In our example, it would represent the probability that at least one of the rivers is flooded (or both!). This probability can be computed as 
+The _union_ of events $A$ and $B$, $P(A \cup B)$, is defined as the probability that either either event occurs, or both. In our example, it would represent the probability that either river floods, or both. This probability can be computed as 
 
 $$
 P(A \cup B) = P(A) + P(B) - P(A \cap B)
@@ -130,7 +130,7 @@ It is common to confuse _mutually exclusive_ events with _independent_ events. T
 Refer to the [reference probability book](https://teachbooks.github.io/learn-probability/section_01/Must_know_%20probability_concepts.html#mutually-exclusive-and-collectively-exhaustive-events) for a refresher, if needed.
 ```
 
-Although the definition above is illustrated with a simple case of two discrete events, it essential to remember it when working with more complicated situations, for example multivariate probability distributions for continuous random variables.
+Although the definition above is illustrated with a simple case of two discrete events, it is essential to remember it when working with more complicated situations, for example multivariate probability distributions for continuous random variables.
 
 ## Total probability theorem
 
