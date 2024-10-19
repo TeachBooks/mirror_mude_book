@@ -64,8 +64,8 @@ parts:
       - file: numerical_methods/8-boundary-value-problem.ipynb
       - file: numerical_methods/9-starting_with_PDEs.ipynb
 
-    - file: probability/Reminder_intro.md
-      title: Continuous Distributions
+    - file: probability/Reminder_intro
+      title: Univariate Continuous Distributions
       sections:
       - file: probability/PDF_CDF
       - file: probability/empirical
@@ -86,14 +86,30 @@ parts:
         - file: probability/MLE_1.ipynb
         - file: probability/GOF
       - file: probability/Loc-scale.ipynb
-    # - file: rr/prob-design/overview
-#       title: Risk and Reliability Intro
-#       sections:
-#       - file: rr/prob-design/one-random-variable
-#       - file: rr/prob-design/two-random-variables
-#       - file: rr/prob-design/exercise
-#         sections:
-#         - file: rr/prob-design/exercise_solutions
+
+    - file: multivariate/overview
+      title: Multivariate Distributions
+      sections:
+      - file: multivariate/events
+        title: Discrete Events
+      - file: multivariate/variables
+        title: Continuous Variables
+      - file: multivariate/gaussian
+        title: Multivariate Gaussian
+      - file: multivariate/nongaussian
+        title: Non-Gaussian Distributions
+      - file: multivariate/design
+        title: Practical Applications
+        sections:
+        - file: multivariate/design/one-random-variable
+        - file: multivariate/design/two-random-variables
+      # START REMOVE-FROM-PUBLISH
+        - file: multivariate/design/exercise
+          sections:
+          - file: multivariate/design/exercise_solutions
+      - file: multivariate/test_pyvinecopulib
+      - file: multivariate/test_bivariate
+      # END REMOVE-FROM-PUBLISH
 
 #   - caption: Q2 Topics
 #     numbered: 2
