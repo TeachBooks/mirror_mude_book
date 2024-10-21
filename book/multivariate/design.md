@@ -45,7 +45,7 @@ $$
 Regardless of the underlying multivariate distribution of the input random variables, the task at hand is to compute the design value, $y_{design}$, for a given probability of interest, $p_{design}$:
 
 $$
-y_{design} = F_Y^{1}(p_{design})
+y_{design} = F_Y^{-1}(p_{design})
 $$
 
 where $F_Y^{-1}$ is the inverse CDF of the distribution of $Y$. Although we rarely know the exact distribution of $Y$, it is straightforward to compute the design value using Monte Carlo Simulation.
