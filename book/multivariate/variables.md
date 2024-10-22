@@ -299,7 +299,7 @@ Computing the AND probability is not as straightforward as the non-exceedance pr
 
 ### Empirical Computation
 
-To compute the AND probability for _joint exceedance_ we can apply a similar approach as done for {ref}`non-exceedance probability above<empirical_non_exceedance>`, except now we consider the case where $q_1 > 100  \;\textrm{m}^3\textrm{/s}$ and $q_2 > 120  \;\textrm{m}^3\textrm{/s}$ is highlighted. Thus, we can compute the joint probability of non-exceedance $P[q_1 > 100, q_2 > 120]$. Counting the number of observations in that region results in:
+To compute the AND probability for _joint exceedance_ we can apply a similar approach as done for {ref}`non-exceedance probability above<empirical_non_exceedance>`, except now we consider the case where $q_1 > 100  \;\textrm{m}^3\textrm{/s}$ and $q_2 > 120  \;\textrm{m}^3\textrm{/s}$ is highlighted. Thus, we can compute the joint probability of exceedance $P[q_1 > 100, q_2 > 120]$. Counting the number of observations in that region results in:
 
 $$
 P[q_1 > 100, q_2 > 120] = 3/34 \approx 0.09
