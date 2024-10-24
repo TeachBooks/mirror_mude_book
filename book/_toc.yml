@@ -480,6 +480,7 @@ parts:
         title: Normal
       - file: fundamentals/prob_tables/chi2
         title: Chi-Squared
+    - file: probability/python
     - file: fundamentals/eemc-stuff
   - caption: Miscellaneous
     numbered: false
