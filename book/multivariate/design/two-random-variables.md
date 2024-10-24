@@ -7,7 +7,7 @@ The previous section illustrated how a decision for dike height, $h_{dike}$, can
 
 ````{admonition} Distribution for $Q_1$ and $Q_2$
 :class: dropdown
-On this page all calculations assume the same lognormal distribution for random variables $Q_1$ and Q_1$, where the first and second moments of the distribution are:
+On this page all calculations assume the same lognormal distribution for random variables $Q_1$ and $Q_2$, where the first and second moments of the distribution are:
 
 $$
 \begin{align*}

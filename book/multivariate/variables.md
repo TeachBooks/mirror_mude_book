@@ -16,7 +16,7 @@ width:90%
 Samples of the discharges of two rivers ($Q_1$ and $Q_2$): (a) paired observations, and (b) paired observations highlighting data for the case $q_1>100 \;\textrm{m}^3\textrm{/s}$.
 ```
 
-Panel (b) in the figure above highlights the number of events where $q_1>100 \;\textrm{m}^3\textrm{/s}. We can thus compute the empirical probability:
+Panel (b) in the figure above highlights the number of events where $q_1>100 \;\textrm{m}^3\textrm{/s}$. We can thus compute the empirical probability:
 
 $$
 P[q_1>100 \;\textrm{m}^3\textrm{/s}] = 11/34 = 0.32
@@ -229,7 +229,7 @@ $$
 
 and $x^*$ and $y^*$ are values of interest for each random variable.
 
-This definition can be generalized for more than two random variables and implies that the density functions of _all_ random variables are jointly integrated in the ****lower** tails ($\Omega_{ne}$).
+This definition can be generalized for more than two random variables and implies that the density functions of _all_ random variables are jointly integrated in the **lower** tails ($\Omega_{ne}$).
 
 :::
 
@@ -299,7 +299,7 @@ Computing the AND probability is not as straightforward as the non-exceedance pr
 
 ### Empirical Computation
 
-To compute the AND probability for _joint exceedance_ we can apply a similar approach as done for {ref}`non-exceedance probability above<empirical_non_exceedance>`, except now we consider the case where $q_1 > 100  \;\textrm{m}^3\textrm{/s}$ and $q_2 > 120  \;\textrm{m}^3\textrm{/s}$ is highlighted. Thus, we can compute the joint probability of non-exceedance $P[q_1 > 100, q_2 > 120]$. Counting the number of observations in that region results in:
+To compute the AND probability for _joint exceedance_ we can apply a similar approach as done for {ref}`non-exceedance probability above<empirical_non_exceedance>`, except now we consider the case where $q_1 > 100  \;\textrm{m}^3\textrm{/s}$ and $q_2 > 120  \;\textrm{m}^3\textrm{/s}$ is highlighted. Thus, we can compute the joint probability of exceedance $P[q_1 > 100, q_2 > 120]$. Counting the number of observations in that region results in:
 
 $$
 P[q_1 > 100, q_2 > 120] = 3/34 \approx 0.09
@@ -567,8 +567,8 @@ If we would have computed the same probability using the expression from the OR 
 $$
 \begin{align*}
 P[q_1 &\leq 100  \;\textrm{m}^3\textrm{/s} \;\cup\; q_2 \leq 75  \;\textrm{m}^3\textrm{/s}] \\
-&= P[q_1 > 100  \;\textrm{m}^3\textrm{/s} ] + P[ q_2 > 75  \;\textrm{m}^3\textrm{/s}]
-- P[q_1 > 100  \;\textrm{m}^3\textrm{/s} ]P[ q_2 > 75  \;\textrm{m}^3\textrm{/s}] \\
+&= P[q_1 \leq 100  \;\textrm{m}^3\textrm{/s} ] + P[ q_2 \leq 75  \;\textrm{m}^3\textrm{/s}]
+- P[q_1 \leq 100  \;\textrm{m}^3\textrm{/s} ]P[ q_2 \leq 75  \;\textrm{m}^3\textrm{/s}] \\
 &= (23/34) + (22/34) - (23/34)(22/34)\\
 &= 0.68 + 0.65 - 0.68 \cdot 0.65 = 0.89
 \end{align*}
@@ -583,7 +583,7 @@ There is a significant difference between both approaches (0.71 vs. 0.89), illus
 A conditional probability is a measure of the probability of an event occurring given that another event has already occurred.  The following relationship holds for events X and Y:
 
 $$
-P[X<x \vert Y<y>] = \frac {P[X<x \;\cap\; Y<y ]}{P[Y<y]} = \frac{F_{X,Y}(x, y)}{F_Y(y)}$$
+P[X<x \vert Y<y] = \frac {P[X<x \;\cap\; Y<y ]}{P[Y<y]} = \frac{F_{X,Y}(x, y)}{F_Y(y)}$$
 
 $$
 F_{X,Y}(x, y) = F_{X|Y}(x \vert y)F_Y(y) = F_{Y\vert X}(y \vert x)F_X(x)

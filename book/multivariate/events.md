@@ -31,7 +31,7 @@ Each of these events will have a probability of occurring, denoted here as $P(A)
 - _Both rivers are flooded at the same time:_ the probability that $A$ and $B$ occur together is not zero (the overlapped area of the circles).
 - _Either river A or B or both rivers are flooded:_ the probability is the combined area of both circles.
 - _Neither A nor B are flooded:_ the probability outside (both) circles is not zero
-- _One river is flooded while the other is not:_ the probability is 1 minus the are of either circle, respectively (i.e., two probabilities, depending on the river, which are not necessarily equal).
+- _One river is flooded while the other is not:_ the probability is 1 minus the area of either circle, respectively (i.e., two probabilities, depending on the river, which are not necessarily equal).
 
 These observations and concepts are defined in more detail below.
 
