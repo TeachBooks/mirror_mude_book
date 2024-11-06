@@ -111,24 +111,24 @@ parts:
       - file: multivariate/test_bivariate
       # END REMOVE-FROM-PUBLISH
 
-#   - caption: Q2 Topics
-#     numbered: 2
-#     # START REMOVE-FROM-PUBLISH
-#     chapters:
-#     - file: Q2_overview
-#       title: Overview of Q2
-#     # END REMOVE-FROM-PUBLISH
-#     chapters: 
-#     - file: fvm/intro.md
-#       title: Finite Volume Method
-#       sections:
-#       # - file: fvm/overview
-#       #   title: Overview
-#       #   sections:
-#       - file: fvm/getting_started.md
-#         title: Getting Started
-#       - file: fvm/intro_2.md
-#       - file: fvm/gauss.md
+  - caption: Q2 Topics
+    numbered: 2
+    # START REMOVE-FROM-PUBLISH
+    chapters:
+    - file: Q2_overview
+      title: Overview of Q2
+    # END REMOVE-FROM-PUBLISH
+    # chapters: 
+    - file: fvm/intro.md
+      title: Finite Volume Method
+      sections:
+      - file: fvm/overview
+        title: Overview
+        sections:
+      - file: fvm/getting_started_new.ipynb
+        title: Getting Started
+      - file: fvm/fvm.ipynb
+      - file: fvm/advection_1.ipynb
 #         title: Gauss's Theorem
 #       - file: fvm/frames.md
 #         title: Reference Frames
