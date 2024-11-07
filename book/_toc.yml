@@ -115,10 +115,6 @@ parts:
     numbered: 2
     # START REMOVE-FROM-PUBLISH
     chapters:
-    - file: Q2_overview
-      title: Overview of Q2
-    # END REMOVE-FROM-PUBLISH
-      chapters: 
     - file: fvm/intro.md
       title: Finite Volume Method
       sections:
@@ -132,6 +128,7 @@ parts:
         title: Finite Volume Method
       - file: fvm/advection_1.ipynb
         title: Advection
+    - file: Q2_overview
 
 #         title: Gauss's Theorem
 #       - file: fvm/frames.md
