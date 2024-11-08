@@ -124,11 +124,13 @@ parts:
       sections:
       - file: fvm/getting_started_new.ipynb
         title: Getting Started
-      - file: fvm/intro_2.md
       - file: fvm/fvm.ipynb
         title: Finite Volume Method
       - file: fvm/advection_1.ipynb
-        title: Advection
+        title: Advection and Diffusion
+      - file: fvm/unstructured_meshes.ipynb
+        title: Unstructured Meshes
+      
 
 
 #         title: Gauss's Theorem
