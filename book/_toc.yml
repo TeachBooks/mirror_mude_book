@@ -110,25 +110,26 @@ parts:
       - file: multivariate/test_pyvinecopulib
       - file: multivariate/test_bivariate
       # END REMOVE-FROM-PUBLISH
+
 # START REMOVE-FROM-PUBLISH
   - caption: Q2 Topics
     numbered: 2
     chapters:
+    - file: Q2_overview
+      title: Overview of Q2
+# END REMOVE-FROM-PUBLISH
+    chapters:
     - file: fvm/intro.md
       title: Finite Volume Method
       sections:
-      - file: fvm/overview
-        title: Overview
-        sections:
-        - file: fvm/getting_started_new.ipynb
-          title: Getting Started
-        - file: fvm/intro_2.md
-        - file: fvm/fvm.ipynb
-          title: Finite Volume Method
-        - file: fvm/advection_1.ipynb
-          title: Advection
-    - file: Q2_overview
-# END REMOVE-FROM-PUBLISH
+      - file: fvm/getting_started_new.ipynb
+        title: Getting Started
+      - file: fvm/intro_2.md
+      - file: fvm/fvm.ipynb
+        title: Finite Volume Method
+      - file: fvm/advection_1.ipynb
+        title: Advection
+
 
 #         title: Gauss's Theorem
 #       - file: fvm/frames.md
