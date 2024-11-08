@@ -111,13 +111,8 @@ parts:
       - file: multivariate/test_bivariate
       # END REMOVE-FROM-PUBLISH
 
-# START REMOVE-FROM-PUBLISH
   - caption: Q2 Topics
     numbered: 2
-    chapters:
-    - file: Q2_overview
-      title: Overview of Q2
-# END REMOVE-FROM-PUBLISH
     chapters:
     - file: fvm/intro.md
       title: Finite Volume Method
