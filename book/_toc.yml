@@ -140,6 +140,8 @@ parts:
         title: Finite element implementation
       - file: fem/shape.md
         title: Elements and shape functions
+      - file: fem/poisson2d.md
+        title: Poisson equation in 2D
       - file: fem/isoparametric_mapping.md
         title: Isoparametric mapping
       - file: fem/videos.md
