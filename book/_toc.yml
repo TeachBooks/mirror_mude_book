@@ -140,8 +140,10 @@ parts:
         title: Finite element implementation
       - file: fem/shape.md
         title: Elements and shape functions
+      - file: fem/isoparametric_mapping.md
+        title: Isoparametric mapping
       - file: fem/videos.md
-        title: Videos (summary and additional material)
+        title: Videos (summary material)
     # END REMOVE-FROM-RELEASE
 
     # START REMOVE-FROM-RELEASE
@@ -339,7 +341,7 @@ parts:
       #   - file: pd/notebooks/traffic/Exercise_Traffic_Render.ipynb
     # END REMOVE-FROM-RELEASE
 
-    
+
   - caption: Programming
     numbered: false
     chapters:

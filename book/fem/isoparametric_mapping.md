@@ -3,6 +3,12 @@ $\newcommand{\hpder}[2]{\displaystyle\frac{\partial #1}{\partial #2}}$
 
 # Isoparametric mapping
 
+```{admonition} MUDE exam information
+:class: tip
+
+The contents of this page are _not_ part of the MUDE exam. It is included in the textbook to provide additional information, in this case illustrating a key feature that makes the finite element method scalable and robust.
+```
+
 After introducing the first 2D finite element formulations, it is necessary to give some more attention to how finite element matrices are in practice evaluated. We have not given much attention to the formulation of shape functions and numerical integration. In Chapter 1 you have seen a simple 1D implementation with linear elements, where definition of shape functions and evaluation of element integrals is relatively straightforward. In general, for 2D or 3D elements, particularly when unstructured meshes need to be supported, this becomes more complicated. Most popular finite element codes make use of the same technique that relates to the definition of integration schemes and the definition of the shape functions, this technique is called *isoparametric mapping*. 
 
 The basic motivation is that we want to define shape functions and the integration scheme on a so-called *reference element* and that we want to use this same definition of shape functions and integration scheme for any element in a mesh, irrespective of its position and orientation. 
