@@ -131,21 +131,13 @@ parts:
       title: Finite Element Method
       sections:
       - file: fem/strong.md
-        title: Strong form of the problem
       - file: fem/weak.md
-        title: Weak form
       - file: fem/discrete.ipynb
-        title: Discrete form
       - file: fem/matrix.ipynb
-        title: Finite element implementation
       - file: fem/shape.md
-        title: Elements and shape functions
+      - file: fem/numerical integration.md
       - file: fem/poisson2d.md
-        title: Poisson equation in 2D
       - file: fem/isoparametric_mapping.md
-        title: Isoparametric mapping
-      - file: fem/videos.md
-        title: Videos (summary material)
     # END REMOVE-FROM-RELEASE
 
     # START REMOVE-FROM-RELEASE
