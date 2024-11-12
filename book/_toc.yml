@@ -152,17 +152,17 @@ parts:
     - file: signal/intro.md
       title: Signal Processing
       sections:
-      - file: signal/fourier_real
-        title: Fourier Series
-        sections:
-        - file: signal/fourier_nb
-          title: Square Wave Example
+      # - file: signal/fourier_real
+      #   title: Fourier Series
+      #   sections:
+      #   - file: signal/fourier_nb
+      #     title: Square Wave Example
       - file: signal/fourier_complex
         title: Complex Fourier Series
-      - file: signal/fourier_transf
-        title: Fourier Transform
-      - file: signal/sampling
-        title: Sampling
+      # - file: signal/fourier_transf
+      #   title: Fourier Transform
+      # - file: signal/sampling
+      #   title: Sampling
       - file: signal/dft
         title: Discrete Fourier Transform
       - file: signal/spectral_est
