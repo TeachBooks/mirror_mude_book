@@ -103,13 +103,13 @@ parts:
         sections:
         - file: multivariate/design/one-random-variable
         - file: multivariate/design/two-random-variables
-      # START REMOVE-FROM-RELEASE
+      # START REMOVE-FROM-PUBLISH
         - file: multivariate/design/exercise
           sections:
           - file: multivariate/design/exercise_solutions
       - file: multivariate/test_pyvinecopulib
       - file: multivariate/test_bivariate
-      # END REMOVE-FROM-RELEASE
+      # END REMOVE-FROM-PUBLISH
 
   - caption: Q2 Topics
     numbered: 2
@@ -126,7 +126,7 @@ parts:
       - file: fvm/unstructured_meshes.ipynb
         title: Unstructured Meshes
 
-    # START REMOVE-FROM-RELEASE
+    # START REMOVE-FROM-PUBLISH
     - file: fem/intro.md
       title: Finite Element Method
       sections:
@@ -138,9 +138,9 @@ parts:
       - file: fem/numerical integration.md
       - file: fem/poisson2d.md
       - file: fem/isoparametric_mapping.md
-    # END REMOVE-FROM-RELEASE
+    # END REMOVE-FROM-PUBLISH
 
-    # START REMOVE-FROM-RELEASE
+    # START REMOVE-FROM-PUBLISH
     - file: signal/intro.md
       title: Signal Processing
       sections:
@@ -161,9 +161,9 @@ parts:
         title: Spectral Estimation
       - file: signal/videos
         title: Supplementary Videos
-    # END REMOVE-FROM-RELEASE
+    # END REMOVE-FROM-PUBLISH
 
-    # # START REMOVE-FROM-RELEASE
+    # # START REMOVE-FROM-PUBLISH
     # - file: time_series/intro.md
     #   title: Time Series Analysis
     #   sections:
@@ -197,9 +197,9 @@ parts:
     #   - file: time_series/notebook
     #     title: Notebook
     #   # END REMOVE-FROM-PUBLISH
-    # # END REMOVE-FROM-RELEASE
+    # # END REMOVE-FROM-PUBLISH
 
-    # START REMOVE-FROM-RELEASE
+    # START REMOVE-FROM-PUBLISH
     - file: optimization/overview
       title: Optimization
       sections:
@@ -231,9 +231,9 @@ parts:
         sections:
         - file: optimization/airlines_performance.ipynb
         - file: optimization/performance_generic_LP.ipynb
-    # END REMOVE-FROM-RELEASE
+    # END REMOVE-FROM-PUBLISH
 
-    # # START REMOVE-FROM-RELEASE
+    # # START REMOVE-FROM-PUBLISH
     # - file: ml/overview
     #   title: Machine Learning
     #   sections:
@@ -243,9 +243,9 @@ parts:
     #   - file: ml/ridge_sgd_interactive
     #   - file: ml/nn_interactive
     #   - file: ml/review
-    # # END REMOVE-FROM-RELEASE
+    # # END REMOVE-FROM-PUBLISH
 
-    # # START REMOVE-FROM-RELEASE
+    # # START REMOVE-FROM-PUBLISH
     # - file: eva/intro.md
     #   title: Extreme Value Analysis
     #   sections:
@@ -287,9 +287,9 @@ parts:
     #     - file: eva/Bernoulli.md
     #     - file: eva/videos.md
     #       title: EVA videos 
-    # # END REMOVE-FROM-RELEASE
+    # # END REMOVE-FROM-PUBLISH
 
-    # # START REMOVE-FROM-RELEASE
+    # # START REMOVE-FROM-PUBLISH
     # - file: pd/intro.md
     #   title: Risk and Reliability
     #   # Already in Q1:
@@ -333,7 +333,7 @@ parts:
     #   #   - file: pd/notebooks/flood-risk/Exercise_Flood_Risk_Render.ipynb
     #   #   - file: pd/notebooks/contamination/Exercise_Contamination_Render.ipynb
     #   #   - file: pd/notebooks/traffic/Exercise_Traffic_Render.ipynb
-    # # END REMOVE-FROM-RELEASE
+    # # END REMOVE-FROM-PUBLISH
 
 
   - caption: Programming
