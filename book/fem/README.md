@@ -12,11 +12,20 @@ yes there are extra files, but it's easier to remember to just paste everything
 Pages:
 `isoparametric_mapping.md`
 
-mofication placed below the first level heading:
+modification placed below the first level heading:
 
+
+```{admonition} MUDE exam information
+:class: tip
+
+The contents of this page are _not_ part of the MUDE exam. It is included in the textbook to provide additional information about the finite element method.
+```
+
+## Generic form of exam tip to add to top?
 
 ```{admonition} MUDE exam information
 :class: tip
 
 The contents of this page are _not_ part of the MUDE exam. It is included in the textbook to provide additional information, in this case <...custom message>.
 ```
+
