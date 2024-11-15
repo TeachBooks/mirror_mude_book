@@ -3,6 +3,12 @@ $\newcommand{\hpder}[2]{\displaystyle\frac{\partial #1}{\partial #2}}$
 
 # Isoparametric mapping
 
+```{admonition} MUDE exam information
+:class: tip
+
+The contents of this page are _not_ part of the MUDE exam. It is included in the textbook to provide additional information about the finite element method.
+```
+
 After introducing the first 2D finite element formulations, it is necessary to give some more attention to how finite element matrices are in practice evaluated. We have not given much attention to the formulation of shape functions and numerical integration. In Chapter 1 you have seen a simple 1D implementation with linear elements, where definition of shape functions and evaluation of element integrals is relatively straightforward. In general, for 2D or 3D elements, particularly when unstructured meshes need to be supported, this becomes more complicated. Most popular finite element codes make use of the same technique that relates to the definition of integration schemes and the definition of the shape functions, this technique is called *isoparametric mapping*. 
 
 The basic motivation is that we want to define shape functions and the integration scheme on a so-called *reference element* and that we want to use this same definition of shape functions and integration scheme for any element in a mesh, irrespective of its position and orientation. 
@@ -69,7 +75,7 @@ $$(isoparametric-def-1d)
 :::{card} Exercise
 What mapping do you obtain with the reference shape functions given above for an element with nodal coordinates $x_1=2$, $x_2=4$ and $x_3=6$? 
 
-```{figure} ../images/isoparametric_1d_example.png
+```{figure} figures/isoparametric_1d_example.png
 ---
 height: 300px
 name: isoparametric-1d-example
@@ -140,7 +146,7 @@ $$
 Isoparametric has been illustrated above for the case of 1D. It deserves to be said, however, that if there were only finite elements in 1D, the concept of isoparametric mapping would likely not be widespread. The approach really shines in higher dimensions, particularly on unstructured meshes. As an example, take the arbitrarily oriented quadrilateral element shown below. 
 
 
-```{figure} ../images/isoparametric_quad.png
+```{figure} figures/isoparametric_quad.png
 ---
 height: 320px
 name: isoparametric-quad
@@ -190,7 +196,7 @@ Consider a distorted quadrilateral element with nodal coordinates
 
 $$\mathbf{x}_1 = (0,0), \quad\mathbf{x}_2=(4,0), \quad\mathbf{x}_3 = (6,2), \quad\mathbf{x}_4 = (0,5)$$ 
 
-```{figure} ../images/isoparametric_2d_example.png
+```{figure} figures/isoparametric_2d_example.png
 ---
 height: 200px
 name: isoparametric-2d-example
