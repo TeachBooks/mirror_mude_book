@@ -126,7 +126,6 @@ parts:
       - file: fvm/unstructured_meshes.ipynb
         title: Unstructured Meshes
 
-    # START REMOVE-FROM-PUBLISH
     - file: fem/intro.md
       title: Finite Element Method
       sections:
@@ -138,7 +137,6 @@ parts:
       - file: fem/numerical integration.md
       - file: fem/poisson2d.md
       - file: fem/isoparametric_mapping.md
-    # END REMOVE-FROM-PUBLISH
 
     # START REMOVE-FROM-PUBLISH
     - file: signal/intro.md
