@@ -134,7 +134,7 @@ parts:
       - file: fem/discrete.ipynb
       - file: fem/matrix.ipynb
       - file: fem/shape.md
-      - file: fem/numerical integration.md
+      - file: fem/numerical_integration.md
       - file: fem/poisson2d.md
       - file: fem/isoparametric_mapping.md
 
