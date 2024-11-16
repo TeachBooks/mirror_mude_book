@@ -23,14 +23,27 @@ before_script:
 build-book:
   stage: build
   script:
+    - echo "Initial disk space and directory state:"
+    - df -h
+    - du -sh ./* || true
     - |
       if [ "$CI_COMMIT_BRANCH" == "release" ]; then
         echo "Building production version"
+        echo "===== BUILD START =====" 
         teachbooks build --publish book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
       else
         echo "Building draft version"
+        echo "===== BUILD START =====" 
         teachbooks build book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
       fi
+    - echo "===== BUILD COMPLETE ====="
+    - echo "Final disk space and directory state:"
+    - df -h
+    - du -sh ./* || true
+    - echo "Large files (>10MB):"
+    - find . -type f -size +10M -exec ls -lh {} \;
+    - echo "Directory structure of _build:"
+    - du -h book/_build | sort -hr | head -n 20
     - echo $CI_JOB_ID > build_job_id.txt
   artifacts:
     paths:
