@@ -4,10 +4,12 @@ The Finite Difference Method (FDM) is a fundamental numerical approach used to s
 
 In this Chapter, the fundamentals of numerical modelling and basic numerical methods are treated. More advanced techniques are also revised. The main focus is on Ordinary Differential Equations of varying orders. 
 
-```{figure} figs/NumericalMethodsRiver.gif
+```{figure} figs/NumericalMethodsRiver.png
 :name: NumericalMethodsRiver
 
 Cool numerical model of the Yamuna river. Thanks to Amgad Omer (Deltares).
+
+_Note: this image was an animation showing river flow (the results of a numerical model). It has been temporarily disabled and replaced with a static image._
 ``
 
 
