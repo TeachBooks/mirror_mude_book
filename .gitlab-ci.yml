@@ -33,34 +33,35 @@ build-book:
         teachbooks build book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
       fi
     # Cleanup steps
-    - echo "Final directory sizes before cleanup:" | tee -a build_debug.log
+    - echo "Directory sizes before cleanup:" | tee -a build_debug.log
     - du -sh book/_build/* | tee -a build_debug.log
     - echo "Cleaning up build artifacts..."
     - rm -rf book/_build/.doctrees
-    - rm -rf book/_build/jupyter_execute
-    - find book/_build -name "*.ipynb" -delete
-    - find book/_build -name "__pycache__" -exec rm -rf {} +
-    - find book/_build -name "*.pyc" -delete
+    # - rm -rf book/_build/jupyter_execute
+    # - find book/_build -name "*.ipynb" -delete
+    # - find book/_build -name "__pycache__" -exec rm -rf {} +
+    # - find book/_build -name "*.pyc" -delete
     # Keep debug output
     - echo "Final directory sizes after cleanup:" | tee -a build_debug.log
     - du -sh book/_build/* | tee -a build_debug.log
     - echo $CI_JOB_ID > build_job_id.txt
   artifacts:
     paths:
-      - book/_build/html/**/*.html
-      - book/_build/html/**/*.css
-      - book/_build/html/**/*.js
-      - book/_build/html/_images/**/*
-      - book/_build/html/_static/**/*.{css,js,woff,woff2,ttf}
+      - book/_build/html/**
+      # - book/_build/html/**/*.html
+      # - book/_build/html/**/*.css
+      # - book/_build/html/**/*.js
+      # - book/_build/html/_images/**/*
+      # - book/_build/html/_static/**/*.{css,js,woff,woff2,ttf}
       - stdout.log
       - stderr.log
       - build_job_id.txt
       - build_debug.log
-    exclude:
-      - book/_build/html/**/*.ipynb
-      - book/_build/html/**/__pycache__/
-      - book/_build/html/**/*.doctree
-      - book/_build/html/**/*.pickle
+    # exclude:
+    #   - book/_build/html/**/*.ipynb
+    #   - book/_build/html/**/__pycache__/
+    #   - book/_build/html/**/*.doctree
+    #   - book/_build/html/**/*.pickle
     expire_in: 1 week
   rules:
     - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "release"
