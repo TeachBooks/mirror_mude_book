@@ -1,31 +1,75 @@
 (ACF)=
 # Autocovariance function (ACF)
 
-Before we can look into the modelling of a stochastic process using an Autoregressive Moving Average (ARMA) model, we first need to introduce the autocovariance function (ACF) for a stationary time series, and describe the relationship between ACF and a power spectral density (PSD).
+Before we can look into the modelling of a stochastic process using an Autoregressive (AR) model, we first need to introduce the autocovariance function (ACF) for a stationary time series, and describe the relationship between ACF and a power spectral density (PSD).
 
-As in the Chapter on {ref}`OT`, the variance component is often determined based on the precision of an observation (at a given epoch), and the covarience components quantitatively indicate the statistical dependence (or independence) between observations. In this case, dependence is inherently introduced by the phyiscal processes that produce the signal (of which our time series is a sample), and in fact our time series methods seek to (mathematically) account for this.
-
-A preliminary motivation and explanation for why autocovariance is needed is provided nicely in this lecture, beginning at time 1:22:32 (and ending around 1:34:00).
-
-<p><iframe width="680" height="480" marginwidth="0" marginheight="0" src="https://collegerama.tudelft.nl/Mediasite/Play/1d74f018b9b54e918179570c75f6cd0c1d?playFrom=4952000&autostart=False"></iframe></p>
+As in the Chapter on #TODO (add reference to obs theory), the variance component is often determined based on the precision of an observation (at a given epoch), and the covariance components quantitatively indicate the statistical dependence (or independence) between observations. In this case, dependence is inherently introduced by the physical processes that produce the signal (of which our time series is a sample), and in fact our time series methods seek to (mathematically) account for this.
 
 ## Autocovariance and autocorrelation
 
-Let us assume an arbitrary (discrete) stationary time series, $S=[S_1,S_2,...,S_m]^T$, with mean $\mathbb{E}(S)=\mu$ and variance $Var(S_{i})=\sigma^2$.
+Let us assume an arbitrary (discrete) stationary time series, $S=[S_1,S_2,...,S_m]^T$, with mean $\mathbb{E}(S)=\mu$ and variance $Var(S_{i})=\sigma^2$. Remember that stationarity implies that the statistical properties of the time series do not depend on the time at which it is observed, i.e. expectation and variance are constant over time.
 
 The *formal* (or: theoretical) autocovariance is defined as
 
 $$
-Cov(S_t, S_{t-\tau}) = \mathbb{E}((S_t-\mu)(S_{t-\tau}-\mu))=\mathbb{E}(S_tS_{t-\tau})-\mu^2
+Cov(S_t, S_{t-\tau}) =\mathbb{E}(S_tS_{t-\tau})-\mu^2
 =c_{\tau}
 $$
 
 We have that $Cov(S_t, S_{t-\tau}) =Cov(S_t, S_{t+\tau})$.
 
 
-```{note}
-The reason to refer to *auto*covariance is that we are considering the covariance of $S$ with itself (with a certain time lag $\tau$). If the covariance of $S$ with the time series of another variable, $X$, would be considered, this is referred to as the *cross*-covariance. 
-```
+:::{card} Exercise covariance
+
+Show that the covariance can be written as: 
+
+$$Cov(S_t, S_{t-\tau}) = \mathbb{E}(S_tS_{t-\tau})-\mu^2
+=c_{\tau}$$ 
+
+
+````{admonition} Solution
+:class: tip, dropdown
+
+$$
+ Cov(S_t, S_{t-\tau})= \mathbb{E}[(S_t - \mathbb{E}(S_t))(S_{t-\tau} - \mathbb{E}(S_{t-\tau}))]\\
+ = \mathbb{E}((S_t-\mu)(S_{t-\tau}-\mu))\\
+ = \mathbb{E}(S_tS_{t-\tau} - \mu S_{t-\tau} - \mu S_t + \mu^2)\\
+ = \mathbb{E}(S_tS_{t-\tau}) - \mu \mathbb{E}(S_{t-\tau}) - \mu \mathbb{E}(S_t) + \mu^2\\
+= \mathbb{E}(S_tS_{t-\tau}) - 2\mu^2 + \mu^2\\
+= \mathbb{E}(S_tS_{t-\tau}) - \mu^2\\
+$$
+````
+:::
+
+:::{card} Exercise covariance
+
+Prove that $Cov(S_t, S_{t-\tau}) =Cov(S_t, S_{t+\tau})$: 
+
+
+
+````{admonition} Solution
+:class: tip, dropdown
+
+From the definition of covariance, we know that
+$$ Cov(a,b) = Cov(b,a)$$
+
+Hence, we have that
+
+$$ Cov(S_t, S_{t-\tau}) = Cov(S_{t-\tau}, S_t)$$
+
+Due to the stationarity of the time series, we have that
+
+$$ Cov(S_{t-\tau}, S_t) = Cov(S_t, S_{t+\tau})$$
+
+Therefore, we have that
+
+$$ Cov(S_t, S_{t-\tau}) = Cov(S_t, S_{t+\tau})$$
+
+
+````
+:::
+
+
 
 The *formal* autocorrelation is defined as
 
@@ -74,10 +118,6 @@ $$
 Here we use capitals for $\hat{C}_{\tau}$ and $\hat{R}_{\tau}$ since **estimators** are always a function of the random observables $S_t$.
 ```
 
-```{note}
-Software tools may have implemented one or both methods to choose from, so if possible good to check!
-```
-
 ### Covariance matrix based on autocovariance
 
 The structure of a covariance matrix for a stationary time series is purely symmetric and it looks like
@@ -91,9 +131,6 @@ c_2 & c_1 & \sigma^2 &  \ddots & c_2  \\
 
 There are $m$ (co)variance components - **one** variance component, $\sigma^2 = c_0$, and $m-1$ covariance components, $c_i$.
 
-```{note}
-The covariance matrix $\Sigma_{S}$ has constant values along the top-left to bottom-right diagonal and is called a _Toeplitz matrix._
-```
 
 (NACF)=
 ## Normalized ACF
@@ -226,9 +263,11 @@ $$
 ```
 :::
 
-## Power spectral density
+<!-- ## Power spectral density
 
-The power spectral density (PSD) explains how the power (variance) of the signal is distributed over different frequencies. For instance, the PSD of a pure sine wave is flat *except* at its constituent frequency, where it will show a peak. Purely random noise has a flat power spectrum, indicating that all frequencies have an identical contribution to the variance of the signal!
+The power spectral density (PSD) explains how the power (variance) of the signal is distributed over different frequencies. For instance, the PSD of a pure sine wave is flat *except* at its constituent frequency, where it will show a peak. Purely random noise has a flat power spectrum, indicating that all frequencies have an identical contribution to the variance of the signal! -->
+
+<!-- The power spectral density (PSD) explains how the power (variance) of the signal is distributed over different frequencies. For instance, the PSD of a pure sine wave is flat *except* at its constituent frequency, where it will show a peak. Purely random noise has a flat power spectrum, indicating that all frequencies have an identical contribution to the variance of the signal!
 
 ### PSD vs ACF
 
@@ -261,4 +300,4 @@ Time series data, autocovariance and its power spectral density plots of white n
 
 The PSD explains how the power (variance) of the signal is distributed over different frequencies. The PSD of a pure sine wave is flat except at its constituent frequency.
 Purey random noise (i.e., white noise) has a flat power, indicating that all frequencies have identical contribution in making the variance of the signal. This is however not the case for time-correlated noise because different frequencies have different power values in making the total signal variability.
-
+ -->
