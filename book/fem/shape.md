@@ -160,7 +160,7 @@ The 9-node quadrilateral element
 A popular alternative is one where the center node is removed, resulting in an 8-node quadrilateral element with the following shape function:
 
 $$
-N_i=a_i+b_ix+c_iy+d_ix^2+e_ixy+f_iy^2+g_ix^2y+h_ixy
+N_i=a_i+b_ix+c_iy+d_ix^2+e_ixy+f_iy^2+g_ix^2y+h_ixy^2
 $$
 
 
