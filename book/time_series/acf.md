@@ -90,12 +90,12 @@ The autocovariance function of a time series is not known beforehand, and hence 
 For a given stationary time series $S = [S_1,S_2,...,S_m]^T$, the least-squares estimator of the **autocovariance function** is given by
 
 $$\
-\hat{C}_{\tau} = \frac{1}{m-\tau}\sum_{i=1}^{m-\tau}(S_i-\mu)(S_{i+\tau}-\mu), \hspace{25px} \tau=0,1,...,m-1$$
+\hat{C}_{\tau} = \frac{1}{m-\tau}\sum_{i=1}^{m-\tau}(S_{i+\tau}-\mu)(S_{i}-\mu), \hspace{25px} \tau=0,1,...,m-1$$
 
 The least-squares estimator of **autocorrelation** (also called empirical autocorrelation function) is then
 
 $$
-\hat{R}_{\tau}=\frac{1}{m-\tau}\sum_{i=1}^{m-\tau}S_i S_{i+\tau}, \hspace{25px} \tau=0,1,...,m-1
+\hat{R}_{\tau}=\frac{1}{m-\tau}\sum_{i=1}^{m-\tau}S_{i+\tau} S_{i}, \hspace{25px} \tau=0,1,...,m-1
 $$
 
 **Maximum likelihood estimations**
@@ -103,7 +103,7 @@ $$
 The maximum likelihood estimator of **autocovariance** is given by
 
 $$
-\hat{C}_{\tau} = \frac{1}{m}\sum_{i=1}^{m-\tau}(S_i-\mu)(S_{i+\tau}-\mu), \hspace{25px} \tau=0,1,...,m-1
+\hat{C}_{\tau} = \frac{1}{m}\sum_{i=1}^{m-\tau}(S_{i+\tau}-\mu)(S_i-\mu), \hspace{25px} \tau=0,1,...,m-1
 $$
 
 Note that this is a biased estimator, $\mathbb{E}(\hat{C}_{\tau})\neq c_{\tau}$.
@@ -111,7 +111,7 @@ Note that this is a biased estimator, $\mathbb{E}(\hat{C}_{\tau})\neq c_{\tau}$.
 Similarly, the maximum likelihood estimate of the autocorrelation follows as:
 
 $$
-\hat{R}_{\tau}=\frac{1}{m}\sum_{i=1}^{m-\tau}S_i S_{i+\tau}, \hspace{25px} \tau=0,1,...,m-1
+\hat{R}_{\tau}=\frac{1}{m}\sum_{i=1}^{m-\tau}S_{i+\tau} S_{i}, \hspace{25px} \tau=0,1,...,m-1
 $$
 
 ```{note}

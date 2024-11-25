@@ -175,8 +175,6 @@ parts:
         - file: time_series/fit_BLUE.ipynb
       - file: time_series/stationarity
         title: "Stationarity"
-        sections:
-        - file: time_series/exercise2.ipynb
       - file: time_series/acf
         title: "Autocovariance function (ACF)"
       - file: time_series/ar.ipynb
