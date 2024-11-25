@@ -82,6 +82,22 @@ $$
 
 The time series of residuals (left panel) is indeed a stationary time series.
 
+```{question} 
+Which of the four options is a stationary time series?
+
+```{figure} ./figs/stat_question.png
+---
+height: 300px
+name: stationary_example
+---
+Example of a stationary time series.
+```
+    
+```{solution}
+The time series in the second panel is stationary. The mean and variance are constant over time.
+```
+
+
 
 ### Other ways to make a time series stationary
 When model specification is not straightforward, other methods can be used to make a time series stationary. Two common methods are single differencing and moving average. Single differencing of $Y=[Y_1,...,Y_m]^T$ makes a time series $\Delta Y_t=Y_t - Y_{t-1}$. Another way to create an (almost) stationary time series is by taking the moving average of the time series. Where we apply a moving average of $k$ observations to the time series $Y$ to create a new time series $\bar{Y}_t = \frac{1}{k}\sum_{i=1}^{k}Y_{t-i}$, and then take the difference between the original time series and the moving average to obtain a (nearly) stationary time series $\Delta Y_t = Y_t - \bar{Y}_t$.
