@@ -11,7 +11,7 @@ The goal is now to:
 As already discussed, we will distinguish the following components in a time series:
 
 * **Trend:** General behavior and variation of the process. This often is a linear trend with an unknown intercept $y_0$ and a rate $r$.
-* **Seasonality:** Regular seasonal variations, which can be expressed as sine functions with (un)known angular frequency $\omega_0_0$, and unknown amplitude $A$ and phase $\theta$.
+* **Seasonality:** Regular seasonal variations, which can be expressed as sine functions with (un)known angular frequency $\omega_0$, and unknown amplitude $A$ and phase $\theta$.
 * **Offset:** A jump of size $o$ in a time series starting at epoch $t_k$.
 * **Noise:** White or colored noise (e.g., AR process).
 
