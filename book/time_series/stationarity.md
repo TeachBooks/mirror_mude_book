@@ -82,7 +82,8 @@ $$
 
 The time series of residuals (left panel) is indeed a stationary time series.
 
-```{question} 
+:::{card} Question Stationary Time Series
+
 Which of the four options is a stationary time series?
 
 ```{figure} ./figs/stat_question.png
@@ -92,10 +93,13 @@ name: stationary_example
 ---
 Example of a stationary time series.
 ```
-    
-```{solution}
+
+````{admonition} Solution
+:class: tip, dropdown
+
 The time series in the second panel is stationary. The mean and variance are constant over time.
-```
+````
+:::
 
 
 
