@@ -138,7 +138,6 @@ parts:
       - file: fem/poisson2d.md
       - file: fem/isoparametric_mapping.md
 
-    # START REMOVE-FROM-PUBLISH
     - file: signal/intro.md
       title: Signal Processing
       sections:
@@ -159,7 +158,6 @@ parts:
         title: Spectral Estimation
       - file: signal/videos
         title: Supplementary Videos
-    # END REMOVE-FROM-PUBLISH
 
     # START REMOVE-FROM-PUBLISH
     - file: time_series/intro.md
