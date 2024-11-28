@@ -27,11 +27,11 @@ Recall that the BLUE of $\mathrm{x}$ is:
 
 $$\hat{X}=(\mathrm{A}^T\Sigma_{Y}^{-1}\mathrm{A})^{-1}\mathrm{A}^T\Sigma_{Y}^{-1}Y,\hspace{10px}\Sigma_{\hat{X}}=(\mathrm{A}^T\Sigma_{Y}^{-1}\mathrm{A})^{-1}$$
 
-The BLUE of $Y$ and $\epsilon$ is
+The BLUE of $Y$  is:
 
 $$\hat{Y}=\mathrm{A}\hat{X},\hspace{10px}\Sigma_{\hat{Y}}=\mathrm{A}\Sigma_{\hat{X}}\mathrm{A}^T$$
 
-and
+and $\epsilon$ is:
 
 $$\hat{\epsilon}=Y-\hat{Y},\hspace{10px}\Sigma_{\hat{\epsilon}}=\Sigma_{Y}-\Sigma_{\hat{Y}}$$
 

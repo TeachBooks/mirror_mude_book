@@ -3,7 +3,7 @@
 
 Before we can look into the modelling of a stochastic process using an Autoregressive (AR) model, we first need to introduce the autocovariance function (ACF) for a stationary time series, and describe the relationship between ACF and a power spectral density (PSD).
 
-As in the Chapter on #TODO (add reference to obs theory), the variance component is often determined based on the precision of an observation (at a given epoch), and the covariance components quantitatively indicate the statistical dependence (or independence) between observations. In this case, dependence is inherently introduced by the physical processes that produce the signal (of which our time series is a sample), and in fact our time series methods seek to (mathematically) account for this.
+As in [Observation theory](../observation_theory/01_Introduction.md), the variance component is often determined based on the precision of an observation (at a given epoch), and the covariance components quantitatively indicate the statistical dependence (or independence) between observations. In this case, dependence is inherently introduced by the physical processes that produce the signal (of which our time series is a sample), and in fact our time series methods seek to (mathematically) account for this.
 
 ## Autocovariance and autocorrelation
 
@@ -51,7 +51,10 @@ Prove that $Cov(S_t, S_{t-\tau}) =Cov(S_t, S_{t+\tau})$:
 :class: tip, dropdown
 
 From the definition of covariance, we know that
-$$ Cov(a,b) = Cov(b,a)$$
+
+$$
+Cov(a,b) = Cov(b,a)
+$$
 
 Hence, we have that
 
