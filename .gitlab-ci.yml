@@ -19,11 +19,13 @@ before_script:
   - virtualenv venv
   - source venv/bin/activate
   - pip install -r requirements.txt
+  - pip install teachbooks
 
 build-book:
   stage: build
   script:
-    # Previous debug commands remain the same
+    - echo "Starting build process..."
+    # Build based on branch
     - |
       if [ "$CI_COMMIT_BRANCH" == "release" ]; then
         echo "Building production version"
@@ -32,40 +34,30 @@ build-book:
         echo "Building draft version"
         teachbooks build book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
       fi
-    # Cleanup steps
-    - echo "Directory sizes before cleanup:" | tee -a build_debug.log
-    - du -sh book/_build/* | tee -a build_debug.log
-    - echo "Cleaning up build artifacts..."
-    - rm -rf book/_build/.doctrees
-    # - rm -rf book/_build/jupyter_execute
-    # - find book/_build -name "*.ipynb" -delete
-    # - find book/_build -name "__pycache__" -exec rm -rf {} +
-    # - find book/_build -name "*.pyc" -delete
-    # Keep debug output
-    - echo "Final directory sizes after cleanup:" | tee -a build_debug.log
-    - du -sh book/_build/* | tee -a build_debug.log
+
+    # Check build size
+    - echo "Calculating build size..."
+    - SIZE=$(du -sk book/_build/html | cut -f1)
+    - echo "Build size is ${SIZE}KB"
     - echo $CI_JOB_ID > build_job_id.txt
+
+    - echo "Directory sizes after build:"
+    - du -sh book/_build/*
+    - echo "Build completed"
+
   artifacts:
+    when: on_success
     paths:
       - book/_build/html/**
-      # - book/_build/html/**/*.html
-      # - book/_build/html/**/*.css
-      # - book/_build/html/**/*.js
-      # - book/_build/html/_images/**/*
-      # - book/_build/html/_static/**/*.{css,js,woff,woff2,ttf}
+      - book/_build/jupyter_execute/**
       - stdout.log
       - stderr.log
       - build_job_id.txt
-      - build_debug.log
-    # exclude:
-    #   - book/_build/html/**/*.ipynb
-    #   - book/_build/html/**/__pycache__/
-    #   - book/_build/html/**/*.doctree
-    #   - book/_build/html/**/*.pickle
     expire_in: 1 week
+
   rules:
-    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "release"
-    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "release"
+    - if: $CI_COMMIT_BRANCH == "testpip" || $CI_COMMIT_BRANCH == "release"
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "testpip" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "release"
       when: always
 
 deploy-draft:
@@ -77,12 +69,12 @@ deploy-draft:
       curl -X POST https://mude.citg.tudelft.nl/hooks/book-deploy-draft \
       -H "Content-Type: application/json" \
       -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
-      -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"main\"},\"build_job_id\":$BUILD_JOB_ID}"
+      -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"testpip\"},\"build_job_id\":$BUILD_JOB_ID}"
   environment:
     name: draft
     url: https://mude.citg.tudelft.nl/2024/book/draft
   rules:
-    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "testpip"
 
 deploy-production:
   stage: deploy
