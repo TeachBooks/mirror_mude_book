@@ -24,8 +24,7 @@ before_script:
 build-book:
   stage: build
   script:
-    - echo "Starting build process..."
-    # Build based on branch
+    # Build logic
     - |
       if [ "$CI_COMMIT_BRANCH" == "release" ]; then
         echo "Building production version"
@@ -35,24 +34,44 @@ build-book:
         teachbooks build book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
       fi
 
-    # Check build size
-    - echo "Calculating build size..."
-    - SIZE=$(du -sk book/_build/html | cut -f1)
-    - echo "Build size is ${SIZE}KB"
+    # Size debugging
+    - echo "Initial directory sizes:" | tee -a build_debug.log
+    - du -sh book/_build/* | tee -a build_debug.log
+    - find book/_build -type f -size +5M -exec ls -lh {} \; | tee -a build_debug.log
     - echo $CI_JOB_ID > build_job_id.txt
 
-    - echo "Directory sizes after build:"
-    - du -sh book/_build/*
-    - echo "Build completed"
-
   artifacts:
-    when: on_success
     paths:
       - book/_build/html/**
-      - book/_build/jupyter_execute/**
+      - book/_build/jupyter_execute/**/*.html
+      - build_job_id.txt
       - stdout.log
       - stderr.log
-      - build_job_id.txt
+      - build_debug.log
+    exclude:
+      # Build cache and temp files
+      - "**/__pycache__/**"
+      - "**/*.pyc"
+      - book/_build/.doctrees/**
+      - book/_build/jupyter_cache/**
+      - "**/*.pickle"
+      - "**/*.doctree"
+      
+      # Jupyter temporary files
+      - "**/.ipynb_checkpoints/**"
+      - book/_build/jupyter_execute/**/*.ipynb
+      - book/_build/jupyter_execute/**/*.py
+      
+      # Source and backup files
+      - "**/*.md.temp"
+      - "**/*.bak"
+      - "**/*.orig"
+      
+      # Debug files
+      - "**/*.log"
+      - "**/*.debug"
+      - "**/*.dump"
+
     expire_in: 1 week
 
   rules:
