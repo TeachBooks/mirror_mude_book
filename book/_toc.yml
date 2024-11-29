@@ -395,7 +395,7 @@ parts:
     - file: programming/week_1_8
       sections:
       - file: external/learn-python/book/08/sympy
-    - file: optimization\gurobi.md
+    - file: optimization/gurobi.md
       title: Gurobi
 
     # THIS IS FOR WEEK 2.5
