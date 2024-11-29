@@ -2,7 +2,6 @@ image: python:3.10-bullseye
 
 stages:
   - build
-  - deploy
 
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
@@ -20,82 +19,73 @@ before_script:
   - source venv/bin/activate
   - pip install -r requirements.txt
 
-build-book:
+build-and-deploy:
   stage: build
   script:
-    # Previous debug commands remain the same
+    # Debug info before build
+    - echo "Starting build process..."
+    - df -h
+    - pwd
+    - ls -la
+
+    # Build the book based on branch
     - |
       if [ "$CI_COMMIT_BRANCH" == "release" ]; then
         echo "Building production version"
+        DEPLOY_URL="https://mude.citg.tudelft.nl/2024/book"
+        DEPLOY_HOOK="book-deploy-production"
+        ENV_NAME="production"
         teachbooks build --publish book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
       else
         echo "Building draft version"
+        DEPLOY_URL="https://mude.citg.tudelft.nl/2024/book/draft"
+        DEPLOY_HOOK="book-deploy-draft"
+        ENV_NAME="draft"
         teachbooks build book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
       fi
-    # Cleanup steps
-    - echo "Directory sizes before cleanup:" | tee -a build_debug.log
-    - du -sh book/_build/* | tee -a build_debug.log
-    - echo "Cleaning up build artifacts..."
-    - rm -rf book/_build/.doctrees
-    # - rm -rf book/_build/jupyter_execute
-    # - find book/_build -name "*.ipynb" -delete
-    # - find book/_build -name "__pycache__" -exec rm -rf {} +
-    # - find book/_build -name "*.pyc" -delete
-    # Keep debug output
-    - echo "Final directory sizes after cleanup:" | tee -a build_debug.log
-    - du -sh book/_build/* | tee -a build_debug.log
-    - echo $CI_JOB_ID > build_job_id.txt
+
+    # Get build size and handle deployment
+    - echo "Calculating build size..."
+    - SIZE=$(du -sk book/_build/html | cut -f1)
+    - echo "Build size is ${SIZE}KB"
+    - |
+      if [ "$SIZE" -lt 153600 ]; then  # 150MB in KB
+        echo "Build size OK, proceeding with normal artifact upload"
+        echo $CI_JOB_ID > build_job_id.txt
+        # Deploy using artifacts
+        - |
+          curl -X POST "https://mude.citg.tudelft.nl/hooks/${DEPLOY_HOOK}" \
+          -H "Content-Type: application/json" \
+          -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
+          -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"${CI_COMMIT_BRANCH}\"},\"build_job_id\":$CI_JOB_ID}"
+      else
+        echo "Build too large for artifacts, deploying directly"
+        # Here you would add direct deployment logic
+        # This is a placeholder - you'll need to implement the actual direct deployment
+        echo "Direct deployment not implemented yet"
+        exit 1
+      fi
+
+    # Debug info after build
+    - echo "Directory sizes after build:"
+    - du -sh book/_build/*
+    - echo "Build and deploy completed"
+
   artifacts:
+    when: on_success
     paths:
       - book/_build/html/**
-      # - book/_build/html/**/*.html
-      # - book/_build/html/**/*.css
-      # - book/_build/html/**/*.js
-      # - book/_build/html/_images/**/*
-      # - book/_build/html/_static/**/*.{css,js,woff,woff2,ttf}
       - stdout.log
       - stderr.log
       - build_job_id.txt
       - build_debug.log
-    # exclude:
-    #   - book/_build/html/**/*.ipynb
-    #   - book/_build/html/**/__pycache__/
-    #   - book/_build/html/**/*.doctree
-    #   - book/_build/html/**/*.pickle
     expire_in: 1 week
+
+  environment:
+    name: $ENV_NAME
+    url: $DEPLOY_URL
+
   rules:
     - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "release"
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "release"
       when: always
-
-deploy-draft:
-  stage: deploy
-  needs: ["build-book"]
-  script:
-    - BUILD_JOB_ID=$(cat build_job_id.txt)
-    - |
-      curl -X POST https://mude.citg.tudelft.nl/hooks/book-deploy-draft \
-      -H "Content-Type: application/json" \
-      -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
-      -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"main\"},\"build_job_id\":$BUILD_JOB_ID}"
-  environment:
-    name: draft
-    url: https://mude.citg.tudelft.nl/2024/book/draft
-  rules:
-    - if: $CI_COMMIT_BRANCH == "main"
-
-deploy-production:
-  stage: deploy
-  needs: ["build-book"]
-  script:
-    - BUILD_JOB_ID=$(cat build_job_id.txt)
-    - |
-      curl -X POST https://mude.citg.tudelft.nl/hooks/book-deploy-production \
-      -H "Content-Type: application/json" \
-      -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
-      -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"release\"},\"build_job_id\":$BUILD_JOB_ID}"
-  environment:
-    name: production
-    url: https://mude.citg.tudelft.nl/2024/book
-  rules:
-    - if: $CI_COMMIT_BRANCH == "release"
