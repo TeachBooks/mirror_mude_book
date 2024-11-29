@@ -396,8 +396,7 @@ parts:
       sections:
       - file: external/learn-python/book/08/sympy
     - file: optimization/gurobi.md
-      sections:
-      title: Gurobi
+      title: "Week 2.4: Gurobi installation"
 
     # THIS IS FOR WEEK 2.5
     # START REMOVE-FROM-PUBLISH
