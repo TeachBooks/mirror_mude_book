@@ -163,35 +163,27 @@ parts:
     - file: time_series/intro.md
       title: Time Series Analysis
       sections:
-      - file: time_series/components
+      - file: time_series/components.md
         title: "Time Series components"
         sections:
         - file: time_series/exercise1.ipynb
-      - file: time_series/types
-        title: "Types of Time Series"
+      - file: time_series/noise.ipynb
+        title: "Noise and stochastic model"
       - file: time_series/modelling
         title: "Time Series modelling and estimation"
         sections:
-        - file: time_series/exercise3.ipynb
+        - file: time_series/fit_BLUE.ipynb
       - file: time_series/stationarity
         title: "Stationarity"
-        sections:
-        - file: time_series/exercise2.ipynb
       - file: time_series/acf
         title: "Autocovariance function (ACF)"
+      - file: time_series/ar.ipynb
+        title: "AutoRegressive Moving Average (AR) process"
         sections:
-        - file: time_series/exercise4.ipynb
-      - file: time_series/arma
-        title: "AutoRegressive Moving Average (ARMA) process"
-        sections:
-        - file: time_series/exercise5.ipynb
+        - file: time_series/ar_exercise.ipynb
       - file: time_series/forecasting
         title: "Time Series forecasting"
-      - file: time_series/optional
-        title: "Supplementary material"
       # START REMOVE-FROM-PUBLISH
-      - file: time_series/notebook
-        title: Notebook
       # END REMOVE-FROM-PUBLISH
     # END REMOVE-FROM-PUBLISH
 
