@@ -56,8 +56,8 @@ build-book:
     expire_in: 1 week
 
   rules:
-    - if: $CI_COMMIT_BRANCH == "testpip" || $CI_COMMIT_BRANCH == "release"
-    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "testpip" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "release"
+    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "release"
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "release"
       when: always
 
 deploy-draft:
@@ -69,12 +69,12 @@ deploy-draft:
       curl -X POST https://mude.citg.tudelft.nl/hooks/book-deploy-draft \
       -H "Content-Type: application/json" \
       -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
-      -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"testpip\"},\"build_job_id\":$BUILD_JOB_ID}"
+      -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"main\"},\"build_job_id\":$BUILD_JOB_ID}"
   environment:
     name: draft
     url: https://mude.citg.tudelft.nl/2024/book/draft
   rules:
-    - if: $CI_COMMIT_BRANCH == "testpip"
+    - if: $CI_COMMIT_BRANCH == "main"
 
 deploy-production:
   stage: deploy
