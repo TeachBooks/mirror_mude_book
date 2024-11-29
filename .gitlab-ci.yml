@@ -1,24 +1,3 @@
-image: python:3.10-bullseye
-
-stages:
-  - build
-
-variables:
-  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
-  GIT_SUBMODULE_STRATEGY: recursive
-
-cache:
-  paths:
-    - .cache/pip
-    - venv/
-
-before_script:
-  - python -V
-  - pip install virtualenv
-  - virtualenv venv
-  - source venv/bin/activate
-  - pip install -r requirements.txt
-
 build-and-deploy:
   stage: build
   script:
@@ -46,7 +25,7 @@ build-and-deploy:
     - echo "Build size is ${SIZE}KB"
     - echo $CI_JOB_ID > build_job_id.txt
     
-    # Create a minimal artifact set if size is too large
+    # For large builds, create minimal artifact set
     - |
       if [ "$SIZE" -gt 153600 ]; then  # 150MB in KB
         echo "Build size too large, creating minimal artifact set"
@@ -54,6 +33,8 @@ build-and-deploy:
         cp build_job_id.txt minimal_artifact/
         cp stdout.log minimal_artifact/
         cp stderr.log minimal_artifact/
+        # Signal that we're using minimal artifacts
+        touch USE_MINIMAL_ARTIFACTS
       fi
 
     # Always proceed with deployment notification
@@ -71,11 +52,26 @@ build-and-deploy:
   artifacts:
     when: on_success
     paths:
-      - book/_build/html/**
       - stdout.log
       - stderr.log
       - build_job_id.txt
+      - USE_MINIMAL_ARTIFACTS
       - minimal_artifact/
+      - book/_build/html/**
+    exclude:
+      - book/_build/html/** 
+      - book/_build/jupyter_execute/**
+      - "**/*.ipynb"
+      - "**/__pycache__"
+      - "**/*.pyc"
+      - book/_build/.doctrees
+      - book/_build/jupyter_cache
+      - book/_build/.jupyter_cache
+      - book/_build/*.pickle
+      - book/_build/*.doctree
+      - "**/*.pickle"
+      - "**/*.doctree"
+      - "**/*.ipynb_checkpoints"
     expire_in: 1 week
 
   environment:
