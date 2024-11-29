@@ -35,42 +35,31 @@ build-book:
       fi
 
     # Size analysis
-    - echo === Size Analysis === | tee size_analysis.log
-    - echo Directory Sizes | tee -a size_analysis.log
-    - du -sh book/_build/* | tee -a size_analysis.log
-    - |
-      cd book/_build
-      
-      # HTML files
-      echo HTML files size and count >> ../../size_analysis.log
-      find html -name "*.html" -type f -exec du -ch {} + 2>/dev/null | grep total$ >> ../../size_analysis.log
-      echo HTML count $(find html -name "*.html" | wc -l) >> ../../size_analysis.log
-      
-      # JavaScript files
-      echo JS files size and count >> ../../size_analysis.log
-      find html -name "*.js" -type f -exec du -ch {} + 2>/dev/null | grep total$ >> ../../size_analysis.log
-      echo JS count $(find html -name "*.js" | wc -l) >> ../../size_analysis.log
-      
-      # CSS files
-      echo CSS files size and count >> ../../size_analysis.log
-      find html -name "*.css" -type f -exec du -ch {} + 2>/dev/null | grep total$ >> ../../size_analysis.log
-      echo CSS count $(find html -name "*.css" | wc -l) >> ../../size_analysis.log
-      
-      # Image files
-      echo Image files size and count >> ../../size_analysis.log
-      find html/_images -type f -exec du -ch {} + 2>/dev/null | grep total$ >> ../../size_analysis.log
-      echo Image count $(find html/_images -type f | wc -l) >> ../../size_analysis.log
-      
-      # Notebooks
-      echo Notebook files size and count >> ../../size_analysis.log
-      find . -name "*.ipynb" -type f -exec du -ch {} + 2>/dev/null | grep total$ >> ../../size_analysis.log
-      echo Notebook count $(find . -name "*.ipynb" | wc -l) >> ../../size_analysis.log
-      
-      # Large files
-      echo Largest Files over 1MB >> ../../size_analysis.log
-      find . -type f -size +1M -exec ls -lh {} \; | sort -k5 -hr >> ../../size_analysis.log
-      
-      cd ../..
+# Debug directory sizes
+    - echo "=== Size Analysis ===" | tee size_analysis.log
+    - cd book/_build
+    
+    # Overall sizes
+    - echo "Overall directory sizes:" >> ../../size_analysis.log
+    - du -sh * >> ../../size_analysis.log
+    
+    # HTML directory breakdown
+    - echo -e "\nHTML directory breakdown:" >> ../../size_analysis.log
+    - cd html
+    - echo "JavaScript files:" >> ../../../size_analysis.log
+    - du -ch $(find . -name "*.js") | tail -n1 >> ../../../size_analysis.log
+    
+    - echo "CSS files:" >> ../../../size_analysis.log
+    - du -ch $(find . -name "*.css") | tail -n1 >> ../../../size_analysis.log
+    
+    - echo "HTML files:" >> ../../../size_analysis.log
+    - du -ch $(find . -name "*.html") | tail -n1 >> ../../../size_analysis.log
+    
+    # Find largest files
+    - echo -e "\nLargest files (>1MB):" >> ../../../size_analysis.log
+    - find . -type f -size +1M -exec ls -lh {} \; | sort -hr >> ../../../size_analysis.log
+    
+    - cd ../../..
 
     - echo $CI_JOB_ID > build_job_id.txt
 
