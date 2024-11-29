@@ -184,8 +184,6 @@ parts:
       - file: time_series/forecasting
         title: "Time Series forecasting"
       # START REMOVE-FROM-PUBLISH
-      - file: time_series/notebook
-        title: Notebook
       # END REMOVE-FROM-PUBLISH
     # END REMOVE-FROM-PUBLISH
 

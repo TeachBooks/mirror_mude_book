@@ -28,7 +28,7 @@ In summary, given a time series $Y=\mathrm{Ax}+\epsilon$, the workflow is as fol
 
 5. Predict future values of the time series: $\hat{Y}_p=\mathrm{A}_p\hat{X}+\hat{\epsilon}_p$.
 
-```(note)
+```{note}
 This procedure is a general approach to forecasting time series data. It resembles the process of stochastic inter- and extrapolation, which is used in many fields of science and engineering.
 ```
 
