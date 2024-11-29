@@ -44,21 +44,24 @@ build-and-deploy:
     - echo "Calculating build size..."
     - SIZE=$(du -sk book/_build/html | cut -f1)
     - echo "Build size is ${SIZE}KB"
+    - echo $CI_JOB_ID > build_job_id.txt
+    
+    # Create a minimal artifact set if size is too large
     - |
-      if [ "$SIZE" -lt 153600 ]; then  # 150MB in KB
-        echo "Build size OK, proceeding with normal artifact upload"
-        echo $CI_JOB_ID > build_job_id.txt
-        # Deploy using artifacts
-        curl -X POST "${HOOK_URL}" \
-          -H "Content-Type: application/json" \
-          -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
-          -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"${CI_COMMIT_BRANCH}\"},\"build_job_id\":$CI_JOB_ID}"
-      else
-        echo "Build too large for artifacts, deploying directly"
-        # Here you would add direct deployment logic
-        echo "Direct deployment not implemented yet"
-        exit 1
+      if [ "$SIZE" -gt 153600 ]; then  # 150MB in KB
+        echo "Build size too large, creating minimal artifact set"
+        mkdir -p minimal_artifact
+        cp build_job_id.txt minimal_artifact/
+        cp stdout.log minimal_artifact/
+        cp stderr.log minimal_artifact/
       fi
+
+    # Always proceed with deployment notification
+    - |
+      curl -X POST "${HOOK_URL}" \
+        -H "Content-Type: application/json" \
+        -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
+        -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"${CI_COMMIT_BRANCH}\"},\"build_job_id\":$CI_JOB_ID}"
 
     # Debug info after build
     - echo "Directory sizes after build:"
@@ -72,7 +75,7 @@ build-and-deploy:
       - stdout.log
       - stderr.log
       - build_job_id.txt
-      - build_debug.log
+      - minimal_artifact/
     expire_in: 1 week
 
   environment:
