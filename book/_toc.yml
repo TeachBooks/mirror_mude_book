@@ -159,7 +159,6 @@ parts:
       - file: signal/videos
         title: Supplementary Videos
 
-    # START REMOVE-FROM-PUBLISH
     - file: time_series/intro.md
       title: Time Series Analysis
       sections:
@@ -183,9 +182,6 @@ parts:
         - file: time_series/ar_exercise.ipynb
       - file: time_series/forecasting
         title: "Time Series forecasting"
-      # START REMOVE-FROM-PUBLISH
-      # END REMOVE-FROM-PUBLISH
-    # END REMOVE-FROM-PUBLISH
 
     # START REMOVE-FROM-PUBLISH
     - file: optimization/overview
