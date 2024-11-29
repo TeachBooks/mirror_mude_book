@@ -2,6 +2,7 @@ image: python:3.10-bullseye
 
 stages:
   - build
+  - deploy
 
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
@@ -18,91 +19,83 @@ before_script:
   - virtualenv venv
   - source venv/bin/activate
   - pip install -r requirements.txt
-  - pip install teachbooks  # Added this line
 
-
-build-and-deploy:
+build-book:
   stage: build
   script:
-    # Debug info before build
-    - echo "Starting build process..."
-    - df -h
-    - pwd
-    - ls -la
-
-    # Set build variables
+    # Previous debug commands remain the same
     - |
       if [ "$CI_COMMIT_BRANCH" == "release" ]; then
-        BUILD_TYPE="production"
-        BUILD_CMD="teachbooks build --publish book/"
-        HOOK_URL="https://mude.citg.tudelft.nl/hooks/book-deploy-production"
+        echo "Building production version"
+        teachbooks build --publish book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
       else
-        BUILD_TYPE="draft"
-        BUILD_CMD="teachbooks build book/"
-        HOOK_URL="https://mude.citg.tudelft.nl/hooks/book-deploy-draft"
+        echo "Building draft version"
+        teachbooks build book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
       fi
-    
-    # Execute build
-    - echo "Building ${BUILD_TYPE} version"
-    - eval "${BUILD_CMD}" > >(tee stdout.log) 2> >(tee stderr.log >&2)
-
-    # Get build size and handle deployment
-    - echo "Calculating build size..."
-    - SIZE=$(du -sk book/_build/html | cut -f1)
-    - echo "Build size is ${SIZE}KB"
+    # Cleanup steps
+    - echo "Directory sizes before cleanup:" | tee -a build_debug.log
+    - du -sh book/_build/* | tee -a build_debug.log
+    - echo "Cleaning up build artifacts..."
+    - rm -rf book/_build/.doctrees
+    # - rm -rf book/_build/jupyter_execute
+    # - find book/_build -name "*.ipynb" -delete
+    # - find book/_build -name "__pycache__" -exec rm -rf {} +
+    # - find book/_build -name "*.pyc" -delete
+    # Keep debug output
+    - echo "Final directory sizes after cleanup:" | tee -a build_debug.log
+    - du -sh book/_build/* | tee -a build_debug.log
     - echo $CI_JOB_ID > build_job_id.txt
-    
-    # Create minimal artifact set if build is large
-    - |
-      if [ "$SIZE" -gt 153600 ]; then
-        echo "Build size too large, creating minimal artifact set"
-        mkdir -p minimal_artifact
-        cp build_job_id.txt minimal_artifact/
-        cp stdout.log minimal_artifact/
-        cp stderr.log minimal_artifact/
-      fi
-
-    # Notify webhook
-    - |
-      curl -X POST "${HOOK_URL}" \
-        -H "Content-Type: application/json" \
-        -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
-        -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"${CI_COMMIT_BRANCH}\"},\"build_job_id\":$CI_JOB_ID}"
-
-    # Debug info after build
-    - echo "Directory sizes after build:"
-    - du -sh book/_build/*
-    - echo "Build and deploy completed"
-
   artifacts:
-    when: on_success
     paths:
+      - book/_build/html/**
+      # - book/_build/html/**/*.html
+      # - book/_build/html/**/*.css
+      # - book/_build/html/**/*.js
+      # - book/_build/html/_images/**/*
+      # - book/_build/html/_static/**/*.{css,js,woff,woff2,ttf}
       - stdout.log
       - stderr.log
       - build_job_id.txt
-      - minimal_artifact/
-      - book/_build/html/**
-    exclude:
-      - book/_build/jupyter_execute/**
-      - "**/*.ipynb"
-      - "**/__pycache__"
-      - "**/*.pyc"
-      - book/_build/.doctrees
-      - book/_build/jupyter_cache
-      - book/_build/.jupyter_cache
-      - "**/*.pickle"
-      - "**/*.doctree"
-      - "**/*.ipynb_checkpoints"
+      - build_debug.log
+    # exclude:
+    #   - book/_build/html/**/*.ipynb
+    #   - book/_build/html/**/__pycache__/
+    #   - book/_build/html/**/*.doctree
+    #   - book/_build/html/**/*.pickle
     expire_in: 1 week
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "release"
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "release"
+      when: always
 
+deploy-draft:
+  stage: deploy
+  needs: ["build-book"]
+  script:
+    - BUILD_JOB_ID=$(cat build_job_id.txt)
+    - |
+      curl -X POST https://mude.citg.tudelft.nl/hooks/book-deploy-draft \
+      -H "Content-Type: application/json" \
+      -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
+      -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"main\"},\"build_job_id\":$BUILD_JOB_ID}"
   environment:
-    name: $CI_COMMIT_BRANCH
-    url: $CI_ENVIRONMENT_URL
-
+    name: draft
+    url: https://mude.citg.tudelft.nl/2024/book/draft
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
-      variables:
-        CI_ENVIRONMENT_URL: "https://mude.citg.tudelft.nl/2024/book/draft"
+
+deploy-production:
+  stage: deploy
+  needs: ["build-book"]
+  script:
+    - BUILD_JOB_ID=$(cat build_job_id.txt)
+    - |
+      curl -X POST https://mude.citg.tudelft.nl/hooks/book-deploy-production \
+      -H "Content-Type: application/json" \
+      -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
+      -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"release\"},\"build_job_id\":$BUILD_JOB_ID}"
+  environment:
+    name: production
+    url: https://mude.citg.tudelft.nl/2024/book
+  rules:
     - if: $CI_COMMIT_BRANCH == "release"
-      variables:
-        CI_ENVIRONMENT_URL: "https://mude.citg.tudelft.nl/2024/book"
