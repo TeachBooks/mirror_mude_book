@@ -3,7 +3,7 @@
 
 
 ```{admonition} Definition
-A stationary time series is a stochastic process whose statistical properties do not depend on the time at which it is observed.
+A stationary time series $S(t)$ is a stochastic process whose statistical properties do not depend on the time at which it is observed.
 ```
 
 This means that parameters such as *mean* and *(co)variance* should remain constant over time and not follow any trend, seasonality or irregularity.
