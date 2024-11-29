@@ -7,16 +7,25 @@ build-and-deploy:
     - pwd
     - ls -la
 
-    # Build the book based on branch
+    # Build the book based on branch with proper error handling
     - |
       if [ "$CI_COMMIT_BRANCH" == "release" ]; then
         echo "Building production version"
         teachbooks build --publish book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
+        BUILD_EXIT_CODE=$?
         HOOK_URL="https://mude.citg.tudelft.nl/hooks/book-deploy-production"
       else
         echo "Building draft version"
         teachbooks build book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
+        BUILD_EXIT_CODE=$?
         HOOK_URL="https://mude.citg.tudelft.nl/hooks/book-deploy-draft"
+      fi
+      
+      # Check if build was successful
+      if [ $BUILD_EXIT_CODE -ne 0 ]; then
+        echo "Build failed with exit code $BUILD_EXIT_CODE"
+        cat stderr.log
+        exit $BUILD_EXIT_CODE
       fi
 
     # Get build size and handle deployment
@@ -25,7 +34,7 @@ build-and-deploy:
     - echo "Build size is ${SIZE}KB"
     - echo $CI_JOB_ID > build_job_id.txt
     
-    # For large builds, create minimal artifact set
+    # Create minimal artifact set if build is large
     - |
       if [ "$SIZE" -gt 153600 ]; then  # 150MB in KB
         echo "Build size too large, creating minimal artifact set"
@@ -33,16 +42,20 @@ build-and-deploy:
         cp build_job_id.txt minimal_artifact/
         cp stdout.log minimal_artifact/
         cp stderr.log minimal_artifact/
-        # Signal that we're using minimal artifacts
-        touch USE_MINIMAL_ARTIFACTS
       fi
 
-    # Always proceed with deployment notification
+    # Notify webhook
     - |
       curl -X POST "${HOOK_URL}" \
         -H "Content-Type: application/json" \
         -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
         -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"${CI_COMMIT_BRANCH}\"},\"build_job_id\":$CI_JOB_ID}"
+      CURL_EXIT_CODE=$?
+      
+      if [ $CURL_EXIT_CODE -ne 0 ]; then
+        echo "Webhook notification failed with exit code $CURL_EXIT_CODE"
+        exit $CURL_EXIT_CODE
+      fi
 
     # Debug info after build
     - echo "Directory sizes after build:"
@@ -55,11 +68,9 @@ build-and-deploy:
       - stdout.log
       - stderr.log
       - build_job_id.txt
-      - USE_MINIMAL_ARTIFACTS
       - minimal_artifact/
       - book/_build/html/**
     exclude:
-      - book/_build/html/** 
       - book/_build/jupyter_execute/**
       - "**/*.ipynb"
       - "**/__pycache__"
@@ -67,8 +78,6 @@ build-and-deploy:
       - book/_build/.doctrees
       - book/_build/jupyter_cache
       - book/_build/.jupyter_cache
-      - book/_build/*.pickle
-      - book/_build/*.doctree
       - "**/*.pickle"
       - "**/*.doctree"
       - "**/*.ipynb_checkpoints"
