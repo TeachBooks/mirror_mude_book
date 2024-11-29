@@ -24,7 +24,7 @@ before_script:
 build-book:
   stage: build
   script:
-    # Build logic
+    # Build logic remains same
     - |
       if [ "$CI_COMMIT_BRANCH" == "release" ]; then
         echo "Building production version"
@@ -35,49 +35,49 @@ build-book:
       fi
 
     # Size debugging
-    - echo "Initial directory sizes:" | tee -a build_debug.log
-    - du -sh book/_build/* | tee -a build_debug.log
-    - find book/_build -type f -size +5M -exec ls -lh {} \; | tee -a build_debug.log
+    - echo "Initial directory sizes:"
+    - du -sh book/_build/* | tee build_debug.log
+    - echo "Files larger than 5MB:"
+    - find book/_build -type f -size +5M -exec ls -lh {} \; >> build_debug.log
     - echo $CI_JOB_ID > build_job_id.txt
 
   artifacts:
     paths:
-      - book/_build/html/**
-      - book/_build/jupyter_execute/**/*.html
+      # HTML and static content
+      - book/_build/html/**/*.html
+      - book/_build/html/**/*.css
+      - book/_build/html/**/*.js
+      - book/_build/html/_images/**
+      - book/_build/html/_static/**
+      - book/_build/html/_custom_downloads/**
+      
+      # Keep core JavaScript functionality
+      - book/_build/html/_static/index.js
+      - book/_build/html/_static/jquery.js
+      - book/_build/html/_static/underscore.js
+      
+      # Build logs and ID
+      - book/_build/*.log
       - build_job_id.txt
+      - build_debug.log
       - stdout.log
       - stderr.log
-      - build_debug.log
+
     exclude:
-      # Build cache and temp files
+      # Large unnecessary files
+      - "**/*.js.map"
+      - "**/*.doctree"
+      - "**/*.ipynb"
+      - "**/_sources/**"
+      
+      # Build artifacts
       - "**/__pycache__/**"
       - "**/*.pyc"
       - book/_build/.doctrees/**
       - book/_build/jupyter_cache/**
       - "**/*.pickle"
-      - "**/*.doctree"
-      
-      # Jupyter temporary files
-      - "**/.ipynb_checkpoints/**"
-      - book/_build/jupyter_execute/**/*.ipynb
-      - book/_build/jupyter_execute/**/*.py
-      
-      # Source and backup files
-      - "**/*.md.temp"
-      - "**/*.bak"
-      - "**/*.orig"
-      
-      # Debug files
-      - "**/*.log"
-      - "**/*.debug"
-      - "**/*.dump"
 
     expire_in: 1 week
-
-  rules:
-    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "release"
-    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "release"
-      when: always
 
 deploy-draft:
   stage: deploy
