@@ -3,7 +3,7 @@
 
 Before we can look into the modelling of a stochastic process using an Autoregressive (AR) model, we first need to introduce the autocovariance function (ACF) for a stationary time series, and describe the relationship between ACF and a power spectral density (PSD).
 
-As in the Chapter on #TODO (add reference to obs theory), the variance component is often determined based on the precision of an observation (at a given epoch), and the covariance components quantitatively indicate the statistical dependence (or independence) between observations. In this case, dependence is inherently introduced by the physical processes that produce the signal (of which our time series is a sample), and in fact our time series methods seek to (mathematically) account for this.
+As in [Observation theory](../observation_theory/01_Introduction.md), the variance component is often determined based on the precision of an observation (at a given epoch), and the covariance components quantitatively indicate the statistical dependence (or independence) between observations. In this case, dependence is inherently introduced by the physical processes that produce the signal (of which our time series is a sample), and in fact our time series methods seek to (mathematically) account for this.
 
 ## Autocovariance and autocorrelation
 
@@ -12,7 +12,7 @@ Let us assume an arbitrary (discrete) stationary time series, $S=[S_1,S_2,...,S_
 The *formal* (or: theoretical) autocovariance is defined as
 
 $$
-Cov(S_t, S_{t-\tau}) =\mathbb{E}(S_tS_{t-\tau})-\mu^2
+Cov(S_t, S_{t+\tau}) =\mathbb{E}(S_tS_{t+\tau})-\mu^2
 =c_{\tau}
 $$
 
@@ -23,7 +23,7 @@ We have that $Cov(S_t, S_{t-\tau}) =Cov(S_t, S_{t+\tau})$.
 
 Show that the covariance can be written as: 
 
-$$Cov(S_t, S_{t-\tau}) = \mathbb{E}(S_tS_{t-\tau})-\mu^2
+$$Cov(S_t, S_{t+\tau}) = \mathbb{E}(S_tS_{t+\tau})-\mu^2
 =c_{\tau}$$ 
 
 
@@ -31,12 +31,12 @@ $$Cov(S_t, S_{t-\tau}) = \mathbb{E}(S_tS_{t-\tau})-\mu^2
 :class: tip, dropdown
 
 $$
- Cov(S_t, S_{t-\tau})= \mathbb{E}[(S_t - \mathbb{E}(S_t))(S_{t-\tau} - \mathbb{E}(S_{t-\tau}))]\\
- = \mathbb{E}((S_t-\mu)(S_{t-\tau}-\mu))\\
- = \mathbb{E}(S_tS_{t-\tau} - \mu S_{t-\tau} - \mu S_t + \mu^2)\\
- = \mathbb{E}(S_tS_{t-\tau}) - \mu \mathbb{E}(S_{t-\tau}) - \mu \mathbb{E}(S_t) + \mu^2\\
-= \mathbb{E}(S_tS_{t-\tau}) - 2\mu^2 + \mu^2\\
-= \mathbb{E}(S_tS_{t-\tau}) - \mu^2\\
+ Cov(S_t, S_{t+\tau})= \mathbb{E}[(S_t - \mathbb{E}(S_t))(S_{t+\tau} - \mathbb{E}(S_{t+\tau}))]\\
+ = \mathbb{E}((S_t-\mu)(S_{t+\tau}-\mu))\\
+ = \mathbb{E}(S_tS_{t+\tau} - \mu S_{t+\tau} - \mu S_t + \mu^2)\\
+ = \mathbb{E}(S_tS_{t+\tau}) - \mu \mathbb{E}(S_{t+\tau}) - \mu \mathbb{E}(S_t) + \mu^2\\
+= \mathbb{E}(S_tS_{t+\tau}) - 2\mu^2 + \mu^2\\
+= \mathbb{E}(S_tS_{t+\tau}) - \mu^2\\
 $$
 ````
 :::
@@ -46,12 +46,14 @@ $$
 Prove that $Cov(S_t, S_{t-\tau}) =Cov(S_t, S_{t+\tau})$: 
 
 
-
 ````{admonition} Solution
 :class: tip, dropdown
 
 From the definition of covariance, we know that
-$$ Cov(a,b) = Cov(b,a)$$
+
+$$
+Cov(a,b) = Cov(b,a)
+$$
 
 Hence, we have that
 
@@ -74,7 +76,7 @@ $$ Cov(S_t, S_{t-\tau}) = Cov(S_t, S_{t+\tau})$$
 The *formal* autocorrelation is defined as
 
 $$
-r_{\tau} = \mathbb{E}(S_tS_{t-\tau})
+r_{\tau} = \mathbb{E}(S_tS_{t+\tau})
 $$
 
 ```{note}
@@ -262,42 +264,3 @@ $$
 
 ```
 :::
-
-<!-- ## Power spectral density
-
-The power spectral density (PSD) explains how the power (variance) of the signal is distributed over different frequencies. For instance, the PSD of a pure sine wave is flat *except* at its constituent frequency, where it will show a peak. Purely random noise has a flat power spectrum, indicating that all frequencies have an identical contribution to the variance of the signal! -->
-
-<!-- The power spectral density (PSD) explains how the power (variance) of the signal is distributed over different frequencies. For instance, the PSD of a pure sine wave is flat *except* at its constituent frequency, where it will show a peak. Purely random noise has a flat power spectrum, indicating that all frequencies have an identical contribution to the variance of the signal!
-
-### PSD vs ACF
-
-Knowledge on ACF, in time domain, is mathematically equivalent to knowledge on PSD, in the frequency domain, and vice-versa. And, from here, you might have a clue of where this is taking us... The PSD is the **discrete Fourier transform (DFT)** of the ACF.
-
-$$
-\begin{align*}
-\text{DFT}(\hat{c}_{\tau})&=\text{DFT}\left(\frac{1}{m}\sum_{i=1}^m s_i s_{i+\tau}\right)\\&=\frac{1}{m\Delta t}F_S(k) F_S(k)^*\\&=\frac{1}{m\Delta t}|F_S(k)|^2
-\end{align*}$$
-
-where the Fourier coefficients (see [DFT section](FFT)) are:
-
-$$F_S(k)  = \Delta t\sum_{i=1}^my_ie^{-j\frac{2\pi}{m}(k-1)(i-1)}$$
-
-```{note}
-In signal processing, it is common to write a sampled (discrete) signal as a small letter $s_i$ and the Fourier coefficients with capitals $S_k$. Since we also use capitals to indicate that $S$ is a random variable, we describe the DFT here for a realization $s_i$ of $S_i$, and use the notation $F_S(k)$ for the Fourier coefficients.
-```
-
-Conversely, the inverse discrete Fourier transform (IDFT) of the PSD is the ACF, so
-
-$$\text{IDFT}(F_{S}(k))=\hat{c}_{\tau}, \hspace{35px} \tau = 1,...,m \hspace{5px}\text{and}\hspace{5px} k = 1,...,m$$
-
-```{figure} ./figs/ACF_PSD.png
----
-height: 300px
-name: ACF_PSD
----
-Time series data, autocovariance and its power spectral density plots of white noise above and colored noise (not purely random) below.
-```
-
-The PSD explains how the power (variance) of the signal is distributed over different frequencies. The PSD of a pure sine wave is flat except at its constituent frequency.
-Purey random noise (i.e., white noise) has a flat power, indicating that all frequencies have identical contribution in making the variance of the signal. This is however not the case for time-correlated noise because different frequencies have different power values in making the total signal variability.
- -->
