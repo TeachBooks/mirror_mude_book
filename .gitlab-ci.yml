@@ -7,26 +7,21 @@ build-and-deploy:
     - pwd
     - ls -la
 
-    # Build the book based on branch with proper error handling
+    # Set build variables
     - |
       if [ "$CI_COMMIT_BRANCH" == "release" ]; then
-        echo "Building production version"
-        teachbooks build --publish book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
-        BUILD_EXIT_CODE=$?
+        BUILD_TYPE="production"
+        BUILD_CMD="teachbooks build --publish book/"
         HOOK_URL="https://mude.citg.tudelft.nl/hooks/book-deploy-production"
       else
-        echo "Building draft version"
-        teachbooks build book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
-        BUILD_EXIT_CODE=$?
+        BUILD_TYPE="draft"
+        BUILD_CMD="teachbooks build book/"
         HOOK_URL="https://mude.citg.tudelft.nl/hooks/book-deploy-draft"
       fi
-      
-      # Check if build was successful
-      if [ $BUILD_EXIT_CODE -ne 0 ]; then
-        echo "Build failed with exit code $BUILD_EXIT_CODE"
-        cat stderr.log
-        exit $BUILD_EXIT_CODE
-      fi
+    
+    # Execute build
+    - echo "Building ${BUILD_TYPE} version"
+    - eval "${BUILD_CMD}" > >(tee stdout.log) 2> >(tee stderr.log >&2)
 
     # Get build size and handle deployment
     - echo "Calculating build size..."
@@ -36,7 +31,7 @@ build-and-deploy:
     
     # Create minimal artifact set if build is large
     - |
-      if [ "$SIZE" -gt 153600 ]; then  # 150MB in KB
+      if [ "$SIZE" -gt 153600 ]; then
         echo "Build size too large, creating minimal artifact set"
         mkdir -p minimal_artifact
         cp build_job_id.txt minimal_artifact/
@@ -50,12 +45,6 @@ build-and-deploy:
         -H "Content-Type: application/json" \
         -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
         -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"${CI_COMMIT_BRANCH}\"},\"build_job_id\":$CI_JOB_ID}"
-      CURL_EXIT_CODE=$?
-      
-      if [ $CURL_EXIT_CODE -ne 0 ]; then
-        echo "Webhook notification failed with exit code $CURL_EXIT_CODE"
-        exit $CURL_EXIT_CODE
-      fi
 
     # Debug info after build
     - echo "Directory sizes after build:"
