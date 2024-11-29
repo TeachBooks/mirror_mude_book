@@ -32,16 +32,12 @@ build-and-deploy:
     - |
       if [ "$CI_COMMIT_BRANCH" == "release" ]; then
         echo "Building production version"
-        DEPLOY_URL="https://mude.citg.tudelft.nl/2024/book"
-        DEPLOY_HOOK="book-deploy-production"
-        ENV_NAME="production"
         teachbooks build --publish book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
+        HOOK_URL="https://mude.citg.tudelft.nl/hooks/book-deploy-production"
       else
         echo "Building draft version"
-        DEPLOY_URL="https://mude.citg.tudelft.nl/2024/book/draft"
-        DEPLOY_HOOK="book-deploy-draft"
-        ENV_NAME="draft"
         teachbooks build book/ > >(tee stdout.log) 2> >(tee stderr.log >&2)
+        HOOK_URL="https://mude.citg.tudelft.nl/hooks/book-deploy-draft"
       fi
 
     # Get build size and handle deployment
@@ -53,15 +49,13 @@ build-and-deploy:
         echo "Build size OK, proceeding with normal artifact upload"
         echo $CI_JOB_ID > build_job_id.txt
         # Deploy using artifacts
-        - |
-          curl -X POST "https://mude.citg.tudelft.nl/hooks/${DEPLOY_HOOK}" \
+        curl -X POST "${HOOK_URL}" \
           -H "Content-Type: application/json" \
           -H "X-Gitlab-Token: glpat-m4CzsDqHnXNn3Pf5Whyd" \
           -d "{\"object_kind\":\"pipeline\",\"object_attributes\":{\"status\":\"success\",\"ref\":\"${CI_COMMIT_BRANCH}\"},\"build_job_id\":$CI_JOB_ID}"
       else
         echo "Build too large for artifacts, deploying directly"
         # Here you would add direct deployment logic
-        # This is a placeholder - you'll need to implement the actual direct deployment
         echo "Direct deployment not implemented yet"
         exit 1
       fi
@@ -82,10 +76,13 @@ build-and-deploy:
     expire_in: 1 week
 
   environment:
-    name: $ENV_NAME
-    url: $DEPLOY_URL
+    name: $CI_COMMIT_BRANCH
+    url: $CI_ENVIRONMENT_URL
 
   rules:
-    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "release"
-    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "release"
-      when: always
+    - if: $CI_COMMIT_BRANCH == "main"
+      variables:
+        CI_ENVIRONMENT_URL: "https://mude.citg.tudelft.nl/2024/book/draft"
+    - if: $CI_COMMIT_BRANCH == "release"
+      variables:
+        CI_ENVIRONMENT_URL: "https://mude.citg.tudelft.nl/2024/book"
