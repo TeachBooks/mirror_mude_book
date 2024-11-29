@@ -397,9 +397,6 @@ parts:
       - file: external/learn-python/book/08/sympy
     - file: optimization/gurobi.md
       title: "Week 2.4: Gurobi installation"
-      sections:
-      - file: programming/gurobi/usage
-        title: Usage
 
   - caption: Fundamental Concepts
     numbered: 2
