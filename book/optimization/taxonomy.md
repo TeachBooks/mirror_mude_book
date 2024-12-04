@@ -10,7 +10,7 @@ In this section we will discuss the difference between different types of optimi
 
 Below is an overview of the different types of optimization models and their relationship with each other:
 
-div style="display: flex; justify-content: space-between;">
+<div style="display: flex; justify-content: space-between;">
   <img src="./figs/taxonomy.png" style="width: 65%;">
 </div>
 
