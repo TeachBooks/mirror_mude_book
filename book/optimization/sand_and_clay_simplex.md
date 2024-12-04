@@ -8,10 +8,10 @@ The story is told in a video. The video below has a one-to-one correspondence wi
     <iframe width="560" height="315" src="https://www.youtube.com/embed/S_8MsOXu60I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 
-```{note}
 
+```{admonition} MUDE Exam Information
+:class: tip, dropdown
 For the exam, you are expected to have a clear understanding behind the Simplex method. You do not need to know how to do the calculations shown on this page!
-
 ```
 
 The SIMPLEX method has been created to automate the solving of the augmented form of a linear programming problem with continuous variables. Consider the following optimization problem:
