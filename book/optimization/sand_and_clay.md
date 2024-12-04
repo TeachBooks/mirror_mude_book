@@ -20,11 +20,11 @@ The story is told in two videos. The videos have a one-to-one correspondence wit
 
 ## The problem
 
-A company extracts sand and clay from a site which when sold gives a profit of 57 and 60 monetary units per thousand units of product, respectively. For this extraction, sand needs a manpower of 50 men x hours to extract 1000 units of product whilst clay needs 13 men x hours for 1000 units.
+A company extracts sand and clay from a site which when sold gives a profit of 57 and 60 monetary units per thousand units of product, respectively. For this extraction, sand needs a manpower of 50 workers x hours to extract 1000 units of product whilst clay needs 13 workers x hours for 1000 units.
 
 4 hours of backhoe are needed to extract one thousand units of sand and 5 hours of backhoe work per thousand units of clay. The number of hours needed of truck transport is 8h and 4h, respectively for sand and clay for each 1000 units of product transported.
 
-The company has a work schedule of 40 hours per week for the men but also for the equipment (truck and backhoe). There are 5 men who can be used interchangeably between the transport of the two products. There is only one truck and one backhoe.
+The company has a work schedule of 40 hours per week for the workers but also for the equipment (truck and backhoe). There are 5 workers who can be used interchangeably between the transport of the two products. There is only one truck and one backhoe.
 
 **Main questions**: 
 
@@ -45,7 +45,7 @@ subject to:
 
 * $8x_1+4x_2\leq 40$: maximum number of hours of the vehicle driving time per week
 * $4x_1+5x_2\leq 40$: maximum number of hours of crane work per week
-* $50x_1+13x_2\leq 200$: maximum of 5 (men) x 40 hours of driving time available per week per worker
+* $50x_1+13x_2\leq 200$: maximum of 5 (workers) x 40 hours of driving time available per week per worker
 * $x_1,x_2\geq 0$: the production must be positive!
 
 :::{card} Quiz questions
@@ -54,7 +54,7 @@ subject to:
 
 ### Solution
 
-The abovementioned constraints define the feasible region of the solution space. The feasible region is represented by the yellow polygon on the graph below
+The above mentioned constraints define the feasible region of the solution space. The feasible region is represented by the yellow polygon on the graph below:
 
 <div style="display: block; justify-content: space-between;">
   <img src="./figs/output.png" style="width: 70%;">
