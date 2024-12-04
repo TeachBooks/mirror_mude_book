@@ -12,18 +12,18 @@ Let us assume an arbitrary (discrete) stationary time series, $S=[S_1,S_2,...,S_
 The *formal* (or: theoretical) autocovariance is defined as
 
 $$
-Cov(S_t, S_{t+\tau}) =\mathbb{E}(S_tS_{t+\tau})-\mu^2
+Cov(S_{t+\tau}, S_t) =\mathbb{E}(S_{t+\tau}S_t)-\mu^2
 =c_{\tau}
 $$
 
-We have that $Cov(S_t, S_{t-\tau}) =Cov(S_t, S_{t+\tau})$.
+We have that $Cov(S_{t+\tau}, S_t) =Cov(S_t, S_{t-\tau})$.
 
 
 :::{card} Exercise covariance
 
 Show that the covariance can be written as: 
 
-$$Cov(S_t, S_{t+\tau}) = \mathbb{E}(S_tS_{t+\tau})-\mu^2
+$$Cov(S_{t+\tau}, S_t) = \mathbb{E}(S_{t+\tau}S_t)-\mu^2
 =c_{\tau}$$ 
 
 
@@ -31,19 +31,19 @@ $$Cov(S_t, S_{t+\tau}) = \mathbb{E}(S_tS_{t+\tau})-\mu^2
 :class: tip, dropdown
 
 $$
- Cov(S_t, S_{t+\tau})= \mathbb{E}[(S_t - \mathbb{E}(S_t))(S_{t+\tau} - \mathbb{E}(S_{t+\tau}))]\\
- = \mathbb{E}((S_t-\mu)(S_{t+\tau}-\mu))\\
- = \mathbb{E}(S_tS_{t+\tau} - \mu S_{t+\tau} - \mu S_t + \mu^2)\\
- = \mathbb{E}(S_tS_{t+\tau}) - \mu \mathbb{E}(S_{t+\tau}) - \mu \mathbb{E}(S_t) + \mu^2\\
-= \mathbb{E}(S_tS_{t+\tau}) - 2\mu^2 + \mu^2\\
-= \mathbb{E}(S_tS_{t+\tau}) - \mu^2\\
+ Cov(S_{t+\tau}, S_t)= \mathbb{E}[(S_{t+\tau} - \mathbb{E}(S_{t+\tau}))(S_t - \mathbb{E}(S_t))]\\
+ = \mathbb{E}((S_{t+\tau}-\mu)(S_t-\mu))\\
+ = \mathbb{E}(S_{t+\tau}S_t - \mu S_t - \mu S_{t+\tau} + \mu^2)\\
+ = \mathbb{E}(S_{t+\tau}S_t) - \mu \mathbb{E}(S_t) - \mu \mathbb{E}(S_{t+\tau}) + \mu^2\\
+= \mathbb{E}(S_{t+\tau}S_t) - 2\mu^2 + \mu^2\\
+= \mathbb{E}(S_{t+\tau}S_t) - \mu^2\\
 $$
 ````
 :::
 
 :::{card} Exercise covariance
 
-Prove that $Cov(S_t, S_{t-\tau}) =Cov(S_t, S_{t+\tau})$: 
+Prove that $Cov(S_t, S_{t-\tau}) =Cov(S_{t+\tau}, S_t)$: 
 
 
 ````{admonition} Solution
@@ -61,11 +61,11 @@ $$ Cov(S_t, S_{t-\tau}) = Cov(S_{t-\tau}, S_t)$$
 
 Due to the stationarity of the time series, we have that
 
-$$ Cov(S_{t-\tau}, S_t) = Cov(S_t, S_{t+\tau})$$
+$$ Cov(S_t, S_{t-\tau}) = Cov(S_{t+\tau}, S_t)$$
 
 Therefore, we have that
 
-$$ Cov(S_t, S_{t-\tau}) = Cov(S_t, S_{t+\tau})$$
+$$ Cov(S_t, S_{t-\tau}) = Cov(S_{t+\tau}, S_t)$$
 
 
 ````
@@ -76,7 +76,7 @@ $$ Cov(S_t, S_{t-\tau}) = Cov(S_t, S_{t+\tau})$$
 The *formal* autocorrelation is defined as
 
 $$
-r_{\tau} = \mathbb{E}(S_tS_{t+\tau})
+r_{\tau} = \mathbb{E}(S_{t+\tau}S_t)
 $$
 
 ```{note}

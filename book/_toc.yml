@@ -177,7 +177,7 @@ parts:
       - file: time_series/acf
         title: "Autocovariance function (ACF)"
       - file: time_series/ar.ipynb
-        title: "AutoRegressive Moving Average (AR) process"
+        title: "AutoRegressive (AR) process"
         sections:
         - file: time_series/ar_exercise.ipynb
       - file: time_series/forecasting
