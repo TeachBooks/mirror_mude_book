@@ -1,4 +1,10 @@
-# Exercise 1
+# Exercise 1: Simple Exercise (Optional)
+
+```{note}
+
+For the exam, you are expected to have a clear understanding behind the Simplex method. You do not need to know how to do the calculations shown on this page!
+
+```
 
 Consider the following problem:
 

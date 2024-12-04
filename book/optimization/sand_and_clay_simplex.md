@@ -1,6 +1,6 @@
 # SIMPLEX method
 
-The story is told in a video. The video below has a one-to-one correspondence with this book
+The story is told in a video. The video below has a one-to-one correspondence with this book:
 
 ```{eval-rst}
 .. raw:: html
@@ -8,8 +8,13 @@ The story is told in a video. The video below has a one-to-one correspondence wi
     <iframe width="560" height="315" src="https://www.youtube.com/embed/S_8MsOXu60I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 
+```{note}
 
-The SIMPLEX method has been created to automate the solving of the augmented form of a linear programing problem with continuous variables. Consider the following optimization problem:
+For the exam, you are expected to have a clear understanding behind the Simplex method. You do not need to know how to do the calculations shown on this page!
+
+```
+
+The SIMPLEX method has been created to automate the solving of the augmented form of a linear programming problem with continuous variables. Consider the following optimization problem:
 
 $$\text{Max }L=57x_1+60x_2$$
 

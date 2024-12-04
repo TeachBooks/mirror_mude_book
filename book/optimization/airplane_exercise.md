@@ -1,5 +1,10 @@
-# Exercise 2: Cargo airplane
+# Exercise 2: Cargo airplane (Optional)
 
+```{note}
+
+For the exam, you are expected to have a clear understanding behind the Simplex method. You do not need to know how to do the calculations shown on this page!
+
+```
 ## Original problem
 A cargo airplane has three compartments for storing freight: Front, central and rear. Each one of those compartments has the following limitations in weight and space:
 
