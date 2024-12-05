@@ -56,9 +56,13 @@ subject to:
 
 The above mentioned constraints define the feasible region of the solution space. The feasible region is represented by the yellow polygon on the graph below:
 
-<div style="display: block; justify-content: space-between;">
-  <img src="./figs/output.png" style="width: 70%;">
-</div>
+
+```{figure} ./figs/output.png
+---
+width: 70%
+---
+
+```
 
 The regions at green, blue, and red correspond to the first three constraints defined in the previous subsection, in the same order. The yellow region is a result of the super position of these three regions alongside $x_1\geq 0$ and $x_2\geq 0$. All the points inside and in the border of the yellow region are solutions for our problem!
 
@@ -80,9 +84,14 @@ To find the optimal solution, we can start now by computing the gradient vector 
 
 $$\nabla L = \begin{bmatrix}\dfrac{dL}{dx_1}\\\dfrac{dL}{dx_2}\end{bmatrix}=\begin{bmatrix}57\\60\end{bmatrix}$$
 
-<div style="display: block; justify-content: space-between;">
-  <img src="./figs/sand_clay.png" style="width: 80%;">
-</div>
+
+```{figure} ./figs/sand_clay.png
+---
+width: 70%
+---
+
+```
+
 
 With this, we just need to find the last point inside the feasible region in the direction of the gradient (maximization) or the first point inside the region (minimization). That point will be one of the vertices (basic solutions), and in this example we get:
 

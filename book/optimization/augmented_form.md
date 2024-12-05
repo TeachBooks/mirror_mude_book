@@ -23,7 +23,7 @@ Let us take a look, considering an objective function given by:
 
 $$\text{Max (Min) }Z=c_1x_1+c_2x_2+...+c_nx_n$$
 
-such that:
+subject to:
 
 $$\begin{cases}a_{11}x_1+a_{12}x_2+...+a_{1n}x_n=b_1\\ a_{21}x_1+a_{22}x_2+...+a_{2n}x_n=b_2\\...\\a_{m1}x_1+a_{m2}x_2+...+a_{mn}x_n=b_m\\ x_1,x_2,...,x_n\geq 0\\ b_1,b_2,...,b_m\geq 0\end{cases}$$
 

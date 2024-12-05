@@ -62,6 +62,7 @@ $$\begin{gather*}nC\leq 50M\\ nC_m\leq 0.7M\end{gather*}$$
   <img src="./figs/non-convex.png" style="width: 34%;">
 </div>
 
+
 In the WT farm case, even though the constraints defined above are linear (convex), the objective function is not. Then, it is considered a non-convex optimization problem.
 
 ## Deterministic vs Stochastic
