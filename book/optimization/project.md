@@ -125,12 +125,7 @@ $$ Z = \sum_{(i,j) \in A}{ x_{ij} \cdot \left(t^0_{ij} \cdot \left( 1 + \beta \c
 Now, for Gurobi (and other solvers as well), it is necessary to keep binary variables and quadratic terms clean and separate for the solver to perform the required transformations to linearize the problem. Thus, the following, despite its complexity, is the most solver-friendly formulation of our objective function:
 
 $$ \begin{align}
-Z = \sum_{(i,j) \in A}{t^0_{ij} \cdot x_{ij}}
-	+	\sum_{(i,j) \in A}{\left(t^0_{ij} \cdot \frac{\beta}{c^0_{ij}} \cdot x^2_{ij} \right)}
-
-	-	\sum_{(i,j) \in A}{\left(t^0_{ij} \cdot \frac{\beta}{c^0_{ij}} \cdot x^2_{ij} \cdot y_{ij} \right)}
-
-	+	\sum_{(i,j) \in A}{\left(t^0_{ij} \cdot \frac{\beta}{c^1_{ij}} \cdot x^2_{ij} \cdot y_{ij} \right)}
+Z = \sum_{(i,j) \in A}{t^0_{ij} \cdot x_{ij}} +	\sum_{(i,j) \in A}{\left(t^0_{ij} \cdot \frac{\beta}{c^0_{ij}} \cdot x^2_{ij} \right)} - \sum_{(i,j) \in A}{\left(t^0_{ij} \cdot \frac{\beta}{c^0_{ij}} \cdot x^2_{ij} \cdot y_{ij} \right)} + \sum_{(i,j) \in A}{\left(t^0_{ij} \cdot \frac{\beta}{c^1_{ij}} \cdot x^2_{ij} \cdot y_{ij} \right)}
 \end{align}$$
 
 Therefore, we use this equation to model our objective function in Gurobi.
