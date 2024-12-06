@@ -182,8 +182,7 @@ parts:
         - file: time_series/ar_exercise.ipynb
       - file: time_series/forecasting
         title: "Time Series forecasting"
-
-    # START REMOVE-FROM-PUBLISH
+  
     - file: optimization/overview
       title: Optimization
       sections:
@@ -217,7 +216,6 @@ parts:
         sections:
         - file: optimization/Project_MILP.ipynb
         - file: optimization/Project_GA.ipynb
-    # END REMOVE-FROM-PUBLISH
 
     # START REMOVE-FROM-PUBLISH
     - file: ml/overview
