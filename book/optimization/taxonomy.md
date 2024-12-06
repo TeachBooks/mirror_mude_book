@@ -57,10 +57,7 @@ $$\begin{gather*}nC\leq 50M\\ nC_m\leq 0.7M\end{gather*}$$
 **Definition:** A convex optimization problem is a problem where all the constraints and the objective are convex functions.
 
 
-<div style="display: flex; justify-content: space-between;">
-  <img src="./figs/convex.png" style="width: 65%;">
-  <img src="./figs/non-convex.png" style="width: 34%;">
-</div>
+![taxonomy](./figs/convex2.png "taxonomy")
 
 
 In the WT farm case, even though the constraints defined above are linear (convex), the objective function is not. Then, it is considered a non-convex optimization problem.
