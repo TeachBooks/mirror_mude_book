@@ -59,7 +59,7 @@ The above mentioned constraints define the feasible region of the solution space
 
 ```{figure} ./figs/output.png
 ---
-width: 70%
+width: 95%
 ---
 
 ```
