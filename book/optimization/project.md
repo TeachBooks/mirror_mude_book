@@ -178,12 +178,7 @@ These constraints are essentially dummy equations to help Gurobi handle the quad
 Here is the complete problem formulation.
 
 $$\begin{align}
-min \quad & \sum_{(i,j) \in A}{t^0_{ij} \cdot x_{ij}}
-	+	\sum_{(i,j) \in A}{\left(\frac{t^0_{ij} \cdot \beta}{c^0_{ij}} \cdot x^2_{ij}\right)}
-
-	-	\sum_{(i,j) \in A}{\left(\frac{t^0_{ij} \cdot \beta}{c^0_{ij}} \cdot x^2_{ij} \cdot y_{ij}\right)}
-
-	+	\sum_{(i,j) \in A}{\left(\frac{t^0_{ij} \cdot \beta}{c^1_{ij}} \cdot x^2_{ij} \cdot y_{ij}\right)} \\
+min \quad & \sum_{(i,j) \in A}{t^0_{ij} \cdot x_{ij}} + \sum_{(i,j) \in A}{\left(\frac{t^0_{ij} \cdot \beta}{c^0_{ij}} \cdot x^2_{ij}\right)} - \sum_{(i,j) \in A}{\left(\frac{t^0_{ij} \cdot \beta}{c^0_{ij}} \cdot x^2_{ij} \cdot y_{ij}\right)} + \sum_{(i,j) \in A}{\left(\frac{t^0_{ij} \cdot \beta}{c^1_{ij}} \cdot x^2_{ij} \cdot y_{ij}\right)} \\
 \text{s.t.} \quad \\
 & \sum_{(i,j) \in A}{ y_{ij}} = B \\
 & \sum_{s \in D}{x_{ijs}} = x_{ij}, \quad \forall (i,j) \in A  \\
@@ -209,12 +204,7 @@ Let's see how this works.
 The network design is where we use the genetic algorithm. As explained before, GA uses a population of solutions and iteratively improves this population to evolve to new generations of populations with a better objective function value (being that minimization or maximization). In this problem, the decision variables are links for capacity expansion and the objective function value is the total system travel time that we want to minimize.
 
 $$\begin{align}
-min \quad  & \sum_{(i,j) \in A}{t^0_{ij} \cdot x_{ij}}
-	+	\sum_{(i,j) \in A}{\left(t^0_{ij} \cdot \frac{\beta}{c^0_{ij}} \cdot x^2_{ij}\right)}
-
-	-	\sum_{(i,j) \in A}{\left(t^0_{ij} \cdot \frac{\beta}{c^0_{ij}} \cdot x^2_{ij} \cdot y_{ij}\right)}
-
-	+	\sum_{(i,j) \in A}{\left(t^0_{ij} \cdot \frac{\beta}{c^1_{ij}} \cdot x^2_{ij} \cdot y_{ij}\right)} \\
+min \quad  & \sum_{(i,j) \in A}{t^0_{ij} \cdot x_{ij}} + \sum_{(i,j) \in A}{\left(t^0_{ij} \cdot \frac{\beta}{c^0_{ij}} \cdot x^2_{ij}\right)} - \sum_{(i,j) \in A}{\left(t^0_{ij} \cdot \frac{\beta}{c^0_{ij}} \cdot x^2_{ij} \cdot y_{ij}\right)} + \sum_{(i,j) \in A}{\left(t^0_{ij} \cdot \frac{\beta}{c^1_{ij}} \cdot x^2_{ij} \cdot y_{ij}\right)} \\
 \text{s.t.} \quad \\
 & \sum_{(i,j) \in A}{y_{ij}} = B \\
 & y_{ij} \in \{0, 1\}, \quad \forall (i,j) \in A \\
@@ -227,12 +217,7 @@ Where the values of $x_{ij}$ are not decision variables anymore, they will be ob
 This is just part of the original NDP that assigns traffic to the network based on a set of given capacity values, which are defined based on the values of the DP decision variables (links selected for capacity expansion). The main difference (and the advantage) here is that by separating the binary decision variables, instead of a mixed integer programming problem, which are hard to solve, here we have a quadratic programming problem with continuous decision variables, which will be transformed to a linear problem that Gurobi can solve very fast.
 
 $$ \begin{align}
-min \quad  & \sum_{(i,j) \in A}{t^0_{ij} \cdot x_{ij}}
-	+	\sum_{(i,j) \in A}{\left(t^0_{ij} \cdot \frac{\beta}{c^0_{ij}} \cdot x^2_{ij}\right)}
-
-	-	\sum_{(i,j) \in A}{\left(t^0_{ij} \cdot \frac{\beta}{c^0_{ij}} \cdot x^2_{ij} \cdot y_{ij}\right)}
-
-	+	\sum_{(i,j) \in A}{\left(t^0_{ij} \cdot \frac{\beta}{c^1_{ij}} \cdot x^2_{ij} \cdot y_{ij}\right)} \\
+min \quad  & \sum_{(i,j) \in A}{t^0_{ij} \cdot x_{ij}} + \sum_{(i,j) \in A}{\left(t^0_{ij} \cdot \frac{\beta}{c^0_{ij}} \cdot x^2_{ij}\right)} - \sum_{(i,j) \in A}{\left(t^0_{ij} \cdot \frac{\beta}{c^0_{ij}} \cdot x^2_{ij} \cdot y_{ij}\right)} + \sum_{(i,j) \in A}{\left(t^0_{ij} \cdot \frac{\beta}{c^1_{ij}} \cdot x^2_{ij} \cdot y_{ij}\right)} \\
 \text{s.t.} \quad \\
 & \sum_{s \in D}{x_{ijs}} = x_{ij}, \quad \forall (i,j) \in A  \\
 & \sum_{j \in N; (i,j) \in A}{x_{ijs}} - \sum_{j \in N; (j,i) \in A}{x_{jis}} = d_{is}, \quad \forall i \in N, \forall s \in D \\
