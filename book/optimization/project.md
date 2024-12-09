@@ -149,7 +149,7 @@ $$ \sum_{s \in D}{x_{ijs}} = x_{ij} \quad \forall (i,j) \in A $$
 #### 3. Node flow conservation constraints
 This set of constraints ensures that the total incoming and outgoing flow at each node balances, except at origin and destination nodes where flow is either generated or absorbed. For example, at an intersection, the number of vehicles entering equals the number leaving, except for origins (extra outgoing flow) and destinations (extra incoming flow).
 
-$d_is$ here is the number of travelers from node $i$ to node $s$ with the exception of $d_ss$, which is all the demand that arrives at node $s$.
+$d_{is}$ here is the number of travelers from node $i$ to node $s$ with the exception of $d_{ss}$, which is all the demand that arrives at node $s$.
 
 $$ \sum_{j \in N; (i,j) \in A}{ x_{ijs}} - \sum_{j \in N; (j,i) \in A}{ x_{jis}} = d_{is} \quad \forall i \in N, \forall s \in D $$
 
