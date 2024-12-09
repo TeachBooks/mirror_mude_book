@@ -48,7 +48,7 @@ Example of a perfect user equilibrium in a very simple road:
 ---
 height: 500px
 ---
-Rote choice behavior according to the user equilibrium (UE) principle
+Route choice behavior according to the user equilibrium (UE) principle
 ```
 
 ### 3. Quadratic terms
@@ -76,9 +76,7 @@ SiouxFalls map
 
 We have a set of binary variables $y_{ij}$, these variables take the value 1 if link $(i,j)$ connecting node $i$ to node $j$ is selected for expansion, and 0 otherwise.
 
-We also have two sets of decision variables representing link flows; $x_{ij}$, representing flow on link $(i,j)$ in cars per hour, and $x_{ijs}$, representing flow on link $(i,j)$ going to destination $s$.
-
-The first represents the total number of cars passing on that road, while the second represents the number of cars specifically going to destination $s$. Summing the latter over all $s$ results in the former for a link $(i,j)$.
+We also have two sets of decision variables representing link flows; $x_{ij}$, representing flow on link $(i,j)$ in cars per hour, and $x_{ijs}$, representing flow on link $(i,j)$ going to destination $s$.The first represents the total number of cars passing on that road, while the second represents the number of cars specifically going to destination $s$. Summing the latter over all $s$ results in the former for a link $(i,j)$.
 
 Therefore, mathematically we define the domain of the variables as follows:
 
