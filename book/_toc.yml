@@ -217,7 +217,6 @@ parts:
         - file: optimization/Project_MILP.ipynb
         - file: optimization/Project_GA.ipynb
 
-    # START REMOVE-FROM-PUBLISH
     - file: ml/overview
       title: Machine Learning
       sections:
@@ -227,7 +226,6 @@ parts:
       - file: ml/ridge_sgd_interactive
       - file: ml/nn_interactive
       - file: ml/review
-    # END REMOVE-FROM-PUBLISH
 
     # START REMOVE-FROM-PUBLISH
     - file: eva/intro.md
