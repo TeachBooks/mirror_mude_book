@@ -65,24 +65,24 @@ build-book:
 
   artifacts:
     paths:
-      - book/_build/html/
       # Essential web content
-      # - book/_build/html/**/*.{html,css,js}
-      # - book/_build/html/_images/**
-      # - book/_build/html/_static/
-      # - book/_build/html/_custom_downloads/**
-      # - book/_build/html/genindex.html
-      # - book/_build/html/search.html
+      - book/_build/html/**/*.{html,css,js}
+      - book/_build/html/_images/**
+      - book/_build/html/_static/
+      - book/_build/html/_custom_downloads/**
+      - book/_build/html/genindex.html
+      - book/_build/html/search.html
+      = book/_build/html/**/*.py
       
-      # # Required for interactive features
-      # - book/_build/jupyter_execute/**/*.html
-      # - book/_build/html/_static/scripts/**
+      # Required for interactive features
+      - book/_build/jupyter_execute/**/*.html
+      - book/_build/html/_static/scripts/**
       
-      # # Logs and build info
-      # - build_job_id.txt
-      # - build_debug.log
-      # - stdout.log
-      # - stderr.log
+      # Logs and build info
+      - build_job_id.txt
+      - build_debug.log
+      - stdout.log
+      - stderr.log
 
     # exclude:
       # Development/build files
