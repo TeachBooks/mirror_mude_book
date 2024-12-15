@@ -68,10 +68,11 @@ build-book:
       # Essential web content
       - book/_build/html/**/*.{html,css,js}
       - book/_build/html/_images/**
-      - book/_build/html/_static/**
+      - book/_build/html/_static/
       - book/_build/html/_custom_downloads/**
       - book/_build/html/genindex.html
       - book/_build/html/search.html
+      - book/_build/html/**/*.py
       
       # Required for interactive features
       - book/_build/jupyter_execute/**/*.html
@@ -83,13 +84,13 @@ build-book:
       - stdout.log
       - stderr.log
 
-    exclude:
+    # exclude:
       # Development/build files
-      - "**/*.js.map"
-      - "**/_sources/**"
-      - "**/__pycache__/**"
-      - "**/*.pyc"
-      - "**/*.pickle"
+      # - "**/*.js.map"
+      # - "**/_sources/**"
+      # - "**/__pycache__/**"
+      # - "**/*.pyc"
+      # - "**/*.pickle"
       - book/_build/.doctrees/**
       - book/_build/jupyter_cache/**
       # Keep notebooks for interactive features
