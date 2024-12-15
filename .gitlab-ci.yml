@@ -72,7 +72,7 @@ build-book:
       - book/_build/html/_custom_downloads/**
       - book/_build/html/genindex.html
       - book/_build/html/search.html
-      = book/_build/html/**/*.py
+      - book/_build/html/**/*.py
       
       # Required for interactive features
       - book/_build/jupyter_execute/**/*.html
