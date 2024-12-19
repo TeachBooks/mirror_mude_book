@@ -227,7 +227,6 @@ parts:
       - file: ml/nn_interactive
       - file: ml/review
 
-    # START REMOVE-FROM-PUBLISH
     - file: eva/intro.md
       title: Extreme Value Analysis
       sections:
@@ -269,7 +268,6 @@ parts:
         - file: eva/Bernoulli.md
         - file: eva/videos.md
           title: EVA videos 
-    # END REMOVE-FROM-PUBLISH
 
     # START REMOVE-FROM-PUBLISH
     - file: pd/intro.md
