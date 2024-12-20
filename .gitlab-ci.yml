@@ -90,6 +90,7 @@ build-book:
       - "**/_sources/**"
       - "**/__pycache__/**"
       - "**/*.pyc"
+      - "**/_ext/**"
       - "**/*.pickle"
       - book/_build/.doctrees/**
       - book/_build/jupyter_cache/**
