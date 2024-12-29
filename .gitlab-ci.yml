@@ -74,6 +74,8 @@ build-book:
       - book/_build/html/genindex.html
       - book/_build/html/search.html
       - book/_build/html/**/*.py
+      - book/_build/html/optimization/figs/**
+      - book/_build/html/fundamentals/prob_tables/*.png
       
       # Required for interactive features
       - book/_build/jupyter_execute/**/*.html
