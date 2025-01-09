@@ -271,7 +271,7 @@ parts:
 
     # START REMOVE-FROM-PUBLISH
     - file: pd/intro.md
-      title: Risk Introduction
+      title: Risk Analysis
       # Already in Q1:
       # - file: pd/prob-design/overview.md
       #   sections:
@@ -280,6 +280,7 @@ parts:
       #   - file: pd/prob-design/example-river-system.md
       sections:
       - file: pd/risk-analysis/overview.md
+        title: Risk Introduction
         sections:
         - file: pd/risk-analysis/definition.md
         - file: pd/risk-analysis/steps.md
