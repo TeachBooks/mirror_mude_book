@@ -14,7 +14,7 @@ $$
     C_{tot} = I + R
 $$
 
-The annual risk, or expected economic dagmage is found by:
+The annual risk, or expected economic damage is found by:
 
 $$
     E(D) = P_f D
@@ -23,7 +23,7 @@ $$
 where:
 
 - $E(D)$ the expected value of the risk [€/year]
-- $P_f$ the failure probablity of the system per year [1/year]
+- $P_f$ the failure probability of the system per year [1/year]
 - $D$ the damage in case of failure [€]
 
 In this approach it is thus assumed that all damages are expressed in monetary terms. Additional criteria for separately considering the loss of human life are included in the next section. 
