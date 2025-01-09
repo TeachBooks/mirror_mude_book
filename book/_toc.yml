@@ -271,7 +271,7 @@ parts:
 
     # START REMOVE-FROM-PUBLISH
     - file: pd/intro.md
-      title: Risk Analysis
+      title: Risk Introduction
       # Already in Q1:
       # - file: pd/prob-design/overview.md
       #   sections:
