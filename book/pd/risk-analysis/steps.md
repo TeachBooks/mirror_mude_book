@@ -1,6 +1,9 @@
 (risk_steps)=
 # Steps in a Risk Analysis
 
+```{note}
+It is important to read and understand the content on this page, however, it does _not_ need to be studied for the exam. 
+```
 
 The previous section made it clear that risk is a function of probabilities and consequences. Risk analysis, therefore, consists of an analysis of probabilities and consequences associated with undesired events in a given system. Alternative terms used in literature are risk assessment and quantitative risk analysis (QRA). 
 

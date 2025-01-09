@@ -1,6 +1,10 @@
 (safety_standards)=
 # Safety Standards
 
+```{note}
+It is important to read and understand the content on this page, however, it does _not_ need to be studied for the exam. 
+```
+
 When answering the question “how safe is safe enough” a merely economic treatment with cost benefit analysis or economic optimization is often not sufficient for activities with risks to people. Therefore, criteria have been developed that focus on risks to human life. This section focuses on safety standards and criteria for evaluating the risk to life. 
 
 Two aspects are typically considered when evaluating and regulating risks to the public: the total or population-wide effects, and the distribution of effects within the affected population. {numref}`risk_evaluation` summarizes these perspectives. The societal perspective is concerned with ‘total effect’ and the effects of large-scale accidents on the society, in terms of economic damages and life loss. The individual perspective is concerned with distributive justice (‘equity’), i.e. the distribution of harm over the population.
