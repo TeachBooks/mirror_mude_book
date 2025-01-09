@@ -1,6 +1,10 @@
 (decision)=
 # Decision Analysis
 
+```{note}
+It is important to read and understand the content on this page, however, it does _not_ need to be studied for the exam. 
+```
+
 Decision analysis, or decision-making under uncertain conditions is part of everyday life: when choosing to buy a lottery ticket or choosing to take an umbrella during cloudy weather. In contrast to the rather intuitive decision making in everyday matters, a structured analysis of different alternatives with associated risks, costs and benefits is very useful for decisions in (civil) engineering. This chapter offers a very basic introduction into the decision theory with applications to decision problems in the civil engineering domain. Further reference is made to the work by other scholars for more rigorous and detailed treatment of this topic. See, for example {cite:t}`raiffa1961`; {cite:t}`benjamin1970`.
 
 ## Introduction
