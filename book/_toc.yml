@@ -290,7 +290,7 @@ parts:
         # - file: reliability-component/case-two-loads.md
         # - file: reliability-component/case-r-s.md
       # - file: pd/reliability-system/overview.md
-        sections:
+        # sections:
         # - file: reliability-system/system-series.md
         # - file: reliability-system/system-parallel.md
         # - file: pd/reliability-system/exercise-simple-city.md
