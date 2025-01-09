@@ -271,7 +271,7 @@ parts:
 
     # START REMOVE-FROM-PUBLISH
     - file: pd/intro.md
-      title: Risk and Reliability
+      title: Risk Analysis
       # Already in Q1:
       # - file: pd/prob-design/overview.md
       #   sections:
@@ -284,16 +284,16 @@ parts:
         - file: pd/risk-analysis/definition.md
         - file: pd/risk-analysis/steps.md
         - file: pd/risk-analysis/risk-curves.md
-      - file: pd/reliability-component/overview.md
-        sections:
-        - file: pd/reliability-component/contamination.ipynb
+      # - file: pd/reliability-component/overview.md
+      #   sections:
+      #   - file: pd/reliability-component/contamination.ipynb
         # - file: reliability-component/case-two-loads.md
         # - file: reliability-component/case-r-s.md
-      - file: pd/reliability-system/overview.md
+      # - file: pd/reliability-system/overview.md
         sections:
         # - file: reliability-system/system-series.md
         # - file: reliability-system/system-parallel.md
-        - file: pd/reliability-system/exercise-simple-city.md
+        # - file: pd/reliability-system/exercise-simple-city.md
       - file: pd/risk-evaluation/overview.md
         sections:
         - file: pd/risk-evaluation/decision.md
@@ -306,8 +306,8 @@ parts:
         - file: pd/exercises/exercise-fn-curve.md
         - file: pd/exercises/exercise-paint.md
         - file: pd/exercises/exercise-dam.md
-        - file: pd/exercises/exercise-sample-exam.md
-      - file: pd/videos.md
+        # - file: pd/exercises/exercise-sample-exam.md
+      # - file: pd/videos.md
       # - file: pd/notebooks/overview.md
       #   sections:
       #   - file: pd/notebooks/flood-risk/Exercise_Flood_Risk_Render.ipynb
