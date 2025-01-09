@@ -299,13 +299,15 @@ parts:
         - file: pd/risk-evaluation/decision.md
         - file: pd/risk-evaluation/cost-benefit.md
         - file: pd/risk-evaluation/econ-optimization.md
-        - file: pd/risk-evaluation/example-dike-height.md
+          sections:
+          - file: pd/risk-evaluation/example-dike-height.md
+            title: Optimization Example
         - file: pd/risk-evaluation/safety-standards.md
       - file: pd/exercises/overview.md
         sections:
         - file: pd/exercises/exercise-fn-curve.md
-        - file: pd/exercises/exercise-paint.md
         - file: pd/exercises/exercise-dam.md
+        - file: pd/exercises/exercise-paint.md
         # - file: pd/exercises/exercise-sample-exam.md
       # - file: pd/videos.md
       # - file: pd/notebooks/overview.md

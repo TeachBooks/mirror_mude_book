@@ -1,5 +1,5 @@
 (ex-dike-height)=
-# Optimization Example
+# Economic Optimization Example
 
 Economic optimization is illustrated through the determination of an optimial dike height to protect against flooding.
 
