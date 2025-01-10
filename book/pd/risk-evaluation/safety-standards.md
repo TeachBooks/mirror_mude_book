@@ -1,6 +1,10 @@
 (safety_standards)=
 # Safety Standards
 
+```{note}
+It is important to read and understand the content on this page, however, it does _not_ need to be studied for the exam. 
+```
+
 When answering the question “how safe is safe enough” a merely economic treatment with cost benefit analysis or economic optimization is often not sufficient for activities with risks to people. Therefore, criteria have been developed that focus on risks to human life. This section focuses on safety standards and criteria for evaluating the risk to life. 
 
 Two aspects are typically considered when evaluating and regulating risks to the public: the total or population-wide effects, and the distribution of effects within the affected population. {numref}`risk_evaluation` summarizes these perspectives. The societal perspective is concerned with ‘total effect’ and the effects of large-scale accidents on the society, in terms of economic damages and life loss. The individual perspective is concerned with distributive justice (‘equity’), i.e. the distribution of harm over the population.
@@ -266,12 +270,12 @@ A risk aversion index $k$ has been introduced to account for risk aversion. For 
 
 ````{admonition} Expected value and standard deviation for two systems
 
-We consider two sytems
+We consider two systems
 
-1. This sytem has a high failure probability of 0.01 per year and 1 fatality
+1. This system has a high failure probability of 0.01 per year and 1 fatality
 2. The second system has a smaller failure probability of 0.0001 per year but a higher number of 100 fatalities.
 
-For both systems a binomical distribution of the number of fatalities is applied meaning that the number of fatalities in case of failure is exactly known. The expected value and standard deviation of the number of fatalities are found as follows:
+For both systems a binomial distribution of the number of fatalities is applied meaning that the number of fatalities in case of failure is exactly known. The expected value and standard deviation of the number of fatalities are found as follows:
 
 $$
   E(N) = P_fN \;\;\;\; \sigma^2(N) = P_f(1-P_f)N
