@@ -270,12 +270,12 @@ A risk aversion index $k$ has been introduced to account for risk aversion. For 
 
 ````{admonition} Expected value and standard deviation for two systems
 
-We consider two sytems
+We consider two systems
 
-1. This sytem has a high failure probability of 0.01 per year and 1 fatality
+1. This system has a high failure probability of 0.01 per year and 1 fatality
 2. The second system has a smaller failure probability of 0.0001 per year but a higher number of 100 fatalities.
 
-For both systems a binomical distribution of the number of fatalities is applied meaning that the number of fatalities in case of failure is exactly known. The expected value and standard deviation of the number of fatalities are found as follows:
+For both systems a binomial distribution of the number of fatalities is applied meaning that the number of fatalities in case of failure is exactly known. The expected value and standard deviation of the number of fatalities are found as follows:
 
 $$
   E(N) = P_fN \;\;\;\; \sigma^2(N) = P_f(1-P_f)N
