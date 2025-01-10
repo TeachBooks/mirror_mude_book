@@ -269,7 +269,6 @@ parts:
         - file: eva/videos.md
           title: EVA videos 
 
-    # START REMOVE-FROM-PUBLISH
     - file: pd/intro.md
       title: Risk Analysis
       # Already in Q1:
@@ -316,7 +315,6 @@ parts:
       #   - file: pd/notebooks/flood-risk/Exercise_Flood_Risk_Render.ipynb
       #   - file: pd/notebooks/contamination/Exercise_Contamination_Render.ipynb
       #   - file: pd/notebooks/traffic/Exercise_Traffic_Render.ipynb
-    # END REMOVE-FROM-PUBLISH
 
 
   - caption: Programming
