@@ -296,12 +296,12 @@ The resulting expected value and standard deviation are shown in {numref}`exp_va
   - $10^{-2}$
   - 1
   - $10^{-2}$
-  - 0.0099
+  - 0.0995
 * - 2 
   - $10^{-4}$
   - 100
   - $10^{-2}$
-  - 0.995
+  - 0.1000
 ```
 
 The next step would be to distribute this maximum allowable level of societal risk over individual installations. After all, locally imposed societal risk criteria are necessary for achieving the desired national level of societal risk. The translation of the nationally acceptable level of risk to a criterion for a single local installation depends on the type of probability distribution of the number of fatalities. In {cite:t}`vrijling1998` a formulation of the risk acceptance at a local level is presented conform {eq}`limit_line`:️
