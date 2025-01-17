@@ -9,7 +9,7 @@ Decision analysis, or decision-making under uncertain conditions is part of ever
 
 ## Introduction
 
-Making a decision is in fact choosing from alternatives. The decision theory is based on the classic “Homo Economicus” model assumes that the decision-maker:
+Making a decision is in fact choosing from alternatives. The decision theory is based on the classic “Homo Economicus” model. It assumes that the decision-maker:
 
  - has complete information about the decision situation;
  - knows all the alternatives;

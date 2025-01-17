@@ -2,7 +2,7 @@
 # Safety Standards
 
 ```{note}
-It is important to read and understand the content on this page, however, it does _not_ need to be studied for the exam. 
+This note has been updated on Friday, January 17, 2024. It previously said that you did _not_ need to know the content on this page, however, it was not true (and conflicted with the front page of this chapter). While you don't need to memorize everything, you are expected to understand the concept of a limit line and how to interpret it (i.e., section _Limits for Individual and Societal Risk_). If you are unsure of what this means, review WS 2.8, which will illustrate the scope that you are expected to understand. 
 ```
 
 When answering the question “how safe is safe enough” a merely economic treatment with cost benefit analysis or economic optimization is often not sufficient for activities with risks to people. Therefore, criteria have been developed that focus on risks to human life. This section focuses on safety standards and criteria for evaluating the risk to life. 
@@ -206,7 +206,7 @@ Accident statistics reveal that the extent to which participation in the activit
 :name: accident_statistics
 
 * - Prob. of death(per year)
-  - Exmaple/application
+  - Example/application
   - $\beta$
   - Voluntariness
   - Benefit
@@ -339,7 +339,7 @@ $$
     C = \left( \frac{\beta \cdot 100}{k \sqrt{N_a}} \right)^2 = \left( \frac{0.1 \cdot 1000}{3 \sqrt{100}} \right)^2 = 0.11
 $$ 
 
-The limit line for societal risk becomes $1 - F_N(n) \leq 0.11/n^2$. Both the individual and societal risk criteria are plotted in  below. As a third criterion the economic optimization can be added. The optimal or acceptable probability of failure depends on the damage and investment costs. A relationship with the graph below can be established by assuming that the number of fatalities is related to the economic damages. A dike ring with many inhabitants and potential fatalities will generally also represent a large economic value. For the sake of the example we assume that every fatality corresponds to an economic damage of €$5 \cdot 10^7$ (note: this is not equal to the value of a human life). To calculate the economic optimum for the example we assume arbitrary values of $r=0.025$ and  €$5 \cdot 10^6$ $B=0.33$. {numref}`combined_risk_criteria` below shows the combination for the three criteria. 
+The limit line for societal risk becomes $1 - F_N(n) \leq 0.11/n^2$. Both the individual and societal risk criteria are plotted below. As a third criterion the economic optimization can be added. The optimal or acceptable probability of failure depends on the damage and investment costs. A relationship with the graph below can be established by assuming that the number of fatalities is related to the economic damages. A dike ring with many inhabitants and potential fatalities will generally also represent a large economic value. For the sake of the example we assume that every fatality corresponds to an economic damage of €$5 \cdot 10^7$ (note: this is not equal to the value of a human life). To calculate the economic optimum for the example we assume arbitrary values of $r=0.025$ and  €$5 \cdot 10^6$ $B=0.33$. {numref}`combined_risk_criteria` below shows the combination for the three criteria. 
 
 For a given number of fatalities in a dike ring the acceptable failure probability according to the three criteria can be  derived. The individual risk criterion is independent on the  number of fatalities. The economic criterion shows a linear relation between the failure probability and damage or number of fatalities. The societal criterion is risk averse so shows a decreasing quadratic relationship between acceptable failure probability and consequences.
 
