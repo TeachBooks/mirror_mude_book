@@ -2,7 +2,7 @@
 # Safety Standards
 
 ```{note}
-It is important to read and understand the content on this page, however, it does _not_ need to be studied for the exam. 
+This note has been updated on Friday, January 17, 2024. It previously said that you did _not_ need to know the content on this page, however, it was not true (and conflicted with the front page of this chapter). While you don't need to memorize everything, you are expected to understand the concept of a limit line and how to interpret it (i.e., section _Limits for Individual and Societal Risk_). If you are unsure of what this means, review WS 2.8, which will illustrate the scope that you are expected to understand. 
 ```
 
 When answering the question “how safe is safe enough” a merely economic treatment with cost benefit analysis or economic optimization is often not sufficient for activities with risks to people. Therefore, criteria have been developed that focus on risks to human life. This section focuses on safety standards and criteria for evaluating the risk to life. 
